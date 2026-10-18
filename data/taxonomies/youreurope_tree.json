@@ -1,0 +1,872 @@
+{
+ "travel": {
+  "label": "Travel",
+  "children": {
+   "entry-exit": {
+    "label": "Documents you need for travel in Europe",
+    "children": [
+     {
+      "path": "travel/entry-exit/eu-citizen",
+      "label": "Travel documents for EU nationals"
+     },
+     {
+      "path": "travel/entry-exit/non-eu-family",
+      "label": "Travel documents for non-EU family members"
+     },
+     {
+      "path": "travel/entry-exit/non-eu-nationals",
+      "label": "Travel documents for non-EU nationals"
+     },
+     {
+      "path": "travel/entry-exit/eu-nationals-living-uk",
+      "label": "Travel documents for EU nationals and their non-EU family members residing in the UK"
+     },
+     {
+      "path": "travel/entry-exit/uk-nationals-living-eu-country",
+      "label": "Travel documents for UK nationals and their family members residing in an EU country"
+     },
+     {
+      "path": "travel/entry-exit/expired-lost-passports",
+      "label": "Expired or lost passports"
+     },
+     {
+      "path": "travel/entry-exit/travel-documents-minors",
+      "label": "Documents for minors travelling in the EU"
+     }
+    ]
+   },
+   "passenger-rights": {
+    "label": "Passenger rights",
+    "children": [
+     {
+      "path": "travel/passenger-rights/air",
+      "label": "Air passenger rights"
+     },
+     {
+      "path": "travel/passenger-rights/rail",
+      "label": "Rail passenger rights"
+     },
+     {
+      "path": "travel/passenger-rights/bus-and-coach",
+      "label": "Bus and coach passenger rights"
+     },
+     {
+      "path": "travel/passenger-rights/ship",
+      "label": "Ship passenger rights"
+     }
+    ]
+   },
+   "transport-disability": {
+    "label": "Transport and disability",
+    "children": [
+     {
+      "path": "travel/transport-disability/reduced-mobility",
+      "label": "Rights for travellers with disabilities or reduced mobility"
+     },
+     {
+      "path": "travel/transport-disability/parking-card-disabilities-people",
+      "label": "EU parking card for people with disabilities"
+     }
+    ]
+   },
+   "driving-abroad": {
+    "label": "Driving abroad",
+    "children": [
+     {
+      "path": "travel/driving-abroad/car-rental-abroad",
+      "label": "Hiring a car"
+     },
+     {
+      "path": "travel/driving-abroad/driving-licence-and-insurance",
+      "label": "Driving licence and insurance"
+     },
+     {
+      "path": "travel/driving-abroad/road-rules-and-safety",
+      "label": "Road rules and safety"
+     }
+    ]
+   },
+   "carry": {
+    "label": "What can you take with you?",
+    "children": [
+     {
+      "path": "travel/carry/alcohol-tobacco-cash",
+      "label": "Alcohol, tobacco and excise duties"
+     },
+     {
+      "path": "travel/carry/carrying-cash",
+      "label": "Rules for taking cash in and out of the EU and travelling with cash in the EU"
+     },
+     {
+      "path": "travel/carry/pets-and-other-animals",
+      "label": "Travelling with pets and other animals in the EU"
+     },
+     {
+      "path": "travel/carry/luggage-restrictions",
+      "label": "Luggage restrictions"
+     },
+     {
+      "path": "travel/carry/meat-dairy-animal",
+      "label": "Taking animal products, food or plants with you"
+     },
+     {
+      "path": "travel/carry/using-euro",
+      "label": "Using the euro"
+     }
+    ]
+   },
+   "security-and-emergencies": {
+    "label": "Security and emergencies",
+    "children": [
+     {
+      "path": "travel/security-and-emergencies/airport-airline-security",
+      "label": "Airport and airline security"
+     },
+     {
+      "path": "travel/security-and-emergencies/emergency",
+      "label": "Emergencies"
+     },
+     {
+      "path": "travel/security-and-emergencies/emergency-assistance-vehicles-ecall",
+      "label": "eCall 112-based emergency assistance from your vehicle"
+     },
+     {
+      "path": "travel/security-and-emergencies/consular-protection",
+      "label": "Consular protection"
+     }
+    ]
+   },
+   "holidays": {
+    "label": "Package travel and timeshare",
+    "children": [
+     {
+      "path": "travel/holidays/package-travel",
+      "label": "Package travel and linked travel arrangements"
+     },
+     {
+      "path": "travel/holidays/timeshare",
+      "label": "Timeshare and other long-term holiday contracts in the EU"
+     }
+    ]
+   }
+  }
+ },
+ "work": {
+  "label": "Work and retirement",
+  "children": {
+   "work-abroad": {
+    "label": "Working abroad",
+    "children": [
+     {
+      "path": "work/work-abroad/cross-border-commuters",
+      "label": "Cross-border commuters"
+     },
+     {
+      "path": "work/work-abroad/equal-treatment-with-nationals",
+      "label": "Equal treatment at work"
+     },
+     {
+      "path": "work/work-abroad/posted-workers",
+      "label": "Posted workers - temporary work abroad"
+     },
+     {
+      "path": "work/work-abroad/work-in-public-sector-abroad",
+      "label": "Work in the public sector abroad"
+     },
+     {
+      "path": "work/work-abroad/work-permits",
+      "label": "Work permits"
+     },
+     {
+      "path": "work/work-abroad/employment-contracts",
+      "label": "Employment contracts"
+     },
+     {
+      "path": "work/work-abroad/rules-working-road-transport",
+      "label": "EU rules for working in road transport"
+     },
+     {
+      "path": "work/work-abroad/liability-insurance",
+      "label": "Liability insurance in another EU country"
+     }
+    ]
+   },
+   "professional-qualifications": {
+    "label": "Professional qualifications",
+    "children": [
+     {
+      "path": "work/professional-qualifications/regulated-professions",
+      "label": "What is a regulated profession"
+     },
+     {
+      "path": "work/professional-qualifications/apply-permanent-provision-services",
+      "label": "Applying for permanent provision of services"
+     },
+     {
+      "path": "work/professional-qualifications/apply-temporary-provision-services",
+      "label": "Applying for temporary provision of services"
+     },
+     {
+      "path": "work/professional-qualifications/professional-bodies-language-requirements",
+      "label": "Professional bodies and language requirements"
+     },
+     {
+      "path": "work/professional-qualifications/european-professional-card",
+      "label": "European Professional Card - EPC"
+     },
+     {
+      "path": "work/professional-qualifications/brexit",
+      "label": "EU-UK: professional qualifications"
+     }
+    ]
+   },
+   "social-security-and-benefits": {
+    "label": "Social security and benefits",
+    "children": [
+     {
+      "path": "work/social-security-and-benefits/social-security",
+      "label": "Social security systems in the EU"
+     },
+     {
+      "path": "work/social-security-and-benefits/country-coverage",
+      "label": "Social security cover abroad"
+     },
+     {
+      "path": "work/social-security-and-benefits/unemployment",
+      "label": "Unemployment abroad"
+     },
+     {
+      "path": "work/social-security-and-benefits/transferring-unemployment-benefits",
+      "label": "Transferring unemployment benefits"
+     },
+     {
+      "path": "work/social-security-and-benefits/cannot-find-work-abroad",
+      "label": "If you don't find work"
+     },
+     {
+      "path": "work/social-security-and-benefits/family-benefits",
+      "label": "Family benefits"
+     },
+     {
+      "path": "work/social-security-and-benefits/death-grants",
+      "label": "Survivors' pensions and death grants"
+     },
+     {
+      "path": "work/social-security-and-benefits/social-security-forms",
+      "label": "Standard forms for social security rights"
+     }
+    ]
+   },
+   "retire-abroad": {
+    "label": "Retiring abroad",
+    "children": [
+     {
+      "path": "work/retire-abroad/state-pensions-abroad",
+      "label": "State pensions abroad"
+     },
+     {
+      "path": "work/retire-abroad/supplementary-pensions-abroad",
+      "label": "Supplementary pensions abroad"
+     }
+    ]
+   },
+   "taxes": {
+    "label": "Taxes",
+    "children": [
+     {
+      "path": "work/taxes/income-taxes-abroad",
+      "label": "Income taxes abroad"
+     },
+     {
+      "path": "work/taxes/double-taxation",
+      "label": "Double taxation"
+     }
+    ]
+   },
+   "health-and-safety": {
+    "label": "Health and safety at work",
+    "children": []
+   }
+  }
+ },
+ "vehicles": {
+  "label": "Vehicles",
+  "children": {
+   "cars": {
+    "label": "Cars",
+    "children": [
+     {
+      "path": "vehicles/cars/buying-leasing-car-abroad",
+      "label": "Buying and leasing a car"
+     },
+     {
+      "path": "vehicles/cars/vat-buying-selling-cars",
+      "label": "VAT when buying or selling a car"
+     },
+     {
+      "path": "vehicles/cars/company-cars",
+      "label": "Company cars"
+     }
+    ]
+   },
+   "driving-licence": {
+    "label": "Driving licence",
+    "children": [
+     {
+      "path": "vehicles/driving-licence/driving-licence-exchange-recognition",
+      "label": "Driving licence exchange and recognition in the EU"
+     },
+     {
+      "path": "vehicles/driving-licence/get-driving-licence",
+      "label": "Getting a driving licence in the EU"
+     },
+     {
+      "path": "vehicles/driving-licence/driving-licence-renewal",
+      "label": "Driving licence renewal in another EU country"
+     }
+    ]
+   },
+   "insurance": {
+    "label": "Insurance",
+    "children": [
+     {
+      "path": "vehicles/insurance/validity",
+      "label": "Car insurance validity in the EU"
+     },
+     {
+      "path": "vehicles/insurance/accident",
+      "label": "Car insurance cover abroad"
+     }
+    ]
+   },
+   "registration": {
+    "label": "Registration",
+    "children": [
+     {
+      "path": "vehicles/registration/formalities",
+      "label": "Car registration documents and formalities"
+     },
+     {
+      "path": "vehicles/registration/registration-abroad",
+      "label": "Car registration in another EU country"
+     },
+     {
+      "path": "vehicles/registration/taxes-abroad",
+      "label": "Car taxes in another EU country"
+     }
+    ]
+   }
+  }
+ },
+ "residence": {
+  "label": "Residence",
+  "children": {
+   "residence-rights": {
+    "label": "Residence rights",
+    "children": [
+     {
+      "path": "residence/residence-rights/inactive-citizens",
+      "label": "Economically inactive EU citizens"
+     },
+     {
+      "path": "residence/residence-rights/jobseekers",
+      "label": "Jobseekers - residence rights"
+     },
+     {
+      "path": "residence/residence-rights/pensioners",
+      "label": "Pensioners - residence rights"
+     },
+     {
+      "path": "residence/residence-rights/students",
+      "label": "Students - residence rights"
+     },
+     {
+      "path": "residence/residence-rights/workers",
+      "label": "Workers - residence rights"
+     },
+     {
+      "path": "residence/residence-rights/brexit-residence-rights",
+      "label": "Residence rights for EU nationals in the UK and UK nationals in the EU"
+     },
+     {
+      "path": "residence/residence-rights/naturalisation",
+      "label": "Naturalisation"
+     }
+    ]
+   },
+   "family-residence-rights": {
+    "label": "Family residence rights",
+    "children": [
+     {
+      "path": "residence/family-residence-rights/eu-wife-husband-children",
+      "label": "EU spouses and children"
+     },
+     {
+      "path": "residence/family-residence-rights/non-eu-wife-husband-children",
+      "label": "Non-EU spouses and children"
+     },
+     {
+      "path": "residence/family-residence-rights/partners",
+      "label": "Civil unions and registered partnerships"
+     },
+     {
+      "path": "residence/family-residence-rights/parents",
+      "label": "Parents"
+     },
+     {
+      "path": "residence/family-residence-rights/other-family",
+      "label": "Other relatives"
+     },
+     {
+      "path": "residence/family-residence-rights/jobseekers-family",
+      "label": "Jobseeker's family"
+     }
+    ]
+   },
+   "documents-formalities": {
+    "label": "Documents and formalities",
+    "children": [
+     {
+      "path": "residence/documents-formalities/eu-family-members-registration",
+      "label": "Registering EU family members in another EU country"
+     },
+     {
+      "path": "residence/documents-formalities/eu-nationals-permanent-residence",
+      "label": "Permanent residence for EU nationals after 5 years"
+     },
+     {
+      "path": "residence/documents-formalities/non-eu-family-members-permanent-residence",
+      "label": "Permanent residence for non-EU family members"
+     },
+     {
+      "path": "residence/documents-formalities/non-eu-family-members-residence-card",
+      "label": "Registering presence of non-EU family members"
+     },
+     {
+      "path": "residence/documents-formalities/registering-residence",
+      "label": "Registering presence after the first 3 months"
+     },
+     {
+      "path": "residence/documents-formalities/reporting-presence",
+      "label": "Reporting presence for short stays of less than 3 months"
+     },
+     {
+      "path": "residence/documents-formalities/registering-birth",
+      "label": "Registering a birth"
+     },
+     {
+      "path": "residence/documents-formalities/legal-gender-recognition",
+      "label": "Rules on gender change"
+     },
+     {
+      "path": "residence/documents-formalities/buying-house",
+      "label": "Buying a house"
+     },
+     {
+      "path": "residence/documents-formalities/deregistering-residence",
+      "label": "Deregistering your residence"
+     }
+    ]
+   },
+   "elections-abroad": {
+    "label": "Elections, petitions and consultations",
+    "children": [
+     {
+      "path": "residence/elections-abroad/european-elections",
+      "label": "European elections"
+     },
+     {
+      "path": "residence/elections-abroad/home-country-elections",
+      "label": "Home country elections"
+     },
+     {
+      "path": "residence/elections-abroad/municipal-elections",
+      "label": "Municipal elections"
+     },
+     {
+      "path": "residence/elections-abroad/petitions-consultations",
+      "label": "Petitions and consultations"
+     }
+    ]
+   }
+  }
+ },
+ "education": {
+  "label": "Education & Youth",
+  "children": {
+   "school": {
+    "label": "School",
+    "children": [
+     {
+      "path": "education/school/partner",
+      "label": "School exchanges and partnerships"
+     },
+     {
+      "path": "education/school/enrol",
+      "label": "Starting school in another EU country"
+     }
+    ]
+   },
+   "university": {
+    "label": "University",
+    "children": [
+     {
+      "path": "education/university/admission-entry-conditions",
+      "label": "Admission and entry to university"
+     },
+     {
+      "path": "education/university/fees-and-financial-help",
+      "label": "University fees and financial help"
+     },
+     {
+      "path": "education/university/recognition",
+      "label": "Recognition of academic diplomas"
+     },
+     {
+      "path": "education/university/study-abroad",
+      "label": "Study abroad and scholarship opportunities"
+     },
+     {
+      "path": "education/university/working-while-studying",
+      "label": "Working while studying"
+     }
+    ]
+   },
+   "traineeships": {
+    "label": "Traineeships",
+    "children": [
+     {
+      "path": "education/traineeships/financial",
+      "label": "Financial support for traineeships"
+     }
+    ]
+   },
+   "volunteering": {
+    "label": "Volunteering in the EU and beyond",
+    "children": [
+     {
+      "path": "education/volunteering/where-to-start",
+      "label": "Volunteering - where to start"
+     },
+     {
+      "path": "education/volunteering/practical-preparations",
+      "label": "Practical preparations for volunteers"
+     }
+    ]
+   },
+   "researchers": {
+    "label": "Researchers",
+    "children": [
+     {
+      "path": "education/researchers/jobs",
+      "label": "Grants and jobs for researchers"
+     },
+     {
+      "path": "education/researchers/tax",
+      "label": "Taxation of researchers"
+     }
+    ]
+   }
+  }
+ },
+ "health": {
+  "label": "Health",
+  "children": {
+   "unplanned-healthcare": {
+    "label": "Unplanned healthcare",
+    "children": [
+     {
+      "path": "health/unplanned-healthcare/going-to-doctor-hospital-abroad",
+      "label": "Going to a doctor/hospital abroad"
+     },
+     {
+      "path": "health/unplanned-healthcare/payments-reimbursements",
+      "label": "Unplanned healthcare: payments and reimbursements"
+     },
+     {
+      "path": "health/unplanned-healthcare/temporary-stays",
+      "label": "Health cover for temporary stays"
+     },
+     {
+      "path": "health/unplanned-healthcare/ehic",
+      "label": "European Health Insurance Card (EHIC)"
+     }
+    ]
+   },
+   "planned-healthcare": {
+    "label": "Planned medical treatment abroad",
+    "children": [
+     {
+      "path": "health/planned-healthcare/right-to-treatment",
+      "label": "Organising planned medical treatment in another EU country"
+     },
+     {
+      "path": "health/planned-healthcare/get-more-info",
+      "label": "Information points for cross-border healthcare"
+     }
+    ]
+   },
+   "prescription-medicine-abroad": {
+    "label": "Buying medicine in another EU country",
+    "children": [
+     {
+      "path": "health/prescription-medicine-abroad/prescriptions",
+      "label": "Presenting a prescription in another EU country"
+     },
+     {
+      "path": "health/prescription-medicine-abroad/expenses-reimbursements",
+      "label": "Prescriptions abroad: expenses and reimbursements"
+     },
+     {
+      "path": "health/prescription-medicine-abroad/buying-medicines-online",
+      "label": "Buying medicine online"
+     }
+    ]
+   },
+   "when-living-abroad": {
+    "label": "Health coverage when living abroad",
+    "children": [
+     {
+      "path": "health/when-living-abroad/health-insurance-cover",
+      "label": "Your health insurance cover"
+     },
+     {
+      "path": "health/when-living-abroad/residential-care-home",
+      "label": "Moving to a residential care home"
+     },
+     {
+      "path": "health/when-living-abroad/preventive-healthcare",
+      "label": "Preventive healthcare"
+     }
+    ]
+   }
+  }
+ },
+ "family": {
+  "label": "Family",
+  "children": {
+   "children": {
+    "label": "Children",
+    "children": [
+     {
+      "path": "family/children/parental-responsibility",
+      "label": "Parental responsibility"
+     },
+     {
+      "path": "family/children/adoption",
+      "label": "Adoption"
+     },
+     {
+      "path": "family/children/abduction",
+      "label": "Child abduction"
+     },
+     {
+      "path": "family/children/rules-on-surrogacy",
+      "label": "Rules on surrogacy"
+     }
+    ]
+   },
+   "couple": {
+    "label": "Couples",
+    "children": [
+     {
+      "path": "family/couple/marriage",
+      "label": "Marriage"
+     },
+     {
+      "path": "family/couple/registered-partners",
+      "label": "Registered partnerships"
+     },
+     {
+      "path": "family/couple/de-facto-unions",
+      "label": "Unmarried couples"
+     },
+     {
+      "path": "family/couple/divorce-separation",
+      "label": "Divorce and legal separation"
+     },
+     {
+      "path": "family/couple/maintenance",
+      "label": "Maintenance obligations - support for family members"
+     },
+     {
+      "path": "family/couple/property-regimes-international-couples",
+      "label": "Property regimes for international couples"
+     },
+     {
+      "path": "family/couple/getting-public-documents-accepted",
+      "label": "Getting your public documents accepted in the EU"
+     }
+    ]
+   },
+   "inheritances": {
+    "label": "Death, repatriation and cross-border inheritance",
+    "children": [
+     {
+      "path": "family/inheritances/managing-inheritance",
+      "label": "Managing a cross-border inheritance"
+     },
+     {
+      "path": "family/inheritances/planning-inheritance",
+      "label": "Planning your cross-border inheritance"
+     },
+     {
+      "path": "family/inheritances/death-repatriation",
+      "label": "Death and repatriation"
+     }
+    ]
+   }
+  }
+ },
+ "consumers": {
+  "label": "Consumers",
+  "children": {
+   "shopping": {
+    "label": "Shopping",
+    "children": [
+     {
+      "path": "consumers/shopping/contract-information",
+      "label": "Contract information"
+     },
+     {
+      "path": "consumers/shopping/guarantees",
+      "label": "Guarantees"
+     },
+     {
+      "path": "consumers/shopping/commercial-guarantee-durability",
+      "label": "Commercial guarantee of durability"
+     },
+     {
+      "path": "consumers/shopping/returns",
+      "label": "Returns"
+     },
+     {
+      "path": "consumers/shopping/pricing-payments",
+      "label": "Pricing and payments"
+     },
+     {
+      "path": "consumers/shopping/shipping-delivery",
+      "label": "Shipping and delivery"
+     },
+     {
+      "path": "consumers/shopping/shopping-consumer-rights",
+      "label": "Your rights when shopping"
+     },
+     {
+      "path": "consumers/shopping/vat",
+      "label": "VAT – Value Added Tax"
+     },
+     {
+      "path": "consumers/shopping/product-safety",
+      "label": "Product safety"
+     },
+     {
+      "path": "consumers/shopping/energy-labels",
+      "label": "Energy labels"
+     }
+    ]
+   },
+   "internet-telecoms": {
+    "label": "Internet and telecoms",
+    "children": [
+     {
+      "path": "consumers/internet-telecoms/mobile-roaming-costs",
+      "label": "Roaming: Using a mobile phone in the EU"
+     },
+     {
+      "path": "consumers/internet-telecoms/access-online-content-abroad",
+      "label": "Accessing online content abroad"
+     },
+     {
+      "path": "consumers/internet-telecoms/telecommunication-services",
+      "label": "Fixed line telephone services"
+     },
+     {
+      "path": "consumers/internet-telecoms/internet-access",
+      "label": "Using and accessing the internet"
+     },
+     {
+      "path": "consumers/internet-telecoms/data-protection-online-privacy",
+      "label": "Data protection and online privacy"
+     }
+    ]
+   },
+   "financial-products-and-services": {
+    "label": "Financial products and services",
+    "children": [
+     {
+      "path": "consumers/financial-products-and-services/bank-accounts-eu",
+      "label": "Bank accounts in the EU"
+     },
+     {
+      "path": "consumers/financial-products-and-services/consumer-credits-and-loans",
+      "label": "Consumer credits and loans"
+     },
+     {
+      "path": "consumers/financial-products-and-services/insurance-products",
+      "label": "Insurance products"
+     },
+     {
+      "path": "consumers/financial-products-and-services/investment-products",
+      "label": "Investment products"
+     },
+     {
+      "path": "consumers/financial-products-and-services/mortgages",
+      "label": "Mortgage loans"
+     },
+     {
+      "path": "consumers/financial-products-and-services/payments-transfers-cheques",
+      "label": "Payments, transfers and cheques"
+     }
+    ]
+   },
+   "unfair-treatment": {
+    "label": "Unfair treatment",
+    "children": [
+     {
+      "path": "consumers/unfair-treatment/unfair-commercial-practices",
+      "label": "Unfair commercial practices"
+     },
+     {
+      "path": "consumers/unfair-treatment/unfair-pricing",
+      "label": "Unfair pricing"
+     },
+     {
+      "path": "consumers/unfair-treatment/unfair-contract-terms",
+      "label": "Unfair contract terms"
+     }
+    ]
+   },
+   "energy-supply": {
+    "label": "Energy supply",
+    "children": [
+     {
+      "path": "consumers/energy-supply/access-use-energy-services",
+      "label": "Access to and use of energy services"
+     },
+     {
+      "path": "consumers/energy-supply/contracts-energy-consumption",
+      "label": "Contracts and energy consumption"
+     },
+     {
+      "path": "consumers/energy-supply/complaints-dispute-resolution",
+      "label": "Complaints and dispute resolution"
+     }
+    ]
+   },
+   "consumers-dispute-resolution": {
+    "label": "Consumer dispute resolution",
+    "children": [
+     {
+      "path": "consumers/consumers-dispute-resolution/informal-alternative-dispute-resolution",
+      "label": "Informal/alternative dispute resolution for consumers"
+     },
+     {
+      "path": "consumers/consumers-dispute-resolution/legal-action-consumers",
+      "label": "Legal action for consumers"
+     }
+    ]
+   }
+  }
+ }
+}

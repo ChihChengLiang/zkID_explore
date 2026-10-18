@@ -1,0 +1,2895 @@
+{
+ "amenity": [
+  {
+   "value": "parking",
+   "count": 6911472,
+   "description": "A place for parking cars."
+  },
+  {
+   "value": "parking_space",
+   "count": 5076902,
+   "description": "A single parking space on a parking lot."
+  },
+  {
+   "value": "bench",
+   "count": 3441667,
+   "description": "A place for people to sit, allowing room for one or more people."
+  },
+  {
+   "value": "place_of_worship",
+   "count": 1628191,
+   "description": "A place where religious services are conducted."
+  },
+  {
+   "value": "restaurant",
+   "count": 1626222,
+   "description": "A restaurant sells full sit-down meals with servers, and may sell alcohol."
+  },
+  {
+   "value": "school",
+   "count": 1450903,
+   "description": "A primary or secondary school (pupils typically aged 6 to 18)."
+  },
+  {
+   "value": "waste_basket",
+   "count": 1265950,
+   "description": "A single small container for depositing garbage that is easily accessible for pedestrians."
+  },
+  {
+   "value": "bicycle_parking",
+   "count": 949657,
+   "description": "A parking space designed for bicycles."
+  },
+  {
+   "value": "shelter",
+   "count": 692387,
+   "description": "A small structure for protection against bad weather conditions"
+  },
+  {
+   "value": "fast_food",
+   "count": 668117,
+   "description": "A place which offers self-service and take-away food."
+  },
+  {
+   "value": "cafe",
+   "count": 654016,
+   "description": "A generally informal place with sit-down facilities selling beverages and light meals and/or snacks."
+  },
+  {
+   "value": "recycling",
+   "count": 590725,
+   "description": "A container or centre that accepts waste material for reuse or recycling."
+  },
+  {
+   "value": "fuel",
+   "count": 569585,
+   "description": "A retail facility for refueling motor vehicles"
+  },
+  {
+   "value": "toilets",
+   "count": 525721,
+   "description": "Indicates publicly accessible toilets."
+  },
+  {
+   "value": "pharmacy",
+   "count": 443075,
+   "description": "A shop where a pharmacist sells medications."
+  },
+  {
+   "value": "post_box",
+   "count": 414052,
+   "description": "A box to deposit outgoing postal items."
+  },
+  {
+   "value": "bank",
+   "count": 412810,
+   "description": "A financial establishment where customers can, among other services, deposit money and take loans."
+  },
+  {
+   "value": "vending_machine",
+   "count": 372247,
+   "description": "A vending machine sells food, drinks, tickets or other goods automatically."
+  },
+  {
+   "value": "drinking_water",
+   "count": 370068,
+   "description": "A drinking water source which provides potable water for consumption."
+  },
+  {
+   "value": "kindergarten",
+   "count": 340374,
+   "description": "A place for looking after preschool children and (typically) giving early education."
+  },
+  {
+   "value": "waste_disposal",
+   "count": 321462,
+   "description": "A medium or large disposal bin, typically for bagged up household or industrial waste."
+  },
+  {
+   "value": "hunting_stand",
+   "count": 310877,
+   "description": "An open or enclosed platform used by hunters to place themselves, usually at an elevated height above the terrain."
+  },
+  {
+   "value": "parking_entrance",
+   "count": 285114,
+   "description": "An entrance to an underground or multi storey parking facility."
+  },
+  {
+   "value": "bar",
+   "count": 246415,
+   "description": null
+  },
+  {
+   "value": "atm",
+   "count": 244128,
+   "description": "A device that provides the clients of a financial institution with access to financial transactions."
+  },
+  {
+   "value": "community_centre",
+   "count": 222697,
+   "description": "A place mostly used for local events, festivities and group activities."
+  },
+  {
+   "value": "clinic",
+   "count": 221596,
+   "description": "A clinic is a medical centre, with more staff than a doctor's office, that does not admit inpatients."
+  },
+  {
+   "value": "post_office",
+   "count": 218110,
+   "description": "A place where letters and parcels may be sent or collected."
+  },
+  {
+   "value": "hospital",
+   "count": 217673,
+   "description": "A hospital providing in-patient medical treatment."
+  },
+  {
+   "value": "doctors",
+   "count": 209652,
+   "description": "A doctor's office, a place to get medical attention or a check up from a physician."
+  },
+  {
+   "value": "charging_station",
+   "count": 207827,
+   "description": "A location where battery electric vehicles can be charged."
+  },
+  {
+   "value": "fountain",
+   "count": 203248,
+   "description": "A fountain with cultural, decorational or historical significance or which serves a recreational purpose."
+  },
+  {
+   "value": "pub",
+   "count": 200170,
+   "description": null
+  },
+  {
+   "value": "social_facility",
+   "count": 181523,
+   "description": "A facility that provides social services."
+  },
+  {
+   "value": "townhall",
+   "count": 178475,
+   "description": "A townhall is used as an community administrative center or place of meeting."
+  },
+  {
+   "value": "police",
+   "count": 163322,
+   "description": "A police station is a facility where police officers patrol from and that is a first point of contact for civilians."
+  },
+  {
+   "value": "dentist",
+   "count": 161763,
+   "description": "A dentist practice / surgery."
+  },
+  {
+   "value": "grave_yard",
+   "count": 160207,
+   "description": "A place where people (or sometimes animals) are buried, usually close to a place of worship."
+  },
+  {
+   "value": "fire_station",
+   "count": 148698,
+   "description": "A station from which a fire brigade operates."
+  },
+  {
+   "value": "car_wash",
+   "count": 126102,
+   "description": "A facility used to clean the exterior of motor vehicles"
+  },
+  {
+   "value": "library",
+   "count": 113424,
+   "description": "A place to read and/or borrow books."
+  },
+  {
+   "value": "parcel_locker",
+   "count": 102194,
+   "description": "Machine for picking up and sending parcels."
+  },
+  {
+   "value": "marketplace",
+   "count": 98989,
+   "description": "A marketplace where goods and services are traded daily or weekly."
+  },
+  {
+   "value": "bicycle_rental",
+   "count": 94622,
+   "description": "A place, often unattended, where you can pick up and drop off rented bikes."
+  },
+  {
+   "value": "childcare",
+   "count": 76803,
+   "description": "A place where children are looked after which is not a kindergarten."
+  },
+  {
+   "value": "telephone",
+   "count": 74733,
+   "description": "A public telephone."
+  },
+  {
+   "value": "college",
+   "count": 72083,
+   "description": "A place for further education, a post-secondary education institution which is not a University"
+  },
+  {
+   "value": "bus_station",
+   "count": 67777,
+   "description": "A bus station would usually be a terminus where many routes stop / start, and where you can change between routes, etc."
+  },
+  {
+   "value": "ice_cream",
+   "count": 67287,
+   "description": "A place that sells ice cream and/or frozen yoghurt over the counter."
+  },
+  {
+   "value": "veterinary",
+   "count": 65748,
+   "description": "A place that deals with the prevention, diagnosis and treatment of disease in animals."
+  },
+  {
+   "value": "university",
+   "count": 58256,
+   "description": "An educational institution designed for instruction, examination, or both, of students in many branches of advanced learning."
+  },
+  {
+   "value": "theatre",
+   "count": 53535,
+   "description": "A place where live performances occur, such as plays, musicals and formal concerts."
+  },
+  {
+   "value": "taxi",
+   "count": 52227,
+   "description": "A place where taxis wait for passengers. Often near where many people congregate."
+  },
+  {
+   "value": "public_bookcase",
+   "count": 48354,
+   "description": "A street furniture containing books. Take one, leave one."
+  },
+  {
+   "value": "letter_box",
+   "count": 47960,
+   "description": "Private mailboxes where mailmen or other people deposit letters to specific addresses."
+  },
+  {
+   "value": "motorcycle_parking",
+   "count": 47716,
+   "description": "A place which is designated for parking motorcycles."
+  },
+  {
+   "value": "bbq",
+   "count": 47494,
+   "description": "A permanently built place for having a BBQ."
+  },
+  {
+   "value": "water_point",
+   "count": 42833,
+   "description": "A place where you can get large amounts of drinking water for refilling fresh water holding tanks."
+  },
+  {
+   "value": "loading_dock",
+   "count": 41646,
+   "description": "A loading dock is an entrance to a building used for loading and unloading goods vehicles."
+  },
+  {
+   "value": "grit_bin",
+   "count": 41402,
+   "description": "A container that holds sand, salt and gravel to spread on roads for winter safety."
+  },
+  {
+   "value": "shower",
+   "count": 37791,
+   "description": "Public showers, where people can bathe under water sprays"
+  },
+  {
+   "value": "ferry_terminal",
+   "count": 37493,
+   "description": "A place where people, cars etc. can board and leave a ferry."
+  },
+  {
+   "value": "events_venue",
+   "count": 36865,
+   "description": "A place that provides facilities for events such as banquets, weddings etc."
+  },
+  {
+   "value": "clock",
+   "count": 35902,
+   "description": "A publicly visible clock"
+  },
+  {
+   "value": "driving_school",
+   "count": 35719,
+   "description": "A school to learn to drive a motor vehicle."
+  },
+  {
+   "value": "public_building",
+   "count": 33465,
+   "description": "Using this tag is discouraged, use tag:building=public or tag:building=civic or a feature tag like tag:office=government, tag:amenity=townhall instead."
+  },
+  {
+   "value": "car_rental",
+   "count": 33092,
+   "description": "A place from which cars can be rented."
+  },
+  {
+   "value": "courthouse",
+   "count": 32196,
+   "description": "A building which is home to a court of law, which administers justice according to the rule of law."
+  },
+  {
+   "value": "cinema",
+   "count": 31629,
+   "description": "A movie theater, a place showing movies."
+  },
+  {
+   "value": "watering_place",
+   "count": 30546,
+   "description": "A place where water is contained and animals such as horses can drink."
+  },
+  {
+   "value": "arts_centre",
+   "count": 28649,
+   "description": "An arts centre. A venue where a variety of arts are performed or conducted"
+  },
+  {
+   "value": "trolley_bay",
+   "count": 27202,
+   "description": "A trolley bay (aka cart corral) is the place where trolleys are \"parked\"."
+  },
+  {
+   "value": "nightclub",
+   "count": 24376,
+   "description": "A place to dance and drink at night. Also known as a disco."
+  },
+  {
+   "value": "bicycle_repair_station",
+   "count": 23762,
+   "description": "A public tool for self-repair of bicycles."
+  },
+  {
+   "value": "bureau_de_change",
+   "count": 21160,
+   "description": "An office that exchanges foreign currency and travellers cheques."
+  },
+  {
+   "value": "lounger",
+   "count": 18664,
+   "description": "An object for people to lie down."
+  },
+  {
+   "value": "studio",
+   "count": 18233,
+   "description": "A studio used for creating radio or television programmes and broadcasting them. It can also be used to mark a music recording studio."
+  },
+  {
+   "value": "food_court",
+   "count": 17599,
+   "description": "A place with sit-down facilities shared by multiple self-service food vendors."
+  },
+  {
+   "value": "monastery",
+   "count": 16258,
+   "description": "An active monastery or convent, occupied by a community of monks or nuns living under religious vows."
+  },
+  {
+   "value": "internet_cafe",
+   "count": 15603,
+   "description": "A place whose principal role is providing internet services."
+  },
+  {
+   "value": "prison",
+   "count": 15580,
+   "description": "A prison or jail where people are incarcerated before trial or after conviction"
+  },
+  {
+   "value": "ticket_validator",
+   "count": 15357,
+   "description": "An analog device which validates public transport tickets, or devices which are integrated in systems to gain access to an area or service like public transport or parking garages."
+  },
+  {
+   "value": "social_centre",
+   "count": 15324,
+   "description": "A centre of fraternities, sororities, professional societies, union halls and other nonprofit organizations."
+  },
+  {
+   "value": "music_school",
+   "count": 13913,
+   "description": "Music school, an educational institution specialized in the study, training, and research of music"
+  },
+  {
+   "value": "payment_terminal",
+   "count": 13848,
+   "description": "Self-service payment kiosk/terminal."
+  },
+  {
+   "value": "vehicle_inspection",
+   "count": 13746,
+   "description": "A place where legally-required vehicle inspection may be performed"
+  },
+  {
+   "value": "compressed_air",
+   "count": 13572,
+   "description": "A device to inflate tyres, mostly of motor vehicles."
+  },
+  {
+   "value": "animal_breeding",
+   "count": 13522,
+   "description": "A facility where animals are bred, usually to sell them."
+  },
+  {
+   "value": "public_bath",
+   "count": 13161,
+   "description": "A facility for communal bathing that is open to the public."
+  },
+  {
+   "value": "prep_school",
+   "count": 13120,
+   "description": "Tutor or test prep centre."
+  },
+  {
+   "value": "car_sharing",
+   "count": 12580,
+   "description": "Carsharing station, where you get your booked car, often separate areas on parking places."
+  },
+  {
+   "value": "weighbridge",
+   "count": 12510,
+   "description": "A large weight scale to weigh vehicles and goods."
+  },
+  {
+   "value": "lavoir",
+   "count": 12419,
+   "description": "A public place where people come to wash their clothes manually"
+  },
+  {
+   "value": "nursing_home",
+   "count": 12089,
+   "description": "A home for disabled/elderly persons who need permanent care."
+  },
+  {
+   "value": "sanitary_dump_station",
+   "count": 11553,
+   "description": "Place for depositing human waste from a toilet holding tank."
+  },
+  {
+   "value": "mobile_money_agent",
+   "count": 11144,
+   "description": "A place where mobile money can be payed in and out."
+  },
+  {
+   "value": "language_school",
+   "count": 10755,
+   "description": "An educational institution where one studies a foreign language."
+  },
+  {
+   "value": "biergarten",
+   "count": 10353,
+   "description": "An open-air seating area where beer is served."
+  },
+  {
+   "value": "dojo",
+   "count": 9775,
+   "description": "A formal training place for any of the Japanese do arts."
+  },
+  {
+   "value": "vacuum_cleaner",
+   "count": 9387,
+   "description": "A device used to clean motor vehicles by vacuum."
+  },
+  {
+   "value": "health_post",
+   "count": 9097,
+   "description": "A village or neighborhood health post, without a permanent physician."
+  },
+  {
+   "value": "money_transfer",
+   "count": 8804,
+   "description": "A place that offers money transfers, especially cash to cash."
+  },
+  {
+   "value": "waste_transfer_station",
+   "count": 8622,
+   "description": "A location that accepts, consolidates and transfers waste in bulk, usually from government or commercial collections."
+  },
+  {
+   "value": "animal_shelter",
+   "count": 8436,
+   "description": "A shelter for animal recovery."
+  },
+  {
+   "value": "dressing_room",
+   "count": 7707,
+   "description": "A place where people can change their clothes."
+  },
+  {
+   "value": "casino",
+   "count": 7608,
+   "description": "A gambling venue with at least one table game."
+  },
+  {
+   "value": "conference_centre",
+   "count": 7476,
+   "description": "A conference centre is a large building used to hold a convention"
+  },
+  {
+   "value": "waste_dump_site",
+   "count": 7134,
+   "description": "A place where trash was illegally dumped."
+  },
+  {
+   "value": "feeding_place",
+   "count": 7118,
+   "description": "A place where animals are fed like a manger or an automated feeding station."
+  },
+  {
+   "value": "boat_rental",
+   "count": 6856,
+   "description": "A place where you can rent a boat."
+  },
+  {
+   "value": "research_institute",
+   "count": 6835,
+   "description": "A research institute is an establishment endowed for doing research."
+  },
+  {
+   "value": "boat_storage",
+   "count": 6534,
+   "description": "A place to store boats out of the water."
+  },
+  {
+   "value": "smoking_area",
+   "count": 6439,
+   "description": "To identify a designated smoking area"
+  },
+  {
+   "value": "post_depot",
+   "count": 6258,
+   "description": "A distribution centre or sorting office for letters and parcels."
+  },
+  {
+   "value": "animal_boarding",
+   "count": 5966,
+   "description": "A facility which cares for pets while the owners are away (e.g. on holiday)."
+  },
+  {
+   "value": "training",
+   "count": 5957,
+   "description": "Public place where you can get training."
+  },
+  {
+   "value": "funeral_hall",
+   "count": 5654,
+   "description": "A place for holding a funeral ceremony, other than a place of worship"
+  },
+  {
+   "value": "chair",
+   "count": 5640,
+   "description": "A chair which remains located in the same place."
+  },
+  {
+   "value": "gambling",
+   "count": 5500,
+   "description": "A place for gambling, not being a bookmaker, lottery shop, casino, or adult gaming centre."
+  },
+  {
+   "value": "love_hotel",
+   "count": 5277,
+   "description": "A love hotel is a type of short-stay hotel operated primarily for the purpose of allowing guests privacy for sexual activities."
+  },
+  {
+   "value": "photo_booth",
+   "count": 5196,
+   "description": "A stand to create instant photos."
+  },
+  {
+   "value": "ranger_station",
+   "count": 5106,
+   "description": "An official park visitor facility with police, visitor information, permit services, etc."
+  },
+  {
+   "value": "game_feeding",
+   "count": 5093,
+   "description": "A game feeding place"
+  },
+  {
+   "value": "driver_training",
+   "count": 4770,
+   "description": "A place for driving training on a closed course."
+  },
+  {
+   "value": "reception_desk",
+   "count": 4362,
+   "description": "First contact point of and information source for a POI for an outsider"
+  },
+  {
+   "value": "dancing_school",
+   "count": 4328,
+   "description": "A dancing school or dance studio."
+  },
+  {
+   "value": "fixme",
+   "count": 4006,
+   "description": "Added by Every Door"
+  },
+  {
+   "value": "table",
+   "count": 3681,
+   "description": "A public table."
+  },
+  {
+   "value": "crematorium",
+   "count": 3621,
+   "description": "A tag for crematorium, where bodies are burned."
+  },
+  {
+   "value": "brothel",
+   "count": 3576,
+   "description": "An establishment specifically dedicated to prostitution."
+  },
+  {
+   "value": "polling_station",
+   "count": 3140,
+   "description": "A place where one can cast a ballot."
+  },
+  {
+   "value": "karaoke_box",
+   "count": 2912,
+   "description": "A venue specifically for people to enjoy singing along with karaoke, usually with private booths."
+  },
+  {
+   "value": "kneipp_water_cure",
+   "count": 2750,
+   "description": "A foot bath is a shallow pool, often with handrail. Sometimes also arm and face bath."
+  },
+  {
+   "value": "car_pooling",
+   "count": 2656,
+   "description": "Car pooling station or spot, where you meet to get in (or where you get dropped off) someone's car or to pick up (or drop off) someone."
+  },
+  {
+   "value": "hookah_lounge",
+   "count": 2656,
+   "description": "A place where guests can smoke hookah (aka waterpipe, nargile, shisha)."
+  },
+  {
+   "value": "mortuary",
+   "count": 2586,
+   "description": "A morgue or funeral home, used for the storage of human corpses."
+  },
+  {
+   "value": "payment_centre",
+   "count": 2575,
+   "description": "A non-bank place, where people can pay bills of public and private services and taxes."
+  },
+  {
+   "value": "animal_training",
+   "count": 2419,
+   "description": "A facility used for non-competitive animal training"
+  },
+  {
+   "value": "stage",
+   "count": 2418,
+   "description": "A raised platform where performers perform."
+  },
+  {
+   "value": "dive_centre",
+   "count": 2325,
+   "description": "The base location where sports divers usually start scuba diving."
+  },
+  {
+   "value": "blood_bank",
+   "count": 2240,
+   "description": "A center where blood gathered as a result of blood donation is stored and preserved for later use in blood transfusion."
+  },
+  {
+   "value": "coworking_space",
+   "count": 2222,
+   "description": "A place where people can go to work (typically requires a fee); not limited to a single employer."
+  },
+  {
+   "value": "binoculars",
+   "count": 2174,
+   "description": "A pair of binoculars, fixed by a pole on a certain location for tourists to use"
+  },
+  {
+   "value": "student_accommodation",
+   "count": 2152,
+   "description": "A facility that provides residential accommodation specifically for students."
+  },
+  {
+   "value": "exhibition_centre",
+   "count": 2128,
+   "description": "An exhibition centre is a venue for showcasing products, hosting trade shows, conferences, and cultural events, promoting business and innovation."
+  },
+  {
+   "value": "office",
+   "count": 2093,
+   "description": "DO NOT USE! Please use instead key:office."
+  },
+  {
+   "value": "luggage_locker",
+   "count": 1954,
+   "description": "A locker designed as storage for luggage."
+  },
+  {
+   "value": "dog_toilet",
+   "count": 1903,
+   "description": "A dog toilet is a facility designated for dogs to urinate and excrete."
+  },
+  {
+   "value": "refugee_site",
+   "count": 1876,
+   "description": "A human settlement sheltering refugees and/or internally displaced persons."
+  },
+  {
+   "value": "security_booth",
+   "count": 1806,
+   "description": "The place where a guard is on duty."
+  },
+  {
+   "value": "device_charging_station",
+   "count": 1739,
+   "description": "A designated place for charging a mobile device."
+  },
+  {
+   "value": "traffic_park",
+   "count": 1640,
+   "description": "An area with scaled-down roads where children can learn the rules of the road."
+  },
+  {
+   "value": "stripclub",
+   "count": 1598,
+   "description": "A place that offer striptease and lap dances."
+  },
+  {
+   "value": "give_box",
+   "count": 1528,
+   "description": "A small facility where people drop off and pick up various types of items in the sense of free sharing and reuse."
+  },
+  {
+   "value": "mobility_hub",
+   "count": 1522,
+   "description": "A location for transitioning between public transport, bike sharing, car sharing, private bike parking and other modes of transport."
+  },
+  {
+   "value": "mobile_library",
+   "count": 1437,
+   "description": "A mobile library stop point."
+  },
+  {
+   "value": "kitchen",
+   "count": 1413,
+   "description": "A public kitchen to use by everyone or customers/guests."
+  },
+  {
+   "value": "stables",
+   "count": 1393,
+   "description": "Riding stables, equestrian center"
+  },
+  {
+   "value": "baking_oven",
+   "count": 1388,
+   "description": "A public place that can be used for baking bread."
+  },
+  {
+   "value": "clothes_dryer",
+   "count": 1282,
+   "description": "Permanently fixed facility to hang clothes for drying."
+  },
+  {
+   "value": "canteen",
+   "count": 1178,
+   "description": "A canteen which sells full sit-down meals."
+  },
+  {
+   "value": "water",
+   "count": 1170,
+   "description": "Using this tag is discouraged. Unclear meaning. There are different alternatives."
+  },
+  {
+   "value": "motorcycle_rental",
+   "count": 1139,
+   "description": "Marks a place from which motorcycles can be rented."
+  },
+  {
+   "value": "kick-scooter_parking",
+   "count": 1103,
+   "description": "A place which is designated for parking kick-scooters."
+  },
+  {
+   "value": "vehicle_ramp",
+   "count": 1095,
+   "description": "A ramp (or sometimes a pit) where vehicles can be inspected or repaired by their owners."
+  },
+  {
+   "value": "power_supply",
+   "count": 1087,
+   "description": "A device that provides electrical power."
+  },
+  {
+   "value": "dormitory",
+   "count": 1020,
+   "description": "A type of communal accommodation."
+  },
+  {
+   "value": "library_dropoff",
+   "count": 1017,
+   "description": "A remote dropoff location for a library."
+  }
+ ],
+ "shop": [
+  {
+   "value": "convenience",
+   "count": 844528,
+   "description": "A small local shop carrying a variety of everyday products, such as packaged food and hygiene products."
+  },
+  {
+   "value": "supermarket",
+   "count": 496029,
+   "description": "A large shop selling groceries, fresh produce, and other goods."
+  },
+  {
+   "value": "clothes",
+   "count": 467372,
+   "description": "A shop which primarily sells clothing"
+  },
+  {
+   "value": "hairdresser",
+   "count": 416681,
+   "description": "A hairdressers or barbers shop, where hair is cut"
+  },
+  {
+   "value": "car_repair",
+   "count": 295996,
+   "description": "A business where cars are repaired."
+  },
+  {
+   "value": "bakery",
+   "count": 256002,
+   "description": "A shop selling bread"
+  },
+  {
+   "value": "yes",
+   "count": 196560,
+   "description": "A shop of unspecified type or an indicator that a feature such as a fuel station has a shop."
+  },
+  {
+   "value": "beauty",
+   "count": 192233,
+   "description": "A non-hairdresser beauty shop, spa, nail salon, etc."
+  },
+  {
+   "value": "car",
+   "count": 166353,
+   "description": "A place that primarily sells cars (automobiles)"
+  },
+  {
+   "value": "hardware",
+   "count": 107792,
+   "description": "Shop selling primarily metal fasteners and tools, sometimes also other workshop and homeware products."
+  },
+  {
+   "value": "butcher",
+   "count": 105470,
+   "description": "A shop selling meat or meat products."
+  },
+  {
+   "value": "kiosk",
+   "count": 104177,
+   "description": "A small shop on the pavement that sells magazines, tobacco, newspapers, sweets and stamps."
+  },
+  {
+   "value": "mobile_phone",
+   "count": 103555,
+   "description": "A shop that primarily sells mobile phones and accessories."
+  },
+  {
+   "value": "furniture",
+   "count": 102004,
+   "description": "A shop selling furniture."
+  },
+  {
+   "value": "car_parts",
+   "count": 97435,
+   "description": "A place selling auto parts, auto accessories, motor oil, car chemicals, etc."
+  },
+  {
+   "value": "alcohol",
+   "count": 93157,
+   "description": "A shop selling alcoholic drinks"
+  },
+  {
+   "value": "variety_store",
+   "count": 90850,
+   "description": "A variety store or price-point retailer is a retail shop that sells inexpensive items."
+  },
+  {
+   "value": "florist",
+   "count": 88300,
+   "description": "A shop selling bouquets of flowers."
+  },
+  {
+   "value": "optician",
+   "count": 84721,
+   "description": "A shop that sells, fits, and repairs prescription eyeglasses and contact lenses."
+  },
+  {
+   "value": "jewelry",
+   "count": 84235,
+   "description": "A shop that sells rings, necklaces, earrings, watches, etc."
+  },
+  {
+   "value": "electronics",
+   "count": 84211,
+   "description": "A shop selling consumer electronics such as TVs, radios and fridges."
+  },
+  {
+   "value": "vacant",
+   "count": 83482,
+   "description": "Shop that is currently not being used."
+  },
+  {
+   "value": "outpost",
+   "count": 83426,
+   "description": "Shop primarily used to pick-up items ordered online. May have meager supply of products."
+  },
+  {
+   "value": "shoes",
+   "count": 83101,
+   "description": "A shop selling shoes"
+  },
+  {
+   "value": "mall",
+   "count": 78853,
+   "description": "A group of stores, typically associated with a single building structure."
+  },
+  {
+   "value": "gift",
+   "count": 74589,
+   "description": "Shop selling gifts, greeting cards, or tourist gifts (souvenirs)."
+  },
+  {
+   "value": "doityourself",
+   "count": 69161,
+   "description": "A Do-it-Yourself-store, a large hardware and home improvement shop"
+  },
+  {
+   "value": "greengrocer",
+   "count": 67229,
+   "description": "A shop which sells fruits and vegetables"
+  },
+  {
+   "value": "chemist",
+   "count": 62144,
+   "description": "A shop selling articles of personal hygiene, cosmetics, and household cleaning products."
+  },
+  {
+   "value": "laundry",
+   "count": 59640,
+   "description": "A shop to wash clothes and bedding, generally self-service and unattended."
+  },
+  {
+   "value": "books",
+   "count": 58792,
+   "description": "A store specializing in the sale of books, although it may also sell other printed publications, such as newspapers and magazines."
+  },
+  {
+   "value": "bicycle",
+   "count": 57175,
+   "description": "A store where you can buy and/or repair your bike and buy accessories."
+  },
+  {
+   "value": "department_store",
+   "count": 52646,
+   "description": "A large store with multiple clothing and other general merchandise departments."
+  },
+  {
+   "value": "pet",
+   "count": 50725,
+   "description": "A shop selling pets and/or pet supplies"
+  },
+  {
+   "value": "travel_agency",
+   "count": 49963,
+   "description": "A shop selling travel related products and services"
+  },
+  {
+   "value": "stationery",
+   "count": 49599,
+   "description": "A shop selling office supplies."
+  },
+  {
+   "value": "sports",
+   "count": 46561,
+   "description": "A shop selling sports equipment and clothing."
+  },
+  {
+   "value": "confectionery",
+   "count": 42533,
+   "description": "A shop selling sweets and candies."
+  },
+  {
+   "value": "tyres",
+   "count": 41587,
+   "description": "A shop selling tyres."
+  },
+  {
+   "value": "storage_rental",
+   "count": 41111,
+   "description": "Paid storage of household goods, i.e. self storage."
+  },
+  {
+   "value": "tobacco",
+   "count": 40248,
+   "description": "A shop selling tobacco, and possibly other convenience items"
+  },
+  {
+   "value": "cosmetics",
+   "count": 39854,
+   "description": "Shop primarily selling cosmetics."
+  },
+  {
+   "value": "trade",
+   "count": 38245,
+   "description": "A place of business that sells to a particular trade or trades, but normally also retails to normal consumers."
+  },
+  {
+   "value": "massage",
+   "count": 37634,
+   "description": "Massage shop"
+  },
+  {
+   "value": "tailor",
+   "count": 36932,
+   "description": "A place where clothing is professionally made (and sold), repaired or altered."
+  },
+  {
+   "value": "computer",
+   "count": 36479,
+   "description": "A shop selling computers, peripherals, software, ..."
+  },
+  {
+   "value": "funeral_directors",
+   "count": 35515,
+   "description": "A shop that provides services related to funeral arrangements, may also be known as a \"funeral parlour\" or \"undertakers\"."
+  },
+  {
+   "value": "copyshop",
+   "count": 35369,
+   "description": "A shop that offers photocopying and printing services."
+  },
+  {
+   "value": "pastry",
+   "count": 35180,
+   "description": "A shop where sweet bakery products are sold."
+  },
+  {
+   "value": "motorcycle",
+   "count": 34585,
+   "description": "A shop that sells motorcycles and/or related accessories and services."
+  },
+  {
+   "value": "dry_cleaning",
+   "count": 34454,
+   "description": "A shop or kiosk offering a clothes dry cleaning service."
+  },
+  {
+   "value": "farm",
+   "count": 33903,
+   "description": "A shop at a farm, selling farm produce."
+  },
+  {
+   "value": "garden_centre",
+   "count": 32407,
+   "description": "A shop selling potted plants, seedlings for planting, and related items."
+  },
+  {
+   "value": "beverages",
+   "count": 31717,
+   "description": "Shop focused on selling beverages and drinks, possibly including alcoholic and non-alcoholic ones."
+  },
+  {
+   "value": "newsagent",
+   "count": 30859,
+   "description": "A shop selling newspapers and magazines."
+  },
+  {
+   "value": "general",
+   "count": 30007,
+   "description": "A general store. Small shop selling variety of different products."
+  },
+  {
+   "value": "ticket",
+   "count": 29646,
+   "description": "A shop selling tickets for concerts, events, public transport, etc."
+  },
+  {
+   "value": "interior_decoration",
+   "count": 27755,
+   "description": "A shop focused on selling interior decorations."
+  },
+  {
+   "value": "deli",
+   "count": 27059,
+   "description": "A shop selling delicatessen (fine foods), e.g. cured meat and fish, expensive cheeses, luxury confectionery, etc."
+  },
+  {
+   "value": "houseware",
+   "count": 25762,
+   "description": "A shop selling small household items."
+  },
+  {
+   "value": "toys",
+   "count": 24850,
+   "description": "A shop focussed on selling children's toys."
+  },
+  {
+   "value": "seafood",
+   "count": 24759,
+   "description": "A shop selling fish/seafood."
+  },
+  {
+   "value": "wine",
+   "count": 22325,
+   "description": "Shop selling bottled wine."
+  },
+  {
+   "value": "tattoo",
+   "count": 22277,
+   "description": "A place where people can get permanent tattoos"
+  },
+  {
+   "value": "wholesale",
+   "count": 20849,
+   "description": "A store that sells items in bulk."
+  },
+  {
+   "value": "paint",
+   "count": 20483,
+   "description": "A shop where you can buy paints."
+  },
+  {
+   "value": "second_hand",
+   "count": 20466,
+   "description": "A shop selling second hand goods."
+  },
+  {
+   "value": "pawnbroker",
+   "count": 20271,
+   "description": "A business that offers secured loans against items of personal property as collateral."
+  },
+  {
+   "value": "medical_supply",
+   "count": 18602,
+   "description": "A store where you can buy medical equipment for private persons."
+  },
+  {
+   "value": "charity",
+   "count": 18509,
+   "description": "A shop operated by a charity"
+  },
+  {
+   "value": "photo",
+   "count": 17588,
+   "description": "A shop dealing with photos or video in any way."
+  },
+  {
+   "value": "bed",
+   "count": 17576,
+   "description": "A shop that specialises in selling mattresses and other bedding products."
+  },
+  {
+   "value": "kitchen",
+   "count": 17442,
+   "description": "A shop where you can plan and buy your kitchen."
+  },
+  {
+   "value": "bookmaker",
+   "count": 17310,
+   "description": "A shop that takes bets on sporting and other events at agreed upon odds."
+  },
+  {
+   "value": "art",
+   "count": 17259,
+   "description": "A shop which sells works of art."
+  },
+  {
+   "value": "agrarian",
+   "count": 15622,
+   "description": "Shop selling agricultural inputs such as pesticides, fertilizers, certified seed, feeds, agri tools, parts for agricultural machines etc:"
+  },
+  {
+   "value": "lottery",
+   "count": 15621,
+   "description": "A shop of which the main or only purpose is the sale of lottery tickets."
+  },
+  {
+   "value": "outdoor",
+   "count": 15156,
+   "description": "A shop selling trekking, climbing, camping equipment."
+  },
+  {
+   "value": "antiques",
+   "count": 15151,
+   "description": "A shop where you can buy antiques."
+  },
+  {
+   "value": "e-cigarette",
+   "count": 14674,
+   "description": "A shop selling electronic cigarettes."
+  },
+  {
+   "value": "coffee",
+   "count": 14604,
+   "description": "A shop selling primarily packaged coffee."
+  },
+  {
+   "value": "fabric",
+   "count": 14582,
+   "description": "A shop that sells fabric"
+  },
+  {
+   "value": "perfumery",
+   "count": 13671,
+   "description": "A shop selling perfumes."
+  },
+  {
+   "value": "gas",
+   "count": 13558,
+   "description": "A shop selling and/or refilling bottled gas."
+  },
+  {
+   "value": "motorcycle_repair",
+   "count": 12787,
+   "description": "A place where you can get your motorcycles repaired."
+  },
+  {
+   "value": "hearing_aids",
+   "count": 12400,
+   "description": "A shop specialized in selling hearing aids devices."
+  },
+  {
+   "value": "appliance",
+   "count": 12248,
+   "description": "Shop selling white goods (fridges, ovens, dishwashers, washing machines etc.)."
+  },
+  {
+   "value": "electrical",
+   "count": 11940,
+   "description": "Shop selling electrical supplies and devices."
+  },
+  {
+   "value": "craft",
+   "count": 11899,
+   "description": "A place where customers can buy supplies for making art and crafts."
+  },
+  {
+   "value": "telecommunication",
+   "count": 11318,
+   "description": "A shop of a telecommunications company."
+  },
+  {
+   "value": "pet_grooming",
+   "count": 11214,
+   "description": "A shop offering grooming services for pets (most frequently dogs)"
+  },
+  {
+   "value": "money_lender",
+   "count": 11159,
+   "description": "A shop offering small personal loans at high rates of interest."
+  },
+  {
+   "value": "tea",
+   "count": 11125,
+   "description": "A shop selling loose-leaf and/or packaged tea."
+  },
+  {
+   "value": "bag",
+   "count": 9840,
+   "description": "A shop selling bags."
+  },
+  {
+   "value": "dairy",
+   "count": 9811,
+   "description": "A shop selling dairy products."
+  },
+  {
+   "value": "baby_goods",
+   "count": 9516,
+   "description": "A shop where you can buy objects for babies, like clothes, prams, cots or baby's baths."
+  },
+  {
+   "value": "musical_instrument",
+   "count": 9471,
+   "description": "Shop selling musical instruments, lyrics, scores."
+  },
+  {
+   "value": "rental",
+   "count": 9112,
+   "description": "A shop that rents different kinds vehicles or (sport) equipment."
+  },
+  {
+   "value": "fashion_accessories",
+   "count": 8810,
+   "description": "A shop focused on selling fashion accessories."
+  },
+  {
+   "value": "health_food",
+   "count": 8773,
+   "description": "A health food shop; selling wholefoods, vitamins, nutrition supplements and meat and dairy alternatives."
+  },
+  {
+   "value": "cannabis",
+   "count": 8726,
+   "description": "A shop primarily and openly selling cannabis products."
+  },
+  {
+   "value": "chocolate",
+   "count": 8538,
+   "description": "Shop focused on selling chocolate."
+  },
+  {
+   "value": "boutique",
+   "count": 8402,
+   "description": "A small shop that sells expensive or designer clothing and/or accessories. Often misused due to its use in many different contexts."
+  },
+  {
+   "value": "music",
+   "count": 8163,
+   "description": "A store that primarily sells recorded music (typically vinyl/CDs)."
+  },
+  {
+   "value": "carpet",
+   "count": 8107,
+   "description": "A shop selling carpets."
+  },
+  {
+   "value": "cheese",
+   "count": 7930,
+   "description": "A shop mainly selling cheese."
+  },
+  {
+   "value": "grocery",
+   "count": 7756,
+   "description": "A retail store that specializes in selling non-perishable food."
+  },
+  {
+   "value": "fishing",
+   "count": 7614,
+   "description": "Store where you can buy fishing equipment."
+  },
+  {
+   "value": "repair",
+   "count": 7495,
+   "description": "A general repair shop. More precise tagging should be used where appropriate."
+  },
+  {
+   "value": "locksmith",
+   "count": 7406,
+   "description": "A shop where you can get keys cut. May also sell new locks and related services."
+  },
+  {
+   "value": "nutrition_supplements",
+   "count": 7281,
+   "description": "Shops that sells nutritional supplements different types of purified proteins, fats, vitamins, minerals and/or herbs."
+  },
+  {
+   "value": "bathroom_furnishing",
+   "count": 7218,
+   "description": "A shop selling mainly bathroom equipment and bathroom accessories."
+  },
+  {
+   "value": "watches",
+   "count": 7156,
+   "description": "A shop that sells watches."
+  },
+  {
+   "value": "sewing",
+   "count": 6643,
+   "description": "A shop that sells sewing supplies (fabric, thread, yarn, knitting needles, sewing machines, etc.)."
+  },
+  {
+   "value": "video_games",
+   "count": 6471,
+   "description": "Shop selling video games."
+  },
+  {
+   "value": "curtain",
+   "count": 6084,
+   "description": "A shop that specialises in selling curtains or drapes."
+  },
+  {
+   "value": "lighting",
+   "count": 5801,
+   "description": "A shop selling lighting fixtures and lamps."
+  },
+  {
+   "value": "herbalist",
+   "count": 5710,
+   "description": "Shop focused on selling herbs, often for medical purposes"
+  },
+  {
+   "value": "tiles",
+   "count": 5615,
+   "description": "A store that sells tiles."
+  },
+  {
+   "value": "flooring",
+   "count": 5365,
+   "description": "A shop which sells a variety of floorings"
+  },
+  {
+   "value": "frozen_food",
+   "count": 5263,
+   "description": "A shop that mainly sells frozen food."
+  },
+  {
+   "value": "doors",
+   "count": 5249,
+   "description": "A place that specializes in selling only or mainly doors."
+  },
+  {
+   "value": "hifi",
+   "count": 5195,
+   "description": "Shop selling high fidelity audio components"
+  },
+  {
+   "value": "shoe_repair",
+   "count": 4975,
+   "description": "A place where one may have shoes repaired or altered."
+  },
+  {
+   "value": "water",
+   "count": 4880,
+   "description": "A shop focused on selling drinking water."
+  },
+  {
+   "value": "party",
+   "count": 4878,
+   "description": "Shop selling party supplies like decorations, invitations and costumes."
+  },
+  {
+   "value": "erotic",
+   "count": 4859,
+   "description": "A shop selling erotic products such as sex toys, erotic lingerie, fetish clothing, safe sex products, erotic games and gifts, and pornographic films and magazines."
+  },
+  {
+   "value": "estate_agent",
+   "count": 4479,
+   "description": "A shop which sells and/or rents property."
+  },
+  {
+   "value": "religion",
+   "count": 4471,
+   "description": "A shop selling merchandise related to religion"
+  },
+  {
+   "value": "frame",
+   "count": 4346,
+   "description": "A shop where you can buy frames, or bring artwork/pictures to be framed."
+  },
+  {
+   "value": "swimming_pool",
+   "count": 4219,
+   "description": "A store that sells swimming pool equipment and supplies"
+  },
+  {
+   "value": "hairdresser_supply",
+   "count": 4148,
+   "description": "A shop where you can buy hairdressing supplies"
+  },
+  {
+   "value": "video",
+   "count": 4016,
+   "description": "A shop that sells or rents out videos/DVDs"
+  },
+  {
+   "value": "games",
+   "count": 3870,
+   "description": "Shop selling board games, card games, battle games, RPGs."
+  },
+  {
+   "value": "leather",
+   "count": 3815,
+   "description": "A shop for products made of leather."
+  },
+  {
+   "value": "food",
+   "count": 3686,
+   "description": "A shop selling food."
+  },
+  {
+   "value": "weapons",
+   "count": 3476,
+   "description": "Shop focused on selling weapons like knives, guns, etc."
+  },
+  {
+   "value": "country_store",
+   "count": 3420,
+   "description": "A Country Store is a UK term for a shop selling rural supplies."
+  },
+  {
+   "value": "fuel",
+   "count": 3246,
+   "description": "A shop selling fuels."
+  },
+  {
+   "value": "no",
+   "count": 3040,
+   "description": "Indicator that feature such as fuel station has no shop, nowadays generally not used."
+  },
+  {
+   "value": "boat",
+   "count": 3035,
+   "description": "A boat shop, may also offer further services."
+  },
+  {
+   "value": "pottery",
+   "count": 2994,
+   "description": "A place where earthenware, stoneware and porcelain and other ceramic ware are sold."
+  },
+  {
+   "value": "fireplace",
+   "count": 2926,
+   "description": "A shop selling fireplaces."
+  },
+  {
+   "value": "collector",
+   "count": 2868,
+   "description": "A shop that focuses on selling collector's items, like stamps, coins, action figures, etc."
+  },
+  {
+   "value": "window_blind",
+   "count": 2850,
+   "description": "A shop that sells window blinds."
+  },
+  {
+   "value": "tool_hire",
+   "count": 2583,
+   "description": "A shop hiring out tools."
+  },
+  {
+   "value": "radiotechnics",
+   "count": 2580,
+   "description": "Shop focused on selling electronic components, electrical products, radio measuring devices, supplies for radio and electronics."
+  },
+  {
+   "value": "caravan",
+   "count": 2534,
+   "description": "A shop for caravans, motorhomes & similar recreational vehicles"
+  },
+  {
+   "value": "household_linen",
+   "count": 2375,
+   "description": "A shop that sells household linen."
+  },
+  {
+   "value": "glaziery",
+   "count": 2278,
+   "description": "Selling and installing glazing for windows and doors."
+  },
+  {
+   "value": "ice_cream",
+   "count": 2179,
+   "description": "For places selling ice cream."
+  },
+  {
+   "value": "printing",
+   "count": 2120,
+   "description": "A shop for printing on specific supports."
+  },
+  {
+   "value": "spices",
+   "count": 1952,
+   "description": "A shop selling spices"
+  },
+  {
+   "value": "scuba_diving",
+   "count": 1872,
+   "description": "A shop that sells equipment for scuba diving and/or related accessories and services."
+  },
+  {
+   "value": "building_materials",
+   "count": 1852,
+   "description": "A place of business that sells building materials."
+  },
+  {
+   "value": "pyrotechnics",
+   "count": 1761,
+   "description": "Shop selling consumer pyrotechnics: fireworks, firecrackers, sparklers etc."
+  },
+  {
+   "value": "printer_ink",
+   "count": 1761,
+   "description": "A shop that sells or refills printer ink cartridges."
+  },
+  {
+   "value": "mobile_phone_accessories",
+   "count": 1673,
+   "description": "A shop that primarily sells accessories for mobile phones."
+  },
+  {
+   "value": "nuts",
+   "count": 1641,
+   "description": "A shop selling raw edible seeds, nuts, dried fruits, pistachios, almonds, hazelnuts etc."
+  },
+  {
+   "value": "security",
+   "count": 1435,
+   "description": "Stores selling security equipment: surveillance cameras, firefighting equipment, alarm systems, warning systems, etc."
+  },
+  {
+   "value": "truck",
+   "count": 1432,
+   "description": "A dealer that primarily sells trucks (heavy goods vehicles)."
+  },
+  {
+   "value": "gold_buyer",
+   "count": 1423,
+   "description": "A shop that buys and possibly sells gold (and often other precious metals, jewelry, coins, or valuables)."
+  },
+  {
+   "value": "model",
+   "count": 1399,
+   "description": "A shop selling scale models."
+  },
+  {
+   "value": "power_tools",
+   "count": 1389,
+   "description": "Shop selling power tools."
+  },
+  {
+   "value": "candles",
+   "count": 1343,
+   "description": "Shop focused on selling candles and candle accessories (holders, etc)"
+  },
+  {
+   "value": "groundskeeping",
+   "count": 1329,
+   "description": "A shop selling groundskeeping equipment, equipment service and supplies for groundskeeping."
+  },
+  {
+   "value": "hunting",
+   "count": 1322,
+   "description": "Shop where you can buy gun and hunting equipment."
+  },
+  {
+   "value": "pasta",
+   "count": 1305,
+   "description": "Shop focused on selling (fresh) pasta, ravioli, etc."
+  },
+  {
+   "value": "honey",
+   "count": 1272,
+   "description": "A shop selling honey."
+  },
+  {
+   "value": "vacuum_cleaner",
+   "count": 1269,
+   "description": "A shop that specialises in the sale of vacuum cleaners and associated products."
+  },
+  {
+   "value": "rice",
+   "count": 1230,
+   "description": "A shop that exclusively or mainly sells various varieties of rice grains (uncooked rice)."
+  },
+  {
+   "value": "camera",
+   "count": 1227,
+   "description": "A shop mainly selling cameras and lenses."
+  },
+  {
+   "value": "water_sports",
+   "count": 1064,
+   "description": "A shop sells items for water sports activities."
+  },
+  {
+   "value": "tortilla",
+   "count": 1037,
+   "description": "A shop focused on selling tortillas to the public."
+  }
+ ],
+ "office": [
+  {
+   "value": "government",
+   "count": 309461,
+   "description": "An office of a (supra)national, regional or local government agency or department"
+  },
+  {
+   "value": "company",
+   "count": 305777,
+   "description": "An office of a private company."
+  },
+  {
+   "value": "estate_agent",
+   "count": 102878,
+   "description": "A place where you can rent or buy a house."
+  },
+  {
+   "value": "yes",
+   "count": 98057,
+   "description": "Generic tag for unspecified office type."
+  },
+  {
+   "value": "insurance",
+   "count": 80647,
+   "description": "An office at which you can take out insurance policies."
+  },
+  {
+   "value": "lawyer",
+   "count": 55214,
+   "description": "An office for a lawyer."
+  },
+  {
+   "value": "educational_institution",
+   "count": 48721,
+   "description": "An office for an educational institution."
+  },
+  {
+   "value": "association",
+   "count": 36173,
+   "description": "An office of a non-profit organisation, society, e.g. student, sport, consumer, automobile, bike association, etc."
+  },
+  {
+   "value": "telecommunication",
+   "count": 34309,
+   "description": "An office for a telecommunication company."
+  },
+  {
+   "value": "ngo",
+   "count": 24239,
+   "description": "An office for a non-profit, non-governmental organisation (NGO)."
+  },
+  {
+   "value": "it",
+   "count": 22712,
+   "description": "An office for an IT company."
+  },
+  {
+   "value": "accountant",
+   "count": 18902,
+   "description": "An office for an accountant."
+  },
+  {
+   "value": "religion",
+   "count": 18687,
+   "description": "An office of a community of faith."
+  },
+  {
+   "value": "diplomatic",
+   "count": 17494,
+   "description": "An embassy, diplomatic mission, consulate or liaison office of a foreign government or parastatal entity in a host country."
+  },
+  {
+   "value": "employment_agency",
+   "count": 17048,
+   "description": "An office for an employment service."
+  },
+  {
+   "value": "research",
+   "count": 15735,
+   "description": "An office for research and development"
+  },
+  {
+   "value": "architect",
+   "count": 15137,
+   "description": "An office for an architect or group of architects."
+  },
+  {
+   "value": "tax_advisor",
+   "count": 14150,
+   "description": "An office for a financial expert specially trained in tax law"
+  },
+  {
+   "value": "financial",
+   "count": 12194,
+   "description": "An office of a company in the financial sector."
+  },
+  {
+   "value": "logistics",
+   "count": 11792,
+   "description": "An office for a company offering logistics."
+  },
+  {
+   "value": "advertising_agency",
+   "count": 11531,
+   "description": "A service-based business dedicated to creating, planning, and handling advertising."
+  },
+  {
+   "value": "notary",
+   "count": 11145,
+   "description": "An office for a notary public (common law)"
+  },
+  {
+   "value": "financial_advisor",
+   "count": 8618,
+   "description": "A professional who offers financial planning and sells financial services to clients."
+  },
+  {
+   "value": "political_party",
+   "count": 8507,
+   "description": "An office of a political party"
+  },
+  {
+   "value": "energy_supplier",
+   "count": 8349,
+   "description": "An office for an energy supplier."
+  },
+  {
+   "value": "property_management",
+   "count": 8329,
+   "description": "Office of a property rental company for residential apartments or commercial office space or any other property."
+  },
+  {
+   "value": "consulting",
+   "count": 8282,
+   "description": "An office for a consulting firm, providing expert professional advice to other companies or organisations."
+  },
+  {
+   "value": "security",
+   "count": 7706,
+   "description": "An office for private security guards."
+  },
+  {
+   "value": "newspaper",
+   "count": 7188,
+   "description": "An office of a newspaper"
+  },
+  {
+   "value": "engineer",
+   "count": 6292,
+   "description": "An office for an engineer or group of engineers."
+  },
+  {
+   "value": "coworking",
+   "count": 6000,
+   "description": "An office where people can go to work (typically requires a fee); not limited to a single employer."
+  },
+  {
+   "value": "travel_agent",
+   "count": 4751,
+   "description": "An office of a travel agent."
+  },
+  {
+   "value": "construction_company",
+   "count": 4676,
+   "description": "An office of a building construction company."
+  },
+  {
+   "value": "foundation",
+   "count": 4624,
+   "description": "An office of a foundation"
+  },
+  {
+   "value": "water_utility",
+   "count": 4600,
+   "description": "The office for a water utility company or water board."
+  },
+  {
+   "value": "therapist",
+   "count": 4533,
+   "description": "An office of a therapist."
+  },
+  {
+   "value": "union",
+   "count": 3946,
+   "description": "An office of a trade union, an association of workers forming a bargaining unit."
+  },
+  {
+   "value": "forestry",
+   "count": 3507,
+   "description": "A forestry office"
+  },
+  {
+   "value": "administrative",
+   "count": 3378,
+   "description": "Using this tag is discouraged, use tag:office=government instead."
+  },
+  {
+   "value": "moving_company",
+   "count": 3259,
+   "description": "An office which offers a relocation service."
+  },
+  {
+   "value": "charity",
+   "count": 3128,
+   "description": "An office of a charitable organization"
+  },
+  {
+   "value": "courier",
+   "count": 2785,
+   "description": "A courier delivery service, which is neither a post office nor a national post."
+  },
+  {
+   "value": "graphic_design",
+   "count": 2601,
+   "description": "An office of a graphic designer."
+  },
+  {
+   "value": "guide",
+   "count": 2563,
+   "description": "An office of tour guides, mountain guides, hiking guides, dive guides, etc."
+  },
+  {
+   "value": "surveyor",
+   "count": 2334,
+   "description": "An office of a person doing technical surveys, such as land surveys or risk and damage evaluations of properties and equipment."
+  },
+  {
+   "value": "physician",
+   "count": 2228,
+   "description": "Describes that a medical office belongs to a physician."
+  },
+  {
+   "value": "university",
+   "count": 2211,
+   "description": "An office providing services to university students or staff, or the office of a department / faculty in a university."
+  },
+  {
+   "value": "cooperative",
+   "count": 1736,
+   "description": "The office of a cooperative (an autonomous association of persons or organizations)."
+  },
+  {
+   "value": "quango",
+   "count": 1483,
+   "description": "An office of a quasi-autonomous non-governmental organisation."
+  },
+  {
+   "value": "transport",
+   "count": 1284,
+   "description": "An office of a freight forwarder or transport company."
+  },
+  {
+   "value": "camping",
+   "count": 1204,
+   "description": "Sometimes used to tag the reception of a campsite. Consider using a more descriptive tag instead."
+  }
+ ],
+ "leisure": [
+  {
+   "value": "swimming_pool",
+   "count": 3071673,
+   "description": "A swimming pool (water area only)"
+  },
+  {
+   "value": "pitch",
+   "count": 2871765,
+   "description": "An area designed for practising sport, normally designated with appropriate markings."
+  },
+  {
+   "value": "garden",
+   "count": 1584826,
+   "description": "A place where flowers and other plants are grown in a decorative and structured manner or for scientific purposes."
+  },
+  {
+   "value": "park",
+   "count": 1304635,
+   "description": "A park, usually in an urban (municipal) setting, created for recreation and relaxation."
+  },
+  {
+   "value": "playground",
+   "count": 1016704,
+   "description": "A playground: an area designed for children to play."
+  },
+  {
+   "value": "picnic_table",
+   "count": 504896,
+   "description": "A table with benches for food and rest"
+  },
+  {
+   "value": "sports_centre",
+   "count": 269749,
+   "description": "A sports centre is a distinct facility where sports take place within an enclosed area."
+  },
+  {
+   "value": "track",
+   "count": 166578,
+   "description": "A track for running, cycling and other non-motorised racing such as horses, greyhounds."
+  },
+  {
+   "value": "nature_reserve",
+   "count": 150666,
+   "description": "A protected area of importance for wildlife, flora, fauna or features of geological or other special interest."
+  },
+  {
+   "value": "fitness_centre",
+   "count": 109234,
+   "description": "Fitness centre, health club or gym with exercise machines, fitness classes or both, for exercise."
+  },
+  {
+   "value": "fitness_station",
+   "count": 103932,
+   "description": "An outdoor facility where people can practise typical fitness exercises"
+  },
+  {
+   "value": "outdoor_seating",
+   "count": 90484,
+   "description": "A seating area, usually for the consumption of food and drink from neighbouring cafes and restaurants, often belonging to one or more of them, but not necessarily adjacent."
+  },
+  {
+   "value": "slipway",
+   "count": 68897,
+   "description": "A slipway: a ramp for launching a boat into water"
+  },
+  {
+   "value": "bleachers",
+   "count": 61477,
+   "description": "Raised, tiered rows of benches found at spectator events."
+  },
+  {
+   "value": "stadium",
+   "count": 52009,
+   "description": "A major sports facility with substantial tiered seating."
+  },
+  {
+   "value": "firepit",
+   "count": 51472,
+   "description": "A fire ring or fire pit, often at a campsite or picnic site"
+  },
+  {
+   "value": "sports_hall",
+   "count": 48683,
+   "description": "A sufficiently large single room that is suitable for practising sports indoors and does not have a \"centre\" character."
+  },
+  {
+   "value": "golf_course",
+   "count": 39646,
+   "description": "A golf course"
+  },
+  {
+   "value": "marina",
+   "count": 31910,
+   "description": "A facility for mooring leisure yachts and motor boats."
+  },
+  {
+   "value": "dog_park",
+   "count": 31067,
+   "description": "A designated area, with or without a fenced boundary, where dog-owners are permitted to exercise their pets unrestrained."
+  },
+  {
+   "value": "common",
+   "count": 30613,
+   "description": "Identify land over which the public has general rights of use for certain leisure activities."
+  },
+  {
+   "value": "resort",
+   "count": 25807,
+   "description": "A place used for relaxation or recreation, attracting visitors for vacations, tourism and/or going swimming in a pool and/or a nearby body of water."
+  },
+  {
+   "value": "horse_riding",
+   "count": 22042,
+   "description": "A facility where people practise horse riding, usually in their spare time, e.g. a riding centre. For a riding arena use tag:leisure=pitch + tag:sport=equestrian."
+  },
+  {
+   "value": "fishing",
+   "count": 19753,
+   "description": "A public or private place for fishing."
+  },
+  {
+   "value": "sauna",
+   "count": 18162,
+   "description": "A room or object designed as a place to heat a wet or dry body."
+  },
+  {
+   "value": "beach_resort",
+   "count": 15309,
+   "description": "A managed beach, including within the boundary any associated facilities. Entry may also require payment of a fee."
+  },
+  {
+   "value": "water_park",
+   "count": 13359,
+   "description": "An amusement park with features like water slides, recreational pools (e.g. wave pools) or lazy rivers."
+  },
+  {
+   "value": "dance",
+   "count": 11839,
+   "description": "A dance venue or dance hall."
+  },
+  {
+   "value": "miniature_golf",
+   "count": 10978,
+   "description": "A place or area where you can play miniature golf."
+  },
+  {
+   "value": "ice_rink",
+   "count": 10079,
+   "description": "An artificially created place where you can skate and play bandy or ice hockey."
+  },
+  {
+   "value": "amusement_arcade",
+   "count": 9173,
+   "description": "A venue with pay-to-play games."
+  },
+  {
+   "value": "bird_hide",
+   "count": 8265,
+   "description": "A place that is used to observe wildlife, especially birds."
+  },
+  {
+   "value": "bandstand",
+   "count": 8248,
+   "description": "A bandstand is an open structure where musical bands can perform concerts"
+  },
+  {
+   "value": "adult_gaming_centre",
+   "count": 7944,
+   "description": "A venue with gambling machines, usually with a minimum age requirement."
+  },
+  {
+   "value": "schoolyard",
+   "count": 7820,
+   "description": "Outdoor area for spending school breaks."
+  },
+  {
+   "value": "swimming_area",
+   "count": 6873,
+   "description": "An area for swimming within a larger body of water (such as a river, lake or the sea) that is marked by a rope, buoys or similar"
+  },
+  {
+   "value": "bowling_alley",
+   "count": 6466,
+   "description": "A facility that is equipped to play the game of bowling."
+  },
+  {
+   "value": "recreation_ground",
+   "count": 6261,
+   "description": "The open-air recreational space."
+  },
+  {
+   "value": "bathing_place",
+   "count": 5919,
+   "description": "An outdoor location without significant facilities that is commonly used for bathing; a wild swimming spot."
+  },
+  {
+   "value": "hot_tub",
+   "count": 5273,
+   "description": "A very small pool with hot water and often air jets, intended for few people and no movement."
+  },
+  {
+   "value": "indoor_play",
+   "count": 3559,
+   "description": "A indoor play area, offering play facilities and event hosting for children."
+  },
+  {
+   "value": "escape_game",
+   "count": 3259,
+   "description": "A physical adventure game in which players solve a series of puzzles using clues, hints and strategy to complete the objectives at hand."
+  },
+  {
+   "value": "disc_golf_course",
+   "count": 2824,
+   "description": "A place to play disc golf."
+  },
+  {
+   "value": "yes",
+   "count": 2490,
+   "description": "Do not use, use key:leisure with appropriate value instead."
+  },
+  {
+   "value": "hackerspace",
+   "count": 1898,
+   "description": "A place where people with common interests (science, technology, ...) meet."
+  },
+  {
+   "value": "pitch_area",
+   "count": 1888,
+   "description": "A area around one or more pitches."
+  },
+  {
+   "value": "summer_camp",
+   "count": 1716,
+   "description": "A place for supervised recreation camps for children or teenagers."
+  },
+  {
+   "value": "climbing",
+   "count": 1605,
+   "description": "A place used for climbing."
+  },
+  {
+   "value": "tanning_salon",
+   "count": 1478,
+   "description": "Place where customers can use UV lamps to tan their skin."
+  },
+  {
+   "value": "trampoline_park",
+   "count": 1260,
+   "description": "A leisure facility consisting of many interlinked trampolines."
+  }
+ ],
+ "tourism": [
+  {
+   "value": "information",
+   "count": 1526837,
+   "description": "Information for tourists and visitors, including information offices"
+  },
+  {
+   "value": "hotel",
+   "count": 455052,
+   "description": "Hotel \u2013 an establishment that provides paid lodging."
+  },
+  {
+   "value": "artwork",
+   "count": 370914,
+   "description": "A public piece of art."
+  },
+  {
+   "value": "viewpoint",
+   "count": 265080,
+   "description": "A place worth visiting, often high, with a good view of surrounding countryside or notable buildings."
+  },
+  {
+   "value": "attraction",
+   "count": 255655,
+   "description": "An object of interest for a tourist, or a purpose-built tourist attraction"
+  },
+  {
+   "value": "guest_house",
+   "count": 200839,
+   "description": "Accommodation smaller than a hotel and typically owner-operated, such as bed&breakfasts etc."
+  },
+  {
+   "value": "picnic_site",
+   "count": 169045,
+   "description": "A locality that is suitable for outdoors eating, with facilities to aid a picnic such as tables and benches."
+  },
+  {
+   "value": "camp_site",
+   "count": 163429,
+   "description": "An area where people can camp overnight using tents, camper vans, or caravans."
+  },
+  {
+   "value": "camp_pitch",
+   "count": 144115,
+   "description": "A tent or caravan pitch location within a campsite or caravan site."
+  },
+  {
+   "value": "chalet",
+   "count": 112615,
+   "description": "A holiday cottage with self-contained cooking and bathroom facilities."
+  },
+  {
+   "value": "museum",
+   "count": 111543,
+   "description": "A museum: an institution with exhibitions on scientific, historical, cultural topics"
+  },
+  {
+   "value": "apartment",
+   "count": 91790,
+   "description": "A furnished apartment or flat with cooking and bathroom facilities that can be rented for holiday vacations."
+  },
+  {
+   "value": "hostel",
+   "count": 62830,
+   "description": "Cheap accommodation with shared bedrooms."
+  },
+  {
+   "value": "motel",
+   "count": 49630,
+   "description": "Short term accommodation, particularly for people travelling by car."
+  },
+  {
+   "value": "caravan_site",
+   "count": 36426,
+   "description": "A place where you can stay in a caravan overnight or for longer periods."
+  },
+  {
+   "value": "gallery",
+   "count": 22628,
+   "description": "An area or building that displays a variety of visual art exhibitions."
+  },
+  {
+   "value": "wilderness_hut",
+   "count": 17060,
+   "description": "A remote building, typically unserviced, providing temporary shelter and sleeping accommodation."
+  },
+  {
+   "value": "alpine_hut",
+   "count": 14087,
+   "description": "A remote building located in the mountains intended to provide board and lodging."
+  },
+  {
+   "value": "theme_park",
+   "count": 11146,
+   "description": "An amusement park where entertainment is provided by rides, games, concessions."
+  },
+  {
+   "value": "yes",
+   "count": 9747,
+   "description": "A general tourist attraction."
+  },
+  {
+   "value": "zoo",
+   "count": 9312,
+   "description": "A zoological garden, where animals are confined for viewing by the public."
+  },
+  {
+   "value": "aquarium",
+   "count": 1709,
+   "description": "A facility with living aquatic animals for public viewing."
+  },
+  {
+   "value": "trail_riding_station",
+   "count": 1611,
+   "description": "Offers temporary accommodation for guest horses and usually also for riders."
+  },
+  {
+   "value": "checkpoint",
+   "count": 1057,
+   "description": null
+  }
+ ],
+ "healthcare": [
+  {
+   "value": "pharmacy",
+   "count": 327814,
+   "description": "A shop where a pharmacist sells prescription medications. Used in addition to tag:amenity=pharmacy."
+  },
+  {
+   "value": "doctor",
+   "count": 154698,
+   "description": "A place to get medical attention or a check up from a physician. Used in addition to tag:amenity=doctors."
+  },
+  {
+   "value": "clinic",
+   "count": 149572,
+   "description": "A medical facility, with more staff than a doctor's office, that does not admit inpatients. Used in addition to tag:amenity=clinic."
+  },
+  {
+   "value": "hospital",
+   "count": 133905,
+   "description": "A hospital providing in-patient medical treatment, used in addition to tag:amenity=hospital."
+  },
+  {
+   "value": "dentist",
+   "count": 128828,
+   "description": "A dentist practice / surgery. Used in addition to amenity=dentist"
+  },
+  {
+   "value": "centre",
+   "count": 46710,
+   "description": "Unspecific healthcare facility. Usage without further specification is discouraged."
+  },
+  {
+   "value": "physiotherapist",
+   "count": 28688,
+   "description": "A facility where a physiotherapist practices physical therapy (kinesiology, exercise, mobilization, etc)."
+  },
+  {
+   "value": "alternative",
+   "count": 25223,
+   "description": "A facility where alternative or complementary medicine is practiced: e.g. acupuncture, chiropractic, naturopathy, etc."
+  },
+  {
+   "value": "laboratory",
+   "count": 23858,
+   "description": "A medical laboratory, a place which performs analysis and diagnostics on body fluids."
+  },
+  {
+   "value": "yes",
+   "count": 22507,
+   "description": "Unspecific healthcare object. Usage without further specification is discouraged."
+  },
+  {
+   "value": "psychotherapist",
+   "count": 10785,
+   "description": "An office of a psychotherapist or clinical psychologist."
+  },
+  {
+   "value": "optometrist",
+   "count": 6870,
+   "description": "An optometrist's office"
+  },
+  {
+   "value": "rehabilitation",
+   "count": 6119,
+   "description": "Medical rehabilitation facility, usually inpatient or residential"
+  },
+  {
+   "value": "podiatrist",
+   "count": 5263,
+   "description": "The office of a podiatrist for the treatment of disorders of the foot, ankle, and lower extremities."
+  },
+  {
+   "value": "counselling",
+   "count": 4777,
+   "description": "A facility where health counselling is provided, e.g. dietitian, nutrition, addiction."
+  },
+  {
+   "value": "nurse",
+   "count": 3545,
+   "description": "A facility where a trained health professional (nurse) provides healthcare, who is not a physician."
+  },
+  {
+   "value": "speech_therapist",
+   "count": 3417,
+   "description": "A speech therapist, a health specialist who deals with speech, voice, swallowing or hearing impairment."
+  },
+  {
+   "value": "blood_donation",
+   "count": 2615,
+   "description": "Facility where you can donate blood, plasma and/or platelets, and possibly have stem cell samples taken"
+  },
+  {
+   "value": "hospice",
+   "count": 2170,
+   "description": "A facility which provides palliative care to terminally ill people and support to their relatives."
+  },
+  {
+   "value": "occupational_therapist",
+   "count": 2126,
+   "description": "A facility where an occupational therapist practices."
+  },
+  {
+   "value": "dialysis",
+   "count": 1758,
+   "description": "Facility where people can get dialysis."
+  },
+  {
+   "value": "sample_collection",
+   "count": 1723,
+   "description": "Site or dedicated healthcare facility where samples of blood/urine/etc are obtained or collected for purpose of analyzing them for healthcare diagnostics."
+  },
+  {
+   "value": "midwife",
+   "count": 1618,
+   "description": "A facility where healthcare is provided by a midwife, a health professional who cares for mothers and newborns around childbirth"
+  },
+  {
+   "value": "audiologist",
+   "count": 1376,
+   "description": "A facility where an audiologist identifies and treats hearing problems."
+  },
+  {
+   "value": "birthing_centre",
+   "count": 1080,
+   "description": "An outpatient birthing centre operated primarily by midwives, where pregnant mothers in labor can deliver their babies."
+  },
+  {
+   "value": "community_health_worker",
+   "count": 1065,
+   "description": "A community health worker, a trained member of a community who provides basic health and medical care within their community."
+  }
+ ],
+ "craft": [
+  {
+   "value": "grinding_mill",
+   "count": 39205,
+   "description": "A device that breaks solid materials into smaller pieces by grinding, crushing, or cutting. The aftermath is powdered product, not liquid extract like oil mill."
+  },
+  {
+   "value": "carpenter",
+   "count": 21388,
+   "description": "A workplace or office of a tradesperson who makes and installs wooden frames of buildings (structural walls, trusses, rafters, joists for floors and ceilings, etc.)."
+  },
+  {
+   "value": "electronics_repair",
+   "count": 18806,
+   "description": "Repair shops and service centres which provides repair of computers, phones, appliance etc."
+  },
+  {
+   "value": "winery",
+   "count": 17629,
+   "description": "A place where wine is produced"
+  },
+  {
+   "value": "metal_construction",
+   "count": 17126,
+   "description": "Workplace or office of a person who work with metal. This applies to: planning, construction, trade, repair."
+  },
+  {
+   "value": "photographer",
+   "count": 15581,
+   "description": "A workplace or office of a person who takes photographs using a camera."
+  },
+  {
+   "value": "electrician",
+   "count": 14885,
+   "description": "A person or company that works with electricity or electrical systems."
+  },
+  {
+   "value": "hvac",
+   "count": 12686,
+   "description": "A workplace or office of a person or company that install and maintain HVAC systems (Heating, Ventilating, and Air Conditioning)."
+  },
+  {
+   "value": "plumber",
+   "count": 12296,
+   "description": "A workplace or office of a skilled tradesperson who specializes in (drinking) water supply, sewage and drainage systems."
+  },
+  {
+   "value": "brewery",
+   "count": 11627,
+   "description": "A small establishment that makes beer by traditional methods."
+  },
+  {
+   "value": "tailor",
+   "count": 10768,
+   "description": "A place where clothing is made, repaired, or altered professionally, especially suits and men's clothing."
+  },
+  {
+   "value": "caterer",
+   "count": 10641,
+   "description": "A workplace or office of one who prepares customized meals for takeout, or provides prepared meals or supplies to a group at social gatherings"
+  },
+  {
+   "value": "sawmill",
+   "count": 10321,
+   "description": "A sawmill is a facility where logs are cut into timber"
+  },
+  {
+   "value": "shoemaker",
+   "count": 10189,
+   "description": "A place where shoes, boots, sandals, clogs and moccasins are created, repaired or altered to fit personal needs."
+  },
+  {
+   "value": "window_construction",
+   "count": 9651,
+   "description": "A workplace or office of a tradesperson who constructs and installs windows."
+  },
+  {
+   "value": "handicraft",
+   "count": 7730,
+   "description": "A place where useful and decorative devices are made completely by hand or using only simple tools."
+  },
+  {
+   "value": "gardener",
+   "count": 7580,
+   "description": "A workplace or office of a garden designer or a landscape gardener."
+  },
+  {
+   "value": "joiner",
+   "count": 7090,
+   "description": "An artisan who builds things by joining pieces of wood, particularly furniture or ornamental work."
+  },
+  {
+   "value": "stonemason",
+   "count": 6647,
+   "description": "A place where rough pieces of rock are shaped into accurate geometrical shapes."
+  },
+  {
+   "value": "dressmaker",
+   "count": 6630,
+   "description": "Dressmaker is a person who makes custom clothing for women, such as dresses, blouses, and evening gowns."
+  },
+  {
+   "value": "confectionery",
+   "count": 6601,
+   "description": "A place where the set of food items that are rich in sugar, any one or type of which is called a confection is produced."
+  },
+  {
+   "value": "painter",
+   "count": 6490,
+   "description": "A workplace or office of a house painter, which is a tradesman responsible for the painting and decorating of buildings."
+  },
+  {
+   "value": "glaziery",
+   "count": 6460,
+   "description": "A place where residential, commercial, and artistic glass is selected, cut, installed, replaced, and removed."
+  },
+  {
+   "value": "beekeeper",
+   "count": 6280,
+   "description": "The workplace of a beekeeper (apiarist)."
+  },
+  {
+   "value": "roofer",
+   "count": 6079,
+   "description": "A workplace or office of a tradesman who is specialized in roof covering and sealing."
+  },
+  {
+   "value": "builder",
+   "count": 5769,
+   "description": "A workplace or office of a tradesman who performs structural alterations and additions to buildings."
+  },
+  {
+   "value": "key_cutter",
+   "count": 4833,
+   "description": "A place where keys can be duplicated from originals."
+  },
+  {
+   "value": "cleaning",
+   "count": 4789,
+   "description": "Workplace or office of a person who cleans buildings, industrial facilities or windows."
+  },
+  {
+   "value": "upholsterer",
+   "count": 4734,
+   "description": "A place where furniture, especially seats are provided with padding, springs, webbing, and fabric or leather covers."
+  },
+  {
+   "value": "pottery",
+   "count": 3834,
+   "description": "A place where earthenware, stoneware and porcelain and other ceramic ware is made by potters."
+  },
+  {
+   "value": "blacksmith",
+   "count": 3795,
+   "description": "A place where a blacksmith forges tools, horseshoes, etc. from iron."
+  },
+  {
+   "value": "signmaker",
+   "count": 3319,
+   "description": "A maker of signs, mainly for shops and other businesses."
+  },
+  {
+   "value": "distillery",
+   "count": 3044,
+   "description": "An establishment for distilling, especially for distilling alcoholic liquors."
+  },
+  {
+   "value": "agricultural_engines",
+   "count": 2850,
+   "description": "A workplace or office of a person who plans and construct engines and tools for agricultural use."
+  },
+  {
+   "value": "jeweller",
+   "count": 2273,
+   "description": "A place where necklaces, rings, brooches, earrings and bracelets and other personal adornments are created or repaired."
+  },
+  {
+   "value": "locksmith",
+   "count": 2033,
+   "description": "The workshop of a craftsman who installs or repairs locks and opens locked doors."
+  },
+  {
+   "value": "tiler",
+   "count": 1944,
+   "description": "A workplace or office of a person who lays tiles on floors, swimming pools and such."
+  },
+  {
+   "value": "watchmaker",
+   "count": 1923,
+   "description": "A watchmaker is an artisan who makes and repairs watches. Today due to industrial production they mostly repair watches."
+  },
+  {
+   "value": "photographic_laboratory",
+   "count": 1877,
+   "description": "A place where photos taken on a film or digital images are transformed into a more permanent form, often on paper or plastic foil."
+  },
+  {
+   "value": "bakery",
+   "count": 1600,
+   "description": "A workplace for fresh bakery goods. May have no shop or be combined with a shop."
+  },
+  {
+   "value": "printer",
+   "count": 1590,
+   "description": "A small printing business which produces published works such as newspapers, books, magazines, etc."
+  },
+  {
+   "value": "floorer",
+   "count": 1455,
+   "description": "A workplace or office of a floorer or flooring contractor."
+  },
+  {
+   "value": "clockmaker",
+   "count": 1444,
+   "description": "A workplace or office of a clockmaker that is building, repairing or engraving clocks of all sorts."
+  },
+  {
+   "value": "tinsmith",
+   "count": 1184,
+   "description": "A person who makes and repairs things made of light-coloured metal, particularly tinware."
+  },
+  {
+   "value": "welder",
+   "count": 1151,
+   "description": null
+  }
+ ],
+ "public_transport": [
+  {
+   "value": "platform",
+   "count": 4197605,
+   "description": "The place where passengers are waiting for the public transport vehicles."
+  },
+  {
+   "value": "stop_position",
+   "count": 1621455,
+   "description": "The position on the street or rails where a public transport vehicle stops."
+  },
+  {
+   "value": "stop_area",
+   "count": 579636,
+   "description": "A relation that contains all elements of a train, subway, monorail, tram, bus, trolleybus, aerialway, or ferry stop."
+  },
+  {
+   "value": "station",
+   "count": 204521,
+   "description": "A station is an area designed to access public transport."
+  },
+  {
+   "value": "stop_area_group",
+   "count": 7065,
+   "description": "A relation that contains stop areas that make up a public transport interchange."
+  },
+  {
+   "value": "pole",
+   "count": 3644,
+   "description": "A pole belonging to a public transport platform."
+  },
+  {
+   "value": "no",
+   "count": 2810,
+   "description": "A feature not used for public transport."
+  },
+  {
+   "value": "entrance_pass",
+   "count": 2687,
+   "description": ""
+  },
+  {
+   "value": "entrance",
+   "count": 1647,
+   "description": null
+  }
+ ],
+ "emergency": [
+  {
+   "value": "fire_hydrant",
+   "count": 2567021,
+   "description": "An active fire protection measure, and a source of water provided in most urban, suburban, and rural areas with municipal water service to enable fire fighters to tap into the municipal water supply to assist in extinguishing a fire."
+  },
+  {
+   "value": "access_point",
+   "count": 195315,
+   "description": "A sign number which can be used to define your current position in case of an emergency"
+  },
+  {
+   "value": "defibrillator",
+   "count": 176981,
+   "description": "Defibrillator (AED), an external and portable electronic device that diagnoses and can correct arrhythmia of the heart automatically."
+  },
+  {
+   "value": "yes",
+   "count": 136841,
+   "description": "Indicates either that a road is accessible to emergency vehicles or that a hospital is equipped to deal with emergencies."
+  },
+  {
+   "value": "phone",
+   "count": 74392,
+   "description": "An emergency telephone is a phone that anyone can use to contact an emergency service."
+  },
+  {
+   "value": "water_tank",
+   "count": 43671,
+   "description": "A large water basin or tank for a fire department to take water."
+  },
+  {
+   "value": "siren",
+   "count": 26027,
+   "description": "A loud noise maker, such as an air raid siren or a tornado siren."
+  },
+  {
+   "value": "assembly_point",
+   "count": 22776,
+   "description": "A designated (safe) place where people can gather or must report to during an emergency or a fire drill."
+  },
+  {
+   "value": "fire_extinguisher",
+   "count": 21078,
+   "description": "An active fire protection device used to extinguish or control small fires, often in emergency situations."
+  },
+  {
+   "value": "designated",
+   "count": 20728,
+   "description": "An emergency access road"
+  },
+  {
+   "value": "suction_point",
+   "count": 20081,
+   "description": "A preferred point to pump water off a river or other waters for a fire department."
+  },
+  {
+   "value": "life_ring",
+   "count": 16658,
+   "description": "A floating ring to throw out to someone who is struggling in water."
+  },
+  {
+   "value": "ambulance_station",
+   "count": 16381,
+   "description": "An ambulance station is a structure or other area set aside for storage of ambulance vehicles, medical equipment, personal protective equipment, and other medical supplies."
+  },
+  {
+   "value": "fire_hose",
+   "count": 7353,
+   "description": "A high-pressure hose used to carry water or other fire retardant (such as foam) to a fire to extinguish it."
+  },
+  {
+   "value": "fire_water_pond",
+   "count": 6496,
+   "description": "A man made or natural pond with water for a fire department."
+  },
+  {
+   "value": "lifeguard",
+   "count": 6336,
+   "description": "A place where a lifeguard is on duty"
+  },
+  {
+   "value": "fire_service_inlet",
+   "count": 5081,
+   "description": "An inlet that allows the fire brigade to pump water into a building."
+  },
+  {
+   "value": "landing_site",
+   "count": 4540,
+   "description": "Preselected flat area for a helicopter to land in an emergency situation"
+  },
+  {
+   "value": "emergency_ward_entrance",
+   "count": 4136,
+   "description": "The entrance to an emergency ward."
+  },
+  {
+   "value": "disaster_response",
+   "count": 3095,
+   "description": "A station where equipment and volunteers/paid members are based to work in an area affected by a natural or anthropogenic disaster."
+  },
+  {
+   "value": "destination",
+   "count": 3001,
+   "description": null
+  },
+  {
+   "value": "disaster_help_point",
+   "count": 2470,
+   "description": "Marks places using as disaster help points."
+  },
+  {
+   "value": "fire_alarm_box",
+   "count": 2086,
+   "description": "A device used for notifying a fire department of a fire."
+  },
+  {
+   "value": "drinking_water",
+   "count": 2000,
+   "description": "A facility that provides drinking water in emergency situations"
+  },
+  {
+   "value": "psap",
+   "count": 1715,
+   "description": null
+  },
+  {
+   "value": "first_aid_kit",
+   "count": 1251,
+   "description": "A collection of supplies and equipment that is used to give medical treatment."
+  },
+  {
+   "value": "mountain_rescue",
+   "count": 1114,
+   "description": "A mountain rescue base for a team providing search and rescue services in mountainous environments."
+  },
+  {
+   "value": "fire_lookout",
+   "count": 1035,
+   "description": "A location used for fire spotting."
+  }
+ ]
+}
