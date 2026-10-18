@@ -1,0 +1,182 @@
+[
+ {
+  "pair": 1,
+  "a": "univ-crossmatch__A__2",
+  "b": "univ-crossmatch__D__2",
+  "cos": 0.5569
+ },
+ {
+  "pair": 2,
+  "a": "univ-crossmatch__A__0",
+  "b": "univ-crossmatch__C__0",
+  "cos": 0.7041
+ },
+ {
+  "pair": 3,
+  "a": "hospital-timed__A__2",
+  "b": "hospital-timed__D__1",
+  "cos": 0.5242
+ },
+ {
+  "pair": 4,
+  "a": "bank-aggregate__B__0",
+  "b": "bank-aggregate__D__0",
+  "cos": 0.878
+ },
+ {
+  "pair": 5,
+  "a": "hospital-timed__A__1",
+  "b": "hospital-timed__B__2",
+  "cos": 0.6085
+ },
+ {
+  "pair": 6,
+  "a": "platform-thresh__A__0",
+  "b": "platform-thresh__D__2",
+  "cos": 0.4888
+ },
+ {
+  "pair": 7,
+  "a": "bank-aggregate__B__2",
+  "b": "bank-aggregate__C__2",
+  "cos": 0.4179
+ },
+ {
+  "pair": 8,
+  "a": "platform-thresh__B__0",
+  "b": "platform-thresh__C__2",
+  "cos": 0.431
+ },
+ {
+  "pair": 9,
+  "a": "telco-unique__B__0",
+  "b": "telco-unique__C__1",
+  "cos": 0.5488
+ },
+ {
+  "pair": 10,
+  "a": "telco-unique__B__1",
+  "b": "telco-unique__D__0",
+  "cos": 0.5965
+ },
+ {
+  "pair": 11,
+  "a": "utility-member__A__0",
+  "b": "utility-member__D__1",
+  "cos": 0.6282
+ },
+ {
+  "pair": 12,
+  "a": "employer-fresh__A__0",
+  "b": "employer-fresh__D__0",
+  "cos": 0.7063
+ },
+ {
+  "pair": 13,
+  "a": "univ-crossmatch__C__0",
+  "b": "univ-crossmatch__C__1",
+  "cos": 0.6072
+ },
+ {
+  "pair": 14,
+  "a": "hospital-timed__B__0",
+  "b": "hospital-timed__D__1",
+  "cos": 0.4641
+ },
+ {
+  "pair": 15,
+  "a": "platform-thresh__D__0",
+  "b": "platform-thresh__D__2",
+  "cos": 0.5327
+ },
+ {
+  "pair": 16,
+  "a": "employer-fresh__B__2",
+  "b": "employer-fresh__D__1",
+  "cos": 0.6151
+ },
+ {
+  "pair": 17,
+  "a": "platform-thresh__A__2",
+  "b": "platform-thresh__D__0",
+  "cos": 0.5799
+ },
+ {
+  "pair": 18,
+  "a": "utility-member__B__2",
+  "b": "utility-member__C__1",
+  "cos": 0.6465
+ },
+ {
+  "pair": 19,
+  "a": "gov-nonmember__C__1",
+  "b": "gov-nonmember__D__1",
+  "cos": 0.5365
+ },
+ {
+  "pair": 20,
+  "a": "bank-aggregate__A__2",
+  "b": "bank-aggregate__B__0",
+  "cos": 0.4729
+ },
+ {
+  "pair": 21,
+  "a": "utility-member__A__0",
+  "b": "utility-member__A__1",
+  "cos": 0.6304
+ },
+ {
+  "pair": 22,
+  "a": "univ-crossmatch__A__0",
+  "b": "univ-crossmatch__B__2",
+  "cos": 0.4697
+ },
+ {
+  "pair": 23,
+  "a": "univ-crossmatch__B__0",
+  "b": "univ-crossmatch__B__1",
+  "cos": 0.6343
+ },
+ {
+  "pair": 24,
+  "a": "employer-fresh__A__1",
+  "b": "employer-fresh__C__1",
+  "cos": 0.5088
+ },
+ {
+  "pair": 25,
+  "a": "hospital-timed__B__1",
+  "b": "hospital-timed__C__0",
+  "cos": 0.7573
+ },
+ {
+  "pair": 26,
+  "a": "bank-aggregate__C__1",
+  "b": "bank-aggregate__C__2",
+  "cos": 0.4605
+ },
+ {
+  "pair": 27,
+  "a": "employer-fresh__B__1",
+  "b": "employer-fresh__D__1",
+  "cos": 0.6922
+ },
+ {
+  "pair": 28,
+  "a": "telco-unique__A__0",
+  "b": "telco-unique__A__1",
+  "cos": 0.4508
+ },
+ {
+  "pair": 29,
+  "a": "platform-thresh__C__0",
+  "b": "platform-thresh__D__2",
+  "cos": 0.5404
+ },
+ {
+  "pair": 30,
+  "a": "platform-thresh__C__1",
+  "b": "platform-thresh__D__0",
+  "cos": 0.5884
+ }
+]

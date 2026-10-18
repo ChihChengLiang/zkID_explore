@@ -6,7 +6,7 @@ Arms: A no seeds, B six near seeds, C six distance-banded seeds, D six random se
 
 ## Headline
 
-**No arm beat any other at this sample size.** Every 95% interval overlaps. Seeds did not break convergence.
+**No arm beat any other at this sample size.** Every 95% interval overlaps. (The earlier claim that seeds did not break a heavy convergence is withdrawn; see the hand-labeling addendum.)
 
 | Arm | n | Rubric | Validity | Coherence | Novelty |
 |---|---|---|---|---|---|
@@ -19,7 +19,7 @@ Novelty is highest for C and D and lowest for B, which points the way the Liu et
 
 ## Other observations
 
-- **Convergence is strong regardless of seeds.** 96 ideas fell into 50 clusters. A cell's 12 ideas span only 4-8 distinct clusters (telco-unique 4, utility-member 5, gov-nonmember and hospital-timed 8). 17-20 of 24 ideas per arm share a cluster with an idea from another arm in the same cell (C highest at 20/24, so targeting did not diversify outputs).
+- **(Superseded by the hand-labeling addendum below.) Haiku found strong convergence.** 96 ideas fell into 50 clusters. A cell's 12 ideas span only 4-8 distinct clusters (telco-unique 4, utility-member 5, gov-nonmember and hospital-timed 8). 17-20 of 24 ideas per arm share a cluster with an idea from another arm in the same cell (C highest at 20/24, so targeting did not diversify outputs).
 - **Quality is low overall.** Rubric scores: 45 twos, 46 threes, 5 fours, no fives. The five fours came from arms A (2) and B (3); none from C or D.
 - **Provenance is mostly decorative.** The critic judged 66 of 72 seeded ideas' borrowings unfaithful (B 19/24, C 24/24, D 23/24); six were faithful. Either the generators ignored the seeds ("use any that help" invited this) or the critic is harsh. Both are plausible; I have not checked which.
 - **Kill tests barely discriminate.** `issuer_unwilling` and `no_wallet` fail in 40-79% of ideas in every arm, so survival is 4-25% across arms. D has the lowest survival (1 of 24). These look like properties of the cell setup (non-government issuers, no wallet) more than of the seeds.
@@ -49,3 +49,13 @@ It does not support "diverse seeds break the homogeneity" at this scale, and it 
 - **Novelty vs the 15 workbook rows** (1 - max cos): A 0.435, B 0.452, C 0.430, D 0.452. No difference. Distance of ideas to the cell target: 0.45-0.46 for all arms.
 - **Convergence is threshold-dependent.** Greedy clustering inside each cell gives 9.5 / 10.6 / 11.6 distinct clusters of 12 at cosine 0.80 / 0.85 / 0.90, versus 4-8 from the Haiku pass. The Haiku pass judged "same moment and verifier"; raw embeddings of long text are stricter. Neither threshold is calibrated against human labels, so "heavy convergence" from the main results should be read as unconfirmed. Same-cell pairs have median cosine 0.57, p90 0.73.
 - **Bottom line unchanged:** no arm clearly beats another. The embedding metrics add a faint ordering (B, C above A, D below) that the earlier judge-based numbers did not show.
+
+## Addendum 2: hand-labeling 30 same-cell pairs
+
+30 pairs sampled evenly across the embedding-similarity range (5 per cosine band, cosine and arm hidden), labeled by the project owner in `labeling/labels.csv`.
+
+- **28 different, 1 same, 1 unsure.** The only "same" was pair 27 (cosine 0.69). Pairs at cosine 0.70, 0.71 and 0.76 were labeled different, and the most similar pair (0.88) was "unsure".
+- **No cosine threshold separates them.** Every threshold misclassifies at least one pair; the 0.97 "best accuracy" of `calibrate_threshold.py` is just "call everything different" and its suggested T of 0.86 is meaningless with one positive.
+- **Duplicates among same-cell pairs are rare.** The bands hold equal numbers of pairs, so the sample is close to uniform over same-cell pairs: 1 of 29 judged pairs is about 3% (a 95% interval of roughly 0.1% to 18% at this n). The Haiku clustering (26 multi-idea clusters out of 50) and the greedy cosine clusters both merged far more than a human did, so **the earlier "heavy convergence" finding does not hold**: the generated ideas are mostly different situations.
+- **Consequences.** (1) Diversity metrics based on cluster counts at any threshold should not be used; use the continuous ones (mean pairwise distance, Vendi). (2) The earlier reading that seeds failed to diversify is unsupported either way; diversity here is high in all arms. (3) The arm differences in quality (rubric 2.5-2.7) and the critic's near-universal "decorative provenance" verdict are now the more interesting signals.
+- **Limits:** one rater, one "same", a stratified sample of 30. This establishes that duplication is low; it does not give a calibrated threshold. Several more "same" examples would be needed for that, which the current corpus may not contain.
