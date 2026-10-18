@@ -38,3 +38,14 @@ Novelty is highest for C and D and lowest for B, which points the way the Liu et
 ## What this suggests, and what it does not
 
 It does not support "diverse seeds break the homogeneity" at this scale, and it matches PaperGym's finding that targeting ties with random. Arm A (no seeds) is already as good as the seeded arms by rubric, so the cell definition itself may be doing most of the steering. The cheapest next experiments, in order: (1) make seed use mandatory and check it (a "must borrow structure from at least 2 seeds, state the mapping" prompt) rather than optional; (2) score 20 ideas by hand to calibrate the critic; (3) repeat the same 32 runs to see run-to-run variance before reading anything into arm gaps.
+
+## Addendum: re-run with real embeddings (Qwen3-Embedding-0.6B via LM Studio)
+
+`PYTHONPATH=<openpyxl dir> python3 scripts/embed_analysis.py` (needs LM Studio on :1234; about 10 texts/s, vectors cached in `cache/`, gitignored).
+
+- **Haiku distance ratings are only moderately reliable.** Spearman against embedding distance per cell: 0.33-0.59, mean 0.46. The arm C/D draws were built on those ratings.
+- **Distance enforcement did work in embedding space.** Mean distance (1 - cos) from seed set to cell target: B 0.41, C 0.51, D 0.49. C and D are close, so C was barely farther than random.
+- **Within-cell spread of the 3 ideas per arm** (pairwise distance, mean over 8 cells): A 0.446, B 0.478, C 0.466, D 0.423 (intervals about ±0.04). Paired by cell: C-D = +0.044 (C higher in 7/8 cells), B-A = +0.032 (6/8), C-A = +0.020 (5/8), D-A = -0.024 (2/8). Direction: D (random) is the least varied and C/B the most, the opposite of "random is as good". With 8 cells a 7/8 split is p about 0.07, so this is a weak hint, not a result.
+- **Novelty vs the 15 workbook rows** (1 - max cos): A 0.435, B 0.452, C 0.430, D 0.452. No difference. Distance of ideas to the cell target: 0.45-0.46 for all arms.
+- **Convergence is threshold-dependent.** Greedy clustering inside each cell gives 9.5 / 10.6 / 11.6 distinct clusters of 12 at cosine 0.80 / 0.85 / 0.90, versus 4-8 from the Haiku pass. The Haiku pass judged "same moment and verifier"; raw embeddings of long text are stricter. Neither threshold is calibrated against human labels, so "heavy convergence" from the main results should be read as unconfirmed. Same-cell pairs have median cosine 0.57, p90 0.73.
+- **Bottom line unchanged:** no arm clearly beats another. The embedding metrics add a faint ordering (B, C above A, D below) that the earlier judge-based numbers did not show.
