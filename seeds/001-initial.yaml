@@ -1,0 +1,502 @@
+- id: pse-zkid
+  title: PSE zkID
+  kind: repo
+  url: https://github.com/privacy-ethereum/zkID
+  topics:
+  - credential-formats
+  - zk-proof-systems
+  - wallets
+  signal:
+    looking_for:
+    - new-construction
+    - benchmark
+    - open-problem
+    note: Reference point for what 'zkID' currently means in practice; issues and roadmap show what's
+      unsolved.
+  crawl:
+    method: github-issues
+    cadence: weekly
+    queries:
+    - is:issue is:open
+  trust: primary
+  status: candidate
+  added: '2026-10-18'
+  related:
+  - google-longfellow-zk
+  - anon-creds-eprint
+  verified:
+    url_checked_on: '2026-10-18'
+    http_status: 200
+- id: anon-creds-eprint
+  title: ePrint search - anonymous credentials from existing credentials
+  kind: paper-index
+  url: https://eprint.iacr.org/search?q=anonymous+credentials
+  topics:
+  - selective-disclosure
+  - unlinkability
+  - zk-proof-systems
+  signal:
+    looking_for:
+    - new-construction
+    - benchmark
+    note: Constructions that wrap already-issued SD-JWT/mDL credentials in ZK instead of requiring new
+      issuer cryptography.
+  crawl:
+    method: search-query
+    cadence: monthly
+    queries:
+    - anonymous credentials mdl
+    - zero-knowledge SD-JWT
+    - presentation unlinkability
+  trust: primary
+  status: candidate
+  added: '2026-10-18'
+  related:
+  - eprint-iacr
+  verified:
+    url_checked_on: '2026-10-18'
+    http_status: 200
+- id: google-longfellow-zk
+  title: Google longfellow-zk
+  kind: repo
+  url: https://github.com/google/longfellow-zk
+  topics:
+  - zk-proof-systems
+  - age-verification
+  - credential-formats
+  signal:
+    looking_for:
+    - benchmark
+    - deployment-constraint
+    - integration-point
+    note: ZK proofs over ISO mdoc at wallet scale; performance numbers and proof-size tradeoffs are the
+      useful bits.
+  crawl:
+    method: github-releases
+    cadence: monthly
+  trust: primary
+  status: candidate
+  added: '2026-10-18'
+  related:
+  - iso-18013-5
+  verified:
+    url_checked_on: '2026-10-18'
+    http_status: 200
+- id: anon-aadhaar
+  title: Anon Aadhaar
+  kind: repo
+  url: https://github.com/anon-aadhaar/anon-aadhaar
+  topics:
+  - government-id
+  - onchain-verification
+  - zk-proof-systems
+  signal:
+    looking_for:
+    - deployment-constraint
+    - attack-or-critique
+    - unmet-need
+    note: Proof of ZK over a government-signed document already in the wild; issues expose real-world
+      friction (key rotation, QR formats).
+  crawl:
+    method: github-issues
+    cadence: monthly
+  trust: primary
+  status: candidate
+  added: '2026-10-18'
+  verified:
+    url_checked_on: '2026-10-18'
+    http_status: 200
+- id: zkpassport
+  title: zkPassport
+  kind: repo
+  url: https://github.com/zkpassport
+  topics:
+  - government-id
+  - zk-proof-systems
+  - onchain-verification
+  signal:
+    looking_for:
+    - deployment-constraint
+    - new-construction
+    note: Passport-chip NFC to ZK; shows CSCA/issuer-trust-list handling.
+  crawl:
+    method: github-releases
+    cadence: monthly
+  trust: primary
+  status: candidate
+  added: '2026-10-18'
+  related:
+  - icao-doc-9303
+  verified:
+    url_checked_on: '2026-10-18'
+    http_status: 200
+- id: self-xyz
+  title: Self (selfxyz)
+  kind: repo
+  url: https://github.com/selfxyz/self
+  topics:
+  - government-id
+  - sybil-resistance
+  - onchain-verification
+  signal:
+    looking_for:
+    - deployment-constraint
+    - unmet-need
+    note: Production ID-document ZK app; useful for adoption and UX constraints.
+  crawl:
+    method: github-releases
+    cadence: monthly
+  trust: primary
+  status: candidate
+  added: '2026-10-18'
+  related:
+  - zkpassport
+  verified:
+    url_checked_on: '2026-10-18'
+    http_status: 200
+- id: zk-email
+  title: ZK Email
+  kind: repo
+  url: https://github.com/zkemail
+  topics:
+  - email-web2-proofs
+  - zk-proof-systems
+  signal:
+    looking_for:
+    - new-construction
+    - integration-point
+    note: Template for proving facts from existing signed web2 data without issuer cooperation.
+  crawl:
+    method: github-releases
+    cadence: monthly
+  trust: primary
+  status: candidate
+  added: '2026-10-18'
+  verified:
+    url_checked_on: '2026-10-18'
+    http_status: 200
+- id: semaphore
+  title: Semaphore
+  kind: repo
+  url: https://github.com/semaphore-protocol/semaphore
+  topics:
+  - sybil-resistance
+  - unlinkability
+  - onchain-verification
+  signal:
+    looking_for:
+    - integration-point
+    - open-problem
+    note: Group-membership primitive that many ID designs reduce to; how it composes with credentials.
+  crawl:
+    method: github-releases
+    cadence: quarterly
+  trust: primary
+  status: candidate
+  added: '2026-10-18'
+  verified:
+    url_checked_on: '2026-10-18'
+    http_status: 200
+- id: w3c-vc-dm2
+  title: W3C Verifiable Credentials Data Model 2.0
+  kind: spec
+  url: https://www.w3.org/TR/vc-data-model-2.0/
+  topics:
+  - credential-formats
+  - selective-disclosure
+  signal:
+    looking_for:
+    - requirement
+    note: Normative vocabulary; check where ZK proofs fit as a securing mechanism.
+  crawl:
+    method: fetch-page
+    cadence: quarterly
+  trust: normative
+  status: candidate
+  added: '2026-10-18'
+  related:
+  - w3c-vc-di-bbs
+  verified:
+    url_checked_on: '2026-10-18'
+    http_status: 200
+- id: w3c-vc-di-bbs
+  title: W3C VC Data Integrity BBS Cryptosuites
+  kind: spec
+  url: https://www.w3.org/TR/vc-di-bbs/
+  topics:
+  - selective-disclosure
+  - unlinkability
+  - credential-formats
+  signal:
+    looking_for:
+    - requirement
+    - open-problem
+    note: BBS as the incumbent unlinkable-disclosure approach; its limits (pairing curves, issuer changes)
+      frame why ZK-wrapped alternatives matter.
+  crawl:
+    method: fetch-page
+    cadence: quarterly
+  trust: normative
+  status: candidate
+  added: '2026-10-18'
+  related:
+  - ietf-bbs
+  verified:
+    url_checked_on: '2026-10-18'
+    http_status: 200
+- id: ietf-bbs
+  title: IETF CFRG BBS Signatures draft
+  kind: standards-draft
+  url: https://datatracker.ietf.org/doc/draft-irtf-cfrg-bbs-signatures/
+  topics:
+  - selective-disclosure
+  - unlinkability
+  signal:
+    looking_for:
+    - requirement
+    - attack-or-critique
+    note: Review history and open issues on BBS.
+  crawl:
+    method: fetch-page
+    cadence: quarterly
+  trust: normative
+  status: candidate
+  added: '2026-10-18'
+  related:
+  - w3c-vc-di-bbs
+  verified:
+    url_checked_on: '2026-10-18'
+    http_status: 200
+- id: ietf-sd-jwt
+  title: IETF SD-JWT / SD-JWT VC
+  kind: standards-draft
+  url: https://datatracker.ietf.org/doc/draft-ietf-oauth-selective-disclosure-jwt/
+  topics:
+  - credential-formats
+  - selective-disclosure
+  signal:
+    looking_for:
+    - requirement
+    - attack-or-critique
+    note: Dominant EU/OpenID credential format; linkability by design, which is the gap ZK can fill.
+  crawl:
+    method: fetch-page
+    cadence: quarterly
+  trust: normative
+  status: candidate
+  added: '2026-10-18'
+  related:
+  - openid4vp
+  verified:
+    url_checked_on: '2026-10-18'
+    http_status: 200
+- id: openid4vp
+  title: OpenID for Verifiable Presentations
+  kind: spec
+  url: https://openid.net/specs/openid-4-verifiable-presentations-1_0.html
+  topics:
+  - web-integration
+  - wallets
+  - credential-formats
+  signal:
+    looking_for:
+    - integration-point
+    - requirement
+    note: Protocol a ZK presentation must fit into to be accepted by real verifiers.
+  crawl:
+    method: fetch-page
+    cadence: quarterly
+  trust: normative
+  status: candidate
+  added: '2026-10-18'
+  related:
+  - ietf-sd-jwt
+  - wicg-digital-credentials
+  verified:
+    url_checked_on: '2026-10-18'
+    http_status: 200
+- id: iso-18013-5
+  title: ISO/IEC 18013-5 (mDL)
+  kind: spec
+  url: https://www.iso.org/standard/69084.html
+  topics:
+  - credential-formats
+  - government-id
+  - wallets
+  signal:
+    looking_for:
+    - requirement
+    - deployment-constraint
+    note: mdoc is signed with ECDSA, so ZK over it must prove P-256 verification; defines the circuit
+      target.
+  crawl:
+    method: manual
+    cadence: once
+  trust: normative
+  status: candidate
+  added: '2026-10-18'
+  related:
+  - google-longfellow-zk
+  verified:
+    url_checked_on: '2026-10-18'
+    http_status: 403
+- id: icao-doc-9303
+  title: ICAO Doc 9303 (machine-readable travel documents)
+  kind: spec
+  url: https://www.icao.int/publications/doc-series/doc-9303
+  topics:
+  - government-id
+  - issuer-trust
+  signal:
+    looking_for:
+    - requirement
+    - deployment-constraint
+    note: Passport data groups, signature algorithms, CSCA trust model.
+  crawl:
+    method: manual
+    cadence: once
+  trust: normative
+  status: candidate
+  added: '2026-10-18'
+  related:
+  - zkpassport
+  verified:
+    url_checked_on: '2026-10-18'
+    http_status: 200
+- id: wicg-digital-credentials
+  title: WICG Digital Credentials API
+  kind: repo
+  url: https://github.com/WICG/digital-credentials
+  topics:
+  - web-integration
+  - wallets
+  signal:
+    looking_for:
+    - integration-point
+    - open-problem
+    - requirement
+    note: Browser to wallet API; privacy debates here decide whether ZK presentations are even askable
+      from a web page.
+  crawl:
+    method: github-issues
+    cadence: monthly
+    queries:
+    - zero-knowledge
+    - unlinkab
+    - privacy
+  trust: primary
+  status: candidate
+  added: '2026-10-18'
+  related:
+  - openid4vp
+  verified:
+    url_checked_on: '2026-10-18'
+    http_status: 200
+- id: eudi-arf
+  title: EUDI Wallet Architecture and Reference Framework
+  kind: repo
+  url: https://github.com/eu-digital-identity-wallet/eudi-doc-architecture-and-reference-framework
+  topics:
+  - wallets
+  - policy-regulation
+  - age-verification
+  - unlinkability
+  signal:
+    looking_for:
+    - requirement
+    - unmet-need
+    - open-problem
+    note: 'Regulatory demand signal: discussion threads on ZKP, unlinkability and age verification are
+      direct idea sources.'
+  crawl:
+    method: github-issues
+    cadence: monthly
+    queries:
+    - zero knowledge
+    - zkp
+    - unlinkab
+    - batch issuance
+  trust: primary
+  status: candidate
+  added: '2026-10-18'
+  related:
+  - ietf-sd-jwt
+  verified:
+    url_checked_on: '2026-10-18'
+    http_status: 200
+- id: eprint-iacr
+  title: IACR ePrint Archive
+  kind: paper-index
+  url: https://eprint.iacr.org/
+  topics:
+  - zk-proof-systems
+  - selective-disclosure
+  - post-quantum
+  signal:
+    looking_for:
+    - new-construction
+    - attack-or-critique
+    - benchmark
+    note: Primary feed of new constructions. Always use via targeted queries, not full firehose.
+  crawl:
+    method: rss
+    cadence: weekly
+    queries:
+    - anonymous credentials
+    - zero-knowledge identity
+    - post-quantum anonymous credentials
+  trust: primary
+  status: candidate
+  added: '2026-10-18'
+  related:
+  - anon-creds-eprint
+  verified:
+    url_checked_on: '2026-10-18'
+    http_status: 200
+- id: ethresearch-identity
+  title: ethresear.ch (identity, privacy tags)
+  kind: forum
+  url: https://ethresear.ch/
+  topics:
+  - onchain-verification
+  - sybil-resistance
+  - unlinkability
+  signal:
+    looking_for:
+    - open-problem
+    - unmet-need
+    note: Informal problem statements before they become papers.
+  crawl:
+    method: search-query
+    cadence: monthly
+    queries:
+    - zk identity
+    - proof of personhood
+    - anonymous credentials
+  trust: informed
+  status: candidate
+  added: '2026-10-18'
+  verified:
+    url_checked_on: '2026-10-18'
+    http_status: 200
+- id: zkproof-community
+  title: ZKProof Standards
+  kind: docs
+  url: https://zkproof.org/
+  topics:
+  - zk-proof-systems
+  - policy-regulation
+  signal:
+    looking_for:
+    - requirement
+    - benchmark
+    note: Community standards and security-claim vocabulary for ZK systems.
+  crawl:
+    method: fetch-page
+    cadence: quarterly
+  trust: informed
+  status: candidate
+  added: '2026-10-18'
+  verified:
+    url_checked_on: '2026-10-18'
+    http_status: 200
