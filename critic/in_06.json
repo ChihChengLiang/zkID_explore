@@ -1,0 +1,158 @@
+[
+ {
+  "review_id": "b06-0",
+  "title": "Water-rate discount roll proof when renting out or switching landlord",
+  "moment": "A tenant in a subsidised-water or senior/disabled-household rate category moves into a new rental and the new landlord or property manager asks for the previous water or electricity bill to confirm the household qualifies for the shared-meter discount split.",
+  "verifier": "Landlord or property management company",
+  "predicate": "The tenant's household is in the water utility's discounted-rate roll (set membership), without disclosing the previous address or consumption.",
+  "disclosed_today": "Previous water bill showing old address, account holder name, usage volumes, and arrears status.",
+  "issuer": "Taiwan Water Corporation or Taipei Water Department, signing discount-roll membership",
+  "why_zk": "The landlord only needs to know the discount applies and so the bill split changes; the old address and usage reveal where the tenant lived and how many people live there. Weakness is that discount rolls are small and the pool of eligible people is tiny, so even a membership proof may be identifying by itself, and a landlord may simply not care enough to adopt a wallet flow.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "A proof of a prior check that cannot be linked back to the issuance event or reused to track the holder across verifiers.",
+    "source_excerpt": "A verifier only needs to learn that the holder passed an earlier check, but the proof it receives can be matched to the issuance event and to every other use of the same proof. | mechanism: Clients present unlinkable proofs that attest to a prior authorisation, so the origin cannot link redemption to issuance or to other redemptions."
+   },
+   {
+    "borrowed_aspect": "Having the utility sign without learning where the credential will later be shown, so the utility cannot link the roll check to the landlord.",
+    "source_excerpt": "A signer must certify that a holder has a valid token without seeing the token's content, and must later be unable to link the certified token back to the signing event. | mechanism: A blind signature, where the message is blinded with a random factor before signing, and the holder unblinds the signature so it verifies against the original message under the signer's public key."
+   }
+  ]
+ },
+ {
+  "review_id": "b06-1",
+  "title": "Proof of recent negative infectious-disease clearance for a short-stay care-facility or day-care visit",
+  "moment": "A visitor, volunteer or new aide at a nursing home, long-term care center or kindergarten has to show they were tested or cleared (for example no active TB, influenza or norovirus symptoms) within the past few days before entering. Staff today often ask for a photo of the lab report or hospital slip at the door.",
+  "verifier": "Long-term care facility, nursing home or kindergarten staff at the entrance or HR desk",
+  "predicate": "A hospital signs a status of cleared for entry, valid only for N days from the test date. The verifier checks that the status is still in its window and learns neither the test type, the result detail nor any other clinical content.",
+  "disclosed_today": "The entire lab or screening report, with the name, ID number, test types, other tested items and often the hospital visit details.",
+  "issuer": "Hospital laboratory or infection-control department",
+  "why_zk": "The facility cares about whether the holder is cleared right now, not about what else was tested. The signed validity window encodes freshness without a live lookup, so the facility does not need access to hospital systems. The weakness is that facilities often want a paper record for inspection audits, and local health authorities may specify which documents to retain, so a pure proof may not satisfy an auditor.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "Presenting an unlinkable proof of a prior check so the verifier cannot match the redemption to the original hospital visit or to the holder's other visits.",
+    "source_excerpt": "A verifier only needs to learn that the holder passed an earlier check, but the proof it receives can be matched to the issuance event and to every other use of the same proof. | mechanism: Clients present unlinkable proofs that attest to a prior authorisation, so the origin cannot link redemption to issuance or to other redemptions."
+   },
+   {
+    "borrowed_aspect": "The idea that a shared record should have the identifying and unrelated fields stripped so the leftover cannot re-identify the person.",
+    "source_excerpt": "A party wants to share a record set that cannot identify any person, but the test is a checklist of removable fields plus a no-actual-knowledge condition, so the holder must still judge whether leftover fields re-identify someone. | mechanism: Safe Harbor method removing 18 enumerated identifiers (with ZIP-code truncation rule and age aggregation), or an expert-determination alternative; re-identification codes allowed only if not derived from or disclosed about the individual."
+   }
+  ]
+ },
+ {
+  "review_id": "b06-2",
+  "title": "Ride-hailing driver trip count to qualify for a fleet vehicle lease discount",
+  "moment": "A part-time Uber or LINE Taxi driver in Kaohsiung applies at a car leasing company for a discounted lease reserved for drivers with a proven active record.",
+  "verifier": "Car leasing or fleet financing company",
+  "predicate": "Platform account shows at least 1,000 completed trips and at least 12 active months",
+  "disclosed_today": "Monthly earnings statements and the full trip history export, including pickup and drop-off addresses of passengers, the driver's bank account and tax details",
+  "issuer": "Ride-hailing platform account (driver portal), proven by zkTLS over the logged-in driver portal session",
+  "why_zk": "The lessor needs experience, not income or passenger locations. A threshold proof removes passenger address exposure, which is a third-party privacy issue under the Personal Data Protection Act. Honest weakness: it sits close to a generic income check, leasing firms usually want earnings for credit risk, and platforms may change their portal markup so the proof breaks.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The idea that a releaser should expose a checkable bound instead of raw records, here a threshold in place of a trip log.",
+    "source_excerpt": "A releaser must answer queries about a dataset so that an observer learns almost nothing about whether any one individual contributed, and the leak must be expressed as a bound that can be checked. | mechanism: Differential privacy, a randomised release mechanism with a quantified privacy-loss parameter; NIST notes that the guarantee depends on how the framework is realised in practice and lists privacy hazards that can break it."
+   },
+   {
+    "borrowed_aspect": "The principle that outputs must not allow particular individuals (here the passengers in the export) to be singled out.",
+    "source_excerpt": "An agency holding individual responses must release aggregate results, and the legal duty bars any output from which a particular respondent can be singled out, while the holder's staff can still see the raw records. | mechanism: Statutory use limitation and publication prohibition enforced by sworn-oath duties and penalties; statistical disclosure limitation (for example differential privacy in later census products) is a technical layer not specified in the statute."
+   }
+  ]
+ },
+ {
+  "review_id": "b06-3",
+  "title": "One-per-person limited-edition drop and sneaker or concert pre-sale queues",
+  "moment": "A Taiwanese buyer tries to claim a limited sale (a console restock, a convenience-store collab figurine, a concert pre-sale) where each person may buy only one, and scalpers use many accounts.",
+  "verifier": "Online retailer or ticketing platform running a limited release.",
+  "predicate": "This account is bound to a distinct, currently active real-name mobile subscriber, and no other account on this platform (for this drop) was bound to the same subscriber.",
+  "disclosed_today": "Mobile number plus SMS OTP, often also national ID number, full name, birthday, and sometimes a photo of the ID, all kept in the platform's database.",
+  "issuer": "A Taiwanese mobile carrier (real-name registered subscriber under NCC rules).",
+  "why_zk": "The platform needs only a per-drop pseudonym that repeats if the same subscriber tries twice, not the phone number or ID. Weakness: one person can hold several lines, and prepaid or corporate lines blur the one-person link, so this limits scalpers rather than eliminating them. Carriers must also agree to sign, and today's SMS OTP already works well enough that few platforms feel pressure to change.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The answer is narrowed to \"is this a duplicate or not\" rather than revealing the identifying number itself.",
+    "source_excerpt": "A party asks a registry for identity-number information to settle a dispute; the registry could disclose the full reassigned value, but a narrower answer, whether a duplicate exists, is enough to settle it. | mechanism: Registry reports only whether the number is duplicated, not the reassigned number; the bank marks its own internal record instead."
+   },
+   {
+    "borrowed_aspect": "A token the verifier accepts without being able to link it back to the issuance event or to the person's other uses.",
+    "source_excerpt": "A verifier only needs to learn that the holder passed an earlier check, but the proof it receives can be matched to the issuance event and to every other use of the same proof. | mechanism: Clients present unlinkable proofs that attest to a prior authorisation, so the origin cannot link redemption to issuance or to other redemptions."
+   }
+  ]
+ },
+ {
+  "review_id": "b06-4",
+  "title": "One free-trial or sign-up bonus per person for a delivery app promotion",
+  "moment": "A Taiwanese food-delivery or e-commerce app gives a new-user coupon worth a few hundred NT dollars; people farm it with many accounts and burner numbers, so the app starts asking for ID verification or e-invoice carrier and bank details.",
+  "verifier": "Delivery or shopping app running a new-user promotion",
+  "predicate": "This is a distinct subscriber who has not already claimed this promotion under this app's scope, without revealing the number or identity.",
+  "disclosed_today": "Phone number plus SMS code, sometimes ID photo, payment card, or a mobile barcode carrier, all of which can be linked across services.",
+  "issuer": "Telco with the real-name subscriber record.",
+  "why_zk": "A telco-signed uniqueness proof with an app-scoped nullifier lets the app enforce one claim per person without storing a phone number it can then use for marketing or resale. The honest weakness is that coupon value is low and the app already tolerates SMS OTP, so the business case for adding a telco attestation is thin; the benefit is mostly privacy and reduced data breach exposure, not fraud prevention alone.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The concern that collected identifiers are kept under an open-ended business-need exception, motivating not collecting the number at all.",
+    "source_excerpt": "A party that has collected a person's data must delete it once the reason for holding it ends, but an open-ended exception lets it keep the data whenever it says it still needs it for its own duties. | mechanism: Statutory deletion-on-purpose-lapse duty with exceptions for lawful duties or written consent; no technical erasure mechanism specified."
+   }
+  ]
+ },
+ {
+  "review_id": "b06-5",
+  "title": "Dorm or campus-housing landlord checks tenant is the enrolled student named on the lease deposit subsidy",
+  "moment": "A private landlord renting near a university takes a student tenant who claims a rent subsidy or student-rate lease, and the landlord's bank or local-government subsidy office needs to confirm the tenant is the enrolled student.",
+  "verifier": "Private landlord or housing subsidy office",
+  "predicate": "The university enrollment claim and the tenant's government-issued identity claim belong to the same person, with the ID number and student number withheld.",
+  "disclosed_today": "Full ID card copy, student ID copy, home address, parents' contact details, sometimes a transcript or enrollment certificate.",
+  "issuer": "University (enrollment), matched against the national digital ID or household registration credential",
+  "why_zk": "Landlords routinely keep ID photocopies that leak in later disputes; a same-person proof gives them enough to rely on the student status. However, lease practice in Taiwan often wants a real address and a guarantor, and subsidy offices may legally require the full ID number, so the proof only replaces the enrollment-copy part, not the whole file.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The registry-style answer is narrowed to the one fact needed (same person or not) instead of releasing the identifier itself.",
+    "source_excerpt": "A party asks a registry for identity-number information to settle a dispute; the registry could disclose the full reassigned value, but a narrower answer, whether a duplicate exists, is enough to settle it. | mechanism: Registry reports only whether the number is duplicated, not the reassigned number; the bank marks its own internal record instead."
+   },
+   {
+    "borrowed_aspect": "The proof attests to a prior check without letting the verifier link it to the issuance or to other uses.",
+    "source_excerpt": "A verifier only needs to learn that the holder passed an earlier check, but the proof it receives can be matched to the issuance event and to every other use of the same proof. | mechanism: Clients present unlinkable proofs that attest to a prior authorisation, so the origin cannot link redemption to issuance or to other redemptions."
+   }
+  ]
+ },
+ {
+  "review_id": "b06-6",
+  "title": "Postpartum or post-surgery 'not fit to travel / fit to return' window for employer leave and insurer claims",
+  "moment": "An employee on 病假 or 產假 extension submits a doctor's certificate to HR, or a patient submits it to a travel insurer, to show they were medically unable to work or travel on specific dates.",
+  "verifier": "Employer HR department or travel/health insurer claims desk",
+  "predicate": "Hospital attests 'medically unfit for work/travel for the period [start, end]' as a boolean over a date range, with no diagnosis.",
+  "disclosed_today": "診斷證明書 with diagnosis name, ICD code, procedures, and attending physician notes, sent to HR or insurer by scan or email.",
+  "issuer": "Treating hospital",
+  "why_zk": "HR needs only that the absence is covered for those dates, yet diagnosis certificates reveal pregnancy complications, psychiatric conditions, or surgery type to a manager. A time-bounded proof removes the diagnosis. Weakness: Taiwanese labour rules and insurers often legally require the diagnosis or the original certificate, and insurers may need the cause to adjudicate, so adoption depends on rule changes rather than on technology.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "Wallet releases only the needed attribute from a credential issued as a whole.",
+    "source_excerpt": "A business needs one attribute to proceed, but the credential is issued as a whole, so the holder must rely on the wallet to release only the needed attribute. | mechanism: SD-JWT VC selective disclosure with OpenID4VP presentation and status-list validity check."
+   },
+   {
+    "borrowed_aspect": "Confidentiality being only a discretionary exception, with full disclosure as the default, is the pattern to flip so minimal disclosure is the default.",
+    "source_excerpt": "Someone must be drawn from a pool and seated for a task without the wider public learning who they are, but the default rule can flip to full publication of the identities of everyone selected, with confidentiality only as a judge-level exception. | mechanism: Judge-discretionary confidentiality of juror names under a court's jury selection plan; no technical mechanism specified."
+   }
+  ]
+ },
+ {
+  "review_id": "b06-7",
+  "title": "Delivery-platform order count as proof of regular-customer standing for a landlord or building management",
+  "moment": "A tenant applicant for a small rental unit, or a resident asking for a parcel-locker or after-hours access arrangement, is asked by the building manager or landlord to show an app order history as proof of stable residence at an address.",
+  "verifier": "Landlord, agent, or community building management committee",
+  "predicate": "The delivery account has at least 12 completed orders to the same address over the last 6 months",
+  "disclosed_today": "Screenshots of the order history list showing restaurants, items, times, amounts and the full delivery address",
+  "issuer": "Food-delivery platform account, via a zkTLS proof of the order-history page; the platform did not design the page to be a credential",
+  "why_zk": "Orders reveal diet, schedule, spending and guests, while the verifier only needs a count tied to an address. Honestly weak: matching the address inside the proof must be done carefully, an applicant can make orders to game the count, and Taiwan landlords more often ask for a lease, utility bill or household registration transcript, which are stronger and easy to get.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The idea that a narrow answer (a count over a bar, like whether a duplicate exists) settles the matter without releasing the underlying record.",
+    "source_excerpt": "A party asks a registry for identity-number information to settle a dispute; the registry could disclose the full reassigned value, but a narrower answer, whether a duplicate exists, is enough to settle it. | mechanism: Registry reports only whether the number is duplicated, not the reassigned number; the bank marks its own internal record instead."
+   },
+   {
+    "borrowed_aspect": "The risk that the only way to share one fact is a broad grant, which is the situation with screenshots of an entire app.",
+    "source_excerpt": "A holder asks a verifier for a credential covering more attributes than the single fact the relying party needs, and the issuer has no obligation to honour a narrower request. | mechanism: The client states a scope parameter in the request, and the authorization server returns the granted scope in the token response; the server may grant less than requested."
+   }
+  ]
+ }
+]

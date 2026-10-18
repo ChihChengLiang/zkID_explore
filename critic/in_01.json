@@ -1,0 +1,108 @@
+[
+ {
+  "review_id": "b01-0",
+  "title": "Landlord screening by months of on-time rent transfers",
+  "moment": "A tenant in Taipei applies for a rental flat and the landlord or agent asks for bank statements to judge whether the tenant reliably pays rent on time.",
+  "verifier": "Landlord or rental agency (e.g. a property agent handling the lease)",
+  "predicate": "Count of months in the last 12 in which a rent-sized recurring transfer (at or above a stated amount) was made on or before the due day is at least 11",
+  "disclosed_today": "Several months of full bank statements or passbook photocopies, showing every merchant, salary source, medical payment and balance.",
+  "issuer": "The tenant's bank, signing a statistic computed from its own transaction ledger",
+  "why_zk": "A bank-signed count of on-time recurring payments answers the landlord's real question without exposing the rest of the statement. Weak points are that no Taiwan bank issues such a signed statistic today, landlords have little leverage to demand a wallet proof, and rent is often paid in cash or to a different account, so coverage would be partial.",
+  "claimed_borrowings": []
+ },
+ {
+  "review_id": "b01-1",
+  "title": "Low-income electricity subsidy proof for school lunch or tuition aid",
+  "moment": "A parent applies for a school's low-income or near-poor student aid (tuition waiver, free lunch, after-school care subsidy) and is asked to submit a household certificate plus a copy of recent utility bills to show the household sits on the subsidised-electricity roll.",
+  "verifier": "School administrative office or district education bureau",
+  "predicate": "The household's electricity account is a member of the utility's low-income or welfare-tariff roll (set membership), with no address or kWh usage revealed.",
+  "disclosed_today": "Full utility bill with address, account number, meter number, monthly usage and payment history, often photocopied and kept in the student file.",
+  "issuer": "Taiwan Power Company (Taipower), signing membership of its welfare-tariff roll",
+  "why_zk": "A signed roll-membership proof gives the school the one fact it needs without the address or usage pattern, which could show when the home is empty. Weakness is that the aid rules usually rest on the household registration and social-affairs certificates, so Taipower's roll is only a secondary or corroborating signal, and the school may legally need the address anyway.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "Proving a single yes/no fact from a signed credential without revealing the underlying record or letting the issuer see where it is used.",
+    "source_excerpt": "A gatekeeper needs one yes/no fact about a holder, and the proof it receives must not reveal the underlying birth date or let the issuer or the gatekeeper track the holder. | mechanism: Zero-knowledge proof on ISO 18013-7 mdocs for an over-18 statement, device-bound transactions, no server-side storage of credential data."
+   },
+   {
+    "borrowed_aspect": "The idea that the verifier gets only the attribute the service needs and not the full bill it sits inside.",
+    "source_excerpt": "A verifier needs one attribute from a larger identity record, but the holder cannot share just that attribute from the record. | mechanism: Selective disclosure of attributes from electronic attestations held in the EU Digital Identity Wallet."
+   }
+  ]
+ },
+ {
+  "review_id": "b01-2",
+  "title": "One free-trial or student-discount sign-up per person on an online learning or streaming service",
+  "moment": "A Taiwanese online course platform or video streaming service offers a one-time free trial or first-month discount, and abusers re-register with new emails and bought SMS numbers to get repeated trials.",
+  "verifier": "A subscription streaming or e-learning platform operating in Taiwan.",
+  "predicate": "The signer is one unique real telco subscriber, with a trial-specific nullifier not seen before.",
+  "disclosed_today": "Mobile phone number, email, sometimes a credit card number for the trial, and device fingerprints, which together identify the person for later marketing and cross-service tracking.",
+  "issuer": "A Taiwanese mobile carrier.",
+  "why_zk": "The platform only needs to know this person has not used the trial before, not who they are, yet today it keeps phone number and card details. A telco uniqueness proof with a per-service nullifier removes the need to hold the phone number. Honest caveat: platforms typically want a payment instrument anyway for conversion, so the data saved is smaller than it seems, and one person with multiple lines (including foreign or corporate ones) can still obtain multiple credentials unless the telco binds issuance to a single national ID.",
+  "claimed_borrowings": []
+ },
+ {
+  "review_id": "b01-3",
+  "title": "Proving a vehicle owner has no unpaid traffic fines before a used-car sale transfer",
+  "moment": "A buyer at a second-hand car dealer, or a private seller, needs the seller to show that the seller has no unpaid traffic fines or license-suspension notices attached to them or the plate before ownership transfer is processed at the motor vehicle office or agreed privately.",
+  "verifier": "A used-car dealer or a private buyer, and sometimes an escrow or insurance agent",
+  "predicate": "The holder is not on the list of persons with outstanding unpaid traffic penalties or an active licence suspension (non-membership), tied to the holder, not to a photo of a document.",
+  "disclosed_today": "Full ID card, driver licence photo, vehicle licence and registration details, and sometimes screenshots of the government fine-lookup page showing the entire list of violations with dates and places.",
+  "issuer": "Directorate General of Highways (Ministry of Transportation and Communications) or the Motor Vehicles Office",
+  "why_zk": "A dealer needs only that nothing is outstanding, yet the usual screenshot reveals where and when the seller drove, which hints at routines and locations. A non-membership proof removes that history. Weakness, stated honestly. Outstanding fines are already tied to the plate and the transfer office blocks the transfer itself, so the private-sale buyer gains limited protection, the benefit is mainly privacy of the seller, and the incentive for a dealer to ask for anything less than the full look-up is low. A fine imposed minutes later invalidates the proof, so it needs a short expiry.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "A record of where and when a person went can become a readable log of their life, so the verifier should not be given the underlying list.",
+    "source_excerpt": "A service provider must keep a record of who used what without that record becoming a readable log of a person's interests, but the duty is a recommended policy that depends on each institution adopting it and on courts or subpoenas being resisted. | mechanism: Institutional confidentiality policy plus procedures for handling subpoenas and law-enforcement requests; no technical minimization of records is specified."
+   },
+   {
+    "borrowed_aspect": "Splitting knowledge so no single party holds both identity and detail, applied by letting the verifier know the person is clear without learning the identity-linked violation history.",
+    "source_excerpt": "A route must be relayed through intermediaries so that no single intermediary holds both the origin identity and the final destination, while the traffic still reaches the endpoint. | mechanism: Onion routing, where the message is wrapped in one encryption layer per relay, and each relay peels only its own layer and passes the rest to the next hop."
+   }
+  ]
+ },
+ {
+  "review_id": "b01-4",
+  "title": "Visitor access to a school or kindergarten after a child's infection with a fixed exclusion period",
+  "moment": "A child returns to kindergarten or primary school after hand-foot-mouth disease, influenza or COVID, and the school requires proof the child is no longer contagious and has served the exclusion period, which is time-bounded by health-department guidance.",
+  "verifier": "School nurse or kindergarten administrator",
+  "predicate": "A hospital-signed status \"cleared to return\" valid from the clearance date for the rest of the school term or a stated number of days, without disclosing which illness or the treatment.",
+  "disclosed_today": "Hospital medical certificate or the parent's handwritten statement plus the doctor's note naming the disease, symptoms and medication; some schools photograph the note into class records.",
+  "issuer": "Hospital (paediatrics department)",
+  "why_zk": "The school only needs \"may attend, no isolation required\" for the relevant window, not the child's diagnosis or medication, which can reveal chronic conditions. Honest caveat is that schools in Taiwan are required to report certain notifiable diseases and nurses may legitimately need the disease name to manage class-level outbreaks, so a pure no-detail proof can conflict with public health practice. The minor's data also raises guardian-consent and issuer-liability questions.",
+  "claimed_borrowings": []
+ },
+ {
+  "review_id": "b01-5",
+  "title": "Delivery-platform courier rating for a building management committee hire",
+  "moment": "A residential community (社區) in Taipei hires a part-time package-room or night-shift concierge, or lets a gig courier get a building access tag. The management committee wants evidence of reliability.",
+  "verifier": "Community management committee (管理委員會) or its property management company",
+  "predicate": "Lifetime completed deliveries on a delivery platform is at least 500 AND average customer rating is at least 4.7",
+  "disclosed_today": "Screenshots of the courier app profile showing real name, photo, phone number, order history, earnings, and city zones worked",
+  "issuer": "Delivery platform account (Uber Eats / foodpanda courier app), attested via zkTLS over the logged-in session; the platform never agreed to issue credentials",
+  "why_zk": "Screenshots leak earnings and movement patterns, and are trivially faked or edited. A zkTLS threshold proof shows only that the count and rating clear the bar. Weakness: platform terms of service may forbid scraping or proving from the session, ratings are platform-internal and gameable, and the committee may legally prefer a police record certificate for access-sensitive roles.",
+  "claimed_borrowings": []
+ },
+ {
+  "review_id": "b01-6",
+  "title": "Electricity-bill subsidy roll as proof of eligibility for a school lunch or after-school care fee waiver",
+  "moment": "A parent enrolls a child in a public after-school care program (or applies for a lunch-fee reduction) at the start of the semester and must show proof of being a low-income or subsidised household.",
+  "verifier": "School administration office / district after-school care operator",
+  "predicate": "The household's utility account is a member of the set of accounts on the low-income or subsidised-rate roll (for example, accounts receiving the low-income household electricity discount).",
+  "disclosed_today": "A photocopy of the full utility bill (name, address, meter number, usage in kWh, amount due) or a household certificate from the district office, plus household registration details.",
+  "issuer": "Taipower (or the local water company), signing membership in the subsidised-account roll",
+  "why_zk": "The school only needs a yes/no on eligibility, yet today it keeps a bill showing address and consumption patterns (which reveal when the family is away or how many people live there). Weakness is real. In practice schools usually rely on the district office's low-income household certificate (issued under the Public Assistance Act), not utility rolls, so a utility roll would only be a convenient substitute where the discount list is a recognised proxy. It also needs the school to accept it, and Taipower's discount rolls are not formally a social-welfare eligibility register.",
+  "claimed_borrowings": []
+ },
+ {
+  "review_id": "b01-7",
+  "title": "Ride-hailing driver tenure for a fleet-lease or insurance quote",
+  "moment": "A Taiwan Taxi (台灣大車隊) or Uber driver applies for a lower-premium commercial auto policy or a leased vehicle from a fleet owner, who wants proof of steady driving history.",
+  "verifier": "Fleet leasing company or commercial auto insurer's agent",
+  "predicate": "Active trips completed in the last 12 months is at least 3000 AND account age is at least 24 months",
+  "disclosed_today": "Full monthly income statements, trip logs with pickup and dropoff addresses, and sometimes the driver's whole app account screenshots",
+  "issuer": "Ride-hailing platform driver account, attested via zkTLS",
+  "why_zk": "Trip logs expose home, workplace, and passenger locations of a person working at night, and income details unrelated to risk. A threshold proof on trips and tenure suffices for pricing. Weakness: insurers price on claims history and traffic violation records from official sources, so platform activity is a supplementary signal at best, and the platform may resist or change its pages.",
+  "claimed_borrowings": []
+ }
+]

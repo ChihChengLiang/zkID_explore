@@ -1,0 +1,38 @@
+- title: Sick-leave validity window for a school or exam make-up without the diagnosis
+  moment: A parent in Taiwan asks a school to excuse a child's absence from a midterm or a school trip, or a university student asks for a make-up exam after illness. The school asks for the diagnosis certificate (診斷證明書) to be photocopied or photographed and sent over LINE or the school portal.
+  verifier: School administrative office or university registrar
+  predicate: A hospital physician attests that the holder was medically unfit to attend school or sit exams between date A and date B. The proof is valid only for that window and reveals no diagnosis, department or treatment.
+  disclosed_today: Full diagnosis certificate showing the diagnosis, the ICD wording, the physician, the department, the full name and the national ID number. It is often kept in the student file or sent through a class group chat.
+  issuer: Treating hospital, via its physician-signed certificate system
+  why_zk: A school needs only that the absence was medically justified on specific days. A time-bounded, selectively disclosed attestation does this, and it also removes the temptation to forge or edit a scanned certificate. It is weaker where school regulations explicitly ask for the diagnosis, for example for infectious diseases that trigger class suspension rules. In those cases the diagnosis may be legally required, so the proof would need a separate disclosed field.
+  inspired_by:
+    - seed_id: an-b-hipaa-min-necessary
+      borrowed_aspect: The idea that release should be limited to what the stated purpose needs, here made checkable by a proof instead of left to the holder's judgment.
+    - seed_id: rd-google-wallet-zkp-age-no-linkage
+      borrowed_aspect: The pattern of proving one yes/no fact without revealing the underlying record and without letting the issuer track where it is used.
+
+- title: Proof of recent negative infectious-disease clearance for a short-stay care-facility or day-care visit
+  moment: A visitor, volunteer or new aide at a nursing home, long-term care center or kindergarten has to show they were tested or cleared (for example no active TB, influenza or norovirus symptoms) within the past few days before entering. Staff today often ask for a photo of the lab report or hospital slip at the door.
+  verifier: Long-term care facility, nursing home or kindergarten staff at the entrance or HR desk
+  predicate: A hospital signs a status of cleared for entry, valid only for N days from the test date. The verifier checks that the status is still in its window and learns neither the test type, the result detail nor any other clinical content.
+  disclosed_today: The entire lab or screening report, with the name, ID number, test types, other tested items and often the hospital visit details.
+  issuer: Hospital laboratory or infection-control department
+  why_zk: The facility cares about whether the holder is cleared right now, not about what else was tested. The signed validity window encodes freshness without a live lookup, so the facility does not need access to hospital systems. The weakness is that facilities often want a paper record for inspection audits, and local health authorities may specify which documents to retain, so a pure proof may not satisfy an auditor.
+  inspired_by:
+    - seed_id: an-a-privacy-pass
+      borrowed_aspect: Presenting an unlinkable proof of a prior check so the verifier cannot match the redemption to the original hospital visit or to the holder's other visits.
+    - seed_id: an-b-hipaa-safe-harbor
+      borrowed_aspect: The idea that a shared record should have the identifying and unrelated fields stripped so the leftover cannot re-identify the person.
+
+- title: Hospital-signed fit-to-fly or fit-to-travel window for an airline or ferry to the outlying islands
+  moment: A passenger recovering from surgery, late pregnancy or a heart event books a flight to Kinmen, Penghu or Lanyu, or a long-haul flight, and the carrier or tour operator asks for a doctor's fitness note. Staff photocopy or photograph the note and sometimes keep it with the booking.
+  verifier: Airline check-in counter, ferry operator or travel agent handling the booking
+  predicate: A hospital physician signs that the holder is medically fit to travel for a trip on dates within a stated window, and the proof stops being valid after the window. No diagnosis, procedure, gestational detail or medication is shown.
+  disclosed_today: A medical certificate with the diagnosis, the procedure or gestational age, the medications, the physician details and the full ID number. It is copied and stored with the booking records.
+  issuer: Treating hospital (attending physician's office)
+  why_zk: The carrier's decision is only whether it may carry the passenger on that date. A time-bound signature matches the fact that fitness for travel can change within days. The sealed-bid analogy applies to the content, which stays hidden from handlers until the moment of use. This is weak where the airline's own medical-clearance form (MEDIF) requires specific clinical fields that the airline's medical desk reviews, in which case the proof would only cover the simpler cases, such as ferries and domestic routes.
+  inspired_by:
+    - seed_id: an-b-sealed-bid-far
+      borrowed_aspect: The notion of content that stays unseen by intermediate handlers until a fixed moment, with the wrapper readable only for what is needed to identify it.
+    - seed_id: an-b-hipaa-min-necessary
+      borrowed_aspect: The purpose-limited release principle, where only the part that serves the travel decision is exposed.

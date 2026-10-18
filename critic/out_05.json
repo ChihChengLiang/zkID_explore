@@ -1,0 +1,202 @@
+[
+ {
+  "review_id": "b05-0",
+  "reasons": {
+   "rubric": "Roster-membership is a simple yes/no with a real employer issuer and revocation, but the building often needs the worker's name for accountability and employers rarely run credential issuance.",
+   "validity": "Gate logbooks with ID numbers are a real Taiwan practice, but the predicate is insufficient if guards must record who entered, and employers are unlikely to issue short-lived signed credentials.",
+   "coherence": "The idea itself admits that the verifier's accountability need conflicts with the unlinkable design, so the parts only partly fit.",
+   "novelty": "Contractor on-site access is not touched by any known case and uses a new issuer (employer roster).",
+   "provenance": "No borrowings claimed.",
+   "retention_law": "Building logbooks are a management choice rather than a clearly mandated record, though security rules may require identifying visitors.",
+   "linkability": "Revocation checks and per-visit presentation can be made unlinkable, but accountability wants linkability to a named person.",
+   "issuer_unwilling": "Small cleaning and security contractors have little incentive or tooling to run a revocable credential service.",
+   "no_wallet": "Gate guards and workers would need wallets and readers, which is a heavy burden for a low-wage, high-turnover workforce."
+  },
+  "rubric_score": 3,
+  "validity": 3,
+  "coherence": 3,
+  "novelty": 4,
+  "provenance_faithful": "NA",
+  "kill_tests": {
+   "retention_law": "unknown",
+   "linkability": "fails",
+   "issuer_unwilling": "fails",
+   "no_wallet": "fails"
+  }
+ },
+ {
+  "review_id": "b05-1",
+  "reasons": {
+   "rubric": "The predicate is a date-window attestation with a hospital issuer and many students per year, but hospitals do not issue digital attestations and some cases legally need the diagnosis.",
+   "validity": "Schools asking for diagnosis certificates over LINE is plausible, and a fitness-for-dates statement is mostly sufficient, though a hospital would have to sign a new kind of document.",
+   "coherence": "Predicate, verifier, and issuer fit well, and the stated limits for infectious-disease cases are honest.",
+   "novelty": "Health-related school absence is not on the known list and the attestation type is new.",
+   "provenance": "The minimum-necessary framing and the yes/no proof pattern are described in generic terms and the idea would read nearly the same without them.",
+   "retention_law": "Schools may have rules requiring the diagnosis for some conditions, and I cannot say whether they must retain it.",
+   "linkability": "The proof is shown to one school for one window, so linkage across verifiers is low.",
+   "issuer_unwilling": "Hospitals have little reason to build a signing system for a low-value certificate, and physician liability makes them cautious.",
+   "no_wallet": "Parents and young students would need a wallet, while a PDF over LINE is the easy path."
+  },
+  "rubric_score": 3,
+  "validity": 4,
+  "coherence": 4,
+  "novelty": 4,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "unknown",
+   "linkability": "holds",
+   "issuer_unwilling": "fails",
+   "no_wallet": "unknown"
+  }
+ },
+ {
+  "review_id": "b05-2",
+  "reasons": {
+   "rubric": "The predicate is a count over a ledger with a bank issuer and a verifier that over-collects, but it is a single-source multi-condition derived value and the landlord's decision rests on deposits and guarantors.",
+   "validity": "Landlords asking for passbook pages is plausible, but a one-bank count is easily gamed by the tenant, cash rent is invisible, and banks would have to sign a new computed attestation.",
+   "coherence": "The pieces fit, and the idea admits that the tenant picks the account, which weakens the proof.",
+   "novelty": "Rent payment history is adjacent to the known renting case but uses a different issuer (bank) and predicate.",
+   "provenance": "Both borrowings, limiting release to the purpose and stripping identifying fields, restate what any derived-count proof does and are decorative.",
+   "retention_law": "Landlords have no apparent duty to keep full statements, so the retention law test does not block it.",
+   "linkability": "A one-off signed count shown to a landlord carries little linkability risk.",
+   "issuer_unwilling": "Banks have little commercial reason to sign custom payment-regularity attestations for tenants.",
+   "no_wallet": "Tenants and small landlords would need new tooling, whereas a screenshot works today."
+  },
+  "rubric_score": 3,
+  "validity": 3,
+  "coherence": 4,
+  "novelty": 3,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "holds",
+   "linkability": "holds",
+   "issuer_unwilling": "fails",
+   "no_wallet": "unknown"
+  }
+ },
+ {
+  "review_id": "b05-3",
+  "reasons": {
+   "rubric": "Membership plus a single-use token is a clean predicate with a utility issuer, but the issuer ecosystem is narrow, frequency is low, and winners must give an address anyway.",
+   "validity": "Rebate draws exist, but the stated Taipower roll and bill uploads are speculative and the proof protects only the entry stage.",
+   "coherence": "Eligibility plus a nullifier fits an anonymous draw, and the limits are stated.",
+   "novelty": "It touches the utility subsidy case but with a draw and de-duplication framing, so it is mostly a variation.",
+   "provenance": "The separate-eligibility and single-use-token borrowings are both real mechanisms in the design, so they are faithful.",
+   "retention_law": "I cannot tell whether the city must retain applicant records for a subsidy, and an audit duty is plausible.",
+   "linkability": "Single-use tokens give de-duplication without tracking, which suits this design.",
+   "issuer_unwilling": "Taipower is a state-owned company that could sign rolls, but it has no obvious reason to build this for a small program.",
+   "no_wallet": "Entrants would need a wallet to enter a small draw, while a bill photo upload is trivial."
+  },
+  "rubric_score": 3,
+  "validity": 3,
+  "coherence": 4,
+  "novelty": 2,
+  "provenance_faithful": "yes",
+  "kill_tests": {
+   "retention_law": "unknown",
+   "linkability": "holds",
+   "issuer_unwilling": "unknown",
+   "no_wallet": "fails"
+  }
+ },
+ {
+  "review_id": "b05-4",
+  "reasons": {
+   "rubric": "A cross-issuer same-holder match is a complex multi-source predicate, frequency is very low, and consent files legally need identification anyway.",
+   "validity": "A paid study needing both a university and hospital claim is contrived, the IRB likely wants identification, and a hospital issuer of an eligibility claim is implausible.",
+   "coherence": "The idea gives its own weakness, that consent signatures need a real name, which undercuts the benefit to only ID and insurance numbers.",
+   "novelty": "Research recruiting with a two-issuer join is a moment no known case touches.",
+   "provenance": "The identifier-removal checklist and the whole-card exposure borrowings are loose analogies, and the idea reads the same without them.",
+   "retention_law": "Consent forms with a name and signature probably must be kept, which limits the benefit.",
+   "linkability": "A join proof between two issuers needs a shared binding, and the study office might link it to the consent file.",
+   "issuer_unwilling": "Hospitals and the insurer are unlikely to cooperate with a research recruiting flow.",
+   "no_wallet": "Participants would need a wallet and two credentials for a one-off study."
+  },
+  "rubric_score": 2,
+  "validity": 2,
+  "coherence": 3,
+  "novelty": 4,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "fails",
+   "linkability": "unknown",
+   "issuer_unwilling": "fails",
+   "no_wallet": "fails"
+  }
+ },
+ {
+  "review_id": "b05-5",
+  "reasons": {
+   "rubric": "A rank threshold is a simple predicate, but there is no trusted issuer commitment, the stakes are low, and the zkTLS route is an unofficial proof of a publisher response.",
+   "validity": "Smurf checks in community tournaments are real, but handing over credentials is not typical and publishers do not sign, so it rests on zkTLS fragility and Taiwan-specific need is thin.",
+   "coherence": "The idea notes that the proof must be bound to the entry handle, and that binding is hard in the zkTLS design.",
+   "novelty": "Gaming accounts are far from any known case.",
+   "provenance": "The borrowings, a service log of interests and juror anonymity, have no connection to a rank proof and are decorative.",
+   "retention_law": "No retention duty applies to an informal tournament organizer.",
+   "linkability": "A zkTLS proof can be tied to the handle by design and shown once per entry.",
+   "issuer_unwilling": "The publisher is not a willing issuer and may forbid session proofs in its terms.",
+   "no_wallet": "Players would need zkTLS tooling, and organizers will just accept a screenshot or in-game spectator check."
+  },
+  "rubric_score": 2,
+  "validity": 2,
+  "coherence": 3,
+  "novelty": 5,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "holds",
+   "linkability": "holds",
+   "issuer_unwilling": "fails",
+   "no_wallet": "fails"
+  }
+ },
+ {
+  "review_id": "b05-6",
+  "reasons": {
+   "rubric": "A same-person match across two institution-controlled credentials is a multi-source predicate with low frequency, and the host already issues its own account.",
+   "validity": "Reciprocal library access exists, but the host knows the visitor it registered, so a match proof adds little and the host's own lending log is its choice.",
+   "coherence": "The idea concedes both credentials are institution-controlled, which removes the independent-issuer premise of a join proof.",
+   "novelty": "University library and lab access is not on the known list.",
+   "provenance": "The borrowing of a log that is not a readable record of interests is a real motivation, but the juror-anonymity borrowing is decorative.",
+   "retention_law": "I cannot say whether libraries or labs must keep lending records, though the host may need an equipment-use log.",
+   "linkability": "Borrowing records can be unlinked from the national ID, but the host's own visitor account keeps them linkable across visits.",
+   "issuer_unwilling": "Universities that already trust each other can sign membership easily, but they have little reason to adopt new credentials.",
+   "no_wallet": "Students would need a wallet for an occasional visit, and a student card and visitor form already work."
+  },
+  "rubric_score": 2,
+  "validity": 2,
+  "coherence": 2,
+  "novelty": 4,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "unknown",
+   "linkability": "fails",
+   "issuer_unwilling": "unknown",
+   "no_wallet": "fails"
+  }
+ },
+ {
+  "review_id": "b05-7",
+  "reasons": {
+   "rubric": "Current employment of a signer is a simple status predicate with an employer issuer and revocation, but frequency is low and tender rules require identified signers and auditable files.",
+   "validity": "The company seal and authorisation letter are real tender practice, but verifiers want a named signer and a seal, so a proof only replaces ID copies and labor insurance records.",
+   "coherence": "Freshness at the opening date and revocation fit well, and the limit on anonymity is stated.",
+   "novelty": "Procurement is not on the known list, and the employer-authority claim is a new issuer and predicate, though it resembles the job and licence cases.",
+   "provenance": "The sealed-bid timing and identity-document borrowings loosely describe the setting, and the idea would read the same without them.",
+   "retention_law": "A bid file must be auditable and likely kept, which limits the benefit.",
+   "linkability": "The signer is identified by design, so unlinkability is not wanted and is not at stake.",
+   "issuer_unwilling": "Companies already issue seal letters and might issue a status credential, but they lack any current system for it.",
+   "no_wallet": "Bidders would need wallets and the procurement system would need to verify them, whereas the paper seal is fully accepted."
+  },
+  "rubric_score": 2,
+  "validity": 3,
+  "coherence": 4,
+  "novelty": 3,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "fails",
+   "linkability": "holds",
+   "issuer_unwilling": "unknown",
+   "no_wallet": "fails"
+  }
+ }
+]

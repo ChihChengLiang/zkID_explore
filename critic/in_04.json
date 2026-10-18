@@ -1,0 +1,149 @@
+[
+ {
+  "review_id": "b04-0",
+  "title": "Delivery-platform rating threshold for a building's package-room courier access",
+  "moment": "A freelance food or parcel courier (Uber Eats, foodpanda, Lalamove driver) applies to a Taipei residential community management committee (社區管委會) or a premium office building for a standing courier access pass, and the building wants evidence the courier is experienced and reliable.",
+  "verifier": "Community management office or building property manager issuing recurring courier access",
+  "predicate": "Platform account has at least 500 completed deliveries and a rating of at least 4.7 over the last 12 months",
+  "disclosed_today": "Full screenshots of the driver app showing real name, photo, vehicle plate, earnings, home-area zone, and sometimes the national ID photo copy for the access register",
+  "issuer": "The delivery platform's own driver account, attested through a zkTLS session over the driver app's stats page (platform did not agree to issue credentials)",
+  "why_zk": "A zkTLS proof can show only count and rating cross a bar without earnings or plate. Weak points: platform terms of service may forbid scraping or automated session replay, screenshots are the current norm and committees rarely care about privacy, and the proof only shows the platform's number, not that the person is who is at the door, so identity still needs a separate check.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The pattern that a venue captures a whole card or screen when it only needs one fact, and a statute-style field limit is the only protection today.",
+    "source_excerpt": "A venue must confirm that a person is over a threshold age from an identity document, but scanning captures the whole card, so the rule caps what is kept to a few fields and bans secondary use, while the holder still sees everything on the card at the moment of the scan. | mechanism: Statutory field-limit and retention ban on scan data, with a prohibition on sale or marketing dissemination; no proof-of-age mechanism that avoids reading the document."
+   },
+   {
+    "borrowed_aspect": "The gap where a verifier collects documents with no stated retention or copy rule, which a proof would avoid creating.",
+    "source_excerpt": "A bank must verify who a person is before opening an account, which means examining identity documents, but the cited rule does not say whether copies are kept or for how long. | mechanism: Dual identity-document inspection at account opening; retention and copy handling not specified in the cited text."
+   }
+  ]
+ },
+ {
+  "review_id": "b04-1",
+  "title": "Contagion-free window for a school or childcare return after an illness",
+  "moment": "A child returns to kindergarten or an after-school care centre (afterschool \"anqinban\") after hand-foot-mouth disease, influenza or another notifiable illness, and staff ask for the doctor's certificate to confirm the child is no longer contagious.",
+  "verifier": "Kindergarten, childcare centre or after-school class",
+  "predicate": "Hospital signs \"not contagious from date A\", valid for the school term week in which the child returns, and optionally \"not contagious through date B\" for rolling attendance.",
+  "disclosed_today": "The clinic certificate or medical receipt showing the diagnosis, sometimes the whole medical visit record, which is often photographed by staff and kept in a messaging group.",
+  "issuer": "Hospital or paediatric clinic.",
+  "why_zk": "The centre only needs to know the child may attend within a bounded period, not the diagnosis. Other parents' messaging groups and staff phones are where such records leak today. Honest limits: centres often have a legal duty to report notifiable diseases to health authorities, so some disclosure is legitimate and the proof can only replace the over-collection, not the reporting; parents of young children may have no wallet in place of the child.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "A record-keeping duty that relies on each institution's good policy rather than technical limits, which a timed proof would replace with a technical limit.",
+    "source_excerpt": "A service provider must keep a record of who used what without that record becoming a readable log of a person's interests, but the duty is a recommended policy that depends on each institution adopting it and on courts or subpoenas being resisted. | mechanism: Institutional confidentiality policy plus procedures for handling subpoenas and law-enforcement requests; no technical minimization of records is specified."
+   },
+   {
+    "borrowed_aspect": "The problem that a check ends up capturing the whole document and needs a cap on what is retained.",
+    "source_excerpt": "A venue must confirm that a person is over a threshold age from an identity document, but scanning captures the whole card, so the rule caps what is kept to a few fields and bans secondary use, while the holder still sees everything on the card at the moment of the scan. | mechanism: Statutory field-limit and retention ban on scan data, with a prohibition on sale or marketing dissemination; no proof-of-age mechanism that avoids reading the document."
+   }
+  ]
+ },
+ {
+  "review_id": "b04-2",
+  "title": "Fit-to-fly / low-infection-risk window for a cruise or group-tour boarding",
+  "moment": "A traveller boards a cruise ship at Keelung or joins a group tour, and the operator asks for a recent negative test, a vaccination record or a doctor's note showing no infectious illness in the last few days.",
+  "verifier": "Cruise line or tour operator boarding desk",
+  "predicate": "Hospital attests \"cleared of notifiable infectious condition\" and the attestation is valid only for the 72 hours around departure (valid-from / valid-to window), nothing else.",
+  "disclosed_today": "Full lab report or clinic certificate with name, ID number, diagnosis context, test type, clinic and physician, kept as a photocopy or photo by the operator.",
+  "issuer": "Hospital or its outpatient clinic, signing a short-lived status credential into the digital wallet.",
+  "why_zk": "The operator only needs a yes/no that is true on departure day, and the proof should expire by itself instead of becoming a stored medical file. Weak points to be honest about: operators may be required by quarantine or port rules to keep records, and a hospital would need to issue such a status in real time, which is not standard practice.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "A single yes/no claim proved without revealing the underlying record, with no tracking by issuer or verifier.",
+    "source_excerpt": "A gatekeeper needs one yes/no fact about a holder, and the proof it receives must not reveal the underlying birth date or let the issuer or the gatekeeper track the holder. | mechanism: Zero-knowledge proof on ISO 18013-7 mdocs for an over-18 statement, device-bound transactions, no server-side storage of credential data."
+   },
+   {
+    "borrowed_aspect": "The idea that a host should check a document and not keep a copy of it, applied to travellers' health papers.",
+    "source_excerpt": "A host must confirm a visitor's identity and eligibility, but the usual practice is to keep a copy of the whole identity document; the regulator says looking at it is enough. | mechanism: Visual inspection of the identity document with no copy taken; the statutory duty is met by checking, not retaining."
+   }
+  ]
+ },
+ {
+  "review_id": "b04-3",
+  "title": "Not a sex-offender-registry entry when joining a cram school or sports club as a part-time coach",
+  "moment": "A university student or retiree applies as an after-school tutor, swim coach, or children's activity assistant, and the employer asks for a police criminal-record certificate and a check against child-protection restriction lists before the first class.",
+  "verifier": "Cram school (補習班), sports club, or after-school care operator",
+  "predicate": "Holder does not appear on the sexual-offense or child-protection employment-restriction register (性侵害加害人 / 兒少性剝削 登記查閱名單) at issuance time",
+  "disclosed_today": "A police good-conduct certificate (良民證) or a similar paper listing full name, ID number, birth date and a statement about the full criminal-record status, which can expose unrelated, old, or expunged entries",
+  "issuer": "Ministry of the Interior Police Administration (內政部警政署) or the competent local education or social-welfare bureau",
+  "why_zk": "The employer's legitimate need is only absence from the restriction register; a good-conduct certificate shows more than that, including minor records unrelated to children. Weakness: Taiwanese child-protection law already obliges employers to query specific lists through official channels, and the legally required check may have to be performed by the employer directly with the authority rather than accepting a holder's proof, so a wallet proof may be legally insufficient unless regulations are updated. Freshness is also critical here, because a register entry added after the proof was signed would be missed.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "A single yes/no fact delivered so that neither the verifier nor the issuer can track the holder.",
+    "source_excerpt": "A gatekeeper needs one yes/no fact about a holder, and the proof it receives must not reveal the underlying birth date or let the issuer or the gatekeeper track the holder. | mechanism: Zero-knowledge proof on ISO 18013-7 mdocs for an over-18 statement, device-bound transactions, no server-side storage of credential data."
+   },
+   {
+    "borrowed_aspect": "The warning that a request category can bundle extra fields (issuer, photo), which here mirrors the good-conduct certificate bundling unrelated record details.",
+    "source_excerpt": "A verifier wants a single over-threshold fact, but the request category bundles the issuing authority and a face photo with it, so the verifier can receive more than the age claim. | mechanism: Age Over N Flag as a separate requestable value under an entitlement-gated API; no shared name or address."
+   }
+  ]
+ },
+ {
+  "review_id": "b04-4",
+  "title": "Active-worker status for a gig or dispatch platform's insurance and shift eligibility",
+  "moment": "A person signs up for evening shifts through a staffing or delivery platform and the platform asks them to upload an ID copy and a letter from their main employer to confirm that they are still employed elsewhere and so covered by labour insurance, avoiding duplicate enrolment.",
+  "verifier": "Staffing, gig or delivery platform onboarding team (人力派遣 / 外送平台)",
+  "predicate": "Person is currently enrolled and active with a primary employer today, so the platform need not enrol them separately; no employer identity or pay is revealed.",
+  "disclosed_today": "ID copy with address, a letter or labour-insurance record naming the primary employer, sometimes pay records.",
+  "issuer": "The primary employer, signing an 'active insured employee' status and revoking it on separation.",
+  "why_zk": "The platform needs a current yes or no on active coverage, and a stale letter is useless for this. A revocable employer signature gives freshness, and hides the main employer, which the worker may not want a side-job platform to know (and some contracts restrict moonlighting). Honest weakness: the platform may be legally entitled to query labour-insurance records directly, and the worker may not want the primary employer to know a status was issued at all, since issuing could itself tip off the employer.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "A service demanding identity documents under threat of suspension without stating purpose or offering a lighter alternative.",
+    "source_excerpt": "A service needs to confirm a subscriber's payment, but it demands an identity document and address proof, and threatens suspension if the user refuses, without stating the purpose or necessity. | mechanism: None; the complaint notes no stated purpose or less-intrusive alternative was offered."
+   }
+  ]
+ },
+ {
+  "review_id": "b04-5",
+  "title": "Disaster-relief priority for households on the medical-equipment power-dependent roll",
+  "moment": "During a typhoon outage or planned rolling blackout, a household that depends on home ventilators or oxygen concentrators wants priority for restoration or a generator loan from the local fire or health station. Staff ask people to send the address, a medical certificate, and electricity bill by chat or phone.",
+  "verifier": "District fire department or public health center distributing priority generators",
+  "predicate": "The account is a member of Taipower's registered power-dependent medical-use customer roll",
+  "disclosed_today": "Address, diagnosis or medical certificate, bill, and sometimes a photo of the device",
+  "issuer": "Taipower (maintains the priority-restoration list for medical-equipment households)",
+  "why_zk": "The responder only needs to know that the household is on the priority roll; diagnosis and usage are sensitive health data that spread across chat groups during emergencies. Weakness: in an emergency the responder usually needs the location to dispatch, so the proof can gate eligibility but cannot replace address sharing, and mobile coverage and wallet access fail during outages. Use it for pre-registration and fair queueing, not dispatch.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "Handling an identifying wrapper (the account) without exposing the content, with a designated-official exception when disclosure is truly needed.",
+    "source_excerpt": "A party submits a value that must stay hidden from competitors until a fixed moment, while the holder of the submissions must be able to prove later that none were seen early and must handle identifying wrappers without exposing the content. | mechanism: Physical and access-control safeguarding of sealed bids with designated-official exception for envelope identification, plus a written record of any mistaken early opening."
+   },
+   {
+    "borrowed_aspect": "The failure pattern of demanding a full document copy when no less-intrusive alternative is offered.",
+    "source_excerpt": "A foreign investor must prove that its local agent is a real, identified person, and the agent hands over a full copy of an ID card, with no alternative verification stated. | mechanism: None stated; full ID copy required with no less-intrusive alternative given."
+   }
+  ]
+ },
+ {
+  "review_id": "b04-6",
+  "title": "One Lunar New Year red-envelope or limited-edition drop claim per person on a Taiwanese convenience-store app",
+  "moment": "A convenience-store or delivery app in Taiwan releases a limited batch of free coffee coupons or a collectible item at a set hour, and people create many throwaway accounts with prepaid SIM numbers to grab several.",
+  "verifier": "A convenience-store chain loyalty app operator running a limited-quantity promotion.",
+  "predicate": "The claimant holds exactly one active, real-name-registered mobile subscription, and this promotion-specific nullifier has not been used before.",
+  "disclosed_today": "Mobile phone number (verified by SMS OTP), often name, birthday, email, and device ID; the phone number itself links the account to a person across every other service.",
+  "issuer": "A Taiwanese mobile carrier (real-name SIM registration holder).",
+  "why_zk": "A telco-signed one-subscriber credential with a per-campaign nullifier lets the operator enforce one claim per person without receiving the phone number. Honest caveat: real-name SIM registration allows one person to hold several lines, so uniqueness would be per-line unless the telco attests one credential per national ID; prepaid and corporate lines weaken it further. Operators also like the phone number for marketing, so the incentive to adopt is weak.",
+  "claimed_borrowings": []
+ },
+ {
+  "review_id": "b04-7",
+  "title": "Showing a nanny or tutor is not on the sex-offender notification register",
+  "moment": "A parent hires a private after-school tutor, a babysitter from a platform, or a cram-school teaches a trial class, and the hiring side wants assurance the person is not on the sexual-offender registry (性侵害加害人登記). Today they ask for a police record certificate (良民證) from the candidate.",
+  "verifier": "A parent, a childcare or tutoring platform, or a small cram-school owner",
+  "predicate": "The holder is not on the sexual-offence offender registration or notification list (non-membership), plus the signing authority and date.",
+  "disclosed_today": "A full criminal-record certificate, which can reveal unrelated old convictions, offences already expunged in practice, and the candidate's complete identity details, and is photocopied and kept by the employer.",
+  "issuer": "Ministry of the Interior (police administration), or the Ministry of Justice for the criminal record side",
+  "why_zk": "A narrow non-membership claim says only that the person is not on this specific register, instead of handing over a whole record that lets an employer judge unrelated matters. Weakness, stated honestly. For jobs covered by child-protection law, the employer is legally required to check specific registries and may be entitled to the fuller record, so the narrow proof would not replace the legal check, and informal parents may actually want more than a register absence. The proof also covers only the registry, not every risk, so it can give false comfort.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "A record that identifies a person should not become a readable file kept by the collector; the verifier here keeps only a yes bit and not a copied certificate.",
+    "source_excerpt": "A service provider must keep a record of who used what without that record becoming a readable log of a person's interests, but the duty is a recommended policy that depends on each institution adopting it and on courts or subpoenas being resisted. | mechanism: Institutional confidentiality policy plus procedures for handling subpoenas and law-enforcement requests; no technical minimization of records is specified."
+   },
+   {
+    "borrowed_aspect": "The open-ended exception that lets collectors keep data they say they need, which is the reason a proof that never hands over the data is stronger than a promise to delete it.",
+    "source_excerpt": "A party that has collected a person's data must delete it once the reason for holding it ends, but an open-ended exception lets it keep the data whenever it says it still needs it for its own duties. | mechanism: Statutory deletion-on-purpose-lapse duty with exceptions for lawful duties or written consent; no technical erasure mechanism specified."
+   }
+  ]
+ }
+]

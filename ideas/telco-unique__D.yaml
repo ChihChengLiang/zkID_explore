@@ -1,0 +1,38 @@
+- title: One-per-person lottery entry for convenience-store and department-store promotions
+  moment: A person enters an online draw (for example a 7-Eleven or anniversary-sale prize draw) that is limited to one entry per person, and the organizer wants to stop people from entering with many throwaway phone numbers.
+  verifier: A retailer or the marketing agency running the promotion campaign page.
+  predicate: This entrant holds exactly one real, active postpaid or verified prepaid subscription, and has not entered this campaign before (campaign-scoped uniqueness tag).
+  disclosed_today: Mobile phone number, an SMS one-time code, often name, email and sometimes national ID number or the last digits of it, all stored in the campaign database.
+  issuer: A Taiwanese mobile carrier (such as Chunghwa Telecom, Taiwan Mobile or FarEasTone), which already registers every SIM against a real-name identity.
+  why_zk: A campaign-scoped nullifier gives one entry per person without handing the retailer a phone number or ID that it can resell or leak. Weakness: SIM real-name rules let one person hold several lines, so the telco must sign one credential per natural person rather than per line, which it may not be willing to do. Also prize-tax rules (winners above a threshold must give ID for tax withholding) mean identity is collected anyway at the prize stage, though that applies only to winners.
+  inspired_by:
+    - seed_id: an-a-samesite-cookies
+      borrowed_aspect: The idea that a credential should be matchable only within the one context that asked for it, not across unrelated sites, which became the per-campaign scoped nullifier.
+    - seed_id: an-b-census-title13
+      borrowed_aspect: The aim of getting a count of distinct people without any output that singles out a particular respondent.
+
+- title: One vote per resident in a building or community management committee online poll
+  moment: An apartment community (a Taiwanese condominium management committee) runs an online vote on a repair levy or elevator replacement, and wants each household member or owner-resident counted once without a roll of who voted how.
+  verifier: The condominium management committee or its property management company.
+  predicate: The voter is one unique real subscriber and has not already cast a ballot in this poll (poll-scoped uniqueness), with no phone number or name revealed.
+  disclosed_today: Name, unit number, phone number, LINE ID, and often a photo of the national ID or the property deed sent through a group chat.
+  issuer: A telco that can sign the person as one real subscriber; ownership or residency would still need a separate attestation.
+  why_zk: Residents often fear neighbors learning how they voted on money disputes, and today the committee chair sees everyone's LINE and phone. A scoped uniqueness proof stops duplicate voting by one person with several numbers. Honest weakness: a telco credential proves only one person, not that the person lives in or owns a unit in this building, so this idea is weak unless combined with an owner or residency credential, and Taiwan's condominium law has its own rules on proxy and written ballots that may require named records.
+  inspired_by:
+    - seed_id: an-b-jury-selection
+      borrowed_aspect: The tension that a default of publishing who participated can flip to full exposure, with confidentiality only by exception, which motivated making ballot privacy the default.
+    - seed_id: an-b-attorney-client
+      borrowed_aspect: The point that outsiders in the room break confidentiality, here the property manager and group-chat members who see everything.
+
+- title: Single free-trial or first-order coupon per person on food delivery and ride apps
+  moment: A person signs up for a food delivery or ride-hailing app and claims the new-user discount or first-month free trial, which the platform wants to limit to one per human instead of one per phone number or email.
+  verifier: A delivery or mobility platform's promotion service.
+  predicate: The claimant is a unique real subscriber who has not claimed this platform's new-user offer before (platform-scoped nullifier), without the platform learning which subscriber.
+  disclosed_today: Phone number with SMS code, device ID, payment card fingerprint, sometimes the name and the national ID on a verification step; the platform links all of it to the account.
+  issuer: A Taiwanese mobile carrier, signing a per-person subscriber credential.
+  why_zk: Platforms fight promotion abuse with phone numbers that are cheap to obtain, and the collected numbers become a cross-platform tracking key. A scoped nullifier gives abuse resistance without a shared identifier between platforms. Honest weakness: platforms already accept the abuse cost as marketing spend and use device and payment signals anyway, so the demand for a stronger proof is low, and the telco's incentive to issue such credentials is unclear.
+  inspired_by:
+    - seed_id: an-a-tor-onion
+      borrowed_aspect: Splitting knowledge so that no one party (platform or issuer) holds both who the person is and where they used the credential.
+    - seed_id: an-a-samesite-cookies
+      borrowed_aspect: Limiting a stable identifier to its own context so third parties cannot link the holder across services.

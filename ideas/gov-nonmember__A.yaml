@@ -1,0 +1,24 @@
+- title: Pet boarding and grooming intake without exposing owner's animal-abuse record
+  moment: Booking a multi-day stay at a pet hotel or applying to adopt from a private shelter; the operator wants assurance the person is not on the registered list of those penalized under the Animal Protection Act (e.g., banned from keeping animals).
+  verifier: Pet hotel, private rescue group, or adoption platform
+  predicate: Holder is not on the competent authority's register of persons prohibited from keeping or adopting animals (non-membership in a sanction list).
+  disclosed_today: Full ID card photo, name, address, phone, sometimes a hand-written declaration; shelters may also ask for household and employment details.
+  issuer: Ministry of Agriculture / local animal protection office (Animal Protection Act enforcement)
+  why_zk: Weak-to-moderate. Today no public, queryable register exists for private operators, so the authority would first have to publish a signed absence attestation, which needs legislative backing. Private shelters collect ID mainly for contact and identification, not only for the ban check, so ZK removes only part of the over-collection. Still, an absence-only proof avoids storing ID copies in small businesses with weak data hygiene.
+  inspired_by: []
+- title: Tenant screening without handing over full ID for a stalking or protection-order check
+  moment: A landlord or a shared-housing (cohabitation) operator screens a prospective roommate or tenant in a female-only or family-oriented building and wants to know the applicant is not subject to an active protection order or sex-offender community notification/registration under the Sexual Assault Crime Prevention Act.
+  verifier: Landlord, shared-housing operator, or rental platform
+  predicate: Holder does not appear on the sex-offender registration/notification register nor is subject to an active protection order restricting residence near others.
+  disclosed_today: ID card copy, household registration transcript, criminal record certificate (which shows far more than needed), employer letter, sometimes family details.
+  issuer: Ministry of the Interior / National Police Agency, or Judicial Yuan for court orders
+  why_zk: Legally weak and sensitive: Taiwan law restricts disclosure of such registers and operators are not entitled to ask about them in general, so any use would need an explicit statutory carve-out and risks discrimination and rehabilitation harms. The honest case is that where a police clearance is already requested, an absence-only proof is far less intrusive than a full criminal record certificate, which reveals every conviction.
+  inspired_by: []
+- title: Joining a community or school volunteer role without disclosing a full police record
+  moment: Signing up as an after-school tutor, a temple or community-centre volunteer, or a sports coach for minors; the organisation must confirm the person is not on the list of those barred from working with children under child and youth welfare rules, but today collects the full non-criminal-record certificate.
+  verifier: Cram school, community association, sports club, or school volunteer coordinator
+  predicate: Holder is not on the register of persons barred from working with children and youths (e.g., convicted of listed offences or subject to employment bans).
+  disclosed_today: Police criminal record certificate (with full history of conviction categories), national ID number, home address, photo, sometimes household registration transcript.
+  issuer: Ministry of Health and Welfare / Ministry of Education (employment-ban registers), via Ministry of Justice records
+  why_zk: Strongest of the three: a legal duty to check already exists in some settings, and the record certificate over-discloses. A signed non-membership claim limited to the relevant ban list would satisfy the duty while keeping unrelated old or minor entries private. Hurdles are that the legal check is sometimes defined as a specific certificate form, so rules would need to accept the proof, and freshness (short validity or revocation) matters because bans can be imposed after issuance.
+  inspired_by: []

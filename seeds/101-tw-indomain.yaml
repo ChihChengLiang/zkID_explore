@@ -1,0 +1,407 @@
+- id: tw-pdpa-art5-purpose-limit
+  problem: 個資法第5條要求蒐集、處理或利用個人資料不得逾越特定目的之必要範圍，並應與蒐集目的具正當合理之關聯。
+  abstract_problem: A rule requires anyone collecting personal data to stay within the necessary scope
+    of its stated purpose, but it gives no concrete way to show what was necessary, so the collector decides
+    what counts as necessary.
+  mechanism: Legal purpose-limitation and proportionality principle; no technical mechanism specified.
+  mechanism_outcome: partial
+  domain: data-protection-law
+  distance_class: in-domain
+  source:
+    type: regulation
+    title: 個人資料保護法 第5條
+    url: https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=I0050021
+    locator: 第 5 條
+    jurisdiction: TW
+    lang: zh
+    retrieved_on: '2026-10-18'
+  evidence:
+    quote: 個人資料之蒐集、處理或利用，應尊重當事人之權益，依誠實及信用方法為之，不得逾越特定目的之必要範圍，並應與蒐集之目的具有正當合理之關聯。
+    quote_verified: true
+    snapshot: snapshots/tw-pdpa-act-full.txt
+  axes:
+    issuer_type:
+    - none
+    predicate_type:
+    - threshold
+    regime:
+    - tw-pdpa
+    harm:
+    - none-observed
+  extraction:
+    agent: tw-indomain
+    date: '2026-10-18'
+  status: draft
+- id: tw-pdpa-art11-3-deletion-exception
+  problem: 個資法第11條第3項：特定目的消失或期限屆滿時應刪除，但因執行職務或業務所必須或經書面同意者不在此限。
+  abstract_problem: A party that has collected a person's data must delete it once the reason for holding
+    it ends, but an open-ended exception lets it keep the data whenever it says it still needs it for
+    its own duties.
+  mechanism: Statutory deletion-on-purpose-lapse duty with exceptions for lawful duties or written consent;
+    no technical erasure mechanism specified.
+  mechanism_outcome: partial
+  domain: retention-duties
+  distance_class: in-domain
+  source:
+    type: regulation
+    title: 個人資料保護法 第11條第3項
+    url: https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=I0050021
+    locator: 第 11 條第 3 項
+    jurisdiction: TW
+    lang: zh
+    retrieved_on: '2026-10-18'
+  evidence:
+    quote: 個人資料蒐集之特定目的消失或期限屆滿時，應主動或依當事人之請求，刪除、停止處理或利用該個人資料。但因執行職務或業務所必須或經當事人書面同意者，不在此限。
+    quote_verified: true
+    snapshot: snapshots/tw-pdpa-act-full.txt
+  axes:
+    issuer_type:
+    - none
+    predicate_type:
+    - time-bounded
+    regime:
+    - tw-pdpa
+    harm:
+    - none-observed
+  extraction:
+    agent: tw-indomain
+    date: '2026-10-18'
+  status: draft
+- id: tw-gov-household-register-original-only
+  problem: 請領戶籍謄本時，申請人或利害關係人親自申請須繳驗身分證明文件正本，利害關係證明亦須正本。
+  abstract_problem: A person asking an agency for a record must prove identity; the rule specifies inspecting
+    the original card rather than handing over a copy, and it does not say the agency retains anything.
+  mechanism: Original identity document shown for in-person inspection; the checklist states no retention
+    or copy requirement.
+  mechanism_outcome: works
+  domain: civil-registry
+  distance_class: in-domain
+  source:
+    type: over-collection-artifact
+    title: 戶政業務申辦須知：請領（閱覽）戶籍謄本及戶籍檔案原始資料（內政部戶政司）
+    url: https://www.ris.gov.tw/documents/html/2/3/5/390.html
+    locator: 應備證件
+    jurisdiction: TW
+    lang: zh
+    retrieved_on: '2026-10-18'
+  evidence:
+    quote: 當事人、利害關係人親自申請者，應繳驗身分證明文件正本；利害關係人應併繳驗利害關係證明文件正本。
+    quote_verified: true
+    snapshot: snapshots/tw-gov-ris-hh-guidance.txt
+  axes:
+    issuer_type:
+    - government
+    predicate_type:
+    - membership
+    regime:
+    - none-stated
+    harm:
+    - none-observed
+  extraction:
+    agent: tw-indomain
+    date: '2026-10-18'
+  status: draft
+- id: tw-gov-household-register-proxy-copy-discretion
+  problem: 內政部函釋：戶政事務所受理委託申請戶籍謄本時，得為蒐集委託人身分證明文件影本，並可斟酌裁量所需附繳證明。
+  abstract_problem: A government office that holds a record may ask a proxy's requester for a copy of
+    the principal's identity document, and the scope of what it may collect is left to the office's discretion.
+  mechanism: None stated; collection of document copies left to agency discretion under PDPA and administrative
+    procedure rules.
+  mechanism_outcome: fails
+  domain: civil-registry
+  distance_class: in-domain
+  source:
+    type: regulation
+    title: 內政部 函釋：受委託申請戶籍謄本應否繳驗委託人身分證明文件影本（臺北市法規查詢系統 FE266519）
+    url: https://laws.gov.taipei/law/Interpretation/Content/FE266519
+    locator: 說明二、三
+    jurisdiction: TW
+    lang: zh
+    retrieved_on: '2026-10-18'
+  evidence:
+    quote: 即得為蒐集、處理申請人之個人資料（例如繳 驗委託人身分證明文件影本）
+    quote_verified: true
+    snapshot: snapshots/tw-gov-hh-register-interp.txt
+  axes:
+    issuer_type:
+    - government
+    predicate_type:
+    - membership
+    regime:
+    - tw-pdpa
+    harm:
+    - none-observed
+  extraction:
+    agent: tw-indomain
+    date: '2026-10-18'
+  status: draft
+- id: tw-platform-gym-id-card-copies-interp
+  problem: 健身中心於簽立會員契約時要求消費者提供身分證正反面影本及信用卡正反面影本，是否逾越特定目的必要範圍。
+  abstract_problem: A service provider signing up a customer must check identity and payment, but it asks
+    for full front-and-back copies of identity and card documents, and the regulator leaves whether that
+    exceeds the purpose to case-by-case fact-finding.
+  mechanism: None stated; the letter says less-intrusive alternatives must be considered but names none.
+  mechanism_outcome: unknown
+  domain: data-protection-law
+  distance_class: in-domain
+  source:
+    type: regulation
+    title: 法務部 106.02.08 法律字第10603500600號函（健身中心會員契約身分證影本）
+    url: https://laws.gov.taipei/law/Interpretation/ContentPrint/FE295010?type=5
+    locator: 要旨
+    jurisdiction: TW
+    lang: zh
+    retrieved_on: '2026-10-18'
+  evidence:
+    quote: 健身中心業者於簽立會員契約時，要求消費者提供身分證正反面影本
+    quote_verified: true
+    snapshot: snapshots/tw-gov-interp-fe295010.txt
+  axes:
+    issuer_type:
+    - none
+    predicate_type:
+    - membership
+    regime:
+    - tw-pdpa
+    harm:
+    - none-observed
+  extraction:
+    agent: tw-indomain
+    date: '2026-10-18'
+  status: draft
+- id: tw-bank-deposit-dual-id-check
+  problem: 金管會函釋：金融機構受理開立存款帳戶，應實施雙重身分證明文件查核及確認客戶身分之措施，以防制金融犯罪。
+  abstract_problem: A bank must verify who a person is before opening an account, which means examining
+    identity documents, but the cited rule does not say whether copies are kept or for how long.
+  mechanism: Dual identity-document inspection at account opening; retention and copy handling not specified
+    in the cited text.
+  mechanism_outcome: partial
+  domain: kyc-aml
+  distance_class: in-domain
+  source:
+    type: regulation
+    title: 金管會 函釋（引 94.5.12 金管銀（一）字第 0941000316 號函，臺北市法規查詢系統 FE274999）
+    url: https://laws.gov.taipei/law/Interpretation/Content/FE274999
+    locator: 說明二
+    jurisdiction: TW
+    lang: zh
+    retrieved_on: '2026-10-18'
+  evidence:
+    quote: 應實施雙重身分證明文件查核及確認客戶身分
+    quote_verified: true
+    snapshot: snapshots/tw-gov-interp-fe274999.txt
+  axes:
+    issuer_type:
+    - bank
+    predicate_type:
+    - membership
+    regime:
+    - aml-kyc-retention
+    harm:
+    - none-observed
+  extraction:
+    agent: tw-indomain
+    date: '2026-10-18'
+  status: draft
+- id: tw-securities-foreign-agent-id-copy
+  problem: 境外華僑及外國人經國內代理人辦理證券開戶時，代理人須檢附國民身分證或居留證影本。
+  abstract_problem: A foreign investor must prove that its local agent is a real, identified person, and
+    the agent hands over a full copy of an ID card, with no alternative verification stated.
+  mechanism: None stated; full ID copy required with no less-intrusive alternative given.
+  mechanism_outcome: fails
+  domain: kyc-aml
+  distance_class: in-domain
+  source:
+    type: kyc-process-doc
+    title: 臺灣證券交易所 境外華僑及外國人 開戶作業（券商開戶作業）
+    url: https://www.twse.com.tw/zh/page/investor/foreign/03b.html
+    locator: 券商開戶作業 1
+    jurisdiction: TW
+    lang: zh
+    retrieved_on: '2026-10-18'
+  evidence:
+    quote: 國內代理人或代表人之國民身分證、居留證影本或公司登記後之證明文件影本
+    quote_verified: true
+    snapshot: snapshots/tw-securities-twse-foreign-agent.txt
+  axes:
+    issuer_type:
+    - bank
+    predicate_type:
+    - membership
+    regime:
+    - aml-kyc-retention
+    harm:
+    - none-observed
+  extraction:
+    agent: tw-indomain
+    date: '2026-10-18'
+  status: draft
+- id: tw-platform-google-id-upload-complaint
+  problem: 訂閱用戶付款正常卻被要求上傳身分證與含住址帳單，否則帳戶將停權；消基會認為已過度蒐集個資。
+  abstract_problem: A service needs to confirm a subscriber's payment, but it demands an identity document
+    and address proof, and threatens suspension if the user refuses, without stating the purpose or necessity.
+  mechanism: None; the complaint notes no stated purpose or less-intrusive alternative was offered.
+  mechanism_outcome: fails
+  domain: web-anti-abuse
+  distance_class: in-domain
+  source:
+    type: practitioner-complaint
+    title: 工商時報：Google帳戶驗證要「上傳身分證」 消基會批：過度蒐集個資
+    url: https://www.ctee.com.tw/news/20260122701929-431401
+    locator: news article, 2026.01.22
+    jurisdiction: TW
+    lang: zh
+    retrieved_on: '2026-10-18'
+  evidence:
+    quote: 若僅涉及訂閱付款驗證，要求提供身分證與住址資料，顯已超出合理必要範圍，恐構成過度蒐集。
+    quote_verified: true
+    snapshot: snapshots/tw-complaint-ctee-google-id.txt
+  axes:
+    issuer_type:
+    - none
+    predicate_type:
+    - membership
+    regime:
+    - tw-pdpa
+    harm:
+    - exclusion
+  extraction:
+    agent: tw-indomain
+    date: '2026-10-18'
+  status: draft
+- id: tw-telco-online-id-check-fraud-2021
+  problem: 詐騙集團以竊取的身分證資料在電信線上平台申辦門號，電信業者僅審查身分證號與換發日期即通過認證，造成上百人受害。
+  abstract_problem: A provider must verify that a new applicant is the named person, but its check uses
+    identifiers that are easy to copy, so a stolen identity passes and the real person bears the consequences.
+  mechanism: None; online verification only checked ID number and issue date.
+  mechanism_outcome: fails
+  domain: kyc-aml
+  distance_class: in-domain
+  source:
+    type: harm-case
+    title: iThome：利用國內各大電信業者在線上申辦時的身分查核不足，犯嫌結合冒領門號、小額付款與自動扣繳取財，上百人受害
+    url: https://www.ithome.com.tw/news/145976
+    locator: article dated 2021-08-02
+    jurisdiction: TW
+    lang: zh
+    retrieved_on: '2026-10-18'
+  evidence:
+    quote: 僅審查身分證號與換發日期即通過認證
+    quote_verified: true
+    snapshot: snapshots/tw-harm-ithome-telco-fake-accounts.txt
+  axes:
+    issuer_type:
+    - telco
+    predicate_type:
+    - membership
+    regime:
+    - none-stated
+    harm:
+    - breach
+    - scam
+  extraction:
+    agent: tw-indomain
+    date: '2026-10-18'
+  status: draft
+- id: tw-gov-id-number-reissue-misuse-2025
+  problem: 身分證遺失並掛失換發新證後，同一身分證號碼仍被他人持續冒用，當事人遭罰單與討債困擾。
+  abstract_problem: Once the number that identifies a person leaks, reissuing the physical card does not
+    stop someone presenting the same number, so verifiers that check the number and a photo can be fooled.
+  mechanism: None; reissuing the card does not change the number.
+  mechanism_outcome: fails
+  domain: civil-registry
+  distance_class: in-domain
+  source:
+    type: harm-case
+    title: TVBS健康2.0：身分證不見已報案掛失仍遭冒用 她連收罰單還被討債！（2025-03-25）
+    url: https://health.tvbs.com.tw/nutrition/353806
+    locator: article dated 2025-03-25
+    jurisdiction: TW
+    lang: zh
+    retrieved_on: '2026-10-18'
+  evidence:
+    quote: 盡管換發新的身分證，但身分證號碼不會改變
+    quote_verified: true
+    snapshot: snapshots/tw-harm-tvbs-lost-id-misused.txt
+  axes:
+    issuer_type:
+    - government
+    predicate_type:
+    - membership
+    regime:
+    - none-stated
+    harm:
+    - breach
+  extraction:
+    agent: tw-indomain
+    date: '2026-10-18'
+  status: draft
+- id: tw-telco-sim-live-photo-retention
+  problem: 依NCC指引，初次申辦行動門號者必須即時拍照留存，不願配合者門市應拒絕辦理。
+  abstract_problem: A provider must confirm a new subscriber's identity before activating a service; the
+    rule requires capturing a live photo of the person at point of sale, with no stated limit on retention.
+  mechanism: None minimal; in-store photo capture required, no retention limit or less-intrusive alternative
+    stated.
+  mechanism_outcome: fails
+  domain: kyc-aml
+  distance_class: in-domain
+  source:
+    type: deployment
+    title: 電腦王阿達：中華電信與遠傳電信全面實施申辦門號須留存到店影像!
+    url: https://www.koc.com.tw/archives/518761
+    locator: NCC新規定 section
+    jurisdiction: TW
+    lang: zh
+    retrieved_on: '2026-10-18'
+  evidence:
+    quote: 要求初次申辦行動通信門號者必須即時拍照留存
+    quote_verified: true
+    snapshot: snapshots/tw-telco-koc-prepaid-kyc.txt
+  axes:
+    issuer_type:
+    - telco
+    predicate_type:
+    - membership
+    regime:
+    - aml-kyc-retention
+    harm:
+    - none-observed
+  extraction:
+    agent: tw-indomain
+    date: '2026-10-18'
+  status: draft
+- id: tw-gov-uid-duplicate-minimal-disclosure
+  problem: 金融機構因國民身分證統一編號重複申請網路銀行而生爭議，欲索取重配後統號；內政部函釋戶政僅可告知有無重複。
+  abstract_problem: A party asks a registry for identity-number information to settle a dispute; the registry
+    could disclose the full reassigned value, but a narrower answer, whether a duplicate exists, is enough
+    to settle it.
+  mechanism: Registry reports only whether the number is duplicated, not the reassigned number; the bank
+    marks its own internal record instead.
+  mechanism_outcome: works
+  domain: civil-registry
+  distance_class: in-domain
+  source:
+    type: regulation
+    title: 內政部 107.10.30 台內戶字第1071204042號函（臺北市法規查詢系統 FE318709）
+    url: https://laws.gov.taipei/law/Interpretation/Content/FE318709
+    locator: 說明三
+    jurisdiction: TW
+    lang: zh
+    retrieved_on: '2026-10-18'
+  evidence:
+    quote: 戶政事務所得僅告知國民身分證統一編號有無重複，而不提供 其變更之統號
+    quote_verified: true
+    snapshot: snapshots/tw-bank-account-id-image.txt
+  axes:
+    issuer_type:
+    - government
+    predicate_type:
+    - uniqueness
+    regime:
+    - tw-pdpa
+    harm:
+    - none-observed
+  extraction:
+    agent: tw-indomain
+    date: '2026-10-18'
+  status: draft

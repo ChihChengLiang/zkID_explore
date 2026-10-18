@@ -1,0 +1,123 @@
+[
+ {
+  "review_id": "b07-0",
+  "title": "Proving not being on the court-ordered debtor restriction list when taking a school-bus or after-school care contract",
+  "moment": "A parent enrolling a child with a private after-school care or school-bus operator is asked for a guarantor or prepayment, and the operator wants assurance the parent is not under a court-ordered restriction (such as a debtor under compulsory enforcement or restricted from leaving the country). It is applied as a general screen by some operators.",
+  "verifier": "Private after-school care or school-bus operator",
+  "predicate": "The parent is NOT on the compulsory-enforcement debtor register maintained by the courts.",
+  "disclosed_today": "Parent's ID copy, contact details, sometimes bank account statement or proof of employment to show solvency.",
+  "issuer": "Judicial Yuan / district court enforcement office.",
+  "why_zk": "A signed absence from the debtor register would replace bank statements and employment proof with a single bit. Weakness: this is a weak and legally questionable use, since screening parents on debtor status for child care may be discriminatory or unlawful under consumer and children's-services rules, and the real proof of future payment capacity is not captured by non-membership. It is included to show where the pattern is thin rather than a recommended deployment.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The idea of separating an eligibility check from the record that is kept, so the verifier learns eligibility without the underlying file.",
+    "source_excerpt": "A voter must prove eligibility and cast a valid choice while the record of that choice cannot be linked back to them, but the same process must still let officials verify who voted, so the separation depends on procedure rather than on a proof. | mechanism: Separate voting compartments and two-envelope sealing for postal and absentee ballots so identity is not attached to the vote at counting; eligibility is checked separately from the ballot."
+   }
+  ]
+ },
+ {
+  "review_id": "b07-1",
+  "title": "Proving a rooftop-solar or farm-pump account is on the registered roll for a grant",
+  "moment": "A farmer or small household applies for a county subsidy for solar panels, a cold-storage unit or an efficient irrigation pump, and the county office asks for the electricity account's power-contract copy and recent bills to confirm the site is on the registered agricultural or residential-subsidy contract class.",
+  "verifier": "County agriculture or environment bureau processing the grant",
+  "predicate": "The electricity account belongs to the set of accounts under the agricultural-use or registered-subsidy contract class (membership, without the account number, location or consumption).",
+  "disclosed_today": "Contract copy and bills listing account number, exact site address, contract capacity and monthly consumption, which reveal the size and operating pattern of the farm.",
+  "issuer": "Taipower signing contract-class roll membership for the account",
+  "why_zk": "Consumption and contract capacity expose business operations and could be used by competitors or for tax scrutiny, while the bureau only needs the class. Weakness: the bureau usually also inspects the site in person and needs the address for the project record, so the proof reduces over-collection at application but not at final approval.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The warning that a request category can bundle extra data (here contract capacity and address) with the one fact needed, so the request must be narrowed to a single membership claim.",
+    "source_excerpt": "A verifier wants a single over-threshold fact, but the request category bundles the issuing authority and a face photo with it, so the verifier can receive more than the age claim. | mechanism: Age Over N Flag as a separate requestable value under an entitlement-gated API; no shared name or address."
+   }
+  ]
+ },
+ {
+  "review_id": "b07-2",
+  "title": "Dormitory/communal-housing \"no contagious infection\" clearance during an outbreak window",
+  "moment": "A university dorm, long-term-care facility, or migrant-worker dormitory re-opens after a legionella, tuberculosis, or enterovirus alert and asks incoming residents or returning staff to show they are cleared to share rooms.",
+  "verifier": "Dormitory administrator or facility infection-control officer",
+  "predicate": "Hospital has cleared the person of the named communicable condition (screening negative or isolation completed) and the clearance is valid from issue date until the end of the outbreak watch period (e.g. 14 or 30 days).",
+  "disclosed_today": "A photocopy of the hospital certificate or lab report (diagnosis, test results, physician notes), or a health-declaration form with symptom history; sometimes a full medical certificate stored in a paper folder.",
+  "issuer": "Hospital (infection-control or outpatient department)",
+  "why_zk": "The facility only needs \"cleared during this window\" and not the disease history, test values or other conditions on the report. Honest caveat is that infectious-disease handling is regulated by the Communicable Disease Control Act, so a facility may be legally entitled to ask for more in an active case, and a hospital would have to agree to issue wallet credentials at all. Weak where public health authorities mandate direct reporting rather than self-presented proof.",
+  "claimed_borrowings": []
+ },
+ {
+  "review_id": "b07-3",
+  "title": "One-per-person lottery entry for convenience-store and department-store promotions",
+  "moment": "A person enters an online draw (for example a 7-Eleven or anniversary-sale prize draw) that is limited to one entry per person, and the organizer wants to stop people from entering with many throwaway phone numbers.",
+  "verifier": "A retailer or the marketing agency running the promotion campaign page.",
+  "predicate": "This entrant holds exactly one real, active postpaid or verified prepaid subscription, and has not entered this campaign before (campaign-scoped uniqueness tag).",
+  "disclosed_today": "Mobile phone number, an SMS one-time code, often name, email and sometimes national ID number or the last digits of it, all stored in the campaign database.",
+  "issuer": "A Taiwanese mobile carrier (such as Chunghwa Telecom, Taiwan Mobile or FarEasTone), which already registers every SIM against a real-name identity.",
+  "why_zk": "A campaign-scoped nullifier gives one entry per person without handing the retailer a phone number or ID that it can resell or leak. Weakness: SIM real-name rules let one person hold several lines, so the telco must sign one credential per natural person rather than per line, which it may not be willing to do. Also prize-tax rules (winners above a threshold must give ID for tax withholding) mean identity is collected anyway at the prize stage, though that applies only to winners.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The idea that a credential should be matchable only within the one context that asked for it, not across unrelated sites, which became the per-campaign scoped nullifier.",
+    "source_excerpt": "A stored credential should be presented only to the party that issued it in the current context, but the browser sends it on any request the context triggers, so an unrelated observer can match the holder across contexts. | mechanism: The SameSite cookie attribute, which limits the cookie to same-site requests (Strict, Lax, or None); the IETF draft describes it as a per-cookie setting, and cross-site behaviour depends on the chosen value."
+   },
+   {
+    "borrowed_aspect": "The aim of getting a count of distinct people without any output that singles out a particular respondent.",
+    "source_excerpt": "An agency holding individual responses must release aggregate results, and the legal duty bars any output from which a particular respondent can be singled out, while the holder's staff can still see the raw records. | mechanism: Statutory use limitation and publication prohibition enforced by sworn-oath duties and penalties; statistical disclosure limitation (for example differential privacy in later census products) is a technical layer not specified in the statute."
+   }
+  ]
+ },
+ {
+  "review_id": "b07-4",
+  "title": "Showing a landlord that a tenant is not on the public-housing or rent-subsidy disqualification list",
+  "moment": "A tenant applying to a private landlord that participates in the government social-housing sublease scheme, or a landlord renting under a subsidy program, must show the applicant is not disqualified for owning other property or prior fraud. The agency or landlord's agent collects tax and property records.",
+  "verifier": "Landlord or intermediary operator under the sublease-subsidy program",
+  "predicate": "The applicant is NOT on the register of persons disqualified or blacklisted from housing subsidy for prior false declaration or recovered overpayment.",
+  "disclosed_today": "Full property ownership transcript, income tax records, household composition, and ID copies delivered to the operator.",
+  "issuer": "Ministry of the Interior Construction and Planning Agency (or local housing bureau) as keeper of the disqualification list.",
+  "why_zk": "The operator needs only that the person is not blacklisted, but the program itself legally also requires income and property eligibility checks, which are positive predicates and not covered by non-membership; so this removes only the blacklist part of the file. Weakness: the blacklist is small and the operator may be entitled to query it directly, in which case ZK adds little over a direct government lookup.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "A verifier carrying out an identity and risk check with document inspection where retention and scope are unspecified.",
+    "source_excerpt": "A bank must verify who a person is before opening an account, which means examining identity documents, but the cited rule does not say whether copies are kept or for how long. | mechanism: Dual identity-document inspection at account opening; retention and copy handling not specified in the cited text."
+   }
+  ]
+ },
+ {
+  "review_id": "b07-5",
+  "title": "Taipower subsidy-roll proof for a low-income solar rooftop co-op deposit waiver",
+  "moment": "A household applies to join a community rooftop-solar or energy-saving appliance trade-in scheme run by a township office or NGO, which offers a reduced deposit or free installation to households on a subsidised electricity roll. The counter asks for a recent Taipower bill photocopy to confirm the discount.",
+  "verifier": "Township office or NGO running the energy-efficiency program",
+  "predicate": "This account is a member of the Taipower low-income or vulnerable-household discount roll (set membership, current period)",
+  "disclosed_today": "Full electricity bill copy showing the service address, account number, monthly kWh usage, billing amounts, and the household name",
+  "issuer": "Taipower (or the Taipower subsidy roll maintainer, co-signing with the social affairs bureau list)",
+  "why_zk": "The bill reveals home address and occupancy patterns (usage tells when no one is home), while the scheme only needs yes or no on roll membership. Weakness: the roll is derived from social-welfare status held by local governments, so Taipower may not be the natural signer, and rolls change by period, so freshness and revocation need care. It also needs a nullifier so one account cannot claim twice.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The idea that collecting a whole bill exceeds the necessary scope of the stated purpose, so the proof should carry only the membership bit.",
+    "source_excerpt": "A rule requires anyone collecting personal data to stay within the necessary scope of its stated purpose, but it gives no concrete way to show what was necessary, so the collector decides what counts as necessary. | mechanism: Legal purpose-limitation and proportionality principle; no technical mechanism specified."
+   },
+   {
+    "borrowed_aspect": "Choosing what to release at presentation time, here tightened from field selection to a single membership predicate.",
+    "source_excerpt": "A user must prove one eligibility fact to a counter, while the credential holds a whole identity record and the user chooses fields at presentation time with no field-level guarantee. | mechanism: Per-scenario field selection after scanning a QR code, confirmed by biometric check, in the TW DIW sandbox."
+   }
+  ]
+ },
+ {
+  "review_id": "b07-6",
+  "title": "Joining a community or school volunteer role without disclosing a full police record",
+  "moment": "Signing up as an after-school tutor, a temple or community-centre volunteer, or a sports coach for minors; the organisation must confirm the person is not on the list of those barred from working with children under child and youth welfare rules, but today collects the full non-criminal-record certificate.",
+  "verifier": "Cram school, community association, sports club, or school volunteer coordinator",
+  "predicate": "Holder is not on the register of persons barred from working with children and youths (e.g., convicted of listed offences or subject to employment bans).",
+  "disclosed_today": "Police criminal record certificate (with full history of conviction categories), national ID number, home address, photo, sometimes household registration transcript.",
+  "issuer": "Ministry of Health and Welfare / Ministry of Education (employment-ban registers), via Ministry of Justice records",
+  "why_zk": "Strongest of the three: a legal duty to check already exists in some settings, and the record certificate over-discloses. A signed non-membership claim limited to the relevant ban list would satisfy the duty while keeping unrelated old or minor entries private. Hurdles are that the legal check is sometimes defined as a specific certificate form, so rules would need to accept the proof, and freshness (short validity or revocation) matters because bans can be imposed after issuance.",
+  "claimed_borrowings": []
+ },
+ {
+  "review_id": "b07-7",
+  "title": "Employer sick-leave or surgery-recovery verification for a specific absence period",
+  "moment": "An employee is hospitalised or has outpatient surgery and the HR department wants proof that the absence is genuine and covers a date range, before approving paid sick leave or the Labor Standards Act sick-leave allowance.",
+  "verifier": "Employer HR or payroll department",
+  "predicate": "A hospital-signed attestation that the holder was medically unfit for work for the dates from X to Y (credential valid only for that interval), with no diagnosis.",
+  "disclosed_today": "Diagnosis certificate (診斷證明書) listing the diagnosis, procedure, ward, treating physician and recommended rest days; HR staff and sometimes line managers see the whole certificate.",
+  "issuer": "Hospital (attending physician or medical records office)",
+  "why_zk": "HR needs only \"unfit for work 2026-03-02 to 2026-03-09\"; the diagnosis (cancer, mental health, pregnancy complications) is sensitive and employers do not need it. Honest caveat is that some employers and insurers contractually demand the diagnosis certificate, and employees may not feel free to refuse; also the attestation of a date range is easy to build with a signed range credential, so ZK adds little beyond selective disclosure of two fields. The privacy gain is real, but the adoption barrier is employer practice and not cryptography.",
+  "claimed_borrowings": []
+ }
+]

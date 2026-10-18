@@ -1,0 +1,32 @@
+- title: "Still-employed proof for a landlord's mid-lease rent-guarantee renewal"
+  moment: "A tenant in Taipei renews a one-year lease, and the landlord's agent asks again for a recent employment certificate, payslip and ID copy to confirm the tenant still has a job, even though the original paperwork was collected at signing."
+  verifier: "Landlord or rental agency (房東 / 租賃仲介)"
+  predicate: "Tenant is currently employed by a registered employer (not terminated or resigned) as of today, with no employer name, salary or ID number revealed."
+  disclosed_today: "Full ID copy, payslips showing salary and employer, employment certificate with company name, title and start date."
+  issuer: "The employer's HR system, which signs a short-lived 'active employee' status and revokes it on termination or resignation."
+  why_zk: "Freshness is the whole point: an old certificate cannot show the person is still employed, so a signed status with revocation is stronger than paper. The landlord only needs a yes about current employment. Practice is weak because landlords often want salary level too, and small employers may not run a wallet-capable HR system, so adoption depends on the employer side."
+  inspired_by:
+    - seed_id: tw-platform-gym-id-card-copies-interp
+      borrowed_aspect: "The pattern of a private party asking for full document copies at contract signing when a narrow check would serve the purpose."
+- title: "Current-staff check for a corporate-discount purchase at a telco or retailer counter"
+  moment: "A person buys a phone plan or appliance at a store under an employee-benefit partnership, and the clerk photocopies the employee badge and ID card to confirm the buyer works at the partner company."
+  verifier: "Telco or retail store clerk running a corporate-partner discount (企業員工專案)"
+  predicate: "Holder is a current employee of the partner company today, not a former one still carrying an old badge."
+  disclosed_today: "Photo of the employee badge, ID card copy, sometimes a payslip, giving name, ID number, department and photo."
+  issuer: "The partner employer, signing a freshness-bound 'currently employed here' status and revoking it when the person leaves."
+  why_zk: "Badges and old certificates stay valid long after someone leaves, which is the abuse the store worries about, so a revocable current proof fits well. The store needs only 'is staff of company X'; the name and ID number are not needed. This echoes the telco weakness of checking only easily copied identifiers. A limit is that the proof must still show which company, so that fact is disclosed, and the store gains little incentive to change a counter routine."
+  inspired_by:
+    - seed_id: tw-telco-online-id-check-fraud-2021
+      borrowed_aspect: "A telco check that relies on copyable identifiers and so cannot show current, genuine status."
+    - seed_id: an-b-va-id-scanning
+      borrowed_aspect: "A venue capturing the whole card when only one fact is needed."
+- title: "Active-worker status for a gig or dispatch platform's insurance and shift eligibility"
+  moment: "A person signs up for evening shifts through a staffing or delivery platform and the platform asks them to upload an ID copy and a letter from their main employer to confirm that they are still employed elsewhere and so covered by labour insurance, avoiding duplicate enrolment."
+  verifier: "Staffing, gig or delivery platform onboarding team (人力派遣 / 外送平台)"
+  predicate: "Person is currently enrolled and active with a primary employer today, so the platform need not enrol them separately; no employer identity or pay is revealed."
+  disclosed_today: "ID copy with address, a letter or labour-insurance record naming the primary employer, sometimes pay records."
+  issuer: "The primary employer, signing an 'active insured employee' status and revoking it on separation."
+  why_zk: "The platform needs a current yes or no on active coverage, and a stale letter is useless for this. A revocable employer signature gives freshness, and hides the main employer, which the worker may not want a side-job platform to know (and some contracts restrict moonlighting). Honest weakness: the platform may be legally entitled to query labour-insurance records directly, and the worker may not want the primary employer to know a status was issued at all, since issuing could itself tip off the employer."
+  inspired_by:
+    - seed_id: tw-platform-google-id-upload-complaint
+      borrowed_aspect: "A service demanding identity documents under threat of suspension without stating purpose or offering a lighter alternative."

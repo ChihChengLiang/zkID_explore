@@ -1,0 +1,38 @@
+- title: Still-employed proof for landlord rent-guarantee renewal
+  moment: A tenant renews a lease mid-term and the landlord or rental-management company asks for proof that the tenant is still employed, as a condition of keeping a reduced deposit.
+  verifier: Landlord or property management / rental platform
+  predicate: Employer has signed within the last 7 days that this holder is currently an active employee (not terminated, not on unpaid leave beyond a threshold); signature is revocable on resignation.
+  disclosed_today: Photocopy of the employment certificate (在職證明) or labor insurance enrollment record showing full name, ID number, employer, salary band, enrollment date; often photographed and kept in LINE chats.
+  issuer: Employer (HR system) issuing a short-lived employment-status credential into the wallet.
+  why_zk: The landlord only needs "employed as of this week", not name, ID number, or salary. Weakness: landlords often also want a name to put on the lease, so full anonymity is unrealistic; the gain is dropping salary, ID number and employer details and making a stale paper certificate useless. A static certificate can be months old, while a revocable freshness proof expires on resignation.
+  inspired_by:
+    - seed_id: tw-pdpa-art5-purpose-limit
+      borrowed_aspect: The idea that collecting an ID number and salary for a simple continuing-employment check exceeds the necessary scope of purpose, with no mechanism to enforce it.
+    - seed_id: rd-twdiw-field-selection-consent
+      borrowed_aspect: Field selection at presentation time, tightened so only the freshness predicate is released rather than whole records.
+
+- title: Staff-only discount and access at a company-partnered gym or clinic
+  moment: An employee walks into a gym, dental clinic or cafeteria operator that has a corporate partnership with their employer and wants the staff rate; the counter must confirm the person is currently employed there, not a former employee with an old badge.
+  verifier: Partner gym, clinic, or vendor front desk
+  predicate: Employer signed within the last 24 hours that the holder is a current employee of this company (presented as a member of the partner group, without name).
+  disclosed_today: Staff ID card or badge photo, sometimes a name, employee number and a phone number written on a sign-up sheet; the vendor then keeps the list and may never be told when someone leaves.
+  issuer: Employer, signing a daily or weekly employment-status token; revoking it at departure.
+  why_zk: The vendor needs only "currently an employee of the partner company", and an unlinkable proof prevents the vendor from building a profile of who visits and how often. Revocation stops ex-staff from using old badges, which the vendor cannot check today. Weakness: for gyms with membership accounts the vendor already has a name and payment details, so privacy gains apply mostly to walk-in or one-off services.
+  inspired_by:
+    - seed_id: an-a-samesite-cookies
+      borrowed_aspect: The concern that a stored credential gets presented repeatedly and lets an observer link the same holder across visits, so each presentation should be unlinkable.
+    - seed_id: an-b-hipaa-min-necessary
+      borrowed_aspect: The lack of any proof that what was released was minimal; here the proof itself is the minimal release.
+
+- title: Current-employee check for a sealed corporate-purchase or tender-staff conflict declaration
+  moment: A procurement officer at a public body or large firm needs evidence that a bidder's named evaluator or subcontract signer is currently employed by the bidding company, without receiving the employee's personnel record, before a tender opening.
+  verifier: Procurement or tender-opening officer
+  predicate: Employer signed, bound to the tender's opening date, that the holder is a current employee in a role authorised to sign; the signature is fresh as of the submission cut-off and can be revoked if the person leaves before opening.
+  disclosed_today: Company letter with seal (公司大小章), authorisation letter, copy of the signer's ID card and sometimes labor insurance record, enclosed with the sealed bid.
+  issuer: Employer (company authorised signatory) issuing a status credential.
+  why_zk: The officer needs only "this signer is currently authorised by this employer", yet receives a pile of personal documents that stay in a tender file for years. Freshness tied to the opening moment replaces a letter that could be stale. Weakness: Taiwan procurement rules generally require identified signers and seals, and the bid file must be auditable, so the signer cannot realistically be anonymous; the gain is limited to dropping ID copies and insurance records.
+  inspired_by:
+    - seed_id: an-b-sealed-bid-far
+      borrowed_aspect: The fixed-moment structure, where the claim must hold at submission and opening while identifying wrappers are handled without exposing content.
+    - seed_id: tw-bank-deposit-dual-id-check
+      borrowed_aspect: The pattern of a verifier examining identity documents with unspecified retention, which the status proof would replace.

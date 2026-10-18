@@ -1,0 +1,1870 @@
+[
+ {
+  "inspired_by": [],
+  "title": "Landlord screening by months of on-time rent transfers",
+  "moment": "A tenant in Taipei applies for a rental flat and the landlord or agent asks for bank statements to judge whether the tenant reliably pays rent on time.",
+  "verifier": "Landlord or rental agency (e.g. a property agent handling the lease)",
+  "predicate": "Count of months in the last 12 in which a rent-sized recurring transfer (at or above a stated amount) was made on or before the due day is at least 11",
+  "disclosed_today": "Several months of full bank statements or passbook photocopies, showing every merchant, salary source, medical payment and balance.",
+  "issuer": "The tenant's bank, signing a statistic computed from its own transaction ledger",
+  "why_zk": "A bank-signed count of on-time recurring payments answers the landlord's real question without exposing the rest of the statement. Weak points are that no Taiwan bank issues such a signed statistic today, landlords have little leverage to demand a wallet proof, and rent is often paid in cash or to a different account, so coverage would be partial.",
+  "id": "bank-aggregate__A__0",
+  "cell": "bank-aggregate",
+  "arm": "A"
+ },
+ {
+  "inspired_by": [],
+  "title": "Cram school or kindergarten fee-installment eligibility from average monthly balance",
+  "moment": "A parent enrolling a child in a private kindergarten, cram school or bilingual programme asks for a multi-month instalment plan, and the school wants reassurance the parent can sustain the payments.",
+  "verifier": "Private school or cram school finance office",
+  "predicate": "Average daily balance across all the parent's accounts at the bank over the last 6 months is at least a threshold equal to the remaining tuition",
+  "disclosed_today": "Photocopy of the passbook or bank statements, or a post-dated cheque plus a guarantor's details, revealing balances, counterparties and sometimes the guarantor's identity.",
+  "issuer": "The parent's bank, signing an average-balance statistic over the accounts held there",
+  "why_zk": "An average-balance threshold is far less than a full statement, and it avoids pulling in a guarantor. Honestly weak because many schools simply use post-dated cheques or credit-card auto-billing, which already settle the risk, and a single bank's aggregate misses balances held elsewhere, so the school may not accept it as sufficient.",
+  "id": "bank-aggregate__A__1",
+  "cell": "bank-aggregate",
+  "arm": "A"
+ },
+ {
+  "inspired_by": [],
+  "title": "Small-claims or maintenance negotiation proving total outflow to one payee",
+  "moment": "In a mediation at a township mediation committee or a family-court conciliation, one party says they have paid the other a certain total (for example support or a loan repayment) over a year, and the other side disputes the sum.",
+  "verifier": "Mediator, court clerk or the counterparty's lawyer",
+  "predicate": "Sum of transfers from the person's account to a named payee account between two dates equals or exceeds a stated amount",
+  "disclosed_today": "Printed or screenshotted full account statements for the period, exposing every unrelated transaction, which are often partly blacked out by hand and then questioned for authenticity.",
+  "issuer": "The bank holding the paying account, signing a sum over a filtered set of transactions",
+  "why_zk": "A bank-signed total to a single named payee is verifiable and removes hand redaction and doubts about doctored screenshots. Honest limits are that courts in Taiwan currently accept bank-issued certificates and discovery orders rather than cryptographic proofs, so this is most plausible as an informal mediation aid, and the payee identity is itself disclosed by the predicate.",
+  "id": "bank-aggregate__A__2",
+  "cell": "bank-aggregate",
+  "arm": "A"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "an-b-hipaa-min-necessary",
+    "borrowed_aspect": "Limit what is released to what the stated purpose needs, here a payment-regularity count, but with a proof instead of the holder's judgment."
+   },
+   {
+    "seed_id": "an-b-hipaa-safe-harbor",
+    "borrowed_aspect": "Strip the identifying fields (payees, amounts, other counterparties) and keep only the derived figure."
+   }
+  ],
+  "title": "Landlord checks six months of rent payments without seeing the bank statement",
+  "moment": "A tenant renewing or applying for a rental in Taipei or Taichung is asked by the landlord or agent to photograph passbook pages or send bank statements to prove they have always paid rent on time.",
+  "verifier": "Landlord or rental agency",
+  "predicate": "Count of monthly outgoing transfers of at least the rent amount to the same payee in the last 6 months is 6, with no more than 0 returned or failed transfers.",
+  "disclosed_today": "Full statements or passbook pages showing every transaction, balances, employer name, medical or religious payees, and family transfers.",
+  "issuer": "Tenant's bank (bank signs the count over its own transaction ledger)",
+  "why_zk": "The bank already holds the ledger and can sign a count with the rule stated. Weakness is that the landlord cannot tell whether the tenant paid from several accounts, and cash or other-bank rent is invisible, so the proof covers only one bank. The tenant can choose which account to prove, which biases the result. Landlord practice in Taiwan also leans on guarantors and deposits, so the proof only replaces the statement, not the deposit.",
+  "id": "bank-aggregate__B__0",
+  "cell": "bank-aggregate",
+  "arm": "B"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "an-a-nist-dp",
+    "borrowed_aspect": "A published aggregate can still reveal individual contributors, so the threshold and rounding of the signed statistic must be chosen with that leak in mind."
+   },
+   {
+    "seed_id": "an-b-census-title13",
+    "borrowed_aspect": "Release only the aggregate and never an output that lets a particular counterparty be singled out."
+   }
+  ],
+  "title": "Micro-business owner proves quarterly card-sales turnover to a landlord or platform without exposing customers",
+  "moment": "A night-market stall or small shop owner applying for a stall lease, a delivery-platform onboarding, or a government small-business subsidy is asked for bank statements of the business account to show monthly sales volume.",
+  "verifier": "Market management office, platform, or subsidy-handling agency",
+  "predicate": "Sum of incoming mobile-payment and card-settlement deposits over the last 3 months is at least a stated threshold, and the number of distinct payers exceeds a stated minimum.",
+  "disclosed_today": "Complete business account statements listing every customer transfer, supplier payment, personal withdrawals and balances.",
+  "issuer": "Bank holding the business account, as merchant acquirer or account holder",
+  "why_zk": "A signed sum and distinct-payer count answers the real question (is this a live business) and hides suppliers and customers. Honest limits: much night-market revenue is cash and never reaches the bank, so the proof understates, and the tax authority, not the bank, is the usual authority on turnover. Distinct-payer counts can also leak small-group membership if the threshold is low, which differential-privacy style thinking warns about.",
+  "id": "bank-aggregate__B__1",
+  "cell": "bank-aggregate",
+  "arm": "B"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "an-b-hipaa-min-necessary",
+    "borrowed_aspect": "Purpose-limited release of only the figure the programme needs, replacing reliance on the verifier's promise."
+   },
+   {
+    "seed_id": "rd-eudi-wallet-selective-disclosure-recital",
+    "borrowed_aspect": "The holder discloses one derived attribute from a larger record instead of handing over the whole record."
+   },
+   {
+    "seed_id": "an-a-oauth-scopes",
+    "borrowed_aspect": "A verifier asking for broad statements when it needs one narrow scope, and the issuer being free to sign only the narrow one."
+   }
+  ],
+  "title": "Insurer or employer wellness program checks monthly gym and pharmacy spending band, not itemized purchases",
+  "moment": "A health-insurance discount programme or a corporate wellness benefit in Taiwan asks participants to upload credit-card statements to prove they spent on fitness, with the same statements revealing pharmacy, clinic and other purchases.",
+  "verifier": "Private insurer or employer benefits administrator",
+  "predicate": "Total card spending in merchant categories for gyms and sports venues over 12 months falls in a stated band, computed by the bank over the cardholder's cards, with no other category disclosed.",
+  "disclosed_today": "Itemized card statements across all merchants, showing health, pharmacy, entertainment and location patterns.",
+  "issuer": "Card-issuing bank, which categorizes transactions by merchant category code",
+  "why_zk": "The bank can sign a category aggregate across the person's cards at the same bank. Weak points: merchant category codes are coarse and gameable, cards at other banks are missing, and a verifier that asks for a narrow band can still infer health status from participation, so the aggregate itself is sensitive. Personal Data Protection Act purpose limitation already pushes toward minimal collection, but nothing proves the minimal set was what was collected.",
+  "id": "bank-aggregate__B__2",
+  "cell": "bank-aggregate",
+  "arm": "B"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "tw-platform-gym-id-card-copies-interp",
+    "borrowed_aspect": "The pattern of a private party asking for full copies of documents when a narrow fact would do, with no less-intrusive alternative named."
+   },
+   {
+    "seed_id": "tw-platform-google-id-upload-complaint",
+    "borrowed_aspect": "A payment-related check that escalates into collecting extra personal documents beyond what the purpose needs."
+   }
+  ],
+  "title": "Landlord checks rent-payment regularity without seeing the tenant's bank statement",
+  "moment": "A tenant applying for a rental in Taipei is asked by the landlord or agent to send photos of 6 to 12 months of passbook or e-banking statements to show they pay rent on time and have a steady balance.",
+  "verifier": "Private landlord or rental agency (房仲)",
+  "predicate": "In each of the last 12 months, the account made a recurring transfer of at least NT$X to a rent-like payee on or before the due date, and the month-end balance never fell below one month's rent.",
+  "disclosed_today": "Full statements showing every transaction, counterparties, merchants, medical or family payments, salary source, and account number.",
+  "issuer": "The tenant's bank, signing a payment-regularity and minimum-balance aggregate over the account's transactions.",
+  "why_zk": "The landlord needs only a yes/no on regularity and buffer, and a bank-signed aggregate proves it without the transaction list. Weakness: there is no standard for such a bank attestation today, and private landlords may not accept anything but the familiar statement photos. The tenant may also rent from several accounts, so the claim covers only one account.",
+  "id": "bank-aggregate__C__0",
+  "cell": "bank-aggregate",
+  "arm": "C"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "tw-platform-google-id-upload-complaint",
+    "borrowed_aspect": "Demanding extra records from a user whose payments are already normal, without stating necessity."
+   },
+   {
+    "seed_id": "tw-pdpa-art11-3-deletion-exception",
+    "borrowed_aspect": "Concern that data collected for onboarding gets retained under an open-ended business-need exception, which pushes towards proving a band instead of handing over records."
+   }
+  ],
+  "title": "Night-market stall applies for a platform seller badge with a turnover band, not account history",
+  "moment": "A small food or goods vendor applying to sell through a delivery or e-commerce platform in Taiwan is asked to upload bank statements to show monthly receipts, so the platform can set a deposit or credit limit.",
+  "verifier": "Delivery or e-commerce platform's merchant onboarding team",
+  "predicate": "Total incoming deposits across the vendor's business accounts over the last 6 months fall in a stated band (for example NT$100,000 to NT$300,000 per month), and no month is more than 30 percent below the average.",
+  "disclosed_today": "Complete statements for personal and business accounts, including customer names on transfers, private spending, and family transfers, often mixed in the same account.",
+  "issuer": "The vendor's bank (including a credit cooperative or farmers' and fishermen's association bank), signing a turnover-band aggregate.",
+  "why_zk": "The platform needs a turnover band to set a limit, not the customer-level detail. The bank can sign the band over all the vendor's accounts at that bank. Weakness: many stall owners mix cash and informal transfers, so bank deposits understate real turnover and the band may be unfairly low. Banks would also have to build and support the attestation product.",
+  "id": "bank-aggregate__C__1",
+  "cell": "bank-aggregate",
+  "arm": "C"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "tw-securities-foreign-agent-id-copy",
+    "borrowed_aspect": "A cross-border intermediary requiring full ID or document copies with no lighter alternative stated."
+   },
+   {
+    "seed_id": "tw-platform-gym-id-card-copies-interp",
+    "borrowed_aspect": "Bundles of identity and financial document copies requested when a narrower check could satisfy the purpose."
+   }
+  ],
+  "title": "Overseas-study sponsor shows enough funds without handing a school the family's whole account history",
+  "moment": "A Taiwanese family applying for a student visa or university admission abroad must show a parent's bank statements proving funds for tuition and living costs for the first year, and the parent sends months of statements to a foreign admissions office or visa agent.",
+  "verifier": "Foreign university admissions office, embassy, or study-abroad agency in Taiwan",
+  "predicate": "The sponsor's combined balance across the bank's accounts has stayed at or above the required amount (for example NT$1,000,000) for each of the last 90 days.",
+  "disclosed_today": "Full statements and sometimes a copy of the national ID, revealing the family's spending, other relatives' transfers, employer, and exact balances well above the threshold.",
+  "issuer": "The sponsor's bank, signing a minimum-balance-over-period aggregate across the sponsor's accounts at that bank.",
+  "why_zk": "Only a threshold held over a period matters, and the exact balance and history stay hidden. A bank-signed aggregate also helps against doctored statements. Weakness: foreign institutions set their own formats and will rarely accept a Taiwan wallet proof, so uptake depends on the receiving side, and an agent in the middle often insists on seeing paper statements.",
+  "id": "bank-aggregate__C__2",
+  "cell": "bank-aggregate",
+  "arm": "C"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "tw-platform-google-id-upload-complaint",
+    "borrowed_aspect": "The pattern of a verifier demanding an ID and extra documents to confirm one payment fact, with no stated purpose or less intrusive alternative."
+   },
+   {
+    "seed_id": "an-b-hipaa-min-necessary",
+    "borrowed_aspect": "The idea that the holder must release only what serves the purpose, but needs a mechanism that proves the released subset is minimal."
+   }
+  ],
+  "title": "Landlord rent-payment track record without sharing the tenant's bank statements",
+  "moment": "A tenant renewing a lease or applying for a new rental in Taipei is asked by the landlord or agent to hand over several months of passbook pages or bank app screenshots to show they pay rent on time.",
+  "verifier": "Private landlord or rental agency (房仲/包租代管業者)",
+  "predicate": "Over the last 12 months, at least 11 monthly outgoing transfers to the same payee were made on or before the 5th of the month (count and on-time ratio computed by the bank).",
+  "disclosed_today": "Full passbook or app screenshots showing every transaction, balances, salary source, merchants, other account numbers, and often the ID card copy.",
+  "issuer": "The tenant's bank (signing a payment-regularity statistic over the account's transfers)",
+  "why_zk": "The landlord only needs on-time rent history, not the tenant's whole financial life. Weak spot: the bank would need to define and sign a payment-regularity statistic and tie it to a payee, which no Taiwanese bank offers today, and landlords may still prefer an ID copy and guarantor regardless. Still, the over-collection of statements is real and the aggregate is much smaller.",
+  "id": "bank-aggregate__D__0",
+  "cell": "bank-aggregate",
+  "arm": "D"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "rd-aepd-hotel-no-id-copy",
+    "borrowed_aspect": "A small registration fact does not justify copying the whole document; record only the fields the rule requires."
+   },
+   {
+    "seed_id": "an-b-hipaa-min-necessary",
+    "borrowed_aspect": "Release only the subset that serves the stated purpose."
+   }
+  ],
+  "title": "Proving a stable monthly foreign-remittance pattern to a migrant worker's home-country sponsor or broker",
+  "moment": "A migrant worker in Taiwan, or the Taiwanese employer or broker, is asked by a recruitment agency, a visa-renewal service or a home-country lender to show the worker regularly sends money home, and the agency collects full remittance receipts and bank statements.",
+  "verifier": "Recruitment broker (仲介), home-country microfinance lender, or family-visit visa service",
+  "predicate": "Total remitted abroad in the last 6 months is at least NT$X and remittances occurred in at least 5 of 6 months.",
+  "disclosed_today": "Complete bank statements and remittance slips including employer salary details, deductions, beneficiary names, and sometimes a passport copy.",
+  "issuer": "The worker's bank or remittance-licensed bank (signing a sum and count over transfers)",
+  "why_zk": "The verifier needs a regularity and amount signal, not the beneficiary list or salary breakdown. Honest caveat: brokers often have commercial reasons to see more (wage deductions, debt), and a worker with weak bargaining power may be pressed to disclose anyway, so a proof helps only if the verifier agrees to accept it.",
+  "id": "bank-aggregate__D__1",
+  "cell": "bank-aggregate",
+  "arm": "D"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "tw-pdpa-art11-3-deletion-exception",
+    "borrowed_aspect": "Collected data tends to be kept under a vague 'needed for business' exception, which a proof avoids by never handing over the records."
+   },
+   {
+    "seed_id": "rd-apple-wallet-age-request-categories",
+    "borrowed_aspect": "A request category that bundles extra fields with the one fact wanted; here the statement bundles customer detail with the revenue band."
+   }
+  ],
+  "title": "Merchant proving monthly card-sales volume for a terminal or subsidy eligibility without exposing customers' transactions",
+  "moment": "A night-market stall owner or small shop applying for a mobile-payment terminal upgrade, a municipal small-business subsidy or a supplier credit line is asked for twelve months of acquiring-bank settlement records, which list every customer card transaction.",
+  "verifier": "Local government economic development bureau, payment processor, or wholesale supplier offering trade credit",
+  "predicate": "Average monthly card and mobile-payment settlement over the last 12 months is between NT$A and NT$B, with no month below NT$C.",
+  "disclosed_today": "Full settlement statements with per-transaction timestamps, amounts, masked card numbers, and the shop's account balances and bank transfers.",
+  "issuer": "The merchant's acquiring or settlement bank (signing a sales aggregate)",
+  "why_zk": "The verifier only needs a revenue band. Per-transaction detail also exposes customers' purchasing patterns that the merchant has no business passing on. Weakness: many subsidies already rely on tax filings (營業稅申報) that the government can check directly, so the case is strongest for private verifiers such as suppliers and processors.",
+  "id": "bank-aggregate__D__2",
+  "cell": "bank-aggregate",
+  "arm": "D"
+ },
+ {
+  "inspired_by": [],
+  "title": "Night-market stall helper proves current employment to get a staff-only phone plan or rental viewing slot",
+  "moment": "A landlord or agency in Taipei offers a lower rent or fast-track viewing to tenants who are currently employed at a stable company, and asks for a recent pay slip or employment certificate.",
+  "verifier": "Private landlord or rental agency",
+  "predicate": "Holder is currently employed by a registered employer (not terminated or resigned) as of the last 24 hours",
+  "disclosed_today": "Employment certificate or pay slip showing full name, national ID number, salary, employer, job title, address",
+  "issuer": "The employer, via an employer-signed credential with revocation upon termination",
+  "why_zk": "Landlords only need \"still employed now\", yet receive salary and ID number and can keep copies. A static certificate cannot show it is still true; a fresh proof with revocation can. Weak points in practice are that few employers issue wallet credentials, small employers may not run revocation infrastructure, and landlords may still want salary level for rent-to-income judgment, which this does not provide.",
+  "id": "employer-fresh__A__0",
+  "cell": "employer-fresh",
+  "arm": "A"
+ },
+ {
+  "inspired_by": [],
+  "title": "Contract cleaner or security guard proves current on-duty authorization at a building gate",
+  "moment": "A building management office or gated community in Taiwan lets outsourced staff (cleaning, security, delivery of company goods) enter when their employer vouches they are currently on its roster, and today collects an ID copy and writes down the national ID number in a paper visitor log.",
+  "verifier": "Building management committee or reception desk",
+  "predicate": "Holder is on the active roster of a named contractor employer as of now",
+  "disclosed_today": "National ID card photocopy or recorded ID number, full name, phone number, plus a paper letter from the contractor",
+  "issuer": "The contracting employer, signing a short-lived roster-membership credential and revoking it when the worker leaves",
+  "why_zk": "The building needs only \"this person is currently sent by this company\", but keeps ID numbers in logbooks that are easily leaked. Revocation matters because ex-employees keep old letters. Weakness is that the verifier often also wants to know the individual's name for accountability, so the unlinkable version may conflict with building security rules.",
+  "id": "employer-fresh__A__1",
+  "cell": "employer-fresh",
+  "arm": "A"
+ },
+ {
+  "inspired_by": [],
+  "title": "Gig courier proves current platform affiliation to access a company mailroom or campus dock",
+  "moment": "A delivery rider arrives at a science-park company mailroom or hospital loading dock that only admits couriers currently contracted with a recognized logistics platform, and staff ask to see a worker card and ID.",
+  "verifier": "Science park, hospital or corporate mailroom security",
+  "predicate": "Rider is currently active and in good standing with a named logistics employer as of now",
+  "disclosed_today": "Worker card, national ID or driver licence shown or photographed, name, phone number, vehicle plate",
+  "issuer": "The logistics employer or platform operator, with revocation upon contract end or suspension",
+  "why_zk": "The gatekeeper needs only current standing, but collects identity details of many people who visit daily. A fresh signed status also stops a suspended rider from using a stale card. Honest caveat is that many couriers are legally independent contractors rather than employees, so the platform may not count as an employer, and sites often want a plate or name for incident tracing.",
+  "id": "employer-fresh__A__2",
+  "cell": "employer-fresh",
+  "arm": "A"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "privacy-pass-unlinkable-proof",
+    "borrowed_aspect": "Monthly re-presentation of a proof of prior authorisation without becoming a persistent identifier."
+   },
+   {
+    "seed_id": "rd-eudi-wallet-selective-disclosure-recital",
+    "borrowed_aspect": "Sharing only the single employment-status attribute from a larger HR record."
+   }
+  ],
+  "title": "Currently-employed proof for the convenience-store parcel pickup of a company-paid corporate card",
+  "moment": "A new hire at a Hsinchu science-park firm opens a corporate-sponsored e-commerce or transit-subsidy account that is only valid while the person is employed, and the platform must re-confirm every month that the employment has not ended.",
+  "verifier": "Corporate benefits platform or commuter-shuttle/subsidy operator that serves many employers",
+  "predicate": "Holder is currently employed by a firm enrolled in the programme, as attested within the last 30 days, and the attestation has not been revoked.",
+  "disclosed_today": "Employee ID, full name, department, job title, employer HR letter or staff card photo, sometimes payroll slip.",
+  "issuer": "Employer HR system (signs a short-lived employment-active credential and revokes it on resignation).",
+  "why_zk": "The platform only needs 'still employed at an enrolled firm', but today collects a full HR letter that identifies the person and role. A short-lived unlinkable proof with revocation fits well. Weakness: the employer must run an issuance and revocation service, and small firms may not; the platform may also want a stable account key, so unlinkability across months is partly given up by design.",
+  "id": "employer-fresh__B__0",
+  "cell": "employer-fresh",
+  "arm": "B"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "an-a-privacy-pass",
+    "borrowed_aspect": "Redemption that cannot be linked across uses, so repeated meals do not build a visit log."
+   }
+  ],
+  "title": "Active-staff proof for staff-only discount at a hospital or university cafeteria and parking",
+  "moment": "A nurse or contract cleaner at a hospital in Taichung wants the staff meal rate and staff parking tariff, which operators run via outsourced concessions that must not give staff rates to people who have left.",
+  "verifier": "Outsourced cafeteria or parking concessionaire",
+  "predicate": "Holder is on the active payroll or roster of this institution as of today (freshness under 24 hours).",
+  "disclosed_today": "Staff card with name, photo and employee number, which the cashier or parking system logs and may keep.",
+  "issuer": "Hospital or university HR/outsourcing employer, including the contractor employer for outsourced workers.",
+  "why_zk": "The concessionaire needs only 'currently on staff', yet logs identity-bearing cards, creating a record of when each worker eats and parks. A daily-refreshed credential with revocation lets leavers drop off the same day. Weakness: staff discounts are often tied to a name for billing or payroll deduction, in which case identity is legitimately needed; the privacy gain is real only for cash or point-of-sale discounts.",
+  "id": "employer-fresh__B__1",
+  "cell": "employer-fresh",
+  "arm": "B"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "an-a-chaum-blind",
+    "borrowed_aspect": "The signing agency certifies status without being able to link the later presentation back to the issuance event."
+   },
+   {
+    "seed_id": "rd-google-wallet-zkp-age-no-linkage",
+    "borrowed_aspect": "A yes/no fact proven in a device-bound way so neither the issuer nor the verifier can track the holder."
+   }
+  ],
+  "title": "Still-employed check on gig-platform or staffing-agency workers entering a client factory gate",
+  "moment": "A dispatched worker from a staffing agency arrives at a client's plant in Taoyuan; the gate must confirm that the agency still employs them, since dispatch contracts end abruptly.",
+  "verifier": "Client factory security gate or contractor-access system",
+  "predicate": "Holder is currently employed by a named staffing agency under a live dispatch contract, with the signature issued today and revocable.",
+  "disclosed_today": "National ID card copy or number, full name, phone number, agency contract copy, entered into a visitor log.",
+  "issuer": "Staffing or dispatch agency as employer.",
+  "why_zk": "The gate needs a fresh yes/no on 'currently dispatched by agency X', but collects ID numbers that are retained in paper logs. A freshness proof removes the ID collection. Weakness: workplace safety and labour-dispatch rules may require named records of who was on site (for incident and insurance reasons), so the plant may be legally obliged to keep identity; zero-knowledge here only covers the entry check, not the safety register.",
+  "id": "employer-fresh__B__2",
+  "cell": "employer-fresh",
+  "arm": "B"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "tw-platform-gym-id-card-copies-interp",
+    "borrowed_aspect": "The pattern of a private party asking for full document copies at contract signing when a narrow check would serve the purpose."
+   }
+  ],
+  "title": "Still-employed proof for a landlord's mid-lease rent-guarantee renewal",
+  "moment": "A tenant in Taipei renews a one-year lease, and the landlord's agent asks again for a recent employment certificate, payslip and ID copy to confirm the tenant still has a job, even though the original paperwork was collected at signing.",
+  "verifier": "Landlord or rental agency (房東 / 租賃仲介)",
+  "predicate": "Tenant is currently employed by a registered employer (not terminated or resigned) as of today, with no employer name, salary or ID number revealed.",
+  "disclosed_today": "Full ID copy, payslips showing salary and employer, employment certificate with company name, title and start date.",
+  "issuer": "The employer's HR system, which signs a short-lived 'active employee' status and revokes it on termination or resignation.",
+  "why_zk": "Freshness is the whole point: an old certificate cannot show the person is still employed, so a signed status with revocation is stronger than paper. The landlord only needs a yes about current employment. Practice is weak because landlords often want salary level too, and small employers may not run a wallet-capable HR system, so adoption depends on the employer side.",
+  "id": "employer-fresh__C__0",
+  "cell": "employer-fresh",
+  "arm": "C"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "tw-telco-online-id-check-fraud-2021",
+    "borrowed_aspect": "A telco check that relies on copyable identifiers and so cannot show current, genuine status."
+   },
+   {
+    "seed_id": "an-b-va-id-scanning",
+    "borrowed_aspect": "A venue capturing the whole card when only one fact is needed."
+   }
+  ],
+  "title": "Current-staff check for a corporate-discount purchase at a telco or retailer counter",
+  "moment": "A person buys a phone plan or appliance at a store under an employee-benefit partnership, and the clerk photocopies the employee badge and ID card to confirm the buyer works at the partner company.",
+  "verifier": "Telco or retail store clerk running a corporate-partner discount (企業員工專案)",
+  "predicate": "Holder is a current employee of the partner company today, not a former one still carrying an old badge.",
+  "disclosed_today": "Photo of the employee badge, ID card copy, sometimes a payslip, giving name, ID number, department and photo.",
+  "issuer": "The partner employer, signing a freshness-bound 'currently employed here' status and revoking it when the person leaves.",
+  "why_zk": "Badges and old certificates stay valid long after someone leaves, which is the abuse the store worries about, so a revocable current proof fits well. The store needs only 'is staff of company X'; the name and ID number are not needed. This echoes the telco weakness of checking only easily copied identifiers. A limit is that the proof must still show which company, so that fact is disclosed, and the store gains little incentive to change a counter routine.",
+  "id": "employer-fresh__C__1",
+  "cell": "employer-fresh",
+  "arm": "C"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "tw-platform-google-id-upload-complaint",
+    "borrowed_aspect": "A service demanding identity documents under threat of suspension without stating purpose or offering a lighter alternative."
+   }
+  ],
+  "title": "Active-worker status for a gig or dispatch platform's insurance and shift eligibility",
+  "moment": "A person signs up for evening shifts through a staffing or delivery platform and the platform asks them to upload an ID copy and a letter from their main employer to confirm that they are still employed elsewhere and so covered by labour insurance, avoiding duplicate enrolment.",
+  "verifier": "Staffing, gig or delivery platform onboarding team (人力派遣 / 外送平台)",
+  "predicate": "Person is currently enrolled and active with a primary employer today, so the platform need not enrol them separately; no employer identity or pay is revealed.",
+  "disclosed_today": "ID copy with address, a letter or labour-insurance record naming the primary employer, sometimes pay records.",
+  "issuer": "The primary employer, signing an 'active insured employee' status and revoking it on separation.",
+  "why_zk": "The platform needs a current yes or no on active coverage, and a stale letter is useless for this. A revocable employer signature gives freshness, and hides the main employer, which the worker may not want a side-job platform to know (and some contracts restrict moonlighting). Honest weakness: the platform may be legally entitled to query labour-insurance records directly, and the worker may not want the primary employer to know a status was issued at all, since issuing could itself tip off the employer.",
+  "id": "employer-fresh__C__2",
+  "cell": "employer-fresh",
+  "arm": "C"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "tw-pdpa-art5-purpose-limit",
+    "borrowed_aspect": "The idea that collecting an ID number and salary for a simple continuing-employment check exceeds the necessary scope of purpose, with no mechanism to enforce it."
+   },
+   {
+    "seed_id": "rd-twdiw-field-selection-consent",
+    "borrowed_aspect": "Field selection at presentation time, tightened so only the freshness predicate is released rather than whole records."
+   }
+  ],
+  "title": "Still-employed proof for landlord rent-guarantee renewal",
+  "moment": "A tenant renews a lease mid-term and the landlord or rental-management company asks for proof that the tenant is still employed, as a condition of keeping a reduced deposit.",
+  "verifier": "Landlord or property management / rental platform",
+  "predicate": "Employer has signed within the last 7 days that this holder is currently an active employee (not terminated, not on unpaid leave beyond a threshold); signature is revocable on resignation.",
+  "disclosed_today": "Photocopy of the employment certificate (在職證明) or labor insurance enrollment record showing full name, ID number, employer, salary band, enrollment date; often photographed and kept in LINE chats.",
+  "issuer": "Employer (HR system) issuing a short-lived employment-status credential into the wallet.",
+  "why_zk": "The landlord only needs \"employed as of this week\", not name, ID number, or salary. Weakness: landlords often also want a name to put on the lease, so full anonymity is unrealistic; the gain is dropping salary, ID number and employer details and making a stale paper certificate useless. A static certificate can be months old, while a revocable freshness proof expires on resignation.",
+  "id": "employer-fresh__D__0",
+  "cell": "employer-fresh",
+  "arm": "D"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "an-a-samesite-cookies",
+    "borrowed_aspect": "The concern that a stored credential gets presented repeatedly and lets an observer link the same holder across visits, so each presentation should be unlinkable."
+   },
+   {
+    "seed_id": "an-b-hipaa-min-necessary",
+    "borrowed_aspect": "The lack of any proof that what was released was minimal; here the proof itself is the minimal release."
+   }
+  ],
+  "title": "Staff-only discount and access at a company-partnered gym or clinic",
+  "moment": "An employee walks into a gym, dental clinic or cafeteria operator that has a corporate partnership with their employer and wants the staff rate; the counter must confirm the person is currently employed there, not a former employee with an old badge.",
+  "verifier": "Partner gym, clinic, or vendor front desk",
+  "predicate": "Employer signed within the last 24 hours that the holder is a current employee of this company (presented as a member of the partner group, without name).",
+  "disclosed_today": "Staff ID card or badge photo, sometimes a name, employee number and a phone number written on a sign-up sheet; the vendor then keeps the list and may never be told when someone leaves.",
+  "issuer": "Employer, signing a daily or weekly employment-status token; revoking it at departure.",
+  "why_zk": "The vendor needs only \"currently an employee of the partner company\", and an unlinkable proof prevents the vendor from building a profile of who visits and how often. Revocation stops ex-staff from using old badges, which the vendor cannot check today. Weakness: for gyms with membership accounts the vendor already has a name and payment details, so privacy gains apply mostly to walk-in or one-off services.",
+  "id": "employer-fresh__D__1",
+  "cell": "employer-fresh",
+  "arm": "D"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "an-b-sealed-bid-far",
+    "borrowed_aspect": "The fixed-moment structure, where the claim must hold at submission and opening while identifying wrappers are handled without exposing content."
+   },
+   {
+    "seed_id": "tw-bank-deposit-dual-id-check",
+    "borrowed_aspect": "The pattern of a verifier examining identity documents with unspecified retention, which the status proof would replace."
+   }
+  ],
+  "title": "Current-employee check for a sealed corporate-purchase or tender-staff conflict declaration",
+  "moment": "A procurement officer at a public body or large firm needs evidence that a bidder's named evaluator or subcontract signer is currently employed by the bidding company, without receiving the employee's personnel record, before a tender opening.",
+  "verifier": "Procurement or tender-opening officer",
+  "predicate": "Employer signed, bound to the tender's opening date, that the holder is a current employee in a role authorised to sign; the signature is fresh as of the submission cut-off and can be revoked if the person leaves before opening.",
+  "disclosed_today": "Company letter with seal (公司大小章), authorisation letter, copy of the signer's ID card and sometimes labor insurance record, enclosed with the sealed bid.",
+  "issuer": "Employer (company authorised signatory) issuing a status credential.",
+  "why_zk": "The officer needs only \"this signer is currently authorised by this employer\", yet receives a pile of personal documents that stay in a tender file for years. Freshness tied to the opening moment replaces a letter that could be stale. Weakness: Taiwan procurement rules generally require identified signers and seals, and the bid file must be auditable, so the signer cannot realistically be anonymous; the gain is limited to dropping ID copies and insurance records.",
+  "id": "employer-fresh__D__2",
+  "cell": "employer-fresh",
+  "arm": "D"
+ },
+ {
+  "inspired_by": [],
+  "title": "Pet boarding and grooming intake without exposing owner's animal-abuse record",
+  "moment": "Booking a multi-day stay at a pet hotel or applying to adopt from a private shelter; the operator wants assurance the person is not on the registered list of those penalized under the Animal Protection Act (e.g., banned from keeping animals).",
+  "verifier": "Pet hotel, private rescue group, or adoption platform",
+  "predicate": "Holder is not on the competent authority's register of persons prohibited from keeping or adopting animals (non-membership in a sanction list).",
+  "disclosed_today": "Full ID card photo, name, address, phone, sometimes a hand-written declaration; shelters may also ask for household and employment details.",
+  "issuer": "Ministry of Agriculture / local animal protection office (Animal Protection Act enforcement)",
+  "why_zk": "Weak-to-moderate. Today no public, queryable register exists for private operators, so the authority would first have to publish a signed absence attestation, which needs legislative backing. Private shelters collect ID mainly for contact and identification, not only for the ban check, so ZK removes only part of the over-collection. Still, an absence-only proof avoids storing ID copies in small businesses with weak data hygiene.",
+  "id": "gov-nonmember__A__0",
+  "cell": "gov-nonmember",
+  "arm": "A"
+ },
+ {
+  "inspired_by": [],
+  "title": "Tenant screening without handing over full ID for a stalking or protection-order check",
+  "moment": "A landlord or a shared-housing (cohabitation) operator screens a prospective roommate or tenant in a female-only or family-oriented building and wants to know the applicant is not subject to an active protection order or sex-offender community notification/registration under the Sexual Assault Crime Prevention Act.",
+  "verifier": "Landlord, shared-housing operator, or rental platform",
+  "predicate": "Holder does not appear on the sex-offender registration/notification register nor is subject to an active protection order restricting residence near others.",
+  "disclosed_today": "ID card copy, household registration transcript, criminal record certificate (which shows far more than needed), employer letter, sometimes family details.",
+  "issuer": "Ministry of the Interior / National Police Agency, or Judicial Yuan for court orders",
+  "why_zk": "Legally weak and sensitive: Taiwan law restricts disclosure of such registers and operators are not entitled to ask about them in general, so any use would need an explicit statutory carve-out and risks discrimination and rehabilitation harms. The honest case is that where a police clearance is already requested, an absence-only proof is far less intrusive than a full criminal record certificate, which reveals every conviction.",
+  "id": "gov-nonmember__A__1",
+  "cell": "gov-nonmember",
+  "arm": "A"
+ },
+ {
+  "inspired_by": [],
+  "title": "Joining a community or school volunteer role without disclosing a full police record",
+  "moment": "Signing up as an after-school tutor, a temple or community-centre volunteer, or a sports coach for minors; the organisation must confirm the person is not on the list of those barred from working with children under child and youth welfare rules, but today collects the full non-criminal-record certificate.",
+  "verifier": "Cram school, community association, sports club, or school volunteer coordinator",
+  "predicate": "Holder is not on the register of persons barred from working with children and youths (e.g., convicted of listed offences or subject to employment bans).",
+  "disclosed_today": "Police criminal record certificate (with full history of conviction categories), national ID number, home address, photo, sometimes household registration transcript.",
+  "issuer": "Ministry of Health and Welfare / Ministry of Education (employment-ban registers), via Ministry of Justice records",
+  "why_zk": "Strongest of the three: a legal duty to check already exists in some settings, and the record certificate over-discloses. A signed non-membership claim limited to the relevant ban list would satisfy the duty while keeping unrelated old or minor entries private. Hurdles are that the legal check is sometimes defined as a specific certificate form, so rules would need to accept the proof, and freshness (short validity or revocation) matters because bans can be imposed after issuance.",
+  "id": "gov-nonmember__A__2",
+  "cell": "gov-nonmember",
+  "arm": "A"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "tw-gov-uid-duplicate-minimal-disclosure",
+    "borrowed_aspect": "The registry answers only a narrow yes/no about its own record rather than releasing the underlying data, as the household registry does for duplicate ID numbers."
+   },
+   {
+    "seed_id": "an-a-privacy-pass",
+    "borrowed_aspect": "Presenting an unlinkable proof of a prior check so the agency cannot match it back to the issuance event."
+   }
+  ],
+  "title": "Not on the restricted-exit list when booking a package tour",
+  "moment": "A traveler pays a deposit for an overseas group tour or a visa-assisted trip, and the travel agency asks for a passport copy and ID card copy to check that the traveler is not barred from leaving the country.",
+  "verifier": "Travel agency (旅行社) booking desk",
+  "predicate": "Holder does not appear on the national restricted-exit (限制出境) register as of today",
+  "disclosed_today": "Full photocopy of the ID card (national ID number, address, photo) and passport (passport number, birth date, photo), kept in agency files",
+  "issuer": "Ministry of the Interior National Immigration Agency (內政部移民署), as the keeper of the restricted-exit register",
+  "why_zk": "The agency needs only the absence from the register, not identity documents. Weakness: restricted-exit status can change after signing, so the proof needs a short validity window or a freshness timestamp. Law may also restrict who is allowed to learn restriction status at all, and the agency often needs the passport anyway for the actual ticket and visa, so the saving is only at the deposit stage. A blind or unlinkable proof also stops the agency and the issuer from correlating who is traveling.",
+  "id": "gov-nonmember__B__0",
+  "cell": "gov-nonmember",
+  "arm": "B"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "rd-eudi-wallet-selective-disclosure-recital",
+    "borrowed_aspect": "The principle that the relying party gets what the service needs and no more, instead of the whole attestation record."
+   },
+   {
+    "seed_id": "tw-gov-uid-duplicate-minimal-disclosure",
+    "borrowed_aspect": "The narrower answer (no overdue case) is enough to settle the question, so the full figures need not be released."
+   }
+  ],
+  "title": "Not a delinquent taxpayer when a seller registers on a marketplace or bids for a small public contract",
+  "moment": "A sole proprietor or freelancer signs up to sell on an online platform or to bid for a small municipal procurement and is asked to prove they have no overdue taxes or tax-collection restrictions.",
+  "verifier": "Online marketplace onboarding team or a city-government procurement clerk",
+  "predicate": "Holder is not on the list of persons with overdue taxes or with enforced-collection or restricted-exit tax cases (欠稅 / 移送執行名單) at issuance time",
+  "disclosed_today": "A full tax-clearance certificate (完稅證明 / 無欠稅證明) showing taxpayer name, ID number, and often tax amounts or income categories, plus a business registration copy",
+  "issuer": "Ministry of Finance National Taxation Bureau (財政部國稅局), or the local tax bureau for local taxes",
+  "why_zk": "Today the clearance paper carries tax detail the verifier does not need; a signed non-membership claim reveals only that no overdue case exists. Weakness: tax authority records are confidential by law (稅捐稽徵法 secrecy), so the bureau may refuse to sign anything but the existing certificate, and procurement rules may name the paper certificate explicitly. Also, absence from a list is only as good as the list's update frequency, so the proof must carry an as-of date.",
+  "id": "gov-nonmember__B__1",
+  "cell": "gov-nonmember",
+  "arm": "B"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "rd-google-wallet-zkp-age-no-linkage",
+    "borrowed_aspect": "A single yes/no fact delivered so that neither the verifier nor the issuer can track the holder."
+   },
+   {
+    "seed_id": "rd-apple-wallet-age-request-categories",
+    "borrowed_aspect": "The warning that a request category can bundle extra fields (issuer, photo), which here mirrors the good-conduct certificate bundling unrelated record details."
+   }
+  ],
+  "title": "Not a sex-offender-registry entry when joining a cram school or sports club as a part-time coach",
+  "moment": "A university student or retiree applies as an after-school tutor, swim coach, or children's activity assistant, and the employer asks for a police criminal-record certificate and a check against child-protection restriction lists before the first class.",
+  "verifier": "Cram school (補習班), sports club, or after-school care operator",
+  "predicate": "Holder does not appear on the sexual-offense or child-protection employment-restriction register (性侵害加害人 / 兒少性剝削 登記查閱名單) at issuance time",
+  "disclosed_today": "A police good-conduct certificate (良民證) or a similar paper listing full name, ID number, birth date and a statement about the full criminal-record status, which can expose unrelated, old, or expunged entries",
+  "issuer": "Ministry of the Interior Police Administration (內政部警政署) or the competent local education or social-welfare bureau",
+  "why_zk": "The employer's legitimate need is only absence from the restriction register; a good-conduct certificate shows more than that, including minor records unrelated to children. Weakness: Taiwanese child-protection law already obliges employers to query specific lists through official channels, and the legally required check may have to be performed by the employer directly with the authority rather than accepting a holder's proof, so a wallet proof may be legally insufficient unless regulations are updated. Freshness is also critical here, because a register entry added after the proof was signed would be missed.",
+  "id": "gov-nonmember__B__2",
+  "cell": "gov-nonmember",
+  "arm": "B"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "tw-telco-online-id-check-fraud-2021",
+    "borrowed_aspect": "A check that relies only on copyable ID details is weak, which motivates a signed, fresh, holder-bound proof of the register status instead of a passport photocopy."
+   },
+   {
+    "seed_id": "an-a-nist-dp",
+    "borrowed_aspect": "The idea that leakage should be bounded and checkable, applied by making the only thing the verifier learns a single yes bit about the register."
+   }
+  ],
+  "title": "Proving no outstanding exit restriction at the airport check-in counter",
+  "moment": "A Taiwanese traveler checks in for an international flight, and the airline or ground handler must confirm the passenger is not subject to a government travel ban (出境限制, for example from tax arrears or court orders) before issuing a boarding pass, or a travel agent confirms it before booking a non-refundable group tour.",
+  "verifier": "Airline ground-handling staff or a travel agency booking desk",
+  "predicate": "The holder's national ID is not on the current exit-restriction register (non-membership), signed with a short validity window.",
+  "disclosed_today": "Full passport and national ID number, often copied or photographed. If a restriction exists, staff can see it, and the traveler may be questioned about the reason in front of others.",
+  "issuer": "National Immigration Agency, drawing on court and tax-authority restriction records",
+  "why_zk": "A non-membership proof would let the verifier see only that the person is not restricted, so a clear traveler reveals nothing else. Weakness, stated honestly. Border control (immigration at departure) already checks the register itself and carriers have little legal duty to check, so this mostly removes a copy of the passport rather than a real check. A restricted person simply cannot produce the proof, and that failure itself tells the verifier something. The proof must be fresh, because a restriction can be imposed hours before departure.",
+  "id": "gov-nonmember__C__0",
+  "cell": "gov-nonmember",
+  "arm": "C"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "an-b-ala-library-records",
+    "borrowed_aspect": "A record that identifies a person should not become a readable file kept by the collector; the verifier here keeps only a yes bit and not a copied certificate."
+   },
+   {
+    "seed_id": "tw-pdpa-art11-3-deletion-exception",
+    "borrowed_aspect": "The open-ended exception that lets collectors keep data they say they need, which is the reason a proof that never hands over the data is stronger than a promise to delete it."
+   }
+  ],
+  "title": "Showing a nanny or tutor is not on the sex-offender notification register",
+  "moment": "A parent hires a private after-school tutor, a babysitter from a platform, or a cram-school teaches a trial class, and the hiring side wants assurance the person is not on the sexual-offender registry (性侵害加害人登記). Today they ask for a police record certificate (良民證) from the candidate.",
+  "verifier": "A parent, a childcare or tutoring platform, or a small cram-school owner",
+  "predicate": "The holder is not on the sexual-offence offender registration or notification list (non-membership), plus the signing authority and date.",
+  "disclosed_today": "A full criminal-record certificate, which can reveal unrelated old convictions, offences already expunged in practice, and the candidate's complete identity details, and is photocopied and kept by the employer.",
+  "issuer": "Ministry of the Interior (police administration), or the Ministry of Justice for the criminal record side",
+  "why_zk": "A narrow non-membership claim says only that the person is not on this specific register, instead of handing over a whole record that lets an employer judge unrelated matters. Weakness, stated honestly. For jobs covered by child-protection law, the employer is legally required to check specific registries and may be entitled to the fuller record, so the narrow proof would not replace the legal check, and informal parents may actually want more than a register absence. The proof also covers only the registry, not every risk, so it can give false comfort.",
+  "id": "gov-nonmember__C__1",
+  "cell": "gov-nonmember",
+  "arm": "C"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "an-b-ala-library-records",
+    "borrowed_aspect": "A record of where and when a person went can become a readable log of their life, so the verifier should not be given the underlying list."
+   },
+   {
+    "seed_id": "an-a-tor-onion",
+    "borrowed_aspect": "Splitting knowledge so no single party holds both identity and detail, applied by letting the verifier know the person is clear without learning the identity-linked violation history."
+   }
+  ],
+  "title": "Proving a vehicle owner has no unpaid traffic fines before a used-car sale transfer",
+  "moment": "A buyer at a second-hand car dealer, or a private seller, needs the seller to show that the seller has no unpaid traffic fines or license-suspension notices attached to them or the plate before ownership transfer is processed at the motor vehicle office or agreed privately.",
+  "verifier": "A used-car dealer or a private buyer, and sometimes an escrow or insurance agent",
+  "predicate": "The holder is not on the list of persons with outstanding unpaid traffic penalties or an active licence suspension (non-membership), tied to the holder, not to a photo of a document.",
+  "disclosed_today": "Full ID card, driver licence photo, vehicle licence and registration details, and sometimes screenshots of the government fine-lookup page showing the entire list of violations with dates and places.",
+  "issuer": "Directorate General of Highways (Ministry of Transportation and Communications) or the Motor Vehicles Office",
+  "why_zk": "A dealer needs only that nothing is outstanding, yet the usual screenshot reveals where and when the seller drove, which hints at routines and locations. A non-membership proof removes that history. Weakness, stated honestly. Outstanding fines are already tied to the plate and the transfer office blocks the transfer itself, so the private-sale buyer gains limited protection, the benefit is mainly privacy of the seller, and the incentive for a dealer to ask for anything less than the full look-up is low. A fine imposed minutes later invalidates the proof, so it needs a short expiry.",
+  "id": "gov-nonmember__C__2",
+  "cell": "gov-nonmember",
+  "arm": "C"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "tw-platform-gym-id-card-copies-interp",
+    "borrowed_aspect": "The pattern of a private counterparty collecting full front-and-back ID copies when only one narrow fact is needed."
+   },
+   {
+    "seed_id": "tw-gov-household-register-original-only",
+    "borrowed_aspect": "The household register transcript as an over-broad document that is shown or handed over for a narrow purpose."
+   }
+  ],
+  "title": "Proving no outstanding exit restriction when buying a used car at a dealer",
+  "moment": "A buyer or seller at a used-car dealership or consignment lot in Taiwan needs the vehicle transfer to go through, and the dealer wants assurance the seller is not under a travel or asset restriction and the car is not seized. Today the dealer photocopies the seller's ID, license and often household register.",
+  "verifier": "Used-car dealer or consignment broker",
+  "predicate": "The seller's national ID is NOT on the court or administrative enforcement (seizure / transfer-restriction) register for this vehicle's plate at the time of signing.",
+  "disclosed_today": "Front-and-back ID copy, driver's license copy, sometimes household register transcript with address and family members; the dealer keeps the copies in the deal folder.",
+  "issuer": "Directorate General of Highways / MVDO jointly with Judicial Yuan enforcement records (government signs a non-membership attestation over the restriction register).",
+  "why_zk": "The dealer only needs absence from a seizure/restriction list, not who the seller is beyond the transacting identity. Weakness: the dealer still needs a legal name for the contract and the transfer form, so identity cannot be fully hidden; the real gain is dropping the extra copies and household data. Also depends on an agency actually publishing a signed, timestamped absence attestation, which does not exist today.",
+  "id": "gov-nonmember__D__0",
+  "cell": "gov-nonmember",
+  "arm": "D"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "tw-bank-deposit-dual-id-check",
+    "borrowed_aspect": "A verifier carrying out an identity and risk check with document inspection where retention and scope are unspecified."
+   }
+  ],
+  "title": "Showing a landlord that a tenant is not on the public-housing or rent-subsidy disqualification list",
+  "moment": "A tenant applying to a private landlord that participates in the government social-housing sublease scheme, or a landlord renting under a subsidy program, must show the applicant is not disqualified for owning other property or prior fraud. The agency or landlord's agent collects tax and property records.",
+  "verifier": "Landlord or intermediary operator under the sublease-subsidy program",
+  "predicate": "The applicant is NOT on the register of persons disqualified or blacklisted from housing subsidy for prior false declaration or recovered overpayment.",
+  "disclosed_today": "Full property ownership transcript, income tax records, household composition, and ID copies delivered to the operator.",
+  "issuer": "Ministry of the Interior Construction and Planning Agency (or local housing bureau) as keeper of the disqualification list.",
+  "why_zk": "The operator needs only that the person is not blacklisted, but the program itself legally also requires income and property eligibility checks, which are positive predicates and not covered by non-membership; so this removes only the blacklist part of the file. Weakness: the blacklist is small and the operator may be entitled to query it directly, in which case ZK adds little over a direct government lookup.",
+  "id": "gov-nonmember__D__1",
+  "cell": "gov-nonmember",
+  "arm": "D"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "an-b-secret-ballot-moad",
+    "borrowed_aspect": "The idea of separating an eligibility check from the record that is kept, so the verifier learns eligibility without the underlying file."
+   }
+  ],
+  "title": "Proving not being on the court-ordered debtor restriction list when taking a school-bus or after-school care contract",
+  "moment": "A parent enrolling a child with a private after-school care or school-bus operator is asked for a guarantor or prepayment, and the operator wants assurance the parent is not under a court-ordered restriction (such as a debtor under compulsory enforcement or restricted from leaving the country). It is applied as a general screen by some operators.",
+  "verifier": "Private after-school care or school-bus operator",
+  "predicate": "The parent is NOT on the compulsory-enforcement debtor register maintained by the courts.",
+  "disclosed_today": "Parent's ID copy, contact details, sometimes bank account statement or proof of employment to show solvency.",
+  "issuer": "Judicial Yuan / district court enforcement office.",
+  "why_zk": "A signed absence from the debtor register would replace bank statements and employment proof with a single bit. Weakness: this is a weak and legally questionable use, since screening parents on debtor status for child care may be discriminatory or unlawful under consumer and children's-services rules, and the real proof of future payment capacity is not captured by non-membership. It is included to show where the pattern is thin rather than a recommended deployment.",
+  "id": "gov-nonmember__D__2",
+  "cell": "gov-nonmember",
+  "arm": "D"
+ },
+ {
+  "inspired_by": [],
+  "title": "Dormitory/communal-housing \"no contagious infection\" clearance during an outbreak window",
+  "moment": "A university dorm, long-term-care facility, or migrant-worker dormitory re-opens after a legionella, tuberculosis, or enterovirus alert and asks incoming residents or returning staff to show they are cleared to share rooms.",
+  "verifier": "Dormitory administrator or facility infection-control officer",
+  "predicate": "Hospital has cleared the person of the named communicable condition (screening negative or isolation completed) and the clearance is valid from issue date until the end of the outbreak watch period (e.g. 14 or 30 days).",
+  "disclosed_today": "A photocopy of the hospital certificate or lab report (diagnosis, test results, physician notes), or a health-declaration form with symptom history; sometimes a full medical certificate stored in a paper folder.",
+  "issuer": "Hospital (infection-control or outpatient department)",
+  "why_zk": "The facility only needs \"cleared during this window\" and not the disease history, test values or other conditions on the report. Honest caveat is that infectious-disease handling is regulated by the Communicable Disease Control Act, so a facility may be legally entitled to ask for more in an active case, and a hospital would have to agree to issue wallet credentials at all. Weak where public health authorities mandate direct reporting rather than self-presented proof.",
+  "id": "hospital-timed__A__0",
+  "cell": "hospital-timed",
+  "arm": "A"
+ },
+ {
+  "inspired_by": [],
+  "title": "Employer sick-leave or surgery-recovery verification for a specific absence period",
+  "moment": "An employee is hospitalised or has outpatient surgery and the HR department wants proof that the absence is genuine and covers a date range, before approving paid sick leave or the Labor Standards Act sick-leave allowance.",
+  "verifier": "Employer HR or payroll department",
+  "predicate": "A hospital-signed attestation that the holder was medically unfit for work for the dates from X to Y (credential valid only for that interval), with no diagnosis.",
+  "disclosed_today": "Diagnosis certificate (診斷證明書) listing the diagnosis, procedure, ward, treating physician and recommended rest days; HR staff and sometimes line managers see the whole certificate.",
+  "issuer": "Hospital (attending physician or medical records office)",
+  "why_zk": "HR needs only \"unfit for work 2026-03-02 to 2026-03-09\"; the diagnosis (cancer, mental health, pregnancy complications) is sensitive and employers do not need it. Honest caveat is that some employers and insurers contractually demand the diagnosis certificate, and employees may not feel free to refuse; also the attestation of a date range is easy to build with a signed range credential, so ZK adds little beyond selective disclosure of two fields. The privacy gain is real, but the adoption barrier is employer practice and not cryptography.",
+  "id": "hospital-timed__A__1",
+  "cell": "hospital-timed",
+  "arm": "A"
+ },
+ {
+  "inspired_by": [],
+  "title": "Visitor access to a school or kindergarten after a child's infection with a fixed exclusion period",
+  "moment": "A child returns to kindergarten or primary school after hand-foot-mouth disease, influenza or COVID, and the school requires proof the child is no longer contagious and has served the exclusion period, which is time-bounded by health-department guidance.",
+  "verifier": "School nurse or kindergarten administrator",
+  "predicate": "A hospital-signed status \"cleared to return\" valid from the clearance date for the rest of the school term or a stated number of days, without disclosing which illness or the treatment.",
+  "disclosed_today": "Hospital medical certificate or the parent's handwritten statement plus the doctor's note naming the disease, symptoms and medication; some schools photograph the note into class records.",
+  "issuer": "Hospital (paediatrics department)",
+  "why_zk": "The school only needs \"may attend, no isolation required\" for the relevant window, not the child's diagnosis or medication, which can reveal chronic conditions. Honest caveat is that schools in Taiwan are required to report certain notifiable diseases and nurses may legitimately need the disease name to manage class-level outbreaks, so a pure no-detail proof can conflict with public health practice. The minor's data also raises guardian-consent and issuer-liability questions.",
+  "id": "hospital-timed__A__2",
+  "cell": "hospital-timed",
+  "arm": "A"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "an-b-hipaa-min-necessary",
+    "borrowed_aspect": "The idea that release should be limited to what the stated purpose needs, here made checkable by a proof instead of left to the holder's judgment."
+   },
+   {
+    "seed_id": "rd-google-wallet-zkp-age-no-linkage",
+    "borrowed_aspect": "The pattern of proving one yes/no fact without revealing the underlying record and without letting the issuer track where it is used."
+   }
+  ],
+  "title": "Sick-leave validity window for a school or exam make-up without the diagnosis",
+  "moment": "A parent in Taiwan asks a school to excuse a child's absence from a midterm or a school trip, or a university student asks for a make-up exam after illness. The school asks for the diagnosis certificate (診斷證明書) to be photocopied or photographed and sent over LINE or the school portal.",
+  "verifier": "School administrative office or university registrar",
+  "predicate": "A hospital physician attests that the holder was medically unfit to attend school or sit exams between date A and date B. The proof is valid only for that window and reveals no diagnosis, department or treatment.",
+  "disclosed_today": "Full diagnosis certificate showing the diagnosis, the ICD wording, the physician, the department, the full name and the national ID number. It is often kept in the student file or sent through a class group chat.",
+  "issuer": "Treating hospital, via its physician-signed certificate system",
+  "why_zk": "A school needs only that the absence was medically justified on specific days. A time-bounded, selectively disclosed attestation does this, and it also removes the temptation to forge or edit a scanned certificate. It is weaker where school regulations explicitly ask for the diagnosis, for example for infectious diseases that trigger class suspension rules. In those cases the diagnosis may be legally required, so the proof would need a separate disclosed field.",
+  "id": "hospital-timed__B__0",
+  "cell": "hospital-timed",
+  "arm": "B"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "an-a-privacy-pass",
+    "borrowed_aspect": "Presenting an unlinkable proof of a prior check so the verifier cannot match the redemption to the original hospital visit or to the holder's other visits."
+   },
+   {
+    "seed_id": "an-b-hipaa-safe-harbor",
+    "borrowed_aspect": "The idea that a shared record should have the identifying and unrelated fields stripped so the leftover cannot re-identify the person."
+   }
+  ],
+  "title": "Proof of recent negative infectious-disease clearance for a short-stay care-facility or day-care visit",
+  "moment": "A visitor, volunteer or new aide at a nursing home, long-term care center or kindergarten has to show they were tested or cleared (for example no active TB, influenza or norovirus symptoms) within the past few days before entering. Staff today often ask for a photo of the lab report or hospital slip at the door.",
+  "verifier": "Long-term care facility, nursing home or kindergarten staff at the entrance or HR desk",
+  "predicate": "A hospital signs a status of cleared for entry, valid only for N days from the test date. The verifier checks that the status is still in its window and learns neither the test type, the result detail nor any other clinical content.",
+  "disclosed_today": "The entire lab or screening report, with the name, ID number, test types, other tested items and often the hospital visit details.",
+  "issuer": "Hospital laboratory or infection-control department",
+  "why_zk": "The facility cares about whether the holder is cleared right now, not about what else was tested. The signed validity window encodes freshness without a live lookup, so the facility does not need access to hospital systems. The weakness is that facilities often want a paper record for inspection audits, and local health authorities may specify which documents to retain, so a pure proof may not satisfy an auditor.",
+  "id": "hospital-timed__B__1",
+  "cell": "hospital-timed",
+  "arm": "B"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "an-b-sealed-bid-far",
+    "borrowed_aspect": "The notion of content that stays unseen by intermediate handlers until a fixed moment, with the wrapper readable only for what is needed to identify it."
+   },
+   {
+    "seed_id": "an-b-hipaa-min-necessary",
+    "borrowed_aspect": "The purpose-limited release principle, where only the part that serves the travel decision is exposed."
+   }
+  ],
+  "title": "Hospital-signed fit-to-fly or fit-to-travel window for an airline or ferry to the outlying islands",
+  "moment": "A passenger recovering from surgery, late pregnancy or a heart event books a flight to Kinmen, Penghu or Lanyu, or a long-haul flight, and the carrier or tour operator asks for a doctor's fitness note. Staff photocopy or photograph the note and sometimes keep it with the booking.",
+  "verifier": "Airline check-in counter, ferry operator or travel agent handling the booking",
+  "predicate": "A hospital physician signs that the holder is medically fit to travel for a trip on dates within a stated window, and the proof stops being valid after the window. No diagnosis, procedure, gestational detail or medication is shown.",
+  "disclosed_today": "A medical certificate with the diagnosis, the procedure or gestational age, the medications, the physician details and the full ID number. It is copied and stored with the booking records.",
+  "issuer": "Treating hospital (attending physician's office)",
+  "why_zk": "The carrier's decision is only whether it may carry the passenger on that date. A time-bound signature matches the fact that fitness for travel can change within days. The sealed-bid analogy applies to the content, which stays hidden from handlers until the moment of use. This is weak where the airline's own medical-clearance form (MEDIF) requires specific clinical fields that the airline's medical desk reviews, in which case the proof would only cover the simpler cases, such as ferries and domestic routes.",
+  "id": "hospital-timed__B__2",
+  "cell": "hospital-timed",
+  "arm": "B"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "rd-swiss-eid-necessary-data-only",
+    "borrowed_aspect": "Release only the single attribute the transaction needs rather than the whole credential."
+   },
+   {
+    "seed_id": "tw-telco-online-id-check-fraud-2021",
+    "borrowed_aspect": "Checking only easily copied identifiers (a paper copy) lets someone else pass, so the proof should be bound to the holder and signed by the issuer."
+   }
+  ],
+  "title": "Hospital-signed 'infection-free window' for a hospital-ward caregiver or private nursing-home visitor",
+  "moment": "A family member or foreign live-in caregiver (外籍看護) arrives at a Taiwanese nursing home or a ward during an outbreak and must show they recently tested negative or are not in an infectious period.",
+  "verifier": "Nursing home (護理之家) front desk or ward access control",
+  "predicate": "Hospital attests 'no active infectious-disease restriction' valid from test date to test date + N days (e.g. 7 days); nothing else.",
+  "disclosed_today": "Photo or paper of the lab report or clinic certificate showing diagnosis, test type, lab values, name, ID number, and sometimes medication.",
+  "issuer": "Hospital or clinic laboratory that ran the test",
+  "why_zk": "The verifier only needs a yes for the window, but today the whole report is shown or photographed and kept on a staff phone. Validity expiry is built into the claim, so no clinical detail is needed. Weakness: nursing homes mostly act on paper habits and no regulation requires accepting a digital proof, and a window set by each facility's own policy may not match what the hospital signed.",
+  "id": "hospital-timed__C__0",
+  "cell": "hospital-timed",
+  "arm": "C"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "rd-swiss-eid-necessary-data-only",
+    "borrowed_aspect": "Wallet releases only the needed attribute from a credential issued as a whole."
+   },
+   {
+    "seed_id": "an-b-jury-selection",
+    "borrowed_aspect": "Confidentiality being only a discretionary exception, with full disclosure as the default, is the pattern to flip so minimal disclosure is the default."
+   }
+  ],
+  "title": "Postpartum or post-surgery 'not fit to travel / fit to return' window for employer leave and insurer claims",
+  "moment": "An employee on 病假 or 產假 extension submits a doctor's certificate to HR, or a patient submits it to a travel insurer, to show they were medically unable to work or travel on specific dates.",
+  "verifier": "Employer HR department or travel/health insurer claims desk",
+  "predicate": "Hospital attests 'medically unfit for work/travel for the period [start, end]' as a boolean over a date range, with no diagnosis.",
+  "disclosed_today": "診斷證明書 with diagnosis name, ICD code, procedures, and attending physician notes, sent to HR or insurer by scan or email.",
+  "issuer": "Treating hospital",
+  "why_zk": "HR needs only that the absence is covered for those dates, yet diagnosis certificates reveal pregnancy complications, psychiatric conditions, or surgery type to a manager. A time-bounded proof removes the diagnosis. Weakness: Taiwanese labour rules and insurers often legally require the diagnosis or the original certificate, and insurers may need the cause to adjudicate, so adoption depends on rule changes rather than on technology.",
+  "id": "hospital-timed__C__1",
+  "cell": "hospital-timed",
+  "arm": "C"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "an-a-nist-dp",
+    "borrowed_aspect": "Express the leak as a bounded, checkable quantity: here the verifier learns only a category and expiry, and nothing else can be inferred."
+   },
+   {
+    "seed_id": "tw-gov-id-number-reissue-misuse-2025",
+    "borrowed_aspect": "A stable identifier that outlives its context keeps working for others, so the proof must expire and not be tied to a permanent number."
+   }
+  ],
+  "title": "Hospital-signed 'currently in treatment course' status for a pharmacy or school to grant a temporary accommodation",
+  "moment": "A parent asks a school for a short-term accommodation (exempting a child from PE or the cafeteria, or allowing a medication break) or a worker asks a company for a temporary shift change during a defined treatment cycle such as chemotherapy or post-fracture recovery.",
+  "verifier": "School health office (健康中心), employer, or gym/pool operator",
+  "predicate": "Hospital attests 'accommodation category X applies' valid until the course end date, auto-expiring afterward.",
+  "disclosed_today": "Hospital certificate or discharge summary naming the disease and treatment plan, often photocopied and kept in the school file indefinitely.",
+  "issuer": "Treating hospital",
+  "why_zk": "The school needs a category and an end date, not that a child has cancer or a worker has a particular condition. Expiry removes the problem of a stale record being kept after recovery and then used for other purposes. Weakness: a coded accommodation category needs to be agreed between hospitals and schools, and teachers often want a conversation with the family, so the proof may not replace it.",
+  "id": "hospital-timed__C__2",
+  "cell": "hospital-timed",
+  "arm": "C"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "rd-google-wallet-zkp-age-no-linkage",
+    "borrowed_aspect": "A single yes/no claim proved without revealing the underlying record, with no tracking by issuer or verifier."
+   },
+   {
+    "seed_id": "rd-cnpd-lu-tourist-inspect-not-copy",
+    "borrowed_aspect": "The idea that a host should check a document and not keep a copy of it, applied to travellers' health papers."
+   }
+  ],
+  "title": "Fit-to-fly / low-infection-risk window for a cruise or group-tour boarding",
+  "moment": "A traveller boards a cruise ship at Keelung or joins a group tour, and the operator asks for a recent negative test, a vaccination record or a doctor's note showing no infectious illness in the last few days.",
+  "verifier": "Cruise line or tour operator boarding desk",
+  "predicate": "Hospital attests \"cleared of notifiable infectious condition\" and the attestation is valid only for the 72 hours around departure (valid-from / valid-to window), nothing else.",
+  "disclosed_today": "Full lab report or clinic certificate with name, ID number, diagnosis context, test type, clinic and physician, kept as a photocopy or photo by the operator.",
+  "issuer": "Hospital or its outpatient clinic, signing a short-lived status credential into the digital wallet.",
+  "why_zk": "The operator only needs a yes/no that is true on departure day, and the proof should expire by itself instead of becoming a stored medical file. Weak points to be honest about: operators may be required by quarantine or port rules to keep records, and a hospital would need to issue such a status in real time, which is not standard practice.",
+  "id": "hospital-timed__D__0",
+  "cell": "hospital-timed",
+  "arm": "D"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "privacy-pass-unlinkable-proof",
+    "borrowed_aspect": "A gatekeeper only needs to know that a prior check was passed, without receiving a persistent identifier."
+   }
+  ],
+  "title": "Post-surgery or post-procedure \"may be left alone / cleared for pickup\" window for a ride or care service",
+  "moment": "After day surgery or a colonoscopy under sedation, the patient is collected by a family member, a taxi or a nursing-aide service that asks for the discharge summary to prove the patient is cleared to leave and who is responsible.",
+  "verifier": "Taxi or care-transport dispatcher, home-care agency, or a hotel or recovery guesthouse near the hospital",
+  "predicate": "Hospital signs \"discharged in stable condition, may travel or stay unaccompanied after time T\" and it is valid only for the next 24 hours.",
+  "disclosed_today": "The whole discharge note, including diagnosis, procedure name, medications and attending doctor, photographed or handed over on paper.",
+  "issuer": "Hospital discharge system issuing a time-limited status.",
+  "why_zk": "The service needs only the clearance and the time window, not the procedure, and a short validity stops the status being reused later. Honest limits: many such services rely on a person's word and have no wallet reader, so adoption incentive is low, and some care agencies legitimately need medication information for safety.",
+  "id": "hospital-timed__D__1",
+  "cell": "hospital-timed",
+  "arm": "D"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "an-b-ala-library-records",
+    "borrowed_aspect": "A record-keeping duty that relies on each institution's good policy rather than technical limits, which a timed proof would replace with a technical limit."
+   },
+   {
+    "seed_id": "an-b-va-id-scanning",
+    "borrowed_aspect": "The problem that a check ends up capturing the whole document and needs a cap on what is retained."
+   }
+  ],
+  "title": "Contagion-free window for a school or childcare return after an illness",
+  "moment": "A child returns to kindergarten or an after-school care centre (afterschool \"anqinban\") after hand-foot-mouth disease, influenza or another notifiable illness, and staff ask for the doctor's certificate to confirm the child is no longer contagious.",
+  "verifier": "Kindergarten, childcare centre or after-school class",
+  "predicate": "Hospital signs \"not contagious from date A\", valid for the school term week in which the child returns, and optionally \"not contagious through date B\" for rolling attendance.",
+  "disclosed_today": "The clinic certificate or medical receipt showing the diagnosis, sometimes the whole medical visit record, which is often photographed by staff and kept in a messaging group.",
+  "issuer": "Hospital or paediatric clinic.",
+  "why_zk": "The centre only needs to know the child may attend within a bounded period, not the diagnosis. Other parents' messaging groups and staff phones are where such records leak today. Honest limits: centres often have a legal duty to report notifiable diseases to health authorities, so some disclosure is legitimate and the proof can only replace the over-collection, not the reporting; parents of young children may have no wallet in place of the child.",
+  "id": "hospital-timed__D__2",
+  "cell": "hospital-timed",
+  "arm": "D"
+ },
+ {
+  "inspired_by": [],
+  "title": "Delivery-platform courier rating for a building management committee hire",
+  "moment": "A residential community (社區) in Taipei hires a part-time package-room or night-shift concierge, or lets a gig courier get a building access tag. The management committee wants evidence of reliability.",
+  "verifier": "Community management committee (管理委員會) or its property management company",
+  "predicate": "Lifetime completed deliveries on a delivery platform is at least 500 AND average customer rating is at least 4.7",
+  "disclosed_today": "Screenshots of the courier app profile showing real name, photo, phone number, order history, earnings, and city zones worked",
+  "issuer": "Delivery platform account (Uber Eats / foodpanda courier app), attested via zkTLS over the logged-in session; the platform never agreed to issue credentials",
+  "why_zk": "Screenshots leak earnings and movement patterns, and are trivially faked or edited. A zkTLS threshold proof shows only that the count and rating clear the bar. Weakness: platform terms of service may forbid scraping or proving from the session, ratings are platform-internal and gameable, and the committee may legally prefer a police record certificate for access-sensitive roles.",
+  "id": "platform-thresh__A__0",
+  "cell": "platform-thresh",
+  "arm": "A"
+ },
+ {
+  "inspired_by": [],
+  "title": "Ride-hailing driver tenure for a fleet-lease or insurance quote",
+  "moment": "A Taiwan Taxi (台灣大車隊) or Uber driver applies for a lower-premium commercial auto policy or a leased vehicle from a fleet owner, who wants proof of steady driving history.",
+  "verifier": "Fleet leasing company or commercial auto insurer's agent",
+  "predicate": "Active trips completed in the last 12 months is at least 3000 AND account age is at least 24 months",
+  "disclosed_today": "Full monthly income statements, trip logs with pickup and dropoff addresses, and sometimes the driver's whole app account screenshots",
+  "issuer": "Ride-hailing platform driver account, attested via zkTLS",
+  "why_zk": "Trip logs expose home, workplace, and passenger locations of a person working at night, and income details unrelated to risk. A threshold proof on trips and tenure suffices for pricing. Weakness: insurers price on claims history and traffic violation records from official sources, so platform activity is a supplementary signal at best, and the platform may resist or change its pages.",
+  "id": "platform-thresh__A__1",
+  "cell": "platform-thresh",
+  "arm": "A"
+ },
+ {
+  "inspired_by": [],
+  "title": "Online marketplace seller reputation for a night-market stall or consignment shop slot",
+  "moment": "A Shopee or Ruten seller wants a physical consignment shelf in a Taipei pop-up shop or a booth at a weekend market. The organizer wants to know the seller is real and fulfils orders reliably.",
+  "verifier": "Pop-up market organizer or consignment shop owner",
+  "predicate": "Shopee shop completed orders in the last 6 months is at least 200 AND on-time shipping rate is at least 95 percent",
+  "disclosed_today": "Shop URL plus screenshots of the seller dashboard, which show revenue, buyer names, product margins, and sometimes bank account hints",
+  "issuer": "Shopee seller center account, attested via zkTLS",
+  "why_zk": "The organizer needs only a reliability signal, but the dashboard screenshot reveals sales volume, customer data, and cost structure to a potential competitor on the same market. A threshold proof removes that. Weakness: the shop URL is already public with a visible rating, so the privacy gain is modest, and the seller center's data may be inaccessible to automated proofs under Shopee terms.",
+  "id": "platform-thresh__A__2",
+  "cell": "platform-thresh",
+  "arm": "A"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "rd-google-wallet-zkp-age-no-linkage",
+    "borrowed_aspect": "A one-bit yes/no proof that does not let the verifier or the data holder track the person."
+   },
+   {
+    "seed_id": "an-b-va-id-scanning",
+    "borrowed_aspect": "The problem of capture of a whole document when only one field is needed, here the full account screen."
+   }
+  ],
+  "title": "Ride-hail rating as a deposit waiver for scooter and car-share rental",
+  "moment": "A traveler or student at a shared-car or e-scooter kiosk in Taipei or Kaohsiung is asked to leave a deposit, or the operator screenshots the person's Uber or LINE Taxi passenger profile to judge reliability.",
+  "verifier": "Car-share or scooter-rental operator (for example a station-based car-share service or a rental shop near a train station)",
+  "predicate": "Passenger rating on the ride-hail account is at least 4.8 and the account has at least 50 completed trips",
+  "disclosed_today": "Screenshot of the whole account page, including name, photo, saved addresses, recent trips and phone number; or a cash deposit instead",
+  "issuer": "Ride-hail platform account, with the claim made verifiable through a zkTLS session proof against the platform's own logged-in page (the platform is not an issuer and has not agreed to anything)",
+  "why_zk": "The rating and trip count are the only facts needed, and a zkTLS proof avoids handing over trip history and home address. Weaknesses: the platform's terms may forbid this use, the rating is a weak signal of driving skill, the session proof depends on the platform not changing its page, and an operator may still want a license check, which this does not replace.",
+  "id": "platform-thresh__B__0",
+  "cell": "platform-thresh",
+  "arm": "B"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "tw-gov-uid-duplicate-minimal-disclosure",
+    "borrowed_aspect": "The idea that a narrow answer (a count over a bar, like whether a duplicate exists) settles the matter without releasing the underlying record."
+   },
+   {
+    "seed_id": "an-a-oauth-scopes",
+    "borrowed_aspect": "The risk that the only way to share one fact is a broad grant, which is the situation with screenshots of an entire app."
+   }
+  ],
+  "title": "Delivery-platform order count as proof of regular-customer standing for a landlord or building management",
+  "moment": "A tenant applicant for a small rental unit, or a resident asking for a parcel-locker or after-hours access arrangement, is asked by the building manager or landlord to show an app order history as proof of stable residence at an address.",
+  "verifier": "Landlord, agent, or community building management committee",
+  "predicate": "The delivery account has at least 12 completed orders to the same address over the last 6 months",
+  "disclosed_today": "Screenshots of the order history list showing restaurants, items, times, amounts and the full delivery address",
+  "issuer": "Food-delivery platform account, via a zkTLS proof of the order-history page; the platform did not design the page to be a credential",
+  "why_zk": "Orders reveal diet, schedule, spending and guests, while the verifier only needs a count tied to an address. Honestly weak: matching the address inside the proof must be done carefully, an applicant can make orders to game the count, and Taiwan landlords more often ask for a lease, utility bill or household registration transcript, which are stronger and easy to get.",
+  "id": "platform-thresh__B__1",
+  "cell": "platform-thresh",
+  "arm": "B"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "rd-google-wallet-zkp-age-no-linkage",
+    "borrowed_aspect": "Unlinkability, so the verifier cannot track the person across contexts."
+   },
+   {
+    "seed_id": "rd-eudi-wallet-selective-disclosure-recital",
+    "borrowed_aspect": "Disclosing one attribute out of a larger record the holder cannot split themselves."
+   }
+  ],
+  "title": "Seller reputation on an auction platform as a threshold for a high-value in-person handover",
+  "moment": "A buyer of a used camera or console arranged on a second-hand marketplace is asked by a seller to prove being a trusted buyer before the seller will meet at a convenience store pickup point, or a seller is asked to prove good standing before a buyer pays by a third-party escrow.",
+  "verifier": "The counterparty in a private sale, or a convenience-store pickup service gating a high-value parcel",
+  "predicate": "Account positive-feedback share is at least 98 percent with at least 30 reviews, on an account older than one year",
+  "disclosed_today": "The account name and link to the profile, which exposes the whole transaction history, other listings, location hints and sometimes real name; or the counterparty's phone number and LINE ID",
+  "issuer": "Second-hand or auction marketplace account, with a zkTLS proof over the platform's profile or feedback API response",
+  "why_zk": "A proof can show good standing while the buyer remains pseudonymous and without exposing other listings. Weak points: feedback on these platforms is already public by design, so the benefit is mainly unlinking the proof from the profile page and hiding the account name, and a proof of a good record does not stop an account being bought or rented out.",
+  "id": "platform-thresh__B__2",
+  "cell": "platform-thresh",
+  "arm": "B"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "tw-pdpa-art5-purpose-limit",
+    "borrowed_aspect": "The idea that a collector should not exceed the necessary scope of its purpose, applied to a deposit decision that needs only two thresholds rather than a full account view."
+   },
+   {
+    "seed_id": "tw-telco-online-id-check-fraud-2021",
+    "borrowed_aspect": "The failure of a verifier relying on easily copied artifacts, here screenshots, which a proof bound to the live session replaces."
+   }
+  ],
+  "title": "Ride-hailing driver rating and trip count for a fleet-leasing deposit waiver",
+  "moment": "A part-time driver in Taipei applies to a car-leasing or fleet company that waives the deposit for proven reliable drivers. Today the company asks for screenshots of the driver app showing earnings history, ratings, and trip details.",
+  "verifier": "Fleet leasing company or taxi/ride-hailing fleet operator",
+  "predicate": "Completed trips on the platform in the last 12 months >= 500 and average rating >= 4.8",
+  "disclosed_today": "Full screenshots of the driver account, including passenger names or addresses in trip lists, daily earnings, platform account ID, and phone number",
+  "issuer": "The ride-hailing platform account page, via a zkTLS session proof over the driver's logged-in API response (the platform does not issue credentials)",
+  "why_zk": "The platform has no credential product, so only a TLS-session proof can attest the numbers; screenshots are trivially forged today. Weakness: the platform's terms may forbid automated access, and a proof only shows the page said so at that time, with no platform liability behind it. Trip count and rating are a narrow threshold, so the leasing company learns far less than from a full screenshot.",
+  "id": "platform-thresh__C__0",
+  "cell": "platform-thresh",
+  "arm": "C"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "an-b-hipaa-min-necessary",
+    "borrowed_aspect": "Releasing only the subset that serves the stated purpose, and replacing the holder's judgement of \"minimal\" with a proof that the released fact is only a threshold."
+   },
+   {
+    "seed_id": "tw-pdpa-art11-3-deletion-exception",
+    "borrowed_aspect": "The concern that a verifier keeps copies once collected; a proof leaves no screenshot archive behind to be retained under a vague business-need exception."
+   }
+  ],
+  "title": "E-commerce seller reputation for a landlord's short-term shop-space sublease",
+  "moment": "A small online seller on a Taiwanese marketplace wants to rent a pop-up counter or storefront from a landlord. The landlord asks for backend sales dashboards to judge whether the seller can pay rent.",
+  "verifier": "Landlord or property manager of a pop-up space",
+  "predicate": "Trailing 6-month monthly average order revenue >= NT$150,000 and seller cancellation rate <= 2%",
+  "disclosed_today": "Full seller-center screenshots exposing customer order lists, product margins, supplier names, and bank-payout details",
+  "issuer": "The e-commerce marketplace seller dashboard, attested by a zkTLS proof of the logged-in seller-center response",
+  "why_zk": "Dashboards reveal customers and cost structure that the landlord has no need for, and the seller cannot share them without exposing third-party buyers' data. A proof of two thresholds gives the landlord what it needs. Weakness: the seller can pick a convenient window or selectively show one of several shops, and marketplace terms may bar scripted session access.",
+  "id": "platform-thresh__C__1",
+  "cell": "platform-thresh",
+  "arm": "C"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "an-b-ala-library-records",
+    "borrowed_aspect": "A service learning only what is needed about a person's activity without a readable record of everything they use, as applied to an account profile versus a rank threshold."
+   },
+   {
+    "seed_id": "an-b-jury-selection",
+    "borrowed_aspect": "Admitting a person to a role while the wider group does not learn who they are, with the default flipped so that the identity is not published."
+   }
+  ],
+  "title": "Game or app account level for a community tournament entry",
+  "moment": "A local esports or board-game-app tournament in Taiwan limits entry to players above a ranking or account level, to stop smurf accounts, and today asks players to hand over account login or screen-share the profile.",
+  "verifier": "Tournament organizer or community Discord moderator",
+  "predicate": "In-game ranked tier >= Diamond (or rating >= 2400) and account age >= 1 year",
+  "disclosed_today": "Account name and login or full screen-share, often including linked email, purchase history, friends list, and real name on the profile",
+  "issuer": "The game publisher's player profile API, attested through a zkTLS proof of the logged-in profile response",
+  "why_zk": "Handing over credentials or screen-sharing exposes far more than a rank threshold, and the organizer then sees friends and purchases. A threshold proof shows the rank without the account identity. Weakness: this is low stakes and informal, so organizers may not care enough to adopt it, and without a binding to the entry identity, a player could borrow a stronger friend's session; the proof must be tied to a handle the organizer already holds.",
+  "id": "platform-thresh__C__2",
+  "cell": "platform-thresh",
+  "arm": "C"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "an-b-va-id-scanning",
+    "borrowed_aspect": "The pattern that a venue captures a whole card or screen when it only needs one fact, and a statute-style field limit is the only protection today."
+   },
+   {
+    "seed_id": "tw-bank-deposit-dual-id-check",
+    "borrowed_aspect": "The gap where a verifier collects documents with no stated retention or copy rule, which a proof would avoid creating."
+   }
+  ],
+  "title": "Delivery-platform rating threshold for a building's package-room courier access",
+  "moment": "A freelance food or parcel courier (Uber Eats, foodpanda, Lalamove driver) applies to a Taipei residential community management committee (社區管委會) or a premium office building for a standing courier access pass, and the building wants evidence the courier is experienced and reliable.",
+  "verifier": "Community management office or building property manager issuing recurring courier access",
+  "predicate": "Platform account has at least 500 completed deliveries and a rating of at least 4.7 over the last 12 months",
+  "disclosed_today": "Full screenshots of the driver app showing real name, photo, vehicle plate, earnings, home-area zone, and sometimes the national ID photo copy for the access register",
+  "issuer": "The delivery platform's own driver account, attested through a zkTLS session over the driver app's stats page (platform did not agree to issue credentials)",
+  "why_zk": "A zkTLS proof can show only count and rating cross a bar without earnings or plate. Weak points: platform terms of service may forbid scraping or automated session replay, screenshots are the current norm and committees rarely care about privacy, and the proof only shows the platform's number, not that the person is who is at the door, so identity still needs a separate check.",
+  "id": "platform-thresh__D__0",
+  "cell": "platform-thresh",
+  "arm": "D"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "an-a-nist-dp",
+    "borrowed_aspect": "The idea that a releaser should expose a checkable bound instead of raw records, here a threshold in place of a trip log."
+   },
+   {
+    "seed_id": "an-b-census-title13",
+    "borrowed_aspect": "The principle that outputs must not allow particular individuals (here the passengers in the export) to be singled out."
+   }
+  ],
+  "title": "Ride-hailing driver trip count to qualify for a fleet vehicle lease discount",
+  "moment": "A part-time Uber or LINE Taxi driver in Kaohsiung applies at a car leasing company for a discounted lease reserved for drivers with a proven active record.",
+  "verifier": "Car leasing or fleet financing company",
+  "predicate": "Platform account shows at least 1,000 completed trips and at least 12 active months",
+  "disclosed_today": "Monthly earnings statements and the full trip history export, including pickup and drop-off addresses of passengers, the driver's bank account and tax details",
+  "issuer": "Ride-hailing platform account (driver portal), proven by zkTLS over the logged-in driver portal session",
+  "why_zk": "The lessor needs experience, not income or passenger locations. A threshold proof removes passenger address exposure, which is a third-party privacy issue under the Personal Data Protection Act. Honest weakness: it sits close to a generic income check, leasing firms usually want earnings for credit risk, and platforms may change their portal markup so the proof breaks.",
+  "id": "platform-thresh__D__1",
+  "cell": "platform-thresh",
+  "arm": "D"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "an-b-sealed-bid-far",
+    "borrowed_aspect": "A hidden value that a holder must keep from competitors yet later prove, here sales figures that rival stall applicants must not see."
+   },
+   {
+    "seed_id": "an-b-secret-ballot-moad",
+    "borrowed_aspect": "Separating eligibility checking from the item being judged, so the organizer verifies a threshold without linking the applicant's full business record to the ranking."
+   }
+  ],
+  "title": "Online marketplace seller sales threshold for a night-market or pop-up stall slot",
+  "moment": "A Shopee or Ruten seller applies to a city-run weekend creative market (such as a Taichung or Tainan pop-up bazaar) for a priority stall slot that is reserved for sellers who already have a proven online sales record.",
+  "verifier": "Market organizer or district office running the stall lottery",
+  "predicate": "Seller account has at least 200 completed orders and at least 95 percent positive reviews in the past 6 months",
+  "disclosed_today": "Screenshots of the seller dashboard with revenue, customer names, supplier costs, and the shop's bank payout details, sometimes the full order spreadsheet",
+  "issuer": "Marketplace seller account (seller center), shown through a zkTLS proof over the seller center page",
+  "why_zk": "The organizer only ranks applicants, so a threshold proof avoids handing over revenue and customer data that the organizer then stores in a shared inbox. Weakness: applicant volumes are small, organizers are unlikely to run a verifier, a lottery with no ranking removes the need, and platforms could object to proofs generated from seller sessions.",
+  "id": "platform-thresh__D__2",
+  "cell": "platform-thresh",
+  "arm": "D"
+ },
+ {
+  "inspired_by": [],
+  "title": "One Lunar New Year red-envelope or limited-edition drop claim per person on a Taiwanese convenience-store app",
+  "moment": "A convenience-store or delivery app in Taiwan releases a limited batch of free coffee coupons or a collectible item at a set hour, and people create many throwaway accounts with prepaid SIM numbers to grab several.",
+  "verifier": "A convenience-store chain loyalty app operator running a limited-quantity promotion.",
+  "predicate": "The claimant holds exactly one active, real-name-registered mobile subscription, and this promotion-specific nullifier has not been used before.",
+  "disclosed_today": "Mobile phone number (verified by SMS OTP), often name, birthday, email, and device ID; the phone number itself links the account to a person across every other service.",
+  "issuer": "A Taiwanese mobile carrier (real-name SIM registration holder).",
+  "why_zk": "A telco-signed one-subscriber credential with a per-campaign nullifier lets the operator enforce one claim per person without receiving the phone number. Honest caveat: real-name SIM registration allows one person to hold several lines, so uniqueness would be per-line unless the telco attests one credential per national ID; prepaid and corporate lines weaken it further. Operators also like the phone number for marketing, so the incentive to adopt is weak.",
+  "id": "telco-unique__A__0",
+  "cell": "telco-unique",
+  "arm": "A"
+ },
+ {
+  "inspired_by": [],
+  "title": "One vote per person in an apartment-building or community management committee online poll",
+  "moment": "A Taiwanese residential community (a building management committee) runs an online poll for a repair fund or rule change, and needs one ballot per resident household member without exposing who voted how.",
+  "verifier": "The community management committee (or its property management company) running a LINE or web voting tool.",
+  "predicate": "The voter is one unique real subscriber, and the ballot nullifier is unique for this poll.",
+  "disclosed_today": "Name, unit number, phone number, and often a LINE ID, all tied to the ballot or at least visible to the administrator.",
+  "issuer": "A Taiwanese mobile carrier.",
+  "why_zk": "A uniqueness proof prevents double voting and sock puppets while the committee never learns which phone owner cast which vote. Honest caveat: a telco credential proves one subscriber, not that the person lives in the building, so residence must come from a separate credential (for example a household registration or property owner credential), and Taiwan's condominium law has its own ownership-weighted voting rules that a simple one-person-one-vote proof does not satisfy.",
+  "id": "telco-unique__A__1",
+  "cell": "telco-unique",
+  "arm": "A"
+ },
+ {
+  "inspired_by": [],
+  "title": "One free-trial or student-discount sign-up per person on an online learning or streaming service",
+  "moment": "A Taiwanese online course platform or video streaming service offers a one-time free trial or first-month discount, and abusers re-register with new emails and bought SMS numbers to get repeated trials.",
+  "verifier": "A subscription streaming or e-learning platform operating in Taiwan.",
+  "predicate": "The signer is one unique real telco subscriber, with a trial-specific nullifier not seen before.",
+  "disclosed_today": "Mobile phone number, email, sometimes a credit card number for the trial, and device fingerprints, which together identify the person for later marketing and cross-service tracking.",
+  "issuer": "A Taiwanese mobile carrier.",
+  "why_zk": "The platform only needs to know this person has not used the trial before, not who they are, yet today it keeps phone number and card details. A telco uniqueness proof with a per-service nullifier removes the need to hold the phone number. Honest caveat: platforms typically want a payment instrument anyway for conversion, so the data saved is smaller than it seems, and one person with multiple lines (including foreign or corporate ones) can still obtain multiple credentials unless the telco binds issuance to a single national ID.",
+  "id": "telco-unique__A__2",
+  "cell": "telco-unique",
+  "arm": "A"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "tw-gov-uid-duplicate-minimal-disclosure",
+    "borrowed_aspect": "The answer is narrowed to \"is this a duplicate or not\" rather than revealing the identifying number itself."
+   },
+   {
+    "seed_id": "an-a-privacy-pass",
+    "borrowed_aspect": "A token the verifier accepts without being able to link it back to the issuance event or to the person's other uses."
+   }
+  ],
+  "title": "One-per-person limited-edition drop and sneaker or concert pre-sale queues",
+  "moment": "A Taiwanese buyer tries to claim a limited sale (a console restock, a convenience-store collab figurine, a concert pre-sale) where each person may buy only one, and scalpers use many accounts.",
+  "verifier": "Online retailer or ticketing platform running a limited release.",
+  "predicate": "This account is bound to a distinct, currently active real-name mobile subscriber, and no other account on this platform (for this drop) was bound to the same subscriber.",
+  "disclosed_today": "Mobile number plus SMS OTP, often also national ID number, full name, birthday, and sometimes a photo of the ID, all kept in the platform's database.",
+  "issuer": "A Taiwanese mobile carrier (real-name registered subscriber under NCC rules).",
+  "why_zk": "The platform needs only a per-drop pseudonym that repeats if the same subscriber tries twice, not the phone number or ID. Weakness: one person can hold several lines, and prepaid or corporate lines blur the one-person link, so this limits scalpers rather than eliminating them. Carriers must also agree to sign, and today's SMS OTP already works well enough that few platforms feel pressure to change.",
+  "id": "telco-unique__B__0",
+  "cell": "telco-unique",
+  "arm": "B"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "an-b-secret-ballot-moad",
+    "borrowed_aspect": "Eligibility is checked separately from the cast response, so the uniqueness proof handles only duplicates and not identity."
+   },
+   {
+    "seed_id": "an-a-chaum-blind",
+    "borrowed_aspect": "The signer certifies the participant without seeing what they later do with the credential."
+   }
+  ],
+  "title": "Neighbourhood group-buy and community app one-vote-per-household style polls",
+  "moment": "A residents' community app or LINE-based building management committee runs a poll or a subsidised bulk-purchase (for example a shared water-purifier contract) where each member may take part once, and joining currently means giving a phone number and name to the organiser.",
+  "verifier": "Building management committee or community group-buy organiser.",
+  "predicate": "This participant is one real subscriber and has not already responded in this poll, without revealing the number.",
+  "disclosed_today": "Name, unit number, mobile number, and often a LINE ID, shared with whoever administers the group, and visible to other volunteers.",
+  "issuer": "A Taiwanese mobile carrier.",
+  "why_zk": "Limiting to one response per person needs only a uniqueness tag, not a phone book that volunteers can misuse. Weakness: a carrier subscriber is not a household resident, so this proves one-per-person but not that the person lives in the building. Eligibility must still be checked by a separate step, as in a separate-eligibility-from-ballot procedure, so the telco proof only covers the duplicate-suppression half. Management committees are unlikely to adopt this without a ready-made app.",
+  "id": "telco-unique__B__1",
+  "cell": "telco-unique",
+  "arm": "B"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "privacy-pass-unlinkable-proof",
+    "borrowed_aspect": "The proof attests that a check already happened without acting as a persistent identifier across services."
+   },
+   {
+    "seed_id": "tw-telco-sim-live-photo-retention",
+    "borrowed_aspect": "The over-collection at SIM registration shows why the telco's existing identity check should be reused as a signed claim instead of repeating photo capture elsewhere."
+   }
+  ],
+  "title": "One free trial or new-user coupon per person on food delivery and ride apps",
+  "moment": "A person opens a food-delivery, scooter-share, or streaming app and wants the first-order coupon or free trial, which the app restricts to new users, so people create repeat accounts with spare numbers and the app asks for ever more data to stop it.",
+  "verifier": "Food-delivery, bike or scooter share, or subscription app.",
+  "predicate": "This is the first account created on this service by a real subscriber, shown as a service-specific pseudonym, with no phone number or ID revealed.",
+  "disclosed_today": "Mobile number with OTP, sometimes email, device ID, payment card, and in some scooter-sharing services a driver licence photo and selfie.",
+  "issuer": "A Taiwanese mobile carrier.",
+  "why_zk": "The coupon rule needs only that this subscriber has not claimed before. A service-scoped pseudonym gives that without letting the app build a cross-service profile through the phone number. Weakness: the telco learns nothing new only if issuance is blinded, but carriers have little business reason to sign for free-trial abuse, recycled numbers can be re-issued to new people, and fraudsters can buy extra prepaid SIMs, so the protection is partial. Existing telco rules requiring a live photo at SIM sale show the opposite pull toward collecting more, not less.",
+  "id": "telco-unique__B__2",
+  "cell": "telco-unique",
+  "arm": "B"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "tw-securities-foreign-agent-id-copy",
+    "borrowed_aspect": "The pattern of a verifier demanding a full ID copy where only proof of one real identified person is needed."
+   },
+   {
+    "seed_id": "an-b-sealed-bid-far",
+    "borrowed_aspect": "The idea that a submission must be bound to a fixed event and window, mapped to an event-scoped nullifier."
+   }
+  ],
+  "title": "One ticket-grab account per person for a popular concert presale",
+  "moment": "A Taiwanese ticketing platform opens a presale for a sold-out concert; the organiser wants each fan to hold only one buying account so scalpers cannot run hundreds of accounts, but fans do not want to hand over their ID.",
+  "verifier": "Ticketing platform and concert organiser",
+  "predicate": "This person holds exactly one active mobile subscription, and the proof is bound to this event so the same person cannot register twice for it, while accounts are not linkable across events.",
+  "disclosed_today": "Mobile number with SMS OTP (trivially farmed with prepaid SIMs), or in the strict case a national ID number and a photo of the ID card.",
+  "issuer": "Telco (Chunghwa Telecom, Taiwan Mobile, FarEasTone) that already holds the real-name subscriber record.",
+  "why_zk": "The telco already verified one real person per line at activation, so a per-event nullifier gives one account per person without ID numbers or a phone number reaching the ticketer. Weak points are that one person can legally hold several lines, so the telco must sign a per-person (not per-line) uniqueness claim, which needs a stable internal person key; and that pushing the telco into the verification path creates a new central dependency and some telco visibility into participation unless the proof is issued in advance.",
+  "id": "telco-unique__C__0",
+  "cell": "telco-unique",
+  "arm": "C"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "tw-pdpa-art11-3-deletion-exception",
+    "borrowed_aspect": "The concern that collected identifiers are kept under an open-ended business-need exception, motivating not collecting the number at all."
+   }
+  ],
+  "title": "One free-trial or sign-up bonus per person for a delivery app promotion",
+  "moment": "A Taiwanese food-delivery or e-commerce app gives a new-user coupon worth a few hundred NT dollars; people farm it with many accounts and burner numbers, so the app starts asking for ID verification or e-invoice carrier and bank details.",
+  "verifier": "Delivery or shopping app running a new-user promotion",
+  "predicate": "This is a distinct subscriber who has not already claimed this promotion under this app's scope, without revealing the number or identity.",
+  "disclosed_today": "Phone number plus SMS code, sometimes ID photo, payment card, or a mobile barcode carrier, all of which can be linked across services.",
+  "issuer": "Telco with the real-name subscriber record.",
+  "why_zk": "A telco-signed uniqueness proof with an app-scoped nullifier lets the app enforce one claim per person without storing a phone number it can then use for marketing or resale. The honest weakness is that coupon value is low and the app already tolerates SMS OTP, so the business case for adding a telco attestation is thin; the benefit is mostly privacy and reduced data breach exposure, not fraud prevention alone.",
+  "id": "telco-unique__C__1",
+  "cell": "telco-unique",
+  "arm": "C"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "an-b-sealed-bid-far",
+    "borrowed_aspect": "Keeping submissions hidden until a fixed opening moment while being able to prove later that none were seen early."
+   },
+   {
+    "seed_id": "an-b-ala-library-records",
+    "borrowed_aspect": "The aim of keeping a record of participation without it becoming a readable log of who voted how."
+   }
+  ],
+  "title": "One vote per resident in a building or community management committee online poll",
+  "moment": "A Taiwanese apartment building management committee or a neighbourhood association runs a mobile vote on a repair levy or a rule change; today the organiser collects names, unit numbers and phone numbers to prevent duplicate votes.",
+  "verifier": "Building management committee or community association",
+  "predicate": "One distinct real person per ballot, scoped to this poll, with no name, number or unit published in the tally.",
+  "disclosed_today": "Full name, unit number, phone number, and sometimes a photo of the ID card to confirm that a voter is a real, single person.",
+  "issuer": "Telco as the real-name subscriber record, with the committee separately knowing the eligible list or an eligibility credential.",
+  "why_zk": "A uniqueness proof prevents ballot stuffing with spare SIMs while keeping votes unlinkable to a phone line, and the ballot content can stay hidden until the close. It is weak on its own because a telco attests one person per subscription, not residency in the building, so a second credential (for example from the household registration office or management company) is needed for eligibility, and Taiwanese condominium law expects some form of signed or recorded vote that a purely anonymous scheme may not satisfy.",
+  "id": "telco-unique__C__2",
+  "cell": "telco-unique",
+  "arm": "C"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "an-a-samesite-cookies",
+    "borrowed_aspect": "The idea that a credential should be matchable only within the one context that asked for it, not across unrelated sites, which became the per-campaign scoped nullifier."
+   },
+   {
+    "seed_id": "an-b-census-title13",
+    "borrowed_aspect": "The aim of getting a count of distinct people without any output that singles out a particular respondent."
+   }
+  ],
+  "title": "One-per-person lottery entry for convenience-store and department-store promotions",
+  "moment": "A person enters an online draw (for example a 7-Eleven or anniversary-sale prize draw) that is limited to one entry per person, and the organizer wants to stop people from entering with many throwaway phone numbers.",
+  "verifier": "A retailer or the marketing agency running the promotion campaign page.",
+  "predicate": "This entrant holds exactly one real, active postpaid or verified prepaid subscription, and has not entered this campaign before (campaign-scoped uniqueness tag).",
+  "disclosed_today": "Mobile phone number, an SMS one-time code, often name, email and sometimes national ID number or the last digits of it, all stored in the campaign database.",
+  "issuer": "A Taiwanese mobile carrier (such as Chunghwa Telecom, Taiwan Mobile or FarEasTone), which already registers every SIM against a real-name identity.",
+  "why_zk": "A campaign-scoped nullifier gives one entry per person without handing the retailer a phone number or ID that it can resell or leak. Weakness: SIM real-name rules let one person hold several lines, so the telco must sign one credential per natural person rather than per line, which it may not be willing to do. Also prize-tax rules (winners above a threshold must give ID for tax withholding) mean identity is collected anyway at the prize stage, though that applies only to winners.",
+  "id": "telco-unique__D__0",
+  "cell": "telco-unique",
+  "arm": "D"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "an-b-jury-selection",
+    "borrowed_aspect": "The tension that a default of publishing who participated can flip to full exposure, with confidentiality only by exception, which motivated making ballot privacy the default."
+   },
+   {
+    "seed_id": "an-b-attorney-client",
+    "borrowed_aspect": "The point that outsiders in the room break confidentiality, here the property manager and group-chat members who see everything."
+   }
+  ],
+  "title": "One vote per resident in a building or community management committee online poll",
+  "moment": "An apartment community (a Taiwanese condominium management committee) runs an online vote on a repair levy or elevator replacement, and wants each household member or owner-resident counted once without a roll of who voted how.",
+  "verifier": "The condominium management committee or its property management company.",
+  "predicate": "The voter is one unique real subscriber and has not already cast a ballot in this poll (poll-scoped uniqueness), with no phone number or name revealed.",
+  "disclosed_today": "Name, unit number, phone number, LINE ID, and often a photo of the national ID or the property deed sent through a group chat.",
+  "issuer": "A telco that can sign the person as one real subscriber; ownership or residency would still need a separate attestation.",
+  "why_zk": "Residents often fear neighbors learning how they voted on money disputes, and today the committee chair sees everyone's LINE and phone. A scoped uniqueness proof stops duplicate voting by one person with several numbers. Honest weakness: a telco credential proves only one person, not that the person lives in or owns a unit in this building, so this idea is weak unless combined with an owner or residency credential, and Taiwan's condominium law has its own rules on proxy and written ballots that may require named records.",
+  "id": "telco-unique__D__1",
+  "cell": "telco-unique",
+  "arm": "D"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "an-a-tor-onion",
+    "borrowed_aspect": "Splitting knowledge so that no one party (platform or issuer) holds both who the person is and where they used the credential."
+   },
+   {
+    "seed_id": "an-a-samesite-cookies",
+    "borrowed_aspect": "Limiting a stable identifier to its own context so third parties cannot link the holder across services."
+   }
+  ],
+  "title": "Single free-trial or first-order coupon per person on food delivery and ride apps",
+  "moment": "A person signs up for a food delivery or ride-hailing app and claims the new-user discount or first-month free trial, which the platform wants to limit to one per human instead of one per phone number or email.",
+  "verifier": "A delivery or mobility platform's promotion service.",
+  "predicate": "The claimant is a unique real subscriber who has not claimed this platform's new-user offer before (platform-scoped nullifier), without the platform learning which subscriber.",
+  "disclosed_today": "Phone number with SMS code, device ID, payment card fingerprint, sometimes the name and the national ID on a verification step; the platform links all of it to the account.",
+  "issuer": "A Taiwanese mobile carrier, signing a per-person subscriber credential.",
+  "why_zk": "Platforms fight promotion abuse with phone numbers that are cheap to obtain, and the collected numbers become a cross-platform tracking key. A scoped nullifier gives abuse resistance without a shared identifier between platforms. Honest weakness: platforms already accept the abuse cost as marketing spend and use device and payment signals anyway, so the demand for a stronger proof is low, and the telco's incentive to issue such credentials is unclear.",
+  "id": "telco-unique__D__2",
+  "cell": "telco-unique",
+  "arm": "D"
+ },
+ {
+  "inspired_by": [],
+  "title": "Alumni-discount claim matched to a transit or telecom subscriber account",
+  "moment": "A graduate renews a subsidised or alumni-linked service (for example a campus-partner telecom plan, a university-affiliated co-working or gym membership, or an alumni association rate) and the vendor wants proof that the person holding the subscription account is the same person the university recognises as an alumnus.",
+  "verifier": "Alumni association or partner vendor offering alumni pricing",
+  "predicate": "The person who holds a university-signed alumnus credential is the same person as the holder of a second issuer's credential (a telecom or membership account credential), proven without revealing the national ID or student number to the vendor.",
+  "disclosed_today": "Photo of national ID, student or alumni card, graduation year, department, phone number, sometimes a scanned diploma.",
+  "issuer": "University (alumnus status claim), matched to a telecom or membership issuer's subscriber claim",
+  "why_zk": "The vendor needs only one bit, that this account holder is an alumnus, but today it collects the ID, department and graduation year, which are all unneeded. The match is the hard part, since both credentials must bind to the same person without a shared identifier. Weakness is that few vendors and no telecom issuer currently issue verifiable credentials, so the second issuer side is hypothetical, and the stakes are small enough that a staff glance at an alumni card is the cheaper practice.",
+  "id": "univ-crossmatch__A__0",
+  "cell": "univ-crossmatch",
+  "arm": "A"
+ },
+ {
+  "inspired_by": [],
+  "title": "Exam-venue or scholarship-exam eligibility matched to government residency claim",
+  "moment": "A student applies to a county or city government scholarship or a subsidised dormitory or rental programme restricted to local residents who are currently enrolled, and the office wants to confirm that the enrolled student and the registered resident are one person.",
+  "verifier": "Local government bureau or foundation administering a resident-student scholarship or rent subsidy",
+  "predicate": "The holder of a university-signed current-enrolment credential is the same person as the holder of a household-registration residency credential from the household registration office, without revealing the ID number, school identifier, grades or household members.",
+  "disclosed_today": "Full household registration transcript (including parents and siblings), national ID copy, student ID, enrolment certificate, often bank passbook cover.",
+  "issuer": "University (enrolment claim), matched to the household registration office (residency claim)",
+  "why_zk": "The household transcript exposes family members who are irrelevant to the decision, and the enrolment certificate exposes the school and sometimes the student number. Only the join of enrolled and local resident is needed. Honest caveat is that agencies are often legally entitled to inspect or pull household data directly through inter-agency lookups with consent, and many programmes also need income or family data that this proof would not replace, so the benefit is limited to the pure residency plus enrolment test.",
+  "id": "univ-crossmatch__A__1",
+  "cell": "univ-crossmatch",
+  "arm": "A"
+ },
+ {
+  "inspired_by": [],
+  "title": "Teaching-assistant or part-time lab hire matched to a work-permit or labour-insurance claim",
+  "moment": "A university department hires an international or a cross-campus student as a part-time research assistant, and the payroll office must confirm that the student who holds the university's enrolment and department-approval claim is the same person who holds a valid work-permit or labour-insurance enrolment from a government issuer.",
+  "verifier": "University or research-institute human resources and payroll office",
+  "predicate": "The holder of a university-signed enrolment and supervisor-approval credential is the same person as the holder of a government-issued work-eligibility credential (work permit or labour insurance status), proven without revealing passport or ARC number to the department that only needs to approve the hire.",
+  "disclosed_today": "Passport and ARC copy, enrolment certificate, work-permit scan, bank details, handed to department staff who are not payroll specialists and often keep photocopies in unsecured folders.",
+  "issuer": "University (enrolment and approval claim), matched to the Ministry of Labor or immigration agency (work eligibility claim)",
+  "why_zk": "Department-level staff pass around scans of passports and ARCs that only payroll and compliance truly need, creating a leakage risk for foreigners in particular. A matched proof lets the department confirm eligibility while the identifier goes only to payroll. The weakness is that the university is itself the verifier and an employer, with a legal duty to retain a copy of the work permit and ARC for labour inspection, so zero-knowledge can reduce who sees the data inside the institution but cannot remove the retention requirement.",
+  "id": "univ-crossmatch__A__2",
+  "cell": "univ-crossmatch",
+  "arm": "A"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "an-a-chaum-blind",
+    "borrowed_aspect": "The university signs the enrollment claim without needing to see the second issuer's identifier, which the holder binds only at presentation."
+   },
+   {
+    "seed_id": "rd-google-wallet-zkp-age-no-linkage",
+    "borrowed_aspect": "A single yes/no fact is proven with no trackable identifier passed to the verifier or issuer."
+   }
+  ],
+  "title": "Student-status discount tied to the same person as the transit or telecom account",
+  "moment": "A student buys a youth/student monthly pass or a campus-plan mobile subscription, and the seller must be sure the enrolled student is the same person as the account holder.",
+  "verifier": "Transit operator student-pass counter or telecom reseller",
+  "predicate": "The university-signed \"currently enrolled\" claim and the national-ID-bound claim in the wallet refer to the same person, without revealing the ID number or student number.",
+  "disclosed_today": "Student ID card photo, national ID card photo or number, birth date, school name, student number, sometimes a photocopy kept on file.",
+  "issuer": "University (enrollment status), matched against a second issuer such as the MOI digital ID or a telecom account",
+  "why_zk": "A cross-source match proves one person holds both claims, and the verifier needs nothing else. Weakness is that a student card is a physical norm and clerks may still insist on seeing it, and the Personal Data Protection Act already limits copying but does not forbid it in practice. Telecom real-name rules require the ID be recorded, so the telecom case is weaker than the transit pass.",
+  "id": "univ-crossmatch__B__0",
+  "cell": "univ-crossmatch",
+  "arm": "B"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "tw-gov-uid-duplicate-minimal-disclosure",
+    "borrowed_aspect": "The registry-style answer is narrowed to the one fact needed (same person or not) instead of releasing the identifier itself."
+   },
+   {
+    "seed_id": "an-a-privacy-pass",
+    "borrowed_aspect": "The proof attests to a prior check without letting the verifier link it to the issuance or to other uses."
+   }
+  ],
+  "title": "Dorm or campus-housing landlord checks tenant is the enrolled student named on the lease deposit subsidy",
+  "moment": "A private landlord renting near a university takes a student tenant who claims a rent subsidy or student-rate lease, and the landlord's bank or local-government subsidy office needs to confirm the tenant is the enrolled student.",
+  "verifier": "Private landlord or housing subsidy office",
+  "predicate": "The university enrollment claim and the tenant's government-issued identity claim belong to the same person, with the ID number and student number withheld.",
+  "disclosed_today": "Full ID card copy, student ID copy, home address, parents' contact details, sometimes a transcript or enrollment certificate.",
+  "issuer": "University (enrollment), matched against the national digital ID or household registration credential",
+  "why_zk": "Landlords routinely keep ID photocopies that leak in later disputes; a same-person proof gives them enough to rely on the student status. However, lease practice in Taiwan often wants a real address and a guarantor, and subsidy offices may legally require the full ID number, so the proof only replaces the enrollment-copy part, not the whole file.",
+  "id": "univ-crossmatch__B__1",
+  "cell": "univ-crossmatch",
+  "arm": "B"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "an-a-privacy-pass",
+    "borrowed_aspect": "A verifier accepts proof of an earlier check without being able to link it to the issuing event."
+   },
+   {
+    "seed_id": "an-b-witness-protection",
+    "borrowed_aspect": "A discretionary fuller-disclosure exception, here for occupational health, remains alongside the minimal proof."
+   }
+  ],
+  "title": "Hospital internship or clinical-placement badge matched to professional licence",
+  "moment": "A nursing or medical student starts a clinical placement at a teaching hospital, and the hospital must confirm the university-enrolled student is the same person as the holder of a separate vaccination or background-check record from another issuer.",
+  "verifier": "Hospital HR or placement coordinator",
+  "predicate": "The university-signed placement-eligibility claim and the health-authority vaccination claim refer to the same person, with neither the ID number nor other health records revealed.",
+  "disclosed_today": "Full vaccination card, national ID copy, student ID, sometimes a full health check report, collected into a paper file.",
+  "issuer": "University (placement eligibility), matched against a second issuer such as the health authority vaccination record",
+  "why_zk": "The hospital only needs to know the same person is both enrolled and vaccinated, not the full record. Honest weakness is that hospitals have occupational-health duties and may legitimately want specific vaccine details, so the match proof covers only the eligibility gate and a fuller disclosure may still be required afterwards.",
+  "id": "univ-crossmatch__B__2",
+  "cell": "univ-crossmatch",
+  "arm": "B"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "rd-cnpd-lu-tourist-inspect-not-copy",
+    "borrowed_aspect": "The idea that checking eligibility at the moment of sale should not require keeping a copy of the identity document."
+   },
+   {
+    "seed_id": "tw-telco-sim-live-photo-retention",
+    "borrowed_aspect": "The pattern of a point-of-sale rule that demands capturing and retaining a person's image with no less-intrusive alternative."
+   }
+  ],
+  "title": "Student-rate transit pass bound to the same person as the telecom/bank account",
+  "moment": "A student buys a discounted monthly commuter pass or youth fare product through a transit operator's app, which must be sure the student-status claim belongs to the same person who holds the stored-value or payment account the pass is loaded onto.",
+  "verifier": "Transit operator or e-ticketing issuer (e.g. a city MRT or bus card scheme, or an e-ticket platform).",
+  "predicate": "The university-signed enrolled-this-semester claim and the payment or ticketing account's holder claim refer to the same person, shown without revealing the national ID number to the operator.",
+  "disclosed_today": "Photo of student ID card, sometimes national ID number and date of birth, entered or photographed at a counter or in the app, and often retained for the pass record.",
+  "issuer": "University registrar (enrolment status), matched against the wallet-held account or identity credential from a second issuer.",
+  "why_zk": "A same-person proof removes the need to copy the ID or student card, and the operator only learns that an enrolled student owns this account. Moderate strength: many operators already accept a simple student-card photo, and a university credential only adds value if the operator's app can verify wallet proofs and universities issue them per semester.",
+  "id": "univ-crossmatch__C__0",
+  "cell": "univ-crossmatch",
+  "arm": "C"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "tw-gov-household-register-proxy-copy-discretion",
+    "borrowed_aspect": "The problem of an office collecting identity document copies at its own discretion with no stated scope."
+   },
+   {
+    "seed_id": "tw-pdpa-art11-3-deletion-exception",
+    "borrowed_aspect": "The weakness of a deletion duty that has an open-ended exception for what the holder says it still needs."
+   }
+  ],
+  "title": "Dormitory and campus-housing off-campus lease renewal tied to a landlord-side identity record",
+  "moment": "A student renting a room near campus is asked by the landlord or a rental agency to prove both that they are enrolled and that the person named on the lease is the same one the university enrolled, so the landlord can claim rent subsidy or insurance cover.",
+  "verifier": "Private landlord or rental agency, and possibly a subsidy administrator reviewing the lease.",
+  "predicate": "The university's signed enrolment claim and the lease or household-record claim from a second issuer (such as the household registration office) refer to the same person, without disclosing the ID number to the landlord.",
+  "disclosed_today": "Photocopy of national ID card front and back, student ID, and sometimes household register transcript, kept by the agent with no stated retention limit.",
+  "issuer": "University registrar, matched against a household registration or ID credential from a government issuer.",
+  "why_zk": "Landlords and agents routinely collect full ID copies that stay in desk drawers and phone photos, and a match proof would let them confirm student status and identity without holding the number. Weak in practice because small landlords rarely run verifier software and the legal retention limits on private individuals are loosely enforced, so adoption would depend on a rental platform or subsidy portal requiring it.",
+  "id": "univ-crossmatch__C__1",
+  "cell": "univ-crossmatch",
+  "arm": "C"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "an-b-ala-library-records",
+    "borrowed_aspect": "The goal of keeping a record of who used what without it becoming a readable log of a person's interests."
+   },
+   {
+    "seed_id": "an-b-jury-selection",
+    "borrowed_aspect": "The framing of seating someone for a task without the wider public learning who they are, with confidentiality being a technical default rather than a discretionary exception."
+   }
+  ],
+  "title": "Library or lab-resource borrowing across two institutions",
+  "moment": "A graduate student from one university wants to borrow materials or book lab equipment at a different institution's library or shared research facility under a reciprocal-access agreement, and the host must confirm the borrower is a current member of the home university and the same person who holds the host's own visitor registration.",
+  "verifier": "Host institution's library desk or shared-instrument facility.",
+  "predicate": "The home university's signed membership claim and the host's visitor account (issued by the host) belong to the same person, with no identifier shown to the host and no record of what the person borrowed linked to a national ID.",
+  "disclosed_today": "Student card, national ID number or passport number for registering a visitor account, and a lending record tied to that identity.",
+  "issuer": "Home university (membership or enrolment), matched against the host institution's own visitor credential.",
+  "why_zk": "The host needs to know that a member of a partner university is the one borrowing, not who the person is across all their activity, and a match proof keeps the lending log from becoming a readable record of a person's reading interests. Reasonably strong because libraries already treat borrowing records as sensitive, but the host's visitor account is its own issuer so both credentials are in practice institution-controlled, which limits the independence of the two sources.",
+  "id": "univ-crossmatch__C__2",
+  "cell": "univ-crossmatch",
+  "arm": "C"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "rd-aepd-hotel-no-id-copy",
+    "borrowed_aspect": "The idea that a counter should record only the fields a rule requires rather than keeping a full copy of the identity document."
+   },
+   {
+    "seed_id": "privacy-pass-unlinkable-proof",
+    "borrowed_aspect": "The proof should show a prior check passed without acting as a persistent identifier across repeated purchases."
+   }
+  ],
+  "title": "Alumni-discount student-ID match at a Taiwan High Speed Rail or TRA concession counter",
+  "moment": "A graduate student buys a student concession fare or a campus-partner ticket at a station counter or kiosk and is asked to show a student card plus national ID so the clerk can see both names match.",
+  "verifier": "Railway or bus operator concession desk, or a third-party ticketing vendor handling campus partner deals",
+  "predicate": "The enrolled-student claim signed by the university and the holder of the digital wallet national-ID credential refer to the same person, shown as a match proof without revealing the national ID number or student number.",
+  "disclosed_today": "Student card (name, student number, photo, department, validity sticker) and often national ID card shown side by side or photographed for the sales record.",
+  "issuer": "University (enrolment status) cross-matched with the national digital wallet identity credential.",
+  "why_zk": "The verifier only needs \"this current student is the person standing here\", yet today it sees student number, department, ID number and birthdate. A match proof between the university claim and the wallet credential avoids that. Honest weakness is that concession fares are low value and clerks are used to a quick glance at the card, so adoption pressure is small, and the in-person photo check is arguably still needed.",
+  "id": "univ-crossmatch__D__0",
+  "cell": "univ-crossmatch",
+  "arm": "D"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "an-b-hipaa-safe-harbor",
+    "borrowed_aspect": "The list-of-identifiers-removed approach, applied by keeping the linking identifier out of the verifier's hands while still allowing a join."
+   },
+   {
+    "seed_id": "an-b-va-id-scanning",
+    "borrowed_aspect": "The problem that a holder exposes the whole card at the moment of checking, so a field-limit rule alone does not stop over-collection."
+   }
+  ],
+  "title": "Linking a university research-participant record to a hospital clinical-trial enrolment",
+  "moment": "A university hospital-affiliated lab recruits a graduate student or staff member for a paid study that requires both a university-signed role claim (for example, enrolled in a health-science program) and a separate hospital or health-agency issued eligibility claim, and the study office wants to be sure both refer to the same person.",
+  "verifier": "University institutional review board office or the clinical-trial coordinator",
+  "predicate": "The university-signed claim and the claim from the second issuer (hospital or health insurance) belong to the same holder, shown without revealing the national ID number or health insurance number to the study office.",
+  "disclosed_today": "Full name, national ID number, student number, health insurance card details and sometimes a scanned copy of both documents, stored in the study consent file.",
+  "issuer": "University (program enrolment) cross-matched with a hospital or health insurance issuer.",
+  "why_zk": "Study files that hold ID numbers beside health information create a re-identification risk the IRB would rather avoid, in the spirit of de-identification checklists. A cross-source match lets the coordinator confirm eligibility from two unrelated issuers without ever holding the identifier that joins them. Honest weakness is that consent forms legally require a signature and often a real name, so the study can rarely drop identification entirely; this only removes the ID number and insurance number.",
+  "id": "univ-crossmatch__D__1",
+  "cell": "univ-crossmatch",
+  "arm": "D"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "tw-telco-online-id-check-fraud-2021",
+    "borrowed_aspect": "The failure case where a check on copyable identifiers (ID number and issue date) let stolen data pass, motivating a holder-bound match."
+   },
+   {
+    "seed_id": "privacy-pass-unlinkable-proof",
+    "borrowed_aspect": "Using a proof that attests an earlier check passed without handing the gatekeeper a reusable identifier."
+   }
+  ],
+  "title": "Telecom student-plan SIM activation tied to a university enrolment",
+  "moment": "A student applies online or in a shop for a discounted student mobile plan or a campus-partner SIM and the telecom must confirm that the enrolled student is the same named person applying, not someone using stolen identity data.",
+  "verifier": "Telecom operator online applications platform or retail shop",
+  "predicate": "The university-signed enrolment claim and the wallet identity credential refer to the same holder, proved with a possession-bound match instead of typing in ID number and issue date.",
+  "disclosed_today": "National ID number, ID issue date, name, birthdate, student number, and sometimes uploaded photos of the ID and student card.",
+  "issuer": "University (enrolment) cross-matched with the national digital wallet identity credential.",
+  "why_zk": "Past fraud in Taiwan showed that checking only a national ID number and issue date lets stolen identity data pass. A holder-bound match proof replaces copyable identifiers with something that cannot be replayed by someone who merely knows the numbers, and the telecom no longer stores a student number it does not need. Honest weakness is that telecom SIM registration law still requires the operator to collect and retain the real-name ID data, so the proof would reduce but not remove the data kept; it mostly helps the student discount step.",
+  "id": "univ-crossmatch__D__2",
+  "cell": "univ-crossmatch",
+  "arm": "D"
+ },
+ {
+  "inspired_by": [],
+  "title": "Electricity-bill subsidy roll as proof of eligibility for a school lunch or after-school care fee waiver",
+  "moment": "A parent enrolls a child in a public after-school care program (or applies for a lunch-fee reduction) at the start of the semester and must show proof of being a low-income or subsidised household.",
+  "verifier": "School administration office / district after-school care operator",
+  "predicate": "The household's utility account is a member of the set of accounts on the low-income or subsidised-rate roll (for example, accounts receiving the low-income household electricity discount).",
+  "disclosed_today": "A photocopy of the full utility bill (name, address, meter number, usage in kWh, amount due) or a household certificate from the district office, plus household registration details.",
+  "issuer": "Taipower (or the local water company), signing membership in the subsidised-account roll",
+  "why_zk": "The school only needs a yes/no on eligibility, yet today it keeps a bill showing address and consumption patterns (which reveal when the family is away or how many people live there). Weakness is real. In practice schools usually rely on the district office's low-income household certificate (issued under the Public Assistance Act), not utility rolls, so a utility roll would only be a convenient substitute where the discount list is a recognised proxy. It also needs the school to accept it, and Taipower's discount rolls are not formally a social-welfare eligibility register.",
+  "id": "utility-member__A__0",
+  "cell": "utility-member",
+  "arm": "A"
+ },
+ {
+  "inspired_by": [],
+  "title": "Proving a tenant's subsidised-utility status to a landlord or social-housing agency without revealing the rented address",
+  "moment": "A person applying for a rent subsidy or a social-housing waitlist slot must show they currently hold a utility account on the subsidised roll, but the agency is also a different locality from the one they rent in, and the applicant does not want a prospective landlord or agency to see the address and usage history.",
+  "verifier": "Municipal housing bureau or social-housing intermediary (e.g. a city social housing agency or a rent-subsidy application window)",
+  "predicate": "The applicant's utility account belongs to the set of accounts on the subsidised-rate roll (and is active), without revealing which account or address.",
+  "disclosed_today": "Recent utility bills with address and consumption, lease copy, household registration, and sometimes several months of statements to show continuity.",
+  "issuer": "Taipower / Taiwan Water Corporation",
+  "why_zk": "The agency wants to know the person is a bona fide low-income occupant, but collects address, usage and the lease, which also lets staff and intermediaries profile occupancy. Honest caveat: rent-subsidy eligibility is defined by income and asset tests via the tax and household registration data, so a utility subsidy roll is only a weak, partial signal and cannot replace those checks. It is most plausible as an extra anti-fraud tie-in (the address is a real, occupied dwelling), where some fields are legitimately required by the agency anyway.",
+  "id": "utility-member__A__1",
+  "cell": "utility-member",
+  "arm": "A"
+ },
+ {
+  "inspired_by": [],
+  "title": "Medical-electricity-equipment household flag for priority outage notification or emergency-shelter registration",
+  "moment": "A household that uses life-support equipment at home (ventilator, oxygen concentrator, dialysis) signs up with the city fire department or a typhoon-season emergency program to get priority power-restoration and evacuation help, and an outage-relief volunteer group or shelter operator wants to confirm the household is on the utility's medical-need roll.",
+  "verifier": "District emergency management office, fire department, or a community volunteer network running outage and typhoon response",
+  "predicate": "The household's utility account is a member of the set of accounts flagged by the utility as having medical-equipment dependency (a priority-care roll), without revealing the specific address or usage pattern to every volunteer who handles the list.",
+  "disclosed_today": "Full address, a copy of the utility bill, the medical certificate or disability card, and a list of equipment, often collected on paper forms and shared with many volunteers.",
+  "issuer": "Taipower, signing membership in a priority-care or medical-need account list",
+  "why_zk": "Volunteers and aggregators collect a list of vulnerable people's addresses and bills, which is a safety and privacy risk (it flags who is home, frail, and dependent on power). A membership proof lets a registration desk or a volunteer coordinator check eligibility without holding the dossier. Honest weakness: in an actual emergency the responders genuinely need the address to reach the person, so ZK helps only for the enrollment and eligibility step, not for dispatch; and I am not certain Taipower maintains such a formal roll, so this would depend on the utility creating and signing one.",
+  "id": "utility-member__A__2",
+  "cell": "utility-member",
+  "arm": "A"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "rd-google-wallet-zkp-age-no-linkage",
+    "borrowed_aspect": "Proving a single yes/no fact from a signed credential without revealing the underlying record or letting the issuer see where it is used."
+   },
+   {
+    "seed_id": "rd-eudi-wallet-selective-disclosure-recital",
+    "borrowed_aspect": "The idea that the verifier gets only the attribute the service needs and not the full bill it sits inside."
+   }
+  ],
+  "title": "Low-income electricity subsidy proof for school lunch or tuition aid",
+  "moment": "A parent applies for a school's low-income or near-poor student aid (tuition waiver, free lunch, after-school care subsidy) and is asked to submit a household certificate plus a copy of recent utility bills to show the household sits on the subsidised-electricity roll.",
+  "verifier": "School administrative office or district education bureau",
+  "predicate": "The household's electricity account is a member of the utility's low-income or welfare-tariff roll (set membership), with no address or kWh usage revealed.",
+  "disclosed_today": "Full utility bill with address, account number, meter number, monthly usage and payment history, often photocopied and kept in the student file.",
+  "issuer": "Taiwan Power Company (Taipower), signing membership of its welfare-tariff roll",
+  "why_zk": "A signed roll-membership proof gives the school the one fact it needs without the address or usage pattern, which could show when the home is empty. Weakness is that the aid rules usually rest on the household registration and social-affairs certificates, so Taipower's roll is only a secondary or corroborating signal, and the school may legally need the address anyway.",
+  "id": "utility-member__B__0",
+  "cell": "utility-member",
+  "arm": "B"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "an-a-privacy-pass",
+    "borrowed_aspect": "A proof of a prior check that cannot be linked back to the issuance event or reused to track the holder across verifiers."
+   },
+   {
+    "seed_id": "an-a-chaum-blind",
+    "borrowed_aspect": "Having the utility sign without learning where the credential will later be shown, so the utility cannot link the roll check to the landlord."
+   }
+  ],
+  "title": "Water-rate discount roll proof when renting out or switching landlord",
+  "moment": "A tenant in a subsidised-water or senior/disabled-household rate category moves into a new rental and the new landlord or property manager asks for the previous water or electricity bill to confirm the household qualifies for the shared-meter discount split.",
+  "verifier": "Landlord or property management company",
+  "predicate": "The tenant's household is in the water utility's discounted-rate roll (set membership), without disclosing the previous address or consumption.",
+  "disclosed_today": "Previous water bill showing old address, account holder name, usage volumes, and arrears status.",
+  "issuer": "Taiwan Water Corporation or Taipei Water Department, signing discount-roll membership",
+  "why_zk": "The landlord only needs to know the discount applies and so the bill split changes; the old address and usage reveal where the tenant lived and how many people live there. Weakness is that discount rolls are small and the pool of eligible people is tiny, so even a membership proof may be identifying by itself, and a landlord may simply not care enough to adopt a wallet flow.",
+  "id": "utility-member__B__1",
+  "cell": "utility-member",
+  "arm": "B"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "an-b-secret-ballot-moad",
+    "borrowed_aspect": "Checking eligibility separately from the entry so identity is not attached to the draw record."
+   },
+   {
+    "seed_id": "an-a-privacy-pass",
+    "borrowed_aspect": "A single-use unlinkable token that stops double entries without tracking the household."
+   }
+  ],
+  "title": "Anonymous eligibility for community solar or energy-saving appliance rebate lottery",
+  "moment": "A resident enters a local government rebate draw for efficient appliances or a rooftop solar subsidy that is reserved for households on the utility's subsidised or demand-response enrolled roll, and is asked to upload a bill so officials can check enrolment and de-duplicate entries.",
+  "verifier": "City government bureau running the rebate draw",
+  "predicate": "The entrant's account is a member of the enrolled subsidy roll and has not already entered (membership plus a single-use token), with no address or usage revealed.",
+  "disclosed_today": "Bill image with name, address, account number and monthly kWh, stored by the contractor handling the application.",
+  "issuer": "Taipower, signing enrolment membership of its subsidy or demand-response roll",
+  "why_zk": "Eligibility and one-entry-per-household can be separated, so the city confirms enrolment and prevents duplicates without learning the address or consumption, much like checking eligibility apart from the ballot. Weakness is that the city usually does need a delivery or installation address after winning, so the proof only protects the entry stage, and a small roll limits the anonymity set.",
+  "id": "utility-member__B__2",
+  "cell": "utility-member",
+  "arm": "B"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "tw-pdpa-art5-purpose-limit",
+    "borrowed_aspect": "The idea that collecting a whole bill exceeds the necessary scope of the stated purpose, so the proof should carry only the membership bit."
+   },
+   {
+    "seed_id": "rd-twdiw-field-selection-consent",
+    "borrowed_aspect": "Choosing what to release at presentation time, here tightened from field selection to a single membership predicate."
+   }
+  ],
+  "title": "Taipower subsidy-roll proof for a low-income solar rooftop co-op deposit waiver",
+  "moment": "A household applies to join a community rooftop-solar or energy-saving appliance trade-in scheme run by a township office or NGO, which offers a reduced deposit or free installation to households on a subsidised electricity roll. The counter asks for a recent Taipower bill photocopy to confirm the discount.",
+  "verifier": "Township office or NGO running the energy-efficiency program",
+  "predicate": "This account is a member of the Taipower low-income or vulnerable-household discount roll (set membership, current period)",
+  "disclosed_today": "Full electricity bill copy showing the service address, account number, monthly kWh usage, billing amounts, and the household name",
+  "issuer": "Taipower (or the Taipower subsidy roll maintainer, co-signing with the social affairs bureau list)",
+  "why_zk": "The bill reveals home address and occupancy patterns (usage tells when no one is home), while the scheme only needs yes or no on roll membership. Weakness: the roll is derived from social-welfare status held by local governments, so Taipower may not be the natural signer, and rolls change by period, so freshness and revocation need care. It also needs a nullifier so one account cannot claim twice.",
+  "id": "utility-member__C__0",
+  "cell": "utility-member",
+  "arm": "C"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "tw-pdpa-art11-3-deletion-exception",
+    "borrowed_aspect": "The worry that collected bills are kept under an open-ended exception for the office's own duties, which a proof leaving nothing to retain avoids."
+   },
+   {
+    "seed_id": "an-b-witness-protection",
+    "borrowed_aspect": "Showing an attribute about a place without revealing the underlying true address, with the holder keeping a lawful-disclosure path for audits."
+   }
+  ],
+  "title": "Landlord-free proof that a rented unit is on the residential-rate roll for a tenant subsidy",
+  "moment": "A tenant applies for a municipal rent subsidy or a student housing grant that requires the unit to be billed at the residential rate (not commercial or illegal sub-divided rates). The office asks for water and electricity bills, which expose the landlord's account, the tenant's name, and the exact unit.",
+  "verifier": "City housing bureau or university housing office",
+  "predicate": "The tenant's utility account is a member of the set of accounts on the residential tariff class at an eligible metering configuration (individual meter, not shared)",
+  "disclosed_today": "Water and electricity bills with full address, landlord or account-holder name, usage, and sometimes unrelated charges",
+  "issuer": "Taipower and Taiwan Water Corporation (each signs its own roll membership)",
+  "why_zk": "The office needs only that the unit has its own residential-rate meter, a classic landlord-evasion check, yet collects documents that reveal address and consumption. Honest weakness: the account may be in the landlord's name, so the tenant cannot always obtain a credential, and the office still needs the address to administer the subsidy, so membership alone may not replace address disclosure in the end.",
+  "id": "utility-member__C__1",
+  "cell": "utility-member",
+  "arm": "C"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "an-b-sealed-bid-far",
+    "borrowed_aspect": "Handling an identifying wrapper (the account) without exposing the content, with a designated-official exception when disclosure is truly needed."
+   },
+   {
+    "seed_id": "tw-securities-foreign-agent-id-copy",
+    "borrowed_aspect": "The failure pattern of demanding a full document copy when no less-intrusive alternative is offered."
+   }
+  ],
+  "title": "Disaster-relief priority for households on the medical-equipment power-dependent roll",
+  "moment": "During a typhoon outage or planned rolling blackout, a household that depends on home ventilators or oxygen concentrators wants priority for restoration or a generator loan from the local fire or health station. Staff ask people to send the address, a medical certificate, and electricity bill by chat or phone.",
+  "verifier": "District fire department or public health center distributing priority generators",
+  "predicate": "The account is a member of Taipower's registered power-dependent medical-use customer roll",
+  "disclosed_today": "Address, diagnosis or medical certificate, bill, and sometimes a photo of the device",
+  "issuer": "Taipower (maintains the priority-restoration list for medical-equipment households)",
+  "why_zk": "The responder only needs to know that the household is on the priority roll; diagnosis and usage are sensitive health data that spread across chat groups during emergencies. Weakness: in an emergency the responder usually needs the location to dispatch, so the proof can gate eligibility but cannot replace address sharing, and mobile coverage and wallet access fail during outages. Use it for pre-registration and fair queueing, not dispatch.",
+  "id": "utility-member__C__2",
+  "cell": "utility-member",
+  "arm": "C"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "rd-swiss-eid-necessary-data-only",
+    "borrowed_aspect": "The idea that a transaction should release only the one attribute it needs, relying on selective disclosure rather than showing the whole document."
+   },
+   {
+    "seed_id": "rd-cnpd-lu-tourist-inspect-not-copy",
+    "borrowed_aspect": "The framing that the legitimate duty is to check eligibility, not to retain a copy of the whole document."
+   }
+  ],
+  "title": "Low-income electricity discount without handing over the bill",
+  "moment": "A household applies to its village/district office or a charity for a summer electricity-cost subsidy or free air-conditioner/appliance replacement programme, and is asked to bring a recent Taipower bill showing the electricity account number, address, usage in kWh and payment history.",
+  "verifier": "District office or charity running an appliance-replacement or energy-subsidy programme",
+  "predicate": "The Taipower account is a member of the set of accounts on the current low-income / subsidised-household roll (membership, no address or usage revealed).",
+  "disclosed_today": "Full electricity bill copy with account number, installation address, monthly kWh usage (which reveals occupancy and habits), billing name and payment record.",
+  "issuer": "Taipower (or the water/gas utility) signing roll membership for the account",
+  "why_zk": "A usage history is a rich profile (who is home, when, whether the house is empty), and the office needs only to know the account is on the roll. Weakness: the household often has to be identified anyway for delivery of the appliance or payment of the subsidy, so the proof only helps for the eligibility screening step, and the roll itself is maintained by social-welfare agencies, so the utility signing it needs a data feed that does not exist today.",
+  "id": "utility-member__D__0",
+  "cell": "utility-member",
+  "arm": "D"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "rd-apple-wallet-age-request-categories",
+    "borrowed_aspect": "The warning that a request category can bundle extra data (here contract capacity and address) with the one fact needed, so the request must be narrowed to a single membership claim."
+   }
+  ],
+  "title": "Proving a rooftop-solar or farm-pump account is on the registered roll for a grant",
+  "moment": "A farmer or small household applies for a county subsidy for solar panels, a cold-storage unit or an efficient irrigation pump, and the county office asks for the electricity account's power-contract copy and recent bills to confirm the site is on the registered agricultural or residential-subsidy contract class.",
+  "verifier": "County agriculture or environment bureau processing the grant",
+  "predicate": "The electricity account belongs to the set of accounts under the agricultural-use or registered-subsidy contract class (membership, without the account number, location or consumption).",
+  "disclosed_today": "Contract copy and bills listing account number, exact site address, contract capacity and monthly consumption, which reveal the size and operating pattern of the farm.",
+  "issuer": "Taipower signing contract-class roll membership for the account",
+  "why_zk": "Consumption and contract capacity expose business operations and could be used by competitors or for tax scrutiny, while the bureau only needs the class. Weakness: the bureau usually also inspects the site in person and needs the address for the project record, so the proof reduces over-collection at application but not at final approval.",
+  "id": "utility-member__D__1",
+  "cell": "utility-member",
+  "arm": "D"
+ },
+ {
+  "inspired_by": [
+   {
+    "seed_id": "tw-securities-foreign-agent-id-copy",
+    "borrowed_aspect": "The failure pattern of requiring a full document copy with no less-intrusive alternative stated, here applied to bill copies."
+   },
+   {
+    "seed_id": "an-b-ala-library-records",
+    "borrowed_aspect": "The concern that retained records of who used what become a readable profile, here usage data in filed bill copies."
+   }
+  ],
+  "title": "Renter proves tenancy at a utility-registered address to a school or clinic without a bill",
+  "moment": "A family enrolling a child in a public school catchment, or registering at a community clinic's local-resident programme, is asked for a recent water or electricity bill as proof that they live in a utility-registered dwelling in the district, when they rent and the household registration is elsewhere.",
+  "verifier": "School administration or local clinic enrolment desk",
+  "predicate": "The water account belongs to the set of active residential accounts registered within the district catchment (membership in a geographic roll, not the exact address or usage).",
+  "disclosed_today": "Photocopy of a water or electricity bill showing name, full address, account number, usage and amount owed, which is then filed with the application.",
+  "issuer": "Taiwan Water Corporation or Taipower signing district-roll membership for the account",
+  "why_zk": "The verifier needs only that the dwelling is within the catchment, yet keeps a bill copy revealing exact address and consumption, and these copies sit in school files for years. Weakness: schools often legally need the household registration address anyway and may need the exact address for contact, so the membership proof can replace the bill only where the catchment test alone is applied; the account holder may also differ from the tenant.",
+  "id": "utility-member__D__2",
+  "cell": "utility-member",
+  "arm": "D"
+ }
+]

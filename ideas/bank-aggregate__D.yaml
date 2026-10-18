@@ -1,0 +1,38 @@
+- title: "Landlord rent-payment track record without sharing the tenant's bank statements"
+  moment: "A tenant renewing a lease or applying for a new rental in Taipei is asked by the landlord or agent to hand over several months of passbook pages or bank app screenshots to show they pay rent on time."
+  verifier: "Private landlord or rental agency (房仲/包租代管業者)"
+  predicate: "Over the last 12 months, at least 11 monthly outgoing transfers to the same payee were made on or before the 5th of the month (count and on-time ratio computed by the bank)."
+  disclosed_today: "Full passbook or app screenshots showing every transaction, balances, salary source, merchants, other account numbers, and often the ID card copy."
+  issuer: "The tenant's bank (signing a payment-regularity statistic over the account's transfers)"
+  why_zk: "The landlord only needs on-time rent history, not the tenant's whole financial life. Weak spot: the bank would need to define and sign a payment-regularity statistic and tie it to a payee, which no Taiwanese bank offers today, and landlords may still prefer an ID copy and guarantor regardless. Still, the over-collection of statements is real and the aggregate is much smaller."
+  inspired_by:
+    - seed_id: tw-platform-google-id-upload-complaint
+      borrowed_aspect: "The pattern of a verifier demanding an ID and extra documents to confirm one payment fact, with no stated purpose or less intrusive alternative."
+    - seed_id: an-b-hipaa-min-necessary
+      borrowed_aspect: "The idea that the holder must release only what serves the purpose, but needs a mechanism that proves the released subset is minimal."
+
+- title: "Proving a stable monthly foreign-remittance pattern to a migrant worker's home-country sponsor or broker"
+  moment: "A migrant worker in Taiwan, or the Taiwanese employer or broker, is asked by a recruitment agency, a visa-renewal service or a home-country lender to show the worker regularly sends money home, and the agency collects full remittance receipts and bank statements."
+  verifier: "Recruitment broker (仲介), home-country microfinance lender, or family-visit visa service"
+  predicate: "Total remitted abroad in the last 6 months is at least NT$X and remittances occurred in at least 5 of 6 months."
+  disclosed_today: "Complete bank statements and remittance slips including employer salary details, deductions, beneficiary names, and sometimes a passport copy."
+  issuer: "The worker's bank or remittance-licensed bank (signing a sum and count over transfers)"
+  why_zk: "The verifier needs a regularity and amount signal, not the beneficiary list or salary breakdown. Honest caveat: brokers often have commercial reasons to see more (wage deductions, debt), and a worker with weak bargaining power may be pressed to disclose anyway, so a proof helps only if the verifier agrees to accept it."
+  inspired_by:
+    - seed_id: rd-aepd-hotel-no-id-copy
+      borrowed_aspect: "A small registration fact does not justify copying the whole document; record only the fields the rule requires."
+    - seed_id: an-b-hipaa-min-necessary
+      borrowed_aspect: "Release only the subset that serves the stated purpose."
+
+- title: "Merchant proving monthly card-sales volume for a terminal or subsidy eligibility without exposing customers' transactions"
+  moment: "A night-market stall owner or small shop applying for a mobile-payment terminal upgrade, a municipal small-business subsidy or a supplier credit line is asked for twelve months of acquiring-bank settlement records, which list every customer card transaction."
+  verifier: "Local government economic development bureau, payment processor, or wholesale supplier offering trade credit"
+  predicate: "Average monthly card and mobile-payment settlement over the last 12 months is between NT$A and NT$B, with no month below NT$C."
+  disclosed_today: "Full settlement statements with per-transaction timestamps, amounts, masked card numbers, and the shop's account balances and bank transfers."
+  issuer: "The merchant's acquiring or settlement bank (signing a sales aggregate)"
+  why_zk: "The verifier only needs a revenue band. Per-transaction detail also exposes customers' purchasing patterns that the merchant has no business passing on. Weakness: many subsidies already rely on tax filings (營業稅申報) that the government can check directly, so the case is strongest for private verifiers such as suppliers and processors."
+  inspired_by:
+    - seed_id: tw-pdpa-art11-3-deletion-exception
+      borrowed_aspect: "Collected data tends to be kept under a vague 'needed for business' exception, which a proof avoids by never handing over the records."
+    - seed_id: rd-apple-wallet-age-request-categories
+      borrowed_aspect: "A request category that bundles extra fields with the one fact wanted; here the statement bundles customer detail with the revenue band."

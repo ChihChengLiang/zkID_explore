@@ -1,0 +1,38 @@
+- title: Low-income electricity subsidy proof for school lunch or tuition aid
+  moment: A parent applies for a school's low-income or near-poor student aid (tuition waiver, free lunch, after-school care subsidy) and is asked to submit a household certificate plus a copy of recent utility bills to show the household sits on the subsidised-electricity roll.
+  verifier: School administrative office or district education bureau
+  predicate: The household's electricity account is a member of the utility's low-income or welfare-tariff roll (set membership), with no address or kWh usage revealed.
+  disclosed_today: Full utility bill with address, account number, meter number, monthly usage and payment history, often photocopied and kept in the student file.
+  issuer: Taiwan Power Company (Taipower), signing membership of its welfare-tariff roll
+  why_zk: A signed roll-membership proof gives the school the one fact it needs without the address or usage pattern, which could show when the home is empty. Weakness is that the aid rules usually rest on the household registration and social-affairs certificates, so Taipower's roll is only a secondary or corroborating signal, and the school may legally need the address anyway.
+  inspired_by:
+    - seed_id: rd-google-wallet-zkp-age-no-linkage
+      borrowed_aspect: Proving a single yes/no fact from a signed credential without revealing the underlying record or letting the issuer see where it is used.
+    - seed_id: rd-eudi-wallet-selective-disclosure-recital
+      borrowed_aspect: The idea that the verifier gets only the attribute the service needs and not the full bill it sits inside.
+
+- title: Water-rate discount roll proof when renting out or switching landlord
+  moment: A tenant in a subsidised-water or senior/disabled-household rate category moves into a new rental and the new landlord or property manager asks for the previous water or electricity bill to confirm the household qualifies for the shared-meter discount split.
+  verifier: Landlord or property management company
+  predicate: The tenant's household is in the water utility's discounted-rate roll (set membership), without disclosing the previous address or consumption.
+  disclosed_today: Previous water bill showing old address, account holder name, usage volumes, and arrears status.
+  issuer: Taiwan Water Corporation or Taipei Water Department, signing discount-roll membership
+  why_zk: The landlord only needs to know the discount applies and so the bill split changes; the old address and usage reveal where the tenant lived and how many people live there. Weakness is that discount rolls are small and the pool of eligible people is tiny, so even a membership proof may be identifying by itself, and a landlord may simply not care enough to adopt a wallet flow.
+  inspired_by:
+    - seed_id: an-a-privacy-pass
+      borrowed_aspect: A proof of a prior check that cannot be linked back to the issuance event or reused to track the holder across verifiers.
+    - seed_id: an-a-chaum-blind
+      borrowed_aspect: Having the utility sign without learning where the credential will later be shown, so the utility cannot link the roll check to the landlord.
+
+- title: Anonymous eligibility for community solar or energy-saving appliance rebate lottery
+  moment: A resident enters a local government rebate draw for efficient appliances or a rooftop solar subsidy that is reserved for households on the utility's subsidised or demand-response enrolled roll, and is asked to upload a bill so officials can check enrolment and de-duplicate entries.
+  verifier: City government bureau running the rebate draw
+  predicate: The entrant's account is a member of the enrolled subsidy roll and has not already entered (membership plus a single-use token), with no address or usage revealed.
+  disclosed_today: Bill image with name, address, account number and monthly kWh, stored by the contractor handling the application.
+  issuer: Taipower, signing enrolment membership of its subsidy or demand-response roll
+  why_zk: Eligibility and one-entry-per-household can be separated, so the city confirms enrolment and prevents duplicates without learning the address or consumption, much like checking eligibility apart from the ballot. Weakness is that the city usually does need a delivery or installation address after winning, so the proof only protects the entry stage, and a small roll limits the anonymity set.
+  inspired_by:
+    - seed_id: an-b-secret-ballot-moad
+      borrowed_aspect: Checking eligibility separately from the entry so identity is not attached to the draw record.
+    - seed_id: an-a-privacy-pass
+      borrowed_aspect: A single-use unlinkable token that stops double entries without tracking the household.

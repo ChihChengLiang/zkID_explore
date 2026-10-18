@@ -1,0 +1,40 @@
+- title: Landlord checks six months of rent payments without seeing the bank statement
+  moment: A tenant renewing or applying for a rental in Taipei or Taichung is asked by the landlord or agent to photograph passbook pages or send bank statements to prove they have always paid rent on time.
+  verifier: Landlord or rental agency
+  predicate: Count of monthly outgoing transfers of at least the rent amount to the same payee in the last 6 months is 6, with no more than 0 returned or failed transfers.
+  disclosed_today: Full statements or passbook pages showing every transaction, balances, employer name, medical or religious payees, and family transfers.
+  issuer: Tenant's bank (bank signs the count over its own transaction ledger)
+  why_zk: The bank already holds the ledger and can sign a count with the rule stated. Weakness is that the landlord cannot tell whether the tenant paid from several accounts, and cash or other-bank rent is invisible, so the proof covers only one bank. The tenant can choose which account to prove, which biases the result. Landlord practice in Taiwan also leans on guarantors and deposits, so the proof only replaces the statement, not the deposit.
+  inspired_by:
+    - seed_id: an-b-hipaa-min-necessary
+      borrowed_aspect: Limit what is released to what the stated purpose needs, here a payment-regularity count, but with a proof instead of the holder's judgment.
+    - seed_id: an-b-hipaa-safe-harbor
+      borrowed_aspect: Strip the identifying fields (payees, amounts, other counterparties) and keep only the derived figure.
+
+- title: Micro-business owner proves quarterly card-sales turnover to a landlord or platform without exposing customers
+  moment: A night-market stall or small shop owner applying for a stall lease, a delivery-platform onboarding, or a government small-business subsidy is asked for bank statements of the business account to show monthly sales volume.
+  verifier: Market management office, platform, or subsidy-handling agency
+  predicate: Sum of incoming mobile-payment and card-settlement deposits over the last 3 months is at least a stated threshold, and the number of distinct payers exceeds a stated minimum.
+  disclosed_today: Complete business account statements listing every customer transfer, supplier payment, personal withdrawals and balances.
+  issuer: Bank holding the business account, as merchant acquirer or account holder
+  why_zk: A signed sum and distinct-payer count answers the real question (is this a live business) and hides suppliers and customers. Honest limits: much night-market revenue is cash and never reaches the bank, so the proof understates, and the tax authority, not the bank, is the usual authority on turnover. Distinct-payer counts can also leak small-group membership if the threshold is low, which differential-privacy style thinking warns about.
+  inspired_by:
+    - seed_id: an-a-nist-dp
+      borrowed_aspect: A published aggregate can still reveal individual contributors, so the threshold and rounding of the signed statistic must be chosen with that leak in mind.
+    - seed_id: an-b-census-title13
+      borrowed_aspect: Release only the aggregate and never an output that lets a particular counterparty be singled out.
+
+- title: Insurer or employer wellness program checks monthly gym and pharmacy spending band, not itemized purchases
+  moment: A health-insurance discount programme or a corporate wellness benefit in Taiwan asks participants to upload credit-card statements to prove they spent on fitness, with the same statements revealing pharmacy, clinic and other purchases.
+  verifier: Private insurer or employer benefits administrator
+  predicate: Total card spending in merchant categories for gyms and sports venues over 12 months falls in a stated band, computed by the bank over the cardholder's cards, with no other category disclosed.
+  disclosed_today: Itemized card statements across all merchants, showing health, pharmacy, entertainment and location patterns.
+  issuer: Card-issuing bank, which categorizes transactions by merchant category code
+  why_zk: The bank can sign a category aggregate across the person's cards at the same bank. Weak points: merchant category codes are coarse and gameable, cards at other banks are missing, and a verifier that asks for a narrow band can still infer health status from participation, so the aggregate itself is sensitive. Personal Data Protection Act purpose limitation already pushes toward minimal collection, but nothing proves the minimal set was what was collected.
+  inspired_by:
+    - seed_id: an-b-hipaa-min-necessary
+      borrowed_aspect: Purpose-limited release of only the figure the programme needs, replacing reliance on the verifier's promise.
+    - seed_id: rd-eudi-wallet-selective-disclosure-recital
+      borrowed_aspect: The holder discloses one derived attribute from a larger record instead of handing over the whole record.
+    - seed_id: an-a-oauth-scopes
+      borrowed_aspect: A verifier asking for broad statements when it needs one narrow scope, and the issuer being free to sign only the narrow one.

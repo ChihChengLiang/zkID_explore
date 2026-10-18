@@ -1,0 +1,202 @@
+[
+ {
+  "review_id": "b00-0",
+  "reasons": {
+   "rubric": "Enrolment status plus same-person binding is a multi-source match with a fragmented issuer ecosystem (many universities), so it needs design.",
+   "validity": "Student fares are real, but operators accept a card photo today and the stated same-person link adds little to the fare decision.",
+   "coherence": "The binding of student status to a payment account is stretched; a fare discount needs only the enrolment boolean.",
+   "novelty": "Enrolled-student proof is already in the scholarship case; only the transit verifier is new.",
+   "provenance": "The borrowed no-copy and photo-capture patterns are background colour and the idea reads the same without them.",
+   "retention_law": "Transit operators have no obvious duty to keep a full ID copy, so retention law looks permissive rather than blocking.",
+   "linkability": "A per-semester credential presented to one operator is linkable via the account binding, but this is tolerable.",
+   "issuer_unwilling": "Universities issuing per-semester wallet credentials to transit use is plausible but not an existing programme.",
+   "no_wallet": "Needs the operator app to verify wallet proofs and students to hold a wallet, which is not yet common."
+  },
+  "rubric_score": 3,
+  "validity": 3,
+  "coherence": 3,
+  "novelty": 2,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "holds",
+   "linkability": "holds",
+   "issuer_unwilling": "unknown",
+   "no_wallet": "fails"
+  }
+ },
+ {
+  "review_id": "b00-1",
+  "reasons": {
+   "rubric": "One-person-one-account via telco is a nullifier use with a fragmented issuer set (three telcos) and a person-versus-line key problem, so it needs design.",
+   "validity": "Scalper bots at concert presales are a real Taiwanese problem and uniqueness per event does address it if the telco can sign a per-person claim.",
+   "coherence": "Event-scoped nullifier and per-person telco claim fit, though the telco being in the loop undercuts the privacy goal.",
+   "novelty": "Sybil resistance is already catalogued for brokerage accounts; the new parts are the telco issuer and the ticketing moment.",
+   "provenance": "The ID-copy pattern is loosely relevant, while the sealed-bid source is only a metaphor for event scoping and adds nothing.",
+   "retention_law": "A ticketing platform has no obvious legal duty to retain full ID, so retention law holds as a non-blocker.",
+   "linkability": "Cross-event unlinkability is the explicit design goal, though a telco issuing in advance may see participation.",
+   "issuer_unwilling": "Telcos would need to build a per-person uniqueness attestation with no business incentive, which is a serious barrier.",
+   "no_wallet": "Fans need a wallet and the ticketer must verify proofs; adoption for a one-off presale is unlikely without platform mandate."
+  },
+  "rubric_score": 3,
+  "validity": 3,
+  "coherence": 4,
+  "novelty": 3,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "holds",
+   "linkability": "holds",
+   "issuer_unwilling": "fails",
+   "no_wallet": "unknown"
+  }
+ },
+ {
+  "review_id": "b00-2",
+  "reasons": {
+   "rubric": "Membership in a utility-signed roll is a clean predicate, but frequency is low and the roll may not exist, so it is a weak fit.",
+   "validity": "Vulnerable-household lists collected by volunteers are a real risk, but responders need the address for dispatch so the benefit is limited to enrolment.",
+   "coherence": "The proof helps enrolment checks only, and the idea honestly says it does not help dispatch, so the parts fit but the benefit is narrow.",
+   "novelty": "Nothing on the known list touches medical-equipment dependence or disaster response.",
+   "provenance": "No borrowings were claimed.",
+   "retention_law": "The verifiers are volunteers and offices with no clear duty to hold full records, though public agencies may have record rules I cannot confirm.",
+   "linkability": "A membership proof to a small set of volunteers is low risk, but a small roll makes anonymity sets tiny.",
+   "issuer_unwilling": "The utility would have to create and sign a medical-need roll it may not keep, which is uncertain.",
+   "no_wallet": "The households in question are elderly and ill, who are least likely to hold or use a wallet."
+  },
+  "rubric_score": 2,
+  "validity": 3,
+  "coherence": 4,
+  "novelty": 5,
+  "provenance_faithful": "NA",
+  "kill_tests": {
+   "retention_law": "unknown",
+   "linkability": "unknown",
+   "issuer_unwilling": "fails",
+   "no_wallet": "fails"
+  }
+ },
+ {
+  "review_id": "b00-3",
+  "reasons": {
+   "rubric": "Same-person match across two issuers with private landlords as verifiers is a low-adoption multi-source match, so it is a weak fit.",
+   "validity": "Landlords do collect ID copies, but a landlord needs to know who is on the lease, so hiding the ID number conflicts with the decision.",
+   "coherence": "The lease moment, rent subsidy claim and ID-number concealment pull in different directions, since the lease itself names the tenant.",
+   "novelty": "Renting and student enrolment are both on the known list, so this is mostly a recombination.",
+   "provenance": "The borrowed discretionary-copy and deletion-exception points describe the problem but do not shape the proposed mechanism.",
+   "retention_law": "Private landlords have no stated duty to retain, but a subsidy administrator may require full documents, which is unknown.",
+   "linkability": "Landlord and university are single parties, so linkability is not a major problem.",
+   "issuer_unwilling": "Household registration offices signing a match credential for landlord use is unlikely without a mandate.",
+   "no_wallet": "Small landlords will not run verifier software, as the idea itself concedes."
+  },
+  "rubric_score": 2,
+  "validity": 2,
+  "coherence": 2,
+  "novelty": 2,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "unknown",
+   "linkability": "holds",
+   "issuer_unwilling": "fails",
+   "no_wallet": "fails"
+  }
+ },
+ {
+  "review_id": "b00-4",
+  "reasons": {
+   "rubric": "A freshness boolean on employment is simple, but employers are a fragmented issuer set and the verifier still wants a name, so it needs design.",
+   "validity": "Rent and deposit checks do ask for employment proof in Taiwan and a current-employment boolean is mostly sufficient.",
+   "coherence": "Short-lived revocable status fits the stale-certificate problem well, with the name caveat honestly noted.",
+   "novelty": "Income and employment proof appears in the loan case, but employment status for a rental renewal is a new predicate on a familiar moment.",
+   "provenance": "The purpose-limitation and field-selection borrowings are generic and the design would read the same without them.",
+   "retention_law": "A landlord has no apparent duty to retain the full certificate, so this holds.",
+   "linkability": "Weekly refreshed proofs from one employer could link the holder across presentations unless unlinkable proofs are used.",
+   "issuer_unwilling": "Employers can sign easily at large firms, but small employers with no HR system are unlikely issuers and may not want revocation duties.",
+   "no_wallet": "Landlords and tenants would need wallet tooling, and a LINE photo of a certificate is far easier."
+  },
+  "rubric_score": 3,
+  "validity": 4,
+  "coherence": 4,
+  "novelty": 3,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "holds",
+   "linkability": "unknown",
+   "issuer_unwilling": "unknown",
+   "no_wallet": "fails"
+  }
+ },
+ {
+  "review_id": "b00-5",
+  "reasons": {
+   "rubric": "A coded category with an expiry is a simple attribute, but it needs agreed codes across hospitals and schools, so it is a design-needed fit.",
+   "validity": "Schools and employers do receive diagnoses where a category and end date would suffice, and a hospital can plausibly sign it.",
+   "coherence": "The category plus auto-expiry addresses the over-disclosure and indefinite-retention problems directly.",
+   "novelty": "Health accommodations for schools and employers are untouched by the known list.",
+   "provenance": "The differential privacy and permanent-number sources are only loose analogies and nothing in the idea depends on them.",
+   "retention_law": "Schools may have record-keeping rules for health documents, which I cannot confirm.",
+   "linkability": "A category claim from a few hospitals to one school is low risk, but rare categories could still identify the child.",
+   "issuer_unwilling": "Hospitals have liability concerns and no incentive to build per-category attestations, which makes this a real barrier.",
+   "no_wallet": "Parents would need a wallet and the school health office a verifier, and teachers still prefer a conversation."
+  },
+  "rubric_score": 3,
+  "validity": 4,
+  "coherence": 4,
+  "novelty": 5,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "unknown",
+   "linkability": "holds",
+   "issuer_unwilling": "unknown",
+   "no_wallet": "unknown"
+  }
+ },
+ {
+  "review_id": "b00-6",
+  "reasons": {
+   "rubric": "A threshold on rating and trip count is simple, but the issuer is an unwilling platform scraped via zkTLS, so it is a weak fit.",
+   "validity": "Deposit waiver is a real moment, but a ride-hail rating says little about driving risk and the operator still needs a license check.",
+   "coherence": "The predicate does not match what the operator is actually trying to decide, which is driving and damage risk.",
+   "novelty": "No known case touches reputation transfer between platforms.",
+   "provenance": "The one-bit proof and whole-document-capture ideas are generic and the design reads the same without them.",
+   "retention_law": "Rental operators have no obvious duty to retain the account screenshot, but they do retain licenses.",
+   "linkability": "A zkTLS proof reveals nothing beyond the threshold, but the platform sees the session and could link it.",
+   "issuer_unwilling": "The platform has not agreed and its terms may forbid this use, and the idea concedes this.",
+   "no_wallet": "Needs a zkTLS prover in the traveller's app and a verifier at the kiosk, which does not exist."
+  },
+  "rubric_score": 2,
+  "validity": 2,
+  "coherence": 2,
+  "novelty": 5,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "holds",
+   "linkability": "unknown",
+   "issuer_unwilling": "fails",
+   "no_wallet": "fails"
+  }
+ },
+ {
+  "review_id": "b00-7",
+  "reasons": {
+   "rubric": "An average-balance threshold is a range-type predicate from a single bank among many, and a weaker substitute for cheques, so it is a weak fit.",
+   "validity": "Instalment plans exist, but schools mostly use post-dated cheques or card billing, and a one-bank balance may not be accepted as sufficient.",
+   "coherence": "The predicate and verifier fit together, though the one-bank scope undercuts reliability as the idea admits.",
+   "novelty": "Bank balance proof is close to the loan income case, though the school tuition moment is new.",
+   "provenance": "No borrowings were claimed.",
+   "retention_law": "Private schools have no obvious duty to retain statements, so this holds.",
+   "linkability": "A bank signing a balance statistic to a school is low linkability risk.",
+   "issuer_unwilling": "Banks are used to issuing statements but may not want to sign statistics as a new product.",
+   "no_wallet": "Parents and small cram schools would need wallet tooling for a low-stakes check, which is unlikely."
+  },
+  "rubric_score": 2,
+  "validity": 3,
+  "coherence": 4,
+  "novelty": 3,
+  "provenance_faithful": "NA",
+  "kill_tests": {
+   "retention_law": "holds",
+   "linkability": "holds",
+   "issuer_unwilling": "unknown",
+   "no_wallet": "fails"
+  }
+ }
+]

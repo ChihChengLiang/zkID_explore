@@ -1,0 +1,34 @@
+- title: Low-income electricity discount without handing over the bill
+  moment: A household applies to its village/district office or a charity for a summer electricity-cost subsidy or free air-conditioner/appliance replacement programme, and is asked to bring a recent Taipower bill showing the electricity account number, address, usage in kWh and payment history.
+  verifier: District office or charity running an appliance-replacement or energy-subsidy programme
+  predicate: The Taipower account is a member of the set of accounts on the current low-income / subsidised-household roll (membership, no address or usage revealed).
+  disclosed_today: Full electricity bill copy with account number, installation address, monthly kWh usage (which reveals occupancy and habits), billing name and payment record.
+  issuer: Taipower (or the water/gas utility) signing roll membership for the account
+  why_zk: A usage history is a rich profile (who is home, when, whether the house is empty), and the office needs only to know the account is on the roll. Weakness: the household often has to be identified anyway for delivery of the appliance or payment of the subsidy, so the proof only helps for the eligibility screening step, and the roll itself is maintained by social-welfare agencies, so the utility signing it needs a data feed that does not exist today.
+  inspired_by:
+    - seed_id: rd-swiss-eid-necessary-data-only
+      borrowed_aspect: The idea that a transaction should release only the one attribute it needs, relying on selective disclosure rather than showing the whole document.
+    - seed_id: rd-cnpd-lu-tourist-inspect-not-copy
+      borrowed_aspect: The framing that the legitimate duty is to check eligibility, not to retain a copy of the whole document.
+- title: Proving a rooftop-solar or farm-pump account is on the registered roll for a grant
+  moment: A farmer or small household applies for a county subsidy for solar panels, a cold-storage unit or an efficient irrigation pump, and the county office asks for the electricity account's power-contract copy and recent bills to confirm the site is on the registered agricultural or residential-subsidy contract class.
+  verifier: County agriculture or environment bureau processing the grant
+  predicate: The electricity account belongs to the set of accounts under the agricultural-use or registered-subsidy contract class (membership, without the account number, location or consumption).
+  disclosed_today: Contract copy and bills listing account number, exact site address, contract capacity and monthly consumption, which reveal the size and operating pattern of the farm.
+  issuer: Taipower signing contract-class roll membership for the account
+  why_zk: Consumption and contract capacity expose business operations and could be used by competitors or for tax scrutiny, while the bureau only needs the class. Weakness: the bureau usually also inspects the site in person and needs the address for the project record, so the proof reduces over-collection at application but not at final approval.
+  inspired_by:
+    - seed_id: rd-apple-wallet-age-request-categories
+      borrowed_aspect: The warning that a request category can bundle extra data (here contract capacity and address) with the one fact needed, so the request must be narrowed to a single membership claim.
+- title: Renter proves tenancy at a utility-registered address to a school or clinic without a bill
+  moment: A family enrolling a child in a public school catchment, or registering at a community clinic's local-resident programme, is asked for a recent water or electricity bill as proof that they live in a utility-registered dwelling in the district, when they rent and the household registration is elsewhere.
+  verifier: School administration or local clinic enrolment desk
+  predicate: The water account belongs to the set of active residential accounts registered within the district catchment (membership in a geographic roll, not the exact address or usage).
+  disclosed_today: Photocopy of a water or electricity bill showing name, full address, account number, usage and amount owed, which is then filed with the application.
+  issuer: Taiwan Water Corporation or Taipower signing district-roll membership for the account
+  why_zk: The verifier needs only that the dwelling is within the catchment, yet keeps a bill copy revealing exact address and consumption, and these copies sit in school files for years. Weakness: schools often legally need the household registration address anyway and may need the exact address for contact, so the membership proof can replace the bill only where the catchment test alone is applied; the account holder may also differ from the tenant.
+  inspired_by:
+    - seed_id: tw-securities-foreign-agent-id-copy
+      borrowed_aspect: The failure pattern of requiring a full document copy with no less-intrusive alternative stated, here applied to bill copies.
+    - seed_id: an-b-ala-library-records
+      borrowed_aspect: The concern that retained records of who used what become a readable profile, here usage data in filed bill copies.

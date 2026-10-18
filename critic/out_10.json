@@ -1,0 +1,202 @@
+[
+ {
+  "review_id": "b10-0",
+  "reasons": {
+   "rubric": "Two-threshold predicate with a real over-collection problem, but the issuer is a marketplace dashboard via zkTLS rather than an established signing authority, and window and multi-shop selection is gameable.",
+   "validity": "Pop-up space rentals exist and landlords do ask for sales evidence, but a landlord may care more about a deposit or guarantor than 6-month revenue, and zkTLS against seller centers is fragile and often against terms.",
+   "coherence": "Moment, predicate, and issuer fit, though the stated weaknesses (cherry-picked window, one of several shops) undercut the trust the proof is supposed to give.",
+   "novelty": "Seller revenue to a landlord is new, though it is close to the known P2P seller verification and loan income cases.",
+   "provenance": "The HIPAA minimum-necessary and deletion-duty borrowings only restate the general over-collection motivation; the idea reads the same without them.",
+   "retention_law": "A landlord has no evident duty to retain the seller's sales data, so the proof can remove the benefit-bearing copy.",
+   "linkability": "A one-off proof shown to a single landlord is not very sensitive to linkage, though a stable shop identifier could leak.",
+   "issuer_unwilling": "Marketplaces have little incentive to sign or tolerate scripted session access, and zkTLS bypasses the issuer entirely, so cooperation is not assured.",
+   "no_wallet": "Small sellers and landlords have no wallet or zkTLS tooling and the landlord side is a one-time low-volume verifier."
+  },
+  "rubric_score": 3,
+  "validity": 3,
+  "coherence": 3,
+  "novelty": 3,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "holds",
+   "linkability": "holds",
+   "issuer_unwilling": "fails",
+   "no_wallet": "fails"
+  }
+ },
+ {
+  "review_id": "b10-1",
+  "reasons": {
+   "rubric": "A band predicate on a bank-signed aggregate for private verifiers is a range check from a fragmented set of banks with medium frequency, so it needs design.",
+   "validity": "Merchants do hand over settlement records for terminals, credit and subsidies, but government subsidies can check tax filings directly, leaving suppliers and processors as the real market.",
+   "coherence": "Parts fit well: an acquirer signs a sales aggregate and the verifier needs only a band, though the multi-verifier list mixes cases with different needs.",
+   "novelty": "Close to existing loan income and seller verification cases but with an acquirer-signed turnover band, and it overlaps strongly with b10-2 and b10-5.",
+   "provenance": "The deletion-exception and bundled-age-claim borrowings are loosely illustrative; the idea would read the same without them.",
+   "retention_law": "A supplier or processor extending credit may need to keep full records for credit risk, and acquirers have their own record duties, though the verifier side is unclear.",
+   "linkability": "A band proof shown to a few verifiers carries low linkage risk unless a stable merchant ID is attached.",
+   "issuer_unwilling": "Acquiring banks must build and support a signing product with no clear commercial benefit.",
+   "no_wallet": "Stall owners and small suppliers have no wallet infrastructure, so adoption needs a bank app flow."
+  },
+  "rubric_score": 3,
+  "validity": 4,
+  "coherence": 4,
+  "novelty": 2,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "unknown",
+   "linkability": "holds",
+   "issuer_unwilling": "unknown",
+   "no_wallet": "fails"
+  }
+ },
+ {
+  "review_id": "b10-2",
+  "reasons": {
+   "rubric": "Sum plus distinct-payer count is a multi-field aggregate over a bank-signed ledger and the cash gap makes it a design-heavy case.",
+   "validity": "Landlords and platforms do ask for statements, but incoming deposits understate cash-heavy night-market revenue and a distinct-payer count can be gamed with self-transfers.",
+   "coherence": "The distinct-payer clause adds a leak and gaming surface that the idea itself acknowledges, which weakens the otherwise sound core.",
+   "novelty": "Near-duplicate of b10-1 and b10-5 and a rewording of the known loan income threshold, with a payer-count twist.",
+   "provenance": "The differential-privacy and census-aggregate borrowings do change the design by prompting threshold and rounding choices, so they are non-decorative.",
+   "retention_law": "A market office or platform has no obvious duty to retain full statements.",
+   "linkability": "Distinct-payer counts can leak group membership and stable IDs link proofs across verifiers.",
+   "issuer_unwilling": "Banks would need to build an aggregate-signing product with unclear incentive.",
+   "no_wallet": "Small stall owners and market offices lack wallet tooling."
+  },
+  "rubric_score": 3,
+  "validity": 3,
+  "coherence": 3,
+  "novelty": 2,
+  "provenance_faithful": "yes",
+  "kill_tests": {
+   "retention_law": "holds",
+   "linkability": "holds",
+   "issuer_unwilling": "unknown",
+   "no_wallet": "fails"
+  }
+ },
+ {
+  "review_id": "b10-3",
+  "reasons": {
+   "rubric": "A pure yes/no non-membership predicate from a government registry with a clear over-collection of ID and passport copies, but the register is sensitive and passport data is needed later anyway.",
+   "validity": "Travel agencies do collect ID and passport copies at booking, but whether they check exit restriction themselves is doubtful and the issuer may never sign that status.",
+   "coherence": "Predicate, verifier and issuer line up, but the saving is only at the deposit stage since the passport is needed for tickets and visas.",
+   "novelty": "Exit restriction status is a moment nobody on the known list touches.",
+   "provenance": "The narrow-answer registry borrowing is real and shapes the yes/no predicate, but the unlinkable-proof borrowing mostly restates generic properties.",
+   "retention_law": "Agencies need passport data for ticketing and visas, and the law may bar learning restriction status, so the full copy is retained regardless.",
+   "linkability": "Showing a proof to agencies risks correlating who travels, which the idea notes and mitigates only with unlinkable proofs.",
+   "issuer_unwilling": "The immigration agency is unlikely to publish a restriction-status attestation to private parties given the sensitivity of the register.",
+   "no_wallet": "Travelers can use a phone wallet but agencies currently have no verifier tooling."
+  },
+  "rubric_score": 2,
+  "validity": 2,
+  "coherence": 3,
+  "novelty": 5,
+  "provenance_faithful": "yes",
+  "kill_tests": {
+   "retention_law": "fails",
+   "linkability": "holds",
+   "issuer_unwilling": "fails",
+   "no_wallet": "holds"
+  }
+ },
+ {
+  "review_id": "b10-4",
+  "reasons": {
+   "rubric": "Proof of one-per-person is a simple nullifier predicate, but the stakes and frequency are low and carrier uniqueness does not prove residency.",
+   "validity": "Building polls do collect phone numbers, but a carrier subscriber is not a resident and committees mostly need household eligibility, so the predicate is not sufficient.",
+   "coherence": "The uniqueness proof covers only the duplicate half while eligibility needs a separate step, and the issuer choice of carrier mismatches the residency need.",
+   "novelty": "A uniqueness nullifier is on the known brokerage list, but the community poll moment and carrier issuer are new.",
+   "provenance": "The separate-eligibility and blind-signature borrowings explain the design split but the idea would read the same without them.",
+   "retention_law": "Committees have no obvious duty to retain participant phone numbers.",
+   "linkability": "Nullifier scoping per poll can avoid cross-poll linkage, but the carrier issuer could see issuance.",
+   "issuer_unwilling": "Mobile carriers have little reason to issue uniqueness credentials for neighbourhood polls.",
+   "no_wallet": "Committees run on LINE and would not adopt a wallet flow without a ready-made app."
+  },
+  "rubric_score": 2,
+  "validity": 2,
+  "coherence": 2,
+  "novelty": 3,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "holds",
+   "linkability": "holds",
+   "issuer_unwilling": "fails",
+   "no_wallet": "fails"
+  }
+ },
+ {
+  "review_id": "b10-5",
+  "reasons": {
+   "rubric": "A band predicate with a variance condition over multiple accounts at possibly several banks is a range and multi-source case, so it needs design.",
+   "validity": "Platforms do ask vendors for statements to set limits, but deposits understate cash-heavy turnover and the 30 percent variance rule is an arbitrary add-on.",
+   "coherence": "The pieces fit but personal and business accounts are mixed and the issuer can only sign what it holds at one bank, which undermines the all-accounts claim.",
+   "novelty": "Third near-copy of b10-1 and b10-2 and a rewording of the loan income case.",
+   "provenance": "The unstated-necessity complaint and deletion-exception borrowings are decorative motivation; the idea reads the same without them.",
+   "retention_law": "Platforms doing merchant onboarding may need to retain KYC records, which is unclear but plausible.",
+   "linkability": "A band proof to one platform is low risk for linkage.",
+   "issuer_unwilling": "Banks and small cooperative banks would need to build an attestation product with no incentive.",
+   "no_wallet": "Vendors and onboarding teams have no wallet tooling and small cooperative banks have limited digital capacity."
+  },
+  "rubric_score": 3,
+  "validity": 3,
+  "coherence": 3,
+  "novelty": 2,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "unknown",
+   "linkability": "holds",
+   "issuer_unwilling": "fails",
+   "no_wallet": "fails"
+  }
+ },
+ {
+  "review_id": "b10-6",
+  "reasons": {
+   "rubric": "The predicate is a multi-source identity match across two issuers and the verifier is also the employer with a duty to retain copies, so zero-knowledge reduces internal exposure only.",
+   "validity": "Departments really do handle passport and ARC scans, but payroll still needs the identifiers, so the benefit is internal routing rather than a true verifier-facing disclosure.",
+   "coherence": "The idea itself concedes that the verifier is the employer with a retention duty, which contradicts the claim of data minimisation.",
+   "novelty": "Student employment eligibility is a new moment not on the known list.",
+   "provenance": "No borrowings are claimed.",
+   "retention_law": "The idea states the employer must keep work-permit and ARC copies for labour inspection, so retention blocks the benefit at rest.",
+   "linkability": "The same-person match across credentials needs a shared binding, which can create a linkable identifier.",
+   "issuer_unwilling": "Universities, the Ministry of Labor and immigration would all need to issue compatible credentials, which is unlikely soon.",
+   "no_wallet": "International students could hold a wallet but department staff lack verifier tooling and it is a low-volume flow."
+  },
+  "rubric_score": 2,
+  "validity": 3,
+  "coherence": 3,
+  "novelty": 4,
+  "provenance_faithful": "NA",
+  "kill_tests": {
+   "retention_law": "fails",
+   "linkability": "unknown",
+   "issuer_unwilling": "fails",
+   "no_wallet": "unknown"
+  }
+ },
+ {
+  "review_id": "b10-7",
+  "reasons": {
+   "rubric": "A time-limited boolean from a hospital is simple and the verifier over-collects, but frequency is low and the hospital issuer ecosystem is fragmented.",
+   "validity": "Families and taxis rarely ask for discharge summaries and some care agencies legitimately need medication information, so the moment is partly real and the predicate is often insufficient.",
+   "coherence": "Parts fit, but a verifier such as a taxi has no practical way to read a credential and the human judgment of fitness to be alone is a clinical call.",
+   "novelty": "Post-procedure clearance is a moment nobody on the known list touches.",
+   "provenance": "The blind-token borrowing is decorative since the idea is a time-limited signed status that reads the same without it.",
+   "retention_law": "Taxis and guesthouses have no obvious retention duty, though care agencies might for their own records.",
+   "linkability": "A short-lived status shown to a driver is low risk, but any hospital identifier on it could reveal the hospital visit.",
+   "issuer_unwilling": "Hospitals carry liability for declaring a patient safe unaccompanied and have no incentive to sign such statements.",
+   "no_wallet": "Taxi drivers and guesthouses have no reader and rely on the person's word, as the idea admits."
+  },
+  "rubric_score": 2,
+  "validity": 2,
+  "coherence": 3,
+  "novelty": 5,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "holds",
+   "linkability": "holds",
+   "issuer_unwilling": "fails",
+   "no_wallet": "fails"
+  }
+ }
+]

@@ -1,0 +1,36 @@
+- title: "Currently-employed proof for the convenience-store parcel pickup of a company-paid corporate card"
+  moment: "A new hire at a Hsinchu science-park firm opens a corporate-sponsored e-commerce or transit-subsidy account that is only valid while the person is employed, and the platform must re-confirm every month that the employment has not ended."
+  verifier: "Corporate benefits platform or commuter-shuttle/subsidy operator that serves many employers"
+  predicate: "Holder is currently employed by a firm enrolled in the programme, as attested within the last 30 days, and the attestation has not been revoked."
+  disclosed_today: "Employee ID, full name, department, job title, employer HR letter or staff card photo, sometimes payroll slip."
+  issuer: "Employer HR system (signs a short-lived employment-active credential and revokes it on resignation)."
+  why_zk: "The platform only needs 'still employed at an enrolled firm', but today collects a full HR letter that identifies the person and role. A short-lived unlinkable proof with revocation fits well. Weakness: the employer must run an issuance and revocation service, and small firms may not; the platform may also want a stable account key, so unlinkability across months is partly given up by design."
+  inspired_by:
+    - seed_id: privacy-pass-unlinkable-proof
+      borrowed_aspect: "Monthly re-presentation of a proof of prior authorisation without becoming a persistent identifier."
+    - seed_id: rd-eudi-wallet-selective-disclosure-recital
+      borrowed_aspect: "Sharing only the single employment-status attribute from a larger HR record."
+
+- title: "Active-staff proof for staff-only discount at a hospital or university cafeteria and parking"
+  moment: "A nurse or contract cleaner at a hospital in Taichung wants the staff meal rate and staff parking tariff, which operators run via outsourced concessions that must not give staff rates to people who have left."
+  verifier: "Outsourced cafeteria or parking concessionaire"
+  predicate: "Holder is on the active payroll or roster of this institution as of today (freshness under 24 hours)."
+  disclosed_today: "Staff card with name, photo and employee number, which the cashier or parking system logs and may keep."
+  issuer: "Hospital or university HR/outsourcing employer, including the contractor employer for outsourced workers."
+  why_zk: "The concessionaire needs only 'currently on staff', yet logs identity-bearing cards, creating a record of when each worker eats and parks. A daily-refreshed credential with revocation lets leavers drop off the same day. Weakness: staff discounts are often tied to a name for billing or payroll deduction, in which case identity is legitimately needed; the privacy gain is real only for cash or point-of-sale discounts."
+  inspired_by:
+    - seed_id: an-a-privacy-pass
+      borrowed_aspect: "Redemption that cannot be linked across uses, so repeated meals do not build a visit log."
+
+- title: "Still-employed check on gig-platform or staffing-agency workers entering a client factory gate"
+  moment: "A dispatched worker from a staffing agency arrives at a client's plant in Taoyuan; the gate must confirm that the agency still employs them, since dispatch contracts end abruptly."
+  verifier: "Client factory security gate or contractor-access system"
+  predicate: "Holder is currently employed by a named staffing agency under a live dispatch contract, with the signature issued today and revocable."
+  disclosed_today: "National ID card copy or number, full name, phone number, agency contract copy, entered into a visitor log."
+  issuer: "Staffing or dispatch agency as employer."
+  why_zk: "The gate needs a fresh yes/no on 'currently dispatched by agency X', but collects ID numbers that are retained in paper logs. A freshness proof removes the ID collection. Weakness: workplace safety and labour-dispatch rules may require named records of who was on site (for incident and insurance reasons), so the plant may be legally obliged to keep identity; zero-knowledge here only covers the entry check, not the safety register."
+  inspired_by:
+    - seed_id: an-a-chaum-blind
+      borrowed_aspect: "The signing agency certifies status without being able to link the later presentation back to the issuance event."
+    - seed_id: rd-google-wallet-zkp-age-no-linkage
+      borrowed_aspect: "A yes/no fact proven in a device-bound way so neither the issuer nor the verifier can track the holder."

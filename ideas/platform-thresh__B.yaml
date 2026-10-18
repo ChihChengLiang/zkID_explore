@@ -1,0 +1,36 @@
+- title: Ride-hail rating as a deposit waiver for scooter and car-share rental
+  moment: A traveler or student at a shared-car or e-scooter kiosk in Taipei or Kaohsiung is asked to leave a deposit, or the operator screenshots the person's Uber or LINE Taxi passenger profile to judge reliability.
+  verifier: Car-share or scooter-rental operator (for example a station-based car-share service or a rental shop near a train station)
+  predicate: Passenger rating on the ride-hail account is at least 4.8 and the account has at least 50 completed trips
+  disclosed_today: Screenshot of the whole account page, including name, photo, saved addresses, recent trips and phone number; or a cash deposit instead
+  issuer: Ride-hail platform account, with the claim made verifiable through a zkTLS session proof against the platform's own logged-in page (the platform is not an issuer and has not agreed to anything)
+  why_zk: The rating and trip count are the only facts needed, and a zkTLS proof avoids handing over trip history and home address. Weaknesses: the platform's terms may forbid this use, the rating is a weak signal of driving skill, the session proof depends on the platform not changing its page, and an operator may still want a license check, which this does not replace.
+  inspired_by:
+    - seed_id: rd-google-wallet-zkp-age-no-linkage
+      borrowed_aspect: A one-bit yes/no proof that does not let the verifier or the data holder track the person.
+    - seed_id: an-b-va-id-scanning
+      borrowed_aspect: The problem of capture of a whole document when only one field is needed, here the full account screen.
+- title: Delivery-platform order count as proof of regular-customer standing for a landlord or building management
+  moment: A tenant applicant for a small rental unit, or a resident asking for a parcel-locker or after-hours access arrangement, is asked by the building manager or landlord to show an app order history as proof of stable residence at an address.
+  verifier: Landlord, agent, or community building management committee
+  predicate: The delivery account has at least 12 completed orders to the same address over the last 6 months
+  disclosed_today: Screenshots of the order history list showing restaurants, items, times, amounts and the full delivery address
+  issuer: Food-delivery platform account, via a zkTLS proof of the order-history page; the platform did not design the page to be a credential
+  why_zk: Orders reveal diet, schedule, spending and guests, while the verifier only needs a count tied to an address. Honestly weak: matching the address inside the proof must be done carefully, an applicant can make orders to game the count, and Taiwan landlords more often ask for a lease, utility bill or household registration transcript, which are stronger and easy to get.
+  inspired_by:
+    - seed_id: tw-gov-uid-duplicate-minimal-disclosure
+      borrowed_aspect: The idea that a narrow answer (a count over a bar, like whether a duplicate exists) settles the matter without releasing the underlying record.
+    - seed_id: an-a-oauth-scopes
+      borrowed_aspect: The risk that the only way to share one fact is a broad grant, which is the situation with screenshots of an entire app.
+- title: Seller reputation on an auction platform as a threshold for a high-value in-person handover
+  moment: A buyer of a used camera or console arranged on a second-hand marketplace is asked by a seller to prove being a trusted buyer before the seller will meet at a convenience store pickup point, or a seller is asked to prove good standing before a buyer pays by a third-party escrow.
+  verifier: The counterparty in a private sale, or a convenience-store pickup service gating a high-value parcel
+  predicate: Account positive-feedback share is at least 98 percent with at least 30 reviews, on an account older than one year
+  disclosed_today: The account name and link to the profile, which exposes the whole transaction history, other listings, location hints and sometimes real name; or the counterparty's phone number and LINE ID
+  issuer: Second-hand or auction marketplace account, with a zkTLS proof over the platform's profile or feedback API response
+  why_zk: A proof can show good standing while the buyer remains pseudonymous and without exposing other listings. Weak points: feedback on these platforms is already public by design, so the benefit is mainly unlinking the proof from the profile page and hiding the account name, and a proof of a good record does not stop an account being bought or rented out.
+  inspired_by:
+    - seed_id: rd-google-wallet-zkp-age-no-linkage
+      borrowed_aspect: Unlinkability, so the verifier cannot track the person across contexts.
+    - seed_id: rd-eudi-wallet-selective-disclosure-recital
+      borrowed_aspect: Disclosing one attribute out of a larger record the holder cannot split themselves.

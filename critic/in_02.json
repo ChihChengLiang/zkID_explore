@@ -1,0 +1,140 @@
+[
+ {
+  "review_id": "b02-0",
+  "title": "Hospital-signed 'infection-free window' for a hospital-ward caregiver or private nursing-home visitor",
+  "moment": "A family member or foreign live-in caregiver (外籍看護) arrives at a Taiwanese nursing home or a ward during an outbreak and must show they recently tested negative or are not in an infectious period.",
+  "verifier": "Nursing home (護理之家) front desk or ward access control",
+  "predicate": "Hospital attests 'no active infectious-disease restriction' valid from test date to test date + N days (e.g. 7 days); nothing else.",
+  "disclosed_today": "Photo or paper of the lab report or clinic certificate showing diagnosis, test type, lab values, name, ID number, and sometimes medication.",
+  "issuer": "Hospital or clinic laboratory that ran the test",
+  "why_zk": "The verifier only needs a yes for the window, but today the whole report is shown or photographed and kept on a staff phone. Validity expiry is built into the claim, so no clinical detail is needed. Weakness: nursing homes mostly act on paper habits and no regulation requires accepting a digital proof, and a window set by each facility's own policy may not match what the hospital signed.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "Release only the single attribute the transaction needs rather than the whole credential.",
+    "source_excerpt": "A business needs one attribute to proceed, but the credential is issued as a whole, so the holder must rely on the wallet to release only the needed attribute. | mechanism: SD-JWT VC selective disclosure with OpenID4VP presentation and status-list validity check."
+   },
+   {
+    "borrowed_aspect": "Checking only easily copied identifiers (a paper copy) lets someone else pass, so the proof should be bound to the holder and signed by the issuer.",
+    "source_excerpt": "A provider must verify that a new applicant is the named person, but its check uses identifiers that are easy to copy, so a stolen identity passes and the real person bears the consequences. | mechanism: None; online verification only checked ID number and issue date."
+   }
+  ]
+ },
+ {
+  "review_id": "b02-1",
+  "title": "Hospital internship or clinical-placement badge matched to professional licence",
+  "moment": "A nursing or medical student starts a clinical placement at a teaching hospital, and the hospital must confirm the university-enrolled student is the same person as the holder of a separate vaccination or background-check record from another issuer.",
+  "verifier": "Hospital HR or placement coordinator",
+  "predicate": "The university-signed placement-eligibility claim and the health-authority vaccination claim refer to the same person, with neither the ID number nor other health records revealed.",
+  "disclosed_today": "Full vaccination card, national ID copy, student ID, sometimes a full health check report, collected into a paper file.",
+  "issuer": "University (placement eligibility), matched against a second issuer such as the health authority vaccination record",
+  "why_zk": "The hospital only needs to know the same person is both enrolled and vaccinated, not the full record. Honest weakness is that hospitals have occupational-health duties and may legitimately want specific vaccine details, so the match proof covers only the eligibility gate and a fuller disclosure may still be required afterwards.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "A verifier accepts proof of an earlier check without being able to link it to the issuing event.",
+    "source_excerpt": "A verifier only needs to learn that the holder passed an earlier check, but the proof it receives can be matched to the issuance event and to every other use of the same proof. | mechanism: Clients present unlinkable proofs that attest to a prior authorisation, so the origin cannot link redemption to issuance or to other redemptions."
+   },
+   {
+    "borrowed_aspect": "A discretionary fuller-disclosure exception, here for occupational health, remains alongside the minimal proof.",
+    "source_excerpt": "A protected person must be able to show a new identity without revealing the old one, but the program holder keeps a discretionary exception that lets it disclose the true identity to law enforcement or by court order. | mechanism: Discretionary non-disclosure of identity and location, with a mandatory disclosure exception to State or local law enforcement on request or by court order when the person is under investigation or charged with a serious offense."
+   }
+  ]
+ },
+ {
+  "review_id": "b02-2",
+  "title": "Proving no outstanding exit restriction when buying a used car at a dealer",
+  "moment": "A buyer or seller at a used-car dealership or consignment lot in Taiwan needs the vehicle transfer to go through, and the dealer wants assurance the seller is not under a travel or asset restriction and the car is not seized. Today the dealer photocopies the seller's ID, license and often household register.",
+  "verifier": "Used-car dealer or consignment broker",
+  "predicate": "The seller's national ID is NOT on the court or administrative enforcement (seizure / transfer-restriction) register for this vehicle's plate at the time of signing.",
+  "disclosed_today": "Front-and-back ID copy, driver's license copy, sometimes household register transcript with address and family members; the dealer keeps the copies in the deal folder.",
+  "issuer": "Directorate General of Highways / MVDO jointly with Judicial Yuan enforcement records (government signs a non-membership attestation over the restriction register).",
+  "why_zk": "The dealer only needs absence from a seizure/restriction list, not who the seller is beyond the transacting identity. Weakness: the dealer still needs a legal name for the contract and the transfer form, so identity cannot be fully hidden; the real gain is dropping the extra copies and household data. Also depends on an agency actually publishing a signed, timestamped absence attestation, which does not exist today.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The pattern of a private counterparty collecting full front-and-back ID copies when only one narrow fact is needed.",
+    "source_excerpt": "A service provider signing up a customer must check identity and payment, but it asks for full front-and-back copies of identity and card documents, and the regulator leaves whether that exceeds the purpose to case-by-case fact-finding. | mechanism: None stated; the letter says less-intrusive alternatives must be considered but names none."
+   },
+   {
+    "borrowed_aspect": "The household register transcript as an over-broad document that is shown or handed over for a narrow purpose.",
+    "source_excerpt": "A person asking an agency for a record must prove identity; the rule specifies inspecting the original card rather than handing over a copy, and it does not say the agency retains anything. | mechanism: Original identity document shown for in-person inspection; the checklist states no retention or copy requirement."
+   }
+  ]
+ },
+ {
+  "review_id": "b02-3",
+  "title": "Gig courier proves current platform affiliation to access a company mailroom or campus dock",
+  "moment": "A delivery rider arrives at a science-park company mailroom or hospital loading dock that only admits couriers currently contracted with a recognized logistics platform, and staff ask to see a worker card and ID.",
+  "verifier": "Science park, hospital or corporate mailroom security",
+  "predicate": "Rider is currently active and in good standing with a named logistics employer as of now",
+  "disclosed_today": "Worker card, national ID or driver licence shown or photographed, name, phone number, vehicle plate",
+  "issuer": "The logistics employer or platform operator, with revocation upon contract end or suspension",
+  "why_zk": "The gatekeeper needs only current standing, but collects identity details of many people who visit daily. A fresh signed status also stops a suspended rider from using a stale card. Honest caveat is that many couriers are legally independent contractors rather than employees, so the platform may not count as an employer, and sites often want a plate or name for incident tracing.",
+  "claimed_borrowings": []
+ },
+ {
+  "review_id": "b02-4",
+  "title": "Proving a stable monthly foreign-remittance pattern to a migrant worker's home-country sponsor or broker",
+  "moment": "A migrant worker in Taiwan, or the Taiwanese employer or broker, is asked by a recruitment agency, a visa-renewal service or a home-country lender to show the worker regularly sends money home, and the agency collects full remittance receipts and bank statements.",
+  "verifier": "Recruitment broker (仲介), home-country microfinance lender, or family-visit visa service",
+  "predicate": "Total remitted abroad in the last 6 months is at least NT$X and remittances occurred in at least 5 of 6 months.",
+  "disclosed_today": "Complete bank statements and remittance slips including employer salary details, deductions, beneficiary names, and sometimes a passport copy.",
+  "issuer": "The worker's bank or remittance-licensed bank (signing a sum and count over transfers)",
+  "why_zk": "The verifier needs a regularity and amount signal, not the beneficiary list or salary breakdown. Honest caveat: brokers often have commercial reasons to see more (wage deductions, debt), and a worker with weak bargaining power may be pressed to disclose anyway, so a proof helps only if the verifier agrees to accept it.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "A small registration fact does not justify copying the whole document; record only the fields the rule requires.",
+    "source_excerpt": "A registrant must prove a small set of facts to a host, but the host asks for a full copy of the identity document, which carries many extra fields the rule never needed. | mechanism: Inspect the identity document in person and record only the fields the registration rule requires; no copy retained."
+   },
+   {
+    "borrowed_aspect": "Release only the subset that serves the stated purpose.",
+    "source_excerpt": "A holder of sensitive records must release only the subset that serves a stated purpose, but the rule leaves it to the holder to judge what is minimal and gives no mechanism that proves the released subset was minimal. | mechanism: Purpose-based minimum-necessary rule with reasonable-efforts standard, role-based access and reasonable reliance on requester representations (45 CFR 164.514(d)); no cryptographic or proof-based check."
+   }
+  ]
+ },
+ {
+  "review_id": "b02-5",
+  "title": "Renter proves tenancy at a utility-registered address to a school or clinic without a bill",
+  "moment": "A family enrolling a child in a public school catchment, or registering at a community clinic's local-resident programme, is asked for a recent water or electricity bill as proof that they live in a utility-registered dwelling in the district, when they rent and the household registration is elsewhere.",
+  "verifier": "School administration or local clinic enrolment desk",
+  "predicate": "The water account belongs to the set of active residential accounts registered within the district catchment (membership in a geographic roll, not the exact address or usage).",
+  "disclosed_today": "Photocopy of a water or electricity bill showing name, full address, account number, usage and amount owed, which is then filed with the application.",
+  "issuer": "Taiwan Water Corporation or Taipower signing district-roll membership for the account",
+  "why_zk": "The verifier needs only that the dwelling is within the catchment, yet keeps a bill copy revealing exact address and consumption, and these copies sit in school files for years. Weakness: schools often legally need the household registration address anyway and may need the exact address for contact, so the membership proof can replace the bill only where the catchment test alone is applied; the account holder may also differ from the tenant.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The failure pattern of requiring a full document copy with no less-intrusive alternative stated, here applied to bill copies.",
+    "source_excerpt": "A foreign investor must prove that its local agent is a real, identified person, and the agent hands over a full copy of an ID card, with no alternative verification stated. | mechanism: None stated; full ID copy required with no less-intrusive alternative given."
+   },
+   {
+    "borrowed_aspect": "The concern that retained records of who used what become a readable profile, here usage data in filed bill copies.",
+    "source_excerpt": "A service provider must keep a record of who used what without that record becoming a readable log of a person's interests, but the duty is a recommended policy that depends on each institution adopting it and on courts or subpoenas being resisted. | mechanism: Institutional confidentiality policy plus procedures for handling subpoenas and law-enforcement requests; no technical minimization of records is specified."
+   }
+  ]
+ },
+ {
+  "review_id": "b02-6",
+  "title": "Active-staff proof for staff-only discount at a hospital or university cafeteria and parking",
+  "moment": "A nurse or contract cleaner at a hospital in Taichung wants the staff meal rate and staff parking tariff, which operators run via outsourced concessions that must not give staff rates to people who have left.",
+  "verifier": "Outsourced cafeteria or parking concessionaire",
+  "predicate": "Holder is on the active payroll or roster of this institution as of today (freshness under 24 hours).",
+  "disclosed_today": "Staff card with name, photo and employee number, which the cashier or parking system logs and may keep.",
+  "issuer": "Hospital or university HR/outsourcing employer, including the contractor employer for outsourced workers.",
+  "why_zk": "The concessionaire needs only 'currently on staff', yet logs identity-bearing cards, creating a record of when each worker eats and parks. A daily-refreshed credential with revocation lets leavers drop off the same day. Weakness: staff discounts are often tied to a name for billing or payroll deduction, in which case identity is legitimately needed; the privacy gain is real only for cash or point-of-sale discounts.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "Redemption that cannot be linked across uses, so repeated meals do not build a visit log.",
+    "source_excerpt": "A verifier only needs to learn that the holder passed an earlier check, but the proof it receives can be matched to the issuance event and to every other use of the same proof. | mechanism: Clients present unlinkable proofs that attest to a prior authorisation, so the origin cannot link redemption to issuance or to other redemptions."
+   }
+  ]
+ },
+ {
+  "review_id": "b02-7",
+  "title": "One vote per person in an apartment-building or community management committee online poll",
+  "moment": "A Taiwanese residential community (a building management committee) runs an online poll for a repair fund or rule change, and needs one ballot per resident household member without exposing who voted how.",
+  "verifier": "The community management committee (or its property management company) running a LINE or web voting tool.",
+  "predicate": "The voter is one unique real subscriber, and the ballot nullifier is unique for this poll.",
+  "disclosed_today": "Name, unit number, phone number, and often a LINE ID, all tied to the ballot or at least visible to the administrator.",
+  "issuer": "A Taiwanese mobile carrier.",
+  "why_zk": "A uniqueness proof prevents double voting and sock puppets while the committee never learns which phone owner cast which vote. Honest caveat: a telco credential proves one subscriber, not that the person lives in the building, so residence must come from a separate credential (for example a household registration or property owner credential), and Taiwan's condominium law has its own ownership-weighted voting rules that a simple one-person-one-vote proof does not satisfy.",
+  "claimed_borrowings": []
+ }
+]

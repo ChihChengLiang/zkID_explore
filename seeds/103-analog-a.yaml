@@ -1,0 +1,229 @@
+- id: an-a-privacy-pass
+  problem: Servers authorise clients with cookies that record a prior challenge, and the same cookie lets
+    them track one client across sessions.
+  abstract_problem: A verifier only needs to learn that the holder passed an earlier check, but the proof
+    it receives can be matched to the issuance event and to every other use of the same proof.
+  mechanism: Clients present unlinkable proofs that attest to a prior authorisation, so the origin cannot
+    link redemption to issuance or to other redemptions.
+  mechanism_outcome: works
+  domain: web-anti-abuse
+  distance_class: distant-analog
+  source:
+    type: distant-analog
+    title: RFC 9576 The Privacy Pass Architecture
+    url: https://www.rfc-editor.org/rfc/rfc9576.html
+    locator: Threat model and privacy goals (Section 1 onward)
+    jurisdiction: global
+    lang: en
+    retrieved_on: '2026-10-18'
+  evidence:
+    quote: the privacy goals of Privacy Pass are oriented around unlinkability based on redemption, issuance,
+      and attestation contexts
+    quote_verified: true
+    snapshot: snapshots/an-a-privacy-pass.txt
+  axes:
+    issuer_type:
+    - none
+    predicate_type:
+    - membership
+    regime:
+    - none-stated
+    harm:
+    - profiling
+  extraction:
+    agent: analog-a
+    model: claude-haiku-5-5
+    date: '2026-10-18'
+  status: draft
+- id: an-a-chaum-blind
+  problem: A ballot authority must sign a voter's ballot to certify it, but it must not learn how the
+    voter voted, and the counted ballot must still be accepted as valid.
+  abstract_problem: A signer must certify that a holder has a valid token without seeing the token's content,
+    and must later be unable to link the certified token back to the signing event.
+  mechanism: A blind signature, where the message is blinded with a random factor before signing, and
+    the holder unblinds the signature so it verifies against the original message under the signer's public
+    key.
+  mechanism_outcome: works
+  domain: secret-ballot
+  distance_class: distant-analog
+  source:
+    type: distant-analog
+    title: Blind signature (Wikipedia)
+    url: https://en.wikipedia.org/wiki/Blind_signature
+    locator: Introduction; Blind signature schemes
+    jurisdiction: global
+    lang: en
+    retrieved_on: '2026-10-18'
+  evidence:
+    quote: An unlinkable blind signature provides this guarantee, as the authority will not see the contents
+      of any ballot it signs, and will be unable to link the blinded ballots it signs back to the un-blinded
+      ballots it receives for counting.
+    quote_verified: true
+    snapshot: snapshots/an-a-chaum-blind.txt
+  axes:
+    issuer_type:
+    - none
+    predicate_type:
+    - membership
+    - uniqueness
+    regime:
+    - none-stated
+    harm:
+    - profiling
+  extraction:
+    agent: analog-a
+    model: claude-haiku-5-5
+    date: '2026-10-18'
+  status: draft
+- id: an-a-oauth-scopes
+  problem: A client asks for broad access scopes to a resource server when it needs only one narrow permission,
+    and the user approves the broader grant.
+  abstract_problem: A holder asks a verifier for a credential covering more attributes than the single
+    fact the relying party needs, and the issuer has no obligation to honour a narrower request.
+  mechanism: The client states a scope parameter in the request, and the authorization server returns
+    the granted scope in the token response; the server may grant less than requested.
+  mechanism_outcome: partial
+  domain: oauth-scopes
+  distance_class: distant-analog
+  source:
+    type: distant-analog
+    title: RFC 6749 The OAuth 2.0 Authorization Framework
+    url: https://www.rfc-editor.org/rfc/rfc6749.html
+    locator: Section 3.3 Access Token Scope
+    jurisdiction: global
+    lang: en
+    retrieved_on: '2026-10-18'
+  evidence:
+    quote: The authorization server MAY fully or partially ignore the scope requested by the client, based
+      on the authorization server policy or the resource owner's instructions.
+    quote_verified: true
+    snapshot: snapshots/an-a-oauth-scopes.txt
+  axes:
+    issuer_type:
+    - none
+    predicate_type:
+    - threshold
+    regime:
+    - none-stated
+    harm:
+    - profiling
+  extraction:
+    agent: analog-a
+    model: claude-haiku-5-5
+    date: '2026-10-18'
+  status: draft
+- id: an-a-nist-dp
+  problem: Publishing statistics about a dataset can reveal whether a particular person's record is in
+    it, and the publisher has no quantified measure of how much that leaks.
+  abstract_problem: A releaser must answer queries about a dataset so that an observer learns almost nothing
+    about whether any one individual contributed, and the leak must be expressed as a bound that can be
+    checked.
+  mechanism: Differential privacy, a randomised release mechanism with a quantified privacy-loss parameter;
+    NIST notes that the guarantee depends on how the framework is realised in practice and lists privacy
+    hazards that can break it.
+  mechanism_outcome: partial
+  domain: data-protection-law
+  distance_class: distant-analog
+  source:
+    type: distant-analog
+    title: NIST SP 800-226 Guidelines for Evaluating Differential Privacy Guarantees
+    url: https://csrc.nist.gov/pubs/sp/800/226/final
+    locator: Abstract
+    jurisdiction: global
+    lang: en
+    retrieved_on: '2026-10-18'
+  evidence:
+    quote: This publication describes differential privacy — a mathematical framework that quantifies
+      privacy loss to entities when their data appears in a dataset.
+    quote_verified: true
+    snapshot: snapshots/an-a-nist-dp.txt
+  axes:
+    issuer_type:
+    - government
+    predicate_type:
+    - aggregate
+    regime:
+    - other
+    harm:
+    - none-observed
+  extraction:
+    agent: analog-a
+    model: claude-haiku-5-5
+    date: '2026-10-18'
+  status: draft
+- id: an-a-tor-onion
+  problem: A user's network path reveals both who they are and which destination they contact, because
+    the first hop that sees their address also sees their traffic in full.
+  abstract_problem: A route must be relayed through intermediaries so that no single intermediary holds
+    both the origin identity and the final destination, while the traffic still reaches the endpoint.
+  mechanism: Onion routing, where the message is wrapped in one encryption layer per relay, and each relay
+    peels only its own layer and passes the rest to the next hop.
+  mechanism_outcome: partial
+  domain: web-anti-abuse
+  distance_class: distant-analog
+  source:
+    type: distant-analog
+    title: Onion routing (Wikipedia)
+    url: https://en.wikipedia.org/wiki/Onion_routing
+    locator: Data; Exit node vulnerability
+    jurisdiction: global
+    lang: en
+    retrieved_on: '2026-10-18'
+  evidence:
+    quote: Each intermediary generally knows only the immediately preceding and following nodes, limiting
+      what any single relay can learn about the route.
+    quote_verified: true
+    snapshot: snapshots/an-a-tor-onion.txt
+  axes:
+    issuer_type:
+    - none
+    predicate_type:
+    - membership
+    regime:
+    - none-stated
+    harm:
+    - profiling
+  extraction:
+    agent: analog-a
+    model: claude-haiku-5-5
+    date: '2026-10-18'
+  status: draft
+- id: an-a-samesite-cookies
+  problem: A cookie is attached to requests made from third-party sites embedded in a page, which lets
+    those third parties recognise the same browser across unrelated websites.
+  abstract_problem: A stored credential should be presented only to the party that issued it in the current
+    context, but the browser sends it on any request the context triggers, so an unrelated observer can
+    match the holder across contexts.
+  mechanism: The SameSite cookie attribute, which limits the cookie to same-site requests (Strict, Lax,
+    or None); the IETF draft describes it as a per-cookie setting, and cross-site behaviour depends on
+    the chosen value.
+  mechanism_outcome: partial
+  domain: ad-tech
+  distance_class: distant-analog
+  source:
+    type: distant-analog
+    title: draft-ietf-httpbis-rfc6265bis HTTP State Management Mechanism
+    url: https://datatracker.ietf.org/doc/html/draft-ietf-httpbis-rfc6265bis
+    locator: The SameSite Attribute
+    jurisdiction: global
+    lang: en
+    retrieved_on: '2026-10-18'
+  evidence:
+    quote: If the "SameSite" attribute's value is "Strict", the cookie will only be sent along with "same-site"
+      requests.
+    quote_verified: true
+    snapshot: snapshots/an-a-samesite-cookies.txt
+  axes:
+    issuer_type:
+    - none
+    predicate_type:
+    - cross-source-match
+    regime:
+    - none-stated
+    harm:
+    - profiling
+  extraction:
+    agent: analog-a
+    model: claude-haiku-5-5
+    date: '2026-10-18'
+  status: draft

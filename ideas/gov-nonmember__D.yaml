@@ -1,0 +1,34 @@
+- title: Proving no outstanding exit restriction when buying a used car at a dealer
+  moment: A buyer or seller at a used-car dealership or consignment lot in Taiwan needs the vehicle transfer to go through, and the dealer wants assurance the seller is not under a travel or asset restriction and the car is not seized. Today the dealer photocopies the seller's ID, license and often household register.
+  verifier: Used-car dealer or consignment broker
+  predicate: The seller's national ID is NOT on the court or administrative enforcement (seizure / transfer-restriction) register for this vehicle's plate at the time of signing.
+  disclosed_today: Front-and-back ID copy, driver's license copy, sometimes household register transcript with address and family members; the dealer keeps the copies in the deal folder.
+  issuer: Directorate General of Highways / MVDO jointly with Judicial Yuan enforcement records (government signs a non-membership attestation over the restriction register).
+  why_zk: The dealer only needs absence from a seizure/restriction list, not who the seller is beyond the transacting identity. Weakness: the dealer still needs a legal name for the contract and the transfer form, so identity cannot be fully hidden; the real gain is dropping the extra copies and household data. Also depends on an agency actually publishing a signed, timestamped absence attestation, which does not exist today.
+  inspired_by:
+    - seed_id: tw-platform-gym-id-card-copies-interp
+      borrowed_aspect: The pattern of a private counterparty collecting full front-and-back ID copies when only one narrow fact is needed.
+    - seed_id: tw-gov-household-register-original-only
+      borrowed_aspect: The household register transcript as an over-broad document that is shown or handed over for a narrow purpose.
+
+- title: Showing a landlord that a tenant is not on the public-housing or rent-subsidy disqualification list
+  moment: A tenant applying to a private landlord that participates in the government social-housing sublease scheme, or a landlord renting under a subsidy program, must show the applicant is not disqualified for owning other property or prior fraud. The agency or landlord's agent collects tax and property records.
+  verifier: Landlord or intermediary operator under the sublease-subsidy program
+  predicate: The applicant is NOT on the register of persons disqualified or blacklisted from housing subsidy for prior false declaration or recovered overpayment.
+  disclosed_today: Full property ownership transcript, income tax records, household composition, and ID copies delivered to the operator.
+  issuer: Ministry of the Interior Construction and Planning Agency (or local housing bureau) as keeper of the disqualification list.
+  why_zk: The operator needs only that the person is not blacklisted, but the program itself legally also requires income and property eligibility checks, which are positive predicates and not covered by non-membership; so this removes only the blacklist part of the file. Weakness: the blacklist is small and the operator may be entitled to query it directly, in which case ZK adds little over a direct government lookup.
+  inspired_by:
+    - seed_id: tw-bank-deposit-dual-id-check
+      borrowed_aspect: A verifier carrying out an identity and risk check with document inspection where retention and scope are unspecified.
+
+- title: Proving not being on the court-ordered debtor restriction list when taking a school-bus or after-school care contract
+  moment: A parent enrolling a child with a private after-school care or school-bus operator is asked for a guarantor or prepayment, and the operator wants assurance the parent is not under a court-ordered restriction (such as a debtor under compulsory enforcement or restricted from leaving the country). It is applied as a general screen by some operators.
+  verifier: Private after-school care or school-bus operator
+  predicate: The parent is NOT on the compulsory-enforcement debtor register maintained by the courts.
+  disclosed_today: Parent's ID copy, contact details, sometimes bank account statement or proof of employment to show solvency.
+  issuer: Judicial Yuan / district court enforcement office.
+  why_zk: A signed absence from the debtor register would replace bank statements and employment proof with a single bit. Weakness: this is a weak and legally questionable use, since screening parents on debtor status for child care may be discriminatory or unlawful under consumer and children's-services rules, and the real proof of future payment capacity is not captured by non-membership. It is included to show where the pattern is thin rather than a recommended deployment.
+  inspired_by:
+    - seed_id: an-b-secret-ballot-moad
+      borrowed_aspect: The idea of separating an eligibility check from the record that is kept, so the verifier learns eligibility without the underlying file.

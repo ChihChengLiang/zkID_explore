@@ -1,0 +1,131 @@
+[
+ {
+  "review_id": "b03-0",
+  "title": "Still-employed proof for a landlord's mid-lease rent-guarantee renewal",
+  "moment": "A tenant in Taipei renews a one-year lease, and the landlord's agent asks again for a recent employment certificate, payslip and ID copy to confirm the tenant still has a job, even though the original paperwork was collected at signing.",
+  "verifier": "Landlord or rental agency (房東 / 租賃仲介)",
+  "predicate": "Tenant is currently employed by a registered employer (not terminated or resigned) as of today, with no employer name, salary or ID number revealed.",
+  "disclosed_today": "Full ID copy, payslips showing salary and employer, employment certificate with company name, title and start date.",
+  "issuer": "The employer's HR system, which signs a short-lived 'active employee' status and revokes it on termination or resignation.",
+  "why_zk": "Freshness is the whole point: an old certificate cannot show the person is still employed, so a signed status with revocation is stronger than paper. The landlord only needs a yes about current employment. Practice is weak because landlords often want salary level too, and small employers may not run a wallet-capable HR system, so adoption depends on the employer side.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The pattern of a private party asking for full document copies at contract signing when a narrow check would serve the purpose.",
+    "source_excerpt": "A service provider signing up a customer must check identity and payment, but it asks for full front-and-back copies of identity and card documents, and the regulator leaves whether that exceeds the purpose to case-by-case fact-finding. | mechanism: None stated; the letter says less-intrusive alternatives must be considered but names none."
+   }
+  ]
+ },
+ {
+  "review_id": "b03-1",
+  "title": "Small-claims or maintenance negotiation proving total outflow to one payee",
+  "moment": "In a mediation at a township mediation committee or a family-court conciliation, one party says they have paid the other a certain total (for example support or a loan repayment) over a year, and the other side disputes the sum.",
+  "verifier": "Mediator, court clerk or the counterparty's lawyer",
+  "predicate": "Sum of transfers from the person's account to a named payee account between two dates equals or exceeds a stated amount",
+  "disclosed_today": "Printed or screenshotted full account statements for the period, exposing every unrelated transaction, which are often partly blacked out by hand and then questioned for authenticity.",
+  "issuer": "The bank holding the paying account, signing a sum over a filtered set of transactions",
+  "why_zk": "A bank-signed total to a single named payee is verifiable and removes hand redaction and doubts about doctored screenshots. Honest limits are that courts in Taiwan currently accept bank-issued certificates and discovery orders rather than cryptographic proofs, so this is most plausible as an informal mediation aid, and the payee identity is itself disclosed by the predicate.",
+  "claimed_borrowings": []
+ },
+ {
+  "review_id": "b03-2",
+  "title": "Online marketplace seller sales threshold for a night-market or pop-up stall slot",
+  "moment": "A Shopee or Ruten seller applies to a city-run weekend creative market (such as a Taichung or Tainan pop-up bazaar) for a priority stall slot that is reserved for sellers who already have a proven online sales record.",
+  "verifier": "Market organizer or district office running the stall lottery",
+  "predicate": "Seller account has at least 200 completed orders and at least 95 percent positive reviews in the past 6 months",
+  "disclosed_today": "Screenshots of the seller dashboard with revenue, customer names, supplier costs, and the shop's bank payout details, sometimes the full order spreadsheet",
+  "issuer": "Marketplace seller account (seller center), shown through a zkTLS proof over the seller center page",
+  "why_zk": "The organizer only ranks applicants, so a threshold proof avoids handing over revenue and customer data that the organizer then stores in a shared inbox. Weakness: applicant volumes are small, organizers are unlikely to run a verifier, a lottery with no ranking removes the need, and platforms could object to proofs generated from seller sessions.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "A hidden value that a holder must keep from competitors yet later prove, here sales figures that rival stall applicants must not see.",
+    "source_excerpt": "A party submits a value that must stay hidden from competitors until a fixed moment, while the holder of the submissions must be able to prove later that none were seen early and must handle identifying wrappers without exposing the content. | mechanism: Physical and access-control safeguarding of sealed bids with designated-official exception for envelope identification, plus a written record of any mistaken early opening."
+   },
+   {
+    "borrowed_aspect": "Separating eligibility checking from the item being judged, so the organizer verifies a threshold without linking the applicant's full business record to the ranking.",
+    "source_excerpt": "A voter must prove eligibility and cast a valid choice while the record of that choice cannot be linked back to them, but the same process must still let officials verify who voted, so the separation depends on procedure rather than on a proof. | mechanism: Separate voting compartments and two-envelope sealing for postal and absentee ballots so identity is not attached to the vote at counting; eligibility is checked separately from the ballot."
+   }
+  ]
+ },
+ {
+  "review_id": "b03-3",
+  "title": "Pet boarding and grooming intake without exposing owner's animal-abuse record",
+  "moment": "Booking a multi-day stay at a pet hotel or applying to adopt from a private shelter; the operator wants assurance the person is not on the registered list of those penalized under the Animal Protection Act (e.g., banned from keeping animals).",
+  "verifier": "Pet hotel, private rescue group, or adoption platform",
+  "predicate": "Holder is not on the competent authority's register of persons prohibited from keeping or adopting animals (non-membership in a sanction list).",
+  "disclosed_today": "Full ID card photo, name, address, phone, sometimes a hand-written declaration; shelters may also ask for household and employment details.",
+  "issuer": "Ministry of Agriculture / local animal protection office (Animal Protection Act enforcement)",
+  "why_zk": "Weak-to-moderate. Today no public, queryable register exists for private operators, so the authority would first have to publish a signed absence attestation, which needs legislative backing. Private shelters collect ID mainly for contact and identification, not only for the ban check, so ZK removes only part of the over-collection. Still, an absence-only proof avoids storing ID copies in small businesses with weak data hygiene.",
+  "claimed_borrowings": []
+ },
+ {
+  "review_id": "b03-4",
+  "title": "Staff-only discount and access at a company-partnered gym or clinic",
+  "moment": "An employee walks into a gym, dental clinic or cafeteria operator that has a corporate partnership with their employer and wants the staff rate; the counter must confirm the person is currently employed there, not a former employee with an old badge.",
+  "verifier": "Partner gym, clinic, or vendor front desk",
+  "predicate": "Employer signed within the last 24 hours that the holder is a current employee of this company (presented as a member of the partner group, without name).",
+  "disclosed_today": "Staff ID card or badge photo, sometimes a name, employee number and a phone number written on a sign-up sheet; the vendor then keeps the list and may never be told when someone leaves.",
+  "issuer": "Employer, signing a daily or weekly employment-status token; revoking it at departure.",
+  "why_zk": "The vendor needs only \"currently an employee of the partner company\", and an unlinkable proof prevents the vendor from building a profile of who visits and how often. Revocation stops ex-staff from using old badges, which the vendor cannot check today. Weakness: for gyms with membership accounts the vendor already has a name and payment details, so privacy gains apply mostly to walk-in or one-off services.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The concern that a stored credential gets presented repeatedly and lets an observer link the same holder across visits, so each presentation should be unlinkable.",
+    "source_excerpt": "A stored credential should be presented only to the party that issued it in the current context, but the browser sends it on any request the context triggers, so an unrelated observer can match the holder across contexts. | mechanism: The SameSite cookie attribute, which limits the cookie to same-site requests (Strict, Lax, or None); the IETF draft describes it as a per-cookie setting, and cross-site behaviour depends on the chosen value."
+   },
+   {
+    "borrowed_aspect": "The lack of any proof that what was released was minimal; here the proof itself is the minimal release.",
+    "source_excerpt": "A holder of sensitive records must release only the subset that serves a stated purpose, but the rule leaves it to the holder to judge what is minimal and gives no mechanism that proves the released subset was minimal. | mechanism: Purpose-based minimum-necessary rule with reasonable-efforts standard, role-based access and reasonable reliance on requester representations (45 CFR 164.514(d)); no cryptographic or proof-based check."
+   }
+  ]
+ },
+ {
+  "review_id": "b03-5",
+  "title": "One free trial or new-user coupon per person on food delivery and ride apps",
+  "moment": "A person opens a food-delivery, scooter-share, or streaming app and wants the first-order coupon or free trial, which the app restricts to new users, so people create repeat accounts with spare numbers and the app asks for ever more data to stop it.",
+  "verifier": "Food-delivery, bike or scooter share, or subscription app.",
+  "predicate": "This is the first account created on this service by a real subscriber, shown as a service-specific pseudonym, with no phone number or ID revealed.",
+  "disclosed_today": "Mobile number with OTP, sometimes email, device ID, payment card, and in some scooter-sharing services a driver licence photo and selfie.",
+  "issuer": "A Taiwanese mobile carrier.",
+  "why_zk": "The coupon rule needs only that this subscriber has not claimed before. A service-scoped pseudonym gives that without letting the app build a cross-service profile through the phone number. Weakness: the telco learns nothing new only if issuance is blinded, but carriers have little business reason to sign for free-trial abuse, recycled numbers can be re-issued to new people, and fraudsters can buy extra prepaid SIMs, so the protection is partial. Existing telco rules requiring a live photo at SIM sale show the opposite pull toward collecting more, not less.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The proof attests that a check already happened without acting as a persistent identifier across services.",
+    "source_excerpt": "A gatekeeper only needs to know that the visitor already passed some check, but the proof it accepts doubles as a persistent identifier. | mechanism: Blind-signed tokens that attest prior authorisation and cannot be linked to the issuance interaction."
+   },
+   {
+    "borrowed_aspect": "The over-collection at SIM registration shows why the telco's existing identity check should be reused as a signed claim instead of repeating photo capture elsewhere.",
+    "source_excerpt": "A provider must confirm a new subscriber's identity before activating a service; the rule requires capturing a live photo of the person at point of sale, with no stated limit on retention. | mechanism: None minimal; in-store photo capture required, no retention limit or less-intrusive alternative stated."
+   }
+  ]
+ },
+ {
+  "review_id": "b03-6",
+  "title": "Tenant screening without handing over full ID for a stalking or protection-order check",
+  "moment": "A landlord or a shared-housing (cohabitation) operator screens a prospective roommate or tenant in a female-only or family-oriented building and wants to know the applicant is not subject to an active protection order or sex-offender community notification/registration under the Sexual Assault Crime Prevention Act.",
+  "verifier": "Landlord, shared-housing operator, or rental platform",
+  "predicate": "Holder does not appear on the sex-offender registration/notification register nor is subject to an active protection order restricting residence near others.",
+  "disclosed_today": "ID card copy, household registration transcript, criminal record certificate (which shows far more than needed), employer letter, sometimes family details.",
+  "issuer": "Ministry of the Interior / National Police Agency, or Judicial Yuan for court orders",
+  "why_zk": "Legally weak and sensitive: Taiwan law restricts disclosure of such registers and operators are not entitled to ask about them in general, so any use would need an explicit statutory carve-out and risks discrimination and rehabilitation harms. The honest case is that where a police clearance is already requested, an absence-only proof is far less intrusive than a full criminal record certificate, which reveals every conviction.",
+  "claimed_borrowings": []
+ },
+ {
+  "review_id": "b03-7",
+  "title": "Single free-trial or first-order coupon per person on food delivery and ride apps",
+  "moment": "A person signs up for a food delivery or ride-hailing app and claims the new-user discount or first-month free trial, which the platform wants to limit to one per human instead of one per phone number or email.",
+  "verifier": "A delivery or mobility platform's promotion service.",
+  "predicate": "The claimant is a unique real subscriber who has not claimed this platform's new-user offer before (platform-scoped nullifier), without the platform learning which subscriber.",
+  "disclosed_today": "Phone number with SMS code, device ID, payment card fingerprint, sometimes the name and the national ID on a verification step; the platform links all of it to the account.",
+  "issuer": "A Taiwanese mobile carrier, signing a per-person subscriber credential.",
+  "why_zk": "Platforms fight promotion abuse with phone numbers that are cheap to obtain, and the collected numbers become a cross-platform tracking key. A scoped nullifier gives abuse resistance without a shared identifier between platforms. Honest weakness: platforms already accept the abuse cost as marketing spend and use device and payment signals anyway, so the demand for a stronger proof is low, and the telco's incentive to issue such credentials is unclear.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "Splitting knowledge so that no one party (platform or issuer) holds both who the person is and where they used the credential.",
+    "source_excerpt": "A route must be relayed through intermediaries so that no single intermediary holds both the origin identity and the final destination, while the traffic still reaches the endpoint. | mechanism: Onion routing, where the message is wrapped in one encryption layer per relay, and each relay peels only its own layer and passes the rest to the next hop."
+   },
+   {
+    "borrowed_aspect": "Limiting a stable identifier to its own context so third parties cannot link the holder across services.",
+    "source_excerpt": "A stored credential should be presented only to the party that issued it in the current context, but the browser sends it on any request the context triggers, so an unrelated observer can match the holder across contexts. | mechanism: The SameSite cookie attribute, which limits the cookie to same-site requests (Strict, Lax, or None); the IETF draft describes it as a per-cookie setting, and cross-site behaviour depends on the chosen value."
+   }
+  ]
+ }
+]

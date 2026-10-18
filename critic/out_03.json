@@ -1,0 +1,202 @@
+[
+ {
+  "review_id": "b03-0",
+  "reasons": {
+   "rubric": "Predicate is a clean yes/no with an existing issuer (employer), but frequency is low (annual renewal) and landlords often want salary too, so a 3 for needing design and employer-side adoption.",
+   "validity": "Renewal re-checks are plausible but not clearly common in Taiwan, and employment status alone may not satisfy a landlord who wants income evidence.",
+   "coherence": "Moment, predicate, issuer and revocation fit together well; the idea honestly notes the salary gap.",
+   "novelty": "Close to the known rental case but adds a new issuer (employer) and a freshness predicate on the renewal moment.",
+   "provenance": "The borrowed over-collection pattern is generic and the idea reads the same without it, so it is decorative.",
+   "retention_law": "A private landlord has no obvious duty to retain the full payslip or ID, though I cannot confirm Taiwanese rules.",
+   "linkability": "A status token from one employer shown to one landlord has little cross-context linkage risk.",
+   "issuer_unwilling": "Employers have little incentive to build a revocable status service for tenants' landlords, especially small firms.",
+   "no_wallet": "Landlords and small agencies are unlikely to run verifiers and many employers lack wallet-capable HR systems."
+  },
+  "rubric_score": 3,
+  "validity": 3,
+  "coherence": 4,
+  "novelty": 3,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "holds",
+   "linkability": "holds",
+   "issuer_unwilling": "fails",
+   "no_wallet": "fails"
+  }
+ },
+ {
+  "review_id": "b03-1",
+  "reasons": {
+   "rubric": "Predicate is an aggregate over filtered transactions from a single bank, which is a more complex computation, with low frequency, so a 2 to 3 band; scored 2 because use is rare and courts rely on bank certificates.",
+   "validity": "Payment disputes in mediation are real, but courts accept bank certificates and the payee is disclosed anyway, so a ZK proof adds little decision value.",
+   "coherence": "Parts fit, and the idea candidly admits the court-acceptance limit and payee disclosure.",
+   "novelty": "No known case touches dispute evidence or transaction-sum proofs, so this is a new moment.",
+   "provenance": "No borrowings claimed.",
+   "retention_law": "Mediators and courts may need to keep the evidence submitted, though a proof could still replace full statements; unsure of the rules.",
+   "linkability": "A one-off proof to a mediator in a single dispute has little linkability exposure.",
+   "issuer_unwilling": "Banks already issue transaction certificates on request and have little reason to sign custom aggregate attestations.",
+   "no_wallet": "Mediation committees and clerks have no verifier infrastructure and parties would need wallet tooling for a one-off need."
+  },
+  "rubric_score": 2,
+  "validity": 2,
+  "coherence": 4,
+  "novelty": 5,
+  "provenance_faithful": "NA",
+  "kill_tests": {
+   "retention_law": "unknown",
+   "linkability": "holds",
+   "issuer_unwilling": "fails",
+   "no_wallet": "fails"
+  }
+ },
+ {
+  "review_id": "b03-2",
+  "reasons": {
+   "rubric": "Threshold predicate is simple but the issuer is a platform session via zkTLS with no sanctioned signing, and volume is low, so a 2.",
+   "validity": "Priority slots for proven online sellers is a niche and speculative moment, and zkTLS over a seller session may breach platform terms.",
+   "coherence": "The borrowed sealed-bid and voting ideas do not fit a threshold proof, and the idea itself notes a lottery removes the need.",
+   "novelty": "Seller verification is a known case, but the market-slot application and zkTLS issuer are new.",
+   "provenance": "The sealed-bid and ballot-separation analogies are decorative, since the idea would read the same without them.",
+   "retention_law": "Organizers have no evident duty to keep seller revenue data, so the data could be dropped.",
+   "linkability": "A threshold proof from a session shows little linkability, though it could reveal the shop identity.",
+   "issuer_unwilling": "Platforms are not signing anything and may object to zkTLS proofs from seller sessions.",
+   "no_wallet": "Small organizers are unlikely to run a verifier, and applicants do not have the tooling."
+  },
+  "rubric_score": 2,
+  "validity": 2,
+  "coherence": 3,
+  "novelty": 3,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "holds",
+   "linkability": "holds",
+   "issuer_unwilling": "fails",
+   "no_wallet": "fails"
+  }
+ },
+ {
+  "review_id": "b03-3",
+  "reasons": {
+   "rubric": "Non-membership is a clean boolean, but no queryable register or signed absence attestation exists and frequency is low, so a 2.",
+   "validity": "Pet hotels do not routinely screen against a ban list and no register is available to them, so the moment is thin.",
+   "coherence": "The idea fits together but depends on an authority publishing an attestation that does not exist, which the idea itself admits.",
+   "novelty": "Pet and animal-welfare screening is untouched by known cases.",
+   "provenance": "No borrowings claimed.",
+   "retention_law": "Shelters keep ID mainly for contact, and no stated duty to retain the full document, though I cannot confirm.",
+   "linkability": "A non-membership proof is unlikely to link much, though a fixed issuer attestation could be reused.",
+   "issuer_unwilling": "The authority would need legislative backing and has no incentive to publish absence attestations for private operators.",
+   "no_wallet": "Small pet businesses are unlikely to operate verifiers or wallets."
+  },
+  "rubric_score": 2,
+  "validity": 2,
+  "coherence": 4,
+  "novelty": 5,
+  "provenance_faithful": "NA",
+  "kill_tests": {
+   "retention_law": "unknown",
+   "linkability": "holds",
+   "issuer_unwilling": "fails",
+   "no_wallet": "fails"
+  }
+ },
+ {
+  "review_id": "b03-4",
+  "reasons": {
+   "rubric": "Predicate is a simple current-employee boolean with an existing issuer and higher frequency, but the vendor usually has accounts already and needs the employer to sign tokens, so a 3.",
+   "validity": "Staff-rate partnerships are real and the vendor needs only current employment, though many already keep a member name and payment details.",
+   "coherence": "Moment, predicate, revocation and unlinkability fit together and the caveat about member accounts is honest.",
+   "novelty": "Employer-issued group membership for perks is untouched by the known list.",
+   "provenance": "The cookie-linkability analogy is loosely relevant but the HIPAA minimum-necessary borrowing is decorative, and the idea reads the same without them.",
+   "retention_law": "A gym or clinic may need to retain customer records for its own services, though not the employer badge; unsure.",
+   "linkability": "The unlinkable group proof is the central benefit and works if presentations are not tied to a stable token.",
+   "issuer_unwilling": "Employers must run a daily status signer to benefit a partner perk, which is of little use to them.",
+   "no_wallet": "Front-desk staff need a verifier and employees need a wallet, a high bar for a small discount."
+  },
+  "rubric_score": 3,
+  "validity": 3,
+  "coherence": 4,
+  "novelty": 4,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "unknown",
+   "linkability": "holds",
+   "issuer_unwilling": "fails",
+   "no_wallet": "fails"
+  }
+ },
+ {
+  "review_id": "b03-5",
+  "reasons": {
+   "rubric": "Predicate is a scoped nullifier on a high-frequency moment, but the carrier issuer is unmotivated and SIM farming makes it partial, so a 3.",
+   "validity": "Promo abuse is real, but a carrier-signed credential only proves one SIM, which is cheaply multiplied, so it is not sufficient for the decision.",
+   "coherence": "The idea contradicts itself slightly in stating the telco learns nothing only if blinded and then citing the opposite pull of SIM rules; otherwise it fits.",
+   "novelty": "Close to the known one-person-one-account Sybil case, with a new issuer and a promotion moment.",
+   "provenance": "The blind-token borrowing shapes the predicate and the SIM rule borrowing supports the issuer choice, so these are partly used rather than decorative.",
+   "retention_law": "Apps have no known duty to retain phone numbers or ID photos, so the data could be dropped.",
+   "linkability": "Service-scoped pseudonyms reduce cross-service linkage if issuance is blinded.",
+   "issuer_unwilling": "Carriers gain nothing from signing credentials for other firms' free-trial control.",
+   "no_wallet": "Apps can embed verification in-app, though users need a wallet-capable carrier credential."
+  },
+  "rubric_score": 3,
+  "validity": 3,
+  "coherence": 3,
+  "novelty": 2,
+  "provenance_faithful": "yes",
+  "kill_tests": {
+   "retention_law": "holds",
+   "linkability": "holds",
+   "issuer_unwilling": "fails",
+   "no_wallet": "unknown"
+  }
+ },
+ {
+  "review_id": "b03-6",
+  "reasons": {
+   "rubric": "Absence predicate is boolean, but registers are legally restricted and the screening is of doubtful permissibility, so a 2.",
+   "validity": "The idea concedes private landlords are generally not entitled to ask about such registers, which undermines the moment.",
+   "coherence": "The pieces fit as a less-intrusive alternative to a criminal record certificate, but combining a sex-offender register and protection orders blurs the predicate.",
+   "novelty": "Close to the known rental case with a clean criminal record, with a narrower predicate.",
+   "provenance": "No borrowings claimed.",
+   "retention_law": "Landlords have no clear duty to retain the full certificate, but the disclosure restrictions are the main issue and I cannot cite them.",
+   "linkability": "Absence proofs from a government issuer are low linkability, though the issuance act itself reveals a request.",
+   "issuer_unwilling": "Police and the judiciary are unlikely to sign attestations for private screening given disclosure limits and rehabilitation concerns.",
+   "no_wallet": "Landlords and shared-housing operators have no verifier, though platforms might provide one."
+  },
+  "rubric_score": 2,
+  "validity": 2,
+  "coherence": 3,
+  "novelty": 2,
+  "provenance_faithful": "NA",
+  "kill_tests": {
+   "retention_law": "unknown",
+   "linkability": "holds",
+   "issuer_unwilling": "fails",
+   "no_wallet": "fails"
+  }
+ },
+ {
+  "review_id": "b03-7",
+  "reasons": {
+   "rubric": "Same scoped-nullifier predicate as b03-5 with the same carrier-issuer and low-demand problems, so a 3.",
+   "validity": "The idea itself says platforms accept abuse as marketing cost and have other signals, so demand is weak.",
+   "coherence": "Fits together, but the onion-routing borrowing does not map to a single-hop nullifier credential.",
+   "novelty": "Near duplicate of b03-5 and close to the known Sybil one-account case.",
+   "provenance": "The onion-routing split-knowledge analogy and the cookie analogy are decorative since the nullifier design stands without them.",
+   "retention_law": "Platforms have no evident duty to keep phone numbers or national IDs for promotions.",
+   "linkability": "Platform-scoped nullifiers avoid cross-platform linking if the carrier cannot see usage.",
+   "issuer_unwilling": "Carriers have little incentive to issue per-person credentials for promotion control.",
+   "no_wallet": "Platforms can embed a verifier, but users need a carrier credential in a wallet."
+  },
+  "rubric_score": 3,
+  "validity": 2,
+  "coherence": 3,
+  "novelty": 2,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "holds",
+   "linkability": "holds",
+   "issuer_unwilling": "fails",
+   "no_wallet": "unknown"
+  }
+ }
+]

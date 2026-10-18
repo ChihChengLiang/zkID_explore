@@ -1,0 +1,466 @@
+{
+ "gov-nonmember__A": {
+  "seeds": [],
+  "domains": []
+ },
+ "gov-nonmember__B": {
+  "seeds": [
+   "rd-google-wallet-zkp-age-no-linkage",
+   "rd-eudi-wallet-selective-disclosure-recital",
+   "tw-gov-uid-duplicate-minimal-disclosure",
+   "an-a-chaum-blind",
+   "an-a-privacy-pass",
+   "rd-apple-wallet-age-request-categories"
+  ],
+  "domains": [
+   "mdl",
+   "zkid",
+   "civil-registry",
+   "secret-ballot",
+   "web-anti-abuse",
+   "mdl"
+  ]
+ },
+ "gov-nonmember__C": {
+  "seeds": [
+   "an-a-nist-dp",
+   "an-b-witness-protection",
+   "tw-pdpa-art11-3-deletion-exception",
+   "an-a-tor-onion",
+   "tw-telco-online-id-check-fraud-2021",
+   "an-b-ala-library-records"
+  ],
+  "domains": [
+   "data-protection-law",
+   "law-regulation",
+   "retention-duties",
+   "web-anti-abuse",
+   "kyc-aml",
+   "library-records"
+  ]
+ },
+ "gov-nonmember__D": {
+  "seeds": [
+   "tw-platform-gym-id-card-copies-interp",
+   "an-b-secret-ballot-moad",
+   "tw-gov-household-register-original-only",
+   "rd-korea-mdl-age-check-barcode",
+   "an-b-jury-selection",
+   "tw-bank-deposit-dual-id-check"
+  ],
+  "domains": [
+   "data-protection-law",
+   "secret-ballot",
+   "civil-registry",
+   "mdl",
+   "jury-selection",
+   "kyc-aml"
+  ]
+ },
+ "bank-aggregate__A": {
+  "seeds": [],
+  "domains": []
+ },
+ "bank-aggregate__B": {
+  "seeds": [
+   "an-a-nist-dp",
+   "an-b-census-title13",
+   "rd-eudi-wallet-selective-disclosure-recital",
+   "an-a-oauth-scopes",
+   "an-b-hipaa-min-necessary",
+   "an-b-hipaa-safe-harbor"
+  ],
+  "domains": [
+   "data-protection-law",
+   "civil-registry",
+   "zkid",
+   "oauth-scopes",
+   "records",
+   "clinical-trials"
+  ]
+ },
+ "bank-aggregate__C": {
+  "seeds": [
+   "an-a-samesite-cookies",
+   "tw-pdpa-art11-3-deletion-exception",
+   "tw-securities-foreign-agent-id-copy",
+   "an-b-witness-protection",
+   "tw-platform-gym-id-card-copies-interp",
+   "tw-platform-google-id-upload-complaint"
+  ],
+  "domains": [
+   "ad-tech",
+   "retention-duties",
+   "kyc-aml",
+   "law-regulation",
+   "data-protection-law",
+   "web-anti-abuse"
+  ]
+ },
+ "bank-aggregate__D": {
+  "seeds": [
+   "an-b-hipaa-min-necessary",
+   "an-a-samesite-cookies",
+   "rd-aepd-hotel-no-id-copy",
+   "rd-apple-wallet-age-request-categories",
+   "tw-pdpa-art11-3-deletion-exception",
+   "tw-platform-google-id-upload-complaint"
+  ],
+  "domains": [
+   "records",
+   "ad-tech",
+   "data-protection-law",
+   "mdl",
+   "retention-duties",
+   "web-anti-abuse"
+  ]
+ },
+ "employer-fresh__A": {
+  "seeds": [],
+  "domains": []
+ },
+ "employer-fresh__B": {
+  "seeds": [
+   "an-a-privacy-pass",
+   "rd-eudi-wallet-selective-disclosure-recital",
+   "rd-google-wallet-zkp-age-no-linkage",
+   "an-a-chaum-blind",
+   "an-a-oauth-scopes",
+   "privacy-pass-unlinkable-proof"
+  ],
+  "domains": [
+   "web-anti-abuse",
+   "zkid",
+   "mdl",
+   "secret-ballot",
+   "oauth-scopes",
+   "web-anti-abuse"
+  ]
+ },
+ "employer-fresh__C": {
+  "seeds": [
+   "an-b-va-id-scanning",
+   "an-b-census-title13",
+   "tw-platform-google-id-upload-complaint",
+   "an-b-attorney-client",
+   "tw-telco-online-id-check-fraud-2021",
+   "tw-platform-gym-id-card-copies-interp"
+  ],
+  "domains": [
+   "bouncer-age-check",
+   "civil-registry",
+   "web-anti-abuse",
+   "law-regulation",
+   "kyc-aml",
+   "data-protection-law"
+  ]
+ },
+ "employer-fresh__D": {
+  "seeds": [
+   "an-b-sealed-bid-far",
+   "an-b-hipaa-min-necessary",
+   "rd-twdiw-field-selection-consent",
+   "tw-bank-deposit-dual-id-check",
+   "tw-pdpa-art5-purpose-limit",
+   "an-a-samesite-cookies"
+  ],
+  "domains": [
+   "finance",
+   "records",
+   "zkid",
+   "kyc-aml",
+   "data-protection-law",
+   "ad-tech"
+  ]
+ },
+ "telco-unique__A": {
+  "seeds": [],
+  "domains": []
+ },
+ "telco-unique__B": {
+  "seeds": [
+   "tw-gov-uid-duplicate-minimal-disclosure",
+   "an-a-chaum-blind",
+   "an-a-privacy-pass",
+   "an-b-secret-ballot-moad",
+   "privacy-pass-unlinkable-proof",
+   "tw-telco-sim-live-photo-retention"
+  ],
+  "domains": [
+   "civil-registry",
+   "secret-ballot",
+   "web-anti-abuse",
+   "secret-ballot",
+   "web-anti-abuse",
+   "kyc-aml"
+  ]
+ },
+ "telco-unique__C": {
+  "seeds": [
+   "rd-korea-mdl-age-check-barcode",
+   "an-b-attorney-client",
+   "tw-securities-foreign-agent-id-copy",
+   "tw-pdpa-art11-3-deletion-exception",
+   "an-b-ala-library-records",
+   "an-b-sealed-bid-far"
+  ],
+  "domains": [
+   "mdl",
+   "law-regulation",
+   "kyc-aml",
+   "retention-duties",
+   "library-records",
+   "finance"
+  ]
+ },
+ "telco-unique__D": {
+  "seeds": [
+   "an-b-attorney-client",
+   "rd-apple-wallet-age-request-categories",
+   "an-b-census-title13",
+   "an-a-samesite-cookies",
+   "an-a-tor-onion",
+   "an-b-jury-selection"
+  ],
+  "domains": [
+   "law-regulation",
+   "mdl",
+   "civil-registry",
+   "ad-tech",
+   "web-anti-abuse",
+   "jury-selection"
+  ]
+ },
+ "univ-crossmatch__A": {
+  "seeds": [],
+  "domains": []
+ },
+ "univ-crossmatch__B": {
+  "seeds": [
+   "an-a-chaum-blind",
+   "rd-google-wallet-zkp-age-no-linkage",
+   "tw-gov-uid-duplicate-minimal-disclosure",
+   "an-a-privacy-pass",
+   "an-a-samesite-cookies",
+   "an-b-witness-protection"
+  ],
+  "domains": [
+   "secret-ballot",
+   "mdl",
+   "civil-registry",
+   "web-anti-abuse",
+   "ad-tech",
+   "law-regulation"
+  ]
+ },
+ "univ-crossmatch__C": {
+  "seeds": [
+   "rd-cnpd-lu-tourist-inspect-not-copy",
+   "tw-telco-sim-live-photo-retention",
+   "an-b-ala-library-records",
+   "tw-gov-household-register-proxy-copy-discretion",
+   "tw-pdpa-art11-3-deletion-exception",
+   "an-b-jury-selection"
+  ],
+  "domains": [
+   "data-protection-law",
+   "kyc-aml",
+   "library-records",
+   "civil-registry",
+   "retention-duties",
+   "jury-selection"
+  ]
+ },
+ "univ-crossmatch__D": {
+  "seeds": [
+   "rd-aepd-hotel-no-id-copy",
+   "an-b-witness-protection",
+   "an-b-va-id-scanning",
+   "an-b-hipaa-safe-harbor",
+   "tw-telco-online-id-check-fraud-2021",
+   "privacy-pass-unlinkable-proof"
+  ],
+  "domains": [
+   "data-protection-law",
+   "law-regulation",
+   "bouncer-age-check",
+   "clinical-trials",
+   "kyc-aml",
+   "web-anti-abuse"
+  ]
+ },
+ "platform-thresh__A": {
+  "seeds": [],
+  "domains": []
+ },
+ "platform-thresh__B": {
+  "seeds": [
+   "rd-google-wallet-zkp-age-no-linkage",
+   "an-b-va-id-scanning",
+   "rd-korea-mdl-age-check-barcode",
+   "rd-eudi-wallet-selective-disclosure-recital",
+   "tw-gov-uid-duplicate-minimal-disclosure",
+   "an-a-oauth-scopes"
+  ],
+  "domains": [
+   "mdl",
+   "bouncer-age-check",
+   "mdl",
+   "zkid",
+   "civil-registry",
+   "oauth-scopes"
+  ]
+ },
+ "platform-thresh__C": {
+  "seeds": [
+   "an-b-hipaa-min-necessary",
+   "tw-telco-online-id-check-fraud-2021",
+   "tw-pdpa-art11-3-deletion-exception",
+   "an-b-ala-library-records",
+   "tw-pdpa-art5-purpose-limit",
+   "an-b-jury-selection"
+  ],
+  "domains": [
+   "records",
+   "kyc-aml",
+   "retention-duties",
+   "library-records",
+   "data-protection-law",
+   "jury-selection"
+  ]
+ },
+ "platform-thresh__D": {
+  "seeds": [
+   "an-b-census-title13",
+   "an-b-sealed-bid-far",
+   "tw-bank-deposit-dual-id-check",
+   "an-b-secret-ballot-moad",
+   "an-a-nist-dp",
+   "an-b-va-id-scanning"
+  ],
+  "domains": [
+   "civil-registry",
+   "finance",
+   "kyc-aml",
+   "secret-ballot",
+   "data-protection-law",
+   "bouncer-age-check"
+  ]
+ },
+ "hospital-timed__A": {
+  "seeds": [],
+  "domains": []
+ },
+ "hospital-timed__B": {
+  "seeds": [
+   "an-b-hipaa-min-necessary",
+   "rd-google-wallet-zkp-age-no-linkage",
+   "an-a-privacy-pass",
+   "an-b-attorney-client",
+   "an-b-hipaa-safe-harbor",
+   "an-b-sealed-bid-far"
+  ],
+  "domains": [
+   "records",
+   "mdl",
+   "web-anti-abuse",
+   "law-regulation",
+   "clinical-trials",
+   "finance"
+  ]
+ },
+ "hospital-timed__C": {
+  "seeds": [
+   "rd-swiss-eid-necessary-data-only",
+   "tw-telco-online-id-check-fraud-2021",
+   "an-a-nist-dp",
+   "an-b-jury-selection",
+   "an-b-witness-protection",
+   "tw-gov-id-number-reissue-misuse-2025"
+  ],
+  "domains": [
+   "sd-jwt",
+   "kyc-aml",
+   "data-protection-law",
+   "jury-selection",
+   "law-regulation",
+   "civil-registry"
+  ]
+ },
+ "hospital-timed__D": {
+  "seeds": [
+   "rd-google-wallet-zkp-age-no-linkage",
+   "an-b-ala-library-records",
+   "an-b-va-id-scanning",
+   "rd-cnpd-lu-tourist-inspect-not-copy",
+   "privacy-pass-unlinkable-proof",
+   "an-a-chaum-blind"
+  ],
+  "domains": [
+   "mdl",
+   "library-records",
+   "bouncer-age-check",
+   "data-protection-law",
+   "web-anti-abuse",
+   "secret-ballot"
+  ]
+ },
+ "utility-member__A": {
+  "seeds": [],
+  "domains": []
+ },
+ "utility-member__B": {
+  "seeds": [
+   "an-a-chaum-blind",
+   "an-b-secret-ballot-moad",
+   "rd-google-wallet-zkp-age-no-linkage",
+   "an-a-privacy-pass",
+   "an-b-jury-selection",
+   "rd-eudi-wallet-selective-disclosure-recital"
+  ],
+  "domains": [
+   "secret-ballot",
+   "secret-ballot",
+   "mdl",
+   "web-anti-abuse",
+   "jury-selection",
+   "zkid"
+  ]
+ },
+ "utility-member__C": {
+  "seeds": [
+   "rd-twdiw-field-selection-consent",
+   "an-b-witness-protection",
+   "tw-pdpa-art5-purpose-limit",
+   "tw-pdpa-art11-3-deletion-exception",
+   "an-b-sealed-bid-far",
+   "tw-securities-foreign-agent-id-copy"
+  ],
+  "domains": [
+   "zkid",
+   "law-regulation",
+   "data-protection-law",
+   "retention-duties",
+   "finance",
+   "kyc-aml"
+  ]
+ },
+ "utility-member__D": {
+  "seeds": [
+   "tw-securities-foreign-agent-id-copy",
+   "rd-cnpd-lu-tourist-inspect-not-copy",
+   "an-b-witness-protection",
+   "rd-apple-wallet-age-request-categories",
+   "rd-swiss-eid-necessary-data-only",
+   "an-b-ala-library-records"
+  ],
+  "domains": [
+   "kyc-aml",
+   "data-protection-law",
+   "law-regulation",
+   "mdl",
+   "sd-jwt",
+   "library-records"
+  ]
+ }
+}

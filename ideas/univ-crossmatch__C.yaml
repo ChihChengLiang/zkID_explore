@@ -1,0 +1,38 @@
+- title: Student-rate transit pass bound to the same person as the telecom/bank account
+  moment: A student buys a discounted monthly commuter pass or youth fare product through a transit operator's app, which must be sure the student-status claim belongs to the same person who holds the stored-value or payment account the pass is loaded onto.
+  verifier: Transit operator or e-ticketing issuer (e.g. a city MRT or bus card scheme, or an e-ticket platform).
+  predicate: The university-signed enrolled-this-semester claim and the payment or ticketing account's holder claim refer to the same person, shown without revealing the national ID number to the operator.
+  disclosed_today: Photo of student ID card, sometimes national ID number and date of birth, entered or photographed at a counter or in the app, and often retained for the pass record.
+  issuer: University registrar (enrolment status), matched against the wallet-held account or identity credential from a second issuer.
+  why_zk: A same-person proof removes the need to copy the ID or student card, and the operator only learns that an enrolled student owns this account. Moderate strength: many operators already accept a simple student-card photo, and a university credential only adds value if the operator's app can verify wallet proofs and universities issue them per semester.
+  inspired_by:
+    - seed_id: rd-cnpd-lu-tourist-inspect-not-copy
+      borrowed_aspect: The idea that checking eligibility at the moment of sale should not require keeping a copy of the identity document.
+    - seed_id: tw-telco-sim-live-photo-retention
+      borrowed_aspect: The pattern of a point-of-sale rule that demands capturing and retaining a person's image with no less-intrusive alternative.
+
+- title: Dormitory and campus-housing off-campus lease renewal tied to a landlord-side identity record
+  moment: A student renting a room near campus is asked by the landlord or a rental agency to prove both that they are enrolled and that the person named on the lease is the same one the university enrolled, so the landlord can claim rent subsidy or insurance cover.
+  verifier: Private landlord or rental agency, and possibly a subsidy administrator reviewing the lease.
+  predicate: The university's signed enrolment claim and the lease or household-record claim from a second issuer (such as the household registration office) refer to the same person, without disclosing the ID number to the landlord.
+  disclosed_today: Photocopy of national ID card front and back, student ID, and sometimes household register transcript, kept by the agent with no stated retention limit.
+  issuer: University registrar, matched against a household registration or ID credential from a government issuer.
+  why_zk: Landlords and agents routinely collect full ID copies that stay in desk drawers and phone photos, and a match proof would let them confirm student status and identity without holding the number. Weak in practice because small landlords rarely run verifier software and the legal retention limits on private individuals are loosely enforced, so adoption would depend on a rental platform or subsidy portal requiring it.
+  inspired_by:
+    - seed_id: tw-gov-household-register-proxy-copy-discretion
+      borrowed_aspect: The problem of an office collecting identity document copies at its own discretion with no stated scope.
+    - seed_id: tw-pdpa-art11-3-deletion-exception
+      borrowed_aspect: The weakness of a deletion duty that has an open-ended exception for what the holder says it still needs.
+
+- title: Library or lab-resource borrowing across two institutions
+  moment: A graduate student from one university wants to borrow materials or book lab equipment at a different institution's library or shared research facility under a reciprocal-access agreement, and the host must confirm the borrower is a current member of the home university and the same person who holds the host's own visitor registration.
+  verifier: Host institution's library desk or shared-instrument facility.
+  predicate: The home university's signed membership claim and the host's visitor account (issued by the host) belong to the same person, with no identifier shown to the host and no record of what the person borrowed linked to a national ID.
+  disclosed_today: Student card, national ID number or passport number for registering a visitor account, and a lending record tied to that identity.
+  issuer: Home university (membership or enrolment), matched against the host institution's own visitor credential.
+  why_zk: The host needs to know that a member of a partner university is the one borrowing, not who the person is across all their activity, and a match proof keeps the lending log from becoming a readable record of a person's reading interests. Reasonably strong because libraries already treat borrowing records as sensitive, but the host's visitor account is its own issuer so both credentials are in practice institution-controlled, which limits the independence of the two sources.
+  inspired_by:
+    - seed_id: an-b-ala-library-records
+      borrowed_aspect: The goal of keeping a record of who used what without it becoming a readable log of a person's interests.
+    - seed_id: an-b-jury-selection
+      borrowed_aspect: The framing of seating someone for a task without the wider public learning who they are, with confidentiality being a technical default rather than a discretionary exception.

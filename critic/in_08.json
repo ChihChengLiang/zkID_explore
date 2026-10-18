@@ -1,0 +1,157 @@
+[
+ {
+  "review_id": "b08-0",
+  "title": "Still-employed check on gig-platform or staffing-agency workers entering a client factory gate",
+  "moment": "A dispatched worker from a staffing agency arrives at a client's plant in Taoyuan; the gate must confirm that the agency still employs them, since dispatch contracts end abruptly.",
+  "verifier": "Client factory security gate or contractor-access system",
+  "predicate": "Holder is currently employed by a named staffing agency under a live dispatch contract, with the signature issued today and revocable.",
+  "disclosed_today": "National ID card copy or number, full name, phone number, agency contract copy, entered into a visitor log.",
+  "issuer": "Staffing or dispatch agency as employer.",
+  "why_zk": "The gate needs a fresh yes/no on 'currently dispatched by agency X', but collects ID numbers that are retained in paper logs. A freshness proof removes the ID collection. Weakness: workplace safety and labour-dispatch rules may require named records of who was on site (for incident and insurance reasons), so the plant may be legally obliged to keep identity; zero-knowledge here only covers the entry check, not the safety register.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The signing agency certifies status without being able to link the later presentation back to the issuance event.",
+    "source_excerpt": "A signer must certify that a holder has a valid token without seeing the token's content, and must later be unable to link the certified token back to the signing event. | mechanism: A blind signature, where the message is blinded with a random factor before signing, and the holder unblinds the signature so it verifies against the original message under the signer's public key."
+   },
+   {
+    "borrowed_aspect": "A yes/no fact proven in a device-bound way so neither the issuer nor the verifier can track the holder.",
+    "source_excerpt": "A gatekeeper needs one yes/no fact about a holder, and the proof it receives must not reveal the underlying birth date or let the issuer or the gatekeeper track the holder. | mechanism: Zero-knowledge proof on ISO 18013-7 mdocs for an over-18 statement, device-bound transactions, no server-side storage of credential data."
+   }
+  ]
+ },
+ {
+  "review_id": "b08-1",
+  "title": "Insurer or employer wellness program checks monthly gym and pharmacy spending band, not itemized purchases",
+  "moment": "A health-insurance discount programme or a corporate wellness benefit in Taiwan asks participants to upload credit-card statements to prove they spent on fitness, with the same statements revealing pharmacy, clinic and other purchases.",
+  "verifier": "Private insurer or employer benefits administrator",
+  "predicate": "Total card spending in merchant categories for gyms and sports venues over 12 months falls in a stated band, computed by the bank over the cardholder's cards, with no other category disclosed.",
+  "disclosed_today": "Itemized card statements across all merchants, showing health, pharmacy, entertainment and location patterns.",
+  "issuer": "Card-issuing bank, which categorizes transactions by merchant category code",
+  "why_zk": "The bank can sign a category aggregate across the person's cards at the same bank. Weak points: merchant category codes are coarse and gameable, cards at other banks are missing, and a verifier that asks for a narrow band can still infer health status from participation, so the aggregate itself is sensitive. Personal Data Protection Act purpose limitation already pushes toward minimal collection, but nothing proves the minimal set was what was collected.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "Purpose-limited release of only the figure the programme needs, replacing reliance on the verifier's promise.",
+    "source_excerpt": "A holder of sensitive records must release only the subset that serves a stated purpose, but the rule leaves it to the holder to judge what is minimal and gives no mechanism that proves the released subset was minimal. | mechanism: Purpose-based minimum-necessary rule with reasonable-efforts standard, role-based access and reasonable reliance on requester representations (45 CFR 164.514(d)); no cryptographic or proof-based check."
+   },
+   {
+    "borrowed_aspect": "The holder discloses one derived attribute from a larger record instead of handing over the whole record.",
+    "source_excerpt": "A verifier needs one attribute from a larger identity record, but the holder cannot share just that attribute from the record. | mechanism: Selective disclosure of attributes from electronic attestations held in the EU Digital Identity Wallet."
+   },
+   {
+    "borrowed_aspect": "A verifier asking for broad statements when it needs one narrow scope, and the issuer being free to sign only the narrow one.",
+    "source_excerpt": "A holder asks a verifier for a credential covering more attributes than the single fact the relying party needs, and the issuer has no obligation to honour a narrower request. | mechanism: The client states a scope parameter in the request, and the authorization server returns the granted scope in the token response; the server may grant less than requested."
+   }
+  ]
+ },
+ {
+  "review_id": "b08-2",
+  "title": "Student-status discount tied to the same person as the transit or telecom account",
+  "moment": "A student buys a youth/student monthly pass or a campus-plan mobile subscription, and the seller must be sure the enrolled student is the same person as the account holder.",
+  "verifier": "Transit operator student-pass counter or telecom reseller",
+  "predicate": "The university-signed \"currently enrolled\" claim and the national-ID-bound claim in the wallet refer to the same person, without revealing the ID number or student number.",
+  "disclosed_today": "Student ID card photo, national ID card photo or number, birth date, school name, student number, sometimes a photocopy kept on file.",
+  "issuer": "University (enrollment status), matched against a second issuer such as the MOI digital ID or a telecom account",
+  "why_zk": "A cross-source match proves one person holds both claims, and the verifier needs nothing else. Weakness is that a student card is a physical norm and clerks may still insist on seeing it, and the Personal Data Protection Act already limits copying but does not forbid it in practice. Telecom real-name rules require the ID be recorded, so the telecom case is weaker than the transit pass.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The university signs the enrollment claim without needing to see the second issuer's identifier, which the holder binds only at presentation.",
+    "source_excerpt": "A signer must certify that a holder has a valid token without seeing the token's content, and must later be unable to link the certified token back to the signing event. | mechanism: A blind signature, where the message is blinded with a random factor before signing, and the holder unblinds the signature so it verifies against the original message under the signer's public key."
+   },
+   {
+    "borrowed_aspect": "A single yes/no fact is proven with no trackable identifier passed to the verifier or issuer.",
+    "source_excerpt": "A gatekeeper needs one yes/no fact about a holder, and the proof it receives must not reveal the underlying birth date or let the issuer or the gatekeeper track the holder. | mechanism: Zero-knowledge proof on ISO 18013-7 mdocs for an over-18 statement, device-bound transactions, no server-side storage of credential data."
+   }
+  ]
+ },
+ {
+  "review_id": "b08-3",
+  "title": "Landlord-free proof that a rented unit is on the residential-rate roll for a tenant subsidy",
+  "moment": "A tenant applies for a municipal rent subsidy or a student housing grant that requires the unit to be billed at the residential rate (not commercial or illegal sub-divided rates). The office asks for water and electricity bills, which expose the landlord's account, the tenant's name, and the exact unit.",
+  "verifier": "City housing bureau or university housing office",
+  "predicate": "The tenant's utility account is a member of the set of accounts on the residential tariff class at an eligible metering configuration (individual meter, not shared)",
+  "disclosed_today": "Water and electricity bills with full address, landlord or account-holder name, usage, and sometimes unrelated charges",
+  "issuer": "Taipower and Taiwan Water Corporation (each signs its own roll membership)",
+  "why_zk": "The office needs only that the unit has its own residential-rate meter, a classic landlord-evasion check, yet collects documents that reveal address and consumption. Honest weakness: the account may be in the landlord's name, so the tenant cannot always obtain a credential, and the office still needs the address to administer the subsidy, so membership alone may not replace address disclosure in the end.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The worry that collected bills are kept under an open-ended exception for the office's own duties, which a proof leaving nothing to retain avoids.",
+    "source_excerpt": "A party that has collected a person's data must delete it once the reason for holding it ends, but an open-ended exception lets it keep the data whenever it says it still needs it for its own duties. | mechanism: Statutory deletion-on-purpose-lapse duty with exceptions for lawful duties or written consent; no technical erasure mechanism specified."
+   },
+   {
+    "borrowed_aspect": "Showing an attribute about a place without revealing the underlying true address, with the holder keeping a lawful-disclosure path for audits.",
+    "source_excerpt": "A protected person must be able to show a new identity without revealing the old one, but the program holder keeps a discretionary exception that lets it disclose the true identity to law enforcement or by court order. | mechanism: Discretionary non-disclosure of identity and location, with a mandatory disclosure exception to State or local law enforcement on request or by court order when the person is under investigation or charged with a serious offense."
+   }
+  ]
+ },
+ {
+  "review_id": "b08-4",
+  "title": "Low-income electricity discount without handing over the bill",
+  "moment": "A household applies to its village/district office or a charity for a summer electricity-cost subsidy or free air-conditioner/appliance replacement programme, and is asked to bring a recent Taipower bill showing the electricity account number, address, usage in kWh and payment history.",
+  "verifier": "District office or charity running an appliance-replacement or energy-subsidy programme",
+  "predicate": "The Taipower account is a member of the set of accounts on the current low-income / subsidised-household roll (membership, no address or usage revealed).",
+  "disclosed_today": "Full electricity bill copy with account number, installation address, monthly kWh usage (which reveals occupancy and habits), billing name and payment record.",
+  "issuer": "Taipower (or the water/gas utility) signing roll membership for the account",
+  "why_zk": "A usage history is a rich profile (who is home, when, whether the house is empty), and the office needs only to know the account is on the roll. Weakness: the household often has to be identified anyway for delivery of the appliance or payment of the subsidy, so the proof only helps for the eligibility screening step, and the roll itself is maintained by social-welfare agencies, so the utility signing it needs a data feed that does not exist today.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The idea that a transaction should release only the one attribute it needs, relying on selective disclosure rather than showing the whole document.",
+    "source_excerpt": "A business needs one attribute to proceed, but the credential is issued as a whole, so the holder must rely on the wallet to release only the needed attribute. | mechanism: SD-JWT VC selective disclosure with OpenID4VP presentation and status-list validity check."
+   },
+   {
+    "borrowed_aspect": "The framing that the legitimate duty is to check eligibility, not to retain a copy of the whole document.",
+    "source_excerpt": "A host must confirm a visitor's identity and eligibility, but the usual practice is to keep a copy of the whole identity document; the regulator says looking at it is enough. | mechanism: Visual inspection of the identity document with no copy taken; the statutory duty is met by checking, not retaining."
+   }
+  ]
+ },
+ {
+  "review_id": "b08-5",
+  "title": "Exam-venue or scholarship-exam eligibility matched to government residency claim",
+  "moment": "A student applies to a county or city government scholarship or a subsidised dormitory or rental programme restricted to local residents who are currently enrolled, and the office wants to confirm that the enrolled student and the registered resident are one person.",
+  "verifier": "Local government bureau or foundation administering a resident-student scholarship or rent subsidy",
+  "predicate": "The holder of a university-signed current-enrolment credential is the same person as the holder of a household-registration residency credential from the household registration office, without revealing the ID number, school identifier, grades or household members.",
+  "disclosed_today": "Full household registration transcript (including parents and siblings), national ID copy, student ID, enrolment certificate, often bank passbook cover.",
+  "issuer": "University (enrolment claim), matched to the household registration office (residency claim)",
+  "why_zk": "The household transcript exposes family members who are irrelevant to the decision, and the enrolment certificate exposes the school and sometimes the student number. Only the join of enrolled and local resident is needed. Honest caveat is that agencies are often legally entitled to inspect or pull household data directly through inter-agency lookups with consent, and many programmes also need income or family data that this proof would not replace, so the benefit is limited to the pure residency plus enrolment test.",
+  "claimed_borrowings": []
+ },
+ {
+  "review_id": "b08-6",
+  "title": "Not a delinquent taxpayer when a seller registers on a marketplace or bids for a small public contract",
+  "moment": "A sole proprietor or freelancer signs up to sell on an online platform or to bid for a small municipal procurement and is asked to prove they have no overdue taxes or tax-collection restrictions.",
+  "verifier": "Online marketplace onboarding team or a city-government procurement clerk",
+  "predicate": "Holder is not on the list of persons with overdue taxes or with enforced-collection or restricted-exit tax cases (欠稅 / 移送執行名單) at issuance time",
+  "disclosed_today": "A full tax-clearance certificate (完稅證明 / 無欠稅證明) showing taxpayer name, ID number, and often tax amounts or income categories, plus a business registration copy",
+  "issuer": "Ministry of Finance National Taxation Bureau (財政部國稅局), or the local tax bureau for local taxes",
+  "why_zk": "Today the clearance paper carries tax detail the verifier does not need; a signed non-membership claim reveals only that no overdue case exists. Weakness: tax authority records are confidential by law (稅捐稽徵法 secrecy), so the bureau may refuse to sign anything but the existing certificate, and procurement rules may name the paper certificate explicitly. Also, absence from a list is only as good as the list's update frequency, so the proof must carry an as-of date.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The principle that the relying party gets what the service needs and no more, instead of the whole attestation record.",
+    "source_excerpt": "A verifier needs one attribute from a larger identity record, but the holder cannot share just that attribute from the record. | mechanism: Selective disclosure of attributes from electronic attestations held in the EU Digital Identity Wallet."
+   },
+   {
+    "borrowed_aspect": "The narrower answer (no overdue case) is enough to settle the question, so the full figures need not be released.",
+    "source_excerpt": "A party asks a registry for identity-number information to settle a dispute; the registry could disclose the full reassigned value, but a narrower answer, whether a duplicate exists, is enough to settle it. | mechanism: Registry reports only whether the number is duplicated, not the reassigned number; the bank marks its own internal record instead."
+   }
+  ]
+ },
+ {
+  "review_id": "b08-7",
+  "title": "Currently-employed proof for the convenience-store parcel pickup of a company-paid corporate card",
+  "moment": "A new hire at a Hsinchu science-park firm opens a corporate-sponsored e-commerce or transit-subsidy account that is only valid while the person is employed, and the platform must re-confirm every month that the employment has not ended.",
+  "verifier": "Corporate benefits platform or commuter-shuttle/subsidy operator that serves many employers",
+  "predicate": "Holder is currently employed by a firm enrolled in the programme, as attested within the last 30 days, and the attestation has not been revoked.",
+  "disclosed_today": "Employee ID, full name, department, job title, employer HR letter or staff card photo, sometimes payroll slip.",
+  "issuer": "Employer HR system (signs a short-lived employment-active credential and revokes it on resignation).",
+  "why_zk": "The platform only needs 'still employed at an enrolled firm', but today collects a full HR letter that identifies the person and role. A short-lived unlinkable proof with revocation fits well. Weakness: the employer must run an issuance and revocation service, and small firms may not; the platform may also want a stable account key, so unlinkability across months is partly given up by design.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "Monthly re-presentation of a proof of prior authorisation without becoming a persistent identifier.",
+    "source_excerpt": "A gatekeeper only needs to know that the visitor already passed some check, but the proof it accepts doubles as a persistent identifier. | mechanism: Blind-signed tokens that attest prior authorisation and cannot be linked to the issuance interaction."
+   },
+   {
+    "borrowed_aspect": "Sharing only the single employment-status attribute from a larger HR record.",
+    "source_excerpt": "A verifier needs one attribute from a larger identity record, but the holder cannot share just that attribute from the record. | mechanism: Selective disclosure of attributes from electronic attestations held in the EU Digital Identity Wallet."
+   }
+  ]
+ }
+]

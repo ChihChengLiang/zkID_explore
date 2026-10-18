@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "zkid-explore/source.schema.json",
+  "title": "zkID corpus source",
+  "description": "A source is a corpus an extraction agent mines for seeds: a bounded, re-visitable source plus instructions on how to read it and what to look for. Sources feed seed extraction; seeds feed idea generation.",
+  "type": "object",
+  "required": ["id", "title", "kind", "url", "topics", "signal", "crawl", "trust", "status"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "description": "Stable kebab-case slug. Never reused."
+    },
+    "title": { "type": "string" },
+    "kind": {
+      "enum": ["paper-index", "forum", "spec", "standards-draft", "repo", "docs", "blog", "talk-series", "regulation", "people", "dataset"],
+      "description": "What shape the source has; drives which crawl strategy applies."
+    },
+    "url": { "type": "string", "format": "uri" },
+    "topics": {
+      "type": "array", "minItems": 1, "uniqueItems": true,
+      "items": { "enum": [
+        "credential-formats", "selective-disclosure", "zk-proof-systems", "zkvm-circuits",
+        "wallets", "issuer-trust", "revocation", "unlinkability", "sybil-resistance",
+        "age-verification", "government-id", "web-integration", "onchain-verification",
+        "policy-regulation", "post-quantum", "email-web2-proofs"
+      ]}
+    },
+    "signal": {
+      "type": "object",
+      "required": ["looking_for"],
+      "additionalProperties": false,
+      "properties": {
+        "looking_for": {
+          "type": "array", "minItems": 1,
+          "items": { "enum": ["open-problem", "new-construction", "deployment-constraint", "benchmark", "attack-or-critique", "requirement", "unmet-need", "integration-point"] },
+          "description": "Idea types this source is good at producing."
+        },
+        "note": { "type": "string", "description": "One or two sentences: why this source, what a good find looks like." }
+      }
+    },
+    "crawl": {
+      "type": "object",
+      "required": ["method", "cadence"],
+      "additionalProperties": false,
+      "properties": {
+        "method": { "enum": ["fetch-page", "rss", "github-releases", "github-issues", "github-readme", "search-query", "manual"] },
+        "cadence": { "enum": ["once", "weekly", "monthly", "quarterly"] },
+        "queries": { "type": "array", "items": { "type": "string" }, "description": "Search strings or filters for search-query / issues methods." },
+        "follow": { "type": "array", "items": { "type": "string" }, "description": "Link patterns worth following one hop." }
+      }
+    },
+    "trust": {
+      "enum": ["normative", "primary", "informed", "speculative"],
+      "description": "normative = binding spec/regulation; primary = authors/implementers; informed = expert discussion; speculative = unvetted."
+    },
+    "status": { "enum": ["candidate", "active", "paused", "retired"] },
+    "verified": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "url_checked_on": { "type": "string", "format": "date" },
+        "http_status": { "type": "integer" }
+      },
+      "description": "Filled by scripts/check_urls.py, not by hand."
+    },
+    "related": { "type": "array", "items": { "type": "string" }, "description": "Seed ids that overlap or feed into this one." },
+    "added": { "type": "string", "format": "date" },
+    "notes": { "type": "string" }
+  }
+}

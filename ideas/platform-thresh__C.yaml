@@ -1,0 +1,38 @@
+- title: Ride-hailing driver rating and trip count for a fleet-leasing deposit waiver
+  moment: A part-time driver in Taipei applies to a car-leasing or fleet company that waives the deposit for proven reliable drivers. Today the company asks for screenshots of the driver app showing earnings history, ratings, and trip details.
+  verifier: Fleet leasing company or taxi/ride-hailing fleet operator
+  predicate: Completed trips on the platform in the last 12 months >= 500 and average rating >= 4.8
+  disclosed_today: Full screenshots of the driver account, including passenger names or addresses in trip lists, daily earnings, platform account ID, and phone number
+  issuer: The ride-hailing platform account page, via a zkTLS session proof over the driver's logged-in API response (the platform does not issue credentials)
+  why_zk: The platform has no credential product, so only a TLS-session proof can attest the numbers; screenshots are trivially forged today. Weakness: the platform's terms may forbid automated access, and a proof only shows the page said so at that time, with no platform liability behind it. Trip count and rating are a narrow threshold, so the leasing company learns far less than from a full screenshot.
+  inspired_by:
+    - seed_id: tw-pdpa-art5-purpose-limit
+      borrowed_aspect: The idea that a collector should not exceed the necessary scope of its purpose, applied to a deposit decision that needs only two thresholds rather than a full account view.
+    - seed_id: tw-telco-online-id-check-fraud-2021
+      borrowed_aspect: The failure of a verifier relying on easily copied artifacts, here screenshots, which a proof bound to the live session replaces.
+
+- title: E-commerce seller reputation for a landlord's short-term shop-space sublease
+  moment: A small online seller on a Taiwanese marketplace wants to rent a pop-up counter or storefront from a landlord. The landlord asks for backend sales dashboards to judge whether the seller can pay rent.
+  verifier: Landlord or property manager of a pop-up space
+  predicate: Trailing 6-month monthly average order revenue >= NT$150,000 and seller cancellation rate <= 2%
+  disclosed_today: Full seller-center screenshots exposing customer order lists, product margins, supplier names, and bank-payout details
+  issuer: The e-commerce marketplace seller dashboard, attested by a zkTLS proof of the logged-in seller-center response
+  why_zk: Dashboards reveal customers and cost structure that the landlord has no need for, and the seller cannot share them without exposing third-party buyers' data. A proof of two thresholds gives the landlord what it needs. Weakness: the seller can pick a convenient window or selectively show one of several shops, and marketplace terms may bar scripted session access.
+  inspired_by:
+    - seed_id: an-b-hipaa-min-necessary
+      borrowed_aspect: Releasing only the subset that serves the stated purpose, and replacing the holder's judgement of "minimal" with a proof that the released fact is only a threshold.
+    - seed_id: tw-pdpa-art11-3-deletion-exception
+      borrowed_aspect: The concern that a verifier keeps copies once collected; a proof leaves no screenshot archive behind to be retained under a vague business-need exception.
+
+- title: Game or app account level for a community tournament entry
+  moment: A local esports or board-game-app tournament in Taiwan limits entry to players above a ranking or account level, to stop smurf accounts, and today asks players to hand over account login or screen-share the profile.
+  verifier: Tournament organizer or community Discord moderator
+  predicate: In-game ranked tier >= Diamond (or rating >= 2400) and account age >= 1 year
+  disclosed_today: Account name and login or full screen-share, often including linked email, purchase history, friends list, and real name on the profile
+  issuer: The game publisher's player profile API, attested through a zkTLS proof of the logged-in profile response
+  why_zk: Handing over credentials or screen-sharing exposes far more than a rank threshold, and the organizer then sees friends and purchases. A threshold proof shows the rank without the account identity. Weakness: this is low stakes and informal, so organizers may not care enough to adopt it, and without a binding to the entry identity, a player could borrow a stronger friend's session; the proof must be tied to a handle the organizer already holds.
+  inspired_by:
+    - seed_id: an-b-ala-library-records
+      borrowed_aspect: A service learning only what is needed about a person's activity without a readable record of everything they use, as applied to an account profile versus a rank threshold.
+    - seed_id: an-b-jury-selection
+      borrowed_aspect: Admitting a person to a role while the wider group does not learn who they are, with the default flipped so that the identity is not published.

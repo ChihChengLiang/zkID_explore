@@ -1,0 +1,202 @@
+[
+ {
+  "review_id": "b08-0",
+  "reasons": {
+   "rubric": "Predicate is a clean yes/no with a plausible issuer and high gate frequency, but the plant likely must keep a named on-site record, so ZK only reduces exposure at entry.",
+   "validity": "Dispatch workers entering client plants is a real Taiwan moment, but the gate usually needs to know who the person is for safety and insurance, so a pure employment boolean is not sufficient for the decision.",
+   "coherence": "The freshness-proof story fits, but the idea itself admits the safety register defeats the main benefit, and a same-day revocable signature cuts against blind-signature unlinkability.",
+   "novelty": "Employment-status proof is close to the known job/degree and license cases, though the dispatch gate setting is new.",
+   "provenance": "Blind signatures and the over-18 mdoc proof are generic unlinkability ideas that add little; the idea reads the same without them, and the gate wants identity anyway.",
+   "retention_law": "The idea itself says workplace safety and dispatch rules may require named records, which blocks the benefit.",
+   "linkability": "A fresh daily token to a single gate with no cross-verifier tracking concern is acceptable.",
+   "issuer_unwilling": "Staffing agencies have little incentive to run signing and revocation infrastructure and are often small.",
+   "no_wallet": "Dispatched and gig workers are unlikely to hold a wallet, and a gate guard can fall back to checking a card."
+  },
+  "rubric_score": 2,
+  "validity": 3,
+  "coherence": 3,
+  "novelty": 2,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "fails",
+   "linkability": "holds",
+   "issuer_unwilling": "unknown",
+   "no_wallet": "fails"
+  }
+ },
+ {
+  "review_id": "b08-1",
+  "reasons": {
+   "rubric": "The predicate is a banded aggregate that needs a bank-computed multi-card figure, and frequency is low, so it is a design-heavy fit.",
+   "validity": "Wellness programmes asking for card statements is plausible but unclear in Taiwan, and gym MCC spend is a poor and gameable proxy for activity, so the predicate is weakly sufficient.",
+   "coherence": "The pieces fit but the idea concedes that other banks' cards are missing and that the band itself leaks health information.",
+   "novelty": "Spending-band proof for a wellness benefit is not on the known list and touches no catalogued moment.",
+   "provenance": "The HIPAA minimum-necessary and scope-parameter borrowings only restate that the verifier should get less, adding no mechanism specific to this idea.",
+   "retention_law": "A private insurer or employer has no obvious duty to retain the statements.",
+   "linkability": "A yearly band is a coarse attribute, but participation in the programme itself reveals health intent.",
+   "issuer_unwilling": "Banks have little incentive to sign category aggregates for an insurer's discount programme, and MCC accuracy exposes them to disputes.",
+   "no_wallet": "Participants would need a bank-issued credential wallet, and the insurer can simply keep accepting statements."
+  },
+  "rubric_score": 3,
+  "validity": 2,
+  "coherence": 3,
+  "novelty": 4,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "holds",
+   "linkability": "unknown",
+   "issuer_unwilling": "fails",
+   "no_wallet": "unknown"
+  }
+ },
+ {
+  "review_id": "b08-2",
+  "reasons": {
+   "rubric": "A cross-source match of two issuers is a more complex predicate, and the telecom case has real-name retention, so it is possible but needs design.",
+   "validity": "Student passes and campus plans are real Taiwan moments, but a clerk can already check a student card against the ID, so the benefit over the status quo is small.",
+   "coherence": "Matching two claims to one person fits the stated goal, but the university signing a claim bound to a second issuer's identifier conflicts with the claim that the university does not see it.",
+   "novelty": "It is close to the known scholarship and degree cases with enrolment as the predicate, with only the cross-issuer binding as a new element.",
+   "provenance": "The blind-signature borrowing is decorative since the university must know the student and the binding could be done by a holder-side proof; the over-18 mdoc borrowing is generic.",
+   "retention_law": "Telecom real-name rules require ID recording, so the telecom case fails and only the transit pass case holds.",
+   "linkability": "Student passes are low-risk and a non-persistent proof is feasible.",
+   "issuer_unwilling": "Universities have little reason to issue wallet-ready enrolment credentials bound to national ID, and there is no common format across schools.",
+   "no_wallet": "Clerks still expect a physical student card and the idea itself concedes this."
+  },
+  "rubric_score": 3,
+  "validity": 3,
+  "coherence": 3,
+  "novelty": 2,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "fails",
+   "linkability": "holds",
+   "issuer_unwilling": "fails",
+   "no_wallet": "fails"
+  }
+ },
+ {
+  "review_id": "b08-3",
+  "reasons": {
+   "rubric": "Set membership across two utilities is a multi-source predicate with fragmented issuers and low frequency, so it is possible but needs design.",
+   "validity": "Rent subsidies are real, but the office needs the address to administer the subsidy, and tenancy proof, not the tariff class, is the more typical test, so the predicate is not clearly sufficient.",
+   "coherence": "The idea admits the account may be in the landlord's name, which undermines the tenant being the holder of the credential.",
+   "novelty": "It touches utility rolls like the known utility-subsidy case, but the tariff-class and meter check for rent subsidy is a new predicate.",
+   "provenance": "The deletion-duty and protected-identity borrowings are loosely analogous framing and the idea reads the same without them.",
+   "retention_law": "The housing office may need to retain documents for audit, and the idea itself says the address is still needed, though the law is unclear.",
+   "linkability": "A set-membership proof for a one-off application raises little tracking concern.",
+   "issuer_unwilling": "Taipower and Taiwan Water would need to build separate signing services for a niche use and may be wary of liability for the tariff class.",
+   "no_wallet": "Tenants, often students, may lack a wallet and the office can fall back to paper bills."
+  },
+  "rubric_score": 2,
+  "validity": 2,
+  "coherence": 2,
+  "novelty": 4,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "unknown",
+   "linkability": "holds",
+   "issuer_unwilling": "fails",
+   "no_wallet": "unknown"
+  }
+ },
+ {
+  "review_id": "b08-4",
+  "reasons": {
+   "rubric": "Membership on a roll is a simple predicate, but the issuer does not hold the roll and frequency is low, so it is a weak fit.",
+   "validity": "Electricity subsidies exist, but the office already knows or can look up low-income status, and delivery of an appliance needs the address anyway.",
+   "coherence": "The utility is asked to sign membership of a roll it does not maintain, which the idea itself admits needs a non-existent data feed; the welfare agency would be the natural issuer.",
+   "novelty": "It is nearly a rewording of the known utility-bill subsidy and low-income household cases.",
+   "provenance": "Both borrowings merely restate selective disclosure and check-not-retain, and the idea would read the same without them.",
+   "retention_law": "A subsidy programme may need to keep records for audit, though the specifics are unclear.",
+   "linkability": "A one-off roll membership proof for a single programme raises little concern.",
+   "issuer_unwilling": "Taipower does not hold the welfare roll and has no reason to sign it, so the natural issuer is a different body than the one named.",
+   "no_wallet": "Low-income households, often elderly, are the least likely to have a wallet, and bringing a paper bill works fine."
+  },
+  "rubric_score": 2,
+  "validity": 2,
+  "coherence": 2,
+  "novelty": 1,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "unknown",
+   "linkability": "holds",
+   "issuer_unwilling": "fails",
+   "no_wallet": "fails"
+  }
+ },
+ {
+  "review_id": "b08-5",
+  "reasons": {
+   "rubric": "The predicate joins two issuers' claims, which is a multi-source match with fragmented issuers, and frequency is low, so it is possible but needs design.",
+   "validity": "Resident-student scholarships are real, but agencies can often pull household data directly with consent, and most programmes also need income, so enrolment plus residency alone is rarely the full decision.",
+   "coherence": "The pieces fit well and the caveats are consistent with the stated narrow benefit.",
+   "novelty": "It is close to the known scholarship case with a residency predicate added, so it is a new predicate on a familiar moment.",
+   "provenance": "No borrowings are claimed.",
+   "retention_law": "Local governments handling subsidies may need to keep application records, and the law is unclear.",
+   "linkability": "A single-purpose join proof has low tracking risk.",
+   "issuer_unwilling": "The household registration office can sign a residency claim, but each university needs its own enrolment issuance and the pull-by-consent route reduces incentive.",
+   "no_wallet": "Students are the most likely group to hold a phone wallet, but agencies currently accept paper."
+  },
+  "rubric_score": 3,
+  "validity": 3,
+  "coherence": 4,
+  "novelty": 2,
+  "provenance_faithful": "NA",
+  "kill_tests": {
+   "retention_law": "unknown",
+   "linkability": "holds",
+   "issuer_unwilling": "unknown",
+   "no_wallet": "holds"
+  }
+ },
+ {
+  "review_id": "b08-6",
+  "reasons": {
+   "rubric": "Non-membership on an overdue list is a simple yes/no with a single central issuer, but frequency is low-to-medium and the verifier set is mixed.",
+   "validity": "Tax clearance is a real requirement for tenders and some onboarding, and a no-arrears boolean with an as-of date is sufficient for that decision.",
+   "coherence": "Parts fit well and the caveats on tax secrecy and as-of freshness are handled honestly.",
+   "novelty": "Tax clearance for marketplace sellers and small procurement is not on the known list, though it is near the seller-verification case.",
+   "provenance": "The attribute-disclosure borrowing is generic and the narrower-answer borrowing about the duplicate-number registry is the same idea restated, so neither changes the design.",
+   "retention_law": "Procurement rules may name the paper certificate or require retaining it, and the idea flags this without resolving it.",
+   "linkability": "A signed non-membership claim with an as-of date is a single-use attribute with little tracking risk.",
+   "issuer_unwilling": "The tax bureau is bound by confidentiality and may refuse to sign anything but the existing certificate, which the idea flags.",
+   "no_wallet": "Sole proprietors can use an app, but procurement clerks and marketplaces would need to accept a new format."
+  },
+  "rubric_score": 4,
+  "validity": 4,
+  "coherence": 4,
+  "novelty": 4,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "unknown",
+   "linkability": "holds",
+   "issuer_unwilling": "unknown",
+   "no_wallet": "holds"
+  }
+ },
+ {
+  "review_id": "b08-7",
+  "reasons": {
+   "rubric": "A boolean employment-active predicate from a single employer with monthly frequency fits, but fragmented employers and small-firm issuance push it to a good rather than strong fit.",
+   "validity": "Corporate benefit platforms checking employment are real, but the moment as titled mentions a convenience-store parcel pickup that does not match the commuter or e-commerce text, and a platform often needs a stable account key.",
+   "coherence": "The title, moment and predicate are mismatched, and monthly re-presentation conflicts with the admitted need for a stable account key.",
+   "novelty": "It is a variation of the job and degree and license cases, with employment status as the predicate, and the multi-employer platform is a new verifier.",
+   "provenance": "The blind-token and selective disclosure borrowings fit the monthly re-presentation, but a short-lived signed attestation with revocation would work without them, so they are only partly load-bearing.",
+   "retention_law": "A benefits platform has no obvious duty to retain the HR letter, though payroll-linked subsidies may need records.",
+   "linkability": "The idea admits the platform wants a stable account key, so unlinkability across months is given up by design.",
+   "issuer_unwilling": "Employers must run issuance and revocation services, which small firms may not, though large science-park firms might.",
+   "no_wallet": "Office workers in a science park likely hold a smartphone wallet, and employers can push the credential."
+  },
+  "rubric_score": 4,
+  "validity": 3,
+  "coherence": 2,
+  "novelty": 2,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "holds",
+   "linkability": "fails",
+   "issuer_unwilling": "unknown",
+   "no_wallet": "holds"
+  }
+ }
+]

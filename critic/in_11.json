@@ -1,0 +1,144 @@
+[
+ {
+  "review_id": "b11-0",
+  "title": "Night-market stall helper proves current employment to get a staff-only phone plan or rental viewing slot",
+  "moment": "A landlord or agency in Taipei offers a lower rent or fast-track viewing to tenants who are currently employed at a stable company, and asks for a recent pay slip or employment certificate.",
+  "verifier": "Private landlord or rental agency",
+  "predicate": "Holder is currently employed by a registered employer (not terminated or resigned) as of the last 24 hours",
+  "disclosed_today": "Employment certificate or pay slip showing full name, national ID number, salary, employer, job title, address",
+  "issuer": "The employer, via an employer-signed credential with revocation upon termination",
+  "why_zk": "Landlords only need \"still employed now\", yet receive salary and ID number and can keep copies. A static certificate cannot show it is still true; a fresh proof with revocation can. Weak points in practice are that few employers issue wallet credentials, small employers may not run revocation infrastructure, and landlords may still want salary level for rent-to-income judgment, which this does not provide.",
+  "claimed_borrowings": []
+ },
+ {
+  "review_id": "b11-1",
+  "title": "One vote per resident in a building or community management committee online poll",
+  "moment": "A Taiwanese apartment building management committee or a neighbourhood association runs a mobile vote on a repair levy or a rule change; today the organiser collects names, unit numbers and phone numbers to prevent duplicate votes.",
+  "verifier": "Building management committee or community association",
+  "predicate": "One distinct real person per ballot, scoped to this poll, with no name, number or unit published in the tally.",
+  "disclosed_today": "Full name, unit number, phone number, and sometimes a photo of the ID card to confirm that a voter is a real, single person.",
+  "issuer": "Telco as the real-name subscriber record, with the committee separately knowing the eligible list or an eligibility credential.",
+  "why_zk": "A uniqueness proof prevents ballot stuffing with spare SIMs while keeping votes unlinkable to a phone line, and the ballot content can stay hidden until the close. It is weak on its own because a telco attests one person per subscription, not residency in the building, so a second credential (for example from the household registration office or management company) is needed for eligibility, and Taiwanese condominium law expects some form of signed or recorded vote that a purely anonymous scheme may not satisfy.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "Keeping submissions hidden until a fixed opening moment while being able to prove later that none were seen early.",
+    "source_excerpt": "A party submits a value that must stay hidden from competitors until a fixed moment, while the holder of the submissions must be able to prove later that none were seen early and must handle identifying wrappers without exposing the content. | mechanism: Physical and access-control safeguarding of sealed bids with designated-official exception for envelope identification, plus a written record of any mistaken early opening."
+   },
+   {
+    "borrowed_aspect": "The aim of keeping a record of participation without it becoming a readable log of who voted how.",
+    "source_excerpt": "A service provider must keep a record of who used what without that record becoming a readable log of a person's interests, but the duty is a recommended policy that depends on each institution adopting it and on courts or subpoenas being resisted. | mechanism: Institutional confidentiality policy plus procedures for handling subpoenas and law-enforcement requests; no technical minimization of records is specified."
+   }
+  ]
+ },
+ {
+  "review_id": "b11-2",
+  "title": "Landlord rent-payment track record without sharing the tenant's bank statements",
+  "moment": "A tenant renewing a lease or applying for a new rental in Taipei is asked by the landlord or agent to hand over several months of passbook pages or bank app screenshots to show they pay rent on time.",
+  "verifier": "Private landlord or rental agency (房仲/包租代管業者)",
+  "predicate": "Over the last 12 months, at least 11 monthly outgoing transfers to the same payee were made on or before the 5th of the month (count and on-time ratio computed by the bank).",
+  "disclosed_today": "Full passbook or app screenshots showing every transaction, balances, salary source, merchants, other account numbers, and often the ID card copy.",
+  "issuer": "The tenant's bank (signing a payment-regularity statistic over the account's transfers)",
+  "why_zk": "The landlord only needs on-time rent history, not the tenant's whole financial life. Weak spot: the bank would need to define and sign a payment-regularity statistic and tie it to a payee, which no Taiwanese bank offers today, and landlords may still prefer an ID copy and guarantor regardless. Still, the over-collection of statements is real and the aggregate is much smaller.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The pattern of a verifier demanding an ID and extra documents to confirm one payment fact, with no stated purpose or less intrusive alternative.",
+    "source_excerpt": "A service needs to confirm a subscriber's payment, but it demands an identity document and address proof, and threatens suspension if the user refuses, without stating the purpose or necessity. | mechanism: None; the complaint notes no stated purpose or less-intrusive alternative was offered."
+   },
+   {
+    "borrowed_aspect": "The idea that the holder must release only what serves the purpose, but needs a mechanism that proves the released subset is minimal.",
+    "source_excerpt": "A holder of sensitive records must release only the subset that serves a stated purpose, but the rule leaves it to the holder to judge what is minimal and gives no mechanism that proves the released subset was minimal. | mechanism: Purpose-based minimum-necessary rule with reasonable-efforts standard, role-based access and reasonable reliance on requester representations (45 CFR 164.514(d)); no cryptographic or proof-based check."
+   }
+  ]
+ },
+ {
+  "review_id": "b11-3",
+  "title": "Landlord checks rent-payment regularity without seeing the tenant's bank statement",
+  "moment": "A tenant applying for a rental in Taipei is asked by the landlord or agent to send photos of 6 to 12 months of passbook or e-banking statements to show they pay rent on time and have a steady balance.",
+  "verifier": "Private landlord or rental agency (房仲)",
+  "predicate": "In each of the last 12 months, the account made a recurring transfer of at least NT$X to a rent-like payee on or before the due date, and the month-end balance never fell below one month's rent.",
+  "disclosed_today": "Full statements showing every transaction, counterparties, merchants, medical or family payments, salary source, and account number.",
+  "issuer": "The tenant's bank, signing a payment-regularity and minimum-balance aggregate over the account's transactions.",
+  "why_zk": "The landlord needs only a yes/no on regularity and buffer, and a bank-signed aggregate proves it without the transaction list. Weakness: there is no standard for such a bank attestation today, and private landlords may not accept anything but the familiar statement photos. The tenant may also rent from several accounts, so the claim covers only one account.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The pattern of a private party asking for full copies of documents when a narrow fact would do, with no less-intrusive alternative named.",
+    "source_excerpt": "A service provider signing up a customer must check identity and payment, but it asks for full front-and-back copies of identity and card documents, and the regulator leaves whether that exceeds the purpose to case-by-case fact-finding. | mechanism: None stated; the letter says less-intrusive alternatives must be considered but names none."
+   },
+   {
+    "borrowed_aspect": "A payment-related check that escalates into collecting extra personal documents beyond what the purpose needs.",
+    "source_excerpt": "A service needs to confirm a subscriber's payment, but it demands an identity document and address proof, and threatens suspension if the user refuses, without stating the purpose or necessity. | mechanism: None; the complaint notes no stated purpose or less-intrusive alternative was offered."
+   }
+  ]
+ },
+ {
+  "review_id": "b11-4",
+  "title": "Telecom student-plan SIM activation tied to a university enrolment",
+  "moment": "A student applies online or in a shop for a discounted student mobile plan or a campus-partner SIM and the telecom must confirm that the enrolled student is the same named person applying, not someone using stolen identity data.",
+  "verifier": "Telecom operator online applications platform or retail shop",
+  "predicate": "The university-signed enrolment claim and the wallet identity credential refer to the same holder, proved with a possession-bound match instead of typing in ID number and issue date.",
+  "disclosed_today": "National ID number, ID issue date, name, birthdate, student number, and sometimes uploaded photos of the ID and student card.",
+  "issuer": "University (enrolment) cross-matched with the national digital wallet identity credential.",
+  "why_zk": "Past fraud in Taiwan showed that checking only a national ID number and issue date lets stolen identity data pass. A holder-bound match proof replaces copyable identifiers with something that cannot be replayed by someone who merely knows the numbers, and the telecom no longer stores a student number it does not need. Honest weakness is that telecom SIM registration law still requires the operator to collect and retain the real-name ID data, so the proof would reduce but not remove the data kept; it mostly helps the student discount step.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The failure case where a check on copyable identifiers (ID number and issue date) let stolen data pass, motivating a holder-bound match.",
+    "source_excerpt": "A provider must verify that a new applicant is the named person, but its check uses identifiers that are easy to copy, so a stolen identity passes and the real person bears the consequences. | mechanism: None; online verification only checked ID number and issue date."
+   },
+   {
+    "borrowed_aspect": "Using a proof that attests an earlier check passed without handing the gatekeeper a reusable identifier.",
+    "source_excerpt": "A gatekeeper only needs to know that the visitor already passed some check, but the proof it accepts doubles as a persistent identifier. | mechanism: Blind-signed tokens that attest prior authorisation and cannot be linked to the issuance interaction."
+   }
+  ]
+ },
+ {
+  "review_id": "b11-5",
+  "title": "Online marketplace seller reputation for a night-market stall or consignment shop slot",
+  "moment": "A Shopee or Ruten seller wants a physical consignment shelf in a Taipei pop-up shop or a booth at a weekend market. The organizer wants to know the seller is real and fulfils orders reliably.",
+  "verifier": "Pop-up market organizer or consignment shop owner",
+  "predicate": "Shopee shop completed orders in the last 6 months is at least 200 AND on-time shipping rate is at least 95 percent",
+  "disclosed_today": "Shop URL plus screenshots of the seller dashboard, which show revenue, buyer names, product margins, and sometimes bank account hints",
+  "issuer": "Shopee seller center account, attested via zkTLS",
+  "why_zk": "The organizer needs only a reliability signal, but the dashboard screenshot reveals sales volume, customer data, and cost structure to a potential competitor on the same market. A threshold proof removes that. Weakness: the shop URL is already public with a visible rating, so the privacy gain is modest, and the seller center's data may be inaccessible to automated proofs under Shopee terms.",
+  "claimed_borrowings": []
+ },
+ {
+  "review_id": "b11-6",
+  "title": "Current-staff check for a corporate-discount purchase at a telco or retailer counter",
+  "moment": "A person buys a phone plan or appliance at a store under an employee-benefit partnership, and the clerk photocopies the employee badge and ID card to confirm the buyer works at the partner company.",
+  "verifier": "Telco or retail store clerk running a corporate-partner discount (企業員工專案)",
+  "predicate": "Holder is a current employee of the partner company today, not a former one still carrying an old badge.",
+  "disclosed_today": "Photo of the employee badge, ID card copy, sometimes a payslip, giving name, ID number, department and photo.",
+  "issuer": "The partner employer, signing a freshness-bound 'currently employed here' status and revoking it when the person leaves.",
+  "why_zk": "Badges and old certificates stay valid long after someone leaves, which is the abuse the store worries about, so a revocable current proof fits well. The store needs only 'is staff of company X'; the name and ID number are not needed. This echoes the telco weakness of checking only easily copied identifiers. A limit is that the proof must still show which company, so that fact is disclosed, and the store gains little incentive to change a counter routine.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "A telco check that relies on copyable identifiers and so cannot show current, genuine status.",
+    "source_excerpt": "A provider must verify that a new applicant is the named person, but its check uses identifiers that are easy to copy, so a stolen identity passes and the real person bears the consequences. | mechanism: None; online verification only checked ID number and issue date."
+   },
+   {
+    "borrowed_aspect": "A venue capturing the whole card when only one fact is needed.",
+    "source_excerpt": "A venue must confirm that a person is over a threshold age from an identity document, but scanning captures the whole card, so the rule caps what is kept to a few fields and bans secondary use, while the holder still sees everything on the card at the moment of the scan. | mechanism: Statutory field-limit and retention ban on scan data, with a prohibition on sale or marketing dissemination; no proof-of-age mechanism that avoids reading the document."
+   }
+  ]
+ },
+ {
+  "review_id": "b11-7",
+  "title": "Hospital-signed fit-to-fly or fit-to-travel window for an airline or ferry to the outlying islands",
+  "moment": "A passenger recovering from surgery, late pregnancy or a heart event books a flight to Kinmen, Penghu or Lanyu, or a long-haul flight, and the carrier or tour operator asks for a doctor's fitness note. Staff photocopy or photograph the note and sometimes keep it with the booking.",
+  "verifier": "Airline check-in counter, ferry operator or travel agent handling the booking",
+  "predicate": "A hospital physician signs that the holder is medically fit to travel for a trip on dates within a stated window, and the proof stops being valid after the window. No diagnosis, procedure, gestational detail or medication is shown.",
+  "disclosed_today": "A medical certificate with the diagnosis, the procedure or gestational age, the medications, the physician details and the full ID number. It is copied and stored with the booking records.",
+  "issuer": "Treating hospital (attending physician's office)",
+  "why_zk": "The carrier's decision is only whether it may carry the passenger on that date. A time-bound signature matches the fact that fitness for travel can change within days. The sealed-bid analogy applies to the content, which stays hidden from handlers until the moment of use. This is weak where the airline's own medical-clearance form (MEDIF) requires specific clinical fields that the airline's medical desk reviews, in which case the proof would only cover the simpler cases, such as ferries and domestic routes.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The notion of content that stays unseen by intermediate handlers until a fixed moment, with the wrapper readable only for what is needed to identify it.",
+    "source_excerpt": "A party submits a value that must stay hidden from competitors until a fixed moment, while the holder of the submissions must be able to prove later that none were seen early and must handle identifying wrappers without exposing the content. | mechanism: Physical and access-control safeguarding of sealed bids with designated-official exception for envelope identification, plus a written record of any mistaken early opening."
+   },
+   {
+    "borrowed_aspect": "The purpose-limited release principle, where only the part that serves the travel decision is exposed.",
+    "source_excerpt": "A holder of sensitive records must release only the subset that serves a stated purpose, but the rule leaves it to the holder to judge what is minimal and gives no mechanism that proves the released subset was minimal. | mechanism: Purpose-based minimum-necessary rule with reasonable-efforts standard, role-based access and reasonable reliance on requester representations (45 CFR 164.514(d)); no cryptographic or proof-based check."
+   }
+  ]
+ }
+]

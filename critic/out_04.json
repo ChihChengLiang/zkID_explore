@@ -1,0 +1,202 @@
+[
+ {
+  "review_id": "b04-0",
+  "reasons": {
+   "rubric": "Predicate is a simple threshold and the verifier over-collects, but the issuer is an unwilling platform (zkTLS) and the committees rarely care, so it needs design.",
+   "validity": "Courier access passes are real, but a platform stat does not establish identity at the door and zkTLS scraping of a driver app is fragile and likely against terms.",
+   "coherence": "The idea itself admits that the issuer did not agree, the verifier does not care, and identity needs a separate check, which undercuts the benefit.",
+   "novelty": "Courier access to buildings and platform-stat zkTLS are not on the known list.",
+   "provenance": "The borrowings are generic over-collection patterns about age scans and bank KYC; the idea reads the same without them.",
+   "retention_law": "No retention duty is apparent; committees keep screenshots by habit.",
+   "linkability": "A threshold proof from a session replay reveals little and is not linkable beyond the account.",
+   "issuer_unwilling": "The platform explicitly did not agree to issue and may forbid session replay.",
+   "no_wallet": "Couriers have phones, but the verifying building office has no verification infrastructure or incentive."
+  },
+  "rubric_score": 2,
+  "validity": 2,
+  "coherence": 3,
+  "novelty": 4,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "holds",
+   "linkability": "holds",
+   "issuer_unwilling": "fails",
+   "no_wallet": "fails"
+  }
+ },
+ {
+  "review_id": "b04-1",
+  "reasons": {
+   "rubric": "A bounded yes/no from a hospital with high frequency, but needs a new real-time clinic attestation and the centre has some reporting duty, so it needs design.",
+   "validity": "School return after illness is a real recurring moment and a 'may attend from date A' note is sufficient for staff, but clinics do not issue digital status credentials today.",
+   "coherence": "The predicate, issuer and verifier fit well, though the child-held wallet issue and the reporting duty are acknowledged.",
+   "novelty": "Child health clearance for school return is not on the known list.",
+   "provenance": "The borrowings are generic record-minimisation points about policy versus technical limits; the idea is the same without them.",
+   "retention_law": "The centre may need to report notifiable diseases, but it can report without holding the clinic certificate itself, so the unknown remains.",
+   "linkability": "Single-use short window claim with a clinic issuer is low risk, though issuer phone-home is unspecified.",
+   "issuer_unwilling": "Paediatric clinics have little incentive or tooling to issue digital attestations.",
+   "no_wallet": "Parents act for the child and could hold the credential on a phone, so this is workable but awkward."
+  },
+  "rubric_score": 3,
+  "validity": 4,
+  "coherence": 4,
+  "novelty": 4,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "unknown",
+   "linkability": "holds",
+   "issuer_unwilling": "unknown",
+   "no_wallet": "holds"
+  }
+ },
+ {
+  "review_id": "b04-2",
+  "reasons": {
+   "rubric": "A yes/no health status is simple, but frequency is low and the issuer would need real-time attestation, so a weak fit.",
+   "validity": "Pre-boarding health checks existed in Taiwan, but the need is low-frequency and a clearance of notifiable infection is not a standard clinic product.",
+   "coherence": "A short-lived status and a one-time boarding desk fit, though the idea concedes the hospital cannot issue it in real time.",
+   "novelty": "Travel boarding health clearance is not on the known list.",
+   "provenance": "The borrowing of yes/no proof and no-copy guidance is generic and the idea reads the same without it.",
+   "retention_law": "The idea itself says port or quarantine rules may require records, and Taiwanese law is unknown to me here.",
+   "linkability": "A short-window boolean limits linkability if the issuer does not see use.",
+   "issuer_unwilling": "Hospitals do not issue real-time status credentials and have no demand to start.",
+   "no_wallet": "Travellers carry phones, but the boarding desk would need verifier tooling."
+  },
+  "rubric_score": 2,
+  "validity": 2,
+  "coherence": 3,
+  "novelty": 4,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "unknown",
+   "linkability": "holds",
+   "issuer_unwilling": "fails",
+   "no_wallet": "holds"
+  }
+ },
+ {
+  "review_id": "b04-3",
+  "reasons": {
+   "rubric": "A non-membership boolean from a government issuer exists, but the legally mandated check may require the employer to query directly, so it needs design.",
+   "validity": "Employers hiring staff for children's settings really do check, but a holder-presented proof may not satisfy the legal check and freshness is a real gap.",
+   "coherence": "Parts fit well and the idea honestly names the legal route and freshness problems.",
+   "novelty": "Criminal-record and rental are on the known list, so this is a narrower predicate and new issuer on a close moment.",
+   "provenance": "The borrowed bundling and no-tracking points loosely mirror the good-conduct certificate issue but the idea stands without them.",
+   "retention_law": "Employers appear obliged to query official lists directly, which may block the benefit; the exact rule is unknown to me.",
+   "linkability": "A non-membership proof from a government source can be unlinkable if designed with care.",
+   "issuer_unwilling": "The police administration is a plausible issuer but has no current mechanism for narrow attestations.",
+   "no_wallet": "Applicants are adults with phones and the TW wallet is plausible."
+  },
+  "rubric_score": 3,
+  "validity": 3,
+  "coherence": 4,
+  "novelty": 2,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "unknown",
+   "linkability": "holds",
+   "issuer_unwilling": "unknown",
+   "no_wallet": "holds"
+  }
+ },
+ {
+  "review_id": "b04-4",
+  "reasons": {
+   "rubric": "A current-employment boolean with a revocable employer signature, but fragmented employer issuers and a possible direct insurance query make it a design problem.",
+   "validity": "Duplicate labour-insurance enrolment on side jobs is real, but the predicate may not match what the platform legally needs and the employer must cooperate.",
+   "coherence": "The idea concedes that issuing could tip off the employer and that the platform may query records directly, which undermines the premise.",
+   "novelty": "Side-job eligibility and insurance duplication are not on the known list.",
+   "provenance": "The borrowing about demanding documents without a stated purpose is decorative and the idea reads the same without it.",
+   "retention_law": "Whether the platform must keep the employer letter is unknown to me.",
+   "linkability": "A revocable status credential implies the issuer can see or infer checking, which creates linkage and tip-off risk.",
+   "issuer_unwilling": "Employers have no incentive to issue statements that help staff moonlight and may restrict it.",
+   "no_wallet": "Workers hold phones but employers lack any credential issuing system."
+  },
+  "rubric_score": 2,
+  "validity": 2,
+  "coherence": 2,
+  "novelty": 4,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "unknown",
+   "linkability": "fails",
+   "issuer_unwilling": "fails",
+   "no_wallet": "fails"
+  }
+ },
+ {
+  "review_id": "b04-5",
+  "reasons": {
+   "rubric": "A roll membership boolean from a single issuer, but low frequency and the responder needs the address in an emergency, so a weak fit.",
+   "validity": "Priority lists for medical-equipment households are real, but the idea admits dispatch needs location and outages break wallet access.",
+   "coherence": "A single roll and a single issuer fit, though the usable window is limited to pre-registration.",
+   "novelty": "Disaster relief and medical power dependence are not on the known list.",
+   "provenance": "The sealed-bid and ID-copy borrowings are unrelated to this setting and decorative.",
+   "retention_law": "No clear duty to retain a diagnosis certificate is apparent, but I cannot be sure for emergency services.",
+   "linkability": "A membership proof still ties to the account and address at dispatch, so linkage is partly unavoidable.",
+   "issuer_unwilling": "Taipower is a state-owned utility and may be willing, but running a credential service is not its current role.",
+   "no_wallet": "Outages and elderly or ill households make wallet access unreliable exactly when needed."
+  },
+  "rubric_score": 2,
+  "validity": 3,
+  "coherence": 3,
+  "novelty": 5,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "unknown",
+   "linkability": "holds",
+   "issuer_unwilling": "unknown",
+   "no_wallet": "fails"
+  }
+ },
+ {
+  "review_id": "b04-6",
+  "reasons": {
+   "rubric": "A uniqueness nullifier is a one-person-one-claim predicate on a high-frequency promotion, but the telco issuer ecosystem and multi-line holding make it a design problem.",
+   "validity": "Coupon abuse with throwaway SIMs is real, but a per-line credential does not give per-person uniqueness unless the telco binds to national ID.",
+   "coherence": "The idea honestly flags multi-line, prepaid and incentive gaps that weaken the central claim.",
+   "novelty": "Sybil resistance is on the known list for brokerage, but a promotion drop with a telco issuer is a new issuer and moment.",
+   "provenance": "No borrowings are claimed.",
+   "retention_law": "No legal duty to retain the phone number is apparent for a promotion.",
+   "linkability": "A per-campaign nullifier avoids cross-service linkage, though the telco could see issuance.",
+   "issuer_unwilling": "Telcos are multiple and have little incentive to issue per-person credentials for coupons.",
+   "no_wallet": "Users already hold phones and apps, so wallet delivery is plausible."
+  },
+  "rubric_score": 3,
+  "validity": 3,
+  "coherence": 3,
+  "novelty": 3,
+  "provenance_faithful": "NA",
+  "kill_tests": {
+   "retention_law": "holds",
+   "linkability": "holds",
+   "issuer_unwilling": "fails",
+   "no_wallet": "holds"
+  }
+ },
+ {
+  "review_id": "b04-7",
+  "reasons": {
+   "rubric": "A narrow non-membership boolean from a government issuer, but low-to-medium frequency and legal checks that may need the fuller record make it a design problem.",
+   "validity": "Parents and small operators do ask for 良民證, but the register absence is narrower than what they may legitimately want and covered jobs need an official check.",
+   "coherence": "Parts fit, and the idea honestly states the false-comfort and legal-check limits.",
+   "novelty": "It is nearly the same as the known criminal-record case and also overlaps with b04-3, so mostly a narrower variant.",
+   "provenance": "The retention and deletion-exception borrowings are generic and the idea is unchanged without them.",
+   "retention_law": "Covered employers appear obliged to check registries and possibly retain results; the exact scope is unknown to me.",
+   "linkability": "A government non-membership proof can be unlinkable if designed carefully.",
+   "issuer_unwilling": "The police administration or Ministry of Justice has no narrow-attestation product and may resist.",
+   "no_wallet": "Candidates are adults with phones but informal parent verifiers lack tooling."
+  },
+  "rubric_score": 3,
+  "validity": 3,
+  "coherence": 4,
+  "novelty": 2,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "unknown",
+   "linkability": "holds",
+   "issuer_unwilling": "unknown",
+   "no_wallet": "holds"
+  }
+ }
+]

@@ -1,0 +1,202 @@
+[
+ {
+  "review_id": "b06-0",
+  "reasons": {
+   "rubric": "Set-membership on a small discount roll is simple, but the verifier barely cares and frequency is low and the issuer ecosystem is fragmented across water utilities.",
+   "validity": "The moment is thin: landlords rarely need a prior water bill to split a shared meter, and the named issuer is unlikely to sign roll membership.",
+   "coherence": "Blind signing is odd here since the utility would need to know the roll membership anyway, and the stated tiny anonymity set undermines the privacy claim.",
+   "novelty": "Utility-subsidy rolls are on the known list, though the landlord verifier and shared-meter angle is slightly new.",
+   "provenance": "Unlinkability and blind issuance are generic ZK properties; the idea would read the same without citing them.",
+   "retention_law": "Nothing suggests a landlord must retain the old bill, but this is not clearly established.",
+   "linkability": "With a tiny eligible pool, membership itself identifies the tenant, so unlinkability gives little benefit.",
+   "issuer_unwilling": "A public water utility has no obvious reason to build a signed roll credential for a landlord use case.",
+   "no_wallet": "A landlord has little motivation to adopt a wallet flow when a bill photo works."
+  },
+  "rubric_score": 2,
+  "validity": 2,
+  "coherence": 2,
+  "novelty": 2,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "holds",
+   "linkability": "fails",
+   "issuer_unwilling": "fails",
+   "no_wallet": "fails"
+  }
+ },
+ {
+  "review_id": "b06-1",
+  "reasons": {
+   "rubric": "A time-windowed cleared boolean is a simple predicate with a hospital issuer, but frequency is medium and facilities may need paper records.",
+   "validity": "Entry screening at care facilities and kindergartens is real, though a hospital signing a generic cleared status for visitors is a stretch.",
+   "coherence": "The pieces fit well: validity window, hospital issuer and minimal disclosure, though the stated audit-retention weakness cuts against it.",
+   "novelty": "Health-status clearance for facility entry is not on the known list and is a fresh moment.",
+   "provenance": "The unlinkability borrowing is generic, and the HIPAA-style field stripping is not what the idea does; it would read the same without them.",
+   "retention_law": "Facilities may be required by health authorities to keep specific records, which I cannot confirm.",
+   "linkability": "Hospital-signed credentials with a short window can be unlinked from the visit, and the facility learns little.",
+   "issuer_unwilling": "Hospitals would need to issue a new attestation product and take liability for a clearance claim, which is not their usual role.",
+   "no_wallet": "Facility staff at a door are used to paper slips, and a wallet scan adds friction."
+  },
+  "rubric_score": 3,
+  "validity": 3,
+  "coherence": 4,
+  "novelty": 4,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "unknown",
+   "linkability": "holds",
+   "issuer_unwilling": "unknown",
+   "no_wallet": "holds"
+  }
+ },
+ {
+  "review_id": "b06-2",
+  "reasons": {
+   "rubric": "A trip-count threshold is simple, but the issuer is an unwilling platform needing zkTLS, so it is more design-heavy and frequency is low.",
+   "validity": "Gig drivers applying for fleet leases is real, but lessors mostly underwrite on earnings, so trip count alone is not sufficient for the decision.",
+   "coherence": "The honest weakness that the lessor wants income contradicts the claim that experience alone suffices.",
+   "novelty": "Gig-work experience for lease qualification is a new issuer and moment relative to the known list.",
+   "provenance": "Differential privacy and census singling-out rules do not relate to a threshold proof over a trip log; the borrowings are decorative.",
+   "retention_law": "Lessors doing credit assessment may need to retain income evidence, which weakens the benefit, though this is unconfirmed.",
+   "linkability": "A threshold proof over a portal session reveals little beyond the predicate and is reasonably unlinkable.",
+   "issuer_unwilling": "The platform did not agree to be an issuer and could block scraping, relying on zkTLS against its terms.",
+   "no_wallet": "Driver and lessor both use phones, so a prover app is plausible, but a lessor still needs to adopt a verifier."
+  },
+  "rubric_score": 3,
+  "validity": 3,
+  "coherence": 3,
+  "novelty": 4,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "unknown",
+   "linkability": "holds",
+   "issuer_unwilling": "fails",
+   "no_wallet": "holds"
+  }
+ },
+ {
+  "review_id": "b06-3",
+  "reasons": {
+   "rubric": "Per-drop uniqueness is a simple nullifier predicate with high-frequency use, but the telco ecosystem is fragmented and multi-line holders break one-person.",
+   "validity": "Scalper accounts on ticketing and limited drops are a real Taiwanese problem, but a subscriber is not a person, so the predicate is only partly sufficient.",
+   "coherence": "Telco-signed subscriber binding with a scoped pseudonym fits the stated goal, with honest limits acknowledged.",
+   "novelty": "One-person-one-account is a known case via the brokerage nullifier, though limited-release retail and a telco issuer are new.",
+   "provenance": "Narrowing the answer to duplicate or not matches the scoped nullifier, but the idea would read much the same without the registry analogy.",
+   "retention_law": "Retailers have no stated duty to retain subscriber numbers for drops, though I cannot confirm sector rules.",
+   "linkability": "A per-drop scoped pseudonym prevents cross-platform tracking while still catching repeats.",
+   "issuer_unwilling": "Carriers would have to build and sign an attestation service with no revenue case, which is a real obstacle.",
+   "no_wallet": "Buyers on phones with an existing SMS flow are unlikely to adopt a wallet step for a small benefit."
+  },
+  "rubric_score": 3,
+  "validity": 3,
+  "coherence": 4,
+  "novelty": 2,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "holds",
+   "linkability": "holds",
+   "issuer_unwilling": "fails",
+   "no_wallet": "unknown"
+  }
+ },
+ {
+  "review_id": "b06-4",
+  "reasons": {
+   "rubric": "A once-per-promotion uniqueness check is simple and frequent, but coupon value is low and the telco issuer ecosystem is fragmented.",
+   "validity": "Promo abuse is real in delivery apps, but the idea itself concedes the business case is thin, and the coupon stakes do not justify telco involvement.",
+   "coherence": "Parts fit, but it largely duplicates the previous idea with a lower-stakes verifier.",
+   "novelty": "It is essentially the known Sybil nullifier case applied to a coupon, so a near rewording.",
+   "provenance": "The deletion-on-purpose-lapse borrowing is a motivation for not collecting data, which the idea would argue anyway.",
+   "retention_law": "No legal duty to hold the phone number for a promotion appears likely, though uncertain.",
+   "linkability": "App-scoped nullifiers avoid cross-service linking.",
+   "issuer_unwilling": "Telcos have little reason to sign uniqueness attestations for coupon farming.",
+   "no_wallet": "Users claiming a few hundred NT dollars will not install a wallet when SMS works."
+  },
+  "rubric_score": 3,
+  "validity": 2,
+  "coherence": 3,
+  "novelty": 1,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "holds",
+   "linkability": "holds",
+   "issuer_unwilling": "fails",
+   "no_wallet": "fails"
+  }
+ },
+ {
+  "review_id": "b06-5",
+  "reasons": {
+   "rubric": "A same-person match across two issuers is a multi-source predicate with a fragmented university ecosystem, and subsidy offices may require the full ID.",
+   "validity": "Student rentals near campuses are real, but a landlord seldom needs an enrolled-student guarantee and the subsidy office likely needs full identity.",
+   "coherence": "The stated weakness that guarantors, addresses and full ID are still needed undermines the proposed replacement of the file.",
+   "novelty": "Enrollment status appears in the scholarship case and tenancy in the rental case, so this mixes known moments with only a small new twist.",
+   "provenance": "Narrowing to same person and unlinkability are both just inherent to the proposal; they are decorative.",
+   "retention_law": "Subsidy offices may legally require the full ID number, which blocks the benefit for that verifier.",
+   "linkability": "Binding two credentials to the same holder can be done unlinkably, so this is not a major issue.",
+   "issuer_unwilling": "Universities issuing a wallet-bound enrollment credential is plausible but fragmented across schools.",
+   "no_wallet": "Students are phone-native, though landlords still prefer photocopies."
+  },
+  "rubric_score": 2,
+  "validity": 3,
+  "coherence": 3,
+  "novelty": 2,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "fails",
+   "linkability": "holds",
+   "issuer_unwilling": "unknown",
+   "no_wallet": "unknown"
+  }
+ },
+ {
+  "review_id": "b06-6",
+  "reasons": {
+   "rubric": "A date-range boolean from a hospital is a simple predicate with high frequency, but the verifier may have a legal or adjudication need for the diagnosis.",
+   "validity": "Diagnosis certificates over-disclose to HR and the moment is very common, but employer and insurer rules may require the original, so sufficiency is doubtful.",
+   "coherence": "The attested fit-for-work window and the stated adoption dependence on rule changes are consistent.",
+   "novelty": "Medical leave certification is not on the known list, so this is a fresh moment.",
+   "provenance": "Selective disclosure from a whole credential is genuinely the mechanism, but the jury-confidentiality borrowing is decorative.",
+   "retention_law": "Labour rules and insurers may require the diagnosis or original certificate, which I cannot confirm but which the idea itself flags.",
+   "linkability": "A date-range boolean reveals little, though the issuing hospital identity itself can hint at the condition.",
+   "issuer_unwilling": "Hospitals already issue certificates, so a minimal variant is a plausible but non-trivial change.",
+   "no_wallet": "HR and claims desks accept scans today and a wallet flow would need policy change."
+  },
+  "rubric_score": 3,
+  "validity": 4,
+  "coherence": 4,
+  "novelty": 4,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "unknown",
+   "linkability": "holds",
+   "issuer_unwilling": "holds",
+   "no_wallet": "unknown"
+  }
+ },
+ {
+  "review_id": "b06-7",
+  "reasons": {
+   "rubric": "A count-to-address predicate over a zkTLS portal is a complex multi-field proof from an unwilling issuer, and landlords prefer stronger documents.",
+   "validity": "Landlords in Taiwan ask for leases, utility bills or household registration, and order history is easily gamed, so it is not sufficient for the decision.",
+   "coherence": "The proof is self-described as weak and gameable, which clashes with its use as evidence of stable residence.",
+   "novelty": "Proof of residence is on the known list via the renting case, but delivery-order history is a novel evidence source.",
+   "provenance": "The narrow-answer analogy and scope-grant concern add nothing the proposal needs; decorative.",
+   "retention_law": "A landlord has no apparent duty to retain order screenshots, though this is unconfirmed.",
+   "linkability": "A count over an address can be shown without revealing items, but the address itself may link the tenant.",
+   "issuer_unwilling": "The platform never agreed to issue and the idea relies on scraping, which it could block.",
+   "no_wallet": "Landlords and building committees will not adopt a verifier flow when a lease or utility bill is easy."
+  },
+  "rubric_score": 2,
+  "validity": 2,
+  "coherence": 2,
+  "novelty": 3,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "holds",
+   "linkability": "unknown",
+   "issuer_unwilling": "fails",
+   "no_wallet": "fails"
+  }
+ }
+]

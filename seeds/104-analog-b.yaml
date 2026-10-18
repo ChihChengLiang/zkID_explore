@@ -1,0 +1,389 @@
+- id: an-b-hipaa-min-necessary
+  problem: Covered entities and business associates must limit protected health information to what a
+    given use, disclosure or request actually needs.
+  abstract_problem: A holder of sensitive records must release only the subset that serves a stated purpose,
+    but the rule leaves it to the holder to judge what is minimal and gives no mechanism that proves the
+    released subset was minimal.
+  mechanism: Purpose-based minimum-necessary rule with reasonable-efforts standard, role-based access
+    and reasonable reliance on requester representations (45 CFR 164.514(d)); no cryptographic or proof-based
+    check.
+  mechanism_outcome: partial
+  domain: records
+  distance_class: distant-analog
+  source:
+    type: regulation
+    title: '45 CFR 164.502 Uses and disclosures of protected health information: general rules'
+    url: https://www.law.cornell.edu/cfr/text/45/164.502
+    locator: 164.502(b)(1)
+    jurisdiction: US
+    lang: en
+    retrieved_on: '2026-10-18'
+  evidence:
+    quote: must make reasonable efforts to limit protected health information to the minimum necessary
+      to accomplish the intended purpose of the use, disclosure, or request.
+    quote_verified: true
+    snapshot: snapshots/an-b-hipaa-min-necessary.txt
+  axes:
+    issuer_type:
+    - hospital
+    predicate_type:
+    - membership
+    regime:
+    - other
+    harm:
+    - breach
+  extraction:
+    agent: analog-b
+    model: claude-haiku-5-5
+    date: '2026-10-18'
+  status: draft
+- id: an-b-hipaa-safe-harbor
+  problem: Health information may be shared for research or trials as de-identified data only after a
+    fixed list of identifiers of the individual and of relatives, employers or household members is removed.
+  abstract_problem: A party wants to share a record set that cannot identify any person, but the test
+    is a checklist of removable fields plus a no-actual-knowledge condition, so the holder must still
+    judge whether leftover fields re-identify someone.
+  mechanism: Safe Harbor method removing 18 enumerated identifiers (with ZIP-code truncation rule and
+    age aggregation), or an expert-determination alternative; re-identification codes allowed only if
+    not derived from or disclosed about the individual.
+  mechanism_outcome: works
+  domain: clinical-trials
+  distance_class: distant-analog
+  source:
+    type: regulation
+    title: 45 CFR 164.514 Other requirements relating to uses and disclosures of protected health information
+    url: https://www.law.cornell.edu/cfr/text/45/164.514
+    locator: 164.514(a)-(b)
+    jurisdiction: US
+    lang: en
+    retrieved_on: '2026-10-18'
+  evidence:
+    quote: The following identifiers of the individual or of relatives, employers, or household members
+      of the individual, are removed
+    quote_verified: true
+    snapshot: snapshots/an-b-hipaa-safe-harbor.txt
+  axes:
+    issuer_type:
+    - hospital
+    predicate_type:
+    - aggregate
+    regime:
+    - other
+    harm:
+    - breach
+  extraction:
+    agent: analog-b
+    model: claude-haiku-5-5
+    date: '2026-10-18'
+  status: draft
+- id: an-b-census-title13
+  problem: Census data may be used only for statistical purposes, and no publication may allow data furnished
+    by a particular individual or establishment to be identified.
+  abstract_problem: An agency holding individual responses must release aggregate results, and the legal
+    duty bars any output from which a particular respondent can be singled out, while the holder's staff
+    can still see the raw records.
+  mechanism: Statutory use limitation and publication prohibition enforced by sworn-oath duties and penalties;
+    statistical disclosure limitation (for example differential privacy in later census products) is a
+    technical layer not specified in the statute.
+  mechanism_outcome: partial
+  domain: civil-registry
+  distance_class: distant-analog
+  source:
+    type: regulation
+    title: 13 U.S.C. 9 Information as confidential; exception
+    url: https://www.law.cornell.edu/uscode/text/13/9
+    locator: 13 U.S.C. 9(a)(2)
+    jurisdiction: US
+    lang: en
+    retrieved_on: '2026-10-18'
+  evidence:
+    quote: make any publication whereby the data furnished by any particular establishment or individual
+      under this title can be identified
+    quote_verified: true
+    snapshot: snapshots/an-b-census-title13.txt
+  axes:
+    issuer_type:
+    - government
+    predicate_type:
+    - aggregate
+    regime:
+    - other
+    harm:
+    - breach
+    - profiling
+  extraction:
+    agent: analog-b
+    model: claude-haiku-5-5
+    date: '2026-10-18'
+  status: draft
+- id: an-b-witness-protection
+  problem: The Attorney General may disclose or refuse to disclose the identity or location of a relocated
+    or protected witness, weighing danger to the person against the public benefit.
+  abstract_problem: A protected person must be able to show a new identity without revealing the old one,
+    but the program holder keeps a discretionary exception that lets it disclose the true identity to
+    law enforcement or by court order.
+  mechanism: Discretionary non-disclosure of identity and location, with a mandatory disclosure exception
+    to State or local law enforcement on request or by court order when the person is under investigation
+    or charged with a serious offense.
+  mechanism_outcome: partial
+  domain: law-regulation
+  distance_class: distant-analog
+  source:
+    type: regulation
+    title: 18 U.S.C. 3521 Witness relocation and protection
+    url: https://www.law.cornell.edu/uscode/text/18/3521
+    locator: 18 U.S.C. 3521(b)(1)(G)
+    jurisdiction: US
+    lang: en
+    retrieved_on: '2026-10-18'
+  evidence:
+    quote: disclose or refuse to disclose the identity or location of the person relocated or protected
+    quote_verified: true
+    snapshot: snapshots/an-b-witness-protection.txt
+  axes:
+    issuer_type:
+    - government
+    predicate_type:
+    - membership
+    regime:
+    - other
+    harm:
+    - stalking
+    - breach
+  extraction:
+    agent: analog-b
+    model: claude-haiku-5-5
+    date: '2026-10-18'
+  status: draft
+- id: an-b-jury-selection
+  problem: A federal district plan may make juror names public, but may also let a judge keep those names
+    confidential where the interests of justice require.
+  abstract_problem: Someone must be drawn from a pool and seated for a task without the wider public learning
+    who they are, but the default rule can flip to full publication of the identities of everyone selected,
+    with confidentiality only as a judge-level exception.
+  mechanism: Judge-discretionary confidentiality of juror names under a court's jury selection plan; no
+    technical mechanism specified.
+  mechanism_outcome: partial
+  domain: jury-selection
+  distance_class: distant-analog
+  source:
+    type: regulation
+    title: 28 U.S.C. 1863 Plan for random jury selection
+    url: https://www.law.cornell.edu/uscode/text/28/1863
+    locator: 28 U.S.C. 1863(b)(7)
+    jurisdiction: US
+    lang: en
+    retrieved_on: '2026-10-18'
+  evidence:
+    quote: If the plan permits these names to be made public, it may nevertheless permit the chief judge
+      of the district court
+    quote_verified: true
+    snapshot: snapshots/an-b-jury-selection.txt
+  axes:
+    issuer_type:
+    - government
+    predicate_type:
+    - membership
+    regime:
+    - other
+    harm:
+    - stalking
+  extraction:
+    agent: analog-b
+    model: claude-haiku-5-5
+    date: '2026-10-18'
+  status: draft
+- id: an-b-attorney-client
+  problem: Attorney-client privilege protects confidential communications between a lawyer and client
+    about seeking legal advice, but the confidentiality is compromised if a third party is present.
+  abstract_problem: A party must consult an advisor about a sensitive matter without the advisor, or anyone
+    else, learning or revealing more than the matter requires, but the protection breaks as soon as an
+    outsider is in the room unless the outsider is essential to the relationship.
+  mechanism: Evidentiary privilege over communications, lost by third-party presence except essential
+    agents such as interpreters; no technical mechanism.
+  mechanism_outcome: partial
+  domain: law-regulation
+  distance_class: distant-analog
+  source:
+    type: distant-analog
+    title: Attorney-client privilege (Wex)
+    url: https://www.law.cornell.edu/wex/attorney-client_privilege
+    locator: Definition
+    jurisdiction: US
+    lang: en
+    retrieved_on: '2026-10-18'
+  evidence:
+    quote: Attorney-client privilege protects confidential communications between a lawyer and their client
+      that relate to the client's seeking of legal advice or services.
+    quote_verified: true
+    snapshot: snapshots/an-b-attorney-client.txt
+  axes:
+    issuer_type:
+    - none
+    predicate_type:
+    - membership
+    regime:
+    - none-stated
+    harm:
+    - none-observed
+  extraction:
+    agent: analog-b
+    model: claude-haiku-5-5
+    date: '2026-10-18'
+  status: draft
+- id: an-b-sealed-bid-far
+  problem: Federal sealed bids must stay unopened and unviewed in a locked or restricted-access box until
+    the scheduled opening, and envelopes may be opened only to identify them by an official designated
+    for that purpose.
+  abstract_problem: A party submits a value that must stay hidden from competitors until a fixed moment,
+    while the holder of the submissions must be able to prove later that none were seen early and must
+    handle identifying wrappers without exposing the content.
+  mechanism: Physical and access-control safeguarding of sealed bids with designated-official exception
+    for envelope identification, plus a written record of any mistaken early opening.
+  mechanism_outcome: works
+  domain: finance
+  distance_class: distant-analog
+  source:
+    type: regulation
+    title: FAR 14.401 Receipt and safeguarding of bids
+    url: https://www.acquisition.gov/far/14.401
+    locator: FAR 14.401
+    jurisdiction: US
+    lang: en
+    retrieved_on: '2026-10-18'
+  evidence:
+    quote: the bids shall not be opened or viewed, and shall remain in a locked bid box, a safe, or in
+      a secured, restricted-access electronic bid box.
+    quote_verified: true
+    snapshot: snapshots/an-b-sealed-bid-far.txt
+  axes:
+    issuer_type:
+    - government
+    predicate_type:
+    - uniqueness
+    regime:
+    - other
+    harm:
+    - none-observed
+  extraction:
+    agent: analog-b
+    model: claude-haiku-5-5
+    date: '2026-10-18'
+  status: draft
+- id: an-b-ala-library-records
+  problem: Libraries should adopt a policy that treats circulation records and other records identifying
+    library users as confidential, and resist legal demands for them absent a proper showing of good cause.
+  abstract_problem: A service provider must keep a record of who used what without that record becoming
+    a readable log of a person's interests, but the duty is a recommended policy that depends on each
+    institution adopting it and on courts or subpoenas being resisted.
+  mechanism: Institutional confidentiality policy plus procedures for handling subpoenas and law-enforcement
+    requests; no technical minimization of records is specified.
+  mechanism_outcome: partial
+  domain: library-records
+  distance_class: distant-analog
+  source:
+    type: distant-analog
+    title: Policy on Confidentiality of Library Records
+    url: https://www.ala.org/advocacy/intfreedom/statementspols/otherpolicies/policyconfidentiality
+    locator: Policy text
+    jurisdiction: US
+    lang: en
+    retrieved_on: '2026-10-18'
+  evidence:
+    quote: Formally adopt a policy that specifically recognizes its circulation records and other records
+      identifying the names of library users to be confidential.
+    quote_verified: true
+    snapshot: snapshots/an-b-ala-library-records.txt
+  axes:
+    issuer_type:
+    - none
+    predicate_type:
+    - membership
+    regime:
+    - other
+    harm:
+    - profiling
+  extraction:
+    agent: analog-b
+    model: claude-haiku-5-5
+    date: '2026-10-18'
+  status: draft
+- id: an-b-secret-ballot-moad
+  problem: In the Australian secret ballot, voters keep their identity anonymous from the vote they cast,
+    with separate voting compartments and sealed double envelopes for postal votes.
+  abstract_problem: A voter must prove eligibility and cast a valid choice while the record of that choice
+    cannot be linked back to them, but the same process must still let officials verify who voted, so
+    the separation depends on procedure rather than on a proof.
+  mechanism: Separate voting compartments and two-envelope sealing for postal and absentee ballots so
+    identity is not attached to the vote at counting; eligibility is checked separately from the ballot.
+  mechanism_outcome: works
+  domain: secret-ballot
+  distance_class: distant-analog
+  source:
+    type: distant-analog
+    title: What is the secret ballot? (Old Parliament House, Museum of Australian Democracy)
+    url: https://moadmain.live.moadoph.gov.au/explore/democracy/what-is-the-secret-ballot
+    locator: Main text
+    jurisdiction: AU
+    lang: en
+    retrieved_on: '2026-10-18'
+  evidence:
+    quote: A secret ballot is a voting method where the voter keeps their identity anonymous to provide
+      political privacy.
+    quote_verified: true
+    snapshot: snapshots/an-b-secret-ballot-moad.txt
+  axes:
+    issuer_type:
+    - government
+    predicate_type:
+    - membership
+    regime:
+    - other
+    harm:
+    - profiling
+  extraction:
+    agent: analog-b
+    model: claude-haiku-5-5
+    date: '2026-10-18'
+  status: draft
+- id: an-b-va-id-scanning
+  problem: A merchant may scan the machine-readable zone of a driver's license for an age check, but the
+    scan data it may collect and keep is limited to name, address, date of birth and license number, and
+    may not be disseminated for marketing.
+  abstract_problem: A venue must confirm that a person is over a threshold age from an identity document,
+    but scanning captures the whole card, so the rule caps what is kept to a few fields and bans secondary
+    use, while the holder still sees everything on the card at the moment of the scan.
+  mechanism: Statutory field-limit and retention ban on scan data, with a prohibition on sale or marketing
+    dissemination; no proof-of-age mechanism that avoids reading the document.
+  mechanism_outcome: partial
+  domain: bouncer-age-check
+  distance_class: adjacent
+  source:
+    type: regulation
+    title: Va. Code 59.1-443.3 Scanning of driver's licenses
+    url: https://law.lis.virginia.gov/vacode/59.1-443.3/
+    locator: Va. Code 59.1-443.3
+    jurisdiction: US
+    lang: en
+    retrieved_on: '2026-10-18'
+  evidence:
+    quote: Information collected by scanning an individual's driver's license or other document pursuant
+      to this subdivision shall be limited to the individual's name, address, and date of birth and the
+      number of the driver's license or other document;
+    quote_verified: true
+    snapshot: snapshots/an-b-va-id-scanning.txt
+  axes:
+    issuer_type:
+    - government
+    predicate_type:
+    - threshold
+    regime:
+    - other
+    harm:
+    - breach
+    - profiling
+  extraction:
+    agent: analog-b
+    model: claude-haiku-5-5
+    date: '2026-10-18'
+  status: draft

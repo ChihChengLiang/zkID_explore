@@ -1,0 +1,202 @@
+[
+ {
+  "review_id": "b02-0",
+  "reasons": {
+   "rubric": "Boolean validity-window predicate from a hospital issuer is simple, but frequency is episodic and nursing homes have no mandate to accept digital proof, so a good-not-strong fit.",
+   "validity": "Visitor screening at care homes during outbreaks is real and hospitals could sign a test-result window, but the facility's own window rule may differ from the signed N days.",
+   "coherence": "Predicate, issuer and verifier line up well, though 'no active restriction' versus 'negative test' are subtly different claims.",
+   "novelty": "Health-status gating of access is not on the known list, though it is a familiar proof-of-status pattern.",
+   "provenance": "The selective-disclosure borrowing is generic and the holder-binding borrowing is partly real, but the idea reads much the same without either.",
+   "retention_law": "Nursing homes have no evident duty to keep the lab report, and infection-control logs may need only a pass/fail record.",
+   "linkability": "A short-lived attestation shown at a front desk is low-risk, though repeated presentations of the same signed token could be correlated.",
+   "issuer_unwilling": "Hospitals and clinics have little incentive or tooling to issue machine-verifiable negative-test attestations to non-patients' visitors.",
+   "no_wallet": "Elderly relatives and foreign caregivers are unlikely to hold a compatible wallet, and the front desk has no verifier."
+  },
+  "rubric_score": 3,
+  "validity": 3,
+  "coherence": 4,
+  "novelty": 4,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "holds",
+   "linkability": "holds",
+   "issuer_unwilling": "fails",
+   "no_wallet": "fails"
+  }
+ },
+ {
+  "review_id": "b02-1",
+  "reasons": {
+   "rubric": "Multi-source same-person match across two issuers plus a likely occupational-health requirement for fuller data makes this a design-heavy, low-frequency case.",
+   "validity": "Clinical placements do require vaccination and enrolment checks, but the hospital probably needs specific vaccine details, so the matching predicate alone is insufficient.",
+   "coherence": "The match proof covers only the eligibility gate while the idea concedes fuller disclosure is still needed, which undercuts the stated benefit.",
+   "novelty": "Student placement onboarding is a new moment, loosely near the degree and licence cases but with a cross-issuer binding.",
+   "provenance": "The unlinkable-redemption and law-enforcement-exception borrowings are decorative and the second is unrelated to occupational health.",
+   "retention_law": "Hospitals have occupational-health obligations and may be required to keep vaccination records, which erodes the benefit.",
+   "linkability": "Cross-issuer same-person matching without revealing ID needs a shared binding key, which is feasible but adds a linkage point.",
+   "issuer_unwilling": "No health-authority or university issuer currently signs these claims, and aligning two issuers is hard.",
+   "no_wallet": "Students and university or hospital HR can plausibly adopt a wallet, so this is a minor barrier."
+  },
+  "rubric_score": 2,
+  "validity": 2,
+  "coherence": 3,
+  "novelty": 3,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "fails",
+   "linkability": "holds",
+   "issuer_unwilling": "fails",
+   "no_wallet": "holds"
+  }
+ },
+ {
+  "review_id": "b02-2",
+  "reasons": {
+   "rubric": "A non-membership predicate is simple, but it needs a government-signed absence attestation that does not exist and the dealer still needs identity, so it is only possible.",
+   "validity": "Dealers do worry about seized or encumbered vehicles, but that is a property of the vehicle rather than the seller, and the description conflates exit restrictions with seizure.",
+   "coherence": "The title mentions exit restriction but the predicate is about vehicle seizure, and the buyer or seller roles are blurred.",
+   "novelty": "Used-car transfer and encumbrance is a moment not touched by the known list, though ID-copy over-collection resembles known cases.",
+   "provenance": "The ID-copy over-collection pattern is real but the idea would read the same without citing it, so the borrowing is decorative.",
+   "retention_law": "Vehicle transfer paperwork likely requires the dealer to hold identity documents, so the legal position is uncertain.",
+   "linkability": "A one-time signed non-membership statement tied to a plate is low-linkability, but the legal name is revealed anyway.",
+   "issuer_unwilling": "It requires the highways authority and the judiciary to jointly publish signed absence attestations, which is a large coordination ask.",
+   "no_wallet": "Dealers could verify through a web tool, and sellers are mostly adults with phones, so wallet access is a moderate barrier."
+  },
+  "rubric_score": 2,
+  "validity": 2,
+  "coherence": 2,
+  "novelty": 4,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "unknown",
+   "linkability": "holds",
+   "issuer_unwilling": "fails",
+   "no_wallet": "holds"
+  }
+ },
+ {
+  "review_id": "b02-3",
+  "reasons": {
+   "rubric": "A simple current-standing boolean with a plausible employer issuer and daily frequency, but a fragmented platform ecosystem and independent-contractor status reduce it to a good fit.",
+   "validity": "Site access control for couriers is a real daily moment and current standing is nearly sufficient, though sites often want a name or plate for incident tracing.",
+   "coherence": "Predicate, issuer, revocation and verifier fit together tightly, and the stale-card benefit is a real gain.",
+   "novelty": "Gig-worker site access is not on the known list and involves a new issuer type.",
+   "provenance": "Borrowings are empty, so provenance does not apply.",
+   "retention_law": "Nothing evident requires the gatekeeper to retain the ID, and incident tracing is a policy preference rather than a known legal duty.",
+   "linkability": "Daily repeat entries risk correlation unless proofs are unlinkable, but the verifier is local and the stakes are low.",
+   "issuer_unwilling": "Platforms have an incentive to control access and revoke quickly, but may resist employer-style attestations because of contractor status.",
+   "no_wallet": "Couriers carry smartphones and are used to platform apps, though many separate security gates lack verifier tooling."
+  },
+  "rubric_score": 4,
+  "validity": 4,
+  "coherence": 4,
+  "novelty": 4,
+  "provenance_faithful": "NA",
+  "kill_tests": {
+   "retention_law": "holds",
+   "linkability": "holds",
+   "issuer_unwilling": "unknown",
+   "no_wallet": "holds"
+  }
+ },
+ {
+  "review_id": "b02-4",
+  "reasons": {
+   "rubric": "The predicate combines a sum threshold and a count over transactions, which is a more complex range proof, and the verifier has commercial reasons to see more and holds power over the worker.",
+   "validity": "Remittance regularity as a signal for lenders is plausible, but the stated moment is muddled and the broker's real need is probably wage and debt information.",
+   "coherence": "The verifier list mixes a broker, a foreign lender and a visa service with different needs, and the idea itself admits the verifier may simply refuse the proof.",
+   "novelty": "Migrant-worker remittance proof is a moment nobody on the known list touches.",
+   "provenance": "The borrowed minimum-necessary framing is generic and the idea reads the same without it, and the HIPAA excerpt is from an unrelated domain.",
+   "retention_law": "Banks must retain transaction records, but the verifier is a broker or lender with no evident duty to keep the full statements.",
+   "linkability": "Aggregate proofs over six months of transfers are linkable to the worker's bank, but the verifier would learn little else.",
+   "issuer_unwilling": "Banks would have to sign aggregate proofs for a niche population with little commercial return, which is unlikely without regulation.",
+   "no_wallet": "Migrant workers have smartphones, but a home-country verifier needs compatible tooling, and bargaining power makes adoption unlikely."
+  },
+  "rubric_score": 3,
+  "validity": 2,
+  "coherence": 2,
+  "novelty": 5,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "holds",
+   "linkability": "holds",
+   "issuer_unwilling": "fails",
+   "no_wallet": "unknown"
+  }
+ },
+ {
+  "review_id": "b02-5",
+  "reasons": {
+   "rubric": "Geographic-roll membership is a simple predicate, but issuers are fragmented across utilities and the verifier may legally need the registered address, so it needs design.",
+   "validity": "Schools asking for bills as address proof is real, but the tenant often is not the account holder and household registration is typically the actual rule, so sufficiency is doubtful.",
+   "coherence": "The scenario is partly confused because a catchment test normally runs on the household register rather than a utility roll, and it admits the account holder may differ from the tenant.",
+   "novelty": "It sits close to the known address-matches-roll utility subsidy case and the renting-address case, only moving to a school verifier.",
+   "provenance": "The borrowings are descriptions of over-collection that the idea would state anyway, so they are decorative.",
+   "retention_law": "Schools probably must keep enrolment evidence and may need the household registration address regardless, which is uncertain in detail.",
+   "linkability": "A coarse district membership claim has low linkability if the account identifier is not exposed.",
+   "issuer_unwilling": "Taiwan Water Corporation and Taipower have no mandate or incentive to sign geographic roll membership for third-party use.",
+   "no_wallet": "Parents have phones, but school admin desks lack verifier tooling."
+  },
+  "rubric_score": 3,
+  "validity": 2,
+  "coherence": 3,
+  "novelty": 2,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "unknown",
+   "linkability": "holds",
+   "issuer_unwilling": "fails",
+   "no_wallet": "holds"
+  }
+ },
+ {
+  "review_id": "b02-6",
+  "reasons": {
+   "rubric": "A simple boolean with an existing employer issuer and daily frequency, but the stakes are tiny and identity is often needed for payroll deduction, so it is a good but marginal fit.",
+   "validity": "Staff-rate checks at concessions are real, and active status suffices for cash or point-of-sale discounts, but payroll-linked discounts need identity.",
+   "coherence": "The parts fit well, and the idea honestly limits the benefit to non-payroll discounts.",
+   "novelty": "It is a new issuer type and moment, though the predicate is close to the known proof-of-employment pattern.",
+   "provenance": "Unlinkable redemption is a real driver of the privacy benefit here because it prevents a meal and parking visit log, but the cited source is generic.",
+   "retention_law": "No law evidently requires concessionaires to log staff identity for a meal discount.",
+   "linkability": "Repeated daily use makes linkability the central concern, and it only holds if proofs are truly unlinkable.",
+   "issuer_unwilling": "Hospitals and contractors have little reason to build daily-refresh credential issuance for a cafeteria discount.",
+   "no_wallet": "Cashiers and parking systems would need new verifier tooling and cleaners may have limited wallet adoption."
+  },
+  "rubric_score": 4,
+  "validity": 3,
+  "coherence": 4,
+  "novelty": 3,
+  "provenance_faithful": "yes",
+  "kill_tests": {
+   "retention_law": "holds",
+   "linkability": "holds",
+   "issuer_unwilling": "unknown",
+   "no_wallet": "unknown"
+  }
+ },
+ {
+  "review_id": "b02-7",
+  "reasons": {
+   "rubric": "A one-person-one-vote nullifier is a uniqueness proof like the known Sybil case, but the issuer is a telco that does not prove residence, and the vote rules need weights, so it needs design.",
+   "validity": "Community polls are real, but a telco subscriber is not a resident or owner, and condominium voting is weighted by ownership, so the predicate is insufficient.",
+   "coherence": "The idea itself says the credential does not prove residence and the voting rules differ, so the issuer and predicate do not match the decision.",
+   "novelty": "It is largely a reuse of the known one-person-one-account nullifier predicate on a new moment.",
+   "provenance": "Borrowings are empty, so provenance does not apply.",
+   "retention_law": "A committee may need records of who voted for legitimacy of weighted votes, which is uncertain under condominium rules.",
+   "linkability": "A per-poll nullifier is designed for this purpose and avoids linking votes to subscribers.",
+   "issuer_unwilling": "Mobile carriers have little reason to sign uniqueness credentials for community polls.",
+   "no_wallet": "Residents of all ages must use it, committees run LINE polls, and no wallet or verifier tooling exists in that setting."
+  },
+  "rubric_score": 2,
+  "validity": 2,
+  "coherence": 2,
+  "novelty": 2,
+  "provenance_faithful": "NA",
+  "kill_tests": {
+   "retention_law": "unknown",
+   "linkability": "holds",
+   "issuer_unwilling": "fails",
+   "no_wallet": "fails"
+  }
+ }
+]

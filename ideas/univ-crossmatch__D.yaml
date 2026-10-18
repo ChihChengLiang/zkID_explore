@@ -1,0 +1,38 @@
+- title: Alumni-discount student-ID match at a Taiwan High Speed Rail or TRA concession counter
+  moment: A graduate student buys a student concession fare or a campus-partner ticket at a station counter or kiosk and is asked to show a student card plus national ID so the clerk can see both names match.
+  verifier: Railway or bus operator concession desk, or a third-party ticketing vendor handling campus partner deals
+  predicate: The enrolled-student claim signed by the university and the holder of the digital wallet national-ID credential refer to the same person, shown as a match proof without revealing the national ID number or student number.
+  disclosed_today: Student card (name, student number, photo, department, validity sticker) and often national ID card shown side by side or photographed for the sales record.
+  issuer: University (enrolment status) cross-matched with the national digital wallet identity credential.
+  why_zk: The verifier only needs "this current student is the person standing here", yet today it sees student number, department, ID number and birthdate. A match proof between the university claim and the wallet credential avoids that. Honest weakness is that concession fares are low value and clerks are used to a quick glance at the card, so adoption pressure is small, and the in-person photo check is arguably still needed.
+  inspired_by:
+    - seed_id: rd-aepd-hotel-no-id-copy
+      borrowed_aspect: The idea that a counter should record only the fields a rule requires rather than keeping a full copy of the identity document.
+    - seed_id: privacy-pass-unlinkable-proof
+      borrowed_aspect: The proof should show a prior check passed without acting as a persistent identifier across repeated purchases.
+
+- title: Linking a university research-participant record to a hospital clinical-trial enrolment
+  moment: A university hospital-affiliated lab recruits a graduate student or staff member for a paid study that requires both a university-signed role claim (for example, enrolled in a health-science program) and a separate hospital or health-agency issued eligibility claim, and the study office wants to be sure both refer to the same person.
+  verifier: University institutional review board office or the clinical-trial coordinator
+  predicate: The university-signed claim and the claim from the second issuer (hospital or health insurance) belong to the same holder, shown without revealing the national ID number or health insurance number to the study office.
+  disclosed_today: Full name, national ID number, student number, health insurance card details and sometimes a scanned copy of both documents, stored in the study consent file.
+  issuer: University (program enrolment) cross-matched with a hospital or health insurance issuer.
+  why_zk: Study files that hold ID numbers beside health information create a re-identification risk the IRB would rather avoid, in the spirit of de-identification checklists. A cross-source match lets the coordinator confirm eligibility from two unrelated issuers without ever holding the identifier that joins them. Honest weakness is that consent forms legally require a signature and often a real name, so the study can rarely drop identification entirely; this only removes the ID number and insurance number.
+  inspired_by:
+    - seed_id: an-b-hipaa-safe-harbor
+      borrowed_aspect: The list-of-identifiers-removed approach, applied by keeping the linking identifier out of the verifier's hands while still allowing a join.
+    - seed_id: an-b-va-id-scanning
+      borrowed_aspect: The problem that a holder exposes the whole card at the moment of checking, so a field-limit rule alone does not stop over-collection.
+
+- title: Telecom student-plan SIM activation tied to a university enrolment
+  moment: A student applies online or in a shop for a discounted student mobile plan or a campus-partner SIM and the telecom must confirm that the enrolled student is the same named person applying, not someone using stolen identity data.
+  verifier: Telecom operator online applications platform or retail shop
+  predicate: The university-signed enrolment claim and the wallet identity credential refer to the same holder, proved with a possession-bound match instead of typing in ID number and issue date.
+  disclosed_today: National ID number, ID issue date, name, birthdate, student number, and sometimes uploaded photos of the ID and student card.
+  issuer: University (enrolment) cross-matched with the national digital wallet identity credential.
+  why_zk: Past fraud in Taiwan showed that checking only a national ID number and issue date lets stolen identity data pass. A holder-bound match proof replaces copyable identifiers with something that cannot be replayed by someone who merely knows the numbers, and the telecom no longer stores a student number it does not need. Honest weakness is that telecom SIM registration law still requires the operator to collect and retain the real-name ID data, so the proof would reduce but not remove the data kept; it mostly helps the student discount step.
+  inspired_by:
+    - seed_id: tw-telco-online-id-check-fraud-2021
+      borrowed_aspect: The failure case where a check on copyable identifiers (ID number and issue date) let stolen data pass, motivating a holder-bound match.
+    - seed_id: privacy-pass-unlinkable-proof
+      borrowed_aspect: Using a proof that attests an earlier check passed without handing the gatekeeper a reusable identifier.

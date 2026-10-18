@@ -1,0 +1,38 @@
+- title: "Hospital-signed 'infection-free window' for a hospital-ward caregiver or private nursing-home visitor"
+  moment: "A family member or foreign live-in caregiver (外籍看護) arrives at a Taiwanese nursing home or a ward during an outbreak and must show they recently tested negative or are not in an infectious period."
+  verifier: "Nursing home (護理之家) front desk or ward access control"
+  predicate: "Hospital attests 'no active infectious-disease restriction' valid from test date to test date + N days (e.g. 7 days); nothing else."
+  disclosed_today: "Photo or paper of the lab report or clinic certificate showing diagnosis, test type, lab values, name, ID number, and sometimes medication."
+  issuer: "Hospital or clinic laboratory that ran the test"
+  why_zk: "The verifier only needs a yes for the window, but today the whole report is shown or photographed and kept on a staff phone. Validity expiry is built into the claim, so no clinical detail is needed. Weakness: nursing homes mostly act on paper habits and no regulation requires accepting a digital proof, and a window set by each facility's own policy may not match what the hospital signed."
+  inspired_by:
+    - seed_id: rd-swiss-eid-necessary-data-only
+      borrowed_aspect: "Release only the single attribute the transaction needs rather than the whole credential."
+    - seed_id: tw-telco-online-id-check-fraud-2021
+      borrowed_aspect: "Checking only easily copied identifiers (a paper copy) lets someone else pass, so the proof should be bound to the holder and signed by the issuer."
+
+- title: "Postpartum or post-surgery 'not fit to travel / fit to return' window for employer leave and insurer claims"
+  moment: "An employee on 病假 or 產假 extension submits a doctor's certificate to HR, or a patient submits it to a travel insurer, to show they were medically unable to work or travel on specific dates."
+  verifier: "Employer HR department or travel/health insurer claims desk"
+  predicate: "Hospital attests 'medically unfit for work/travel for the period [start, end]' as a boolean over a date range, with no diagnosis."
+  disclosed_today: "診斷證明書 with diagnosis name, ICD code, procedures, and attending physician notes, sent to HR or insurer by scan or email."
+  issuer: "Treating hospital"
+  why_zk: "HR needs only that the absence is covered for those dates, yet diagnosis certificates reveal pregnancy complications, psychiatric conditions, or surgery type to a manager. A time-bounded proof removes the diagnosis. Weakness: Taiwanese labour rules and insurers often legally require the diagnosis or the original certificate, and insurers may need the cause to adjudicate, so adoption depends on rule changes rather than on technology."
+  inspired_by:
+    - seed_id: rd-swiss-eid-necessary-data-only
+      borrowed_aspect: "Wallet releases only the needed attribute from a credential issued as a whole."
+    - seed_id: an-b-jury-selection
+      borrowed_aspect: "Confidentiality being only a discretionary exception, with full disclosure as the default, is the pattern to flip so minimal disclosure is the default."
+
+- title: "Hospital-signed 'currently in treatment course' status for a pharmacy or school to grant a temporary accommodation"
+  moment: "A parent asks a school for a short-term accommodation (exempting a child from PE or the cafeteria, or allowing a medication break) or a worker asks a company for a temporary shift change during a defined treatment cycle such as chemotherapy or post-fracture recovery."
+  verifier: "School health office (健康中心), employer, or gym/pool operator"
+  predicate: "Hospital attests 'accommodation category X applies' valid until the course end date, auto-expiring afterward."
+  disclosed_today: "Hospital certificate or discharge summary naming the disease and treatment plan, often photocopied and kept in the school file indefinitely."
+  issuer: "Treating hospital"
+  why_zk: "The school needs a category and an end date, not that a child has cancer or a worker has a particular condition. Expiry removes the problem of a stale record being kept after recovery and then used for other purposes. Weakness: a coded accommodation category needs to be agreed between hospitals and schools, and teachers often want a conversation with the family, so the proof may not replace it."
+  inspired_by:
+    - seed_id: an-a-nist-dp
+      borrowed_aspect: "Express the leak as a bounded, checkable quantity: here the verifier learns only a category and expiry, and nothing else can be inferred."
+    - seed_id: tw-gov-id-number-reissue-misuse-2025
+      borrowed_aspect: "A stable identifier that outlives its context keeps working for others, so the proof must expire and not be tied to a permanent number."

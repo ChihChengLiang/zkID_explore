@@ -3,7 +3,7 @@ import sys, pathlib, datetime, urllib.request, yaml
 
 root = pathlib.Path(__file__).resolve().parent.parent
 write = "--write" in sys.argv
-for f in sorted((root / "seeds").glob("*.yaml")):
+for f in sorted((root / "sources").glob("*.yaml")):
     seeds = yaml.safe_load(f.read_text())
     for s in seeds:
         req = urllib.request.Request(s["url"], headers={"User-Agent": "zkid-explore/0.1"})

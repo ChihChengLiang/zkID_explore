@@ -1,0 +1,153 @@
+[
+ {
+  "review_id": "b05-0",
+  "title": "Contract cleaner or security guard proves current on-duty authorization at a building gate",
+  "moment": "A building management office or gated community in Taiwan lets outsourced staff (cleaning, security, delivery of company goods) enter when their employer vouches they are currently on its roster, and today collects an ID copy and writes down the national ID number in a paper visitor log.",
+  "verifier": "Building management committee or reception desk",
+  "predicate": "Holder is on the active roster of a named contractor employer as of now",
+  "disclosed_today": "National ID card photocopy or recorded ID number, full name, phone number, plus a paper letter from the contractor",
+  "issuer": "The contracting employer, signing a short-lived roster-membership credential and revoking it when the worker leaves",
+  "why_zk": "The building needs only \"this person is currently sent by this company\", but keeps ID numbers in logbooks that are easily leaked. Revocation matters because ex-employees keep old letters. Weakness is that the verifier often also wants to know the individual's name for accountability, so the unlinkable version may conflict with building security rules.",
+  "claimed_borrowings": []
+ },
+ {
+  "review_id": "b05-1",
+  "title": "Sick-leave validity window for a school or exam make-up without the diagnosis",
+  "moment": "A parent in Taiwan asks a school to excuse a child's absence from a midterm or a school trip, or a university student asks for a make-up exam after illness. The school asks for the diagnosis certificate (診斷證明書) to be photocopied or photographed and sent over LINE or the school portal.",
+  "verifier": "School administrative office or university registrar",
+  "predicate": "A hospital physician attests that the holder was medically unfit to attend school or sit exams between date A and date B. The proof is valid only for that window and reveals no diagnosis, department or treatment.",
+  "disclosed_today": "Full diagnosis certificate showing the diagnosis, the ICD wording, the physician, the department, the full name and the national ID number. It is often kept in the student file or sent through a class group chat.",
+  "issuer": "Treating hospital, via its physician-signed certificate system",
+  "why_zk": "A school needs only that the absence was medically justified on specific days. A time-bounded, selectively disclosed attestation does this, and it also removes the temptation to forge or edit a scanned certificate. It is weaker where school regulations explicitly ask for the diagnosis, for example for infectious diseases that trigger class suspension rules. In those cases the diagnosis may be legally required, so the proof would need a separate disclosed field.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The idea that release should be limited to what the stated purpose needs, here made checkable by a proof instead of left to the holder's judgment.",
+    "source_excerpt": "A holder of sensitive records must release only the subset that serves a stated purpose, but the rule leaves it to the holder to judge what is minimal and gives no mechanism that proves the released subset was minimal. | mechanism: Purpose-based minimum-necessary rule with reasonable-efforts standard, role-based access and reasonable reliance on requester representations (45 CFR 164.514(d)); no cryptographic or proof-based check."
+   },
+   {
+    "borrowed_aspect": "The pattern of proving one yes/no fact without revealing the underlying record and without letting the issuer track where it is used.",
+    "source_excerpt": "A gatekeeper needs one yes/no fact about a holder, and the proof it receives must not reveal the underlying birth date or let the issuer or the gatekeeper track the holder. | mechanism: Zero-knowledge proof on ISO 18013-7 mdocs for an over-18 statement, device-bound transactions, no server-side storage of credential data."
+   }
+  ]
+ },
+ {
+  "review_id": "b05-2",
+  "title": "Landlord checks six months of rent payments without seeing the bank statement",
+  "moment": "A tenant renewing or applying for a rental in Taipei or Taichung is asked by the landlord or agent to photograph passbook pages or send bank statements to prove they have always paid rent on time.",
+  "verifier": "Landlord or rental agency",
+  "predicate": "Count of monthly outgoing transfers of at least the rent amount to the same payee in the last 6 months is 6, with no more than 0 returned or failed transfers.",
+  "disclosed_today": "Full statements or passbook pages showing every transaction, balances, employer name, medical or religious payees, and family transfers.",
+  "issuer": "Tenant's bank (bank signs the count over its own transaction ledger)",
+  "why_zk": "The bank already holds the ledger and can sign a count with the rule stated. Weakness is that the landlord cannot tell whether the tenant paid from several accounts, and cash or other-bank rent is invisible, so the proof covers only one bank. The tenant can choose which account to prove, which biases the result. Landlord practice in Taiwan also leans on guarantors and deposits, so the proof only replaces the statement, not the deposit.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "Limit what is released to what the stated purpose needs, here a payment-regularity count, but with a proof instead of the holder's judgment.",
+    "source_excerpt": "A holder of sensitive records must release only the subset that serves a stated purpose, but the rule leaves it to the holder to judge what is minimal and gives no mechanism that proves the released subset was minimal. | mechanism: Purpose-based minimum-necessary rule with reasonable-efforts standard, role-based access and reasonable reliance on requester representations (45 CFR 164.514(d)); no cryptographic or proof-based check."
+   },
+   {
+    "borrowed_aspect": "Strip the identifying fields (payees, amounts, other counterparties) and keep only the derived figure.",
+    "source_excerpt": "A party wants to share a record set that cannot identify any person, but the test is a checklist of removable fields plus a no-actual-knowledge condition, so the holder must still judge whether leftover fields re-identify someone. | mechanism: Safe Harbor method removing 18 enumerated identifiers (with ZIP-code truncation rule and age aggregation), or an expert-determination alternative; re-identification codes allowed only if not derived from or disclosed about the individual."
+   }
+  ]
+ },
+ {
+  "review_id": "b05-3",
+  "title": "Anonymous eligibility for community solar or energy-saving appliance rebate lottery",
+  "moment": "A resident enters a local government rebate draw for efficient appliances or a rooftop solar subsidy that is reserved for households on the utility's subsidised or demand-response enrolled roll, and is asked to upload a bill so officials can check enrolment and de-duplicate entries.",
+  "verifier": "City government bureau running the rebate draw",
+  "predicate": "The entrant's account is a member of the enrolled subsidy roll and has not already entered (membership plus a single-use token), with no address or usage revealed.",
+  "disclosed_today": "Bill image with name, address, account number and monthly kWh, stored by the contractor handling the application.",
+  "issuer": "Taipower, signing enrolment membership of its subsidy or demand-response roll",
+  "why_zk": "Eligibility and one-entry-per-household can be separated, so the city confirms enrolment and prevents duplicates without learning the address or consumption, much like checking eligibility apart from the ballot. Weakness is that the city usually does need a delivery or installation address after winning, so the proof only protects the entry stage, and a small roll limits the anonymity set.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "Checking eligibility separately from the entry so identity is not attached to the draw record.",
+    "source_excerpt": "A voter must prove eligibility and cast a valid choice while the record of that choice cannot be linked back to them, but the same process must still let officials verify who voted, so the separation depends on procedure rather than on a proof. | mechanism: Separate voting compartments and two-envelope sealing for postal and absentee ballots so identity is not attached to the vote at counting; eligibility is checked separately from the ballot."
+   },
+   {
+    "borrowed_aspect": "A single-use unlinkable token that stops double entries without tracking the household.",
+    "source_excerpt": "A verifier only needs to learn that the holder passed an earlier check, but the proof it receives can be matched to the issuance event and to every other use of the same proof. | mechanism: Clients present unlinkable proofs that attest to a prior authorisation, so the origin cannot link redemption to issuance or to other redemptions."
+   }
+  ]
+ },
+ {
+  "review_id": "b05-4",
+  "title": "Linking a university research-participant record to a hospital clinical-trial enrolment",
+  "moment": "A university hospital-affiliated lab recruits a graduate student or staff member for a paid study that requires both a university-signed role claim (for example, enrolled in a health-science program) and a separate hospital or health-agency issued eligibility claim, and the study office wants to be sure both refer to the same person.",
+  "verifier": "University institutional review board office or the clinical-trial coordinator",
+  "predicate": "The university-signed claim and the claim from the second issuer (hospital or health insurance) belong to the same holder, shown without revealing the national ID number or health insurance number to the study office.",
+  "disclosed_today": "Full name, national ID number, student number, health insurance card details and sometimes a scanned copy of both documents, stored in the study consent file.",
+  "issuer": "University (program enrolment) cross-matched with a hospital or health insurance issuer.",
+  "why_zk": "Study files that hold ID numbers beside health information create a re-identification risk the IRB would rather avoid, in the spirit of de-identification checklists. A cross-source match lets the coordinator confirm eligibility from two unrelated issuers without ever holding the identifier that joins them. Honest weakness is that consent forms legally require a signature and often a real name, so the study can rarely drop identification entirely; this only removes the ID number and insurance number.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The list-of-identifiers-removed approach, applied by keeping the linking identifier out of the verifier's hands while still allowing a join.",
+    "source_excerpt": "A party wants to share a record set that cannot identify any person, but the test is a checklist of removable fields plus a no-actual-knowledge condition, so the holder must still judge whether leftover fields re-identify someone. | mechanism: Safe Harbor method removing 18 enumerated identifiers (with ZIP-code truncation rule and age aggregation), or an expert-determination alternative; re-identification codes allowed only if not derived from or disclosed about the individual."
+   },
+   {
+    "borrowed_aspect": "The problem that a holder exposes the whole card at the moment of checking, so a field-limit rule alone does not stop over-collection.",
+    "source_excerpt": "A venue must confirm that a person is over a threshold age from an identity document, but scanning captures the whole card, so the rule caps what is kept to a few fields and bans secondary use, while the holder still sees everything on the card at the moment of the scan. | mechanism: Statutory field-limit and retention ban on scan data, with a prohibition on sale or marketing dissemination; no proof-of-age mechanism that avoids reading the document."
+   }
+  ]
+ },
+ {
+  "review_id": "b05-5",
+  "title": "Game or app account level for a community tournament entry",
+  "moment": "A local esports or board-game-app tournament in Taiwan limits entry to players above a ranking or account level, to stop smurf accounts, and today asks players to hand over account login or screen-share the profile.",
+  "verifier": "Tournament organizer or community Discord moderator",
+  "predicate": "In-game ranked tier >= Diamond (or rating >= 2400) and account age >= 1 year",
+  "disclosed_today": "Account name and login or full screen-share, often including linked email, purchase history, friends list, and real name on the profile",
+  "issuer": "The game publisher's player profile API, attested through a zkTLS proof of the logged-in profile response",
+  "why_zk": "Handing over credentials or screen-sharing exposes far more than a rank threshold, and the organizer then sees friends and purchases. A threshold proof shows the rank without the account identity. Weakness: this is low stakes and informal, so organizers may not care enough to adopt it, and without a binding to the entry identity, a player could borrow a stronger friend's session; the proof must be tied to a handle the organizer already holds.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "A service learning only what is needed about a person's activity without a readable record of everything they use, as applied to an account profile versus a rank threshold.",
+    "source_excerpt": "A service provider must keep a record of who used what without that record becoming a readable log of a person's interests, but the duty is a recommended policy that depends on each institution adopting it and on courts or subpoenas being resisted. | mechanism: Institutional confidentiality policy plus procedures for handling subpoenas and law-enforcement requests; no technical minimization of records is specified."
+   },
+   {
+    "borrowed_aspect": "Admitting a person to a role while the wider group does not learn who they are, with the default flipped so that the identity is not published.",
+    "source_excerpt": "Someone must be drawn from a pool and seated for a task without the wider public learning who they are, but the default rule can flip to full publication of the identities of everyone selected, with confidentiality only as a judge-level exception. | mechanism: Judge-discretionary confidentiality of juror names under a court's jury selection plan; no technical mechanism specified."
+   }
+  ]
+ },
+ {
+  "review_id": "b05-6",
+  "title": "Library or lab-resource borrowing across two institutions",
+  "moment": "A graduate student from one university wants to borrow materials or book lab equipment at a different institution's library or shared research facility under a reciprocal-access agreement, and the host must confirm the borrower is a current member of the home university and the same person who holds the host's own visitor registration.",
+  "verifier": "Host institution's library desk or shared-instrument facility.",
+  "predicate": "The home university's signed membership claim and the host's visitor account (issued by the host) belong to the same person, with no identifier shown to the host and no record of what the person borrowed linked to a national ID.",
+  "disclosed_today": "Student card, national ID number or passport number for registering a visitor account, and a lending record tied to that identity.",
+  "issuer": "Home university (membership or enrolment), matched against the host institution's own visitor credential.",
+  "why_zk": "The host needs to know that a member of a partner university is the one borrowing, not who the person is across all their activity, and a match proof keeps the lending log from becoming a readable record of a person's reading interests. Reasonably strong because libraries already treat borrowing records as sensitive, but the host's visitor account is its own issuer so both credentials are in practice institution-controlled, which limits the independence of the two sources.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The goal of keeping a record of who used what without it becoming a readable log of a person's interests.",
+    "source_excerpt": "A service provider must keep a record of who used what without that record becoming a readable log of a person's interests, but the duty is a recommended policy that depends on each institution adopting it and on courts or subpoenas being resisted. | mechanism: Institutional confidentiality policy plus procedures for handling subpoenas and law-enforcement requests; no technical minimization of records is specified."
+   },
+   {
+    "borrowed_aspect": "The framing of seating someone for a task without the wider public learning who they are, with confidentiality being a technical default rather than a discretionary exception.",
+    "source_excerpt": "Someone must be drawn from a pool and seated for a task without the wider public learning who they are, but the default rule can flip to full publication of the identities of everyone selected, with confidentiality only as a judge-level exception. | mechanism: Judge-discretionary confidentiality of juror names under a court's jury selection plan; no technical mechanism specified."
+   }
+  ]
+ },
+ {
+  "review_id": "b05-7",
+  "title": "Current-employee check for a sealed corporate-purchase or tender-staff conflict declaration",
+  "moment": "A procurement officer at a public body or large firm needs evidence that a bidder's named evaluator or subcontract signer is currently employed by the bidding company, without receiving the employee's personnel record, before a tender opening.",
+  "verifier": "Procurement or tender-opening officer",
+  "predicate": "Employer signed, bound to the tender's opening date, that the holder is a current employee in a role authorised to sign; the signature is fresh as of the submission cut-off and can be revoked if the person leaves before opening.",
+  "disclosed_today": "Company letter with seal (公司大小章), authorisation letter, copy of the signer's ID card and sometimes labor insurance record, enclosed with the sealed bid.",
+  "issuer": "Employer (company authorised signatory) issuing a status credential.",
+  "why_zk": "The officer needs only \"this signer is currently authorised by this employer\", yet receives a pile of personal documents that stay in a tender file for years. Freshness tied to the opening moment replaces a letter that could be stale. Weakness: Taiwan procurement rules generally require identified signers and seals, and the bid file must be auditable, so the signer cannot realistically be anonymous; the gain is limited to dropping ID copies and insurance records.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The fixed-moment structure, where the claim must hold at submission and opening while identifying wrappers are handled without exposing content.",
+    "source_excerpt": "A party submits a value that must stay hidden from competitors until a fixed moment, while the holder of the submissions must be able to prove later that none were seen early and must handle identifying wrappers without exposing the content. | mechanism: Physical and access-control safeguarding of sealed bids with designated-official exception for envelope identification, plus a written record of any mistaken early opening."
+   },
+   {
+    "borrowed_aspect": "The pattern of a verifier examining identity documents with unspecified retention, which the status proof would replace.",
+    "source_excerpt": "A bank must verify who a person is before opening an account, which means examining identity documents, but the cited rule does not say whether copies are kept or for how long. | mechanism: Dual identity-document inspection at account opening; retention and copy handling not specified in the cited text."
+   }
+  ]
+ }
+]

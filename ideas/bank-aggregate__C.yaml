@@ -1,0 +1,36 @@
+- title: Landlord checks rent-payment regularity without seeing the tenant's bank statement
+  moment: A tenant applying for a rental in Taipei is asked by the landlord or agent to send photos of 6 to 12 months of passbook or e-banking statements to show they pay rent on time and have a steady balance.
+  verifier: Private landlord or rental agency (房仲)
+  predicate: In each of the last 12 months, the account made a recurring transfer of at least NT$X to a rent-like payee on or before the due date, and the month-end balance never fell below one month's rent.
+  disclosed_today: Full statements showing every transaction, counterparties, merchants, medical or family payments, salary source, and account number.
+  issuer: The tenant's bank, signing a payment-regularity and minimum-balance aggregate over the account's transactions.
+  why_zk: The landlord needs only a yes/no on regularity and buffer, and a bank-signed aggregate proves it without the transaction list. Weakness: there is no standard for such a bank attestation today, and private landlords may not accept anything but the familiar statement photos. The tenant may also rent from several accounts, so the claim covers only one account.
+  inspired_by:
+    - seed_id: tw-platform-gym-id-card-copies-interp
+      borrowed_aspect: The pattern of a private party asking for full copies of documents when a narrow fact would do, with no less-intrusive alternative named.
+    - seed_id: tw-platform-google-id-upload-complaint
+      borrowed_aspect: A payment-related check that escalates into collecting extra personal documents beyond what the purpose needs.
+- title: Night-market stall applies for a platform seller badge with a turnover band, not account history
+  moment: A small food or goods vendor applying to sell through a delivery or e-commerce platform in Taiwan is asked to upload bank statements to show monthly receipts, so the platform can set a deposit or credit limit.
+  verifier: Delivery or e-commerce platform's merchant onboarding team
+  predicate: Total incoming deposits across the vendor's business accounts over the last 6 months fall in a stated band (for example NT$100,000 to NT$300,000 per month), and no month is more than 30 percent below the average.
+  disclosed_today: Complete statements for personal and business accounts, including customer names on transfers, private spending, and family transfers, often mixed in the same account.
+  issuer: The vendor's bank (including a credit cooperative or farmers' and fishermen's association bank), signing a turnover-band aggregate.
+  why_zk: The platform needs a turnover band to set a limit, not the customer-level detail. The bank can sign the band over all the vendor's accounts at that bank. Weakness: many stall owners mix cash and informal transfers, so bank deposits understate real turnover and the band may be unfairly low. Banks would also have to build and support the attestation product.
+  inspired_by:
+    - seed_id: tw-platform-google-id-upload-complaint
+      borrowed_aspect: Demanding extra records from a user whose payments are already normal, without stating necessity.
+    - seed_id: tw-pdpa-art11-3-deletion-exception
+      borrowed_aspect: Concern that data collected for onboarding gets retained under an open-ended business-need exception, which pushes towards proving a band instead of handing over records.
+- title: Overseas-study sponsor shows enough funds without handing a school the family's whole account history
+  moment: A Taiwanese family applying for a student visa or university admission abroad must show a parent's bank statements proving funds for tuition and living costs for the first year, and the parent sends months of statements to a foreign admissions office or visa agent.
+  verifier: Foreign university admissions office, embassy, or study-abroad agency in Taiwan
+  predicate: The sponsor's combined balance across the bank's accounts has stayed at or above the required amount (for example NT$1,000,000) for each of the last 90 days.
+  disclosed_today: Full statements and sometimes a copy of the national ID, revealing the family's spending, other relatives' transfers, employer, and exact balances well above the threshold.
+  issuer: The sponsor's bank, signing a minimum-balance-over-period aggregate across the sponsor's accounts at that bank.
+  why_zk: Only a threshold held over a period matters, and the exact balance and history stay hidden. A bank-signed aggregate also helps against doctored statements. Weakness: foreign institutions set their own formats and will rarely accept a Taiwan wallet proof, so uptake depends on the receiving side, and an agent in the middle often insists on seeing paper statements.
+  inspired_by:
+    - seed_id: tw-securities-foreign-agent-id-copy
+      borrowed_aspect: A cross-border intermediary requiring full ID or document copies with no lighter alternative stated.
+    - seed_id: tw-platform-gym-id-card-copies-interp
+      borrowed_aspect: Bundles of identity and financial document copies requested when a narrower check could satisfy the purpose.

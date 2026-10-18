@@ -1,0 +1,38 @@
+- title: Taipower subsidy-roll proof for a low-income solar rooftop co-op deposit waiver
+  moment: A household applies to join a community rooftop-solar or energy-saving appliance trade-in scheme run by a township office or NGO, which offers a reduced deposit or free installation to households on a subsidised electricity roll. The counter asks for a recent Taipower bill photocopy to confirm the discount.
+  verifier: Township office or NGO running the energy-efficiency program
+  predicate: This account is a member of the Taipower low-income or vulnerable-household discount roll (set membership, current period)
+  disclosed_today: Full electricity bill copy showing the service address, account number, monthly kWh usage, billing amounts, and the household name
+  issuer: Taipower (or the Taipower subsidy roll maintainer, co-signing with the social affairs bureau list)
+  why_zk: The bill reveals home address and occupancy patterns (usage tells when no one is home), while the scheme only needs yes or no on roll membership. Weakness: the roll is derived from social-welfare status held by local governments, so Taipower may not be the natural signer, and rolls change by period, so freshness and revocation need care. It also needs a nullifier so one account cannot claim twice.
+  inspired_by:
+    - seed_id: tw-pdpa-art5-purpose-limit
+      borrowed_aspect: The idea that collecting a whole bill exceeds the necessary scope of the stated purpose, so the proof should carry only the membership bit.
+    - seed_id: rd-twdiw-field-selection-consent
+      borrowed_aspect: Choosing what to release at presentation time, here tightened from field selection to a single membership predicate.
+
+- title: Landlord-free proof that a rented unit is on the residential-rate roll for a tenant subsidy
+  moment: A tenant applies for a municipal rent subsidy or a student housing grant that requires the unit to be billed at the residential rate (not commercial or illegal sub-divided rates). The office asks for water and electricity bills, which expose the landlord's account, the tenant's name, and the exact unit.
+  verifier: City housing bureau or university housing office
+  predicate: The tenant's utility account is a member of the set of accounts on the residential tariff class at an eligible metering configuration (individual meter, not shared)
+  disclosed_today: Water and electricity bills with full address, landlord or account-holder name, usage, and sometimes unrelated charges
+  issuer: Taipower and Taiwan Water Corporation (each signs its own roll membership)
+  why_zk: The office needs only that the unit has its own residential-rate meter, a classic landlord-evasion check, yet collects documents that reveal address and consumption. Honest weakness: the account may be in the landlord's name, so the tenant cannot always obtain a credential, and the office still needs the address to administer the subsidy, so membership alone may not replace address disclosure in the end.
+  inspired_by:
+    - seed_id: tw-pdpa-art11-3-deletion-exception
+      borrowed_aspect: The worry that collected bills are kept under an open-ended exception for the office's own duties, which a proof leaving nothing to retain avoids.
+    - seed_id: an-b-witness-protection
+      borrowed_aspect: Showing an attribute about a place without revealing the underlying true address, with the holder keeping a lawful-disclosure path for audits.
+
+- title: Disaster-relief priority for households on the medical-equipment power-dependent roll
+  moment: During a typhoon outage or planned rolling blackout, a household that depends on home ventilators or oxygen concentrators wants priority for restoration or a generator loan from the local fire or health station. Staff ask people to send the address, a medical certificate, and electricity bill by chat or phone.
+  verifier: District fire department or public health center distributing priority generators
+  predicate: The account is a member of Taipower's registered power-dependent medical-use customer roll
+  disclosed_today: Address, diagnosis or medical certificate, bill, and sometimes a photo of the device
+  issuer: Taipower (maintains the priority-restoration list for medical-equipment households)
+  why_zk: The responder only needs to know that the household is on the priority roll; diagnosis and usage are sensitive health data that spread across chat groups during emergencies. Weakness: in an emergency the responder usually needs the location to dispatch, so the proof can gate eligibility but cannot replace address sharing, and mobile coverage and wallet access fail during outages. Use it for pre-registration and fair queueing, not dispatch.
+  inspired_by:
+    - seed_id: an-b-sealed-bid-far
+      borrowed_aspect: Handling an identifying wrapper (the account) without exposing the content, with a designated-official exception when disclosure is truly needed.
+    - seed_id: tw-securities-foreign-agent-id-copy
+      borrowed_aspect: The failure pattern of demanding a full document copy when no less-intrusive alternative is offered.

@@ -1,0 +1,24 @@
+- title: One Lunar New Year red-envelope or limited-edition drop claim per person on a Taiwanese convenience-store app
+  moment: A convenience-store or delivery app in Taiwan releases a limited batch of free coffee coupons or a collectible item at a set hour, and people create many throwaway accounts with prepaid SIM numbers to grab several.
+  verifier: A convenience-store chain loyalty app operator running a limited-quantity promotion.
+  predicate: The claimant holds exactly one active, real-name-registered mobile subscription, and this promotion-specific nullifier has not been used before.
+  disclosed_today: Mobile phone number (verified by SMS OTP), often name, birthday, email, and device ID; the phone number itself links the account to a person across every other service.
+  issuer: A Taiwanese mobile carrier (real-name SIM registration holder).
+  why_zk: A telco-signed one-subscriber credential with a per-campaign nullifier lets the operator enforce one claim per person without receiving the phone number. Honest caveat: real-name SIM registration allows one person to hold several lines, so uniqueness would be per-line unless the telco attests one credential per national ID; prepaid and corporate lines weaken it further. Operators also like the phone number for marketing, so the incentive to adopt is weak.
+  inspired_by: []
+- title: One vote per person in an apartment-building or community management committee online poll
+  moment: A Taiwanese residential community (a building management committee) runs an online poll for a repair fund or rule change, and needs one ballot per resident household member without exposing who voted how.
+  verifier: The community management committee (or its property management company) running a LINE or web voting tool.
+  predicate: The voter is one unique real subscriber, and the ballot nullifier is unique for this poll.
+  disclosed_today: Name, unit number, phone number, and often a LINE ID, all tied to the ballot or at least visible to the administrator.
+  issuer: A Taiwanese mobile carrier.
+  why_zk: A uniqueness proof prevents double voting and sock puppets while the committee never learns which phone owner cast which vote. Honest caveat: a telco credential proves one subscriber, not that the person lives in the building, so residence must come from a separate credential (for example a household registration or property owner credential), and Taiwan's condominium law has its own ownership-weighted voting rules that a simple one-person-one-vote proof does not satisfy.
+  inspired_by: []
+- title: One free-trial or student-discount sign-up per person on an online learning or streaming service
+  moment: A Taiwanese online course platform or video streaming service offers a one-time free trial or first-month discount, and abusers re-register with new emails and bought SMS numbers to get repeated trials.
+  verifier: A subscription streaming or e-learning platform operating in Taiwan.
+  predicate: The signer is one unique real telco subscriber, with a trial-specific nullifier not seen before.
+  disclosed_today: Mobile phone number, email, sometimes a credit card number for the trial, and device fingerprints, which together identify the person for later marketing and cross-service tracking.
+  issuer: A Taiwanese mobile carrier.
+  why_zk: The platform only needs to know this person has not used the trial before, not who they are, yet today it keeps phone number and card details. A telco uniqueness proof with a per-service nullifier removes the need to hold the phone number. Honest caveat: platforms typically want a payment instrument anyway for conversion, so the data saved is smaller than it seems, and one person with multiple lines (including foreign or corporate ones) can still obtain multiple credentials unless the telco binds issuance to a single national ID.
+  inspired_by: []

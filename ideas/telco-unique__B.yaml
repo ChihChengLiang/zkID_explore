@@ -1,0 +1,38 @@
+- title: One-per-person limited-edition drop and sneaker or concert pre-sale queues
+  moment: A Taiwanese buyer tries to claim a limited sale (a console restock, a convenience-store collab figurine, a concert pre-sale) where each person may buy only one, and scalpers use many accounts.
+  verifier: Online retailer or ticketing platform running a limited release.
+  predicate: This account is bound to a distinct, currently active real-name mobile subscriber, and no other account on this platform (for this drop) was bound to the same subscriber.
+  disclosed_today: Mobile number plus SMS OTP, often also national ID number, full name, birthday, and sometimes a photo of the ID, all kept in the platform's database.
+  issuer: A Taiwanese mobile carrier (real-name registered subscriber under NCC rules).
+  why_zk: The platform needs only a per-drop pseudonym that repeats if the same subscriber tries twice, not the phone number or ID. Weakness: one person can hold several lines, and prepaid or corporate lines blur the one-person link, so this limits scalpers rather than eliminating them. Carriers must also agree to sign, and today's SMS OTP already works well enough that few platforms feel pressure to change.
+  inspired_by:
+    - seed_id: tw-gov-uid-duplicate-minimal-disclosure
+      borrowed_aspect: The answer is narrowed to "is this a duplicate or not" rather than revealing the identifying number itself.
+    - seed_id: an-a-privacy-pass
+      borrowed_aspect: A token the verifier accepts without being able to link it back to the issuance event or to the person's other uses.
+
+- title: Neighbourhood group-buy and community app one-vote-per-household style polls
+  moment: A residents' community app or LINE-based building management committee runs a poll or a subsidised bulk-purchase (for example a shared water-purifier contract) where each member may take part once, and joining currently means giving a phone number and name to the organiser.
+  verifier: Building management committee or community group-buy organiser.
+  predicate: This participant is one real subscriber and has not already responded in this poll, without revealing the number.
+  disclosed_today: Name, unit number, mobile number, and often a LINE ID, shared with whoever administers the group, and visible to other volunteers.
+  issuer: A Taiwanese mobile carrier.
+  why_zk: Limiting to one response per person needs only a uniqueness tag, not a phone book that volunteers can misuse. Weakness: a carrier subscriber is not a household resident, so this proves one-per-person but not that the person lives in the building. Eligibility must still be checked by a separate step, as in a separate-eligibility-from-ballot procedure, so the telco proof only covers the duplicate-suppression half. Management committees are unlikely to adopt this without a ready-made app.
+  inspired_by:
+    - seed_id: an-b-secret-ballot-moad
+      borrowed_aspect: Eligibility is checked separately from the cast response, so the uniqueness proof handles only duplicates and not identity.
+    - seed_id: an-a-chaum-blind
+      borrowed_aspect: The signer certifies the participant without seeing what they later do with the credential.
+
+- title: One free trial or new-user coupon per person on food delivery and ride apps
+  moment: A person opens a food-delivery, scooter-share, or streaming app and wants the first-order coupon or free trial, which the app restricts to new users, so people create repeat accounts with spare numbers and the app asks for ever more data to stop it.
+  verifier: Food-delivery, bike or scooter share, or subscription app.
+  predicate: This is the first account created on this service by a real subscriber, shown as a service-specific pseudonym, with no phone number or ID revealed.
+  disclosed_today: Mobile number with OTP, sometimes email, device ID, payment card, and in some scooter-sharing services a driver licence photo and selfie.
+  issuer: A Taiwanese mobile carrier.
+  why_zk: The coupon rule needs only that this subscriber has not claimed before. A service-scoped pseudonym gives that without letting the app build a cross-service profile through the phone number. Weakness: the telco learns nothing new only if issuance is blinded, but carriers have little business reason to sign for free-trial abuse, recycled numbers can be re-issued to new people, and fraudsters can buy extra prepaid SIMs, so the protection is partial. Existing telco rules requiring a live photo at SIM sale show the opposite pull toward collecting more, not less.
+  inspired_by:
+    - seed_id: privacy-pass-unlinkable-proof
+      borrowed_aspect: The proof attests that a check already happened without acting as a persistent identifier across services.
+    - seed_id: tw-telco-sim-live-photo-retention
+      borrowed_aspect: The over-collection at SIM registration shows why the telco's existing identity check should be reused as a signed claim instead of repeating photo capture elsewhere.

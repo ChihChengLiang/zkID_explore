@@ -1,0 +1,326 @@
+- id: rd-aepd-hotel-no-id-copy
+  problem: Hotels must register guests' identity data under the hospitality registration decree; the regulator
+    says that duty does not authorise photocopying the whole ID document.
+  abstract_problem: A registrant must prove a small set of facts to a host, but the host asks for a full
+    copy of the identity document, which carries many extra fields the rule never needed.
+  mechanism: Inspect the identity document in person and record only the fields the registration rule
+    requires; no copy retained.
+  mechanism_outcome: partial
+  domain: data-protection-law
+  distance_class: adjacent
+  source:
+    type: enforcement-decision
+    title: 'AEPD press note: copying DNI or passport at accommodation not permitted'
+    url: https://www.aepd.es/prensa-y-comunicacion/notas-de-prensa/aepd-informa-de-que-no-esta-permitido-solicitar-copia-dni-o-pasaporte-en-hospedajes
+    locator: Press note, 17 June 2025
+    jurisdiction: ES
+    lang: es
+    retrieved_on: '2026-10-18'
+  evidence:
+    quote: esto vulneraría el principio de minimización de datos y supondría un tratamiento excesivo
+    quote_verified: true
+    snapshot: snapshots/rd-aepd-hospedajes-copia-dni.txt
+  axes:
+    issuer_type:
+    - government
+    predicate_type:
+    - membership
+    regime:
+    - gdpr
+    harm:
+    - breach
+  extraction:
+    agent: reg-deploy
+    date: '2026-10-18'
+  status: draft
+- id: rd-cnpd-lu-tourist-inspect-not-copy
+  problem: Tourist accommodation operators in Luxembourg ask to see guests' identity documents and some
+    make copies; the regulator reminds them that inspection is allowed and copying is not.
+  abstract_problem: A host must confirm a visitor's identity and eligibility, but the usual practice is
+    to keep a copy of the whole identity document; the regulator says looking at it is enough.
+  mechanism: Visual inspection of the identity document with no copy taken; the statutory duty is met
+    by checking, not retaining.
+  mechanism_outcome: works
+  domain: data-protection-law
+  distance_class: adjacent
+  source:
+    type: enforcement-decision
+    title: 'CNPD reminder for operators of tourist accommodation: copies of identification documents'
+    url: https://cnpd.public.lu/en/actualites/national/2026/06/copies-documents-identite-touristes.html
+    locator: News item dated 28/05/2026
+    jurisdiction: LU
+    lang: en
+    retrieved_on: '2026-10-18'
+  evidence:
+    quote: they may inspect their customers’ identity documents but must not under any circumstances make
+      a copy of them
+    quote_verified: true
+    snapshot: snapshots/rd-cnpd-lu-copies-id-tourists.txt
+  axes:
+    issuer_type:
+    - government
+    predicate_type:
+    - membership
+    regime:
+    - gdpr
+    harm:
+    - breach
+    - profiling
+  extraction:
+    agent: reg-deploy
+    date: '2026-10-18'
+  status: draft
+- id: rd-eudi-wallet-selective-disclosure-recital
+  problem: EU law requires the Digital Identity Wallet to let users disclose only some attributes, so
+    relying parties can get what the service needs and no more.
+  abstract_problem: A verifier needs one attribute from a larger identity record, but the holder cannot
+    share just that attribute from the record.
+  mechanism: Selective disclosure of attributes from electronic attestations held in the EU Digital Identity
+    Wallet.
+  mechanism_outcome: partial
+  domain: zkid
+  distance_class: adjacent
+  source:
+    type: regulation
+    title: Regulation (EU) 2024/1183 (eIDAS 2.0), recitals
+    url: https://eur-lex.europa.eu/eli/reg/2024/1183/oj
+    locator: Recital 59
+    jurisdiction: EU
+    lang: en
+    retrieved_on: '2026-10-18'
+  evidence:
+    quote: The European Digital Identity Wallet should technically enable the selective disclosure of
+      attributes to relying parties.
+    quote_verified: true
+    snapshot: snapshots/rd-eidas-reg-2024-1183.txt
+  axes:
+    issuer_type:
+    - government
+    predicate_type:
+    - threshold
+    - membership
+    regime:
+    - gdpr
+    harm:
+    - none-observed
+  extraction:
+    agent: reg-deploy
+    date: '2026-10-18'
+  status: draft
+- id: rd-google-wallet-zkp-age-no-linkage
+  problem: Apps asking for age or identity through Google Wallet's digital ID receive shared data; the
+    vendor says it uses zero-knowledge proofs so a verifier learns only the claim.
+  abstract_problem: A gatekeeper needs one yes/no fact about a holder, and the proof it receives must
+    not reveal the underlying birth date or let the issuer or the gatekeeper track the holder.
+  mechanism: Zero-knowledge proof on ISO 18013-7 mdocs for an over-18 statement, device-bound transactions,
+    no server-side storage of credential data.
+  mechanism_outcome: works
+  domain: mdl
+  distance_class: adjacent
+  source:
+    type: deployment
+    title: 'Google Wallet developer docs: Verify with Google Wallet'
+    url: https://developers.google.com/wallet/identity/verify
+    locator: Privacy-Forward & Zero-Knowledge Proofs section
+    jurisdiction: global
+    lang: en
+    retrieved_on: '2026-10-18'
+  evidence:
+    quote: ZKP ensures that presentations are not identifiable or trackable by the issuer, the relying
+      party, or Google.
+    quote_verified: true
+    snapshot: snapshots/rd-google-wallet-verify.txt
+  axes:
+    issuer_type:
+    - government
+    predicate_type:
+    - threshold
+    - membership
+    regime:
+    - other
+    harm:
+    - profiling
+  extraction:
+    agent: reg-deploy
+    date: '2026-10-18'
+  status: draft
+- id: rd-apple-wallet-age-request-categories
+  problem: Apple's Verify with Wallet API lists the data an app can request for age checks, and the age
+    category also includes the issuing authority and the ID photo.
+  abstract_problem: A verifier wants a single over-threshold fact, but the request category bundles the
+    issuing authority and a face photo with it, so the verifier can receive more than the age claim.
+  mechanism: Age Over N Flag as a separate requestable value under an entitlement-gated API; no shared
+    name or address.
+  mechanism_outcome: partial
+  domain: mdl
+  distance_class: adjacent
+  source:
+    type: deployment
+    title: 'Apple developer: Get started with the Verify with Wallet API'
+    url: https://developer.apple.com/wallet/get-started-with-verify-with-wallet/index.html
+    locator: Data available to request
+    jurisdiction: global
+    lang: en
+    retrieved_on: '2026-10-18'
+  evidence:
+    quote: 'Age verification data: Age Over N Flag Age in Years Issuing Authority ID Photo'
+    quote_verified: true
+    snapshot: snapshots/rd-apple-verify-wallet.txt
+  axes:
+    issuer_type:
+    - government
+    predicate_type:
+    - threshold
+    regime:
+    - other
+    harm:
+    - profiling
+    - exclusion
+  extraction:
+    agent: reg-deploy
+    date: '2026-10-18'
+  status: draft
+- id: rd-twdiw-field-selection-consent
+  problem: Taiwan's Digital Identity Wallet lets users pick which fields to disclose in each scenario,
+    but the official page does not say which fields an age check releases.
+  abstract_problem: A user must prove one eligibility fact to a counter, while the credential holds a
+    whole identity record and the user chooses fields at presentation time with no field-level guarantee.
+  mechanism: Per-scenario field selection after scanning a QR code, confirmed by biometric check, in the
+    TW DIW sandbox.
+  mechanism_outcome: partial
+  domain: zkid
+  distance_class: adjacent
+  source:
+    type: deployment
+    title: 'Ministry of Digital Affairs: TW DIW (Taiwan Digital Identity Wallet)'
+    url: https://moda.gov.tw/en/major-policies/wallet/1695
+    locator: What is the TW DIW / Selective Disclosure
+    jurisdiction: TW
+    lang: en
+    retrieved_on: '2026-10-18'
+  evidence:
+    quote: Users can choose what information they consent to share in different scenarios
+    quote_verified: true
+    snapshot: snapshots/rd-moda-wallet.txt
+  axes:
+    issuer_type:
+    - government
+    predicate_type:
+    - threshold
+    regime:
+    - tw-pdpa
+    harm:
+    - breach
+  extraction:
+    agent: reg-deploy
+    date: '2026-10-18'
+  status: draft
+- id: rd-singpass-myinfo-minimal-request
+  problem: Singpass MyInfo partners retrieve citizen data on consent, and the developer rules tell partners
+    not to over-collect beyond what a single purpose needs.
+  abstract_problem: A service provider needs a few verified fields for one purpose, but the retrieval
+    interface returns a broad profile and the only limit is a policy rule on the partner.
+  mechanism: Consent-gated retrieval of named MyInfo fields, with a rule to request only needed data and
+    purge unsubmitted drafts.
+  mechanism_outcome: partial
+  domain: civil-registry
+  distance_class: adjacent
+  source:
+    type: foreign-portal
+    title: 'Singpass Developer Docs: MyInfo Key Principles'
+    url: https://docs.developer.singpass.gov.sg/docs/products/myinfo/key-principles
+    locator: Requesting for Data
+    jurisdiction: SG
+    lang: en
+    retrieved_on: '2026-10-18'
+  evidence:
+    quote: Do not over-collect data, where this is not required for business purposes or legal reasons.
+    quote_verified: true
+    snapshot: snapshots/rd-singpass-myinfo-principles.txt
+  axes:
+    issuer_type:
+    - government
+    predicate_type:
+    - membership
+    - cross-source-match
+    regime:
+    - other
+    harm:
+    - breach
+  extraction:
+    agent: reg-deploy
+    date: '2026-10-18'
+  status: draft
+- id: rd-korea-mdl-age-check-barcode
+  problem: Korea's digital driver's licence in the PASS app is used for age checks in convenience stores,
+    but the same credential also shows the holder's photo on screen.
+  abstract_problem: A shop must confirm that a buyer is above an age threshold, but the buyer's credential
+    shows the full photo and card details to the cashier, not just the age result.
+  mechanism: QR or barcode scan from the wallet app for age verification at the counter; the age result,
+    not the full card, is the intended output.
+  mechanism_outcome: partial
+  domain: mdl
+  distance_class: adjacent
+  source:
+    type: foreign-portal
+    title: 'SK Telecom newsroom: digital driver''s license in PASS app'
+    url: https://news.sktelecom.com/en/1266
+    locator: Age verification paragraph
+    jurisdiction: KR
+    lang: en
+    retrieved_on: '2026-10-18'
+  evidence:
+    quote: the digital driver’s license can be used to verify age at convenient stores for the purchase
+      of age-limited goods such as alcohol and cigarettes
+    quote_verified: true
+    snapshot: snapshots/rd-sktelecom-mdl.txt
+  axes:
+    issuer_type:
+    - government
+    - telco
+    predicate_type:
+    - threshold
+    regime:
+    - other
+    harm:
+    - exclusion
+    - breach
+  extraction:
+    agent: reg-deploy
+    date: '2026-10-18'
+  status: draft
+- id: rd-swiss-eid-necessary-data-only
+  problem: The Swiss e-ID is described as sharing only the data a transaction needs; the technical overview
+    says selective disclosure and batch issuance enable this.
+  abstract_problem: A business needs one attribute to proceed, but the credential is issued as a whole,
+    so the holder must rely on the wallet to release only the needed attribute.
+  mechanism: SD-JWT VC selective disclosure with OpenID4VP presentation and status-list validity check.
+  mechanism_outcome: partial
+  domain: sd-jwt
+  distance_class: adjacent
+  source:
+    type: deployment
+    title: 'fidentity: Technical architecture of the Swiss e-ID'
+    url: https://fidentity.ch/en/news/technical-architecture-swiss-e-id-how-it-works
+    locator: Introduction and Architecture
+    jurisdiction: CH
+    lang: en
+    retrieved_on: '2026-10-18'
+  evidence:
+    quote: 'The Swiss e-ID introduces a new approach to digital identity: only the necessary data is shared.'
+    quote_verified: true
+    snapshot: snapshots/rd-fidentity-eid-architecture.txt
+  axes:
+    issuer_type:
+    - government
+    predicate_type:
+    - threshold
+    - membership
+    regime:
+    - other
+    harm:
+    - none-observed
+  extraction:
+    agent: reg-deploy
+    date: '2026-10-18'
+  status: draft

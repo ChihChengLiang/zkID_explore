@@ -1,0 +1,26 @@
+- title: Delivery-platform courier rating for a building management committee hire
+  moment: A residential community (社區) in Taipei hires a part-time package-room or night-shift concierge, or lets a gig courier get a building access tag. The management committee wants evidence of reliability.
+  verifier: Community management committee (管理委員會) or its property management company
+  predicate: Lifetime completed deliveries on a delivery platform is at least 500 AND average customer rating is at least 4.7
+  disclosed_today: Screenshots of the courier app profile showing real name, photo, phone number, order history, earnings, and city zones worked
+  issuer: Delivery platform account (Uber Eats / foodpanda courier app), attested via zkTLS over the logged-in session; the platform never agreed to issue credentials
+  why_zk: Screenshots leak earnings and movement patterns, and are trivially faked or edited. A zkTLS threshold proof shows only that the count and rating clear the bar. Weakness: platform terms of service may forbid scraping or proving from the session, ratings are platform-internal and gameable, and the committee may legally prefer a police record certificate for access-sensitive roles.
+  inspired_by: []
+
+- title: Ride-hailing driver tenure for a fleet-lease or insurance quote
+  moment: A Taiwan Taxi (台灣大車隊) or Uber driver applies for a lower-premium commercial auto policy or a leased vehicle from a fleet owner, who wants proof of steady driving history.
+  verifier: Fleet leasing company or commercial auto insurer's agent
+  predicate: Active trips completed in the last 12 months is at least 3000 AND account age is at least 24 months
+  disclosed_today: Full monthly income statements, trip logs with pickup and dropoff addresses, and sometimes the driver's whole app account screenshots
+  issuer: Ride-hailing platform driver account, attested via zkTLS
+  why_zk: Trip logs expose home, workplace, and passenger locations of a person working at night, and income details unrelated to risk. A threshold proof on trips and tenure suffices for pricing. Weakness: insurers price on claims history and traffic violation records from official sources, so platform activity is a supplementary signal at best, and the platform may resist or change its pages.
+  inspired_by: []
+
+- title: Online marketplace seller reputation for a night-market stall or consignment shop slot
+  moment: A Shopee or Ruten seller wants a physical consignment shelf in a Taipei pop-up shop or a booth at a weekend market. The organizer wants to know the seller is real and fulfils orders reliably.
+  verifier: Pop-up market organizer or consignment shop owner
+  predicate: Shopee shop completed orders in the last 6 months is at least 200 AND on-time shipping rate is at least 95 percent
+  disclosed_today: Shop URL plus screenshots of the seller dashboard, which show revenue, buyer names, product margins, and sometimes bank account hints
+  issuer: Shopee seller center account, attested via zkTLS
+  why_zk: The organizer needs only a reliability signal, but the dashboard screenshot reveals sales volume, customer data, and cost structure to a potential competitor on the same market. A threshold proof removes that. Weakness: the shop URL is already public with a visible rating, so the privacy gain is modest, and the seller center's data may be inaccessible to automated proofs under Shopee terms.
+  inspired_by: []

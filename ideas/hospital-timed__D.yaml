@@ -1,0 +1,36 @@
+- title: Fit-to-fly / low-infection-risk window for a cruise or group-tour boarding
+  moment: A traveller boards a cruise ship at Keelung or joins a group tour, and the operator asks for a recent negative test, a vaccination record or a doctor's note showing no infectious illness in the last few days.
+  verifier: Cruise line or tour operator boarding desk
+  predicate: Hospital attests "cleared of notifiable infectious condition" and the attestation is valid only for the 72 hours around departure (valid-from / valid-to window), nothing else.
+  disclosed_today: Full lab report or clinic certificate with name, ID number, diagnosis context, test type, clinic and physician, kept as a photocopy or photo by the operator.
+  issuer: Hospital or its outpatient clinic, signing a short-lived status credential into the digital wallet.
+  why_zk: The operator only needs a yes/no that is true on departure day, and the proof should expire by itself instead of becoming a stored medical file. Weak points to be honest about: operators may be required by quarantine or port rules to keep records, and a hospital would need to issue such a status in real time, which is not standard practice.
+  inspired_by:
+    - seed_id: rd-google-wallet-zkp-age-no-linkage
+      borrowed_aspect: A single yes/no claim proved without revealing the underlying record, with no tracking by issuer or verifier.
+    - seed_id: rd-cnpd-lu-tourist-inspect-not-copy
+      borrowed_aspect: The idea that a host should check a document and not keep a copy of it, applied to travellers' health papers.
+
+- title: Post-surgery or post-procedure "may be left alone / cleared for pickup" window for a ride or care service
+  moment: After day surgery or a colonoscopy under sedation, the patient is collected by a family member, a taxi or a nursing-aide service that asks for the discharge summary to prove the patient is cleared to leave and who is responsible.
+  verifier: Taxi or care-transport dispatcher, home-care agency, or a hotel or recovery guesthouse near the hospital
+  predicate: Hospital signs "discharged in stable condition, may travel or stay unaccompanied after time T" and it is valid only for the next 24 hours.
+  disclosed_today: The whole discharge note, including diagnosis, procedure name, medications and attending doctor, photographed or handed over on paper.
+  issuer: Hospital discharge system issuing a time-limited status.
+  why_zk: The service needs only the clearance and the time window, not the procedure, and a short validity stops the status being reused later. Honest limits: many such services rely on a person's word and have no wallet reader, so adoption incentive is low, and some care agencies legitimately need medication information for safety.
+  inspired_by:
+    - seed_id: privacy-pass-unlinkable-proof
+      borrowed_aspect: A gatekeeper only needs to know that a prior check was passed, without receiving a persistent identifier.
+
+- title: Contagion-free window for a school or childcare return after an illness
+  moment: A child returns to kindergarten or an after-school care centre (afterschool "anqinban") after hand-foot-mouth disease, influenza or another notifiable illness, and staff ask for the doctor's certificate to confirm the child is no longer contagious.
+  verifier: Kindergarten, childcare centre or after-school class
+  predicate: Hospital signs "not contagious from date A", valid for the school term week in which the child returns, and optionally "not contagious through date B" for rolling attendance.
+  disclosed_today: The clinic certificate or medical receipt showing the diagnosis, sometimes the whole medical visit record, which is often photographed by staff and kept in a messaging group.
+  issuer: Hospital or paediatric clinic.
+  why_zk: The centre only needs to know the child may attend within a bounded period, not the diagnosis. Other parents' messaging groups and staff phones are where such records leak today. Honest limits: centres often have a legal duty to report notifiable diseases to health authorities, so some disclosure is legitimate and the proof can only replace the over-collection, not the reporting; parents of young children may have no wallet in place of the child.
+  inspired_by:
+    - seed_id: an-b-ala-library-records
+      borrowed_aspect: A record-keeping duty that relies on each institution's good policy rather than technical limits, which a timed proof would replace with a technical limit.
+    - seed_id: an-b-va-id-scanning
+      borrowed_aspect: The problem that a check ends up capturing the whole document and needs a cap on what is retained.

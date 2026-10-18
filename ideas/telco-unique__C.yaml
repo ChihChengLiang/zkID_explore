@@ -1,0 +1,34 @@
+- title: One ticket-grab account per person for a popular concert presale
+  moment: A Taiwanese ticketing platform opens a presale for a sold-out concert; the organiser wants each fan to hold only one buying account so scalpers cannot run hundreds of accounts, but fans do not want to hand over their ID.
+  verifier: Ticketing platform and concert organiser
+  predicate: This person holds exactly one active mobile subscription, and the proof is bound to this event so the same person cannot register twice for it, while accounts are not linkable across events.
+  disclosed_today: Mobile number with SMS OTP (trivially farmed with prepaid SIMs), or in the strict case a national ID number and a photo of the ID card.
+  issuer: Telco (Chunghwa Telecom, Taiwan Mobile, FarEasTone) that already holds the real-name subscriber record.
+  why_zk: The telco already verified one real person per line at activation, so a per-event nullifier gives one account per person without ID numbers or a phone number reaching the ticketer. Weak points are that one person can legally hold several lines, so the telco must sign a per-person (not per-line) uniqueness claim, which needs a stable internal person key; and that pushing the telco into the verification path creates a new central dependency and some telco visibility into participation unless the proof is issued in advance.
+  inspired_by:
+    - seed_id: tw-securities-foreign-agent-id-copy
+      borrowed_aspect: The pattern of a verifier demanding a full ID copy where only proof of one real identified person is needed.
+    - seed_id: an-b-sealed-bid-far
+      borrowed_aspect: The idea that a submission must be bound to a fixed event and window, mapped to an event-scoped nullifier.
+- title: One free-trial or sign-up bonus per person for a delivery app promotion
+  moment: A Taiwanese food-delivery or e-commerce app gives a new-user coupon worth a few hundred NT dollars; people farm it with many accounts and burner numbers, so the app starts asking for ID verification or e-invoice carrier and bank details.
+  verifier: Delivery or shopping app running a new-user promotion
+  predicate: This is a distinct subscriber who has not already claimed this promotion under this app's scope, without revealing the number or identity.
+  disclosed_today: Phone number plus SMS code, sometimes ID photo, payment card, or a mobile barcode carrier, all of which can be linked across services.
+  issuer: Telco with the real-name subscriber record.
+  why_zk: A telco-signed uniqueness proof with an app-scoped nullifier lets the app enforce one claim per person without storing a phone number it can then use for marketing or resale. The honest weakness is that coupon value is low and the app already tolerates SMS OTP, so the business case for adding a telco attestation is thin; the benefit is mostly privacy and reduced data breach exposure, not fraud prevention alone.
+  inspired_by:
+    - seed_id: tw-pdpa-art11-3-deletion-exception
+      borrowed_aspect: The concern that collected identifiers are kept under an open-ended business-need exception, motivating not collecting the number at all.
+- title: One vote per resident in a building or community management committee online poll
+  moment: A Taiwanese apartment building management committee or a neighbourhood association runs a mobile vote on a repair levy or a rule change; today the organiser collects names, unit numbers and phone numbers to prevent duplicate votes.
+  verifier: Building management committee or community association
+  predicate: One distinct real person per ballot, scoped to this poll, with no name, number or unit published in the tally.
+  disclosed_today: Full name, unit number, phone number, and sometimes a photo of the ID card to confirm that a voter is a real, single person.
+  issuer: Telco as the real-name subscriber record, with the committee separately knowing the eligible list or an eligibility credential.
+  why_zk: A uniqueness proof prevents ballot stuffing with spare SIMs while keeping votes unlinkable to a phone line, and the ballot content can stay hidden until the close. It is weak on its own because a telco attests one person per subscription, not residency in the building, so a second credential (for example from the household registration office or management company) is needed for eligibility, and Taiwanese condominium law expects some form of signed or recorded vote that a purely anonymous scheme may not satisfy.
+  inspired_by:
+    - seed_id: an-b-sealed-bid-far
+      borrowed_aspect: Keeping submissions hidden until a fixed opening moment while being able to prove later that none were seen early.
+    - seed_id: an-b-ala-library-records
+      borrowed_aspect: The aim of keeping a record of participation without it becoming a readable log of who voted how.

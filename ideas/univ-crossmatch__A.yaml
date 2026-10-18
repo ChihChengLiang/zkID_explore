@@ -1,0 +1,26 @@
+- title: Alumni-discount claim matched to a transit or telecom subscriber account
+  moment: A graduate renews a subsidised or alumni-linked service (for example a campus-partner telecom plan, a university-affiliated co-working or gym membership, or an alumni association rate) and the vendor wants proof that the person holding the subscription account is the same person the university recognises as an alumnus.
+  verifier: Alumni association or partner vendor offering alumni pricing
+  predicate: The person who holds a university-signed alumnus credential is the same person as the holder of a second issuer's credential (a telecom or membership account credential), proven without revealing the national ID or student number to the vendor.
+  disclosed_today: Photo of national ID, student or alumni card, graduation year, department, phone number, sometimes a scanned diploma.
+  issuer: University (alumnus status claim), matched to a telecom or membership issuer's subscriber claim
+  why_zk: The vendor needs only one bit, that this account holder is an alumnus, but today it collects the ID, department and graduation year, which are all unneeded. The match is the hard part, since both credentials must bind to the same person without a shared identifier. Weakness is that few vendors and no telecom issuer currently issue verifiable credentials, so the second issuer side is hypothetical, and the stakes are small enough that a staff glance at an alumni card is the cheaper practice.
+  inspired_by: []
+
+- title: Exam-venue or scholarship-exam eligibility matched to government residency claim
+  moment: A student applies to a county or city government scholarship or a subsidised dormitory or rental programme restricted to local residents who are currently enrolled, and the office wants to confirm that the enrolled student and the registered resident are one person.
+  verifier: Local government bureau or foundation administering a resident-student scholarship or rent subsidy
+  predicate: The holder of a university-signed current-enrolment credential is the same person as the holder of a household-registration residency credential from the household registration office, without revealing the ID number, school identifier, grades or household members.
+  disclosed_today: Full household registration transcript (including parents and siblings), national ID copy, student ID, enrolment certificate, often bank passbook cover.
+  issuer: University (enrolment claim), matched to the household registration office (residency claim)
+  why_zk: The household transcript exposes family members who are irrelevant to the decision, and the enrolment certificate exposes the school and sometimes the student number. Only the join of enrolled and local resident is needed. Honest caveat is that agencies are often legally entitled to inspect or pull household data directly through inter-agency lookups with consent, and many programmes also need income or family data that this proof would not replace, so the benefit is limited to the pure residency plus enrolment test.
+  inspired_by: []
+
+- title: Teaching-assistant or part-time lab hire matched to a work-permit or labour-insurance claim
+  moment: A university department hires an international or a cross-campus student as a part-time research assistant, and the payroll office must confirm that the student who holds the university's enrolment and department-approval claim is the same person who holds a valid work-permit or labour-insurance enrolment from a government issuer.
+  verifier: University or research-institute human resources and payroll office
+  predicate: The holder of a university-signed enrolment and supervisor-approval credential is the same person as the holder of a government-issued work-eligibility credential (work permit or labour insurance status), proven without revealing passport or ARC number to the department that only needs to approve the hire.
+  disclosed_today: Passport and ARC copy, enrolment certificate, work-permit scan, bank details, handed to department staff who are not payroll specialists and often keep photocopies in unsecured folders.
+  issuer: University (enrolment and approval claim), matched to the Ministry of Labor or immigration agency (work eligibility claim)
+  why_zk: Department-level staff pass around scans of passports and ARCs that only payroll and compliance truly need, creating a leakage risk for foreigners in particular. A matched proof lets the department confirm eligibility while the identifier goes only to payroll. The weakness is that the university is itself the verifier and an employer, with a legal duty to retain a copy of the work permit and ARC for labour inspection, so zero-knowledge can reduce who sees the data inside the institution but cannot remove the retention requirement.
+  inspired_by: []

@@ -1,0 +1,38 @@
+- title: Student-status discount tied to the same person as the transit or telecom account
+  moment: A student buys a youth/student monthly pass or a campus-plan mobile subscription, and the seller must be sure the enrolled student is the same person as the account holder.
+  verifier: Transit operator student-pass counter or telecom reseller
+  predicate: The university-signed "currently enrolled" claim and the national-ID-bound claim in the wallet refer to the same person, without revealing the ID number or student number.
+  disclosed_today: Student ID card photo, national ID card photo or number, birth date, school name, student number, sometimes a photocopy kept on file.
+  issuer: University (enrollment status), matched against a second issuer such as the MOI digital ID or a telecom account
+  why_zk: A cross-source match proves one person holds both claims, and the verifier needs nothing else. Weakness is that a student card is a physical norm and clerks may still insist on seeing it, and the Personal Data Protection Act already limits copying but does not forbid it in practice. Telecom real-name rules require the ID be recorded, so the telecom case is weaker than the transit pass.
+  inspired_by:
+    - seed_id: an-a-chaum-blind
+      borrowed_aspect: The university signs the enrollment claim without needing to see the second issuer's identifier, which the holder binds only at presentation.
+    - seed_id: rd-google-wallet-zkp-age-no-linkage
+      borrowed_aspect: A single yes/no fact is proven with no trackable identifier passed to the verifier or issuer.
+
+- title: Dorm or campus-housing landlord checks tenant is the enrolled student named on the lease deposit subsidy
+  moment: A private landlord renting near a university takes a student tenant who claims a rent subsidy or student-rate lease, and the landlord's bank or local-government subsidy office needs to confirm the tenant is the enrolled student.
+  verifier: Private landlord or housing subsidy office
+  predicate: The university enrollment claim and the tenant's government-issued identity claim belong to the same person, with the ID number and student number withheld.
+  disclosed_today: Full ID card copy, student ID copy, home address, parents' contact details, sometimes a transcript or enrollment certificate.
+  issuer: University (enrollment), matched against the national digital ID or household registration credential
+  why_zk: Landlords routinely keep ID photocopies that leak in later disputes; a same-person proof gives them enough to rely on the student status. However, lease practice in Taiwan often wants a real address and a guarantor, and subsidy offices may legally require the full ID number, so the proof only replaces the enrollment-copy part, not the whole file.
+  inspired_by:
+    - seed_id: tw-gov-uid-duplicate-minimal-disclosure
+      borrowed_aspect: The registry-style answer is narrowed to the one fact needed (same person or not) instead of releasing the identifier itself.
+    - seed_id: an-a-privacy-pass
+      borrowed_aspect: The proof attests to a prior check without letting the verifier link it to the issuance or to other uses.
+
+- title: Hospital internship or clinical-placement badge matched to professional licence
+  moment: A nursing or medical student starts a clinical placement at a teaching hospital, and the hospital must confirm the university-enrolled student is the same person as the holder of a separate vaccination or background-check record from another issuer.
+  verifier: Hospital HR or placement coordinator
+  predicate: The university-signed placement-eligibility claim and the health-authority vaccination claim refer to the same person, with neither the ID number nor other health records revealed.
+  disclosed_today: Full vaccination card, national ID copy, student ID, sometimes a full health check report, collected into a paper file.
+  issuer: University (placement eligibility), matched against a second issuer such as the health authority vaccination record
+  why_zk: The hospital only needs to know the same person is both enrolled and vaccinated, not the full record. Honest weakness is that hospitals have occupational-health duties and may legitimately want specific vaccine details, so the match proof covers only the eligibility gate and a fuller disclosure may still be required afterwards.
+  inspired_by:
+    - seed_id: an-a-privacy-pass
+      borrowed_aspect: A verifier accepts proof of an earlier check without being able to link it to the issuing event.
+    - seed_id: an-b-witness-protection
+      borrowed_aspect: A discretionary fuller-disclosure exception, here for occupational health, remains alongside the minimal proof.

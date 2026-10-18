@@ -1,0 +1,26 @@
+- title: Landlord screening by months of on-time rent transfers
+  moment: A tenant in Taipei applies for a rental flat and the landlord or agent asks for bank statements to judge whether the tenant reliably pays rent on time.
+  verifier: Landlord or rental agency (e.g. a property agent handling the lease)
+  predicate: "Count of months in the last 12 in which a rent-sized recurring transfer (at or above a stated amount) was made on or before the due day is at least 11"
+  disclosed_today: Several months of full bank statements or passbook photocopies, showing every merchant, salary source, medical payment and balance.
+  issuer: The tenant's bank, signing a statistic computed from its own transaction ledger
+  why_zk: A bank-signed count of on-time recurring payments answers the landlord's real question without exposing the rest of the statement. Weak points are that no Taiwan bank issues such a signed statistic today, landlords have little leverage to demand a wallet proof, and rent is often paid in cash or to a different account, so coverage would be partial.
+  inspired_by: []
+
+- title: Cram school or kindergarten fee-installment eligibility from average monthly balance
+  moment: A parent enrolling a child in a private kindergarten, cram school or bilingual programme asks for a multi-month instalment plan, and the school wants reassurance the parent can sustain the payments.
+  verifier: Private school or cram school finance office
+  predicate: "Average daily balance across all the parent's accounts at the bank over the last 6 months is at least a threshold equal to the remaining tuition"
+  disclosed_today: Photocopy of the passbook or bank statements, or a post-dated cheque plus a guarantor's details, revealing balances, counterparties and sometimes the guarantor's identity.
+  issuer: The parent's bank, signing an average-balance statistic over the accounts held there
+  why_zk: An average-balance threshold is far less than a full statement, and it avoids pulling in a guarantor. Honestly weak because many schools simply use post-dated cheques or credit-card auto-billing, which already settle the risk, and a single bank's aggregate misses balances held elsewhere, so the school may not accept it as sufficient.
+  inspired_by: []
+
+- title: Small-claims or maintenance negotiation proving total outflow to one payee
+  moment: In a mediation at a township mediation committee or a family-court conciliation, one party says they have paid the other a certain total (for example support or a loan repayment) over a year, and the other side disputes the sum.
+  verifier: Mediator, court clerk or the counterparty's lawyer
+  predicate: "Sum of transfers from the person's account to a named payee account between two dates equals or exceeds a stated amount"
+  disclosed_today: Printed or screenshotted full account statements for the period, exposing every unrelated transaction, which are often partly blacked out by hand and then questioned for authenticity.
+  issuer: The bank holding the paying account, signing a sum over a filtered set of transactions
+  why_zk: A bank-signed total to a single named payee is verifiable and removes hand redaction and doubts about doctored screenshots. Honest limits are that courts in Taiwan currently accept bank-issued certificates and discovery orders rather than cryptographic proofs, so this is most plausible as an informal mediation aid, and the payee identity is itself disclosed by the predicate.
+  inspired_by: []

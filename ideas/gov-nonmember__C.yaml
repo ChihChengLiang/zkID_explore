@@ -1,0 +1,38 @@
+- title: Proving no outstanding exit restriction at the airport check-in counter
+  moment: A Taiwanese traveler checks in for an international flight, and the airline or ground handler must confirm the passenger is not subject to a government travel ban (出境限制, for example from tax arrears or court orders) before issuing a boarding pass, or a travel agent confirms it before booking a non-refundable group tour.
+  verifier: Airline ground-handling staff or a travel agency booking desk
+  predicate: The holder's national ID is not on the current exit-restriction register (non-membership), signed with a short validity window.
+  disclosed_today: Full passport and national ID number, often copied or photographed. If a restriction exists, staff can see it, and the traveler may be questioned about the reason in front of others.
+  issuer: National Immigration Agency, drawing on court and tax-authority restriction records
+  why_zk: A non-membership proof would let the verifier see only that the person is not restricted, so a clear traveler reveals nothing else. Weakness, stated honestly. Border control (immigration at departure) already checks the register itself and carriers have little legal duty to check, so this mostly removes a copy of the passport rather than a real check. A restricted person simply cannot produce the proof, and that failure itself tells the verifier something. The proof must be fresh, because a restriction can be imposed hours before departure.
+  inspired_by:
+    - seed_id: tw-telco-online-id-check-fraud-2021
+      borrowed_aspect: A check that relies only on copyable ID details is weak, which motivates a signed, fresh, holder-bound proof of the register status instead of a passport photocopy.
+    - seed_id: an-a-nist-dp
+      borrowed_aspect: The idea that leakage should be bounded and checkable, applied by making the only thing the verifier learns a single yes bit about the register.
+
+- title: Showing a nanny or tutor is not on the sex-offender notification register
+  moment: A parent hires a private after-school tutor, a babysitter from a platform, or a cram-school teaches a trial class, and the hiring side wants assurance the person is not on the sexual-offender registry (性侵害加害人登記). Today they ask for a police record certificate (良民證) from the candidate.
+  verifier: A parent, a childcare or tutoring platform, or a small cram-school owner
+  predicate: The holder is not on the sexual-offence offender registration or notification list (non-membership), plus the signing authority and date.
+  disclosed_today: A full criminal-record certificate, which can reveal unrelated old convictions, offences already expunged in practice, and the candidate's complete identity details, and is photocopied and kept by the employer.
+  issuer: Ministry of the Interior (police administration), or the Ministry of Justice for the criminal record side
+  why_zk: A narrow non-membership claim says only that the person is not on this specific register, instead of handing over a whole record that lets an employer judge unrelated matters. Weakness, stated honestly. For jobs covered by child-protection law, the employer is legally required to check specific registries and may be entitled to the fuller record, so the narrow proof would not replace the legal check, and informal parents may actually want more than a register absence. The proof also covers only the registry, not every risk, so it can give false comfort.
+  inspired_by:
+    - seed_id: an-b-ala-library-records
+      borrowed_aspect: A record that identifies a person should not become a readable file kept by the collector; the verifier here keeps only a yes bit and not a copied certificate.
+    - seed_id: tw-pdpa-art11-3-deletion-exception
+      borrowed_aspect: The open-ended exception that lets collectors keep data they say they need, which is the reason a proof that never hands over the data is stronger than a promise to delete it.
+
+- title: Proving a vehicle owner has no unpaid traffic fines before a used-car sale transfer
+  moment: A buyer at a second-hand car dealer, or a private seller, needs the seller to show that the seller has no unpaid traffic fines or license-suspension notices attached to them or the plate before ownership transfer is processed at the motor vehicle office or agreed privately.
+  verifier: A used-car dealer or a private buyer, and sometimes an escrow or insurance agent
+  predicate: The holder is not on the list of persons with outstanding unpaid traffic penalties or an active licence suspension (non-membership), tied to the holder, not to a photo of a document.
+  disclosed_today: Full ID card, driver licence photo, vehicle licence and registration details, and sometimes screenshots of the government fine-lookup page showing the entire list of violations with dates and places.
+  issuer: Directorate General of Highways (Ministry of Transportation and Communications) or the Motor Vehicles Office
+  why_zk: A dealer needs only that nothing is outstanding, yet the usual screenshot reveals where and when the seller drove, which hints at routines and locations. A non-membership proof removes that history. Weakness, stated honestly. Outstanding fines are already tied to the plate and the transfer office blocks the transfer itself, so the private-sale buyer gains limited protection, the benefit is mainly privacy of the seller, and the incentive for a dealer to ask for anything less than the full look-up is low. A fine imposed minutes later invalidates the proof, so it needs a short expiry.
+  inspired_by:
+    - seed_id: an-b-ala-library-records
+      borrowed_aspect: A record of where and when a person went can become a readable log of their life, so the verifier should not be given the underlying list.
+    - seed_id: an-a-tor-onion
+      borrowed_aspect: Splitting knowledge so no single party holds both identity and detail, applied by letting the verifier know the person is clear without learning the identity-linked violation history.

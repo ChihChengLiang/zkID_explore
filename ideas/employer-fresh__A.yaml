@@ -1,0 +1,26 @@
+- title: Night-market stall helper proves current employment to get a staff-only phone plan or rental viewing slot
+  moment: A landlord or agency in Taipei offers a lower rent or fast-track viewing to tenants who are currently employed at a stable company, and asks for a recent pay slip or employment certificate.
+  verifier: Private landlord or rental agency
+  predicate: Holder is currently employed by a registered employer (not terminated or resigned) as of the last 24 hours
+  disclosed_today: Employment certificate or pay slip showing full name, national ID number, salary, employer, job title, address
+  issuer: The employer, via an employer-signed credential with revocation upon termination
+  why_zk: Landlords only need "still employed now", yet receive salary and ID number and can keep copies. A static certificate cannot show it is still true; a fresh proof with revocation can. Weak points in practice are that few employers issue wallet credentials, small employers may not run revocation infrastructure, and landlords may still want salary level for rent-to-income judgment, which this does not provide.
+  inspired_by: []
+
+- title: Contract cleaner or security guard proves current on-duty authorization at a building gate
+  moment: A building management office or gated community in Taiwan lets outsourced staff (cleaning, security, delivery of company goods) enter when their employer vouches they are currently on its roster, and today collects an ID copy and writes down the national ID number in a paper visitor log.
+  verifier: Building management committee or reception desk
+  predicate: Holder is on the active roster of a named contractor employer as of now
+  disclosed_today: National ID card photocopy or recorded ID number, full name, phone number, plus a paper letter from the contractor
+  issuer: The contracting employer, signing a short-lived roster-membership credential and revoking it when the worker leaves
+  why_zk: The building needs only "this person is currently sent by this company", but keeps ID numbers in logbooks that are easily leaked. Revocation matters because ex-employees keep old letters. Weakness is that the verifier often also wants to know the individual's name for accountability, so the unlinkable version may conflict with building security rules.
+  inspired_by: []
+
+- title: Gig courier proves current platform affiliation to access a company mailroom or campus dock
+  moment: A delivery rider arrives at a science-park company mailroom or hospital loading dock that only admits couriers currently contracted with a recognized logistics platform, and staff ask to see a worker card and ID.
+  verifier: Science park, hospital or corporate mailroom security
+  predicate: Rider is currently active and in good standing with a named logistics employer as of now
+  disclosed_today: Worker card, national ID or driver licence shown or photographed, name, phone number, vehicle plate
+  issuer: The logistics employer or platform operator, with revocation upon contract end or suspension
+  why_zk: The gatekeeper needs only current standing, but collects identity details of many people who visit daily. A fresh signed status also stops a suspended rider from using a stale card. Honest caveat is that many couriers are legally independent contractors rather than employees, so the platform may not count as an employer, and sites often want a plate or name for incident tracing.
+  inspired_by: []

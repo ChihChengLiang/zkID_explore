@@ -1,0 +1,202 @@
+[
+ {
+  "review_id": "b09-0",
+  "reasons": {
+   "rubric": "Two-issuer match with a hypothetical telecom issuer and low frequency and stakes, so it needs design and is arguably weak.",
+   "validity": "Alumni pricing exists, but a single alumni credential suffices; the telecom binding is unnecessary and no such issuer exists.",
+   "coherence": "The stated predicate (same person across two credentials) does not match the verifier's real need (is an alumnus), so the parts fit loosely.",
+   "novelty": "Alumni status is close to the degree-proof and student-discount cases but adds a new matching predicate.",
+   "provenance": "No borrowings claimed.",
+   "retention_law": "A small vendor has no apparent duty to retain the ID or diploma, so this holds.",
+   "linkability": "A cross-credential match with no shared identifier is hard, and repeated renewals could be linked unless designed carefully; unclear.",
+   "issuer_unwilling": "Telecoms have no verifiable-credential product or incentive to issue one for an alumni discount, so this likely fails.",
+   "no_wallet": "The vendor would need a wallet-based verifier for a tiny discount, and a staff glance at the card is cheaper, so it fails."
+  },
+  "rubric_score": 2,
+  "validity": 2,
+  "coherence": 2,
+  "novelty": 2,
+  "provenance_faithful": "NA",
+  "kill_tests": {
+   "retention_law": "holds",
+   "linkability": "unknown",
+   "issuer_unwilling": "fails",
+   "no_wallet": "fails"
+  }
+ },
+ {
+  "review_id": "b09-1",
+  "reasons": {
+   "rubric": "A utility-roll membership proof is a simple predicate, but the issuer ecosystem is fragmented and the agency legally needs income and asset data, so it is a weak partial fit.",
+   "validity": "Rent subsidy is decided on income, assets and household registration, so a utility-subsidy roll is not sufficient for the decision.",
+   "coherence": "The moment mixes an agency verifier, a landlord worry and a different locality, and a hidden address conflicts with the agency needing an occupied dwelling.",
+   "novelty": "It overlaps the known utility-subsidy and low-income-subsidy cases, though the housing agency verifier is new.",
+   "provenance": "No borrowings claimed.",
+   "retention_law": "A government agency processing a subsidy application will likely have to keep lease and application records, so ZK removes little.",
+   "linkability": "A roll-membership proof for a single application is not obviously linkable, and no cross-context tracking issue is evident.",
+   "issuer_unwilling": "Taipower and the Water Corporation are state-linked but have no credential product and little reason to sign roll membership for this.",
+   "no_wallet": "Applicants can already submit the documents the agency accepts, and the agency would need to build verifier support, so adoption is doubtful."
+  },
+  "rubric_score": 2,
+  "validity": 2,
+  "coherence": 2,
+  "novelty": 2,
+  "provenance_faithful": "NA",
+  "kill_tests": {
+   "retention_law": "fails",
+   "linkability": "holds",
+   "issuer_unwilling": "unknown",
+   "no_wallet": "unknown"
+  }
+ },
+ {
+  "review_id": "b09-2",
+  "reasons": {
+   "rubric": "A threshold on two numbers is simple, but the issuer is not a trusted signer (zkTLS over a page) and frequency is low, so it needs design and a fit of about 3.",
+   "validity": "Fleet deposit waivers are plausible and the two thresholds mostly capture reliability, but the platform's terms may forbid automated access and a screenshot-forgery fix is real.",
+   "coherence": "The moment, predicate, and zkTLS issuer fit together well and the weaknesses are admitted.",
+   "novelty": "Gig-driver reputation for leasing is a moment no known case touches.",
+   "provenance": "The data-minimisation borrowing is generic and the screenshot-forgery point is real and shapes the choice of zkTLS, but both are partly decorative; the idea would read nearly the same without them.",
+   "retention_law": "A leasing company has no evident legal duty to retain full screenshots, so this holds.",
+   "linkability": "zkTLS proofs of aggregate numbers carry no persistent identifier, so this holds.",
+   "issuer_unwilling": "The platform does not issue anything and may actively oppose scraping of its API, but zkTLS does not need its consent, so it is not blocked outright and is uncertain.",
+   "no_wallet": "The driver needs a zkTLS tool and the lessor must run a verifier, which no Taiwanese lessor has today, so adoption is a real hurdle."
+  },
+  "rubric_score": 3,
+  "validity": 3,
+  "coherence": 4,
+  "novelty": 5,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "holds",
+   "linkability": "holds",
+   "issuer_unwilling": "unknown",
+   "no_wallet": "fails"
+  }
+ },
+ {
+  "review_id": "b09-3",
+  "reasons": {
+   "rubric": "Poll-scoped uniqueness is a simple predicate, but the telco issuer does not prove residency or ownership, and the issuer ecosystem is fragmented, so it needs design.",
+   "validity": "Condominium voting is real, but one unique subscriber is not sufficient since eligibility needs ownership or residency, and the law may require named written ballots and proxies.",
+   "coherence": "Ballot secrecy and a telco uniqueness proof pull in different directions because a phone number does not tie to a unit, and the idea concedes this.",
+   "novelty": "Community voting is a moment nobody on the known list touches, though the uniqueness predicate resembles the one-person-one-account case.",
+   "provenance": "The jury-anonymity and privileged-communication borrowings only motivate wanting privacy and would read the same without them, so they are decorative.",
+   "retention_law": "Condominium rules may require named voter records and proxy documents, which is uncertain in Taiwanese law, so I cannot confirm either way.",
+   "linkability": "A poll-scoped nullifier does not link across polls, but the single-use scope is designed in and this holds.",
+   "issuer_unwilling": "A telco has no reason to issue a one-real-subscriber credential for a building poll, and one person can hold several numbers.",
+   "no_wallet": "Residents of a typical building would need a wallet and the committee a verifier, when a simple chat poll or paper ballot is the norm."
+  },
+  "rubric_score": 2,
+  "validity": 2,
+  "coherence": 2,
+  "novelty": 4,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "unknown",
+   "linkability": "holds",
+   "issuer_unwilling": "fails",
+   "no_wallet": "fails"
+  }
+ },
+ {
+  "review_id": "b09-4",
+  "reasons": {
+   "rubric": "Student status plus identity match is a modest predicate with two issuers, medium frequency and low stakes, so it is possible but needs design.",
+   "validity": "Student concession fares are real, but a clerk also needs the person present and a card glance is the accepted practice, so the match proof adds little.",
+   "coherence": "The title says alumni and the body describes current students, and the unlinkability borrowing is not used in the described design.",
+   "novelty": "It largely rewords the known degree and scholarship enrolment cases and the sibling alumni idea.",
+   "provenance": "The minimal-recording borrowing is already the premise and the blind-token unlinkability is never built into the predicate, so both are decorative.",
+   "retention_law": "A transport operator has no evident duty to keep a full ID copy, though some sales records may be kept, so this holds.",
+   "linkability": "A match proof at each purchase could link repeated purchases unless unlinkable tokens are used, which the idea mentions but does not design.",
+   "issuer_unwilling": "Universities may sign enrolment but the wallet credential is a government product, and operators' own student ID systems already exist, so willingness is unclear.",
+   "no_wallet": "Counters and kiosks have no wallet verifier and the benefit is small, so adoption fails in practice."
+  },
+  "rubric_score": 3,
+  "validity": 3,
+  "coherence": 2,
+  "novelty": 2,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "holds",
+   "linkability": "unknown",
+   "issuer_unwilling": "unknown",
+   "no_wallet": "fails"
+  }
+ },
+ {
+  "review_id": "b09-5",
+  "reasons": {
+   "rubric": "Non-membership is a clean yes/no with a government issuer, but the verifier has little duty to check, frequency is moderate, and a fresh proof is needed, so it is a possible fit.",
+   "validity": "Border control already checks the register at departure, so an airline check is not a real decision point and a restricted traveler could not even produce the proof.",
+   "coherence": "The claim that the verifier learns only one bit conflicts with the fact that failure to produce a proof itself discloses restriction.",
+   "novelty": "Exit-restriction checks at departure are a moment nobody on the known list touches.",
+   "provenance": "The copyable-ID point and the differential-privacy bound are not used anywhere in the design, so they are decorative.",
+   "retention_law": "Airlines are often required to keep passenger travel document data, so ZK may not remove the copy, though I am unsure about Taiwanese law.",
+   "linkability": "A signed short-window proof could act as an identifier unless designed to be unlinkable, and the issuer would see each check.",
+   "issuer_unwilling": "The Immigration Agency would have to expose restriction data tied to court and tax records, which agencies are very unlikely to do for private carriers.",
+   "no_wallet": "Airline counters would need a verifier, and passport scanning is mandatory anyway, so the proof can't replace the existing flow."
+  },
+  "rubric_score": 2,
+  "validity": 2,
+  "coherence": 2,
+  "novelty": 5,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "fails",
+   "linkability": "unknown",
+   "issuer_unwilling": "fails",
+   "no_wallet": "fails"
+  }
+ },
+ {
+  "review_id": "b09-6",
+  "reasons": {
+   "rubric": "A minimum-balance-over-period predicate is a range-style, multi-day check from a bank issuer, and the foreign verifier is outside the ecosystem, so it needs design.",
+   "validity": "Proof of funds is a real step in study abroad, and a bank-signed threshold is sufficient in principle, but foreign offices set their own formats and agents want paper.",
+   "coherence": "Predicate, issuer and verifier fit, with the cross-border acceptance problem honestly stated.",
+   "novelty": "It is a new moment and predicate distinct from the income-threshold loan case, though bank balance proofs are a familiar shape.",
+   "provenance": "Both borrowings only restate that full ID or document copies are over-collection, which any such idea says, so they are decorative.",
+   "retention_law": "Foreign universities and embassies may retain submitted financial evidence, but no Taiwanese retention duty is evident, so this is unclear.",
+   "linkability": "An aggregate balance proof carries no persistent identifier if the bank signs it appropriately, so this holds.",
+   "issuer_unwilling": "Taiwanese banks already issue balance certificates and might sign a threshold, though a credential product is uncertain.",
+   "no_wallet": "Foreign verifiers have no means to check a Taiwan wallet proof, so the receiving side is missing."
+  },
+  "rubric_score": 3,
+  "validity": 3,
+  "coherence": 4,
+  "novelty": 4,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "unknown",
+   "linkability": "holds",
+   "issuer_unwilling": "unknown",
+   "no_wallet": "fails"
+  }
+ },
+ {
+  "review_id": "b09-7",
+  "reasons": {
+   "rubric": "A reputation threshold over a zkTLS proof is simple, but the issuer is an unwilling platform, the data is already public, and the moment is occasional, so it is a weak fit.",
+   "validity": "Trust matters in high-value private sales, but feedback is public already and a rented or bought account defeats the proof, so the predicate is not sufficient.",
+   "coherence": "The moment mixes buyer and seller sides and two verifiers, and the pseudonymity benefit conflicts with the platform account being the identity.",
+   "novelty": "Marketplace seller verification is a known case, though this buyer-side and reputation-threshold angle is a new predicate.",
+   "provenance": "The unlinkability and selective-disclosure borrowings are generic labels and the idea reads the same without them, so they are decorative.",
+   "retention_law": "A private counterparty has no legal duty to retain anything, so this holds.",
+   "linkability": "Proof of the same account could be linked across sales if the same account is reused, and the account name is hidden only if unlinked, which is unclear.",
+   "issuer_unwilling": "The platform issues nothing and may block this, but zkTLS needs no consent, so the outcome is unclear.",
+   "no_wallet": "Private individuals and convenience-store services would both need zkTLS tooling, which almost no one has, so adoption fails."
+  },
+  "rubric_score": 2,
+  "validity": 2,
+  "coherence": 3,
+  "novelty": 2,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "holds",
+   "linkability": "unknown",
+   "issuer_unwilling": "unknown",
+   "no_wallet": "fails"
+  }
+ }
+]

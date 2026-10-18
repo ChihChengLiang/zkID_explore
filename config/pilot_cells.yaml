@@ -1,0 +1,18 @@
+# 8 pilot cells: one per attribute source; predicates chosen so all 8 predicate types appear once.
+# `hint` is the one-line Discovery Matrix text from the workbook (or none for new predicate types).
+- {id: gov-nonmember,   issuer: government,      predicate: non-membership,   hint: "Residency, licensing (gov CA row)",
+   target: "A government authority can sign that a person does NOT appear on a particular list or register; a verifier wants only that absence."}
+- {id: bank-aggregate,  issuer: bank,            predicate: aggregate,        hint: "Income, credit threshold (bank row)",
+   target: "A bank can sign a statistic computed over many of a person's transactions or accounts; a verifier wants only the aggregate, not the underlying records."}
+- {id: employer-fresh,  issuer: employer,        predicate: freshness,        hint: "Employment still active",
+   target: "An employer can sign that a status is true as of now and can revoke it; a verifier needs it to be current without learning who the person is beyond that."}
+- {id: telco-unique,    issuer: telco,           predicate: uniqueness,       hint: "Anti-bot / one-SIM-one-account",
+   target: "A telco can sign that a person is one real subscriber; a verifier wants one account per person without learning which person."}
+- {id: univ-crossmatch, issuer: university,      predicate: cross-source-match, hint: "Degree matched to professional license",
+   target: "A university can sign a claim that must be shown to refer to the same person as a claim from a second, unrelated issuer, without revealing the person's identifier to the verifier."}
+- {id: platform-thresh, issuer: platform-zktls,  predicate: threshold,        hint: "Order volume / spend threshold",
+   target: "A platform account (not designed to issue credentials) holds a number about the user; a verifier wants proof it exceeds a threshold without seeing the account."}
+- {id: hospital-timed,  issuer: hospital,        predicate: time-bounded,     hint: "Assessment still valid (hospital row)",
+   target: "A hospital can sign a status that is only meaningful within a time window; a verifier needs it valid for that window without learning the clinical detail."}
+- {id: utility-member,  issuer: utility,         predicate: membership,       hint: "Occupant of a subsidized address",
+   target: "A utility can sign that an account belongs to a set (a subsidised roll); a verifier wants set membership without learning the address or usage."}

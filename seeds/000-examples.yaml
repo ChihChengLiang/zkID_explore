@@ -1,0 +1,66 @@
+- id: privacy-pass-unlinkable-proof
+  problem: Servers authorise clients with cookies, which let them track the same client across sessions.
+  abstract_problem: A gatekeeper only needs to know that the visitor already passed some check, but the
+    proof it accepts doubles as a persistent identifier.
+  mechanism: Blind-signed tokens that attest prior authorisation and cannot be linked to the issuance
+    interaction.
+  mechanism_outcome: works
+  domain: web-anti-abuse
+  distance_class: distant-analog
+  source:
+    type: distant-analog
+    title: RFC 9576 The Privacy Pass Architectural Framework
+    url: https://www.rfc-editor.org/rfc/rfc9576.html
+    locator: Section 1
+    jurisdiction: global
+    lang: en
+    retrieved_on: '2026-10-18'
+  evidence:
+    quote: Clients present unlinkable proofs that attest to this information.
+    quote_verified: true
+  axes:
+    issuer_type:
+    - platform-zktls
+    predicate_type:
+    - freshness
+    regime:
+    - none-stated
+    harm:
+    - profiling
+  extraction:
+    agent: manual-example
+    date: '2026-10-18'
+  status: verified
+- id: gdpr-data-minimisation
+  problem: Controllers collect whole documents when a narrower field would serve the purpose.
+  abstract_problem: A rule obliges anyone requesting information to take only what the purpose needs,
+    but gives no practical way to request less than a whole document.
+  mechanism: Legal principle of data minimisation; no technical mechanism specified.
+  mechanism_outcome: partial
+  domain: data-protection-law
+  distance_class: adjacent
+  source:
+    type: regulation
+    title: GDPR Article 5(1)(c)
+    url: https://gdpr-info.eu/art-5-gdpr/
+    locator: Art. 5(1)(c)
+    jurisdiction: EU
+    lang: en
+    retrieved_on: '2026-10-18'
+  evidence:
+    quote: limited to what is necessary in relation to the purposes for which they are processed
+    quote_verified: true
+  axes:
+    issuer_type:
+    - none
+    predicate_type:
+    - threshold
+    - membership
+    regime:
+    - gdpr
+    harm:
+    - none-observed
+  extraction:
+    agent: manual-example
+    date: '2026-10-18'
+  status: verified

@@ -1,0 +1,9 @@
+# Domain groups used for seed `domain` values and for per-cell paraphrasing. Draft.
+identity-credentials: [zkid, mdl, passports, sd-jwt]
+government-admin: [civil-registry, tax, social-welfare, land]
+finance: [banking, kyc-aml, payments, tokenization]
+health-care: [records, insurance, clinical-trials]
+web-platforms: [web-anti-abuse, oauth-scopes, marketplaces, ad-tech]
+democratic-process: [secret-ballot, petitions, jury-selection]
+physical-world: [bouncer-age-check, library-records, ticketing, building-access]
+law-regulation: [data-protection-law, retention-duties]

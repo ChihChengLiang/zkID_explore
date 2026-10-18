@@ -1,13 +1,13 @@
-"""Validate seeds/*.yaml against schema/seed.schema.json; check ids and `related` links."""
+"""Validate sources/*.yaml against schema/source.schema.json; check ids and `related` links."""
 import json, sys, pathlib, yaml
 from jsonschema import Draft202012Validator
 
 root = pathlib.Path(__file__).resolve().parent.parent
-schema = json.loads((root / "schema/seed.schema.json").read_text())
+schema = json.loads((root / "schema/source.schema.json").read_text())
 validator = Draft202012Validator(schema)
 
 seeds, errors = [], 0
-for f in sorted((root / "seeds").glob("*.yaml")):
+for f in sorted((root / "sources").glob("*.yaml")):
     for s in yaml.safe_load(f.read_text()) or []:
         seeds.append((f.name, s))
         for e in validator.iter_errors(s):

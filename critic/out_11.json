@@ -1,0 +1,202 @@
+[
+ {
+  "review_id": "b11-0",
+  "reasons": {
+   "rubric": "Boolean freshness predicate with revocable employer credential, but employers rarely issue credentials, issuers are fragmented and landlords often want salary level.",
+   "validity": "Landlords do ask for employment proof, but 'currently employed' is often insufficient without income, and the title's 'night-market stall helper' and 'phone plan' framing does not match the landlord moment.",
+   "coherence": "Title (staff-only phone plan or viewing slot) mismatches the body (landlord rent discount), and the predicate omits income which the verifier usually needs.",
+   "novelty": "Employment status for rental screening is a close variant of the known rental and loan cases with a different predicate.",
+   "provenance": "No borrowings claimed.",
+   "retention_law": "Private landlord has no known duty to retain the full certificate, though Taiwanese rules on this are unclear to me.",
+   "linkability": "A fresh proof naming the employer with a 24-hour freshness window is low-risk, but repeated proofs against a small employer could link the holder.",
+   "issuer_unwilling": "Small employers have little incentive or infrastructure to sign and revoke credentials, which is a serious obstacle.",
+   "no_wallet": "Landlords can fall back to paper certificates, so adoption would be voluntary and slow."
+  },
+  "rubric_score": 3,
+  "validity": 3,
+  "coherence": 2,
+  "novelty": 2,
+  "provenance_faithful": "NA",
+  "kill_tests": {
+   "retention_law": "holds",
+   "linkability": "holds",
+   "issuer_unwilling": "fails",
+   "no_wallet": "unknown"
+  }
+ },
+ {
+  "review_id": "b11-1",
+  "reasons": {
+   "rubric": "Uniqueness plus eligibility needs two credentials from fragmented issuers and is a low-frequency event, so it needs design work.",
+   "validity": "Building votes are real, but telco subscriber uniqueness does not establish residency or one vote per unit, and condominium governance typically weights votes by ownership and wants signed records.",
+   "coherence": "The telco issuer proves the wrong thing (one person per SIM, not one per unit), so predicate and issuer do not fit without a second credential.",
+   "novelty": "Anonymous uniqueness for a local poll is a new moment, though the nullifier predicate resembles the known brokerage Sybil case.",
+   "provenance": "The sealed-bid and subpoena-log borrowings are loosely analogical; the hidden-until-close ballot idea is a generic voting property the idea would carry without the source.",
+   "retention_law": "The condominium rules may require signed or recorded votes, which could block anonymity, but I cannot confirm the specifics.",
+   "linkability": "Poll-scoped nullifier avoids cross-poll linking, but small electorates mean the unit or phone could be inferred from the tally.",
+   "issuer_unwilling": "Telcos have no obvious reason to issue a uniqueness credential for building polls.",
+   "no_wallet": "Elderly residents without a compatible wallet would be excluded, and committees can simply keep using paper or LINE."
+  },
+  "rubric_score": 3,
+  "validity": 2,
+  "coherence": 2,
+  "novelty": 4,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "unknown",
+   "linkability": "unknown",
+   "issuer_unwilling": "fails",
+   "no_wallet": "fails"
+  }
+ },
+ {
+  "review_id": "b11-2",
+  "reasons": {
+   "rubric": "The predicate is a count-and-threshold over bank data from one existing issuer, but it needs a new bank-defined statistic and a payee tie, so it is a design problem with medium frequency.",
+   "validity": "Landlords do ask for bank statements, but many rental decisions rely on income and guarantors, and the claim depends on a payee identity the bank would have to attest.",
+   "coherence": "Parts fit well: over-collection, a bank issuer, and a bounded aggregate.",
+   "novelty": "Rental is a known moment, but a payment-history predicate from a bank is a new predicate and issuer on it.",
+   "provenance": "The borrowings only restate that verifiers over-collect documents, which is already in the disclosed_today field, so they are decorative.",
+   "retention_law": "A private landlord has no known duty to retain statements, though I am not certain of tenancy rules.",
+   "linkability": "The proof names the payee and period, which could link the tenant to a specific prior landlord, a modest concern.",
+   "issuer_unwilling": "Banks do not offer such statistics today and have little commercial incentive.",
+   "no_wallet": "Private landlords can keep accepting screenshots, so the tenant gains nothing unless the landlord opts in."
+  },
+  "rubric_score": 3,
+  "validity": 3,
+  "coherence": 4,
+  "novelty": 4,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "holds",
+   "linkability": "holds",
+   "issuer_unwilling": "fails",
+   "no_wallet": "fails"
+  }
+ },
+ {
+  "review_id": "b11-3",
+  "reasons": {
+   "rubric": "Multi-condition aggregate over bank transactions with no standard attestation puts this at needs-design.",
+   "validity": "Landlords want rent history and buffer, but 'a rent-like payee' is vague and a balance buffer is an odd proxy, and a single-account claim is easily gamed.",
+   "coherence": "Predicate and issuer fit, but the vague payee and the single-account limitation weaken the claim.",
+   "novelty": "Nearly a duplicate of the sibling idea b11-2 with an added balance condition, so little new beyond a rewording of the rental screening case.",
+   "provenance": "The borrowings only restate over-collection of documents, which the idea does not depend on, so they are decorative.",
+   "retention_law": "A private landlord has no known duty to retain statements, though I am not certain.",
+   "linkability": "Proof reveals thresholds and period only, so linkability is low.",
+   "issuer_unwilling": "No Taiwanese bank offers this and the aggregate is complex to define and sign.",
+   "no_wallet": "Landlords can keep requesting statement photos, which defeats adoption."
+  },
+  "rubric_score": 3,
+  "validity": 2,
+  "coherence": 3,
+  "novelty": 2,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "holds",
+   "linkability": "holds",
+   "issuer_unwilling": "fails",
+   "no_wallet": "fails"
+  }
+ },
+ {
+  "review_id": "b11-4",
+  "reasons": {
+   "rubric": "Multi-source match between a university credential and national identity across fragmented universities, and the operator must retain real-name data anyway.",
+   "validity": "Student plans exist, but the described risk is stolen-identity fraud on SIM registration, and the idea itself admits that real-name rules still require retaining ID data.",
+   "coherence": "Title is a student-plan discount while the predicate is an identity-binding match, and the predicate is not a privacy-minimising disclosure but an anti-fraud binding.",
+   "novelty": "Student status is near the known scholarship and degree cases, but telecom as verifier and holder-binding as the predicate are new.",
+   "provenance": "The copyable-identifier failure motivates holder binding and shapes the central design, though the blind-token borrowing is not visibly used.",
+   "retention_law": "The idea concedes that SIM real-name rules require the operator to retain ID data, which removes most of the benefit.",
+   "linkability": "Binding match with two credentials from different issuers risks linking via shared holder key unless carefully designed.",
+   "issuer_unwilling": "Universities issuing wallet enrolment credentials is plausible but fragmented across institutions.",
+   "no_wallet": "Shop counter customers without the national wallet can fall back on existing ID checks."
+  },
+  "rubric_score": 2,
+  "validity": 3,
+  "coherence": 3,
+  "novelty": 3,
+  "provenance_faithful": "yes",
+  "kill_tests": {
+   "retention_law": "fails",
+   "linkability": "unknown",
+   "issuer_unwilling": "unknown",
+   "no_wallet": "holds"
+  }
+ },
+ {
+  "review_id": "b11-5",
+  "reasons": {
+   "rubric": "Threshold predicate on two metrics but sourced from a non-cooperating platform via zkTLS, low frequency and fragile.",
+   "validity": "Pop-up organisers vetting sellers is a real niche, but the public shop page already shows ratings, and the stated thresholds may not be what organisers decide on.",
+   "coherence": "Fits as a design, but the idea concedes the public page already provides most of the signal.",
+   "novelty": "A seller-trust moment is near the known marketplace seller verification case, but the verifier and predicate differ.",
+   "provenance": "No borrowings claimed.",
+   "retention_law": "No known duty for an organiser to retain dashboard screenshots, but I am not certain.",
+   "linkability": "A zkTLS proof reveals the shop identity if used to verify ownership, so it is linkable to the public shop anyway.",
+   "issuer_unwilling": "Shopee has not agreed to attest and the idea relies on scraping its seller center, which its terms may forbid.",
+   "no_wallet": "Organisers can simply look at the public page or ask for screenshots, and zkTLS needs tooling sellers lack."
+  },
+  "rubric_score": 2,
+  "validity": 2,
+  "coherence": 3,
+  "novelty": 3,
+  "provenance_faithful": "NA",
+  "kill_tests": {
+   "retention_law": "holds",
+   "linkability": "fails",
+   "issuer_unwilling": "fails",
+   "no_wallet": "fails"
+  }
+ },
+ {
+  "review_id": "b11-6",
+  "reasons": {
+   "rubric": "Simple boolean current-employment predicate, a clear over-collection by photocopying, but the issuer is each partner employer so the ecosystem is fragmented and frequency is modest.",
+   "validity": "Corporate-partner discounts with badge photocopying are real, but a staff-fraud problem is small and employers must run a current-status credential.",
+   "coherence": "Parts fit well: current status, revocation, minimal disclosure of the company.",
+   "novelty": "Close to idea b11-0 in predicate and issuer, though the verifier and moment differ; employment is not on the known list.",
+   "provenance": "The copyable-identifier borrowing is only a loose echo and the age-scan borrowing is decorative; the idea reads the same without them.",
+   "retention_law": "A store has no known duty to keep the copy, though I cannot confirm.",
+   "linkability": "Disclosing the company name plus a revocation check could link purchases to the employer, a modest concern.",
+   "issuer_unwilling": "Partner employers gain little from running issuance and revocation for discount counters.",
+   "no_wallet": "Clerks can continue accepting badges, so a store has little reason to change counter routine."
+  },
+  "rubric_score": 3,
+  "validity": 3,
+  "coherence": 4,
+  "novelty": 3,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "holds",
+   "linkability": "holds",
+   "issuer_unwilling": "fails",
+   "no_wallet": "fails"
+  }
+ },
+ {
+  "review_id": "b11-7",
+  "reasons": {
+   "rubric": "Time-windowed boolean fit-to-travel from a hospital issuer, but the carrier often needs clinical fields, and frequency is low.",
+   "validity": "Fit-to-fly notes are real for pregnancy and recent surgery, but airlines' medical desks usually require specific clinical content, and the idea concedes it only covers simpler cases.",
+   "coherence": "The sealed-bid analogy does not match the mechanism, which is simply a boolean with an expiry, but the core predicate and issuer fit together.",
+   "novelty": "Health-clearance for travel is a moment nobody on the known list touches.",
+   "provenance": "The sealed-bid borrowing is decorative, and the minimum-necessary release is a generic principle the idea would state without it.",
+   "retention_law": "Airlines may need to keep medical clearance records for liability or aviation rules, and I cannot confirm.",
+   "linkability": "A signed short-window attestation from a named hospital can reveal where the holder was treated, a modest leak.",
+   "issuer_unwilling": "Hospitals are cautious about liability for fitness statements and would need to adopt a new issuance flow.",
+   "no_wallet": "Passengers can present the paper note, and carriers' MEDIF forms remain the fallback."
+  },
+  "rubric_score": 2,
+  "validity": 3,
+  "coherence": 3,
+  "novelty": 5,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "unknown",
+   "linkability": "holds",
+   "issuer_unwilling": "unknown",
+   "no_wallet": "holds"
+  }
+ }
+]

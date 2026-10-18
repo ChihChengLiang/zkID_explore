@@ -1,0 +1,26 @@
+- title: Electricity-bill subsidy roll as proof of eligibility for a school lunch or after-school care fee waiver
+  moment: A parent enrolls a child in a public after-school care program (or applies for a lunch-fee reduction) at the start of the semester and must show proof of being a low-income or subsidised household.
+  verifier: School administration office / district after-school care operator
+  predicate: The household's utility account is a member of the set of accounts on the low-income or subsidised-rate roll (for example, accounts receiving the low-income household electricity discount).
+  disclosed_today: A photocopy of the full utility bill (name, address, meter number, usage in kWh, amount due) or a household certificate from the district office, plus household registration details.
+  issuer: Taipower (or the local water company), signing membership in the subsidised-account roll
+  why_zk: The school only needs a yes/no on eligibility, yet today it keeps a bill showing address and consumption patterns (which reveal when the family is away or how many people live there). Weakness is real. In practice schools usually rely on the district office's low-income household certificate (issued under the Public Assistance Act), not utility rolls, so a utility roll would only be a convenient substitute where the discount list is a recognised proxy. It also needs the school to accept it, and Taipower's discount rolls are not formally a social-welfare eligibility register.
+  inspired_by: []
+
+- title: Proving a tenant's subsidised-utility status to a landlord or social-housing agency without revealing the rented address
+  moment: A person applying for a rent subsidy or a social-housing waitlist slot must show they currently hold a utility account on the subsidised roll, but the agency is also a different locality from the one they rent in, and the applicant does not want a prospective landlord or agency to see the address and usage history.
+  verifier: Municipal housing bureau or social-housing intermediary (e.g. a city social housing agency or a rent-subsidy application window)
+  predicate: The applicant's utility account belongs to the set of accounts on the subsidised-rate roll (and is active), without revealing which account or address.
+  disclosed_today: Recent utility bills with address and consumption, lease copy, household registration, and sometimes several months of statements to show continuity.
+  issuer: Taipower / Taiwan Water Corporation
+  why_zk: The agency wants to know the person is a bona fide low-income occupant, but collects address, usage and the lease, which also lets staff and intermediaries profile occupancy. Honest caveat: rent-subsidy eligibility is defined by income and asset tests via the tax and household registration data, so a utility subsidy roll is only a weak, partial signal and cannot replace those checks. It is most plausible as an extra anti-fraud tie-in (the address is a real, occupied dwelling), where some fields are legitimately required by the agency anyway.
+  inspired_by: []
+
+- title: Medical-electricity-equipment household flag for priority outage notification or emergency-shelter registration
+  moment: A household that uses life-support equipment at home (ventilator, oxygen concentrator, dialysis) signs up with the city fire department or a typhoon-season emergency program to get priority power-restoration and evacuation help, and an outage-relief volunteer group or shelter operator wants to confirm the household is on the utility's medical-need roll.
+  verifier: District emergency management office, fire department, or a community volunteer network running outage and typhoon response
+  predicate: The household's utility account is a member of the set of accounts flagged by the utility as having medical-equipment dependency (a priority-care roll), without revealing the specific address or usage pattern to every volunteer who handles the list.
+  disclosed_today: Full address, a copy of the utility bill, the medical certificate or disability card, and a list of equipment, often collected on paper forms and shared with many volunteers.
+  issuer: Taipower, signing membership in a priority-care or medical-need account list
+  why_zk: Volunteers and aggregators collect a list of vulnerable people's addresses and bills, which is a safety and privacy risk (it flags who is home, frail, and dependent on power). A membership proof lets a registration desk or a volunteer coordinator check eligibility without holding the dossier. Honest weakness: in an actual emergency the responders genuinely need the address to reach the person, so ZK helps only for the enrollment and eligibility step, not for dispatch; and I am not certain Taipower maintains such a formal roll, so this would depend on the utility creating and signing one.
+  inspired_by: []

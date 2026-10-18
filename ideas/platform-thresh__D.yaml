@@ -1,0 +1,38 @@
+- title: Delivery-platform rating threshold for a building's package-room courier access
+  moment: A freelance food or parcel courier (Uber Eats, foodpanda, Lalamove driver) applies to a Taipei residential community management committee (社區管委會) or a premium office building for a standing courier access pass, and the building wants evidence the courier is experienced and reliable.
+  verifier: Community management office or building property manager issuing recurring courier access
+  predicate: Platform account has at least 500 completed deliveries and a rating of at least 4.7 over the last 12 months
+  disclosed_today: Full screenshots of the driver app showing real name, photo, vehicle plate, earnings, home-area zone, and sometimes the national ID photo copy for the access register
+  issuer: The delivery platform's own driver account, attested through a zkTLS session over the driver app's stats page (platform did not agree to issue credentials)
+  why_zk: A zkTLS proof can show only count and rating cross a bar without earnings or plate. Weak points: platform terms of service may forbid scraping or automated session replay, screenshots are the current norm and committees rarely care about privacy, and the proof only shows the platform's number, not that the person is who is at the door, so identity still needs a separate check.
+  inspired_by:
+    - seed_id: an-b-va-id-scanning
+      borrowed_aspect: The pattern that a venue captures a whole card or screen when it only needs one fact, and a statute-style field limit is the only protection today.
+    - seed_id: tw-bank-deposit-dual-id-check
+      borrowed_aspect: The gap where a verifier collects documents with no stated retention or copy rule, which a proof would avoid creating.
+
+- title: Ride-hailing driver trip count to qualify for a fleet vehicle lease discount
+  moment: A part-time Uber or LINE Taxi driver in Kaohsiung applies at a car leasing company for a discounted lease reserved for drivers with a proven active record.
+  verifier: Car leasing or fleet financing company
+  predicate: Platform account shows at least 1,000 completed trips and at least 12 active months
+  disclosed_today: Monthly earnings statements and the full trip history export, including pickup and drop-off addresses of passengers, the driver's bank account and tax details
+  issuer: Ride-hailing platform account (driver portal), proven by zkTLS over the logged-in driver portal session
+  why_zk: The lessor needs experience, not income or passenger locations. A threshold proof removes passenger address exposure, which is a third-party privacy issue under the Personal Data Protection Act. Honest weakness: it sits close to a generic income check, leasing firms usually want earnings for credit risk, and platforms may change their portal markup so the proof breaks.
+  inspired_by:
+    - seed_id: an-a-nist-dp
+      borrowed_aspect: The idea that a releaser should expose a checkable bound instead of raw records, here a threshold in place of a trip log.
+    - seed_id: an-b-census-title13
+      borrowed_aspect: The principle that outputs must not allow particular individuals (here the passengers in the export) to be singled out.
+
+- title: Online marketplace seller sales threshold for a night-market or pop-up stall slot
+  moment: A Shopee or Ruten seller applies to a city-run weekend creative market (such as a Taichung or Tainan pop-up bazaar) for a priority stall slot that is reserved for sellers who already have a proven online sales record.
+  verifier: Market organizer or district office running the stall lottery
+  predicate: Seller account has at least 200 completed orders and at least 95 percent positive reviews in the past 6 months
+  disclosed_today: Screenshots of the seller dashboard with revenue, customer names, supplier costs, and the shop's bank payout details, sometimes the full order spreadsheet
+  issuer: Marketplace seller account (seller center), shown through a zkTLS proof over the seller center page
+  why_zk: The organizer only ranks applicants, so a threshold proof avoids handing over revenue and customer data that the organizer then stores in a shared inbox. Weakness: applicant volumes are small, organizers are unlikely to run a verifier, a lottery with no ranking removes the need, and platforms could object to proofs generated from seller sessions.
+  inspired_by:
+    - seed_id: an-b-sealed-bid-far
+      borrowed_aspect: A hidden value that a holder must keep from competitors yet later prove, here sales figures that rival stall applicants must not see.
+    - seed_id: an-b-secret-ballot-moad
+      borrowed_aspect: Separating eligibility checking from the item being judged, so the organizer verifies a threshold without linking the applicant's full business record to the ranking.

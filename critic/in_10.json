@@ -1,0 +1,149 @@
+[
+ {
+  "review_id": "b10-0",
+  "title": "E-commerce seller reputation for a landlord's short-term shop-space sublease",
+  "moment": "A small online seller on a Taiwanese marketplace wants to rent a pop-up counter or storefront from a landlord. The landlord asks for backend sales dashboards to judge whether the seller can pay rent.",
+  "verifier": "Landlord or property manager of a pop-up space",
+  "predicate": "Trailing 6-month monthly average order revenue >= NT$150,000 and seller cancellation rate <= 2%",
+  "disclosed_today": "Full seller-center screenshots exposing customer order lists, product margins, supplier names, and bank-payout details",
+  "issuer": "The e-commerce marketplace seller dashboard, attested by a zkTLS proof of the logged-in seller-center response",
+  "why_zk": "Dashboards reveal customers and cost structure that the landlord has no need for, and the seller cannot share them without exposing third-party buyers' data. A proof of two thresholds gives the landlord what it needs. Weakness: the seller can pick a convenient window or selectively show one of several shops, and marketplace terms may bar scripted session access.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "Releasing only the subset that serves the stated purpose, and replacing the holder's judgement of \"minimal\" with a proof that the released fact is only a threshold.",
+    "source_excerpt": "A holder of sensitive records must release only the subset that serves a stated purpose, but the rule leaves it to the holder to judge what is minimal and gives no mechanism that proves the released subset was minimal. | mechanism: Purpose-based minimum-necessary rule with reasonable-efforts standard, role-based access and reasonable reliance on requester representations (45 CFR 164.514(d)); no cryptographic or proof-based check."
+   },
+   {
+    "borrowed_aspect": "The concern that a verifier keeps copies once collected; a proof leaves no screenshot archive behind to be retained under a vague business-need exception.",
+    "source_excerpt": "A party that has collected a person's data must delete it once the reason for holding it ends, but an open-ended exception lets it keep the data whenever it says it still needs it for its own duties. | mechanism: Statutory deletion-on-purpose-lapse duty with exceptions for lawful duties or written consent; no technical erasure mechanism specified."
+   }
+  ]
+ },
+ {
+  "review_id": "b10-1",
+  "title": "Merchant proving monthly card-sales volume for a terminal or subsidy eligibility without exposing customers' transactions",
+  "moment": "A night-market stall owner or small shop applying for a mobile-payment terminal upgrade, a municipal small-business subsidy or a supplier credit line is asked for twelve months of acquiring-bank settlement records, which list every customer card transaction.",
+  "verifier": "Local government economic development bureau, payment processor, or wholesale supplier offering trade credit",
+  "predicate": "Average monthly card and mobile-payment settlement over the last 12 months is between NT$A and NT$B, with no month below NT$C.",
+  "disclosed_today": "Full settlement statements with per-transaction timestamps, amounts, masked card numbers, and the shop's account balances and bank transfers.",
+  "issuer": "The merchant's acquiring or settlement bank (signing a sales aggregate)",
+  "why_zk": "The verifier only needs a revenue band. Per-transaction detail also exposes customers' purchasing patterns that the merchant has no business passing on. Weakness: many subsidies already rely on tax filings (營業稅申報) that the government can check directly, so the case is strongest for private verifiers such as suppliers and processors.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "Collected data tends to be kept under a vague 'needed for business' exception, which a proof avoids by never handing over the records.",
+    "source_excerpt": "A party that has collected a person's data must delete it once the reason for holding it ends, but an open-ended exception lets it keep the data whenever it says it still needs it for its own duties. | mechanism: Statutory deletion-on-purpose-lapse duty with exceptions for lawful duties or written consent; no technical erasure mechanism specified."
+   },
+   {
+    "borrowed_aspect": "A request category that bundles extra fields with the one fact wanted; here the statement bundles customer detail with the revenue band.",
+    "source_excerpt": "A verifier wants a single over-threshold fact, but the request category bundles the issuing authority and a face photo with it, so the verifier can receive more than the age claim. | mechanism: Age Over N Flag as a separate requestable value under an entitlement-gated API; no shared name or address."
+   }
+  ]
+ },
+ {
+  "review_id": "b10-2",
+  "title": "Micro-business owner proves quarterly card-sales turnover to a landlord or platform without exposing customers",
+  "moment": "A night-market stall or small shop owner applying for a stall lease, a delivery-platform onboarding, or a government small-business subsidy is asked for bank statements of the business account to show monthly sales volume.",
+  "verifier": "Market management office, platform, or subsidy-handling agency",
+  "predicate": "Sum of incoming mobile-payment and card-settlement deposits over the last 3 months is at least a stated threshold, and the number of distinct payers exceeds a stated minimum.",
+  "disclosed_today": "Complete business account statements listing every customer transfer, supplier payment, personal withdrawals and balances.",
+  "issuer": "Bank holding the business account, as merchant acquirer or account holder",
+  "why_zk": "A signed sum and distinct-payer count answers the real question (is this a live business) and hides suppliers and customers. Honest limits: much night-market revenue is cash and never reaches the bank, so the proof understates, and the tax authority, not the bank, is the usual authority on turnover. Distinct-payer counts can also leak small-group membership if the threshold is low, which differential-privacy style thinking warns about.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "A published aggregate can still reveal individual contributors, so the threshold and rounding of the signed statistic must be chosen with that leak in mind.",
+    "source_excerpt": "A releaser must answer queries about a dataset so that an observer learns almost nothing about whether any one individual contributed, and the leak must be expressed as a bound that can be checked. | mechanism: Differential privacy, a randomised release mechanism with a quantified privacy-loss parameter; NIST notes that the guarantee depends on how the framework is realised in practice and lists privacy hazards that can break it."
+   },
+   {
+    "borrowed_aspect": "Release only the aggregate and never an output that lets a particular counterparty be singled out.",
+    "source_excerpt": "An agency holding individual responses must release aggregate results, and the legal duty bars any output from which a particular respondent can be singled out, while the holder's staff can still see the raw records. | mechanism: Statutory use limitation and publication prohibition enforced by sworn-oath duties and penalties; statistical disclosure limitation (for example differential privacy in later census products) is a technical layer not specified in the statute."
+   }
+  ]
+ },
+ {
+  "review_id": "b10-3",
+  "title": "Not on the restricted-exit list when booking a package tour",
+  "moment": "A traveler pays a deposit for an overseas group tour or a visa-assisted trip, and the travel agency asks for a passport copy and ID card copy to check that the traveler is not barred from leaving the country.",
+  "verifier": "Travel agency (旅行社) booking desk",
+  "predicate": "Holder does not appear on the national restricted-exit (限制出境) register as of today",
+  "disclosed_today": "Full photocopy of the ID card (national ID number, address, photo) and passport (passport number, birth date, photo), kept in agency files",
+  "issuer": "Ministry of the Interior National Immigration Agency (內政部移民署), as the keeper of the restricted-exit register",
+  "why_zk": "The agency needs only the absence from the register, not identity documents. Weakness: restricted-exit status can change after signing, so the proof needs a short validity window or a freshness timestamp. Law may also restrict who is allowed to learn restriction status at all, and the agency often needs the passport anyway for the actual ticket and visa, so the saving is only at the deposit stage. A blind or unlinkable proof also stops the agency and the issuer from correlating who is traveling.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The registry answers only a narrow yes/no about its own record rather than releasing the underlying data, as the household registry does for duplicate ID numbers.",
+    "source_excerpt": "A party asks a registry for identity-number information to settle a dispute; the registry could disclose the full reassigned value, but a narrower answer, whether a duplicate exists, is enough to settle it. | mechanism: Registry reports only whether the number is duplicated, not the reassigned number; the bank marks its own internal record instead."
+   },
+   {
+    "borrowed_aspect": "Presenting an unlinkable proof of a prior check so the agency cannot match it back to the issuance event.",
+    "source_excerpt": "A verifier only needs to learn that the holder passed an earlier check, but the proof it receives can be matched to the issuance event and to every other use of the same proof. | mechanism: Clients present unlinkable proofs that attest to a prior authorisation, so the origin cannot link redemption to issuance or to other redemptions."
+   }
+  ]
+ },
+ {
+  "review_id": "b10-4",
+  "title": "Neighbourhood group-buy and community app one-vote-per-household style polls",
+  "moment": "A residents' community app or LINE-based building management committee runs a poll or a subsidised bulk-purchase (for example a shared water-purifier contract) where each member may take part once, and joining currently means giving a phone number and name to the organiser.",
+  "verifier": "Building management committee or community group-buy organiser.",
+  "predicate": "This participant is one real subscriber and has not already responded in this poll, without revealing the number.",
+  "disclosed_today": "Name, unit number, mobile number, and often a LINE ID, shared with whoever administers the group, and visible to other volunteers.",
+  "issuer": "A Taiwanese mobile carrier.",
+  "why_zk": "Limiting to one response per person needs only a uniqueness tag, not a phone book that volunteers can misuse. Weakness: a carrier subscriber is not a household resident, so this proves one-per-person but not that the person lives in the building. Eligibility must still be checked by a separate step, as in a separate-eligibility-from-ballot procedure, so the telco proof only covers the duplicate-suppression half. Management committees are unlikely to adopt this without a ready-made app.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "Eligibility is checked separately from the cast response, so the uniqueness proof handles only duplicates and not identity.",
+    "source_excerpt": "A voter must prove eligibility and cast a valid choice while the record of that choice cannot be linked back to them, but the same process must still let officials verify who voted, so the separation depends on procedure rather than on a proof. | mechanism: Separate voting compartments and two-envelope sealing for postal and absentee ballots so identity is not attached to the vote at counting; eligibility is checked separately from the ballot."
+   },
+   {
+    "borrowed_aspect": "The signer certifies the participant without seeing what they later do with the credential.",
+    "source_excerpt": "A signer must certify that a holder has a valid token without seeing the token's content, and must later be unable to link the certified token back to the signing event. | mechanism: A blind signature, where the message is blinded with a random factor before signing, and the holder unblinds the signature so it verifies against the original message under the signer's public key."
+   }
+  ]
+ },
+ {
+  "review_id": "b10-5",
+  "title": "Night-market stall applies for a platform seller badge with a turnover band, not account history",
+  "moment": "A small food or goods vendor applying to sell through a delivery or e-commerce platform in Taiwan is asked to upload bank statements to show monthly receipts, so the platform can set a deposit or credit limit.",
+  "verifier": "Delivery or e-commerce platform's merchant onboarding team",
+  "predicate": "Total incoming deposits across the vendor's business accounts over the last 6 months fall in a stated band (for example NT$100,000 to NT$300,000 per month), and no month is more than 30 percent below the average.",
+  "disclosed_today": "Complete statements for personal and business accounts, including customer names on transfers, private spending, and family transfers, often mixed in the same account.",
+  "issuer": "The vendor's bank (including a credit cooperative or farmers' and fishermen's association bank), signing a turnover-band aggregate.",
+  "why_zk": "The platform needs a turnover band to set a limit, not the customer-level detail. The bank can sign the band over all the vendor's accounts at that bank. Weakness: many stall owners mix cash and informal transfers, so bank deposits understate real turnover and the band may be unfairly low. Banks would also have to build and support the attestation product.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "Demanding extra records from a user whose payments are already normal, without stating necessity.",
+    "source_excerpt": "A service needs to confirm a subscriber's payment, but it demands an identity document and address proof, and threatens suspension if the user refuses, without stating the purpose or necessity. | mechanism: None; the complaint notes no stated purpose or less-intrusive alternative was offered."
+   },
+   {
+    "borrowed_aspect": "Concern that data collected for onboarding gets retained under an open-ended business-need exception, which pushes towards proving a band instead of handing over records.",
+    "source_excerpt": "A party that has collected a person's data must delete it once the reason for holding it ends, but an open-ended exception lets it keep the data whenever it says it still needs it for its own duties. | mechanism: Statutory deletion-on-purpose-lapse duty with exceptions for lawful duties or written consent; no technical erasure mechanism specified."
+   }
+  ]
+ },
+ {
+  "review_id": "b10-6",
+  "title": "Teaching-assistant or part-time lab hire matched to a work-permit or labour-insurance claim",
+  "moment": "A university department hires an international or a cross-campus student as a part-time research assistant, and the payroll office must confirm that the student who holds the university's enrolment and department-approval claim is the same person who holds a valid work-permit or labour-insurance enrolment from a government issuer.",
+  "verifier": "University or research-institute human resources and payroll office",
+  "predicate": "The holder of a university-signed enrolment and supervisor-approval credential is the same person as the holder of a government-issued work-eligibility credential (work permit or labour insurance status), proven without revealing passport or ARC number to the department that only needs to approve the hire.",
+  "disclosed_today": "Passport and ARC copy, enrolment certificate, work-permit scan, bank details, handed to department staff who are not payroll specialists and often keep photocopies in unsecured folders.",
+  "issuer": "University (enrolment and approval claim), matched to the Ministry of Labor or immigration agency (work eligibility claim)",
+  "why_zk": "Department-level staff pass around scans of passports and ARCs that only payroll and compliance truly need, creating a leakage risk for foreigners in particular. A matched proof lets the department confirm eligibility while the identifier goes only to payroll. The weakness is that the university is itself the verifier and an employer, with a legal duty to retain a copy of the work permit and ARC for labour inspection, so zero-knowledge can reduce who sees the data inside the institution but cannot remove the retention requirement.",
+  "claimed_borrowings": []
+ },
+ {
+  "review_id": "b10-7",
+  "title": "Post-surgery or post-procedure \"may be left alone / cleared for pickup\" window for a ride or care service",
+  "moment": "After day surgery or a colonoscopy under sedation, the patient is collected by a family member, a taxi or a nursing-aide service that asks for the discharge summary to prove the patient is cleared to leave and who is responsible.",
+  "verifier": "Taxi or care-transport dispatcher, home-care agency, or a hotel or recovery guesthouse near the hospital",
+  "predicate": "Hospital signs \"discharged in stable condition, may travel or stay unaccompanied after time T\" and it is valid only for the next 24 hours.",
+  "disclosed_today": "The whole discharge note, including diagnosis, procedure name, medications and attending doctor, photographed or handed over on paper.",
+  "issuer": "Hospital discharge system issuing a time-limited status.",
+  "why_zk": "The service needs only the clearance and the time window, not the procedure, and a short validity stops the status being reused later. Honest limits: many such services rely on a person's word and have no wallet reader, so adoption incentive is low, and some care agencies legitimately need medication information for safety.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "A gatekeeper only needs to know that a prior check was passed, without receiving a persistent identifier.",
+    "source_excerpt": "A gatekeeper only needs to know that the visitor already passed some check, but the proof it accepts doubles as a persistent identifier. | mechanism: Blind-signed tokens that attest prior authorisation and cannot be linked to the issuance interaction."
+   }
+  ]
+ }
+]

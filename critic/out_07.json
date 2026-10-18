@@ -1,0 +1,202 @@
+[
+ {
+  "review_id": "b07-0",
+  "reasons": {
+   "rubric": "Non-membership bit is simple and high-frequency-ish, but the moment is a niche, questionable screen with a legally doubtful verifier demand, so it is a weak fit.",
+   "validity": "Operators rarely screen enforcement-debtor status, the idea admits it may be unlawful, and non-membership does not prove ability to pay.",
+   "coherence": "The stated goal of assuring payment capacity does not match the predicate, which proves only absence from a register.",
+   "novelty": "Court-register non-membership for childcare is a new moment, though close in spirit to the known landlord clean-record case.",
+   "provenance": "The voting-ballot separation borrowing is decorative; the idea reads the same without it and the mechanism is unrelated.",
+   "retention_law": "A private operator has no obvious duty to retain the full file, though the legal propriety of the check itself is doubtful.",
+   "linkability": "A single non-membership attestation is a stable per-person value unless made unlinkable, and the operator already holds the ID copy.",
+   "issuer_unwilling": "Courts are unlikely to sign attestations to support a questionable private screen of parents.",
+   "no_wallet": "Parents and small operators would need a wallet, and the ID copy is still collected, so the benefit is largely lost."
+  },
+  "rubric_score": 2,
+  "validity": 2,
+  "coherence": 2,
+  "novelty": 3,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "holds",
+   "linkability": "unknown",
+   "issuer_unwilling": "fails",
+   "no_wallet": "fails"
+  }
+ },
+ {
+  "review_id": "b07-1",
+  "reasons": {
+   "rubric": "A class-membership predicate from an existing utility issuer is simple, but grants are infrequent and the bureau also needs the address and a site visit.",
+   "validity": "The grant moment is real, but the bureau needs the site address for the project record, so class membership alone is not sufficient for the final decision.",
+   "coherence": "The over-collection problem and the narrow membership claim fit together, with the idea itself admitting the limit at final approval.",
+   "novelty": "Electricity-contract class for agricultural grants is a moment not on the known list, though close to the utility-subsidy case.",
+   "provenance": "The borrowing about narrowing a bundled request to a single claim does shape the framing, but the idea would read much the same without the age-flag analogy.",
+   "retention_law": "A government grant file likely needs the site address and supporting records retained, so ZK reduces exposure only at the application stage.",
+   "linkability": "Membership without account number is hard to deduplicate or audit, and the later address disclosure links the applicant anyway.",
+   "issuer_unwilling": "Taipower is a state-owned utility and could plausibly sign class membership, but it has little incentive to build this.",
+   "no_wallet": "Farmers would need a wallet, and the county office can obtain the bills through ordinary channels, so adoption is doubtful."
+  },
+  "rubric_score": 2,
+  "validity": 3,
+  "coherence": 4,
+  "novelty": 3,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "fails",
+   "linkability": "holds",
+   "issuer_unwilling": "holds",
+   "no_wallet": "unknown"
+  }
+ },
+ {
+  "review_id": "b07-2",
+  "reasons": {
+   "rubric": "The predicate is a time-bounded clearance, but outbreaks are episodic so frequency is low and the issuer ecosystem needs hospitals to participate.",
+   "validity": "Outbreak-window clearance is a real situation, but a facility may be entitled to more in an active case and hospitals rarely issue such clearances.",
+   "coherence": "The minimal clearance, validity window and sensitivity of the underlying report fit together well.",
+   "novelty": "Infectious-disease clearance for communal housing is a moment nobody on the known list touches.",
+   "provenance": "No borrowings are claimed.",
+   "retention_law": "Communicable-disease rules may let the facility or authorities require fuller records in an active case; I cannot say.",
+   "linkability": "A signed clearance with an expiry is a bearer value that could be correlated if presented repeatedly across facilities.",
+   "issuer_unwilling": "Hospitals are cautious about issuing portable health attestations and may refuse to create new credentials.",
+   "no_wallet": "Migrant workers and students may lack a compatible wallet, and public health reporting may bypass self-presented proof."
+  },
+  "rubric_score": 2,
+  "validity": 3,
+  "coherence": 4,
+  "novelty": 4,
+  "provenance_faithful": "NA",
+  "kill_tests": {
+   "retention_law": "unknown",
+   "linkability": "unknown",
+   "issuer_unwilling": "fails",
+   "no_wallet": "unknown"
+  }
+ },
+ {
+  "review_id": "b07-3",
+  "reasons": {
+   "rubric": "A uniqueness nullifier on a high-frequency promo moment has a real over-collection problem, but the carrier ecosystem is fragmented and one-per-person is hard to issue, so it needs design.",
+   "validity": "Promotion draws are real and phone-number farming is a real problem, but a per-line telco credential does not prove one person per entry and winners must give ID anyway.",
+   "coherence": "The nullifier fits the one-entry goal, though the idea itself notes that SIM rules allow several lines per person, which undermines the uniqueness claim.",
+   "novelty": "Promotion draws are not on the known list; the nullifier resembles the known brokerage Sybil case but the moment and issuer are new.",
+   "provenance": "The SameSite cookie and census disclosure-limitation borrowings are decorative; a campaign-scoped nullifier follows from the one-entry goal without them.",
+   "retention_law": "Retailers have no apparent duty to keep phone numbers, though winners' tax withholding forces identity collection at the prize stage.",
+   "linkability": "Campaign-scoped tags avoid cross-campaign linkage by design, though the carrier could see which campaigns are entered if it participates in proofs.",
+   "issuer_unwilling": "Carriers would need to issue a per-person rather than per-line credential, which the idea itself says they may not do.",
+   "no_wallet": "Casual entrants will not install a wallet for a convenience-store draw when an SMS code is easy, so friction likely kills adoption."
+  },
+  "rubric_score": 3,
+  "validity": 3,
+  "coherence": 3,
+  "novelty": 4,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "holds",
+   "linkability": "holds",
+   "issuer_unwilling": "fails",
+   "no_wallet": "fails"
+  }
+ },
+ {
+  "review_id": "b07-4",
+  "reasons": {
+   "rubric": "A non-membership bit is simple, but the program separately requires positive income and property checks, so only a small part of the file is removed and frequency is low.",
+   "validity": "The moment is plausible, but the operator may query the government list directly, and non-blacklisting is insufficient for the eligibility decision.",
+   "coherence": "The framing of a landlord collecting full transcripts conflicts with a predicate that covers only the blacklist part of the check.",
+   "novelty": "Subsidy-program disqualification lists are a new predicate, but the moment overlaps the known rental and subsidy cases.",
+   "provenance": "The bank account-opening borrowing is decorative, since it describes unspecified retention and nothing in the idea depends on it.",
+   "retention_law": "A subsidy program likely needs the full eligibility file retained for audit, so ZK would reduce exposure in transit only.",
+   "linkability": "A non-membership claim to a single operator carries little extra linkage beyond the identity the operator already holds.",
+   "issuer_unwilling": "A housing agency could sign a list check, but it can also simply offer a direct lookup to the operator, which removes the need.",
+   "no_wallet": "Tenants would need a wallet while the operator still collects the other records, so the practical benefit is small."
+  },
+  "rubric_score": 2,
+  "validity": 2,
+  "coherence": 3,
+  "novelty": 3,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "fails",
+   "linkability": "holds",
+   "issuer_unwilling": "unknown",
+   "no_wallet": "fails"
+  }
+ },
+ {
+  "review_id": "b07-5",
+  "reasons": {
+   "rubric": "A roll membership bit is simple with a plausible issuer, but the roll is derived from local welfare data, so the issuer is fragmented and frequency is low.",
+   "validity": "Community energy schemes do ask for bills, but the bill is not the natural proof and Taipower may not hold the welfare roll.",
+   "coherence": "The scheme need, the bill over-disclosure and the nullifier fit, but the issuer is uncertain and nearly duplicates the sibling grant idea.",
+   "novelty": "It is a reworded utility-subsidy case already known, applied to a solar co-op, so novelty is low.",
+   "provenance": "Both borrowings only restate that the proof should carry just the membership bit; the idea would read the same without them.",
+   "retention_law": "A small township or NGO programme probably has no legal duty to keep the full bill, though audit rules for public funds are unknown.",
+   "linkability": "The nullifier is deliberate to prevent double claims, which makes the account linkable within the scheme but not obviously across schemes.",
+   "issuer_unwilling": "Taipower is not the owner of welfare status and the welfare bureaus would have to sign instead, so the named issuer may decline.",
+   "no_wallet": "Low-income households and small NGO counters may lack wallets or readers, and a photocopy is easy."
+  },
+  "rubric_score": 3,
+  "validity": 3,
+  "coherence": 3,
+  "novelty": 2,
+  "provenance_faithful": "no",
+  "kill_tests": {
+   "retention_law": "unknown",
+   "linkability": "holds",
+   "issuer_unwilling": "fails",
+   "no_wallet": "fails"
+  }
+ },
+ {
+  "review_id": "b07-6",
+  "reasons": {
+   "rubric": "A non-membership bit on a ban list from a government issuer is simple and the full certificate over-discloses, but a legally defined certificate form and freshness issues limit it.",
+   "validity": "Checking people who work with children is a real duty in Taiwan, but the legal check may be defined as a specific certificate, so the proof may not satisfy it.",
+   "coherence": "The over-disclosing certificate, the narrower ban-list claim and the freshness caveat fit together well.",
+   "novelty": "It is close to the known clean-criminal-record rental case but applies to a different verifier and a narrower register.",
+   "provenance": "No borrowings are claimed.",
+   "retention_law": "Organisations may be required to keep the prescribed certificate, which I cannot confirm, and that could remove the benefit.",
+   "linkability": "A stable non-membership attestation could be correlated across organisations unless presentations are unlinkable.",
+   "issuer_unwilling": "Several ministries would have to cooperate on a combined register, and a justice-derived record is sensitive to sign.",
+   "no_wallet": "Volunteers at temples and clubs are often older or non-technical and small groups lack verifier tooling."
+  },
+  "rubric_score": 3,
+  "validity": 4,
+  "coherence": 4,
+  "novelty": 2,
+  "provenance_faithful": "NA",
+  "kill_tests": {
+   "retention_law": "unknown",
+   "linkability": "unknown",
+   "issuer_unwilling": "unknown",
+   "no_wallet": "unknown"
+  }
+ },
+ {
+  "review_id": "b07-7",
+  "reasons": {
+   "rubric": "A date-range attestation is simple and high-frequency with a trusted issuer, but the predicate needs only two fields, and employers may insist on the diagnosis certificate.",
+   "validity": "Sick-leave proof is a very real moment, and the date range is enough for leave approval, but a hospital would need to issue a new document type.",
+   "coherence": "The minimal attestation, the sensitivity of diagnoses and the adoption caveat fit together well.",
+   "novelty": "Medical leave proof for employers is not on the known list, though it resembles a health-disclosure moment in general.",
+   "provenance": "No borrowings are claimed.",
+   "retention_law": "Employers may be required to keep leave records and some contracts or insurers demand the diagnosis, which I cannot confirm.",
+   "linkability": "A date-range attestation reveals only hospitalisation timing and is presented to one employer, so cross-context linkage is minor.",
+   "issuer_unwilling": "Hospitals already issue certificates and could issue a diagnosis-free version, though they may be reluctant to change workflow.",
+   "no_wallet": "Employees can simply be given a diagnosis-free paper certificate, so no wallet is needed and ZK adds little."
+  },
+  "rubric_score": 4,
+  "validity": 4,
+  "coherence": 5,
+  "novelty": 4,
+  "provenance_faithful": "NA",
+  "kill_tests": {
+   "retention_law": "unknown",
+   "linkability": "holds",
+   "issuer_unwilling": "holds",
+   "no_wallet": "fails"
+  }
+ }
+]

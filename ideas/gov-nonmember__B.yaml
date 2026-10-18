@@ -1,0 +1,38 @@
+- title: "Not on the restricted-exit list when booking a package tour"
+  moment: "A traveler pays a deposit for an overseas group tour or a visa-assisted trip, and the travel agency asks for a passport copy and ID card copy to check that the traveler is not barred from leaving the country."
+  verifier: "Travel agency (旅行社) booking desk"
+  predicate: "Holder does not appear on the national restricted-exit (限制出境) register as of today"
+  disclosed_today: "Full photocopy of the ID card (national ID number, address, photo) and passport (passport number, birth date, photo), kept in agency files"
+  issuer: "Ministry of the Interior National Immigration Agency (內政部移民署), as the keeper of the restricted-exit register"
+  why_zk: "The agency needs only the absence from the register, not identity documents. Weakness: restricted-exit status can change after signing, so the proof needs a short validity window or a freshness timestamp. Law may also restrict who is allowed to learn restriction status at all, and the agency often needs the passport anyway for the actual ticket and visa, so the saving is only at the deposit stage. A blind or unlinkable proof also stops the agency and the issuer from correlating who is traveling."
+  inspired_by:
+    - seed_id: tw-gov-uid-duplicate-minimal-disclosure
+      borrowed_aspect: "The registry answers only a narrow yes/no about its own record rather than releasing the underlying data, as the household registry does for duplicate ID numbers."
+    - seed_id: an-a-privacy-pass
+      borrowed_aspect: "Presenting an unlinkable proof of a prior check so the agency cannot match it back to the issuance event."
+
+- title: "Not a delinquent taxpayer when a seller registers on a marketplace or bids for a small public contract"
+  moment: "A sole proprietor or freelancer signs up to sell on an online platform or to bid for a small municipal procurement and is asked to prove they have no overdue taxes or tax-collection restrictions."
+  verifier: "Online marketplace onboarding team or a city-government procurement clerk"
+  predicate: "Holder is not on the list of persons with overdue taxes or with enforced-collection or restricted-exit tax cases (欠稅 / 移送執行名單) at issuance time"
+  disclosed_today: "A full tax-clearance certificate (完稅證明 / 無欠稅證明) showing taxpayer name, ID number, and often tax amounts or income categories, plus a business registration copy"
+  issuer: "Ministry of Finance National Taxation Bureau (財政部國稅局), or the local tax bureau for local taxes"
+  why_zk: "Today the clearance paper carries tax detail the verifier does not need; a signed non-membership claim reveals only that no overdue case exists. Weakness: tax authority records are confidential by law (稅捐稽徵法 secrecy), so the bureau may refuse to sign anything but the existing certificate, and procurement rules may name the paper certificate explicitly. Also, absence from a list is only as good as the list's update frequency, so the proof must carry an as-of date."
+  inspired_by:
+    - seed_id: rd-eudi-wallet-selective-disclosure-recital
+      borrowed_aspect: "The principle that the relying party gets what the service needs and no more, instead of the whole attestation record."
+    - seed_id: tw-gov-uid-duplicate-minimal-disclosure
+      borrowed_aspect: "The narrower answer (no overdue case) is enough to settle the question, so the full figures need not be released."
+
+- title: "Not a sex-offender-registry entry when joining a cram school or sports club as a part-time coach"
+  moment: "A university student or retiree applies as an after-school tutor, swim coach, or children's activity assistant, and the employer asks for a police criminal-record certificate and a check against child-protection restriction lists before the first class."
+  verifier: "Cram school (補習班), sports club, or after-school care operator"
+  predicate: "Holder does not appear on the sexual-offense or child-protection employment-restriction register (性侵害加害人 / 兒少性剝削 登記查閱名單) at issuance time"
+  disclosed_today: "A police good-conduct certificate (良民證) or a similar paper listing full name, ID number, birth date and a statement about the full criminal-record status, which can expose unrelated, old, or expunged entries"
+  issuer: "Ministry of the Interior Police Administration (內政部警政署) or the competent local education or social-welfare bureau"
+  why_zk: "The employer's legitimate need is only absence from the restriction register; a good-conduct certificate shows more than that, including minor records unrelated to children. Weakness: Taiwanese child-protection law already obliges employers to query specific lists through official channels, and the legally required check may have to be performed by the employer directly with the authority rather than accepting a holder's proof, so a wallet proof may be legally insufficient unless regulations are updated. Freshness is also critical here, because a register entry added after the proof was signed would be missed."
+  inspired_by:
+    - seed_id: rd-google-wallet-zkp-age-no-linkage
+      borrowed_aspect: "A single yes/no fact delivered so that neither the verifier nor the issuer can track the holder."
+    - seed_id: rd-apple-wallet-age-request-categories
+      borrowed_aspect: "The warning that a request category can bundle extra fields (issuer, photo), which here mirrors the good-conduct certificate bundling unrelated record details."

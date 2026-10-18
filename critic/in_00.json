@@ -1,0 +1,144 @@
+[
+ {
+  "review_id": "b00-0",
+  "title": "Student-rate transit pass bound to the same person as the telecom/bank account",
+  "moment": "A student buys a discounted monthly commuter pass or youth fare product through a transit operator's app, which must be sure the student-status claim belongs to the same person who holds the stored-value or payment account the pass is loaded onto.",
+  "verifier": "Transit operator or e-ticketing issuer (e.g. a city MRT or bus card scheme, or an e-ticket platform).",
+  "predicate": "The university-signed enrolled-this-semester claim and the payment or ticketing account's holder claim refer to the same person, shown without revealing the national ID number to the operator.",
+  "disclosed_today": "Photo of student ID card, sometimes national ID number and date of birth, entered or photographed at a counter or in the app, and often retained for the pass record.",
+  "issuer": "University registrar (enrolment status), matched against the wallet-held account or identity credential from a second issuer.",
+  "why_zk": "A same-person proof removes the need to copy the ID or student card, and the operator only learns that an enrolled student owns this account. Moderate strength: many operators already accept a simple student-card photo, and a university credential only adds value if the operator's app can verify wallet proofs and universities issue them per semester.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The idea that checking eligibility at the moment of sale should not require keeping a copy of the identity document.",
+    "source_excerpt": "A host must confirm a visitor's identity and eligibility, but the usual practice is to keep a copy of the whole identity document; the regulator says looking at it is enough. | mechanism: Visual inspection of the identity document with no copy taken; the statutory duty is met by checking, not retaining."
+   },
+   {
+    "borrowed_aspect": "The pattern of a point-of-sale rule that demands capturing and retaining a person's image with no less-intrusive alternative.",
+    "source_excerpt": "A provider must confirm a new subscriber's identity before activating a service; the rule requires capturing a live photo of the person at point of sale, with no stated limit on retention. | mechanism: None minimal; in-store photo capture required, no retention limit or less-intrusive alternative stated."
+   }
+  ]
+ },
+ {
+  "review_id": "b00-1",
+  "title": "One ticket-grab account per person for a popular concert presale",
+  "moment": "A Taiwanese ticketing platform opens a presale for a sold-out concert; the organiser wants each fan to hold only one buying account so scalpers cannot run hundreds of accounts, but fans do not want to hand over their ID.",
+  "verifier": "Ticketing platform and concert organiser",
+  "predicate": "This person holds exactly one active mobile subscription, and the proof is bound to this event so the same person cannot register twice for it, while accounts are not linkable across events.",
+  "disclosed_today": "Mobile number with SMS OTP (trivially farmed with prepaid SIMs), or in the strict case a national ID number and a photo of the ID card.",
+  "issuer": "Telco (Chunghwa Telecom, Taiwan Mobile, FarEasTone) that already holds the real-name subscriber record.",
+  "why_zk": "The telco already verified one real person per line at activation, so a per-event nullifier gives one account per person without ID numbers or a phone number reaching the ticketer. Weak points are that one person can legally hold several lines, so the telco must sign a per-person (not per-line) uniqueness claim, which needs a stable internal person key; and that pushing the telco into the verification path creates a new central dependency and some telco visibility into participation unless the proof is issued in advance.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The pattern of a verifier demanding a full ID copy where only proof of one real identified person is needed.",
+    "source_excerpt": "A foreign investor must prove that its local agent is a real, identified person, and the agent hands over a full copy of an ID card, with no alternative verification stated. | mechanism: None stated; full ID copy required with no less-intrusive alternative given."
+   },
+   {
+    "borrowed_aspect": "The idea that a submission must be bound to a fixed event and window, mapped to an event-scoped nullifier.",
+    "source_excerpt": "A party submits a value that must stay hidden from competitors until a fixed moment, while the holder of the submissions must be able to prove later that none were seen early and must handle identifying wrappers without exposing the content. | mechanism: Physical and access-control safeguarding of sealed bids with designated-official exception for envelope identification, plus a written record of any mistaken early opening."
+   }
+  ]
+ },
+ {
+  "review_id": "b00-2",
+  "title": "Medical-electricity-equipment household flag for priority outage notification or emergency-shelter registration",
+  "moment": "A household that uses life-support equipment at home (ventilator, oxygen concentrator, dialysis) signs up with the city fire department or a typhoon-season emergency program to get priority power-restoration and evacuation help, and an outage-relief volunteer group or shelter operator wants to confirm the household is on the utility's medical-need roll.",
+  "verifier": "District emergency management office, fire department, or a community volunteer network running outage and typhoon response",
+  "predicate": "The household's utility account is a member of the set of accounts flagged by the utility as having medical-equipment dependency (a priority-care roll), without revealing the specific address or usage pattern to every volunteer who handles the list.",
+  "disclosed_today": "Full address, a copy of the utility bill, the medical certificate or disability card, and a list of equipment, often collected on paper forms and shared with many volunteers.",
+  "issuer": "Taipower, signing membership in a priority-care or medical-need account list",
+  "why_zk": "Volunteers and aggregators collect a list of vulnerable people's addresses and bills, which is a safety and privacy risk (it flags who is home, frail, and dependent on power). A membership proof lets a registration desk or a volunteer coordinator check eligibility without holding the dossier. Honest weakness: in an actual emergency the responders genuinely need the address to reach the person, so ZK helps only for the enrollment and eligibility step, not for dispatch; and I am not certain Taipower maintains such a formal roll, so this would depend on the utility creating and signing one.",
+  "claimed_borrowings": []
+ },
+ {
+  "review_id": "b00-3",
+  "title": "Dormitory and campus-housing off-campus lease renewal tied to a landlord-side identity record",
+  "moment": "A student renting a room near campus is asked by the landlord or a rental agency to prove both that they are enrolled and that the person named on the lease is the same one the university enrolled, so the landlord can claim rent subsidy or insurance cover.",
+  "verifier": "Private landlord or rental agency, and possibly a subsidy administrator reviewing the lease.",
+  "predicate": "The university's signed enrolment claim and the lease or household-record claim from a second issuer (such as the household registration office) refer to the same person, without disclosing the ID number to the landlord.",
+  "disclosed_today": "Photocopy of national ID card front and back, student ID, and sometimes household register transcript, kept by the agent with no stated retention limit.",
+  "issuer": "University registrar, matched against a household registration or ID credential from a government issuer.",
+  "why_zk": "Landlords and agents routinely collect full ID copies that stay in desk drawers and phone photos, and a match proof would let them confirm student status and identity without holding the number. Weak in practice because small landlords rarely run verifier software and the legal retention limits on private individuals are loosely enforced, so adoption would depend on a rental platform or subsidy portal requiring it.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The problem of an office collecting identity document copies at its own discretion with no stated scope.",
+    "source_excerpt": "A government office that holds a record may ask a proxy's requester for a copy of the principal's identity document, and the scope of what it may collect is left to the office's discretion. | mechanism: None stated; collection of document copies left to agency discretion under PDPA and administrative procedure rules."
+   },
+   {
+    "borrowed_aspect": "The weakness of a deletion duty that has an open-ended exception for what the holder says it still needs.",
+    "source_excerpt": "A party that has collected a person's data must delete it once the reason for holding it ends, but an open-ended exception lets it keep the data whenever it says it still needs it for its own duties. | mechanism: Statutory deletion-on-purpose-lapse duty with exceptions for lawful duties or written consent; no technical erasure mechanism specified."
+   }
+  ]
+ },
+ {
+  "review_id": "b00-4",
+  "title": "Still-employed proof for landlord rent-guarantee renewal",
+  "moment": "A tenant renews a lease mid-term and the landlord or rental-management company asks for proof that the tenant is still employed, as a condition of keeping a reduced deposit.",
+  "verifier": "Landlord or property management / rental platform",
+  "predicate": "Employer has signed within the last 7 days that this holder is currently an active employee (not terminated, not on unpaid leave beyond a threshold); signature is revocable on resignation.",
+  "disclosed_today": "Photocopy of the employment certificate (在職證明) or labor insurance enrollment record showing full name, ID number, employer, salary band, enrollment date; often photographed and kept in LINE chats.",
+  "issuer": "Employer (HR system) issuing a short-lived employment-status credential into the wallet.",
+  "why_zk": "The landlord only needs \"employed as of this week\", not name, ID number, or salary. Weakness: landlords often also want a name to put on the lease, so full anonymity is unrealistic; the gain is dropping salary, ID number and employer details and making a stale paper certificate useless. A static certificate can be months old, while a revocable freshness proof expires on resignation.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The idea that collecting an ID number and salary for a simple continuing-employment check exceeds the necessary scope of purpose, with no mechanism to enforce it.",
+    "source_excerpt": "A rule requires anyone collecting personal data to stay within the necessary scope of its stated purpose, but it gives no concrete way to show what was necessary, so the collector decides what counts as necessary. | mechanism: Legal purpose-limitation and proportionality principle; no technical mechanism specified."
+   },
+   {
+    "borrowed_aspect": "Field selection at presentation time, tightened so only the freshness predicate is released rather than whole records.",
+    "source_excerpt": "A user must prove one eligibility fact to a counter, while the credential holds a whole identity record and the user chooses fields at presentation time with no field-level guarantee. | mechanism: Per-scenario field selection after scanning a QR code, confirmed by biometric check, in the TW DIW sandbox."
+   }
+  ]
+ },
+ {
+  "review_id": "b00-5",
+  "title": "Hospital-signed 'currently in treatment course' status for a pharmacy or school to grant a temporary accommodation",
+  "moment": "A parent asks a school for a short-term accommodation (exempting a child from PE or the cafeteria, or allowing a medication break) or a worker asks a company for a temporary shift change during a defined treatment cycle such as chemotherapy or post-fracture recovery.",
+  "verifier": "School health office (健康中心), employer, or gym/pool operator",
+  "predicate": "Hospital attests 'accommodation category X applies' valid until the course end date, auto-expiring afterward.",
+  "disclosed_today": "Hospital certificate or discharge summary naming the disease and treatment plan, often photocopied and kept in the school file indefinitely.",
+  "issuer": "Treating hospital",
+  "why_zk": "The school needs a category and an end date, not that a child has cancer or a worker has a particular condition. Expiry removes the problem of a stale record being kept after recovery and then used for other purposes. Weakness: a coded accommodation category needs to be agreed between hospitals and schools, and teachers often want a conversation with the family, so the proof may not replace it.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "Express the leak as a bounded, checkable quantity: here the verifier learns only a category and expiry, and nothing else can be inferred.",
+    "source_excerpt": "A releaser must answer queries about a dataset so that an observer learns almost nothing about whether any one individual contributed, and the leak must be expressed as a bound that can be checked. | mechanism: Differential privacy, a randomised release mechanism with a quantified privacy-loss parameter; NIST notes that the guarantee depends on how the framework is realised in practice and lists privacy hazards that can break it."
+   },
+   {
+    "borrowed_aspect": "A stable identifier that outlives its context keeps working for others, so the proof must expire and not be tied to a permanent number.",
+    "source_excerpt": "Once the number that identifies a person leaks, reissuing the physical card does not stop someone presenting the same number, so verifiers that check the number and a photo can be fooled. | mechanism: None; reissuing the card does not change the number."
+   }
+  ]
+ },
+ {
+  "review_id": "b00-6",
+  "title": "Ride-hail rating as a deposit waiver for scooter and car-share rental",
+  "moment": "A traveler or student at a shared-car or e-scooter kiosk in Taipei or Kaohsiung is asked to leave a deposit, or the operator screenshots the person's Uber or LINE Taxi passenger profile to judge reliability.",
+  "verifier": "Car-share or scooter-rental operator (for example a station-based car-share service or a rental shop near a train station)",
+  "predicate": "Passenger rating on the ride-hail account is at least 4.8 and the account has at least 50 completed trips",
+  "disclosed_today": "Screenshot of the whole account page, including name, photo, saved addresses, recent trips and phone number; or a cash deposit instead",
+  "issuer": "Ride-hail platform account, with the claim made verifiable through a zkTLS session proof against the platform's own logged-in page (the platform is not an issuer and has not agreed to anything)",
+  "why_zk": "The rating and trip count are the only facts needed, and a zkTLS proof avoids handing over trip history and home address. Weaknesses: the platform's terms may forbid this use, the rating is a weak signal of driving skill, the session proof depends on the platform not changing its page, and an operator may still want a license check, which this does not replace.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "A one-bit yes/no proof that does not let the verifier or the data holder track the person.",
+    "source_excerpt": "A gatekeeper needs one yes/no fact about a holder, and the proof it receives must not reveal the underlying birth date or let the issuer or the gatekeeper track the holder. | mechanism: Zero-knowledge proof on ISO 18013-7 mdocs for an over-18 statement, device-bound transactions, no server-side storage of credential data."
+   },
+   {
+    "borrowed_aspect": "The problem of capture of a whole document when only one field is needed, here the full account screen.",
+    "source_excerpt": "A venue must confirm that a person is over a threshold age from an identity document, but scanning captures the whole card, so the rule caps what is kept to a few fields and bans secondary use, while the holder still sees everything on the card at the moment of the scan. | mechanism: Statutory field-limit and retention ban on scan data, with a prohibition on sale or marketing dissemination; no proof-of-age mechanism that avoids reading the document."
+   }
+  ]
+ },
+ {
+  "review_id": "b00-7",
+  "title": "Cram school or kindergarten fee-installment eligibility from average monthly balance",
+  "moment": "A parent enrolling a child in a private kindergarten, cram school or bilingual programme asks for a multi-month instalment plan, and the school wants reassurance the parent can sustain the payments.",
+  "verifier": "Private school or cram school finance office",
+  "predicate": "Average daily balance across all the parent's accounts at the bank over the last 6 months is at least a threshold equal to the remaining tuition",
+  "disclosed_today": "Photocopy of the passbook or bank statements, or a post-dated cheque plus a guarantor's details, revealing balances, counterparties and sometimes the guarantor's identity.",
+  "issuer": "The parent's bank, signing an average-balance statistic over the accounts held there",
+  "why_zk": "An average-balance threshold is far less than a full statement, and it avoids pulling in a guarantor. Honestly weak because many schools simply use post-dated cheques or credit-card auto-billing, which already settle the risk, and a single bank's aggregate misses balances held elsewhere, so the school may not accept it as sufficient.",
+  "claimed_borrowings": []
+ }
+]

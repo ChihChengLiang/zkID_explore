@@ -1,0 +1,26 @@
+- title: Dormitory/communal-housing "no contagious infection" clearance during an outbreak window
+  moment: A university dorm, long-term-care facility, or migrant-worker dormitory re-opens after a legionella, tuberculosis, or enterovirus alert and asks incoming residents or returning staff to show they are cleared to share rooms.
+  verifier: Dormitory administrator or facility infection-control officer
+  predicate: Hospital has cleared the person of the named communicable condition (screening negative or isolation completed) and the clearance is valid from issue date until the end of the outbreak watch period (e.g. 14 or 30 days).
+  disclosed_today: A photocopy of the hospital certificate or lab report (diagnosis, test results, physician notes), or a health-declaration form with symptom history; sometimes a full medical certificate stored in a paper folder.
+  issuer: Hospital (infection-control or outpatient department)
+  why_zk: The facility only needs "cleared during this window" and not the disease history, test values or other conditions on the report. Honest caveat is that infectious-disease handling is regulated by the Communicable Disease Control Act, so a facility may be legally entitled to ask for more in an active case, and a hospital would have to agree to issue wallet credentials at all. Weak where public health authorities mandate direct reporting rather than self-presented proof.
+  inspired_by: []
+
+- title: Employer sick-leave or surgery-recovery verification for a specific absence period
+  moment: An employee is hospitalised or has outpatient surgery and the HR department wants proof that the absence is genuine and covers a date range, before approving paid sick leave or the Labor Standards Act sick-leave allowance.
+  verifier: Employer HR or payroll department
+  predicate: A hospital-signed attestation that the holder was medically unfit for work for the dates from X to Y (credential valid only for that interval), with no diagnosis.
+  disclosed_today: Diagnosis certificate (診斷證明書) listing the diagnosis, procedure, ward, treating physician and recommended rest days; HR staff and sometimes line managers see the whole certificate.
+  issuer: Hospital (attending physician or medical records office)
+  why_zk: HR needs only "unfit for work 2026-03-02 to 2026-03-09"; the diagnosis (cancer, mental health, pregnancy complications) is sensitive and employers do not need it. Honest caveat is that some employers and insurers contractually demand the diagnosis certificate, and employees may not feel free to refuse; also the attestation of a date range is easy to build with a signed range credential, so ZK adds little beyond selective disclosure of two fields. The privacy gain is real, but the adoption barrier is employer practice and not cryptography.
+  inspired_by: []
+
+- title: Visitor access to a school or kindergarten after a child's infection with a fixed exclusion period
+  moment: A child returns to kindergarten or primary school after hand-foot-mouth disease, influenza or COVID, and the school requires proof the child is no longer contagious and has served the exclusion period, which is time-bounded by health-department guidance.
+  verifier: School nurse or kindergarten administrator
+  predicate: A hospital-signed status "cleared to return" valid from the clearance date for the rest of the school term or a stated number of days, without disclosing which illness or the treatment.
+  disclosed_today: Hospital medical certificate or the parent's handwritten statement plus the doctor's note naming the disease, symptoms and medication; some schools photograph the note into class records.
+  issuer: Hospital (paediatrics department)
+  why_zk: The school only needs "may attend, no isolation required" for the relevant window, not the child's diagnosis or medication, which can reveal chronic conditions. Honest caveat is that schools in Taiwan are required to report certain notifiable diseases and nurses may legitimately need the disease name to manage class-level outbreaks, so a pure no-detail proof can conflict with public health practice. The minor's data also raises guardian-consent and issuer-liability questions.
+  inspired_by: []
