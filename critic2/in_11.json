@@ -1,0 +1,140 @@
+[
+ {
+  "review_id": "v11-0",
+  "title": "One vote per resident in a building or community management committee online poll",
+  "moment": "A Taiwanese apartment building management committee or a neighbourhood association runs a mobile vote on a repair levy or a rule change; today the organiser collects names, unit numbers and phone numbers to prevent duplicate votes.",
+  "verifier": "Building management committee or community association",
+  "predicate": "One distinct real person per ballot, scoped to this poll, with no name, number or unit published in the tally.",
+  "disclosed_today": "Full name, unit number, phone number, and sometimes a photo of the ID card to confirm that a voter is a real, single person.",
+  "issuer": "Telco as the real-name subscriber record, with the committee separately knowing the eligible list or an eligibility credential.",
+  "why_zk": "A uniqueness proof prevents ballot stuffing with spare SIMs while keeping votes unlinkable to a phone line, and the ballot content can stay hidden until the close. It is weak on its own because a telco attests one person per subscription, not residency in the building, so a second credential (for example from the household registration office or management company) is needed for eligibility, and Taiwanese condominium law expects some form of signed or recorded vote that a purely anonymous scheme may not satisfy.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "Keeping submissions hidden until a fixed opening moment while being able to prove later that none were seen early.",
+    "source_excerpt": "A party submits a value that must stay hidden from competitors until a fixed moment, while the holder of the submissions must be able to prove later that none were seen early and must handle identifying wrappers without exposing the content. | mechanism: Physical and access-control safeguarding of sealed bids with designated-official exception for envelope identification, plus a written record of any mistaken early opening."
+   },
+   {
+    "borrowed_aspect": "The aim of keeping a record of participation without it becoming a readable log of who voted how.",
+    "source_excerpt": "A service provider must keep a record of who used what without that record becoming a readable log of a person's interests, but the duty is a recommended policy that depends on each institution adopting it and on courts or subpoenas being resisted. | mechanism: Institutional confidentiality policy plus procedures for handling subpoenas and law-enforcement requests; no technical minimization of records is specified."
+   }
+  ]
+ },
+ {
+  "review_id": "v11-1",
+  "title": "Telecom student-plan SIM activation tied to a university enrolment",
+  "moment": "A student applies online or in a shop for a discounted student mobile plan or a campus-partner SIM and the telecom must confirm that the enrolled student is the same named person applying, not someone using stolen identity data.",
+  "verifier": "Telecom operator online applications platform or retail shop",
+  "predicate": "The university-signed enrolment claim and the wallet identity credential refer to the same holder, proved with a possession-bound match instead of typing in ID number and issue date.",
+  "disclosed_today": "National ID number, ID issue date, name, birthdate, student number, and sometimes uploaded photos of the ID and student card.",
+  "issuer": "University (enrolment) cross-matched with the national digital wallet identity credential.",
+  "why_zk": "Past fraud in Taiwan showed that checking only a national ID number and issue date lets stolen identity data pass. A holder-bound match proof replaces copyable identifiers with something that cannot be replayed by someone who merely knows the numbers, and the telecom no longer stores a student number it does not need. Honest weakness is that telecom SIM registration law still requires the operator to collect and retain the real-name ID data, so the proof would reduce but not remove the data kept; it mostly helps the student discount step.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The failure case where a check on copyable identifiers (ID number and issue date) let stolen data pass, motivating a holder-bound match.",
+    "source_excerpt": "A provider must verify that a new applicant is the named person, but its check uses identifiers that are easy to copy, so a stolen identity passes and the real person bears the consequences. | mechanism: None; online verification only checked ID number and issue date."
+   },
+   {
+    "borrowed_aspect": "Using a proof that attests an earlier check passed without handing the gatekeeper a reusable identifier.",
+    "source_excerpt": "A gatekeeper only needs to know that the visitor already passed some check, but the proof it accepts doubles as a persistent identifier. | mechanism: Blind-signed tokens that attest prior authorisation and cannot be linked to the issuance interaction."
+   }
+  ]
+ },
+ {
+  "review_id": "v11-2",
+  "title": "One vote per person in an apartment-building or community management committee online poll",
+  "moment": "A Taiwanese residential community (a building management committee) runs an online poll for a repair fund or rule change, and needs one ballot per resident household member without exposing who voted how.",
+  "verifier": "The community management committee (or its property management company) running a LINE or web voting tool.",
+  "predicate": "The voter is one unique real subscriber, and the ballot nullifier is unique for this poll.",
+  "disclosed_today": "Name, unit number, phone number, and often a LINE ID, all tied to the ballot or at least visible to the administrator.",
+  "issuer": "A Taiwanese mobile carrier.",
+  "why_zk": "A uniqueness proof prevents double voting and sock puppets while the committee never learns which phone owner cast which vote. Honest caveat: a telco credential proves one subscriber, not that the person lives in the building, so residence must come from a separate credential (for example a household registration or property owner credential), and Taiwan's condominium law has its own ownership-weighted voting rules that a simple one-person-one-vote proof does not satisfy.",
+  "claimed_borrowings": []
+ },
+ {
+  "review_id": "v11-3",
+  "title": "Proving not being on the court-ordered debtor restriction list when taking a school-bus or after-school care contract",
+  "moment": "A parent enrolling a child with a private after-school care or school-bus operator is asked for a guarantor or prepayment, and the operator wants assurance the parent is not under a court-ordered restriction (such as a debtor under compulsory enforcement or restricted from leaving the country). It is applied as a general screen by some operators.",
+  "verifier": "Private after-school care or school-bus operator",
+  "predicate": "The parent is NOT on the compulsory-enforcement debtor register maintained by the courts.",
+  "disclosed_today": "Parent's ID copy, contact details, sometimes bank account statement or proof of employment to show solvency.",
+  "issuer": "Judicial Yuan / district court enforcement office.",
+  "why_zk": "A signed absence from the debtor register would replace bank statements and employment proof with a single bit. Weakness: this is a weak and legally questionable use, since screening parents on debtor status for child care may be discriminatory or unlawful under consumer and children's-services rules, and the real proof of future payment capacity is not captured by non-membership. It is included to show where the pattern is thin rather than a recommended deployment.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The idea of separating an eligibility check from the record that is kept, so the verifier learns eligibility without the underlying file.",
+    "source_excerpt": "A voter must prove eligibility and cast a valid choice while the record of that choice cannot be linked back to them, but the same process must still let officials verify who voted, so the separation depends on procedure rather than on a proof. | mechanism: Separate voting compartments and two-envelope sealing for postal and absentee ballots so identity is not attached to the vote at counting; eligibility is checked separately from the ballot."
+   }
+  ]
+ },
+ {
+  "review_id": "v11-4",
+  "title": "Not a sex-offender-registry entry when joining a cram school or sports club as a part-time coach",
+  "moment": "A university student or retiree applies as an after-school tutor, swim coach, or children's activity assistant, and the employer asks for a police criminal-record certificate and a check against child-protection restriction lists before the first class.",
+  "verifier": "Cram school (補習班), sports club, or after-school care operator",
+  "predicate": "Holder does not appear on the sexual-offense or child-protection employment-restriction register (性侵害加害人 / 兒少性剝削 登記查閱名單) at issuance time",
+  "disclosed_today": "A police good-conduct certificate (良民證) or a similar paper listing full name, ID number, birth date and a statement about the full criminal-record status, which can expose unrelated, old, or expunged entries",
+  "issuer": "Ministry of the Interior Police Administration (內政部警政署) or the competent local education or social-welfare bureau",
+  "why_zk": "The employer's legitimate need is only absence from the restriction register; a good-conduct certificate shows more than that, including minor records unrelated to children. Weakness: Taiwanese child-protection law already obliges employers to query specific lists through official channels, and the legally required check may have to be performed by the employer directly with the authority rather than accepting a holder's proof, so a wallet proof may be legally insufficient unless regulations are updated. Freshness is also critical here, because a register entry added after the proof was signed would be missed.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "A single yes/no fact delivered so that neither the verifier nor the issuer can track the holder.",
+    "source_excerpt": "A gatekeeper needs one yes/no fact about a holder, and the proof it receives must not reveal the underlying birth date or let the issuer or the gatekeeper track the holder. | mechanism: Zero-knowledge proof on ISO 18013-7 mdocs for an over-18 statement, device-bound transactions, no server-side storage of credential data."
+   },
+   {
+    "borrowed_aspect": "The warning that a request category can bundle extra fields (issuer, photo), which here mirrors the good-conduct certificate bundling unrelated record details.",
+    "source_excerpt": "A verifier wants a single over-threshold fact, but the request category bundles the issuing authority and a face photo with it, so the verifier can receive more than the age claim. | mechanism: Age Over N Flag as a separate requestable value under an entitlement-gated API; no shared name or address."
+   }
+  ]
+ },
+ {
+  "review_id": "v11-5",
+  "title": "Library or lab-resource borrowing across two institutions",
+  "moment": "A graduate student from one university wants to borrow materials or book lab equipment at a different institution's library or shared research facility under a reciprocal-access agreement, and the host must confirm the borrower is a current member of the home university and the same person who holds the host's own visitor registration.",
+  "verifier": "Host institution's library desk or shared-instrument facility.",
+  "predicate": "The home university's signed membership claim and the host's visitor account (issued by the host) belong to the same person, with no identifier shown to the host and no record of what the person borrowed linked to a national ID.",
+  "disclosed_today": "Student card, national ID number or passport number for registering a visitor account, and a lending record tied to that identity.",
+  "issuer": "Home university (membership or enrolment), matched against the host institution's own visitor credential.",
+  "why_zk": "The host needs to know that a member of a partner university is the one borrowing, not who the person is across all their activity, and a match proof keeps the lending log from becoming a readable record of a person's reading interests. Reasonably strong because libraries already treat borrowing records as sensitive, but the host's visitor account is its own issuer so both credentials are in practice institution-controlled, which limits the independence of the two sources.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The goal of keeping a record of who used what without it becoming a readable log of a person's interests.",
+    "source_excerpt": "A service provider must keep a record of who used what without that record becoming a readable log of a person's interests, but the duty is a recommended policy that depends on each institution adopting it and on courts or subpoenas being resisted. | mechanism: Institutional confidentiality policy plus procedures for handling subpoenas and law-enforcement requests; no technical minimization of records is specified."
+   },
+   {
+    "borrowed_aspect": "The framing of seating someone for a task without the wider public learning who they are, with confidentiality being a technical default rather than a discretionary exception.",
+    "source_excerpt": "Someone must be drawn from a pool and seated for a task without the wider public learning who they are, but the default rule can flip to full publication of the identities of everyone selected, with confidentiality only as a judge-level exception. | mechanism: Judge-discretionary confidentiality of juror names under a court's jury selection plan; no technical mechanism specified."
+   }
+  ]
+ },
+ {
+  "review_id": "v11-6",
+  "title": "Still-employed proof for landlord rent-guarantee renewal",
+  "moment": "A tenant renews a lease mid-term and the landlord or rental-management company asks for proof that the tenant is still employed, as a condition of keeping a reduced deposit.",
+  "verifier": "Landlord or property management / rental platform",
+  "predicate": "Employer has signed within the last 7 days that this holder is currently an active employee (not terminated, not on unpaid leave beyond a threshold); signature is revocable on resignation.",
+  "disclosed_today": "Photocopy of the employment certificate (在職證明) or labor insurance enrollment record showing full name, ID number, employer, salary band, enrollment date; often photographed and kept in LINE chats.",
+  "issuer": "Employer (HR system) issuing a short-lived employment-status credential into the wallet.",
+  "why_zk": "The landlord only needs \"employed as of this week\", not name, ID number, or salary. Weakness: landlords often also want a name to put on the lease, so full anonymity is unrealistic; the gain is dropping salary, ID number and employer details and making a stale paper certificate useless. A static certificate can be months old, while a revocable freshness proof expires on resignation.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The idea that collecting an ID number and salary for a simple continuing-employment check exceeds the necessary scope of purpose, with no mechanism to enforce it.",
+    "source_excerpt": "A rule requires anyone collecting personal data to stay within the necessary scope of its stated purpose, but it gives no concrete way to show what was necessary, so the collector decides what counts as necessary. | mechanism: Legal purpose-limitation and proportionality principle; no technical mechanism specified."
+   },
+   {
+    "borrowed_aspect": "Field selection at presentation time, tightened so only the freshness predicate is released rather than whole records.",
+    "source_excerpt": "A user must prove one eligibility fact to a counter, while the credential holds a whole identity record and the user chooses fields at presentation time with no field-level guarantee. | mechanism: Per-scenario field selection after scanning a QR code, confirmed by biometric check, in the TW DIW sandbox."
+   }
+  ]
+ },
+ {
+  "review_id": "v11-7",
+  "title": "Exam-venue or scholarship-exam eligibility matched to government residency claim",
+  "moment": "A student applies to a county or city government scholarship or a subsidised dormitory or rental programme restricted to local residents who are currently enrolled, and the office wants to confirm that the enrolled student and the registered resident are one person.",
+  "verifier": "Local government bureau or foundation administering a resident-student scholarship or rent subsidy",
+  "predicate": "The holder of a university-signed current-enrolment credential is the same person as the holder of a household-registration residency credential from the household registration office, without revealing the ID number, school identifier, grades or household members.",
+  "disclosed_today": "Full household registration transcript (including parents and siblings), national ID copy, student ID, enrolment certificate, often bank passbook cover.",
+  "issuer": "University (enrolment claim), matched to the household registration office (residency claim)",
+  "why_zk": "The household transcript exposes family members who are irrelevant to the decision, and the enrolment certificate exposes the school and sometimes the student number. Only the join of enrolled and local resident is needed. Honest caveat is that agencies are often legally entitled to inspect or pull household data directly through inter-agency lookups with consent, and many programmes also need income or family data that this proof would not replace, so the benefit is limited to the pure residency plus enrolment test.",
+  "claimed_borrowings": []
+ }
+]

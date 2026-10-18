@@ -1,0 +1,98 @@
+[
+ {
+  "review_id": "v07-0",
+  "context_purpose": "Research office confirms a participant is eligible and that two separately issued claims refer to the same person, while keeping the consent file defensible.",
+  "norm_violation_today": {"violated": "unclear", "parameter": "information_type", "reason": "Holding ID and insurance numbers beside health information in a consent file is plausible for an IRB but exceeds what an eligibility join strictly needs."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "Consent requires a signature and real name, and audit or adverse-event follow-up needs the study to reach the person, so full identity cannot be dropped."},
+  "transmission_check": {"principle_today": "required_by_law", "permits_minimal_flow": "unclear", "reason": "Research ethics rules likely require identifiable signed consent and records, and I cannot say whether they require ID numbers specifically."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 2,
+  "novelty": 4,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "v07-1",
+  "context_purpose": "An app limits promotions to genuinely new users to protect its marketing budget from repeat-account abuse.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "Collecting driver licence photos, selfies and device IDs to enforce a coupon rule goes beyond what a once-per-person check needs."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "A pseudonym cannot stop people with several prepaid SIMs or recycled numbers, and cannot support fraud, payment or safety checks that some services (scooters) need."},
+  "transmission_check": {"principle_today": "commercial_convenience", "permits_minimal_flow": "permits", "reason": "No legal duty forces the app to collect these for a coupon, though scooter rental may separately require a driving licence."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "no", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 4,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "v07-2",
+  "context_purpose": "Emergency and outage-response bodies need to identify households that depend on powered medical equipment so they can be prioritised.",
+  "norm_violation_today": {"violated": "yes", "parameter": "recipient", "reason": "Addresses, bills and medical certificates of vulnerable households are passed around many volunteers on paper, wider than the eligibility step needs."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "Responders still need the address and equipment details to dispatch help, so membership alone only covers the enrolment step."},
+  "transmission_check": {"principle_today": "safety_security", "permits_minimal_flow": "unclear", "reason": "Disaster-response duties likely require locations for dispatch, though not necessarily for volunteer-level eligibility checks."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 4,
+  "provenance_faithful": "NA"
+ },
+ {
+  "review_id": "v07-3",
+  "context_purpose": "A childcare centre protects other children and staff by confirming a returning child is no longer contagious.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "Staff need only fitness to return, yet receive the diagnosis or visit record and circulate photos in messaging groups."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Little: a dated not-contagious attestation covers the return decision, though it cannot serve the reporting of notifiable diseases to health authorities."},
+  "transmission_check": {"principle_today": "safety_security", "permits_minimal_flow": "unclear", "reason": "Rules on infectious-disease reporting and return-to-school may need the diagnosis in some cases, and I cannot confirm which."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 4,
+  "novelty": 4,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "v07-4",
+  "context_purpose": "A landlord, platform or subsidy agency wants evidence that a micro-business is live and has enough turnover to be a reliable counterparty.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "Full statements expose suppliers, customers, personal withdrawals and balances when only a turnover figure is needed."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "Cash sales never reach the bank, and tax filings are the authoritative turnover record, so the proof understates and may not satisfy subsidy rules."},
+  "transmission_check": {"principle_today": "consented_for_benefit", "permits_minimal_flow": "unclear", "reason": "Subsidy programmes may require specified documents and I cannot say whether a signed aggregate would be accepted."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 3,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "v07-5",
+  "context_purpose": "A building manager grants standing access only to couriers who look experienced and reliable, to protect residents and deliveries.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "Full app screenshots with earnings, plate, home zone and sometimes ID copies go far beyond a delivery count and rating."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "A platform statistic does not bind the person at the door, so a separate identity check is still needed."},
+  "transmission_check": {"principle_today": "safety_security", "permits_minimal_flow": "permits", "reason": "No law I know of requires full screenshots; this is the building's own access policy."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "no", "verifier_can_check": "unknown"},
+  "rubric_score": 2,
+  "novelty": 5,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "v07-6",
+  "context_purpose": "A building controls entry so that only staff currently sent by a vouching contractor are admitted, with a record for accountability.",
+  "norm_violation_today": {"violated": "unclear", "parameter": "retention", "reason": "Recording an ID number for building access can be justified for accountability, but paper logbooks that are easily leaked are weak retention practice."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "The building often wants a name for accountability and incident follow-up, which an unlinkable roster proof removes."},
+  "transmission_check": {"principle_today": "safety_security", "permits_minimal_flow": "unclear", "reason": "Building security rules may call for identifying individuals, and I cannot say what the law requires."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 3,
+  "provenance_faithful": "NA"
+ },
+ {
+  "review_id": "v07-7",
+  "context_purpose": "A school or after-school operator confirms a household qualifies for a fee reduction before granting it.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "A full utility bill with address, meter and consumption is kept when only subsidy status is needed."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Little, if the discount roll is accepted as a proxy, but it is not an official welfare eligibility record."},
+  "transmission_check": {"principle_today": "consented_for_benefit", "permits_minimal_flow": "unclear", "reason": "Schools normally rely on the district office's certificate, so whether a utility roll is accepted is a policy choice I cannot confirm."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 2,
+  "novelty": 2,
+  "provenance_faithful": "NA"
+ }
+]

@@ -1,0 +1,98 @@
+[
+ {
+  "review_id": "v06-0",
+  "context_purpose": "A partner vendor grants a staff rate only to people currently employed by the partner company.",
+  "norm_violation_today": {"reason": "Collecting a badge photo, name and phone number on a sign-up sheet exceeds what a yes/no staff-rate check needs and is kept indefinitely.", "violated": "yes", "parameter": "retention"},
+  "purpose_sufficiency": {"reason": "A current-employment token answers the discount question fully.", "rating": "sufficient", "lost": "Vendor cannot contact the person or tie visits to an account unless it separately holds membership data."},
+  "transmission_check": {"reason": "Voluntary hand-over to get a discount; no law requires the badge copy.", "principle_today": "consented_for_benefit", "permits_minimal_flow": "permits"},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 3,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "v06-1",
+  "context_purpose": "A landlord judges whether a prospective tenant will pay rent reliably.",
+  "norm_violation_today": {"reason": "Full statements expose salary sources, medical payments and balances far beyond payment reliability.", "violated": "yes", "parameter": "information_type"},
+  "purpose_sufficiency": {"reason": "An on-time count is what the landlord wants, though it ignores income level and cash payments.", "rating": "partly", "lost": "Income capacity, deposit ability and first-time renters or cash payers with no recurring transfer history."},
+  "transmission_check": {"reason": "Tenant volunteers statements to win the lease; no rule found requiring them.", "principle_today": "commercial_convenience", "permits_minimal_flow": "permits"},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "no", "verifier_can_check": "unknown"},
+  "rubric_score": 2,
+  "novelty": 1,
+  "provenance_faithful": "NA"
+ },
+ {
+  "review_id": "v06-2",
+  "context_purpose": "A landlord assesses whether a pop-up tenant can afford rent.",
+  "norm_violation_today": {"reason": "Seller-center screenshots reveal customer orders, margins and suppliers the landlord has no role to see.", "violated": "yes", "parameter": "information_type"},
+  "purpose_sufficiency": {"reason": "Two thresholds roughly capture ability to pay but not profitability or seasonality.", "rating": "partly", "lost": "Margins, costs and other sales channels that bear on actual affordability."},
+  "transmission_check": {"reason": "Voluntary evidence offered to secure a lease; no legal duty.", "principle_today": "commercial_convenience", "permits_minimal_flow": "permits"},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "no", "verifier_can_check": "unknown"},
+  "rubric_score": 2,
+  "novelty": 4,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "v06-3",
+  "context_purpose": "A client plant lets in only dispatched workers still engaged by the agency, for access control and safety.",
+  "norm_violation_today": {"reason": "Collecting ID numbers and contract copies into paper logs is plausible for a site register but excessive for a mere entry check.", "violated": "unclear", "parameter": "retention"},
+  "purpose_sufficiency": {"reason": "Fine for the gate check, but incident, insurance and headcount needs may want a named record.", "rating": "partly", "lost": "Identification of who was on site after an accident, and accountability for individuals."},
+  "transmission_check": {"reason": "Site safety and dispatch duties may require named records, but I cannot confirm the specific Taiwanese requirement.", "principle_today": "safety_security", "permits_minimal_flow": "unclear"},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "unknown"},
+  "rubric_score": 3,
+  "novelty": 4,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "v06-4",
+  "context_purpose": "A dealer or buyer wants assurance that a vehicle sale will not be blocked or burdened by the seller's unpaid fines.",
+  "norm_violation_today": {"reason": "A full fine-lookup screenshot reveals dates and places of driving, which exceeds a clear/not-clear question.", "violated": "yes", "parameter": "information_type"},
+  "purpose_sufficiency": {"reason": "Non-membership answers the question, though fines can arise right after and the transfer office enforces anyway.", "rating": "sufficient", "lost": "Nothing material; the plate-linked fines are checked at transfer regardless."},
+  "transmission_check": {"reason": "Private parties ask voluntarily; official transfer checks happen separately at the office and do not need the buyer to see a document.", "principle_today": "commercial_convenience", "permits_minimal_flow": "permits"},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 4,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "v06-5",
+  "context_purpose": "A school or clinic confirms that an applicant lives within its catchment or programme area.",
+  "norm_violation_today": {"reason": "A filed bill copy discloses exact address, usage and amount owed when only district membership is relevant.", "violated": "yes", "parameter": "information_type"},
+  "purpose_sufficiency": {"reason": "Catchment membership suffices for eligibility but not for contact, registration-address or tenant-versus-account-holder checks.", "rating": "partly", "lost": "Exact address for contact, link between account holder and the applicant, and any household-registration requirement."},
+  "transmission_check": {"reason": "Schools may be required to verify residence in specific ways, and I cannot confirm that rules accept anything but documents.", "principle_today": "required_by_law", "permits_minimal_flow": "unclear"},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "unknown"},
+  "rubric_score": 3,
+  "novelty": 3,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "v06-6",
+  "context_purpose": "A fleet lessor or insurer gauges driver experience and stability to price a lease or policy.",
+  "norm_violation_today": {"reason": "Trip logs with pickup and dropoff addresses and full income statements go well beyond tenure and volume.", "violated": "yes", "parameter": "information_type"},
+  "purpose_sufficiency": {"reason": "Volume and tenure are a weak proxy for risk; insurers price mainly on claims and violations.", "rating": "partly", "lost": "Claims history, violations and driving quality, which drive actual risk pricing."},
+  "transmission_check": {"reason": "Driver volunteers it for a better price; no legal duty to hand over platform data.", "principle_today": "consented_for_benefit", "permits_minimal_flow": "permits"},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "no", "verifier_can_check": "unknown"},
+  "rubric_score": 2,
+  "novelty": 3,
+  "provenance_faithful": "NA"
+ },
+ {
+  "review_id": "v06-7",
+  "context_purpose": "A gig or staffing platform avoids duplicate insurance enrolment by confirming the worker is already covered elsewhere.",
+  "norm_violation_today": {"reason": "Requiring an ID copy with address and a letter naming the main employer is more than a coverage yes/no needs.", "violated": "yes", "parameter": "information_type"},
+  "purpose_sufficiency": {"reason": "An active-coverage flag settles duplicate enrolment, though regulators may expect the platform to confirm it via official records.", "rating": "partly", "lost": "Evidence the platform could keep to show it met its own insurance obligations."},
+  "transmission_check": {"reason": "Enrolment of workers is regulated and the platform may have to verify through official labour-insurance records, which I cannot confirm.", "principle_today": "required_by_law", "permits_minimal_flow": "unclear"},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "no", "verifier_can_check": "unknown"},
+  "rubric_score": 2,
+  "novelty": 3,
+  "provenance_faithful": "no"
+ }
+]

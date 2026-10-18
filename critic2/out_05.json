@@ -1,0 +1,98 @@
+[
+ {
+  "review_id": "v05-0",
+  "context_purpose": "A subsidy or appliance-replacement programme must confirm the household is on the low-income or subsidised roll before granting benefits.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "Full bill with kWh usage history and payment record reveals occupancy and habits, far beyond roll membership."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "The office still needs address and contact for delivery or payment, and cannot cross-check the account against the installation address from a bare membership proof."},
+  "transmission_check": {"principle_today": "consented_for_benefit", "permits_minimal_flow": "permits", "reason": "Household voluntarily hands over documents to receive a benefit, and nothing known obliges the programme to hold a bill copy, though programme-specific rules are unclear."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 2,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "v05-1",
+  "context_purpose": "A subsidy body, processor or supplier assesses a merchant's sales volume to judge eligibility or creditworthiness.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "Per-transaction settlement lines expose customers' masked card data and purchase times, which the merchant has no reason to pass on."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Lender cannot see volatility inside months, refunds or chargebacks, or concentration of sales, unless these are added to the predicate."},
+  "transmission_check": {"principle_today": "commercial_convenience", "permits_minimal_flow": "permits", "reason": "Private suppliers and processors ask for statements as a business practice, with no law known to require raw settlement records; government subsidies may instead rely on tax filings."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 3,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "v05-2",
+  "context_purpose": "A pet hotel or shelter wants assurance that a customer or adopter has not been barred from keeping animals.",
+  "norm_violation_today": {"violated": "unclear", "parameter": "information_type", "reason": "ID photo and address are plausibly needed for contact and identification, so only the extra household and employment details clearly exceed the purpose."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "Operators still need contact details and identity for the booking or adoption, and the ban register may not cover all past abuse."},
+  "transmission_check": {"principle_today": "commercial_convenience", "permits_minimal_flow": "permits", "reason": "No known duty requires the operator to collect the ID copy for a ban check, so an absence proof could replace it, though an issuer attestation does not exist."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 2,
+  "novelty": 4,
+  "provenance_faithful": "NA"
+ },
+ {
+  "review_id": "v05-3",
+  "context_purpose": "A landlord or shared-housing operator wants to reduce safety risk to co-residents before admitting an applicant.",
+  "norm_violation_today": {"violated": "yes", "parameter": "recipient", "reason": "Private landlords are generally not entitled to sex-offender or protection-order status, and a full criminal record certificate over-discloses even where a police clearance is requested."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "An absence proof on two registers cannot cover other safety-relevant records, and it does not itself identify the applicant to the landlord."},
+  "transmission_check": {"principle_today": "safety_security", "permits_minimal_flow": "unclear", "reason": "Whether landlords may lawfully ask for or receive such status at all is uncertain, so a minimal flow could be blocked on the question itself rather than on document format."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "no", "verifier_can_check": "yes"},
+  "rubric_score": 2,
+  "novelty": 2,
+  "provenance_faithful": "NA"
+ },
+ {
+  "review_id": "v05-4",
+  "context_purpose": "A promotion organizer wants one entry per real person to keep a prize draw fair and resist throwaway-number abuse.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "Collecting phone number, name, email and partial national ID for a simple draw entry over-collects relative to uniqueness checking."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "Winners must still be identified and reached for prize delivery and tax withholding, and a per-person credential can fail if carriers issue per line."},
+  "transmission_check": {"principle_today": "commercial_convenience", "permits_minimal_flow": "permits", "reason": "The retailer collects contact data for marketing and anti-abuse with no known duty to hold it at the entry stage, though winners' ID collection may be required."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "no", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 5,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "v05-5",
+  "context_purpose": "A store applies a corporate-partner discount only to people who currently work at the partner company.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "Copying the badge and ID card collects national ID number and photo when only current employment at company X is needed."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Little: the store cannot tie the discount to a named person for later fraud follow-up, and the telco may still need ID when opening a contract line."},
+  "transmission_check": {"principle_today": "commercial_convenience", "permits_minimal_flow": "permits", "reason": "The check exists to protect a discount scheme, with no known legal duty to keep the ID copy for this step, though a telco contract signup may carry its own ID obligations."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 4,
+  "novelty": 4,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "v05-6",
+  "context_purpose": "A nursing home or ward needs to keep infectious visitors and caregivers out during an outbreak to protect vulnerable residents.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "Showing or photographing the full lab report discloses diagnosis, values, medication and ID number when only a valid negative-window status is needed."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "The facility cannot see test type or sample timing beyond the signed window, which only matters if its own policy differs from the hospital's."},
+  "transmission_check": {"principle_today": "safety_security", "permits_minimal_flow": "unclear", "reason": "Outbreak access rules may name specific certificates or test types, and I cannot confirm whether a signed status would be accepted in place of the report."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "unknown"},
+  "rubric_score": 3,
+  "novelty": 3,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "v05-7",
+  "context_purpose": "A used-car dealer must be sure the seller can lawfully transfer the vehicle, meaning no seizure or transfer restriction applies.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "Household register transcripts with family members and address go well beyond what a seizure check and transfer form require."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "The dealer still needs legal name and licence details for the contract and transfer form, so only the household-register and surplus copies are removed."},
+  "transmission_check": {"principle_today": "required_by_law", "permits_minimal_flow": "unclear", "reason": "The transfer process may require specific identity documents be submitted to the vehicle authority, and I cannot confirm whether dealers must keep copies."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 4,
+  "provenance_faithful": "yes"
+ }
+]

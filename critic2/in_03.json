@@ -1,0 +1,135 @@
+[
+ {
+  "review_id": "v03-0",
+  "title": "Postpartum or post-surgery 'not fit to travel / fit to return' window for employer leave and insurer claims",
+  "moment": "An employee on 病假 or 產假 extension submits a doctor's certificate to HR, or a patient submits it to a travel insurer, to show they were medically unable to work or travel on specific dates.",
+  "verifier": "Employer HR department or travel/health insurer claims desk",
+  "predicate": "Hospital attests 'medically unfit for work/travel for the period [start, end]' as a boolean over a date range, with no diagnosis.",
+  "disclosed_today": "診斷證明書 with diagnosis name, ICD code, procedures, and attending physician notes, sent to HR or insurer by scan or email.",
+  "issuer": "Treating hospital",
+  "why_zk": "HR needs only that the absence is covered for those dates, yet diagnosis certificates reveal pregnancy complications, psychiatric conditions, or surgery type to a manager. A time-bounded proof removes the diagnosis. Weakness: Taiwanese labour rules and insurers often legally require the diagnosis or the original certificate, and insurers may need the cause to adjudicate, so adoption depends on rule changes rather than on technology.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "Wallet releases only the needed attribute from a credential issued as a whole.",
+    "source_excerpt": "A business needs one attribute to proceed, but the credential is issued as a whole, so the holder must rely on the wallet to release only the needed attribute. | mechanism: SD-JWT VC selective disclosure with OpenID4VP presentation and status-list validity check."
+   },
+   {
+    "borrowed_aspect": "Confidentiality being only a discretionary exception, with full disclosure as the default, is the pattern to flip so minimal disclosure is the default.",
+    "source_excerpt": "Someone must be drawn from a pool and seated for a task without the wider public learning who they are, but the default rule can flip to full publication of the identities of everyone selected, with confidentiality only as a judge-level exception. | mechanism: Judge-discretionary confidentiality of juror names under a court's jury selection plan; no technical mechanism specified."
+   }
+  ]
+ },
+ {
+  "review_id": "v03-1",
+  "title": "Single free-trial or first-order coupon per person on food delivery and ride apps",
+  "moment": "A person signs up for a food delivery or ride-hailing app and claims the new-user discount or first-month free trial, which the platform wants to limit to one per human instead of one per phone number or email.",
+  "verifier": "A delivery or mobility platform's promotion service.",
+  "predicate": "The claimant is a unique real subscriber who has not claimed this platform's new-user offer before (platform-scoped nullifier), without the platform learning which subscriber.",
+  "disclosed_today": "Phone number with SMS code, device ID, payment card fingerprint, sometimes the name and the national ID on a verification step; the platform links all of it to the account.",
+  "issuer": "A Taiwanese mobile carrier, signing a per-person subscriber credential.",
+  "why_zk": "Platforms fight promotion abuse with phone numbers that are cheap to obtain, and the collected numbers become a cross-platform tracking key. A scoped nullifier gives abuse resistance without a shared identifier between platforms. Honest weakness: platforms already accept the abuse cost as marketing spend and use device and payment signals anyway, so the demand for a stronger proof is low, and the telco's incentive to issue such credentials is unclear.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "Splitting knowledge so that no one party (platform or issuer) holds both who the person is and where they used the credential.",
+    "source_excerpt": "A route must be relayed through intermediaries so that no single intermediary holds both the origin identity and the final destination, while the traffic still reaches the endpoint. | mechanism: Onion routing, where the message is wrapped in one encryption layer per relay, and each relay peels only its own layer and passes the rest to the next hop."
+   },
+   {
+    "borrowed_aspect": "Limiting a stable identifier to its own context so third parties cannot link the holder across services.",
+    "source_excerpt": "A stored credential should be presented only to the party that issued it in the current context, but the browser sends it on any request the context triggers, so an unrelated observer can match the holder across contexts. | mechanism: The SameSite cookie attribute, which limits the cookie to same-site requests (Strict, Lax, or None); the IETF draft describes it as a per-cookie setting, and cross-site behaviour depends on the chosen value."
+   }
+  ]
+ },
+ {
+  "review_id": "v03-2",
+  "title": "Dormitory and campus-housing off-campus lease renewal tied to a landlord-side identity record",
+  "moment": "A student renting a room near campus is asked by the landlord or a rental agency to prove both that they are enrolled and that the person named on the lease is the same one the university enrolled, so the landlord can claim rent subsidy or insurance cover.",
+  "verifier": "Private landlord or rental agency, and possibly a subsidy administrator reviewing the lease.",
+  "predicate": "The university's signed enrolment claim and the lease or household-record claim from a second issuer (such as the household registration office) refer to the same person, without disclosing the ID number to the landlord.",
+  "disclosed_today": "Photocopy of national ID card front and back, student ID, and sometimes household register transcript, kept by the agent with no stated retention limit.",
+  "issuer": "University registrar, matched against a household registration or ID credential from a government issuer.",
+  "why_zk": "Landlords and agents routinely collect full ID copies that stay in desk drawers and phone photos, and a match proof would let them confirm student status and identity without holding the number. Weak in practice because small landlords rarely run verifier software and the legal retention limits on private individuals are loosely enforced, so adoption would depend on a rental platform or subsidy portal requiring it.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The problem of an office collecting identity document copies at its own discretion with no stated scope.",
+    "source_excerpt": "A government office that holds a record may ask a proxy's requester for a copy of the principal's identity document, and the scope of what it may collect is left to the office's discretion. | mechanism: None stated; collection of document copies left to agency discretion under PDPA and administrative procedure rules."
+   },
+   {
+    "borrowed_aspect": "The weakness of a deletion duty that has an open-ended exception for what the holder says it still needs.",
+    "source_excerpt": "A party that has collected a person's data must delete it once the reason for holding it ends, but an open-ended exception lets it keep the data whenever it says it still needs it for its own duties. | mechanism: Statutory deletion-on-purpose-lapse duty with exceptions for lawful duties or written consent; no technical erasure mechanism specified."
+   }
+  ]
+ },
+ {
+  "review_id": "v03-3",
+  "title": "Overseas-study sponsor shows enough funds without handing a school the family's whole account history",
+  "moment": "A Taiwanese family applying for a student visa or university admission abroad must show a parent's bank statements proving funds for tuition and living costs for the first year, and the parent sends months of statements to a foreign admissions office or visa agent.",
+  "verifier": "Foreign university admissions office, embassy, or study-abroad agency in Taiwan",
+  "predicate": "The sponsor's combined balance across the bank's accounts has stayed at or above the required amount (for example NT$1,000,000) for each of the last 90 days.",
+  "disclosed_today": "Full statements and sometimes a copy of the national ID, revealing the family's spending, other relatives' transfers, employer, and exact balances well above the threshold.",
+  "issuer": "The sponsor's bank, signing a minimum-balance-over-period aggregate across the sponsor's accounts at that bank.",
+  "why_zk": "Only a threshold held over a period matters, and the exact balance and history stay hidden. A bank-signed aggregate also helps against doctored statements. Weakness: foreign institutions set their own formats and will rarely accept a Taiwan wallet proof, so uptake depends on the receiving side, and an agent in the middle often insists on seeing paper statements.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "A cross-border intermediary requiring full ID or document copies with no lighter alternative stated.",
+    "source_excerpt": "A foreign investor must prove that its local agent is a real, identified person, and the agent hands over a full copy of an ID card, with no alternative verification stated. | mechanism: None stated; full ID copy required with no less-intrusive alternative given."
+   },
+   {
+    "borrowed_aspect": "Bundles of identity and financial document copies requested when a narrower check could satisfy the purpose.",
+    "source_excerpt": "A service provider signing up a customer must check identity and payment, but it asks for full front-and-back copies of identity and card documents, and the regulator leaves whether that exceeds the purpose to case-by-case fact-finding. | mechanism: None stated; the letter says less-intrusive alternatives must be considered but names none."
+   }
+  ]
+ },
+ {
+  "review_id": "v03-4",
+  "title": "One free-trial or student-discount sign-up per person on an online learning or streaming service",
+  "moment": "A Taiwanese online course platform or video streaming service offers a one-time free trial or first-month discount, and abusers re-register with new emails and bought SMS numbers to get repeated trials.",
+  "verifier": "A subscription streaming or e-learning platform operating in Taiwan.",
+  "predicate": "The signer is one unique real telco subscriber, with a trial-specific nullifier not seen before.",
+  "disclosed_today": "Mobile phone number, email, sometimes a credit card number for the trial, and device fingerprints, which together identify the person for later marketing and cross-service tracking.",
+  "issuer": "A Taiwanese mobile carrier.",
+  "why_zk": "The platform only needs to know this person has not used the trial before, not who they are, yet today it keeps phone number and card details. A telco uniqueness proof with a per-service nullifier removes the need to hold the phone number. Honest caveat: platforms typically want a payment instrument anyway for conversion, so the data saved is smaller than it seems, and one person with multiple lines (including foreign or corporate ones) can still obtain multiple credentials unless the telco binds issuance to a single national ID.",
+  "claimed_borrowings": []
+ },
+ {
+  "review_id": "v03-5",
+  "title": "Cram school or kindergarten fee-installment eligibility from average monthly balance",
+  "moment": "A parent enrolling a child in a private kindergarten, cram school or bilingual programme asks for a multi-month instalment plan, and the school wants reassurance the parent can sustain the payments.",
+  "verifier": "Private school or cram school finance office",
+  "predicate": "Average daily balance across all the parent's accounts at the bank over the last 6 months is at least a threshold equal to the remaining tuition",
+  "disclosed_today": "Photocopy of the passbook or bank statements, or a post-dated cheque plus a guarantor's details, revealing balances, counterparties and sometimes the guarantor's identity.",
+  "issuer": "The parent's bank, signing an average-balance statistic over the accounts held there",
+  "why_zk": "An average-balance threshold is far less than a full statement, and it avoids pulling in a guarantor. Honestly weak because many schools simply use post-dated cheques or credit-card auto-billing, which already settle the risk, and a single bank's aggregate misses balances held elsewhere, so the school may not accept it as sufficient.",
+  "claimed_borrowings": []
+ },
+ {
+  "review_id": "v03-6",
+  "title": "One vote per resident in a building or community management committee online poll",
+  "moment": "An apartment community (a Taiwanese condominium management committee) runs an online vote on a repair levy or elevator replacement, and wants each household member or owner-resident counted once without a roll of who voted how.",
+  "verifier": "The condominium management committee or its property management company.",
+  "predicate": "The voter is one unique real subscriber and has not already cast a ballot in this poll (poll-scoped uniqueness), with no phone number or name revealed.",
+  "disclosed_today": "Name, unit number, phone number, LINE ID, and often a photo of the national ID or the property deed sent through a group chat.",
+  "issuer": "A telco that can sign the person as one real subscriber; ownership or residency would still need a separate attestation.",
+  "why_zk": "Residents often fear neighbors learning how they voted on money disputes, and today the committee chair sees everyone's LINE and phone. A scoped uniqueness proof stops duplicate voting by one person with several numbers. Honest weakness: a telco credential proves only one person, not that the person lives in or owns a unit in this building, so this idea is weak unless combined with an owner or residency credential, and Taiwan's condominium law has its own rules on proxy and written ballots that may require named records.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The tension that a default of publishing who participated can flip to full exposure, with confidentiality only by exception, which motivated making ballot privacy the default.",
+    "source_excerpt": "Someone must be drawn from a pool and seated for a task without the wider public learning who they are, but the default rule can flip to full publication of the identities of everyone selected, with confidentiality only as a judge-level exception. | mechanism: Judge-discretionary confidentiality of juror names under a court's jury selection plan; no technical mechanism specified."
+   },
+   {
+    "borrowed_aspect": "The point that outsiders in the room break confidentiality, here the property manager and group-chat members who see everything.",
+    "source_excerpt": "A party must consult an advisor about a sensitive matter without the advisor, or anyone else, learning or revealing more than the matter requires, but the protection breaks as soon as an outsider is in the room unless the outsider is essential to the relationship. | mechanism: Evidentiary privilege over communications, lost by third-party presence except essential agents such as interpreters; no technical mechanism."
+   }
+  ]
+ },
+ {
+  "review_id": "v03-7",
+  "title": "Online marketplace seller reputation for a night-market stall or consignment shop slot",
+  "moment": "A Shopee or Ruten seller wants a physical consignment shelf in a Taipei pop-up shop or a booth at a weekend market. The organizer wants to know the seller is real and fulfils orders reliably.",
+  "verifier": "Pop-up market organizer or consignment shop owner",
+  "predicate": "Shopee shop completed orders in the last 6 months is at least 200 AND on-time shipping rate is at least 95 percent",
+  "disclosed_today": "Shop URL plus screenshots of the seller dashboard, which show revenue, buyer names, product margins, and sometimes bank account hints",
+  "issuer": "Shopee seller center account, attested via zkTLS",
+  "why_zk": "The organizer needs only a reliability signal, but the dashboard screenshot reveals sales volume, customer data, and cost structure to a potential competitor on the same market. A threshold proof removes that. Weakness: the shop URL is already public with a visible rating, so the privacy gain is modest, and the seller center's data may be inaccessible to automated proofs under Shopee terms.",
+  "claimed_borrowings": []
+ }
+]

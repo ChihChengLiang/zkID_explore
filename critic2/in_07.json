@@ -1,0 +1,135 @@
+[
+ {
+  "review_id": "v07-0",
+  "title": "Linking a university research-participant record to a hospital clinical-trial enrolment",
+  "moment": "A university hospital-affiliated lab recruits a graduate student or staff member for a paid study that requires both a university-signed role claim (for example, enrolled in a health-science program) and a separate hospital or health-agency issued eligibility claim, and the study office wants to be sure both refer to the same person.",
+  "verifier": "University institutional review board office or the clinical-trial coordinator",
+  "predicate": "The university-signed claim and the claim from the second issuer (hospital or health insurance) belong to the same holder, shown without revealing the national ID number or health insurance number to the study office.",
+  "disclosed_today": "Full name, national ID number, student number, health insurance card details and sometimes a scanned copy of both documents, stored in the study consent file.",
+  "issuer": "University (program enrolment) cross-matched with a hospital or health insurance issuer.",
+  "why_zk": "Study files that hold ID numbers beside health information create a re-identification risk the IRB would rather avoid, in the spirit of de-identification checklists. A cross-source match lets the coordinator confirm eligibility from two unrelated issuers without ever holding the identifier that joins them. Honest weakness is that consent forms legally require a signature and often a real name, so the study can rarely drop identification entirely; this only removes the ID number and insurance number.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The list-of-identifiers-removed approach, applied by keeping the linking identifier out of the verifier's hands while still allowing a join.",
+    "source_excerpt": "A party wants to share a record set that cannot identify any person, but the test is a checklist of removable fields plus a no-actual-knowledge condition, so the holder must still judge whether leftover fields re-identify someone. | mechanism: Safe Harbor method removing 18 enumerated identifiers (with ZIP-code truncation rule and age aggregation), or an expert-determination alternative; re-identification codes allowed only if not derived from or disclosed about the individual."
+   },
+   {
+    "borrowed_aspect": "The problem that a holder exposes the whole card at the moment of checking, so a field-limit rule alone does not stop over-collection.",
+    "source_excerpt": "A venue must confirm that a person is over a threshold age from an identity document, but scanning captures the whole card, so the rule caps what is kept to a few fields and bans secondary use, while the holder still sees everything on the card at the moment of the scan. | mechanism: Statutory field-limit and retention ban on scan data, with a prohibition on sale or marketing dissemination; no proof-of-age mechanism that avoids reading the document."
+   }
+  ]
+ },
+ {
+  "review_id": "v07-1",
+  "title": "One free trial or new-user coupon per person on food delivery and ride apps",
+  "moment": "A person opens a food-delivery, scooter-share, or streaming app and wants the first-order coupon or free trial, which the app restricts to new users, so people create repeat accounts with spare numbers and the app asks for ever more data to stop it.",
+  "verifier": "Food-delivery, bike or scooter share, or subscription app.",
+  "predicate": "This is the first account created on this service by a real subscriber, shown as a service-specific pseudonym, with no phone number or ID revealed.",
+  "disclosed_today": "Mobile number with OTP, sometimes email, device ID, payment card, and in some scooter-sharing services a driver licence photo and selfie.",
+  "issuer": "A Taiwanese mobile carrier.",
+  "why_zk": "The coupon rule needs only that this subscriber has not claimed before. A service-scoped pseudonym gives that without letting the app build a cross-service profile through the phone number. Weakness: the telco learns nothing new only if issuance is blinded, but carriers have little business reason to sign for free-trial abuse, recycled numbers can be re-issued to new people, and fraudsters can buy extra prepaid SIMs, so the protection is partial. Existing telco rules requiring a live photo at SIM sale show the opposite pull toward collecting more, not less.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The proof attests that a check already happened without acting as a persistent identifier across services.",
+    "source_excerpt": "A gatekeeper only needs to know that the visitor already passed some check, but the proof it accepts doubles as a persistent identifier. | mechanism: Blind-signed tokens that attest prior authorisation and cannot be linked to the issuance interaction."
+   },
+   {
+    "borrowed_aspect": "The over-collection at SIM registration shows why the telco's existing identity check should be reused as a signed claim instead of repeating photo capture elsewhere.",
+    "source_excerpt": "A provider must confirm a new subscriber's identity before activating a service; the rule requires capturing a live photo of the person at point of sale, with no stated limit on retention. | mechanism: None minimal; in-store photo capture required, no retention limit or less-intrusive alternative stated."
+   }
+  ]
+ },
+ {
+  "review_id": "v07-2",
+  "title": "Medical-electricity-equipment household flag for priority outage notification or emergency-shelter registration",
+  "moment": "A household that uses life-support equipment at home (ventilator, oxygen concentrator, dialysis) signs up with the city fire department or a typhoon-season emergency program to get priority power-restoration and evacuation help, and an outage-relief volunteer group or shelter operator wants to confirm the household is on the utility's medical-need roll.",
+  "verifier": "District emergency management office, fire department, or a community volunteer network running outage and typhoon response",
+  "predicate": "The household's utility account is a member of the set of accounts flagged by the utility as having medical-equipment dependency (a priority-care roll), without revealing the specific address or usage pattern to every volunteer who handles the list.",
+  "disclosed_today": "Full address, a copy of the utility bill, the medical certificate or disability card, and a list of equipment, often collected on paper forms and shared with many volunteers.",
+  "issuer": "Taipower, signing membership in a priority-care or medical-need account list",
+  "why_zk": "Volunteers and aggregators collect a list of vulnerable people's addresses and bills, which is a safety and privacy risk (it flags who is home, frail, and dependent on power). A membership proof lets a registration desk or a volunteer coordinator check eligibility without holding the dossier. Honest weakness: in an actual emergency the responders genuinely need the address to reach the person, so ZK helps only for the enrollment and eligibility step, not for dispatch; and I am not certain Taipower maintains such a formal roll, so this would depend on the utility creating and signing one.",
+  "claimed_borrowings": []
+ },
+ {
+  "review_id": "v07-3",
+  "title": "Contagion-free window for a school or childcare return after an illness",
+  "moment": "A child returns to kindergarten or an after-school care centre (afterschool \"anqinban\") after hand-foot-mouth disease, influenza or another notifiable illness, and staff ask for the doctor's certificate to confirm the child is no longer contagious.",
+  "verifier": "Kindergarten, childcare centre or after-school class",
+  "predicate": "Hospital signs \"not contagious from date A\", valid for the school term week in which the child returns, and optionally \"not contagious through date B\" for rolling attendance.",
+  "disclosed_today": "The clinic certificate or medical receipt showing the diagnosis, sometimes the whole medical visit record, which is often photographed by staff and kept in a messaging group.",
+  "issuer": "Hospital or paediatric clinic.",
+  "why_zk": "The centre only needs to know the child may attend within a bounded period, not the diagnosis. Other parents' messaging groups and staff phones are where such records leak today. Honest limits: centres often have a legal duty to report notifiable diseases to health authorities, so some disclosure is legitimate and the proof can only replace the over-collection, not the reporting; parents of young children may have no wallet in place of the child.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "A record-keeping duty that relies on each institution's good policy rather than technical limits, which a timed proof would replace with a technical limit.",
+    "source_excerpt": "A service provider must keep a record of who used what without that record becoming a readable log of a person's interests, but the duty is a recommended policy that depends on each institution adopting it and on courts or subpoenas being resisted. | mechanism: Institutional confidentiality policy plus procedures for handling subpoenas and law-enforcement requests; no technical minimization of records is specified."
+   },
+   {
+    "borrowed_aspect": "The problem that a check ends up capturing the whole document and needs a cap on what is retained.",
+    "source_excerpt": "A venue must confirm that a person is over a threshold age from an identity document, but scanning captures the whole card, so the rule caps what is kept to a few fields and bans secondary use, while the holder still sees everything on the card at the moment of the scan. | mechanism: Statutory field-limit and retention ban on scan data, with a prohibition on sale or marketing dissemination; no proof-of-age mechanism that avoids reading the document."
+   }
+  ]
+ },
+ {
+  "review_id": "v07-4",
+  "title": "Micro-business owner proves quarterly card-sales turnover to a landlord or platform without exposing customers",
+  "moment": "A night-market stall or small shop owner applying for a stall lease, a delivery-platform onboarding, or a government small-business subsidy is asked for bank statements of the business account to show monthly sales volume.",
+  "verifier": "Market management office, platform, or subsidy-handling agency",
+  "predicate": "Sum of incoming mobile-payment and card-settlement deposits over the last 3 months is at least a stated threshold, and the number of distinct payers exceeds a stated minimum.",
+  "disclosed_today": "Complete business account statements listing every customer transfer, supplier payment, personal withdrawals and balances.",
+  "issuer": "Bank holding the business account, as merchant acquirer or account holder",
+  "why_zk": "A signed sum and distinct-payer count answers the real question (is this a live business) and hides suppliers and customers. Honest limits: much night-market revenue is cash and never reaches the bank, so the proof understates, and the tax authority, not the bank, is the usual authority on turnover. Distinct-payer counts can also leak small-group membership if the threshold is low, which differential-privacy style thinking warns about.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "A published aggregate can still reveal individual contributors, so the threshold and rounding of the signed statistic must be chosen with that leak in mind.",
+    "source_excerpt": "A releaser must answer queries about a dataset so that an observer learns almost nothing about whether any one individual contributed, and the leak must be expressed as a bound that can be checked. | mechanism: Differential privacy, a randomised release mechanism with a quantified privacy-loss parameter; NIST notes that the guarantee depends on how the framework is realised in practice and lists privacy hazards that can break it."
+   },
+   {
+    "borrowed_aspect": "Release only the aggregate and never an output that lets a particular counterparty be singled out.",
+    "source_excerpt": "An agency holding individual responses must release aggregate results, and the legal duty bars any output from which a particular respondent can be singled out, while the holder's staff can still see the raw records. | mechanism: Statutory use limitation and publication prohibition enforced by sworn-oath duties and penalties; statistical disclosure limitation (for example differential privacy in later census products) is a technical layer not specified in the statute."
+   }
+  ]
+ },
+ {
+  "review_id": "v07-5",
+  "title": "Delivery-platform rating threshold for a building's package-room courier access",
+  "moment": "A freelance food or parcel courier (Uber Eats, foodpanda, Lalamove driver) applies to a Taipei residential community management committee (社區管委會) or a premium office building for a standing courier access pass, and the building wants evidence the courier is experienced and reliable.",
+  "verifier": "Community management office or building property manager issuing recurring courier access",
+  "predicate": "Platform account has at least 500 completed deliveries and a rating of at least 4.7 over the last 12 months",
+  "disclosed_today": "Full screenshots of the driver app showing real name, photo, vehicle plate, earnings, home-area zone, and sometimes the national ID photo copy for the access register",
+  "issuer": "The delivery platform's own driver account, attested through a zkTLS session over the driver app's stats page (platform did not agree to issue credentials)",
+  "why_zk": "A zkTLS proof can show only count and rating cross a bar without earnings or plate. Weak points: platform terms of service may forbid scraping or automated session replay, screenshots are the current norm and committees rarely care about privacy, and the proof only shows the platform's number, not that the person is who is at the door, so identity still needs a separate check.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The pattern that a venue captures a whole card or screen when it only needs one fact, and a statute-style field limit is the only protection today.",
+    "source_excerpt": "A venue must confirm that a person is over a threshold age from an identity document, but scanning captures the whole card, so the rule caps what is kept to a few fields and bans secondary use, while the holder still sees everything on the card at the moment of the scan. | mechanism: Statutory field-limit and retention ban on scan data, with a prohibition on sale or marketing dissemination; no proof-of-age mechanism that avoids reading the document."
+   },
+   {
+    "borrowed_aspect": "The gap where a verifier collects documents with no stated retention or copy rule, which a proof would avoid creating.",
+    "source_excerpt": "A bank must verify who a person is before opening an account, which means examining identity documents, but the cited rule does not say whether copies are kept or for how long. | mechanism: Dual identity-document inspection at account opening; retention and copy handling not specified in the cited text."
+   }
+  ]
+ },
+ {
+  "review_id": "v07-6",
+  "title": "Contract cleaner or security guard proves current on-duty authorization at a building gate",
+  "moment": "A building management office or gated community in Taiwan lets outsourced staff (cleaning, security, delivery of company goods) enter when their employer vouches they are currently on its roster, and today collects an ID copy and writes down the national ID number in a paper visitor log.",
+  "verifier": "Building management committee or reception desk",
+  "predicate": "Holder is on the active roster of a named contractor employer as of now",
+  "disclosed_today": "National ID card photocopy or recorded ID number, full name, phone number, plus a paper letter from the contractor",
+  "issuer": "The contracting employer, signing a short-lived roster-membership credential and revoking it when the worker leaves",
+  "why_zk": "The building needs only \"this person is currently sent by this company\", but keeps ID numbers in logbooks that are easily leaked. Revocation matters because ex-employees keep old letters. Weakness is that the verifier often also wants to know the individual's name for accountability, so the unlinkable version may conflict with building security rules.",
+  "claimed_borrowings": []
+ },
+ {
+  "review_id": "v07-7",
+  "title": "Electricity-bill subsidy roll as proof of eligibility for a school lunch or after-school care fee waiver",
+  "moment": "A parent enrolls a child in a public after-school care program (or applies for a lunch-fee reduction) at the start of the semester and must show proof of being a low-income or subsidised household.",
+  "verifier": "School administration office / district after-school care operator",
+  "predicate": "The household's utility account is a member of the set of accounts on the low-income or subsidised-rate roll (for example, accounts receiving the low-income household electricity discount).",
+  "disclosed_today": "A photocopy of the full utility bill (name, address, meter number, usage in kWh, amount due) or a household certificate from the district office, plus household registration details.",
+  "issuer": "Taipower (or the local water company), signing membership in the subsidised-account roll",
+  "why_zk": "The school only needs a yes/no on eligibility, yet today it keeps a bill showing address and consumption patterns (which reveal when the family is away or how many people live there). Weakness is real. In practice schools usually rely on the district office's low-income household certificate (issued under the Public Assistance Act), not utility rolls, so a utility roll would only be a convenient substitute where the discount list is a recognised proxy. It also needs the school to accept it, and Taipower's discount rolls are not formally a social-welfare eligibility register.",
+  "claimed_borrowings": []
+ }
+]

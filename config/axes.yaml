@@ -1,0 +1,43 @@
+# Axes for defining discovery cells (v2). Draft; edit freely.
+# Based on contextual integrity (Nissenbaum): a flow = sender, recipient, subject, information type, transmission principle, within a context.
+
+attribute_family:        # information type (see docs/attribute_families.md)
+  - who_you_are
+  - where_you_belong
+  - who_you_are_linked_to
+  - what_you_hold
+  - what_youve_done
+  - what_you_can_do
+  - what_state_youre_in
+
+predicate: [threshold, membership, non-membership, uniqueness, freshness, cross-source-match, time-bounded, aggregate]
+
+transmission_principle:  # the condition under which the verifier collects the information TODAY
+  required_by_law:        a statute or regulator obliges the verifier to collect (and often keep) it (KYC/AML, tenancy, licensing)
+  consented_for_benefit:  the person hands it over voluntarily to receive a benefit or service (discount, subsidy, access)
+  commercial_convenience: the verifier collects it because it is easy or helps its business (marketing, fraud screening, habit), with no legal duty
+  safety_security:        collected to protect people or premises (access control, child safety, fraud/abuse prevention)
+  public_record:          the fact is already in a public register or published list
+  other:                  none of the above fit
+
+context:                 # origin and use settings for the cross-context tag
+  - healthcare
+  - education
+  - employment
+  - finance
+  - commerce
+  - government_admin
+  - housing
+  - transport
+  - telecom_online
+  - civic_community
+  - justice_security
+  - family_social
+  - utilities
+  - leisure_events
+  - religion
+
+context_distance:        # origin context vs the context where the verifier uses the fact
+  same:      origin and use are one context (the organisations may differ)
+  adjacent:  contexts that routinely share information by law or custom (healthcare to social welfare, employment to finance, school to government)
+  different: contexts with no customary information sharing

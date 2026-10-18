@@ -1,0 +1,122 @@
+[
+ {
+  "review_id": "v02-0",
+  "title": "Delivery-platform courier rating for a building management committee hire",
+  "moment": "A residential community (社區) in Taipei hires a part-time package-room or night-shift concierge, or lets a gig courier get a building access tag. The management committee wants evidence of reliability.",
+  "verifier": "Community management committee (管理委員會) or its property management company",
+  "predicate": "Lifetime completed deliveries on a delivery platform is at least 500 AND average customer rating is at least 4.7",
+  "disclosed_today": "Screenshots of the courier app profile showing real name, photo, phone number, order history, earnings, and city zones worked",
+  "issuer": "Delivery platform account (Uber Eats / foodpanda courier app), attested via zkTLS over the logged-in session; the platform never agreed to issue credentials",
+  "why_zk": "Screenshots leak earnings and movement patterns, and are trivially faked or edited. A zkTLS threshold proof shows only that the count and rating clear the bar. Weakness: platform terms of service may forbid scraping or proving from the session, ratings are platform-internal and gameable, and the committee may legally prefer a police record certificate for access-sensitive roles.",
+  "claimed_borrowings": []
+ },
+ {
+  "review_id": "v02-1",
+  "title": "Joining a community or school volunteer role without disclosing a full police record",
+  "moment": "Signing up as an after-school tutor, a temple or community-centre volunteer, or a sports coach for minors; the organisation must confirm the person is not on the list of those barred from working with children under child and youth welfare rules, but today collects the full non-criminal-record certificate.",
+  "verifier": "Cram school, community association, sports club, or school volunteer coordinator",
+  "predicate": "Holder is not on the register of persons barred from working with children and youths (e.g., convicted of listed offences or subject to employment bans).",
+  "disclosed_today": "Police criminal record certificate (with full history of conviction categories), national ID number, home address, photo, sometimes household registration transcript.",
+  "issuer": "Ministry of Health and Welfare / Ministry of Education (employment-ban registers), via Ministry of Justice records",
+  "why_zk": "Strongest of the three: a legal duty to check already exists in some settings, and the record certificate over-discloses. A signed non-membership claim limited to the relevant ban list would satisfy the duty while keeping unrelated old or minor entries private. Hurdles are that the legal check is sometimes defined as a specific certificate form, so rules would need to accept the proof, and freshness (short validity or revocation) matters because bans can be imposed after issuance.",
+  "claimed_borrowings": []
+ },
+ {
+  "review_id": "v02-2",
+  "title": "Seller reputation on an auction platform as a threshold for a high-value in-person handover",
+  "moment": "A buyer of a used camera or console arranged on a second-hand marketplace is asked by a seller to prove being a trusted buyer before the seller will meet at a convenience store pickup point, or a seller is asked to prove good standing before a buyer pays by a third-party escrow.",
+  "verifier": "The counterparty in a private sale, or a convenience-store pickup service gating a high-value parcel",
+  "predicate": "Account positive-feedback share is at least 98 percent with at least 30 reviews, on an account older than one year",
+  "disclosed_today": "The account name and link to the profile, which exposes the whole transaction history, other listings, location hints and sometimes real name; or the counterparty's phone number and LINE ID",
+  "issuer": "Second-hand or auction marketplace account, with a zkTLS proof over the platform's profile or feedback API response",
+  "why_zk": "A proof can show good standing while the buyer remains pseudonymous and without exposing other listings. Weak points: feedback on these platforms is already public by design, so the benefit is mainly unlinking the proof from the profile page and hiding the account name, and a proof of a good record does not stop an account being bought or rented out.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "Unlinkability, so the verifier cannot track the person across contexts.",
+    "source_excerpt": "A gatekeeper needs one yes/no fact about a holder, and the proof it receives must not reveal the underlying birth date or let the issuer or the gatekeeper track the holder. | mechanism: Zero-knowledge proof on ISO 18013-7 mdocs for an over-18 statement, device-bound transactions, no server-side storage of credential data."
+   },
+   {
+    "borrowed_aspect": "Disclosing one attribute out of a larger record the holder cannot split themselves.",
+    "source_excerpt": "A verifier needs one attribute from a larger identity record, but the holder cannot share just that attribute from the record. | mechanism: Selective disclosure of attributes from electronic attestations held in the EU Digital Identity Wallet."
+   }
+  ]
+ },
+ {
+  "review_id": "v02-3",
+  "title": "Fit-to-fly / low-infection-risk window for a cruise or group-tour boarding",
+  "moment": "A traveller boards a cruise ship at Keelung or joins a group tour, and the operator asks for a recent negative test, a vaccination record or a doctor's note showing no infectious illness in the last few days.",
+  "verifier": "Cruise line or tour operator boarding desk",
+  "predicate": "Hospital attests \"cleared of notifiable infectious condition\" and the attestation is valid only for the 72 hours around departure (valid-from / valid-to window), nothing else.",
+  "disclosed_today": "Full lab report or clinic certificate with name, ID number, diagnosis context, test type, clinic and physician, kept as a photocopy or photo by the operator.",
+  "issuer": "Hospital or its outpatient clinic, signing a short-lived status credential into the digital wallet.",
+  "why_zk": "The operator only needs a yes/no that is true on departure day, and the proof should expire by itself instead of becoming a stored medical file. Weak points to be honest about: operators may be required by quarantine or port rules to keep records, and a hospital would need to issue such a status in real time, which is not standard practice.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "A single yes/no claim proved without revealing the underlying record, with no tracking by issuer or verifier.",
+    "source_excerpt": "A gatekeeper needs one yes/no fact about a holder, and the proof it receives must not reveal the underlying birth date or let the issuer or the gatekeeper track the holder. | mechanism: Zero-knowledge proof on ISO 18013-7 mdocs for an over-18 statement, device-bound transactions, no server-side storage of credential data."
+   },
+   {
+    "borrowed_aspect": "The idea that a host should check a document and not keep a copy of it, applied to travellers' health papers.",
+    "source_excerpt": "A host must confirm a visitor's identity and eligibility, but the usual practice is to keep a copy of the whole identity document; the regulator says looking at it is enough. | mechanism: Visual inspection of the identity document with no copy taken; the statutory duty is met by checking, not retaining."
+   }
+  ]
+ },
+ {
+  "review_id": "v02-4",
+  "title": "Gig courier proves current platform affiliation to access a company mailroom or campus dock",
+  "moment": "A delivery rider arrives at a science-park company mailroom or hospital loading dock that only admits couriers currently contracted with a recognized logistics platform, and staff ask to see a worker card and ID.",
+  "verifier": "Science park, hospital or corporate mailroom security",
+  "predicate": "Rider is currently active and in good standing with a named logistics employer as of now",
+  "disclosed_today": "Worker card, national ID or driver licence shown or photographed, name, phone number, vehicle plate",
+  "issuer": "The logistics employer or platform operator, with revocation upon contract end or suspension",
+  "why_zk": "The gatekeeper needs only current standing, but collects identity details of many people who visit daily. A fresh signed status also stops a suspended rider from using a stale card. Honest caveat is that many couriers are legally independent contractors rather than employees, so the platform may not count as an employer, and sites often want a plate or name for incident tracing.",
+  "claimed_borrowings": []
+ },
+ {
+  "review_id": "v02-5",
+  "title": "Night-market stall helper proves current employment to get a staff-only phone plan or rental viewing slot",
+  "moment": "A landlord or agency in Taipei offers a lower rent or fast-track viewing to tenants who are currently employed at a stable company, and asks for a recent pay slip or employment certificate.",
+  "verifier": "Private landlord or rental agency",
+  "predicate": "Holder is currently employed by a registered employer (not terminated or resigned) as of the last 24 hours",
+  "disclosed_today": "Employment certificate or pay slip showing full name, national ID number, salary, employer, job title, address",
+  "issuer": "The employer, via an employer-signed credential with revocation upon termination",
+  "why_zk": "Landlords only need \"still employed now\", yet receive salary and ID number and can keep copies. A static certificate cannot show it is still true; a fresh proof with revocation can. Weak points in practice are that few employers issue wallet credentials, small employers may not run revocation infrastructure, and landlords may still want salary level for rent-to-income judgment, which this does not provide.",
+  "claimed_borrowings": []
+ },
+ {
+  "review_id": "v02-6",
+  "title": "Alumni-discount student-ID match at a Taiwan High Speed Rail or TRA concession counter",
+  "moment": "A graduate student buys a student concession fare or a campus-partner ticket at a station counter or kiosk and is asked to show a student card plus national ID so the clerk can see both names match.",
+  "verifier": "Railway or bus operator concession desk, or a third-party ticketing vendor handling campus partner deals",
+  "predicate": "The enrolled-student claim signed by the university and the holder of the digital wallet national-ID credential refer to the same person, shown as a match proof without revealing the national ID number or student number.",
+  "disclosed_today": "Student card (name, student number, photo, department, validity sticker) and often national ID card shown side by side or photographed for the sales record.",
+  "issuer": "University (enrolment status) cross-matched with the national digital wallet identity credential.",
+  "why_zk": "The verifier only needs \"this current student is the person standing here\", yet today it sees student number, department, ID number and birthdate. A match proof between the university claim and the wallet credential avoids that. Honest weakness is that concession fares are low value and clerks are used to a quick glance at the card, so adoption pressure is small, and the in-person photo check is arguably still needed.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The idea that a counter should record only the fields a rule requires rather than keeping a full copy of the identity document.",
+    "source_excerpt": "A registrant must prove a small set of facts to a host, but the host asks for a full copy of the identity document, which carries many extra fields the rule never needed. | mechanism: Inspect the identity document in person and record only the fields the registration rule requires; no copy retained."
+   },
+   {
+    "borrowed_aspect": "The proof should show a prior check passed without acting as a persistent identifier across repeated purchases.",
+    "source_excerpt": "A gatekeeper only needs to know that the visitor already passed some check, but the proof it accepts doubles as a persistent identifier. | mechanism: Blind-signed tokens that attest prior authorisation and cannot be linked to the issuance interaction."
+   }
+  ]
+ },
+ {
+  "review_id": "v02-7",
+  "title": "Proving a rooftop-solar or farm-pump account is on the registered roll for a grant",
+  "moment": "A farmer or small household applies for a county subsidy for solar panels, a cold-storage unit or an efficient irrigation pump, and the county office asks for the electricity account's power-contract copy and recent bills to confirm the site is on the registered agricultural or residential-subsidy contract class.",
+  "verifier": "County agriculture or environment bureau processing the grant",
+  "predicate": "The electricity account belongs to the set of accounts under the agricultural-use or registered-subsidy contract class (membership, without the account number, location or consumption).",
+  "disclosed_today": "Contract copy and bills listing account number, exact site address, contract capacity and monthly consumption, which reveal the size and operating pattern of the farm.",
+  "issuer": "Taipower signing contract-class roll membership for the account",
+  "why_zk": "Consumption and contract capacity expose business operations and could be used by competitors or for tax scrutiny, while the bureau only needs the class. Weakness: the bureau usually also inspects the site in person and needs the address for the project record, so the proof reduces over-collection at application but not at final approval.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The warning that a request category can bundle extra data (here contract capacity and address) with the one fact needed, so the request must be narrowed to a single membership claim.",
+    "source_excerpt": "A verifier wants a single over-threshold fact, but the request category bundles the issuing authority and a face photo with it, so the verifier can receive more than the age claim. | mechanism: Age Over N Flag as a separate requestable value under an entitlement-gated API; no shared name or address."
+   }
+  ]
+ }
+]

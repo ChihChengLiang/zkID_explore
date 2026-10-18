@@ -1,0 +1,98 @@
+[
+ {
+  "review_id": "v03-0",
+  "context_purpose": "HR or an insurer must confirm that an absence or trip cancellation was medically justified for specific dates.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "Employer HR receives diagnosis, ICD code and procedure details when only the covered date range is needed, which exceeds the leave-verification context."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "Insurers need the cause to adjudicate coverage and exclusions, and employers may need the original certificate or the diagnosis for statutory leave types; a date-range boolean cannot support that."},
+  "transmission_check": {"principle_today": "required_by_law", "permits_minimal_flow": "unclear", "reason": "Leave rules and insurance contracts often ask for the original diagnosis certificate, and I cannot tell without checking which Taiwanese rules mandate the diagnosis versus merely the certificate."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "unknown"},
+  "rubric_score": 3,
+  "novelty": 4,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "v03-1",
+  "context_purpose": "A platform wants to give each new customer one introductory offer and limit promotion abuse.",
+  "norm_violation_today": {"violated": "unclear", "parameter": "information_type", "reason": "Collecting phone, device and card data for abuse screening is common commercial practice, but retaining a cross-platform linkable identifier and sometimes national ID goes beyond what a one-per-person check needs."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Little is lost for the one-offer check, but the platform loses a contact channel for marketing and a payment instrument, which it may want anyway."},
+  "transmission_check": {"principle_today": "commercial_convenience", "permits_minimal_flow": "permits", "reason": "No legal duty requires the platform to hold the identifiers, so a lighter proof is allowed."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 3,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "v03-2",
+  "context_purpose": "A landlord or agent wants to confirm that the tenant is who they say they are and is an enrolled student, for rent subsidy or insurance purposes.",
+  "norm_violation_today": {"violated": "yes", "parameter": "retention", "reason": "Full ID card copies kept indefinitely by private landlords and agents exceed what a one-time identity and enrolment check needs."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "A subsidy administrator or insurer may need the actual ID number or household record on file, and a match proof does not give a recoverable identity if the tenant defaults or disappears."},
+  "transmission_check": {"principle_today": "consented_for_benefit", "permits_minimal_flow": "permits", "reason": "The tenant hands the copies over to get the lease or subsidy, and a lighter check is only blocked if the subsidy administrator requires the copies, which is unclear."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "no"},
+  "rubric_score": 2,
+  "novelty": 3,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "v03-3",
+  "context_purpose": "A foreign school or embassy wants evidence that the sponsor can fund tuition and living costs for the first year.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "Full statements expose spending, counterparties and exact balances far beyond a balance-threshold check, and often pass through an agent who has no need for them."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "Some visa authorities require original or bank-stamped statements and may want the account holder's name and transaction history, which a threshold attestation cannot provide."},
+  "transmission_check": {"principle_today": "required_by_law", "permits_minimal_flow": "blocks", "reason": "Visa and admissions rules abroad commonly prescribe the document type, so a Taiwan-issued proof is probably not accepted; this is a foreign-side requirement and the exact rule is unclear."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "no"},
+  "rubric_score": 2,
+  "novelty": 3,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "v03-4",
+  "context_purpose": "A subscription service wants to limit its free trial to one per person.",
+  "norm_violation_today": {"violated": "unclear", "parameter": "information_type", "reason": "Holding phone, email, card and device fingerprints is normal for a subscription service, though the data supports tracking beyond the trial check."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "The platform loses contact details and the payment instrument it usually wants for conversion, which it can still collect separately."},
+  "transmission_check": {"principle_today": "commercial_convenience", "permits_minimal_flow": "permits", "reason": "No duty requires the collection, so a uniqueness proof is allowed."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 2,
+  "novelty": 1,
+  "provenance_faithful": "NA"
+ },
+ {
+  "review_id": "v03-5",
+  "context_purpose": "A private school wants assurance that a parent can sustain an installment plan.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "Passbook photocopies show balances, counterparties and a guarantor's details, far more than a sustained-balance check needs."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "A single bank's average balance misses funds elsewhere and says nothing about income or liabilities, so the school's risk assessment is only partly met."},
+  "transmission_check": {"principle_today": "commercial_convenience", "permits_minimal_flow": "permits", "reason": "No law obliges the school to see statements, and it already accepts post-dated cheques or card billing as alternatives."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 2,
+  "novelty": 4,
+  "provenance_faithful": "NA"
+ },
+ {
+  "review_id": "v03-6",
+  "context_purpose": "A condominium management committee wants one counted vote per eligible household on a shared-cost decision.",
+  "norm_violation_today": {"violated": "unclear", "parameter": "recipient", "reason": "Residents sharing identity details and votes in a group chat visible to the chair and neighbours may breach ballot-secrecy expectations, but the committee is the legitimate collector of eligibility data."},
+  "purpose_sufficiency": {"rating": "insufficient", "lost": "A telco credential proves one person, not ownership or residency in a unit, and condominium voting is weighted by ownership share and may need named records for proxies and written ballots."},
+  "transmission_check": {"principle_today": "required_by_law", "permits_minimal_flow": "unclear", "reason": "Condominium rules likely require attributable, recorded ballots for some decisions, but I cannot say which without checking the specific rules."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "no"},
+  "rubric_score": 2,
+  "novelty": 5,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "v03-7",
+  "context_purpose": "A market organizer wants evidence that a seller is real and fulfils orders reliably before granting a slot.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "Dashboard screenshots reveal revenue, buyer names and margins to a potential competitor when only two reliability numbers are needed."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Little, since the organizer wants a reliability signal, though it loses sight of product mix and the seller's physical-stall suitability."},
+  "transmission_check": {"principle_today": "consented_for_benefit", "permits_minimal_flow": "permits", "reason": "The seller volunteers evidence to win a slot, and no law requires the organizer to see the dashboard."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "no", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 4,
+  "provenance_faithful": "NA"
+ }
+]

@@ -1,0 +1,162 @@
+[
+ {
+  "review_id": "v08-0",
+  "title": "Water-rate discount roll proof when renting out or switching landlord",
+  "moment": "A tenant in a subsidised-water or senior/disabled-household rate category moves into a new rental and the new landlord or property manager asks for the previous water or electricity bill to confirm the household qualifies for the shared-meter discount split.",
+  "verifier": "Landlord or property management company",
+  "predicate": "The tenant's household is in the water utility's discounted-rate roll (set membership), without disclosing the previous address or consumption.",
+  "disclosed_today": "Previous water bill showing old address, account holder name, usage volumes, and arrears status.",
+  "issuer": "Taiwan Water Corporation or Taipei Water Department, signing discount-roll membership",
+  "why_zk": "The landlord only needs to know the discount applies and so the bill split changes; the old address and usage reveal where the tenant lived and how many people live there. Weakness is that discount rolls are small and the pool of eligible people is tiny, so even a membership proof may be identifying by itself, and a landlord may simply not care enough to adopt a wallet flow.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "A proof of a prior check that cannot be linked back to the issuance event or reused to track the holder across verifiers.",
+    "source_excerpt": "A verifier only needs to learn that the holder passed an earlier check, but the proof it receives can be matched to the issuance event and to every other use of the same proof. | mechanism: Clients present unlinkable proofs that attest to a prior authorisation, so the origin cannot link redemption to issuance or to other redemptions."
+   },
+   {
+    "borrowed_aspect": "Having the utility sign without learning where the credential will later be shown, so the utility cannot link the roll check to the landlord.",
+    "source_excerpt": "A signer must certify that a holder has a valid token without seeing the token's content, and must later be unable to link the certified token back to the signing event. | mechanism: A blind signature, where the message is blinded with a random factor before signing, and the holder unblinds the signature so it verifies against the original message under the signer's public key."
+   }
+  ]
+ },
+ {
+  "review_id": "v08-1",
+  "title": "Night-market stall applies for a platform seller badge with a turnover band, not account history",
+  "moment": "A small food or goods vendor applying to sell through a delivery or e-commerce platform in Taiwan is asked to upload bank statements to show monthly receipts, so the platform can set a deposit or credit limit.",
+  "verifier": "Delivery or e-commerce platform's merchant onboarding team",
+  "predicate": "Total incoming deposits across the vendor's business accounts over the last 6 months fall in a stated band (for example NT$100,000 to NT$300,000 per month), and no month is more than 30 percent below the average.",
+  "disclosed_today": "Complete statements for personal and business accounts, including customer names on transfers, private spending, and family transfers, often mixed in the same account.",
+  "issuer": "The vendor's bank (including a credit cooperative or farmers' and fishermen's association bank), signing a turnover-band aggregate.",
+  "why_zk": "The platform needs a turnover band to set a limit, not the customer-level detail. The bank can sign the band over all the vendor's accounts at that bank. Weakness: many stall owners mix cash and informal transfers, so bank deposits understate real turnover and the band may be unfairly low. Banks would also have to build and support the attestation product.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "Demanding extra records from a user whose payments are already normal, without stating necessity.",
+    "source_excerpt": "A service needs to confirm a subscriber's payment, but it demands an identity document and address proof, and threatens suspension if the user refuses, without stating the purpose or necessity. | mechanism: None; the complaint notes no stated purpose or less-intrusive alternative was offered."
+   },
+   {
+    "borrowed_aspect": "Concern that data collected for onboarding gets retained under an open-ended business-need exception, which pushes towards proving a band instead of handing over records.",
+    "source_excerpt": "A party that has collected a person's data must delete it once the reason for holding it ends, but an open-ended exception lets it keep the data whenever it says it still needs it for its own duties. | mechanism: Statutory deletion-on-purpose-lapse duty with exceptions for lawful duties or written consent; no technical erasure mechanism specified."
+   }
+  ]
+ },
+ {
+  "review_id": "v08-2",
+  "title": "Currently-employed proof for the convenience-store parcel pickup of a company-paid corporate card",
+  "moment": "A new hire at a Hsinchu science-park firm opens a corporate-sponsored e-commerce or transit-subsidy account that is only valid while the person is employed, and the platform must re-confirm every month that the employment has not ended.",
+  "verifier": "Corporate benefits platform or commuter-shuttle/subsidy operator that serves many employers",
+  "predicate": "Holder is currently employed by a firm enrolled in the programme, as attested within the last 30 days, and the attestation has not been revoked.",
+  "disclosed_today": "Employee ID, full name, department, job title, employer HR letter or staff card photo, sometimes payroll slip.",
+  "issuer": "Employer HR system (signs a short-lived employment-active credential and revokes it on resignation).",
+  "why_zk": "The platform only needs 'still employed at an enrolled firm', but today collects a full HR letter that identifies the person and role. A short-lived unlinkable proof with revocation fits well. Weakness: the employer must run an issuance and revocation service, and small firms may not; the platform may also want a stable account key, so unlinkability across months is partly given up by design.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "Monthly re-presentation of a proof of prior authorisation without becoming a persistent identifier.",
+    "source_excerpt": "A gatekeeper only needs to know that the visitor already passed some check, but the proof it accepts doubles as a persistent identifier. | mechanism: Blind-signed tokens that attest prior authorisation and cannot be linked to the issuance interaction."
+   },
+   {
+    "borrowed_aspect": "Sharing only the single employment-status attribute from a larger HR record.",
+    "source_excerpt": "A verifier needs one attribute from a larger identity record, but the holder cannot share just that attribute from the record. | mechanism: Selective disclosure of attributes from electronic attestations held in the EU Digital Identity Wallet."
+   }
+  ]
+ },
+ {
+  "review_id": "v08-3",
+  "title": "Showing a nanny or tutor is not on the sex-offender notification register",
+  "moment": "A parent hires a private after-school tutor, a babysitter from a platform, or a cram-school teaches a trial class, and the hiring side wants assurance the person is not on the sexual-offender registry (性侵害加害人登記). Today they ask for a police record certificate (良民證) from the candidate.",
+  "verifier": "A parent, a childcare or tutoring platform, or a small cram-school owner",
+  "predicate": "The holder is not on the sexual-offence offender registration or notification list (non-membership), plus the signing authority and date.",
+  "disclosed_today": "A full criminal-record certificate, which can reveal unrelated old convictions, offences already expunged in practice, and the candidate's complete identity details, and is photocopied and kept by the employer.",
+  "issuer": "Ministry of the Interior (police administration), or the Ministry of Justice for the criminal record side",
+  "why_zk": "A narrow non-membership claim says only that the person is not on this specific register, instead of handing over a whole record that lets an employer judge unrelated matters. Weakness, stated honestly. For jobs covered by child-protection law, the employer is legally required to check specific registries and may be entitled to the fuller record, so the narrow proof would not replace the legal check, and informal parents may actually want more than a register absence. The proof also covers only the registry, not every risk, so it can give false comfort.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "A record that identifies a person should not become a readable file kept by the collector; the verifier here keeps only a yes bit and not a copied certificate.",
+    "source_excerpt": "A service provider must keep a record of who used what without that record becoming a readable log of a person's interests, but the duty is a recommended policy that depends on each institution adopting it and on courts or subpoenas being resisted. | mechanism: Institutional confidentiality policy plus procedures for handling subpoenas and law-enforcement requests; no technical minimization of records is specified."
+   },
+   {
+    "borrowed_aspect": "The open-ended exception that lets collectors keep data they say they need, which is the reason a proof that never hands over the data is stronger than a promise to delete it.",
+    "source_excerpt": "A party that has collected a person's data must delete it once the reason for holding it ends, but an open-ended exception lets it keep the data whenever it says it still needs it for its own duties. | mechanism: Statutory deletion-on-purpose-lapse duty with exceptions for lawful duties or written consent; no technical erasure mechanism specified."
+   }
+  ]
+ },
+ {
+  "review_id": "v08-4",
+  "title": "Proof of recent negative infectious-disease clearance for a short-stay care-facility or day-care visit",
+  "moment": "A visitor, volunteer or new aide at a nursing home, long-term care center or kindergarten has to show they were tested or cleared (for example no active TB, influenza or norovirus symptoms) within the past few days before entering. Staff today often ask for a photo of the lab report or hospital slip at the door.",
+  "verifier": "Long-term care facility, nursing home or kindergarten staff at the entrance or HR desk",
+  "predicate": "A hospital signs a status of cleared for entry, valid only for N days from the test date. The verifier checks that the status is still in its window and learns neither the test type, the result detail nor any other clinical content.",
+  "disclosed_today": "The entire lab or screening report, with the name, ID number, test types, other tested items and often the hospital visit details.",
+  "issuer": "Hospital laboratory or infection-control department",
+  "why_zk": "The facility cares about whether the holder is cleared right now, not about what else was tested. The signed validity window encodes freshness without a live lookup, so the facility does not need access to hospital systems. The weakness is that facilities often want a paper record for inspection audits, and local health authorities may specify which documents to retain, so a pure proof may not satisfy an auditor.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "Presenting an unlinkable proof of a prior check so the verifier cannot match the redemption to the original hospital visit or to the holder's other visits.",
+    "source_excerpt": "A verifier only needs to learn that the holder passed an earlier check, but the proof it receives can be matched to the issuance event and to every other use of the same proof. | mechanism: Clients present unlinkable proofs that attest to a prior authorisation, so the origin cannot link redemption to issuance or to other redemptions."
+   },
+   {
+    "borrowed_aspect": "The idea that a shared record should have the identifying and unrelated fields stripped so the leftover cannot re-identify the person.",
+    "source_excerpt": "A party wants to share a record set that cannot identify any person, but the test is a checklist of removable fields plus a no-actual-knowledge condition, so the holder must still judge whether leftover fields re-identify someone. | mechanism: Safe Harbor method removing 18 enumerated identifiers (with ZIP-code truncation rule and age aggregation), or an expert-determination alternative; re-identification codes allowed only if not derived from or disclosed about the individual."
+   }
+  ]
+ },
+ {
+  "review_id": "v08-5",
+  "title": "Landlord-free proof that a rented unit is on the residential-rate roll for a tenant subsidy",
+  "moment": "A tenant applies for a municipal rent subsidy or a student housing grant that requires the unit to be billed at the residential rate (not commercial or illegal sub-divided rates). The office asks for water and electricity bills, which expose the landlord's account, the tenant's name, and the exact unit.",
+  "verifier": "City housing bureau or university housing office",
+  "predicate": "The tenant's utility account is a member of the set of accounts on the residential tariff class at an eligible metering configuration (individual meter, not shared)",
+  "disclosed_today": "Water and electricity bills with full address, landlord or account-holder name, usage, and sometimes unrelated charges",
+  "issuer": "Taipower and Taiwan Water Corporation (each signs its own roll membership)",
+  "why_zk": "The office needs only that the unit has its own residential-rate meter, a classic landlord-evasion check, yet collects documents that reveal address and consumption. Honest weakness: the account may be in the landlord's name, so the tenant cannot always obtain a credential, and the office still needs the address to administer the subsidy, so membership alone may not replace address disclosure in the end.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The worry that collected bills are kept under an open-ended exception for the office's own duties, which a proof leaving nothing to retain avoids.",
+    "source_excerpt": "A party that has collected a person's data must delete it once the reason for holding it ends, but an open-ended exception lets it keep the data whenever it says it still needs it for its own duties. | mechanism: Statutory deletion-on-purpose-lapse duty with exceptions for lawful duties or written consent; no technical erasure mechanism specified."
+   },
+   {
+    "borrowed_aspect": "Showing an attribute about a place without revealing the underlying true address, with the holder keeping a lawful-disclosure path for audits.",
+    "source_excerpt": "A protected person must be able to show a new identity without revealing the old one, but the program holder keeps a discretionary exception that lets it disclose the true identity to law enforcement or by court order. | mechanism: Discretionary non-disclosure of identity and location, with a mandatory disclosure exception to State or local law enforcement on request or by court order when the person is under investigation or charged with a serious offense."
+   }
+  ]
+ },
+ {
+  "review_id": "v08-6",
+  "title": "Ride-hailing driver rating and trip count for a fleet-leasing deposit waiver",
+  "moment": "A part-time driver in Taipei applies to a car-leasing or fleet company that waives the deposit for proven reliable drivers. Today the company asks for screenshots of the driver app showing earnings history, ratings, and trip details.",
+  "verifier": "Fleet leasing company or taxi/ride-hailing fleet operator",
+  "predicate": "Completed trips on the platform in the last 12 months >= 500 and average rating >= 4.8",
+  "disclosed_today": "Full screenshots of the driver account, including passenger names or addresses in trip lists, daily earnings, platform account ID, and phone number",
+  "issuer": "The ride-hailing platform account page, via a zkTLS session proof over the driver's logged-in API response (the platform does not issue credentials)",
+  "why_zk": "The platform has no credential product, so only a TLS-session proof can attest the numbers; screenshots are trivially forged today. Weakness: the platform's terms may forbid automated access, and a proof only shows the page said so at that time, with no platform liability behind it. Trip count and rating are a narrow threshold, so the leasing company learns far less than from a full screenshot.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The idea that a collector should not exceed the necessary scope of its purpose, applied to a deposit decision that needs only two thresholds rather than a full account view.",
+    "source_excerpt": "A rule requires anyone collecting personal data to stay within the necessary scope of its stated purpose, but it gives no concrete way to show what was necessary, so the collector decides what counts as necessary. | mechanism: Legal purpose-limitation and proportionality principle; no technical mechanism specified."
+   },
+   {
+    "borrowed_aspect": "The failure of a verifier relying on easily copied artifacts, here screenshots, which a proof bound to the live session replaces.",
+    "source_excerpt": "A provider must verify that a new applicant is the named person, but its check uses identifiers that are easy to copy, so a stolen identity passes and the real person bears the consequences. | mechanism: None; online verification only checked ID number and issue date."
+   }
+  ]
+ },
+ {
+  "review_id": "v08-7",
+  "title": "Landlord checks rent-payment regularity without seeing the tenant's bank statement",
+  "moment": "A tenant applying for a rental in Taipei is asked by the landlord or agent to send photos of 6 to 12 months of passbook or e-banking statements to show they pay rent on time and have a steady balance.",
+  "verifier": "Private landlord or rental agency (房仲)",
+  "predicate": "In each of the last 12 months, the account made a recurring transfer of at least NT$X to a rent-like payee on or before the due date, and the month-end balance never fell below one month's rent.",
+  "disclosed_today": "Full statements showing every transaction, counterparties, merchants, medical or family payments, salary source, and account number.",
+  "issuer": "The tenant's bank, signing a payment-regularity and minimum-balance aggregate over the account's transactions.",
+  "why_zk": "The landlord needs only a yes/no on regularity and buffer, and a bank-signed aggregate proves it without the transaction list. Weakness: there is no standard for such a bank attestation today, and private landlords may not accept anything but the familiar statement photos. The tenant may also rent from several accounts, so the claim covers only one account.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The pattern of a private party asking for full copies of documents when a narrow fact would do, with no less-intrusive alternative named.",
+    "source_excerpt": "A service provider signing up a customer must check identity and payment, but it asks for full front-and-back copies of identity and card documents, and the regulator leaves whether that exceeds the purpose to case-by-case fact-finding. | mechanism: None stated; the letter says less-intrusive alternatives must be considered but names none."
+   },
+   {
+    "borrowed_aspect": "A payment-related check that escalates into collecting extra personal documents beyond what the purpose needs.",
+    "source_excerpt": "A service needs to confirm a subscriber's payment, but it demands an identity document and address proof, and threatens suspension if the user refuses, without stating the purpose or necessity. | mechanism: None; the complaint notes no stated purpose or less-intrusive alternative was offered."
+   }
+  ]
+ }
+]

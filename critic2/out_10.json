@@ -1,0 +1,98 @@
+[
+ {
+  "review_id": "v10-0",
+  "context_purpose": "A township office or NGO confirms a household is on the subsidised-electricity roll so it can grant a reduced deposit or free installation.",
+  "norm_violation_today": {"reason": "A full bill reaches a local program counter and exposes address and occupancy-revealing usage when only roll membership is needed.", "parameter": "information_type", "violated": "yes"},
+  "purpose_sufficiency": {"lost": "Cannot confirm the installation address, the bill-payer's name matching the applicant, or that the household owns or occupies the site; one-claim-per-account needs a nullifier.", "rating": "partly"},
+  "transmission_check": {"reason": "The household volunteers the bill to get a discount and no statute I know of requires the full bill, though the program's own rules may.", "principle_today": "consented_for_benefit", "permits_minimal_flow": "permits"},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "unknown"},
+  "rubric_score": 3,
+  "novelty": 2,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "v10-1",
+  "context_purpose": "A school or education bureau checks that a student's household qualifies for low-income aid before granting a tuition, lunch or care subsidy.",
+  "norm_violation_today": {"reason": "Collecting full bills with address, meter and payment history into the student file goes beyond a single roll-membership fact, and the file is kept.", "parameter": "retention", "violated": "yes"},
+  "purpose_sufficiency": {"lost": "Cannot show the household registration or social-affairs status the aid rules usually rest on, nor the address the school may need.", "rating": "partly"},
+  "transmission_check": {"reason": "The aid rules probably rely on official certificates, and I cannot say whether a Taipower roll proof would be accepted in their place.", "principle_today": "consented_for_benefit", "permits_minimal_flow": "unclear"},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "unknown"},
+  "rubric_score": 2,
+  "novelty": 2,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "v10-2",
+  "context_purpose": "A carrier or operator decides whether it may safely carry a passenger with a medical condition on a given date.",
+  "norm_violation_today": {"reason": "Check-in or travel-agent staff receive diagnosis, medications and full ID number that a fit/unfit decision does not need, and keep copies with the booking.", "parameter": "information_type", "violated": "yes"},
+  "purpose_sufficiency": {"lost": "Airline medical desks may need clinical fields (MEDIF-type review), and the minimal flow cannot support conditional clearance such as oxygen or escort needs.", "rating": "partly"},
+  "transmission_check": {"reason": "Carriers set their own medical-clearance rules for safety and I do not know whether they would accept a signed fit-window attestation instead.", "principle_today": "safety_security", "permits_minimal_flow": "unclear"},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "no"},
+  "rubric_score": 3,
+  "novelty": 5,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "v10-3",
+  "context_purpose": "A building committee or group-buy organiser lets each participant respond once so a poll or bulk purchase is not gamed.",
+  "norm_violation_today": {"reason": "Name, unit and mobile number are shared with whoever administers the group and visible to other volunteers, beyond what duplicate suppression needs.", "parameter": "recipient", "violated": "yes"},
+  "purpose_sufficiency": {"lost": "Cannot show the participant lives in or owns a unit in the building, so eligibility still needs a separate check; it also gives no contact route for delivery or follow-up.", "rating": "partly"},
+  "transmission_check": {"reason": "Community groups collect contact details for their own convenience with no legal duty, so a minimal flow is not blocked.", "principle_today": "commercial_convenience", "permits_minimal_flow": "permits"},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "no"},
+  "rubric_score": 2,
+  "novelty": 4,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "v10-4",
+  "context_purpose": "A transit operator grants the student fare only to enrolled students and ties the pass to the right account holder.",
+  "norm_violation_today": {"reason": "Operators copy or keep student-ID photos and sometimes national ID number and birth date for the pass record, more than an enrolment-plus-same-person fact needs.", "parameter": "retention", "violated": "yes"},
+  "purpose_sufficiency": {"lost": "Cannot show the student's age band or route/zone eligibility if the fare scheme uses them, and does not help a lost-card dispute that needs identity.", "rating": "partly"},
+  "transmission_check": {"reason": "The discount is a voluntary benefit offered by the operator and a student-card photo is the operator's own choice, not a legal demand.", "principle_today": "consented_for_benefit", "permits_minimal_flow": "permits"},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "unknown"},
+  "rubric_score": 3,
+  "novelty": 3,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "v10-5",
+  "context_purpose": "A city bureau confirms eligibility and removes duplicate entries for a subsidised rebate draw.",
+  "norm_violation_today": {"reason": "A full bill with name, address and monthly kWh held by a contractor exceeds the roll-membership fact the entry stage needs.", "parameter": "information_type", "violated": "yes"},
+  "purpose_sufficiency": {"lost": "Cannot supply the delivery or installation address of a winner, and a small roll gives a thin anonymity set; a second disclosure is needed after the draw.", "rating": "partly"},
+  "transmission_check": {"reason": "Entrants volunteer the bill to try for a benefit, and I know of no rule requiring the bill image itself at the entry stage.", "principle_today": "consented_for_benefit", "permits_minimal_flow": "permits"},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "unknown"},
+  "rubric_score": 3,
+  "novelty": 2,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "v10-6",
+  "context_purpose": "A procurement officer confirms the bidder's signer or evaluator is authorised by the employer at tender opening.",
+  "norm_violation_today": {"reason": "Copies of ID cards and labour insurance records are stored in the bid file for years, though only current authorised status is needed, but procurement may justify the file as an audit record.", "parameter": "retention", "violated": "unclear"},
+  "purpose_sufficiency": {"lost": "Cannot supply the named, sealed, auditable identity record the bid file normally holds, so the gain is limited to dropping ID and insurance copies.", "rating": "partly"},
+  "transmission_check": {"reason": "Procurement rules likely require identified signers, seals and an auditable file, but I cannot say whether they require ID copies specifically.", "principle_today": "required_by_law", "permits_minimal_flow": "unclear"},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "unknown"},
+  "rubric_score": 2,
+  "novelty": 4,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "v10-7",
+  "context_purpose": "A delivery or shopping app limits a new-user coupon to one claim per person to curb multi-account abuse.",
+  "norm_violation_today": {"reason": "A phone number and SMS code fit a coupon claim, but escalating to ID photos, payment cards or carrier barcodes goes past what a low-value coupon needs.", "parameter": "information_type", "violated": "unclear"},
+  "purpose_sufficiency": {"lost": "Cannot prevent the same person using a second SIM or telco line, nor give the app a contact channel for marketing, which it may count as lost value.", "rating": "sufficient"},
+  "transmission_check": {"reason": "The app collects for its own fraud screening and marketing with no legal duty, so nothing blocks a lighter proof.", "principle_today": "commercial_convenience", "permits_minimal_flow": "permits"},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "unknown"},
+  "rubric_score": 3,
+  "novelty": 3,
+  "provenance_faithful": "no"
+ }
+]

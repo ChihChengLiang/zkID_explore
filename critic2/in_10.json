@@ -1,0 +1,158 @@
+[
+ {
+  "review_id": "v10-0",
+  "title": "Taipower subsidy-roll proof for a low-income solar rooftop co-op deposit waiver",
+  "moment": "A household applies to join a community rooftop-solar or energy-saving appliance trade-in scheme run by a township office or NGO, which offers a reduced deposit or free installation to households on a subsidised electricity roll. The counter asks for a recent Taipower bill photocopy to confirm the discount.",
+  "verifier": "Township office or NGO running the energy-efficiency program",
+  "predicate": "This account is a member of the Taipower low-income or vulnerable-household discount roll (set membership, current period)",
+  "disclosed_today": "Full electricity bill copy showing the service address, account number, monthly kWh usage, billing amounts, and the household name",
+  "issuer": "Taipower (or the Taipower subsidy roll maintainer, co-signing with the social affairs bureau list)",
+  "why_zk": "The bill reveals home address and occupancy patterns (usage tells when no one is home), while the scheme only needs yes or no on roll membership. Weakness: the roll is derived from social-welfare status held by local governments, so Taipower may not be the natural signer, and rolls change by period, so freshness and revocation need care. It also needs a nullifier so one account cannot claim twice.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The idea that collecting a whole bill exceeds the necessary scope of the stated purpose, so the proof should carry only the membership bit.",
+    "source_excerpt": "A rule requires anyone collecting personal data to stay within the necessary scope of its stated purpose, but it gives no concrete way to show what was necessary, so the collector decides what counts as necessary. | mechanism: Legal purpose-limitation and proportionality principle; no technical mechanism specified."
+   },
+   {
+    "borrowed_aspect": "Choosing what to release at presentation time, here tightened from field selection to a single membership predicate.",
+    "source_excerpt": "A user must prove one eligibility fact to a counter, while the credential holds a whole identity record and the user chooses fields at presentation time with no field-level guarantee. | mechanism: Per-scenario field selection after scanning a QR code, confirmed by biometric check, in the TW DIW sandbox."
+   }
+  ]
+ },
+ {
+  "review_id": "v10-1",
+  "title": "Low-income electricity subsidy proof for school lunch or tuition aid",
+  "moment": "A parent applies for a school's low-income or near-poor student aid (tuition waiver, free lunch, after-school care subsidy) and is asked to submit a household certificate plus a copy of recent utility bills to show the household sits on the subsidised-electricity roll.",
+  "verifier": "School administrative office or district education bureau",
+  "predicate": "The household's electricity account is a member of the utility's low-income or welfare-tariff roll (set membership), with no address or kWh usage revealed.",
+  "disclosed_today": "Full utility bill with address, account number, meter number, monthly usage and payment history, often photocopied and kept in the student file.",
+  "issuer": "Taiwan Power Company (Taipower), signing membership of its welfare-tariff roll",
+  "why_zk": "A signed roll-membership proof gives the school the one fact it needs without the address or usage pattern, which could show when the home is empty. Weakness is that the aid rules usually rest on the household registration and social-affairs certificates, so Taipower's roll is only a secondary or corroborating signal, and the school may legally need the address anyway.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "Proving a single yes/no fact from a signed credential without revealing the underlying record or letting the issuer see where it is used.",
+    "source_excerpt": "A gatekeeper needs one yes/no fact about a holder, and the proof it receives must not reveal the underlying birth date or let the issuer or the gatekeeper track the holder. | mechanism: Zero-knowledge proof on ISO 18013-7 mdocs for an over-18 statement, device-bound transactions, no server-side storage of credential data."
+   },
+   {
+    "borrowed_aspect": "The idea that the verifier gets only the attribute the service needs and not the full bill it sits inside.",
+    "source_excerpt": "A verifier needs one attribute from a larger identity record, but the holder cannot share just that attribute from the record. | mechanism: Selective disclosure of attributes from electronic attestations held in the EU Digital Identity Wallet."
+   }
+  ]
+ },
+ {
+  "review_id": "v10-2",
+  "title": "Hospital-signed fit-to-fly or fit-to-travel window for an airline or ferry to the outlying islands",
+  "moment": "A passenger recovering from surgery, late pregnancy or a heart event books a flight to Kinmen, Penghu or Lanyu, or a long-haul flight, and the carrier or tour operator asks for a doctor's fitness note. Staff photocopy or photograph the note and sometimes keep it with the booking.",
+  "verifier": "Airline check-in counter, ferry operator or travel agent handling the booking",
+  "predicate": "A hospital physician signs that the holder is medically fit to travel for a trip on dates within a stated window, and the proof stops being valid after the window. No diagnosis, procedure, gestational detail or medication is shown.",
+  "disclosed_today": "A medical certificate with the diagnosis, the procedure or gestational age, the medications, the physician details and the full ID number. It is copied and stored with the booking records.",
+  "issuer": "Treating hospital (attending physician's office)",
+  "why_zk": "The carrier's decision is only whether it may carry the passenger on that date. A time-bound signature matches the fact that fitness for travel can change within days. The sealed-bid analogy applies to the content, which stays hidden from handlers until the moment of use. This is weak where the airline's own medical-clearance form (MEDIF) requires specific clinical fields that the airline's medical desk reviews, in which case the proof would only cover the simpler cases, such as ferries and domestic routes.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The notion of content that stays unseen by intermediate handlers until a fixed moment, with the wrapper readable only for what is needed to identify it.",
+    "source_excerpt": "A party submits a value that must stay hidden from competitors until a fixed moment, while the holder of the submissions must be able to prove later that none were seen early and must handle identifying wrappers without exposing the content. | mechanism: Physical and access-control safeguarding of sealed bids with designated-official exception for envelope identification, plus a written record of any mistaken early opening."
+   },
+   {
+    "borrowed_aspect": "The purpose-limited release principle, where only the part that serves the travel decision is exposed.",
+    "source_excerpt": "A holder of sensitive records must release only the subset that serves a stated purpose, but the rule leaves it to the holder to judge what is minimal and gives no mechanism that proves the released subset was minimal. | mechanism: Purpose-based minimum-necessary rule with reasonable-efforts standard, role-based access and reasonable reliance on requester representations (45 CFR 164.514(d)); no cryptographic or proof-based check."
+   }
+  ]
+ },
+ {
+  "review_id": "v10-3",
+  "title": "Neighbourhood group-buy and community app one-vote-per-household style polls",
+  "moment": "A residents' community app or LINE-based building management committee runs a poll or a subsidised bulk-purchase (for example a shared water-purifier contract) where each member may take part once, and joining currently means giving a phone number and name to the organiser.",
+  "verifier": "Building management committee or community group-buy organiser.",
+  "predicate": "This participant is one real subscriber and has not already responded in this poll, without revealing the number.",
+  "disclosed_today": "Name, unit number, mobile number, and often a LINE ID, shared with whoever administers the group, and visible to other volunteers.",
+  "issuer": "A Taiwanese mobile carrier.",
+  "why_zk": "Limiting to one response per person needs only a uniqueness tag, not a phone book that volunteers can misuse. Weakness: a carrier subscriber is not a household resident, so this proves one-per-person but not that the person lives in the building. Eligibility must still be checked by a separate step, as in a separate-eligibility-from-ballot procedure, so the telco proof only covers the duplicate-suppression half. Management committees are unlikely to adopt this without a ready-made app.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "Eligibility is checked separately from the cast response, so the uniqueness proof handles only duplicates and not identity.",
+    "source_excerpt": "A voter must prove eligibility and cast a valid choice while the record of that choice cannot be linked back to them, but the same process must still let officials verify who voted, so the separation depends on procedure rather than on a proof. | mechanism: Separate voting compartments and two-envelope sealing for postal and absentee ballots so identity is not attached to the vote at counting; eligibility is checked separately from the ballot."
+   },
+   {
+    "borrowed_aspect": "The signer certifies the participant without seeing what they later do with the credential.",
+    "source_excerpt": "A signer must certify that a holder has a valid token without seeing the token's content, and must later be unable to link the certified token back to the signing event. | mechanism: A blind signature, where the message is blinded with a random factor before signing, and the holder unblinds the signature so it verifies against the original message under the signer's public key."
+   }
+  ]
+ },
+ {
+  "review_id": "v10-4",
+  "title": "Student-rate transit pass bound to the same person as the telecom/bank account",
+  "moment": "A student buys a discounted monthly commuter pass or youth fare product through a transit operator's app, which must be sure the student-status claim belongs to the same person who holds the stored-value or payment account the pass is loaded onto.",
+  "verifier": "Transit operator or e-ticketing issuer (e.g. a city MRT or bus card scheme, or an e-ticket platform).",
+  "predicate": "The university-signed enrolled-this-semester claim and the payment or ticketing account's holder claim refer to the same person, shown without revealing the national ID number to the operator.",
+  "disclosed_today": "Photo of student ID card, sometimes national ID number and date of birth, entered or photographed at a counter or in the app, and often retained for the pass record.",
+  "issuer": "University registrar (enrolment status), matched against the wallet-held account or identity credential from a second issuer.",
+  "why_zk": "A same-person proof removes the need to copy the ID or student card, and the operator only learns that an enrolled student owns this account. Moderate strength: many operators already accept a simple student-card photo, and a university credential only adds value if the operator's app can verify wallet proofs and universities issue them per semester.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The idea that checking eligibility at the moment of sale should not require keeping a copy of the identity document.",
+    "source_excerpt": "A host must confirm a visitor's identity and eligibility, but the usual practice is to keep a copy of the whole identity document; the regulator says looking at it is enough. | mechanism: Visual inspection of the identity document with no copy taken; the statutory duty is met by checking, not retaining."
+   },
+   {
+    "borrowed_aspect": "The pattern of a point-of-sale rule that demands capturing and retaining a person's image with no less-intrusive alternative.",
+    "source_excerpt": "A provider must confirm a new subscriber's identity before activating a service; the rule requires capturing a live photo of the person at point of sale, with no stated limit on retention. | mechanism: None minimal; in-store photo capture required, no retention limit or less-intrusive alternative stated."
+   }
+  ]
+ },
+ {
+  "review_id": "v10-5",
+  "title": "Anonymous eligibility for community solar or energy-saving appliance rebate lottery",
+  "moment": "A resident enters a local government rebate draw for efficient appliances or a rooftop solar subsidy that is reserved for households on the utility's subsidised or demand-response enrolled roll, and is asked to upload a bill so officials can check enrolment and de-duplicate entries.",
+  "verifier": "City government bureau running the rebate draw",
+  "predicate": "The entrant's account is a member of the enrolled subsidy roll and has not already entered (membership plus a single-use token), with no address or usage revealed.",
+  "disclosed_today": "Bill image with name, address, account number and monthly kWh, stored by the contractor handling the application.",
+  "issuer": "Taipower, signing enrolment membership of its subsidy or demand-response roll",
+  "why_zk": "Eligibility and one-entry-per-household can be separated, so the city confirms enrolment and prevents duplicates without learning the address or consumption, much like checking eligibility apart from the ballot. Weakness is that the city usually does need a delivery or installation address after winning, so the proof only protects the entry stage, and a small roll limits the anonymity set.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "Checking eligibility separately from the entry so identity is not attached to the draw record.",
+    "source_excerpt": "A voter must prove eligibility and cast a valid choice while the record of that choice cannot be linked back to them, but the same process must still let officials verify who voted, so the separation depends on procedure rather than on a proof. | mechanism: Separate voting compartments and two-envelope sealing for postal and absentee ballots so identity is not attached to the vote at counting; eligibility is checked separately from the ballot."
+   },
+   {
+    "borrowed_aspect": "A single-use unlinkable token that stops double entries without tracking the household.",
+    "source_excerpt": "A verifier only needs to learn that the holder passed an earlier check, but the proof it receives can be matched to the issuance event and to every other use of the same proof. | mechanism: Clients present unlinkable proofs that attest to a prior authorisation, so the origin cannot link redemption to issuance or to other redemptions."
+   }
+  ]
+ },
+ {
+  "review_id": "v10-6",
+  "title": "Current-employee check for a sealed corporate-purchase or tender-staff conflict declaration",
+  "moment": "A procurement officer at a public body or large firm needs evidence that a bidder's named evaluator or subcontract signer is currently employed by the bidding company, without receiving the employee's personnel record, before a tender opening.",
+  "verifier": "Procurement or tender-opening officer",
+  "predicate": "Employer signed, bound to the tender's opening date, that the holder is a current employee in a role authorised to sign; the signature is fresh as of the submission cut-off and can be revoked if the person leaves before opening.",
+  "disclosed_today": "Company letter with seal (公司大小章), authorisation letter, copy of the signer's ID card and sometimes labor insurance record, enclosed with the sealed bid.",
+  "issuer": "Employer (company authorised signatory) issuing a status credential.",
+  "why_zk": "The officer needs only \"this signer is currently authorised by this employer\", yet receives a pile of personal documents that stay in a tender file for years. Freshness tied to the opening moment replaces a letter that could be stale. Weakness: Taiwan procurement rules generally require identified signers and seals, and the bid file must be auditable, so the signer cannot realistically be anonymous; the gain is limited to dropping ID copies and insurance records.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The fixed-moment structure, where the claim must hold at submission and opening while identifying wrappers are handled without exposing content.",
+    "source_excerpt": "A party submits a value that must stay hidden from competitors until a fixed moment, while the holder of the submissions must be able to prove later that none were seen early and must handle identifying wrappers without exposing the content. | mechanism: Physical and access-control safeguarding of sealed bids with designated-official exception for envelope identification, plus a written record of any mistaken early opening."
+   },
+   {
+    "borrowed_aspect": "The pattern of a verifier examining identity documents with unspecified retention, which the status proof would replace.",
+    "source_excerpt": "A bank must verify who a person is before opening an account, which means examining identity documents, but the cited rule does not say whether copies are kept or for how long. | mechanism: Dual identity-document inspection at account opening; retention and copy handling not specified in the cited text."
+   }
+  ]
+ },
+ {
+  "review_id": "v10-7",
+  "title": "One free-trial or sign-up bonus per person for a delivery app promotion",
+  "moment": "A Taiwanese food-delivery or e-commerce app gives a new-user coupon worth a few hundred NT dollars; people farm it with many accounts and burner numbers, so the app starts asking for ID verification or e-invoice carrier and bank details.",
+  "verifier": "Delivery or shopping app running a new-user promotion",
+  "predicate": "This is a distinct subscriber who has not already claimed this promotion under this app's scope, without revealing the number or identity.",
+  "disclosed_today": "Phone number plus SMS code, sometimes ID photo, payment card, or a mobile barcode carrier, all of which can be linked across services.",
+  "issuer": "Telco with the real-name subscriber record.",
+  "why_zk": "A telco-signed uniqueness proof with an app-scoped nullifier lets the app enforce one claim per person without storing a phone number it can then use for marketing or resale. The honest weakness is that coupon value is low and the app already tolerates SMS OTP, so the business case for adding a telco attestation is thin; the benefit is mostly privacy and reduced data breach exposure, not fraud prevention alone.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The concern that collected identifiers are kept under an open-ended business-need exception, motivating not collecting the number at all.",
+    "source_excerpt": "A party that has collected a person's data must delete it once the reason for holding it ends, but an open-ended exception lets it keep the data whenever it says it still needs it for its own duties. | mechanism: Statutory deletion-on-purpose-lapse duty with exceptions for lawful duties or written consent; no technical erasure mechanism specified."
+   }
+  ]
+ }
+]

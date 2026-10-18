@@ -59,3 +59,22 @@ It does not support "diverse seeds break the homogeneity" at this scale, and it 
 - **Duplicates among same-cell pairs are rare.** The bands hold equal numbers of pairs, so the sample is close to uniform over same-cell pairs: 1 of 29 judged pairs is about 3% (a 95% interval of roughly 0.1% to 18% at this n). The Haiku clustering (26 multi-idea clusters out of 50) and the greedy cosine clusters both merged far more than a human did, so **the earlier "heavy convergence" finding does not hold**: the generated ideas are mostly different situations.
 - **Consequences.** (1) Diversity metrics based on cluster counts at any threshold should not be used; use the continuous ones (mean pairwise distance, Vendi). (2) The earlier reading that seeds failed to diversify is unsupported either way; diversity here is high in all arms. (3) The arm differences in quality (rubric 2.5-2.7) and the critic's near-universal "decorative provenance" verdict are now the more interesting signals.
 - **Limits:** one rater, one "same", a stratified sample of 30. This establishes that duplication is low; it does not give a calibrated threshold. Several more "same" examples would be needed for that, which the current corpus may not contain.
+
+## Addendum 3: contextual-integrity re-score (critic v2) and context classification
+
+Critic v2 (norm violation, purpose-sufficiency, transmission check, aggregation, adoption; see `docs/contextual_integrity.md`) re-reviewed the same 96 ideas, and Sonnet and Haiku labeled transmission principle and origin/use context. `python3 scripts/analyze_ci.py` reproduces the tables.
+
+**Critic v2**
+- Norm violated today: 69 yes, 25 unclear, 2 no. The violated parameter is `information_type` in 77 cases (retention 12, recipient 5). Almost all ideas are "asks for more than needed"; none concern consent or purpose creep.
+- Purpose-sufficiency: 66 partly, 27 sufficient, 3 insufficient. The minimal flow usually serves the verifier's purpose only partly, so "what is lost" is the main filter.
+- A "real opportunity" (violated yes, sufficient, not blocked) is **20 of 96, and exactly 5 per arm**. On this stricter measure the four arms are identical.
+- Rubric: v1 and v2 agree exactly on 61/96 (all within 1). Arm means v2: A 2.46, B 2.75, C 2.75, D 2.67; v1: A 2.50, B 2.67, C 2.71, D 2.46. D flips from lowest to middle between critics, so arm gaps are critic-dependent noise at this size.
+- **Correction:** the v1 verdict that 66 of 72 seeded ideas' borrowings were "decorative" does not survive rewording the prompt. v2 marks 38 "yes" and 34 "no". Provenance faithfulness is judge-dependent; do not cite "seeds were ignored" as a finding.
+- The critic cannot judge law or adoption: `permits_minimal_flow` is unclear for 44, blocks for only 2; `issuer_willing` is unknown for 76 and "no" for 20 (never "yes"); aggregation is low or medium everywhere. These checks need local evidence (a Taiwan-law source, interviews), not a model.
+- One generator output (employer-fresh A idea 0) has a title from one idea and a moment from another; the critic flagged it. Left in the data.
+
+**Context and transmission classification (Sonnet; Haiku agrees on 91/96 origin, 77 use, 79 distance, 72 transmission)**
+- Context distance: 48 different, 33 adjacent, 15 same. Transmission principle (today): 36 consented-for-benefit, 28 commercial-convenience, 21 safety/security, 10 required-by-law, 0-1 public-record. Transmission principle is the least reliable label (75% agreement).
+- Origin contexts follow the cells (employment, telecom, utilities, finance, healthcare, education about 12 each). **Use contexts pile up in housing (23) and commerce (19).** Civic/community, family/social and religion are never used as origin or use; justice/security appears once. The new axes describe the gap, they do not close it; the cell design still has to force these settings.
+- Same-context ideas are judged "sufficient" more often (7/15, 47%) than adjacent (8/33) or different (12/48), both about 25%. n is small, but it fits the theory that cross-context flows lose more when minimised.
+- Commercial-convenience cases are legally the easiest (24 of 28 permit the minimal flow) but the verifier has little reason to change; consented-for-benefit cases carry most of the "unclear" legal verdicts (16 of 36). Hypothesis for the adoption question: the easy cases are the ones where the verifier collects for convenience, so the barrier is incentive, not law.

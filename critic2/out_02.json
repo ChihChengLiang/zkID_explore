@@ -1,0 +1,98 @@
+[
+ {
+  "review_id": "v02-0",
+  "context_purpose": "A residential committee wants some evidence that a courier or concierge hire is reliable before giving access to a package room or building tags.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "Screenshots expose earnings, order history and work zones when only reliability is relevant."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "A platform rating says nothing about criminal history or trustworthiness around access-controlled premises, which a police certificate would cover."},
+  "transmission_check": {"principle_today": "consented_for_benefit", "permits_minimal_flow": "permits", "reason": "The courier volunteers evidence to get a job or access, and no law is known to require the screenshots."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "no", "verifier_can_check": "unknown"},
+  "rubric_score": 2,
+  "novelty": 4,
+  "provenance_faithful": "NA"
+ },
+ {
+  "review_id": "v02-1",
+  "context_purpose": "An organisation working with minors must confirm the person is not barred from such work under child and youth protection rules.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "The organisation needs only a barred or not-barred answer but receives a full record certificate plus ID, address and household data."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Nothing for the legal check itself; the organisation loses sight of unrelated offences that might matter to its own discretionary judgement."},
+  "transmission_check": {"principle_today": "required_by_law", "permits_minimal_flow": "unclear", "reason": "A duty to check exists in some settings but I cannot say whether the rules name a specific certificate form."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "unknown"},
+  "rubric_score": 4,
+  "novelty": 3,
+  "provenance_faithful": "NA"
+ },
+ {
+  "review_id": "v02-2",
+  "context_purpose": "A private seller or pickup service wants reassurance that the counterparty is a trustworthy trader before a high-value handover.",
+  "norm_violation_today": {"violated": "unclear", "parameter": "information_type", "reason": "Feedback is public by design, but linking to the profile also exposes listings, history and location hints beyond the reputation fact."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "A threshold proof cannot detect a bought or rented account, nor show recent behaviour or the specific complaints a human could read."},
+  "transmission_check": {"principle_today": "public_record", "permits_minimal_flow": "permits", "reason": "The counterparty is free to accept any evidence and nothing obliges collection of the profile."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "no", "verifier_can_check": "unknown"},
+  "rubric_score": 2,
+  "novelty": 4,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "v02-3",
+  "context_purpose": "A boarding operator wants assurance that a traveller is not carrying a notifiable infection on departure day.",
+  "norm_violation_today": {"violated": "yes", "parameter": "retention", "reason": "Operators keep photocopies of lab reports with ID and diagnosis context when a time-limited yes/no would serve."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "The operator cannot see test type or result detail, which is rarely needed for a boarding decision."},
+  "transmission_check": {"principle_today": "safety_security", "permits_minimal_flow": "unclear", "reason": "Port or quarantine rules might require records, and I cannot say what they demand in Taiwan."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "no", "verifier_can_check": "unknown"},
+  "rubric_score": 3,
+  "novelty": 4,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "v02-4",
+  "context_purpose": "Site security wants to admit only couriers currently active with a recognised logistics operator.",
+  "norm_violation_today": {"violated": "unclear", "parameter": "information_type", "reason": "Checking a worker card is normal access control, but photographing ID, plate and phone for many daily visitors exceeds the standing check."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "Sites often want a name or plate for incident tracing, which a bare standing proof does not supply."},
+  "transmission_check": {"principle_today": "safety_security", "permits_minimal_flow": "unclear", "reason": "Site rules are set by each premises and I cannot tell whether identity logging is mandated."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "unknown"},
+  "rubric_score": 3,
+  "novelty": 4,
+  "provenance_faithful": "NA"
+ },
+ {
+  "review_id": "v02-5",
+  "context_purpose": "A landlord or agent wants confidence that a prospective tenant is stably employed and able to pay rent. Note: the title (night-market stall helper, phone plan) does not match the landlord moment described.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "A pay slip hands over salary, ID number and address when the stated need is only current employment."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "Landlords commonly judge rent-to-income, which a current-employment flag cannot show."},
+  "transmission_check": {"principle_today": "consented_for_benefit", "permits_minimal_flow": "permits", "reason": "The tenant volunteers documents to win a tenancy and no statute is known to require a pay slip."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "unknown"},
+  "rubric_score": 3,
+  "novelty": 2,
+  "provenance_faithful": "NA"
+ },
+ {
+  "review_id": "v02-6",
+  "context_purpose": "A concession desk wants to confirm the person at the counter is an enrolled student entitled to the discounted fare.",
+  "norm_violation_today": {"violated": "unclear", "parameter": "retention", "reason": "Glancing at a student card and ID is normal, but photographing both for the sales record keeps more than the entitlement needs."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "The clerk's visual photo comparison is still needed, which a match proof does not replace."},
+  "transmission_check": {"principle_today": "commercial_convenience", "permits_minimal_flow": "permits", "reason": "The fare rule needs proof of student status, and no known law requires copying the cards."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "unknown"},
+  "rubric_score": 2,
+  "novelty": 3,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "v02-7",
+  "context_purpose": "A county bureau must confirm an applicant's electricity account is in the eligible contract class before awarding a grant.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "Bills disclose consumption and capacity that reveal business operations while only the contract class matters."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "The bureau still needs the site address and an inspection for the project record and final approval."},
+  "transmission_check": {"principle_today": "consented_for_benefit", "permits_minimal_flow": "unclear", "reason": "Grant rules may name specific documents and I cannot say whether a class-membership proof would be accepted."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "unknown"},
+  "rubric_score": 3,
+  "novelty": 3,
+  "provenance_faithful": "no"
+ }
+]

@@ -1,0 +1,140 @@
+[
+ {
+  "review_id": "v00-0",
+  "title": "Employer sick-leave or surgery-recovery verification for a specific absence period",
+  "moment": "An employee is hospitalised or has outpatient surgery and the HR department wants proof that the absence is genuine and covers a date range, before approving paid sick leave or the Labor Standards Act sick-leave allowance.",
+  "verifier": "Employer HR or payroll department",
+  "predicate": "A hospital-signed attestation that the holder was medically unfit for work for the dates from X to Y (credential valid only for that interval), with no diagnosis.",
+  "disclosed_today": "Diagnosis certificate (診斷證明書) listing the diagnosis, procedure, ward, treating physician and recommended rest days; HR staff and sometimes line managers see the whole certificate.",
+  "issuer": "Hospital (attending physician or medical records office)",
+  "why_zk": "HR needs only \"unfit for work 2026-03-02 to 2026-03-09\"; the diagnosis (cancer, mental health, pregnancy complications) is sensitive and employers do not need it. Honest caveat is that some employers and insurers contractually demand the diagnosis certificate, and employees may not feel free to refuse; also the attestation of a date range is easy to build with a signed range credential, so ZK adds little beyond selective disclosure of two fields. The privacy gain is real, but the adoption barrier is employer practice and not cryptography.",
+  "claimed_borrowings": []
+ },
+ {
+  "review_id": "v00-1",
+  "title": "Still-employed proof for a landlord's mid-lease rent-guarantee renewal",
+  "moment": "A tenant in Taipei renews a one-year lease, and the landlord's agent asks again for a recent employment certificate, payslip and ID copy to confirm the tenant still has a job, even though the original paperwork was collected at signing.",
+  "verifier": "Landlord or rental agency (房東 / 租賃仲介)",
+  "predicate": "Tenant is currently employed by a registered employer (not terminated or resigned) as of today, with no employer name, salary or ID number revealed.",
+  "disclosed_today": "Full ID copy, payslips showing salary and employer, employment certificate with company name, title and start date.",
+  "issuer": "The employer's HR system, which signs a short-lived 'active employee' status and revokes it on termination or resignation.",
+  "why_zk": "Freshness is the whole point: an old certificate cannot show the person is still employed, so a signed status with revocation is stronger than paper. The landlord only needs a yes about current employment. Practice is weak because landlords often want salary level too, and small employers may not run a wallet-capable HR system, so adoption depends on the employer side.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The pattern of a private party asking for full document copies at contract signing when a narrow check would serve the purpose.",
+    "source_excerpt": "A service provider signing up a customer must check identity and payment, but it asks for full front-and-back copies of identity and card documents, and the regulator leaves whether that exceeds the purpose to case-by-case fact-finding. | mechanism: None stated; the letter says less-intrusive alternatives must be considered but names none."
+   }
+  ]
+ },
+ {
+  "review_id": "v00-2",
+  "title": "Teaching-assistant or part-time lab hire matched to a work-permit or labour-insurance claim",
+  "moment": "A university department hires an international or a cross-campus student as a part-time research assistant, and the payroll office must confirm that the student who holds the university's enrolment and department-approval claim is the same person who holds a valid work-permit or labour-insurance enrolment from a government issuer.",
+  "verifier": "University or research-institute human resources and payroll office",
+  "predicate": "The holder of a university-signed enrolment and supervisor-approval credential is the same person as the holder of a government-issued work-eligibility credential (work permit or labour insurance status), proven without revealing passport or ARC number to the department that only needs to approve the hire.",
+  "disclosed_today": "Passport and ARC copy, enrolment certificate, work-permit scan, bank details, handed to department staff who are not payroll specialists and often keep photocopies in unsecured folders.",
+  "issuer": "University (enrolment and approval claim), matched to the Ministry of Labor or immigration agency (work eligibility claim)",
+  "why_zk": "Department-level staff pass around scans of passports and ARCs that only payroll and compliance truly need, creating a leakage risk for foreigners in particular. A matched proof lets the department confirm eligibility while the identifier goes only to payroll. The weakness is that the university is itself the verifier and an employer, with a legal duty to retain a copy of the work permit and ARC for labour inspection, so zero-knowledge can reduce who sees the data inside the institution but cannot remove the retention requirement.",
+  "claimed_borrowings": []
+ },
+ {
+  "review_id": "v00-3",
+  "title": "Landlord checks six months of rent payments without seeing the bank statement",
+  "moment": "A tenant renewing or applying for a rental in Taipei or Taichung is asked by the landlord or agent to photograph passbook pages or send bank statements to prove they have always paid rent on time.",
+  "verifier": "Landlord or rental agency",
+  "predicate": "Count of monthly outgoing transfers of at least the rent amount to the same payee in the last 6 months is 6, with no more than 0 returned or failed transfers.",
+  "disclosed_today": "Full statements or passbook pages showing every transaction, balances, employer name, medical or religious payees, and family transfers.",
+  "issuer": "Tenant's bank (bank signs the count over its own transaction ledger)",
+  "why_zk": "The bank already holds the ledger and can sign a count with the rule stated. Weakness is that the landlord cannot tell whether the tenant paid from several accounts, and cash or other-bank rent is invisible, so the proof covers only one bank. The tenant can choose which account to prove, which biases the result. Landlord practice in Taiwan also leans on guarantors and deposits, so the proof only replaces the statement, not the deposit.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "Limit what is released to what the stated purpose needs, here a payment-regularity count, but with a proof instead of the holder's judgment.",
+    "source_excerpt": "A holder of sensitive records must release only the subset that serves a stated purpose, but the rule leaves it to the holder to judge what is minimal and gives no mechanism that proves the released subset was minimal. | mechanism: Purpose-based minimum-necessary rule with reasonable-efforts standard, role-based access and reasonable reliance on requester representations (45 CFR 164.514(d)); no cryptographic or proof-based check."
+   },
+   {
+    "borrowed_aspect": "Strip the identifying fields (payees, amounts, other counterparties) and keep only the derived figure.",
+    "source_excerpt": "A party wants to share a record set that cannot identify any person, but the test is a checklist of removable fields plus a no-actual-knowledge condition, so the holder must still judge whether leftover fields re-identify someone. | mechanism: Safe Harbor method removing 18 enumerated identifiers (with ZIP-code truncation rule and age aggregation), or an expert-determination alternative; re-identification codes allowed only if not derived from or disclosed about the individual."
+   }
+  ]
+ },
+ {
+  "review_id": "v00-4",
+  "title": "Dorm or campus-housing landlord checks tenant is the enrolled student named on the lease deposit subsidy",
+  "moment": "A private landlord renting near a university takes a student tenant who claims a rent subsidy or student-rate lease, and the landlord's bank or local-government subsidy office needs to confirm the tenant is the enrolled student.",
+  "verifier": "Private landlord or housing subsidy office",
+  "predicate": "The university enrollment claim and the tenant's government-issued identity claim belong to the same person, with the ID number and student number withheld.",
+  "disclosed_today": "Full ID card copy, student ID copy, home address, parents' contact details, sometimes a transcript or enrollment certificate.",
+  "issuer": "University (enrollment), matched against the national digital ID or household registration credential",
+  "why_zk": "Landlords routinely keep ID photocopies that leak in later disputes; a same-person proof gives them enough to rely on the student status. However, lease practice in Taiwan often wants a real address and a guarantor, and subsidy offices may legally require the full ID number, so the proof only replaces the enrollment-copy part, not the whole file.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The registry-style answer is narrowed to the one fact needed (same person or not) instead of releasing the identifier itself.",
+    "source_excerpt": "A party asks a registry for identity-number information to settle a dispute; the registry could disclose the full reassigned value, but a narrower answer, whether a duplicate exists, is enough to settle it. | mechanism: Registry reports only whether the number is duplicated, not the reassigned number; the bank marks its own internal record instead."
+   },
+   {
+    "borrowed_aspect": "The proof attests to a prior check without letting the verifier link it to the issuance or to other uses.",
+    "source_excerpt": "A verifier only needs to learn that the holder passed an earlier check, but the proof it receives can be matched to the issuance event and to every other use of the same proof. | mechanism: Clients present unlinkable proofs that attest to a prior authorisation, so the origin cannot link redemption to issuance or to other redemptions."
+   }
+  ]
+ },
+ {
+  "review_id": "v00-5",
+  "title": "Ride-hail rating as a deposit waiver for scooter and car-share rental",
+  "moment": "A traveler or student at a shared-car or e-scooter kiosk in Taipei or Kaohsiung is asked to leave a deposit, or the operator screenshots the person's Uber or LINE Taxi passenger profile to judge reliability.",
+  "verifier": "Car-share or scooter-rental operator (for example a station-based car-share service or a rental shop near a train station)",
+  "predicate": "Passenger rating on the ride-hail account is at least 4.8 and the account has at least 50 completed trips",
+  "disclosed_today": "Screenshot of the whole account page, including name, photo, saved addresses, recent trips and phone number; or a cash deposit instead",
+  "issuer": "Ride-hail platform account, with the claim made verifiable through a zkTLS session proof against the platform's own logged-in page (the platform is not an issuer and has not agreed to anything)",
+  "why_zk": "The rating and trip count are the only facts needed, and a zkTLS proof avoids handing over trip history and home address. Weaknesses: the platform's terms may forbid this use, the rating is a weak signal of driving skill, the session proof depends on the platform not changing its page, and an operator may still want a license check, which this does not replace.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "A one-bit yes/no proof that does not let the verifier or the data holder track the person.",
+    "source_excerpt": "A gatekeeper needs one yes/no fact about a holder, and the proof it receives must not reveal the underlying birth date or let the issuer or the gatekeeper track the holder. | mechanism: Zero-knowledge proof on ISO 18013-7 mdocs for an over-18 statement, device-bound transactions, no server-side storage of credential data."
+   },
+   {
+    "borrowed_aspect": "The problem of capture of a whole document when only one field is needed, here the full account screen.",
+    "source_excerpt": "A venue must confirm that a person is over a threshold age from an identity document, but scanning captures the whole card, so the rule caps what is kept to a few fields and bans secondary use, while the holder still sees everything on the card at the moment of the scan. | mechanism: Statutory field-limit and retention ban on scan data, with a prohibition on sale or marketing dissemination; no proof-of-age mechanism that avoids reading the document."
+   }
+  ]
+ },
+ {
+  "review_id": "v00-6",
+  "title": "Not on the restricted-exit list when booking a package tour",
+  "moment": "A traveler pays a deposit for an overseas group tour or a visa-assisted trip, and the travel agency asks for a passport copy and ID card copy to check that the traveler is not barred from leaving the country.",
+  "verifier": "Travel agency (旅行社) booking desk",
+  "predicate": "Holder does not appear on the national restricted-exit (限制出境) register as of today",
+  "disclosed_today": "Full photocopy of the ID card (national ID number, address, photo) and passport (passport number, birth date, photo), kept in agency files",
+  "issuer": "Ministry of the Interior National Immigration Agency (內政部移民署), as the keeper of the restricted-exit register",
+  "why_zk": "The agency needs only the absence from the register, not identity documents. Weakness: restricted-exit status can change after signing, so the proof needs a short validity window or a freshness timestamp. Law may also restrict who is allowed to learn restriction status at all, and the agency often needs the passport anyway for the actual ticket and visa, so the saving is only at the deposit stage. A blind or unlinkable proof also stops the agency and the issuer from correlating who is traveling.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The registry answers only a narrow yes/no about its own record rather than releasing the underlying data, as the household registry does for duplicate ID numbers.",
+    "source_excerpt": "A party asks a registry for identity-number information to settle a dispute; the registry could disclose the full reassigned value, but a narrower answer, whether a duplicate exists, is enough to settle it. | mechanism: Registry reports only whether the number is duplicated, not the reassigned number; the bank marks its own internal record instead."
+   },
+   {
+    "borrowed_aspect": "Presenting an unlinkable proof of a prior check so the agency cannot match it back to the issuance event.",
+    "source_excerpt": "A verifier only needs to learn that the holder passed an earlier check, but the proof it receives can be matched to the issuance event and to every other use of the same proof. | mechanism: Clients present unlinkable proofs that attest to a prior authorisation, so the origin cannot link redemption to issuance or to other redemptions."
+   }
+  ]
+ },
+ {
+  "review_id": "v00-7",
+  "title": "Not a delinquent taxpayer when a seller registers on a marketplace or bids for a small public contract",
+  "moment": "A sole proprietor or freelancer signs up to sell on an online platform or to bid for a small municipal procurement and is asked to prove they have no overdue taxes or tax-collection restrictions.",
+  "verifier": "Online marketplace onboarding team or a city-government procurement clerk",
+  "predicate": "Holder is not on the list of persons with overdue taxes or with enforced-collection or restricted-exit tax cases (欠稅 / 移送執行名單) at issuance time",
+  "disclosed_today": "A full tax-clearance certificate (完稅證明 / 無欠稅證明) showing taxpayer name, ID number, and often tax amounts or income categories, plus a business registration copy",
+  "issuer": "Ministry of Finance National Taxation Bureau (財政部國稅局), or the local tax bureau for local taxes",
+  "why_zk": "Today the clearance paper carries tax detail the verifier does not need; a signed non-membership claim reveals only that no overdue case exists. Weakness: tax authority records are confidential by law (稅捐稽徵法 secrecy), so the bureau may refuse to sign anything but the existing certificate, and procurement rules may name the paper certificate explicitly. Also, absence from a list is only as good as the list's update frequency, so the proof must carry an as-of date.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The principle that the relying party gets what the service needs and no more, instead of the whole attestation record.",
+    "source_excerpt": "A verifier needs one attribute from a larger identity record, but the holder cannot share just that attribute from the record. | mechanism: Selective disclosure of attributes from electronic attestations held in the EU Digital Identity Wallet."
+   },
+   {
+    "borrowed_aspect": "The narrower answer (no overdue case) is enough to settle the question, so the full figures need not be released.",
+    "source_excerpt": "A party asks a registry for identity-number information to settle a dispute; the registry could disclose the full reassigned value, but a narrower answer, whether a duplicate exists, is enough to settle it. | mechanism: Registry reports only whether the number is duplicated, not the reassigned number; the bank marks its own internal record instead."
+   }
+  ]
+ }
+]

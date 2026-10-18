@@ -1,0 +1,144 @@
+[
+ {
+  "review_id": "v05-0",
+  "title": "Low-income electricity discount without handing over the bill",
+  "moment": "A household applies to its village/district office or a charity for a summer electricity-cost subsidy or free air-conditioner/appliance replacement programme, and is asked to bring a recent Taipower bill showing the electricity account number, address, usage in kWh and payment history.",
+  "verifier": "District office or charity running an appliance-replacement or energy-subsidy programme",
+  "predicate": "The Taipower account is a member of the set of accounts on the current low-income / subsidised-household roll (membership, no address or usage revealed).",
+  "disclosed_today": "Full electricity bill copy with account number, installation address, monthly kWh usage (which reveals occupancy and habits), billing name and payment record.",
+  "issuer": "Taipower (or the water/gas utility) signing roll membership for the account",
+  "why_zk": "A usage history is a rich profile (who is home, when, whether the house is empty), and the office needs only to know the account is on the roll. Weakness: the household often has to be identified anyway for delivery of the appliance or payment of the subsidy, so the proof only helps for the eligibility screening step, and the roll itself is maintained by social-welfare agencies, so the utility signing it needs a data feed that does not exist today.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The idea that a transaction should release only the one attribute it needs, relying on selective disclosure rather than showing the whole document.",
+    "source_excerpt": "A business needs one attribute to proceed, but the credential is issued as a whole, so the holder must rely on the wallet to release only the needed attribute. | mechanism: SD-JWT VC selective disclosure with OpenID4VP presentation and status-list validity check."
+   },
+   {
+    "borrowed_aspect": "The framing that the legitimate duty is to check eligibility, not to retain a copy of the whole document.",
+    "source_excerpt": "A host must confirm a visitor's identity and eligibility, but the usual practice is to keep a copy of the whole identity document; the regulator says looking at it is enough. | mechanism: Visual inspection of the identity document with no copy taken; the statutory duty is met by checking, not retaining."
+   }
+  ]
+ },
+ {
+  "review_id": "v05-1",
+  "title": "Merchant proving monthly card-sales volume for a terminal or subsidy eligibility without exposing customers' transactions",
+  "moment": "A night-market stall owner or small shop applying for a mobile-payment terminal upgrade, a municipal small-business subsidy or a supplier credit line is asked for twelve months of acquiring-bank settlement records, which list every customer card transaction.",
+  "verifier": "Local government economic development bureau, payment processor, or wholesale supplier offering trade credit",
+  "predicate": "Average monthly card and mobile-payment settlement over the last 12 months is between NT$A and NT$B, with no month below NT$C.",
+  "disclosed_today": "Full settlement statements with per-transaction timestamps, amounts, masked card numbers, and the shop's account balances and bank transfers.",
+  "issuer": "The merchant's acquiring or settlement bank (signing a sales aggregate)",
+  "why_zk": "The verifier only needs a revenue band. Per-transaction detail also exposes customers' purchasing patterns that the merchant has no business passing on. Weakness: many subsidies already rely on tax filings (營業稅申報) that the government can check directly, so the case is strongest for private verifiers such as suppliers and processors.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "Collected data tends to be kept under a vague 'needed for business' exception, which a proof avoids by never handing over the records.",
+    "source_excerpt": "A party that has collected a person's data must delete it once the reason for holding it ends, but an open-ended exception lets it keep the data whenever it says it still needs it for its own duties. | mechanism: Statutory deletion-on-purpose-lapse duty with exceptions for lawful duties or written consent; no technical erasure mechanism specified."
+   },
+   {
+    "borrowed_aspect": "A request category that bundles extra fields with the one fact wanted; here the statement bundles customer detail with the revenue band.",
+    "source_excerpt": "A verifier wants a single over-threshold fact, but the request category bundles the issuing authority and a face photo with it, so the verifier can receive more than the age claim. | mechanism: Age Over N Flag as a separate requestable value under an entitlement-gated API; no shared name or address."
+   }
+  ]
+ },
+ {
+  "review_id": "v05-2",
+  "title": "Pet boarding and grooming intake without exposing owner's animal-abuse record",
+  "moment": "Booking a multi-day stay at a pet hotel or applying to adopt from a private shelter; the operator wants assurance the person is not on the registered list of those penalized under the Animal Protection Act (e.g., banned from keeping animals).",
+  "verifier": "Pet hotel, private rescue group, or adoption platform",
+  "predicate": "Holder is not on the competent authority's register of persons prohibited from keeping or adopting animals (non-membership in a sanction list).",
+  "disclosed_today": "Full ID card photo, name, address, phone, sometimes a hand-written declaration; shelters may also ask for household and employment details.",
+  "issuer": "Ministry of Agriculture / local animal protection office (Animal Protection Act enforcement)",
+  "why_zk": "Weak-to-moderate. Today no public, queryable register exists for private operators, so the authority would first have to publish a signed absence attestation, which needs legislative backing. Private shelters collect ID mainly for contact and identification, not only for the ban check, so ZK removes only part of the over-collection. Still, an absence-only proof avoids storing ID copies in small businesses with weak data hygiene.",
+  "claimed_borrowings": []
+ },
+ {
+  "review_id": "v05-3",
+  "title": "Tenant screening without handing over full ID for a stalking or protection-order check",
+  "moment": "A landlord or a shared-housing (cohabitation) operator screens a prospective roommate or tenant in a female-only or family-oriented building and wants to know the applicant is not subject to an active protection order or sex-offender community notification/registration under the Sexual Assault Crime Prevention Act.",
+  "verifier": "Landlord, shared-housing operator, or rental platform",
+  "predicate": "Holder does not appear on the sex-offender registration/notification register nor is subject to an active protection order restricting residence near others.",
+  "disclosed_today": "ID card copy, household registration transcript, criminal record certificate (which shows far more than needed), employer letter, sometimes family details.",
+  "issuer": "Ministry of the Interior / National Police Agency, or Judicial Yuan for court orders",
+  "why_zk": "Legally weak and sensitive: Taiwan law restricts disclosure of such registers and operators are not entitled to ask about them in general, so any use would need an explicit statutory carve-out and risks discrimination and rehabilitation harms. The honest case is that where a police clearance is already requested, an absence-only proof is far less intrusive than a full criminal record certificate, which reveals every conviction.",
+  "claimed_borrowings": []
+ },
+ {
+  "review_id": "v05-4",
+  "title": "One-per-person lottery entry for convenience-store and department-store promotions",
+  "moment": "A person enters an online draw (for example a 7-Eleven or anniversary-sale prize draw) that is limited to one entry per person, and the organizer wants to stop people from entering with many throwaway phone numbers.",
+  "verifier": "A retailer or the marketing agency running the promotion campaign page.",
+  "predicate": "This entrant holds exactly one real, active postpaid or verified prepaid subscription, and has not entered this campaign before (campaign-scoped uniqueness tag).",
+  "disclosed_today": "Mobile phone number, an SMS one-time code, often name, email and sometimes national ID number or the last digits of it, all stored in the campaign database.",
+  "issuer": "A Taiwanese mobile carrier (such as Chunghwa Telecom, Taiwan Mobile or FarEasTone), which already registers every SIM against a real-name identity.",
+  "why_zk": "A campaign-scoped nullifier gives one entry per person without handing the retailer a phone number or ID that it can resell or leak. Weakness: SIM real-name rules let one person hold several lines, so the telco must sign one credential per natural person rather than per line, which it may not be willing to do. Also prize-tax rules (winners above a threshold must give ID for tax withholding) mean identity is collected anyway at the prize stage, though that applies only to winners.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The idea that a credential should be matchable only within the one context that asked for it, not across unrelated sites, which became the per-campaign scoped nullifier.",
+    "source_excerpt": "A stored credential should be presented only to the party that issued it in the current context, but the browser sends it on any request the context triggers, so an unrelated observer can match the holder across contexts. | mechanism: The SameSite cookie attribute, which limits the cookie to same-site requests (Strict, Lax, or None); the IETF draft describes it as a per-cookie setting, and cross-site behaviour depends on the chosen value."
+   },
+   {
+    "borrowed_aspect": "The aim of getting a count of distinct people without any output that singles out a particular respondent.",
+    "source_excerpt": "An agency holding individual responses must release aggregate results, and the legal duty bars any output from which a particular respondent can be singled out, while the holder's staff can still see the raw records. | mechanism: Statutory use limitation and publication prohibition enforced by sworn-oath duties and penalties; statistical disclosure limitation (for example differential privacy in later census products) is a technical layer not specified in the statute."
+   }
+  ]
+ },
+ {
+  "review_id": "v05-5",
+  "title": "Current-staff check for a corporate-discount purchase at a telco or retailer counter",
+  "moment": "A person buys a phone plan or appliance at a store under an employee-benefit partnership, and the clerk photocopies the employee badge and ID card to confirm the buyer works at the partner company.",
+  "verifier": "Telco or retail store clerk running a corporate-partner discount (企業員工專案)",
+  "predicate": "Holder is a current employee of the partner company today, not a former one still carrying an old badge.",
+  "disclosed_today": "Photo of the employee badge, ID card copy, sometimes a payslip, giving name, ID number, department and photo.",
+  "issuer": "The partner employer, signing a freshness-bound 'currently employed here' status and revoking it when the person leaves.",
+  "why_zk": "Badges and old certificates stay valid long after someone leaves, which is the abuse the store worries about, so a revocable current proof fits well. The store needs only 'is staff of company X'; the name and ID number are not needed. This echoes the telco weakness of checking only easily copied identifiers. A limit is that the proof must still show which company, so that fact is disclosed, and the store gains little incentive to change a counter routine.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "A telco check that relies on copyable identifiers and so cannot show current, genuine status.",
+    "source_excerpt": "A provider must verify that a new applicant is the named person, but its check uses identifiers that are easy to copy, so a stolen identity passes and the real person bears the consequences. | mechanism: None; online verification only checked ID number and issue date."
+   },
+   {
+    "borrowed_aspect": "A venue capturing the whole card when only one fact is needed.",
+    "source_excerpt": "A venue must confirm that a person is over a threshold age from an identity document, but scanning captures the whole card, so the rule caps what is kept to a few fields and bans secondary use, while the holder still sees everything on the card at the moment of the scan. | mechanism: Statutory field-limit and retention ban on scan data, with a prohibition on sale or marketing dissemination; no proof-of-age mechanism that avoids reading the document."
+   }
+  ]
+ },
+ {
+  "review_id": "v05-6",
+  "title": "Hospital-signed 'infection-free window' for a hospital-ward caregiver or private nursing-home visitor",
+  "moment": "A family member or foreign live-in caregiver (外籍看護) arrives at a Taiwanese nursing home or a ward during an outbreak and must show they recently tested negative or are not in an infectious period.",
+  "verifier": "Nursing home (護理之家) front desk or ward access control",
+  "predicate": "Hospital attests 'no active infectious-disease restriction' valid from test date to test date + N days (e.g. 7 days); nothing else.",
+  "disclosed_today": "Photo or paper of the lab report or clinic certificate showing diagnosis, test type, lab values, name, ID number, and sometimes medication.",
+  "issuer": "Hospital or clinic laboratory that ran the test",
+  "why_zk": "The verifier only needs a yes for the window, but today the whole report is shown or photographed and kept on a staff phone. Validity expiry is built into the claim, so no clinical detail is needed. Weakness: nursing homes mostly act on paper habits and no regulation requires accepting a digital proof, and a window set by each facility's own policy may not match what the hospital signed.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "Release only the single attribute the transaction needs rather than the whole credential.",
+    "source_excerpt": "A business needs one attribute to proceed, but the credential is issued as a whole, so the holder must rely on the wallet to release only the needed attribute. | mechanism: SD-JWT VC selective disclosure with OpenID4VP presentation and status-list validity check."
+   },
+   {
+    "borrowed_aspect": "Checking only easily copied identifiers (a paper copy) lets someone else pass, so the proof should be bound to the holder and signed by the issuer.",
+    "source_excerpt": "A provider must verify that a new applicant is the named person, but its check uses identifiers that are easy to copy, so a stolen identity passes and the real person bears the consequences. | mechanism: None; online verification only checked ID number and issue date."
+   }
+  ]
+ },
+ {
+  "review_id": "v05-7",
+  "title": "Proving no outstanding exit restriction when buying a used car at a dealer",
+  "moment": "A buyer or seller at a used-car dealership or consignment lot in Taiwan needs the vehicle transfer to go through, and the dealer wants assurance the seller is not under a travel or asset restriction and the car is not seized. Today the dealer photocopies the seller's ID, license and often household register.",
+  "verifier": "Used-car dealer or consignment broker",
+  "predicate": "The seller's national ID is NOT on the court or administrative enforcement (seizure / transfer-restriction) register for this vehicle's plate at the time of signing.",
+  "disclosed_today": "Front-and-back ID copy, driver's license copy, sometimes household register transcript with address and family members; the dealer keeps the copies in the deal folder.",
+  "issuer": "Directorate General of Highways / MVDO jointly with Judicial Yuan enforcement records (government signs a non-membership attestation over the restriction register).",
+  "why_zk": "The dealer only needs absence from a seizure/restriction list, not who the seller is beyond the transacting identity. Weakness: the dealer still needs a legal name for the contract and the transfer form, so identity cannot be fully hidden; the real gain is dropping the extra copies and household data. Also depends on an agency actually publishing a signed, timestamped absence attestation, which does not exist today.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The pattern of a private counterparty collecting full front-and-back ID copies when only one narrow fact is needed.",
+    "source_excerpt": "A service provider signing up a customer must check identity and payment, but it asks for full front-and-back copies of identity and card documents, and the regulator leaves whether that exceeds the purpose to case-by-case fact-finding. | mechanism: None stated; the letter says less-intrusive alternatives must be considered but names none."
+   },
+   {
+    "borrowed_aspect": "The household register transcript as an over-broad document that is shown or handed over for a narrow purpose.",
+    "source_excerpt": "A person asking an agency for a record must prove identity; the rule specifies inspecting the original card rather than handing over a copy, and it does not say the agency retains anything. | mechanism: Original identity document shown for in-person inspection; the checklist states no retention or copy requirement."
+   }
+  ]
+ }
+]

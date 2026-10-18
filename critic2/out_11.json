@@ -1,0 +1,98 @@
+[
+ {
+  "review_id": "v11-0",
+  "context_purpose": "The committee wants each eligible household to cast one valid vote on a levy or rule change.",
+  "norm_violation_today": {"violated": "no", "parameter": "none", "reason": "Condominium votes are run by the committee itself, which is entitled to know who is eligible and usually to record who voted, so collecting name and unit is in-norm; only the ID-card photo is over-collection."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "A telco uniqueness proof does not show residency or ownership weighting and may not satisfy signed or recorded vote rules, so eligibility and auditability are lost."},
+  "transmission_check": {"principle_today": "consented_for_benefit", "permits_minimal_flow": "unclear", "reason": "Condominium rules may require recorded or signed votes with ownership weights, and I cannot confirm whether an anonymous ballot would be accepted."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 2,
+  "novelty": 4,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "v11-1",
+  "context_purpose": "The telecom wants to confirm the applicant is a genuine enrolled student before granting a discounted plan, and avoid identity fraud.",
+  "norm_violation_today": {"violated": "unclear", "parameter": "information_type", "reason": "The operator is entitled to real-name ID data for SIM registration, but student number and uploaded student-card photos go beyond what is needed for the discount."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Little is lost for the discount step; the operator still needs its separate real-name registration, which the proof does not replace."},
+  "transmission_check": {"principle_today": "required_by_law", "permits_minimal_flow": "unclear", "reason": "SIM registration is understood to require collecting ID data regardless, though the student-discount step itself is a voluntary commercial offer."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "unknown"},
+  "rubric_score": 3,
+  "novelty": 3,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "v11-2",
+  "context_purpose": "The community committee wants one ballot per eligible resident without publicly tying votes to individuals.",
+  "norm_violation_today": {"violated": "no", "parameter": "none", "reason": "The committee is the legitimate organiser and is entitled to name, unit and contact details for eligibility; exposing them to the administrator is within the context's norms."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "A telco uniqueness proof cannot show residence or ownership-weighted voting rights, which the committee needs for valid outcomes."},
+  "transmission_check": {"principle_today": "consented_for_benefit", "permits_minimal_flow": "unclear", "reason": "Condominium rules on weighted and recorded voting may require identity-linked records, and I cannot confirm what is required."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 2,
+  "novelty": 3,
+  "provenance_faithful": "NA"
+ },
+ {
+  "review_id": "v11-3",
+  "context_purpose": "The private operator wants assurance of payment reliability before extending a childcare or bus service contract.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "Requesting bank statements and employment proof to screen parents for solvency goes beyond what childcare enrolment norms support."},
+  "purpose_sufficiency": {"rating": "insufficient", "lost": "Absence from the debtor register says nothing about future payment capacity, which is what the operator actually wants."},
+  "transmission_check": {"principle_today": "commercial_convenience", "permits_minimal_flow": "permits", "reason": "No legal duty appears to require the operator to collect this, so any lighter flow is permitted, though the screening itself may be unlawful or discriminatory."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "no", "verifier_can_check": "unknown"},
+  "rubric_score": 1,
+  "novelty": 4,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "v11-4",
+  "context_purpose": "The operator must make sure that people working with children are not barred from such work by child-protection or sexual-offence registers.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "A good-conduct certificate reveals the full criminal-record status, including old or unrelated entries, when only the restriction-list status is relevant."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "A stale holder-presented proof misses entries added after signing, and an authority-run query may be required instead."},
+  "transmission_check": {"principle_today": "required_by_law", "permits_minimal_flow": "unclear", "reason": "Child-protection rules appear to oblige employers to run specific checks through official channels, and I cannot confirm whether a holder-presented proof would be accepted."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 3,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "v11-5",
+  "context_purpose": "The host library or facility wants to give access only to genuine members of a partner university and manage its resources.",
+  "norm_violation_today": {"violated": "unclear", "parameter": "retention", "reason": "Registering a visitor with national ID or passport and keeping a lending record tied to it is plausible for a library, but linking reading history to a national ID goes beyond what is needed."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "The host loses a stable identity for chasing overdue or lost items unless it keeps its own visitor account."},
+  "transmission_check": {"principle_today": "consented_for_benefit", "permits_minimal_flow": "permits", "reason": "Reciprocal access is a voluntary service arrangement, and I know of no legal duty to collect national ID for it."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 4,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "v11-6",
+  "context_purpose": "The landlord wants to know that the tenant is still employed and can keep paying rent, as a condition of the reduced deposit.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "Collecting salary band, ID number and enrolment details, often kept in chat logs, exceeds what a continuing-employment check requires."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "Employment status does not show income level or ability to pay, and the landlord still needs the tenant's name for the lease."},
+  "transmission_check": {"principle_today": "consented_for_benefit", "permits_minimal_flow": "permits", "reason": "The landlord's request is a voluntary condition for a deposit benefit, with no statute I know of requiring the full certificate."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 4,
+  "novelty": 3,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "v11-7",
+  "context_purpose": "The bureau wants to confirm that applicants are currently enrolled and are registered local residents so the programme reaches its intended group.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "A full household transcript exposes parents and siblings who are irrelevant to an enrolment-plus-residency test."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "Many programmes also need income or family data for eligibility, which this proof does not carry."},
+  "transmission_check": {"principle_today": "consented_for_benefit", "permits_minimal_flow": "unclear", "reason": "Agencies may be entitled to pull household data directly with consent, and I cannot confirm whether programme rules require the full transcript."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 2,
+  "provenance_faithful": "NA"
+ }
+]

@@ -1,0 +1,150 @@
+[
+ {
+  "review_id": "v01-0",
+  "title": "Online marketplace seller sales threshold for a night-market or pop-up stall slot",
+  "moment": "A Shopee or Ruten seller applies to a city-run weekend creative market (such as a Taichung or Tainan pop-up bazaar) for a priority stall slot that is reserved for sellers who already have a proven online sales record.",
+  "verifier": "Market organizer or district office running the stall lottery",
+  "predicate": "Seller account has at least 200 completed orders and at least 95 percent positive reviews in the past 6 months",
+  "disclosed_today": "Screenshots of the seller dashboard with revenue, customer names, supplier costs, and the shop's bank payout details, sometimes the full order spreadsheet",
+  "issuer": "Marketplace seller account (seller center), shown through a zkTLS proof over the seller center page",
+  "why_zk": "The organizer only ranks applicants, so a threshold proof avoids handing over revenue and customer data that the organizer then stores in a shared inbox. Weakness: applicant volumes are small, organizers are unlikely to run a verifier, a lottery with no ranking removes the need, and platforms could object to proofs generated from seller sessions.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "A hidden value that a holder must keep from competitors yet later prove, here sales figures that rival stall applicants must not see.",
+    "source_excerpt": "A party submits a value that must stay hidden from competitors until a fixed moment, while the holder of the submissions must be able to prove later that none were seen early and must handle identifying wrappers without exposing the content. | mechanism: Physical and access-control safeguarding of sealed bids with designated-official exception for envelope identification, plus a written record of any mistaken early opening."
+   },
+   {
+    "borrowed_aspect": "Separating eligibility checking from the item being judged, so the organizer verifies a threshold without linking the applicant's full business record to the ranking.",
+    "source_excerpt": "A voter must prove eligibility and cast a valid choice while the record of that choice cannot be linked back to them, but the same process must still let officials verify who voted, so the separation depends on procedure rather than on a proof. | mechanism: Separate voting compartments and two-envelope sealing for postal and absentee ballots so identity is not attached to the vote at counting; eligibility is checked separately from the ballot."
+   }
+  ]
+ },
+ {
+  "review_id": "v01-1",
+  "title": "Proving a stable monthly foreign-remittance pattern to a migrant worker's home-country sponsor or broker",
+  "moment": "A migrant worker in Taiwan, or the Taiwanese employer or broker, is asked by a recruitment agency, a visa-renewal service or a home-country lender to show the worker regularly sends money home, and the agency collects full remittance receipts and bank statements.",
+  "verifier": "Recruitment broker (仲介), home-country microfinance lender, or family-visit visa service",
+  "predicate": "Total remitted abroad in the last 6 months is at least NT$X and remittances occurred in at least 5 of 6 months.",
+  "disclosed_today": "Complete bank statements and remittance slips including employer salary details, deductions, beneficiary names, and sometimes a passport copy.",
+  "issuer": "The worker's bank or remittance-licensed bank (signing a sum and count over transfers)",
+  "why_zk": "The verifier needs a regularity and amount signal, not the beneficiary list or salary breakdown. Honest caveat: brokers often have commercial reasons to see more (wage deductions, debt), and a worker with weak bargaining power may be pressed to disclose anyway, so a proof helps only if the verifier agrees to accept it.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "A small registration fact does not justify copying the whole document; record only the fields the rule requires.",
+    "source_excerpt": "A registrant must prove a small set of facts to a host, but the host asks for a full copy of the identity document, which carries many extra fields the rule never needed. | mechanism: Inspect the identity document in person and record only the fields the registration rule requires; no copy retained."
+   },
+   {
+    "borrowed_aspect": "Release only the subset that serves the stated purpose.",
+    "source_excerpt": "A holder of sensitive records must release only the subset that serves a stated purpose, but the rule leaves it to the holder to judge what is minimal and gives no mechanism that proves the released subset was minimal. | mechanism: Purpose-based minimum-necessary rule with reasonable-efforts standard, role-based access and reasonable reliance on requester representations (45 CFR 164.514(d)); no cryptographic or proof-based check."
+   }
+  ]
+ },
+ {
+  "review_id": "v01-2",
+  "title": "Post-surgery or post-procedure \"may be left alone / cleared for pickup\" window for a ride or care service",
+  "moment": "After day surgery or a colonoscopy under sedation, the patient is collected by a family member, a taxi or a nursing-aide service that asks for the discharge summary to prove the patient is cleared to leave and who is responsible.",
+  "verifier": "Taxi or care-transport dispatcher, home-care agency, or a hotel or recovery guesthouse near the hospital",
+  "predicate": "Hospital signs \"discharged in stable condition, may travel or stay unaccompanied after time T\" and it is valid only for the next 24 hours.",
+  "disclosed_today": "The whole discharge note, including diagnosis, procedure name, medications and attending doctor, photographed or handed over on paper.",
+  "issuer": "Hospital discharge system issuing a time-limited status.",
+  "why_zk": "The service needs only the clearance and the time window, not the procedure, and a short validity stops the status being reused later. Honest limits: many such services rely on a person's word and have no wallet reader, so adoption incentive is low, and some care agencies legitimately need medication information for safety.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "A gatekeeper only needs to know that a prior check was passed, without receiving a persistent identifier.",
+    "source_excerpt": "A gatekeeper only needs to know that the visitor already passed some check, but the proof it accepts doubles as a persistent identifier. | mechanism: Blind-signed tokens that attest prior authorisation and cannot be linked to the issuance interaction."
+   }
+  ]
+ },
+ {
+  "review_id": "v01-3",
+  "title": "Active-staff proof for staff-only discount at a hospital or university cafeteria and parking",
+  "moment": "A nurse or contract cleaner at a hospital in Taichung wants the staff meal rate and staff parking tariff, which operators run via outsourced concessions that must not give staff rates to people who have left.",
+  "verifier": "Outsourced cafeteria or parking concessionaire",
+  "predicate": "Holder is on the active payroll or roster of this institution as of today (freshness under 24 hours).",
+  "disclosed_today": "Staff card with name, photo and employee number, which the cashier or parking system logs and may keep.",
+  "issuer": "Hospital or university HR/outsourcing employer, including the contractor employer for outsourced workers.",
+  "why_zk": "The concessionaire needs only 'currently on staff', yet logs identity-bearing cards, creating a record of when each worker eats and parks. A daily-refreshed credential with revocation lets leavers drop off the same day. Weakness: staff discounts are often tied to a name for billing or payroll deduction, in which case identity is legitimately needed; the privacy gain is real only for cash or point-of-sale discounts.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "Redemption that cannot be linked across uses, so repeated meals do not build a visit log.",
+    "source_excerpt": "A verifier only needs to learn that the holder passed an earlier check, but the proof it receives can be matched to the issuance event and to every other use of the same proof. | mechanism: Clients present unlinkable proofs that attest to a prior authorisation, so the origin cannot link redemption to issuance or to other redemptions."
+   }
+  ]
+ },
+ {
+  "review_id": "v01-4",
+  "title": "Proving no outstanding exit restriction at the airport check-in counter",
+  "moment": "A Taiwanese traveler checks in for an international flight, and the airline or ground handler must confirm the passenger is not subject to a government travel ban (出境限制, for example from tax arrears or court orders) before issuing a boarding pass, or a travel agent confirms it before booking a non-refundable group tour.",
+  "verifier": "Airline ground-handling staff or a travel agency booking desk",
+  "predicate": "The holder's national ID is not on the current exit-restriction register (non-membership), signed with a short validity window.",
+  "disclosed_today": "Full passport and national ID number, often copied or photographed. If a restriction exists, staff can see it, and the traveler may be questioned about the reason in front of others.",
+  "issuer": "National Immigration Agency, drawing on court and tax-authority restriction records",
+  "why_zk": "A non-membership proof would let the verifier see only that the person is not restricted, so a clear traveler reveals nothing else. Weakness, stated honestly. Border control (immigration at departure) already checks the register itself and carriers have little legal duty to check, so this mostly removes a copy of the passport rather than a real check. A restricted person simply cannot produce the proof, and that failure itself tells the verifier something. The proof must be fresh, because a restriction can be imposed hours before departure.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "A check that relies only on copyable ID details is weak, which motivates a signed, fresh, holder-bound proof of the register status instead of a passport photocopy.",
+    "source_excerpt": "A provider must verify that a new applicant is the named person, but its check uses identifiers that are easy to copy, so a stolen identity passes and the real person bears the consequences. | mechanism: None; online verification only checked ID number and issue date."
+   },
+   {
+    "borrowed_aspect": "The idea that leakage should be bounded and checkable, applied by making the only thing the verifier learns a single yes bit about the register.",
+    "source_excerpt": "A releaser must answer queries about a dataset so that an observer learns almost nothing about whether any one individual contributed, and the leak must be expressed as a bound that can be checked. | mechanism: Differential privacy, a randomised release mechanism with a quantified privacy-loss parameter; NIST notes that the guarantee depends on how the framework is realised in practice and lists privacy hazards that can break it."
+   }
+  ]
+ },
+ {
+  "review_id": "v01-5",
+  "title": "Disaster-relief priority for households on the medical-equipment power-dependent roll",
+  "moment": "During a typhoon outage or planned rolling blackout, a household that depends on home ventilators or oxygen concentrators wants priority for restoration or a generator loan from the local fire or health station. Staff ask people to send the address, a medical certificate, and electricity bill by chat or phone.",
+  "verifier": "District fire department or public health center distributing priority generators",
+  "predicate": "The account is a member of Taipower's registered power-dependent medical-use customer roll",
+  "disclosed_today": "Address, diagnosis or medical certificate, bill, and sometimes a photo of the device",
+  "issuer": "Taipower (maintains the priority-restoration list for medical-equipment households)",
+  "why_zk": "The responder only needs to know that the household is on the priority roll; diagnosis and usage are sensitive health data that spread across chat groups during emergencies. Weakness: in an emergency the responder usually needs the location to dispatch, so the proof can gate eligibility but cannot replace address sharing, and mobile coverage and wallet access fail during outages. Use it for pre-registration and fair queueing, not dispatch.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "Handling an identifying wrapper (the account) without exposing the content, with a designated-official exception when disclosure is truly needed.",
+    "source_excerpt": "A party submits a value that must stay hidden from competitors until a fixed moment, while the holder of the submissions must be able to prove later that none were seen early and must handle identifying wrappers without exposing the content. | mechanism: Physical and access-control safeguarding of sealed bids with designated-official exception for envelope identification, plus a written record of any mistaken early opening."
+   },
+   {
+    "borrowed_aspect": "The failure pattern of demanding a full document copy when no less-intrusive alternative is offered.",
+    "source_excerpt": "A foreign investor must prove that its local agent is a real, identified person, and the agent hands over a full copy of an ID card, with no alternative verification stated. | mechanism: None stated; full ID copy required with no less-intrusive alternative given."
+   }
+  ]
+ },
+ {
+  "review_id": "v01-6",
+  "title": "Student-status discount tied to the same person as the transit or telecom account",
+  "moment": "A student buys a youth/student monthly pass or a campus-plan mobile subscription, and the seller must be sure the enrolled student is the same person as the account holder.",
+  "verifier": "Transit operator student-pass counter or telecom reseller",
+  "predicate": "The university-signed \"currently enrolled\" claim and the national-ID-bound claim in the wallet refer to the same person, without revealing the ID number or student number.",
+  "disclosed_today": "Student ID card photo, national ID card photo or number, birth date, school name, student number, sometimes a photocopy kept on file.",
+  "issuer": "University (enrollment status), matched against a second issuer such as the MOI digital ID or a telecom account",
+  "why_zk": "A cross-source match proves one person holds both claims, and the verifier needs nothing else. Weakness is that a student card is a physical norm and clerks may still insist on seeing it, and the Personal Data Protection Act already limits copying but does not forbid it in practice. Telecom real-name rules require the ID be recorded, so the telecom case is weaker than the transit pass.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The university signs the enrollment claim without needing to see the second issuer's identifier, which the holder binds only at presentation.",
+    "source_excerpt": "A signer must certify that a holder has a valid token without seeing the token's content, and must later be unable to link the certified token back to the signing event. | mechanism: A blind signature, where the message is blinded with a random factor before signing, and the holder unblinds the signature so it verifies against the original message under the signer's public key."
+   },
+   {
+    "borrowed_aspect": "A single yes/no fact is proven with no trackable identifier passed to the verifier or issuer.",
+    "source_excerpt": "A gatekeeper needs one yes/no fact about a holder, and the proof it receives must not reveal the underlying birth date or let the issuer or the gatekeeper track the holder. | mechanism: Zero-knowledge proof on ISO 18013-7 mdocs for an over-18 statement, device-bound transactions, no server-side storage of credential data."
+   }
+  ]
+ },
+ {
+  "review_id": "v01-7",
+  "title": "Showing a landlord that a tenant is not on the public-housing or rent-subsidy disqualification list",
+  "moment": "A tenant applying to a private landlord that participates in the government social-housing sublease scheme, or a landlord renting under a subsidy program, must show the applicant is not disqualified for owning other property or prior fraud. The agency or landlord's agent collects tax and property records.",
+  "verifier": "Landlord or intermediary operator under the sublease-subsidy program",
+  "predicate": "The applicant is NOT on the register of persons disqualified or blacklisted from housing subsidy for prior false declaration or recovered overpayment.",
+  "disclosed_today": "Full property ownership transcript, income tax records, household composition, and ID copies delivered to the operator.",
+  "issuer": "Ministry of the Interior Construction and Planning Agency (or local housing bureau) as keeper of the disqualification list.",
+  "why_zk": "The operator needs only that the person is not blacklisted, but the program itself legally also requires income and property eligibility checks, which are positive predicates and not covered by non-membership; so this removes only the blacklist part of the file. Weakness: the blacklist is small and the operator may be entitled to query it directly, in which case ZK adds little over a direct government lookup.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "A verifier carrying out an identity and risk check with document inspection where retention and scope are unspecified.",
+    "source_excerpt": "A bank must verify who a person is before opening an account, which means examining identity documents, but the cited rule does not say whether copies are kept or for how long. | mechanism: Dual identity-document inspection at account opening; retention and copy handling not specified in the cited text."
+   }
+  ]
+ }
+]

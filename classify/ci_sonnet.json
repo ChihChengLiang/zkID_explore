@@ -1,0 +1,674 @@
+[
+ {
+  "id": "c000",
+  "transmission_principle": "consented_for_benefit",
+  "origin_context": "employment",
+  "use_context": "commerce",
+  "context_distance": "different"
+ },
+ {
+  "id": "c001",
+  "transmission_principle": "consented_for_benefit",
+  "origin_context": "utilities",
+  "use_context": "government_admin",
+  "context_distance": "adjacent"
+ },
+ {
+  "id": "c002",
+  "transmission_principle": "commercial_convenience",
+  "origin_context": "telecom_online",
+  "use_context": "commerce",
+  "context_distance": "different"
+ },
+ {
+  "id": "c003",
+  "transmission_principle": "required_by_law",
+  "origin_context": "employment",
+  "use_context": "employment",
+  "context_distance": "same"
+ },
+ {
+  "id": "c004",
+  "transmission_principle": "commercial_convenience",
+  "origin_context": "commerce",
+  "use_context": "commerce",
+  "context_distance": "same"
+ },
+ {
+  "id": "c005",
+  "transmission_principle": "commercial_convenience",
+  "origin_context": "finance",
+  "use_context": "housing",
+  "context_distance": "different"
+ },
+ {
+  "id": "c006",
+  "transmission_principle": "required_by_law",
+  "origin_context": "healthcare",
+  "use_context": "education",
+  "context_distance": "adjacent"
+ },
+ {
+  "id": "c007",
+  "transmission_principle": "consented_for_benefit",
+  "origin_context": "government_admin",
+  "use_context": "housing",
+  "context_distance": "adjacent"
+ },
+ {
+  "id": "c008",
+  "transmission_principle": "commercial_convenience",
+  "origin_context": "finance",
+  "use_context": "housing",
+  "context_distance": "different"
+ },
+ {
+  "id": "c009",
+  "transmission_principle": "required_by_law",
+  "origin_context": "justice_security",
+  "use_context": "education",
+  "context_distance": "adjacent"
+ },
+ {
+  "id": "c010",
+  "transmission_principle": "consented_for_benefit",
+  "origin_context": "utilities",
+  "use_context": "government_admin",
+  "context_distance": "adjacent"
+ },
+ {
+  "id": "c011",
+  "transmission_principle": "consented_for_benefit",
+  "origin_context": "employment",
+  "use_context": "commerce",
+  "context_distance": "different"
+ },
+ {
+  "id": "c012",
+  "transmission_principle": "commercial_convenience",
+  "origin_context": "telecom_online",
+  "use_context": "commerce",
+  "context_distance": "different"
+ },
+ {
+  "id": "c013",
+  "transmission_principle": "consented_for_benefit",
+  "origin_context": "healthcare",
+  "use_context": "education",
+  "context_distance": "adjacent"
+ },
+ {
+  "id": "c014",
+  "transmission_principle": "consented_for_benefit",
+  "origin_context": "education",
+  "use_context": "transport",
+  "context_distance": "different"
+ },
+ {
+  "id": "c015",
+  "transmission_principle": "commercial_convenience",
+  "origin_context": "transport",
+  "use_context": "commerce",
+  "context_distance": "different"
+ },
+ {
+  "id": "c016",
+  "transmission_principle": "consented_for_benefit",
+  "origin_context": "commerce",
+  "use_context": "commerce",
+  "context_distance": "same"
+ },
+ {
+  "id": "c017",
+  "transmission_principle": "safety_security",
+  "origin_context": "healthcare",
+  "use_context": "leisure_events",
+  "context_distance": "different"
+ },
+ {
+  "id": "c018",
+  "transmission_principle": "consented_for_benefit",
+  "origin_context": "utilities",
+  "use_context": "housing",
+  "context_distance": "adjacent"
+ },
+ {
+  "id": "c019",
+  "transmission_principle": "consented_for_benefit",
+  "origin_context": "education",
+  "use_context": "housing",
+  "context_distance": "different"
+ },
+ {
+  "id": "c020",
+  "transmission_principle": "consented_for_benefit",
+  "origin_context": "utilities",
+  "use_context": "housing",
+  "context_distance": "adjacent"
+ },
+ {
+  "id": "c021",
+  "transmission_principle": "consented_for_benefit",
+  "origin_context": "healthcare",
+  "use_context": "employment",
+  "context_distance": "adjacent"
+ },
+ {
+  "id": "c022",
+  "transmission_principle": "safety_security",
+  "origin_context": "education",
+  "use_context": "healthcare",
+  "context_distance": "adjacent"
+ },
+ {
+  "id": "c023",
+  "transmission_principle": "commercial_convenience",
+  "origin_context": "transport",
+  "use_context": "commerce",
+  "context_distance": "different"
+ },
+ {
+  "id": "c024",
+  "transmission_principle": "consented_for_benefit",
+  "origin_context": "employment",
+  "use_context": "commerce",
+  "context_distance": "different"
+ },
+ {
+  "id": "c025",
+  "transmission_principle": "safety_security",
+  "origin_context": "utilities",
+  "use_context": "government_admin",
+  "context_distance": "adjacent"
+ },
+ {
+  "id": "c026",
+  "transmission_principle": "consented_for_benefit",
+  "origin_context": "utilities",
+  "use_context": "government_admin",
+  "context_distance": "adjacent"
+ },
+ {
+  "id": "c027",
+  "transmission_principle": "consented_for_benefit",
+  "origin_context": "transport",
+  "use_context": "finance",
+  "context_distance": "different"
+ },
+ {
+  "id": "c028",
+  "transmission_principle": "safety_security",
+  "origin_context": "healthcare",
+  "use_context": "healthcare",
+  "context_distance": "same"
+ },
+ {
+  "id": "c029",
+  "transmission_principle": "safety_security",
+  "origin_context": "employment",
+  "use_context": "employment",
+  "context_distance": "same"
+ },
+ {
+  "id": "c030",
+  "transmission_principle": "required_by_law",
+  "origin_context": "government_admin",
+  "use_context": "commerce",
+  "context_distance": "different"
+ },
+ {
+  "id": "c031",
+  "transmission_principle": "safety_security",
+  "origin_context": "employment",
+  "use_context": "housing",
+  "context_distance": "different"
+ },
+ {
+  "id": "c032",
+  "transmission_principle": "safety_security",
+  "origin_context": "employment",
+  "use_context": "housing",
+  "context_distance": "different"
+ },
+ {
+  "id": "c033",
+  "transmission_principle": "safety_security",
+  "origin_context": "healthcare",
+  "use_context": "transport",
+  "context_distance": "different"
+ },
+ {
+  "id": "c034",
+  "transmission_principle": "safety_security",
+  "origin_context": "government_admin",
+  "use_context": "commerce",
+  "context_distance": "different"
+ },
+ {
+  "id": "c035",
+  "transmission_principle": "consented_for_benefit",
+  "origin_context": "healthcare",
+  "use_context": "education",
+  "context_distance": "adjacent"
+ },
+ {
+  "id": "c036",
+  "transmission_principle": "safety_security",
+  "origin_context": "utilities",
+  "use_context": "government_admin",
+  "context_distance": "adjacent"
+ },
+ {
+  "id": "c037",
+  "transmission_principle": "consented_for_benefit",
+  "origin_context": "transport",
+  "use_context": "finance",
+  "context_distance": "different"
+ },
+ {
+  "id": "c038",
+  "transmission_principle": "consented_for_benefit",
+  "origin_context": "utilities",
+  "use_context": "education",
+  "context_distance": "different"
+ },
+ {
+  "id": "c039",
+  "transmission_principle": "consented_for_benefit",
+  "origin_context": "healthcare",
+  "use_context": "employment",
+  "context_distance": "adjacent"
+ },
+ {
+  "id": "c040",
+  "transmission_principle": "safety_security",
+  "origin_context": "employment",
+  "use_context": "housing",
+  "context_distance": "different"
+ },
+ {
+  "id": "c041",
+  "transmission_principle": "consented_for_benefit",
+  "origin_context": "employment",
+  "use_context": "housing",
+  "context_distance": "different"
+ },
+ {
+  "id": "c042",
+  "transmission_principle": "safety_security",
+  "origin_context": "telecom_online",
+  "use_context": "housing",
+  "context_distance": "different"
+ },
+ {
+  "id": "c043",
+  "transmission_principle": "consented_for_benefit",
+  "origin_context": "employment",
+  "use_context": "employment",
+  "context_distance": "same"
+ },
+ {
+  "id": "c044",
+  "transmission_principle": "consented_for_benefit",
+  "origin_context": "education",
+  "use_context": "healthcare",
+  "context_distance": "adjacent"
+ },
+ {
+  "id": "c045",
+  "transmission_principle": "commercial_convenience",
+  "origin_context": "telecom_online",
+  "use_context": "leisure_events",
+  "context_distance": "different"
+ },
+ {
+  "id": "c046",
+  "transmission_principle": "consented_for_benefit",
+  "origin_context": "education",
+  "use_context": "telecom_online",
+  "context_distance": "different"
+ },
+ {
+  "id": "c047",
+  "transmission_principle": "consented_for_benefit",
+  "origin_context": "finance",
+  "use_context": "government_admin",
+  "context_distance": "adjacent"
+ },
+ {
+  "id": "c048",
+  "transmission_principle": "commercial_convenience",
+  "origin_context": "telecom_online",
+  "use_context": "telecom_online",
+  "context_distance": "same"
+ },
+ {
+  "id": "c049",
+  "transmission_principle": "safety_security",
+  "origin_context": "justice_security",
+  "use_context": "education",
+  "context_distance": "adjacent"
+ },
+ {
+  "id": "c050",
+  "transmission_principle": "safety_security",
+  "origin_context": "justice_security",
+  "use_context": "housing",
+  "context_distance": "different"
+ },
+ {
+  "id": "c051",
+  "transmission_principle": "consented_for_benefit",
+  "origin_context": "utilities",
+  "use_context": "education",
+  "context_distance": "different"
+ },
+ {
+  "id": "c052",
+  "transmission_principle": "safety_security",
+  "origin_context": "healthcare",
+  "use_context": "transport",
+  "context_distance": "adjacent"
+ },
+ {
+  "id": "c053",
+  "transmission_principle": "commercial_convenience",
+  "origin_context": "justice_security",
+  "use_context": "education",
+  "context_distance": "different"
+ },
+ {
+  "id": "c054",
+  "transmission_principle": "commercial_convenience",
+  "origin_context": "finance",
+  "use_context": "finance",
+  "context_distance": "same"
+ },
+ {
+  "id": "c055",
+  "transmission_principle": "consented_for_benefit",
+  "origin_context": "education",
+  "use_context": "government_admin",
+  "context_distance": "adjacent"
+ },
+ {
+  "id": "c056",
+  "transmission_principle": "consented_for_benefit",
+  "origin_context": "education",
+  "use_context": "education",
+  "context_distance": "same"
+ },
+ {
+  "id": "c057",
+  "transmission_principle": "commercial_convenience",
+  "origin_context": "transport",
+  "use_context": "transport",
+  "context_distance": "same"
+ },
+ {
+  "id": "c058",
+  "transmission_principle": "commercial_convenience",
+  "origin_context": "finance",
+  "use_context": "commerce",
+  "context_distance": "adjacent"
+ },
+ {
+  "id": "c059",
+  "transmission_principle": "consented_for_benefit",
+  "origin_context": "education",
+  "use_context": "commerce",
+  "context_distance": "different"
+ },
+ {
+  "id": "c060",
+  "transmission_principle": "safety_security",
+  "origin_context": "telecom_online",
+  "use_context": "housing",
+  "context_distance": "different"
+ },
+ {
+  "id": "c061",
+  "transmission_principle": "consented_for_benefit",
+  "origin_context": "utilities",
+  "use_context": "education",
+  "context_distance": "different"
+ },
+ {
+  "id": "c062",
+  "transmission_principle": "commercial_convenience",
+  "origin_context": "finance",
+  "use_context": "housing",
+  "context_distance": "different"
+ },
+ {
+  "id": "c063",
+  "transmission_principle": "other",
+  "origin_context": "finance",
+  "use_context": "justice_security",
+  "context_distance": "adjacent"
+ },
+ {
+  "id": "c064",
+  "transmission_principle": "commercial_convenience",
+  "origin_context": "education",
+  "use_context": "housing",
+  "context_distance": "different"
+ },
+ {
+  "id": "c065",
+  "transmission_principle": "safety_security",
+  "origin_context": "employment",
+  "use_context": "employment",
+  "context_distance": "same"
+ },
+ {
+  "id": "c066",
+  "transmission_principle": "commercial_convenience",
+  "origin_context": "telecom_online",
+  "use_context": "commerce",
+  "context_distance": "different"
+ },
+ {
+  "id": "c067",
+  "transmission_principle": "safety_security",
+  "origin_context": "healthcare",
+  "use_context": "healthcare",
+  "context_distance": "same"
+ },
+ {
+  "id": "c068",
+  "transmission_principle": "consented_for_benefit",
+  "origin_context": "finance",
+  "use_context": "government_admin",
+  "context_distance": "adjacent"
+ },
+ {
+  "id": "c069",
+  "transmission_principle": "commercial_convenience",
+  "origin_context": "telecom_online",
+  "use_context": "leisure_events",
+  "context_distance": "adjacent"
+ },
+ {
+  "id": "c070",
+  "transmission_principle": "commercial_convenience",
+  "origin_context": "commerce",
+  "use_context": "housing",
+  "context_distance": "different"
+ },
+ {
+  "id": "c071",
+  "transmission_principle": "commercial_convenience",
+  "origin_context": "commerce",
+  "use_context": "commerce",
+  "context_distance": "same"
+ },
+ {
+  "id": "c072",
+  "transmission_principle": "consented_for_benefit",
+  "origin_context": "finance",
+  "use_context": "finance",
+  "context_distance": "same"
+ },
+ {
+  "id": "c073",
+  "transmission_principle": "consented_for_benefit",
+  "origin_context": "education",
+  "use_context": "transport",
+  "context_distance": "different"
+ },
+ {
+  "id": "c074",
+  "transmission_principle": "required_by_law",
+  "origin_context": "justice_security",
+  "use_context": "education",
+  "context_distance": "adjacent"
+ },
+ {
+  "id": "c075",
+  "transmission_principle": "commercial_convenience",
+  "origin_context": "employment",
+  "use_context": "housing",
+  "context_distance": "different"
+ },
+ {
+  "id": "c076",
+  "transmission_principle": "required_by_law",
+  "origin_context": "finance",
+  "use_context": "government_admin",
+  "context_distance": "adjacent"
+ },
+ {
+  "id": "c077",
+  "transmission_principle": "consented_for_benefit",
+  "origin_context": "transport",
+  "use_context": "finance",
+  "context_distance": "different"
+ },
+ {
+  "id": "c078",
+  "transmission_principle": "required_by_law",
+  "origin_context": "education",
+  "use_context": "employment",
+  "context_distance": "adjacent"
+ },
+ {
+  "id": "c079",
+  "transmission_principle": "required_by_law",
+  "origin_context": "healthcare",
+  "use_context": "education",
+  "context_distance": "adjacent"
+ },
+ {
+  "id": "c080",
+  "transmission_principle": "commercial_convenience",
+  "origin_context": "finance",
+  "use_context": "education",
+  "context_distance": "different"
+ },
+ {
+  "id": "c081",
+  "transmission_principle": "commercial_convenience",
+  "origin_context": "finance",
+  "use_context": "housing",
+  "context_distance": "different"
+ },
+ {
+  "id": "c082",
+  "transmission_principle": "required_by_law",
+  "origin_context": "government_admin",
+  "use_context": "transport",
+  "context_distance": "adjacent"
+ },
+ {
+  "id": "c083",
+  "transmission_principle": "commercial_convenience",
+  "origin_context": "telecom_online",
+  "use_context": "commerce",
+  "context_distance": "different"
+ },
+ {
+  "id": "c084",
+  "transmission_principle": "safety_security",
+  "origin_context": "telecom_online",
+  "use_context": "housing",
+  "context_distance": "different"
+ },
+ {
+  "id": "c085",
+  "transmission_principle": "required_by_law",
+  "origin_context": "employment",
+  "use_context": "government_admin",
+  "context_distance": "adjacent"
+ },
+ {
+  "id": "c086",
+  "transmission_principle": "commercial_convenience",
+  "origin_context": "telecom_online",
+  "use_context": "commerce",
+  "context_distance": "different"
+ },
+ {
+  "id": "c087",
+  "transmission_principle": "commercial_convenience",
+  "origin_context": "telecom_online",
+  "use_context": "commerce",
+  "context_distance": "different"
+ },
+ {
+  "id": "c088",
+  "transmission_principle": "commercial_convenience",
+  "origin_context": "government_admin",
+  "use_context": "leisure_events",
+  "context_distance": "different"
+ },
+ {
+  "id": "c089",
+  "transmission_principle": "safety_security",
+  "origin_context": "telecom_online",
+  "use_context": "housing",
+  "context_distance": "different"
+ },
+ {
+  "id": "c090",
+  "transmission_principle": "safety_security",
+  "origin_context": "healthcare",
+  "use_context": "housing",
+  "context_distance": "adjacent"
+ },
+ {
+  "id": "c091",
+  "transmission_principle": "consented_for_benefit",
+  "origin_context": "education",
+  "use_context": "transport",
+  "context_distance": "different"
+ },
+ {
+  "id": "c092",
+  "transmission_principle": "consented_for_benefit",
+  "origin_context": "utilities",
+  "use_context": "government_admin",
+  "context_distance": "adjacent"
+ },
+ {
+  "id": "c093",
+  "transmission_principle": "consented_for_benefit",
+  "origin_context": "utilities",
+  "use_context": "housing",
+  "context_distance": "adjacent"
+ },
+ {
+  "id": "c094",
+  "transmission_principle": "commercial_convenience",
+  "origin_context": "commerce",
+  "use_context": "commerce",
+  "context_distance": "same"
+ },
+ {
+  "id": "c095",
+  "transmission_principle": "commercial_convenience",
+  "origin_context": "employment",
+  "use_context": "housing",
+  "context_distance": "different"
+ }
+]

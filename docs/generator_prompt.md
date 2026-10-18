@@ -9,4 +9,6 @@ Propose exactly 3 distinct use cases for this cell: concrete everyday moments in
 
 {{PROVENANCE}}
 
-Write the three ideas as a YAML list to {{OUT}} (relative to /Users/liangcc/projects/repos/zkID_explore) with exactly these keys per item: title, moment, verifier, predicate, disclosed_today, issuer, why_zk, inspired_by (list of {seed_id, borrowed_aspect}). Use only the Write tool for that one file. Reply with the single word DONE.
+Also classify each idea with the vocabularies in config/axes.yaml (copy the exact label): attribute_family, transmission_principle (the condition under which the verifier collects the data TODAY), origin_context (where the fact comes from), use_context (where the verifier uses it).
+
+Write the three ideas as a YAML list to {{OUT}} (relative to /Users/liangcc/projects/repos/zkID_explore) with exactly these keys per item: title, moment, verifier, predicate, disclosed_today, issuer, why_zk, attribute_family, transmission_principle, origin_context, use_context, inspired_by (list of {seed_id, borrowed_aspect}). Quote any value that contains a colon. Use only the Write tool for that one file. Reply with the single word DONE.

@@ -1,0 +1,130 @@
+[
+ {
+  "review_id": "v04-0",
+  "title": "Alumni-discount claim matched to a transit or telecom subscriber account",
+  "moment": "A graduate renews a subsidised or alumni-linked service (for example a campus-partner telecom plan, a university-affiliated co-working or gym membership, or an alumni association rate) and the vendor wants proof that the person holding the subscription account is the same person the university recognises as an alumnus.",
+  "verifier": "Alumni association or partner vendor offering alumni pricing",
+  "predicate": "The person who holds a university-signed alumnus credential is the same person as the holder of a second issuer's credential (a telecom or membership account credential), proven without revealing the national ID or student number to the vendor.",
+  "disclosed_today": "Photo of national ID, student or alumni card, graduation year, department, phone number, sometimes a scanned diploma.",
+  "issuer": "University (alumnus status claim), matched to a telecom or membership issuer's subscriber claim",
+  "why_zk": "The vendor needs only one bit, that this account holder is an alumnus, but today it collects the ID, department and graduation year, which are all unneeded. The match is the hard part, since both credentials must bind to the same person without a shared identifier. Weakness is that few vendors and no telecom issuer currently issue verifiable credentials, so the second issuer side is hypothetical, and the stakes are small enough that a staff glance at an alumni card is the cheaper practice.",
+  "claimed_borrowings": []
+ },
+ {
+  "review_id": "v04-1",
+  "title": "Insurer or employer wellness program checks monthly gym and pharmacy spending band, not itemized purchases",
+  "moment": "A health-insurance discount programme or a corporate wellness benefit in Taiwan asks participants to upload credit-card statements to prove they spent on fitness, with the same statements revealing pharmacy, clinic and other purchases.",
+  "verifier": "Private insurer or employer benefits administrator",
+  "predicate": "Total card spending in merchant categories for gyms and sports venues over 12 months falls in a stated band, computed by the bank over the cardholder's cards, with no other category disclosed.",
+  "disclosed_today": "Itemized card statements across all merchants, showing health, pharmacy, entertainment and location patterns.",
+  "issuer": "Card-issuing bank, which categorizes transactions by merchant category code",
+  "why_zk": "The bank can sign a category aggregate across the person's cards at the same bank. Weak points: merchant category codes are coarse and gameable, cards at other banks are missing, and a verifier that asks for a narrow band can still infer health status from participation, so the aggregate itself is sensitive. Personal Data Protection Act purpose limitation already pushes toward minimal collection, but nothing proves the minimal set was what was collected.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "Purpose-limited release of only the figure the programme needs, replacing reliance on the verifier's promise.",
+    "source_excerpt": "A holder of sensitive records must release only the subset that serves a stated purpose, but the rule leaves it to the holder to judge what is minimal and gives no mechanism that proves the released subset was minimal. | mechanism: Purpose-based minimum-necessary rule with reasonable-efforts standard, role-based access and reasonable reliance on requester representations (45 CFR 164.514(d)); no cryptographic or proof-based check."
+   },
+   {
+    "borrowed_aspect": "The holder discloses one derived attribute from a larger record instead of handing over the whole record.",
+    "source_excerpt": "A verifier needs one attribute from a larger identity record, but the holder cannot share just that attribute from the record. | mechanism: Selective disclosure of attributes from electronic attestations held in the EU Digital Identity Wallet."
+   },
+   {
+    "borrowed_aspect": "A verifier asking for broad statements when it needs one narrow scope, and the issuer being free to sign only the narrow one.",
+    "source_excerpt": "A holder asks a verifier for a credential covering more attributes than the single fact the relying party needs, and the issuer has no obligation to honour a narrower request. | mechanism: The client states a scope parameter in the request, and the authorization server returns the granted scope in the token response; the server may grant less than requested."
+   }
+  ]
+ },
+ {
+  "review_id": "v04-2",
+  "title": "Hospital internship or clinical-placement badge matched to professional licence",
+  "moment": "A nursing or medical student starts a clinical placement at a teaching hospital, and the hospital must confirm the university-enrolled student is the same person as the holder of a separate vaccination or background-check record from another issuer.",
+  "verifier": "Hospital HR or placement coordinator",
+  "predicate": "The university-signed placement-eligibility claim and the health-authority vaccination claim refer to the same person, with neither the ID number nor other health records revealed.",
+  "disclosed_today": "Full vaccination card, national ID copy, student ID, sometimes a full health check report, collected into a paper file.",
+  "issuer": "University (placement eligibility), matched against a second issuer such as the health authority vaccination record",
+  "why_zk": "The hospital only needs to know the same person is both enrolled and vaccinated, not the full record. Honest weakness is that hospitals have occupational-health duties and may legitimately want specific vaccine details, so the match proof covers only the eligibility gate and a fuller disclosure may still be required afterwards.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "A verifier accepts proof of an earlier check without being able to link it to the issuing event.",
+    "source_excerpt": "A verifier only needs to learn that the holder passed an earlier check, but the proof it receives can be matched to the issuance event and to every other use of the same proof. | mechanism: Clients present unlinkable proofs that attest to a prior authorisation, so the origin cannot link redemption to issuance or to other redemptions."
+   },
+   {
+    "borrowed_aspect": "A discretionary fuller-disclosure exception, here for occupational health, remains alongside the minimal proof.",
+    "source_excerpt": "A protected person must be able to show a new identity without revealing the old one, but the program holder keeps a discretionary exception that lets it disclose the true identity to law enforcement or by court order. | mechanism: Discretionary non-disclosure of identity and location, with a mandatory disclosure exception to State or local law enforcement on request or by court order when the person is under investigation or charged with a serious offense."
+   }
+  ]
+ },
+ {
+  "review_id": "v04-3",
+  "title": "One Lunar New Year red-envelope or limited-edition drop claim per person on a Taiwanese convenience-store app",
+  "moment": "A convenience-store or delivery app in Taiwan releases a limited batch of free coffee coupons or a collectible item at a set hour, and people create many throwaway accounts with prepaid SIM numbers to grab several.",
+  "verifier": "A convenience-store chain loyalty app operator running a limited-quantity promotion.",
+  "predicate": "The claimant holds exactly one active, real-name-registered mobile subscription, and this promotion-specific nullifier has not been used before.",
+  "disclosed_today": "Mobile phone number (verified by SMS OTP), often name, birthday, email, and device ID; the phone number itself links the account to a person across every other service.",
+  "issuer": "A Taiwanese mobile carrier (real-name SIM registration holder).",
+  "why_zk": "A telco-signed one-subscriber credential with a per-campaign nullifier lets the operator enforce one claim per person without receiving the phone number. Honest caveat: real-name SIM registration allows one person to hold several lines, so uniqueness would be per-line unless the telco attests one credential per national ID; prepaid and corporate lines weaken it further. Operators also like the phone number for marketing, so the incentive to adopt is weak.",
+  "claimed_borrowings": []
+ },
+ {
+  "review_id": "v04-4",
+  "title": "Proving a tenant's subsidised-utility status to a landlord or social-housing agency without revealing the rented address",
+  "moment": "A person applying for a rent subsidy or a social-housing waitlist slot must show they currently hold a utility account on the subsidised roll, but the agency is also a different locality from the one they rent in, and the applicant does not want a prospective landlord or agency to see the address and usage history.",
+  "verifier": "Municipal housing bureau or social-housing intermediary (e.g. a city social housing agency or a rent-subsidy application window)",
+  "predicate": "The applicant's utility account belongs to the set of accounts on the subsidised-rate roll (and is active), without revealing which account or address.",
+  "disclosed_today": "Recent utility bills with address and consumption, lease copy, household registration, and sometimes several months of statements to show continuity.",
+  "issuer": "Taipower / Taiwan Water Corporation",
+  "why_zk": "The agency wants to know the person is a bona fide low-income occupant, but collects address, usage and the lease, which also lets staff and intermediaries profile occupancy. Honest caveat: rent-subsidy eligibility is defined by income and asset tests via the tax and household registration data, so a utility subsidy roll is only a weak, partial signal and cannot replace those checks. It is most plausible as an extra anti-fraud tie-in (the address is a real, occupied dwelling), where some fields are legitimately required by the agency anyway.",
+  "claimed_borrowings": []
+ },
+ {
+  "review_id": "v04-5",
+  "title": "Hospital-signed 'currently in treatment course' status for a pharmacy or school to grant a temporary accommodation",
+  "moment": "A parent asks a school for a short-term accommodation (exempting a child from PE or the cafeteria, or allowing a medication break) or a worker asks a company for a temporary shift change during a defined treatment cycle such as chemotherapy or post-fracture recovery.",
+  "verifier": "School health office (健康中心), employer, or gym/pool operator",
+  "predicate": "Hospital attests 'accommodation category X applies' valid until the course end date, auto-expiring afterward.",
+  "disclosed_today": "Hospital certificate or discharge summary naming the disease and treatment plan, often photocopied and kept in the school file indefinitely.",
+  "issuer": "Treating hospital",
+  "why_zk": "The school needs a category and an end date, not that a child has cancer or a worker has a particular condition. Expiry removes the problem of a stale record being kept after recovery and then used for other purposes. Weakness: a coded accommodation category needs to be agreed between hospitals and schools, and teachers often want a conversation with the family, so the proof may not replace it.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "Express the leak as a bounded, checkable quantity: here the verifier learns only a category and expiry, and nothing else can be inferred.",
+    "source_excerpt": "A releaser must answer queries about a dataset so that an observer learns almost nothing about whether any one individual contributed, and the leak must be expressed as a bound that can be checked. | mechanism: Differential privacy, a randomised release mechanism with a quantified privacy-loss parameter; NIST notes that the guarantee depends on how the framework is realised in practice and lists privacy hazards that can break it."
+   },
+   {
+    "borrowed_aspect": "A stable identifier that outlives its context keeps working for others, so the proof must expire and not be tied to a permanent number.",
+    "source_excerpt": "Once the number that identifies a person leaks, reissuing the physical card does not stop someone presenting the same number, so verifiers that check the number and a photo can be fooled. | mechanism: None; reissuing the card does not change the number."
+   }
+  ]
+ },
+ {
+  "review_id": "v04-6",
+  "title": "Ride-hailing driver trip count to qualify for a fleet vehicle lease discount",
+  "moment": "A part-time Uber or LINE Taxi driver in Kaohsiung applies at a car leasing company for a discounted lease reserved for drivers with a proven active record.",
+  "verifier": "Car leasing or fleet financing company",
+  "predicate": "Platform account shows at least 1,000 completed trips and at least 12 active months",
+  "disclosed_today": "Monthly earnings statements and the full trip history export, including pickup and drop-off addresses of passengers, the driver's bank account and tax details",
+  "issuer": "Ride-hailing platform account (driver portal), proven by zkTLS over the logged-in driver portal session",
+  "why_zk": "The lessor needs experience, not income or passenger locations. A threshold proof removes passenger address exposure, which is a third-party privacy issue under the Personal Data Protection Act. Honest weakness: it sits close to a generic income check, leasing firms usually want earnings for credit risk, and platforms may change their portal markup so the proof breaks.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The idea that a releaser should expose a checkable bound instead of raw records, here a threshold in place of a trip log.",
+    "source_excerpt": "A releaser must answer queries about a dataset so that an observer learns almost nothing about whether any one individual contributed, and the leak must be expressed as a bound that can be checked. | mechanism: Differential privacy, a randomised release mechanism with a quantified privacy-loss parameter; NIST notes that the guarantee depends on how the framework is realised in practice and lists privacy hazards that can break it."
+   },
+   {
+    "borrowed_aspect": "The principle that outputs must not allow particular individuals (here the passengers in the export) to be singled out.",
+    "source_excerpt": "An agency holding individual responses must release aggregate results, and the legal duty bars any output from which a particular respondent can be singled out, while the holder's staff can still see the raw records. | mechanism: Statutory use limitation and publication prohibition enforced by sworn-oath duties and penalties; statistical disclosure limitation (for example differential privacy in later census products) is a technical layer not specified in the statute."
+   }
+  ]
+ },
+ {
+  "review_id": "v04-7",
+  "title": "Small-claims or maintenance negotiation proving total outflow to one payee",
+  "moment": "In a mediation at a township mediation committee or a family-court conciliation, one party says they have paid the other a certain total (for example support or a loan repayment) over a year, and the other side disputes the sum.",
+  "verifier": "Mediator, court clerk or the counterparty's lawyer",
+  "predicate": "Sum of transfers from the person's account to a named payee account between two dates equals or exceeds a stated amount",
+  "disclosed_today": "Printed or screenshotted full account statements for the period, exposing every unrelated transaction, which are often partly blacked out by hand and then questioned for authenticity.",
+  "issuer": "The bank holding the paying account, signing a sum over a filtered set of transactions",
+  "why_zk": "A bank-signed total to a single named payee is verifiable and removes hand redaction and doubts about doctored screenshots. Honest limits are that courts in Taiwan currently accept bank-issued certificates and discovery orders rather than cryptographic proofs, so this is most plausible as an informal mediation aid, and the payee identity is itself disclosed by the predicate.",
+  "claimed_borrowings": []
+ }
+]

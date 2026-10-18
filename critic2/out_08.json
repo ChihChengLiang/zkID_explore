@@ -1,0 +1,98 @@
+[
+ {
+  "review_id": "v08-0",
+  "context_purpose": "A landlord wants to know whether the tenant's household qualifies for a discounted water rate so the shared-meter bill split is computed correctly.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "A prior-address bill discloses old address, usage volumes and arrears to a landlord who only needs a rate-class fact."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Nothing material for the bill split; the landlord cannot see arrears or past usage, which could matter to a cautious landlord but is not the stated purpose."},
+  "transmission_check": {"principle_today": "commercial_convenience", "permits_minimal_flow": "permits", "reason": "No law is known to oblige a private landlord to collect a prior water bill; it is an informal request."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "unknown"},
+  "rubric_score": 2,
+  "novelty": 4,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "v08-1",
+  "context_purpose": "A platform wants an estimate of a vendor's turnover to set a deposit or credit limit for merchant onboarding.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "Full personal and business statements expose customer names, family transfers and private spending far beyond a turnover band."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "Mixed cash and informal transfers make deposit bands understate turnover, and the platform cannot see concentration or chargeback-like patterns."},
+  "transmission_check": {"principle_today": "commercial_convenience", "permits_minimal_flow": "permits", "reason": "The platform's risk screening is a business choice rather than a statutory duty, so a narrower attestation is allowed if it accepts it."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 3,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "v08-2",
+  "context_purpose": "A multi-employer benefits or commuter-subsidy operator needs to confirm that a user is currently employed at an enrolled firm so only eligible staff get the benefit.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "An HR letter or staff card photo reveals name, title, department and sometimes pay when only active status is needed."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "The operator loses the ability to see role or department, which it does not need for eligibility; a stable account key must still be separately handled."},
+  "transmission_check": {"principle_today": "consented_for_benefit", "permits_minimal_flow": "permits", "reason": "The employee hands documents over voluntarily to receive the benefit, with no known duty to keep the full letter."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 4,
+  "novelty": 3,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "v08-3",
+  "context_purpose": "A parent, platform or small school wants assurance that a person who will be alone with children is not on the sexual-offender registry.",
+  "norm_violation_today": {"violated": "unclear", "parameter": "information_type", "reason": "A full criminal-record certificate exceeds a registry-absence question, but where child-protection rules apply the employer may be entitled to see it."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "The narrow proof omits other relevant convictions (violence, abuse offences outside the register) that a hiring side may legitimately care about, and may give false comfort."},
+  "transmission_check": {"principle_today": "required_by_law", "permits_minimal_flow": "unclear", "reason": "For regulated child-related roles the employer may be obliged to check specific records, though informal parents and platforms are not clearly under that duty; I cannot confirm the exact rules."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "unknown"},
+  "rubric_score": 2,
+  "novelty": 4,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "v08-4",
+  "context_purpose": "A care facility or kindergarten wants to keep infectious disease out of a vulnerable population by confirming a visitor or staff member is currently cleared.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "The whole lab report discloses ID number, other tested items and hospital visit details when only a cleared status is needed."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Little for door screening; an auditor or health inspector may want the underlying record, which a status proof does not give."},
+  "transmission_check": {"principle_today": "safety_security", "permits_minimal_flow": "unclear", "reason": "Facilities may be told by health authorities which records to keep for inspection, and I cannot confirm whether a signed status would satisfy that."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "unknown"},
+  "rubric_score": 3,
+  "novelty": 4,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "v08-5",
+  "context_purpose": "A housing office wants to confirm the rented unit is billed at the residential rate with its own meter before granting a rent subsidy.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "Full bills expose usage, landlord or account-holder name and unrelated charges beyond a tariff-class fact."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "The office still needs the address and tenant link to administer the subsidy, and a roll-membership proof alone does not tie the account to the applicant."},
+  "transmission_check": {"principle_today": "consented_for_benefit", "permits_minimal_flow": "unclear", "reason": "The applicant submits bills voluntarily to receive the subsidy, but a public body may have its own record-keeping rules for supporting documents that I cannot confirm."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 3,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "v08-6",
+  "context_purpose": "A fleet company wants evidence that a driver is experienced and reliable before waiving a deposit.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "Full account screenshots expose passenger names, addresses, daily earnings and phone number when two thresholds would do."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "The company loses detail on cancellations, complaints and earnings stability, but trip count and rating are the stated criteria."},
+  "transmission_check": {"principle_today": "commercial_convenience", "permits_minimal_flow": "permits", "reason": "The deposit waiver is the company's own commercial policy with no legal duty to hold screenshots."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "no", "verifier_can_check": "unknown"},
+  "rubric_score": 3,
+  "novelty": 4,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "v08-7",
+  "context_purpose": "A landlord or agent wants reassurance that a prospective tenant pays rent reliably and can cover a month's rent buffer.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "Full statements reveal counterparties, medical and family payments and salary source that go far beyond payment regularity."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "A single-account aggregate cannot show other accounts, income level, or whether the payments were rent to a real landlord, so a landlord may still prefer fuller evidence."},
+  "transmission_check": {"principle_today": "commercial_convenience", "permits_minimal_flow": "permits", "reason": "Tenant screening by private landlords is a choice, and I know of no duty to collect statements."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "unknown"},
+  "rubric_score": 3,
+  "novelty": 2,
+  "provenance_faithful": "yes"
+ }
+]

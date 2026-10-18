@@ -1,0 +1,140 @@
+[
+ {
+  "review_id": "v06-0",
+  "title": "Staff-only discount and access at a company-partnered gym or clinic",
+  "moment": "An employee walks into a gym, dental clinic or cafeteria operator that has a corporate partnership with their employer and wants the staff rate; the counter must confirm the person is currently employed there, not a former employee with an old badge.",
+  "verifier": "Partner gym, clinic, or vendor front desk",
+  "predicate": "Employer signed within the last 24 hours that the holder is a current employee of this company (presented as a member of the partner group, without name).",
+  "disclosed_today": "Staff ID card or badge photo, sometimes a name, employee number and a phone number written on a sign-up sheet; the vendor then keeps the list and may never be told when someone leaves.",
+  "issuer": "Employer, signing a daily or weekly employment-status token; revoking it at departure.",
+  "why_zk": "The vendor needs only \"currently an employee of the partner company\", and an unlinkable proof prevents the vendor from building a profile of who visits and how often. Revocation stops ex-staff from using old badges, which the vendor cannot check today. Weakness: for gyms with membership accounts the vendor already has a name and payment details, so privacy gains apply mostly to walk-in or one-off services.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The concern that a stored credential gets presented repeatedly and lets an observer link the same holder across visits, so each presentation should be unlinkable.",
+    "source_excerpt": "A stored credential should be presented only to the party that issued it in the current context, but the browser sends it on any request the context triggers, so an unrelated observer can match the holder across contexts. | mechanism: The SameSite cookie attribute, which limits the cookie to same-site requests (Strict, Lax, or None); the IETF draft describes it as a per-cookie setting, and cross-site behaviour depends on the chosen value."
+   },
+   {
+    "borrowed_aspect": "The lack of any proof that what was released was minimal; here the proof itself is the minimal release.",
+    "source_excerpt": "A holder of sensitive records must release only the subset that serves a stated purpose, but the rule leaves it to the holder to judge what is minimal and gives no mechanism that proves the released subset was minimal. | mechanism: Purpose-based minimum-necessary rule with reasonable-efforts standard, role-based access and reasonable reliance on requester representations (45 CFR 164.514(d)); no cryptographic or proof-based check."
+   }
+  ]
+ },
+ {
+  "review_id": "v06-1",
+  "title": "Landlord screening by months of on-time rent transfers",
+  "moment": "A tenant in Taipei applies for a rental flat and the landlord or agent asks for bank statements to judge whether the tenant reliably pays rent on time.",
+  "verifier": "Landlord or rental agency (e.g. a property agent handling the lease)",
+  "predicate": "Count of months in the last 12 in which a rent-sized recurring transfer (at or above a stated amount) was made on or before the due day is at least 11",
+  "disclosed_today": "Several months of full bank statements or passbook photocopies, showing every merchant, salary source, medical payment and balance.",
+  "issuer": "The tenant's bank, signing a statistic computed from its own transaction ledger",
+  "why_zk": "A bank-signed count of on-time recurring payments answers the landlord's real question without exposing the rest of the statement. Weak points are that no Taiwan bank issues such a signed statistic today, landlords have little leverage to demand a wallet proof, and rent is often paid in cash or to a different account, so coverage would be partial.",
+  "claimed_borrowings": []
+ },
+ {
+  "review_id": "v06-2",
+  "title": "E-commerce seller reputation for a landlord's short-term shop-space sublease",
+  "moment": "A small online seller on a Taiwanese marketplace wants to rent a pop-up counter or storefront from a landlord. The landlord asks for backend sales dashboards to judge whether the seller can pay rent.",
+  "verifier": "Landlord or property manager of a pop-up space",
+  "predicate": "Trailing 6-month monthly average order revenue >= NT$150,000 and seller cancellation rate <= 2%",
+  "disclosed_today": "Full seller-center screenshots exposing customer order lists, product margins, supplier names, and bank-payout details",
+  "issuer": "The e-commerce marketplace seller dashboard, attested by a zkTLS proof of the logged-in seller-center response",
+  "why_zk": "Dashboards reveal customers and cost structure that the landlord has no need for, and the seller cannot share them without exposing third-party buyers' data. A proof of two thresholds gives the landlord what it needs. Weakness: the seller can pick a convenient window or selectively show one of several shops, and marketplace terms may bar scripted session access.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "Releasing only the subset that serves the stated purpose, and replacing the holder's judgement of \"minimal\" with a proof that the released fact is only a threshold.",
+    "source_excerpt": "A holder of sensitive records must release only the subset that serves a stated purpose, but the rule leaves it to the holder to judge what is minimal and gives no mechanism that proves the released subset was minimal. | mechanism: Purpose-based minimum-necessary rule with reasonable-efforts standard, role-based access and reasonable reliance on requester representations (45 CFR 164.514(d)); no cryptographic or proof-based check."
+   },
+   {
+    "borrowed_aspect": "The concern that a verifier keeps copies once collected; a proof leaves no screenshot archive behind to be retained under a vague business-need exception.",
+    "source_excerpt": "A party that has collected a person's data must delete it once the reason for holding it ends, but an open-ended exception lets it keep the data whenever it says it still needs it for its own duties. | mechanism: Statutory deletion-on-purpose-lapse duty with exceptions for lawful duties or written consent; no technical erasure mechanism specified."
+   }
+  ]
+ },
+ {
+  "review_id": "v06-3",
+  "title": "Still-employed check on gig-platform or staffing-agency workers entering a client factory gate",
+  "moment": "A dispatched worker from a staffing agency arrives at a client's plant in Taoyuan; the gate must confirm that the agency still employs them, since dispatch contracts end abruptly.",
+  "verifier": "Client factory security gate or contractor-access system",
+  "predicate": "Holder is currently employed by a named staffing agency under a live dispatch contract, with the signature issued today and revocable.",
+  "disclosed_today": "National ID card copy or number, full name, phone number, agency contract copy, entered into a visitor log.",
+  "issuer": "Staffing or dispatch agency as employer.",
+  "why_zk": "The gate needs a fresh yes/no on 'currently dispatched by agency X', but collects ID numbers that are retained in paper logs. A freshness proof removes the ID collection. Weakness: workplace safety and labour-dispatch rules may require named records of who was on site (for incident and insurance reasons), so the plant may be legally obliged to keep identity; zero-knowledge here only covers the entry check, not the safety register.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The signing agency certifies status without being able to link the later presentation back to the issuance event.",
+    "source_excerpt": "A signer must certify that a holder has a valid token without seeing the token's content, and must later be unable to link the certified token back to the signing event. | mechanism: A blind signature, where the message is blinded with a random factor before signing, and the holder unblinds the signature so it verifies against the original message under the signer's public key."
+   },
+   {
+    "borrowed_aspect": "A yes/no fact proven in a device-bound way so neither the issuer nor the verifier can track the holder.",
+    "source_excerpt": "A gatekeeper needs one yes/no fact about a holder, and the proof it receives must not reveal the underlying birth date or let the issuer or the gatekeeper track the holder. | mechanism: Zero-knowledge proof on ISO 18013-7 mdocs for an over-18 statement, device-bound transactions, no server-side storage of credential data."
+   }
+  ]
+ },
+ {
+  "review_id": "v06-4",
+  "title": "Proving a vehicle owner has no unpaid traffic fines before a used-car sale transfer",
+  "moment": "A buyer at a second-hand car dealer, or a private seller, needs the seller to show that the seller has no unpaid traffic fines or license-suspension notices attached to them or the plate before ownership transfer is processed at the motor vehicle office or agreed privately.",
+  "verifier": "A used-car dealer or a private buyer, and sometimes an escrow or insurance agent",
+  "predicate": "The holder is not on the list of persons with outstanding unpaid traffic penalties or an active licence suspension (non-membership), tied to the holder, not to a photo of a document.",
+  "disclosed_today": "Full ID card, driver licence photo, vehicle licence and registration details, and sometimes screenshots of the government fine-lookup page showing the entire list of violations with dates and places.",
+  "issuer": "Directorate General of Highways (Ministry of Transportation and Communications) or the Motor Vehicles Office",
+  "why_zk": "A dealer needs only that nothing is outstanding, yet the usual screenshot reveals where and when the seller drove, which hints at routines and locations. A non-membership proof removes that history. Weakness, stated honestly. Outstanding fines are already tied to the plate and the transfer office blocks the transfer itself, so the private-sale buyer gains limited protection, the benefit is mainly privacy of the seller, and the incentive for a dealer to ask for anything less than the full look-up is low. A fine imposed minutes later invalidates the proof, so it needs a short expiry.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "A record of where and when a person went can become a readable log of their life, so the verifier should not be given the underlying list.",
+    "source_excerpt": "A service provider must keep a record of who used what without that record becoming a readable log of a person's interests, but the duty is a recommended policy that depends on each institution adopting it and on courts or subpoenas being resisted. | mechanism: Institutional confidentiality policy plus procedures for handling subpoenas and law-enforcement requests; no technical minimization of records is specified."
+   },
+   {
+    "borrowed_aspect": "Splitting knowledge so no single party holds both identity and detail, applied by letting the verifier know the person is clear without learning the identity-linked violation history.",
+    "source_excerpt": "A route must be relayed through intermediaries so that no single intermediary holds both the origin identity and the final destination, while the traffic still reaches the endpoint. | mechanism: Onion routing, where the message is wrapped in one encryption layer per relay, and each relay peels only its own layer and passes the rest to the next hop."
+   }
+  ]
+ },
+ {
+  "review_id": "v06-5",
+  "title": "Renter proves tenancy at a utility-registered address to a school or clinic without a bill",
+  "moment": "A family enrolling a child in a public school catchment, or registering at a community clinic's local-resident programme, is asked for a recent water or electricity bill as proof that they live in a utility-registered dwelling in the district, when they rent and the household registration is elsewhere.",
+  "verifier": "School administration or local clinic enrolment desk",
+  "predicate": "The water account belongs to the set of active residential accounts registered within the district catchment (membership in a geographic roll, not the exact address or usage).",
+  "disclosed_today": "Photocopy of a water or electricity bill showing name, full address, account number, usage and amount owed, which is then filed with the application.",
+  "issuer": "Taiwan Water Corporation or Taipower signing district-roll membership for the account",
+  "why_zk": "The verifier needs only that the dwelling is within the catchment, yet keeps a bill copy revealing exact address and consumption, and these copies sit in school files for years. Weakness: schools often legally need the household registration address anyway and may need the exact address for contact, so the membership proof can replace the bill only where the catchment test alone is applied; the account holder may also differ from the tenant.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "The failure pattern of requiring a full document copy with no less-intrusive alternative stated, here applied to bill copies.",
+    "source_excerpt": "A foreign investor must prove that its local agent is a real, identified person, and the agent hands over a full copy of an ID card, with no alternative verification stated. | mechanism: None stated; full ID copy required with no less-intrusive alternative given."
+   },
+   {
+    "borrowed_aspect": "The concern that retained records of who used what become a readable profile, here usage data in filed bill copies.",
+    "source_excerpt": "A service provider must keep a record of who used what without that record becoming a readable log of a person's interests, but the duty is a recommended policy that depends on each institution adopting it and on courts or subpoenas being resisted. | mechanism: Institutional confidentiality policy plus procedures for handling subpoenas and law-enforcement requests; no technical minimization of records is specified."
+   }
+  ]
+ },
+ {
+  "review_id": "v06-6",
+  "title": "Ride-hailing driver tenure for a fleet-lease or insurance quote",
+  "moment": "A Taiwan Taxi (台灣大車隊) or Uber driver applies for a lower-premium commercial auto policy or a leased vehicle from a fleet owner, who wants proof of steady driving history.",
+  "verifier": "Fleet leasing company or commercial auto insurer's agent",
+  "predicate": "Active trips completed in the last 12 months is at least 3000 AND account age is at least 24 months",
+  "disclosed_today": "Full monthly income statements, trip logs with pickup and dropoff addresses, and sometimes the driver's whole app account screenshots",
+  "issuer": "Ride-hailing platform driver account, attested via zkTLS",
+  "why_zk": "Trip logs expose home, workplace, and passenger locations of a person working at night, and income details unrelated to risk. A threshold proof on trips and tenure suffices for pricing. Weakness: insurers price on claims history and traffic violation records from official sources, so platform activity is a supplementary signal at best, and the platform may resist or change its pages.",
+  "claimed_borrowings": []
+ },
+ {
+  "review_id": "v06-7",
+  "title": "Active-worker status for a gig or dispatch platform's insurance and shift eligibility",
+  "moment": "A person signs up for evening shifts through a staffing or delivery platform and the platform asks them to upload an ID copy and a letter from their main employer to confirm that they are still employed elsewhere and so covered by labour insurance, avoiding duplicate enrolment.",
+  "verifier": "Staffing, gig or delivery platform onboarding team (人力派遣 / 外送平台)",
+  "predicate": "Person is currently enrolled and active with a primary employer today, so the platform need not enrol them separately; no employer identity or pay is revealed.",
+  "disclosed_today": "ID copy with address, a letter or labour-insurance record naming the primary employer, sometimes pay records.",
+  "issuer": "The primary employer, signing an 'active insured employee' status and revoking it on separation.",
+  "why_zk": "The platform needs a current yes or no on active coverage, and a stale letter is useless for this. A revocable employer signature gives freshness, and hides the main employer, which the worker may not want a side-job platform to know (and some contracts restrict moonlighting). Honest weakness: the platform may be legally entitled to query labour-insurance records directly, and the worker may not want the primary employer to know a status was issued at all, since issuing could itself tip off the employer.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "A service demanding identity documents under threat of suspension without stating purpose or offering a lighter alternative.",
+    "source_excerpt": "A service needs to confirm a subscriber's payment, but it demands an identity document and address proof, and threatens suspension if the user refuses, without stating the purpose or necessity. | mechanism: None; the complaint notes no stated purpose or less-intrusive alternative was offered."
+   }
+  ]
+ }
+]
