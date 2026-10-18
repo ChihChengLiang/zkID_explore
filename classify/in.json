@@ -1,0 +1,866 @@
+[
+ {
+  "id": "c000",
+  "title": "Staff-only discount and access at a company-partnered gym or clinic",
+  "moment": "An employee walks into a gym, dental clinic or cafeteria operator that has a corporate partnership with their employer and wants the staff rate; the counter must confirm the person is currently employed there, not a former employee with an old badge.",
+  "verifier": "Partner gym, clinic, or vendor front desk",
+  "predicate": "Employer signed within the last 24 hours that the holder is a current employee of this company (presented as a member of the partner group, without name).",
+  "disclosed_today": "Staff ID card or badge photo, sometimes a name, employee number and a phone number written on a sign-up sheet; the vendor then keeps the list and may never be told when someone leaves.",
+  "issuer": "Employer, signing a daily or weekly employment-status token; revoking it at departure."
+ },
+ {
+  "id": "c001",
+  "title": "Taipower subsidy-roll proof for a low-income solar rooftop co-op deposit waiver",
+  "moment": "A household applies to join a community rooftop-solar or energy-saving appliance trade-in scheme run by a township office or NGO, which offers a reduced deposit or free installation to households on a subsidised electricity roll. The counter asks for a recent Taipower bill photocopy to confirm the discount.",
+  "verifier": "Township office or NGO running the energy-efficiency program",
+  "predicate": "This account is a member of the Taipower low-income or vulnerable-household discount roll (set membership, current period)",
+  "disclosed_today": "Full electricity bill copy showing the service address, account number, monthly kWh usage, billing amounts, and the household name",
+  "issuer": "Taipower (or the Taipower subsidy roll maintainer, co-signing with the social affairs bureau list)"
+ },
+ {
+  "id": "c002",
+  "title": "Single free-trial or first-order coupon per person on food delivery and ride apps",
+  "moment": "A person signs up for a food delivery or ride-hailing app and claims the new-user discount or first-month free trial, which the platform wants to limit to one per human instead of one per phone number or email.",
+  "verifier": "A delivery or mobility platform's promotion service.",
+  "predicate": "The claimant is a unique real subscriber who has not claimed this platform's new-user offer before (platform-scoped nullifier), without the platform learning which subscriber.",
+  "disclosed_today": "Phone number with SMS code, device ID, payment card fingerprint, sometimes the name and the national ID on a verification step; the platform links all of it to the account.",
+  "issuer": "A Taiwanese mobile carrier, signing a per-person subscriber credential."
+ },
+ {
+  "id": "c003",
+  "title": "Active-worker status for a gig or dispatch platform's insurance and shift eligibility",
+  "moment": "A person signs up for evening shifts through a staffing or delivery platform and the platform asks them to upload an ID copy and a letter from their main employer to confirm that they are still employed elsewhere and so covered by labour insurance, avoiding duplicate enrolment.",
+  "verifier": "Staffing, gig or delivery platform onboarding team (人力派遣 / 外送平台)",
+  "predicate": "Person is currently enrolled and active with a primary employer today, so the platform need not enrol them separately; no employer identity or pay is revealed.",
+  "disclosed_today": "ID copy with address, a letter or labour-insurance record naming the primary employer, sometimes pay records.",
+  "issuer": "The primary employer, signing an 'active insured employee' status and revoking it on separation."
+ },
+ {
+  "id": "c004",
+  "title": "Online marketplace seller reputation for a night-market stall or consignment shop slot",
+  "moment": "A Shopee or Ruten seller wants a physical consignment shelf in a Taipei pop-up shop or a booth at a weekend market. The organizer wants to know the seller is real and fulfils orders reliably.",
+  "verifier": "Pop-up market organizer or consignment shop owner",
+  "predicate": "Shopee shop completed orders in the last 6 months is at least 200 AND on-time shipping rate is at least 95 percent",
+  "disclosed_today": "Shop URL plus screenshots of the seller dashboard, which show revenue, buyer names, product margins, and sometimes bank account hints",
+  "issuer": "Shopee seller center account, attested via zkTLS"
+ },
+ {
+  "id": "c005",
+  "title": "Landlord checks rent-payment regularity without seeing the tenant's bank statement",
+  "moment": "A tenant applying for a rental in Taipei is asked by the landlord or agent to send photos of 6 to 12 months of passbook or e-banking statements to show they pay rent on time and have a steady balance.",
+  "verifier": "Private landlord or rental agency (房仲)",
+  "predicate": "In each of the last 12 months, the account made a recurring transfer of at least NT$X to a rent-like payee on or before the due date, and the month-end balance never fell below one month's rent.",
+  "disclosed_today": "Full statements showing every transaction, counterparties, merchants, medical or family payments, salary source, and account number.",
+  "issuer": "The tenant's bank, signing a payment-regularity and minimum-balance aggregate over the account's transactions."
+ },
+ {
+  "id": "c006",
+  "title": "Visitor access to a school or kindergarten after a child's infection with a fixed exclusion period",
+  "moment": "A child returns to kindergarten or primary school after hand-foot-mouth disease, influenza or COVID, and the school requires proof the child is no longer contagious and has served the exclusion period, which is time-bounded by health-department guidance.",
+  "verifier": "School nurse or kindergarten administrator",
+  "predicate": "A hospital-signed status \"cleared to return\" valid from the clearance date for the rest of the school term or a stated number of days, without disclosing which illness or the treatment.",
+  "disclosed_today": "Hospital medical certificate or the parent's handwritten statement plus the doctor's note naming the disease, symptoms and medication; some schools photograph the note into class records.",
+  "issuer": "Hospital (paediatrics department)"
+ },
+ {
+  "id": "c007",
+  "title": "Showing a landlord that a tenant is not on the public-housing or rent-subsidy disqualification list",
+  "moment": "A tenant applying to a private landlord that participates in the government social-housing sublease scheme, or a landlord renting under a subsidy program, must show the applicant is not disqualified for owning other property or prior fraud. The agency or landlord's agent collects tax and property records.",
+  "verifier": "Landlord or intermediary operator under the sublease-subsidy program",
+  "predicate": "The applicant is NOT on the register of persons disqualified or blacklisted from housing subsidy for prior false declaration or recovered overpayment.",
+  "disclosed_today": "Full property ownership transcript, income tax records, household composition, and ID copies delivered to the operator.",
+  "issuer": "Ministry of the Interior Construction and Planning Agency (or local housing bureau) as keeper of the disqualification list."
+ },
+ {
+  "id": "c008",
+  "title": "Landlord checks six months of rent payments without seeing the bank statement",
+  "moment": "A tenant renewing or applying for a rental in Taipei or Taichung is asked by the landlord or agent to photograph passbook pages or send bank statements to prove they have always paid rent on time.",
+  "verifier": "Landlord or rental agency",
+  "predicate": "Count of monthly outgoing transfers of at least the rent amount to the same payee in the last 6 months is 6, with no more than 0 returned or failed transfers.",
+  "disclosed_today": "Full statements or passbook pages showing every transaction, balances, employer name, medical or religious payees, and family transfers.",
+  "issuer": "Tenant's bank (bank signs the count over its own transaction ledger)"
+ },
+ {
+  "id": "c009",
+  "title": "Joining a community or school volunteer role without disclosing a full police record",
+  "moment": "Signing up as an after-school tutor, a temple or community-centre volunteer, or a sports coach for minors; the organisation must confirm the person is not on the list of those barred from working with children under child and youth welfare rules, but today collects the full non-criminal-record certificate.",
+  "verifier": "Cram school, community association, sports club, or school volunteer coordinator",
+  "predicate": "Holder is not on the register of persons barred from working with children and youths (e.g., convicted of listed offences or subject to employment bans).",
+  "disclosed_today": "Police criminal record certificate (with full history of conviction categories), national ID number, home address, photo, sometimes household registration transcript.",
+  "issuer": "Ministry of Health and Welfare / Ministry of Education (employment-ban registers), via Ministry of Justice records"
+ },
+ {
+  "id": "c010",
+  "title": "Low-income electricity discount without handing over the bill",
+  "moment": "A household applies to its village/district office or a charity for a summer electricity-cost subsidy or free air-conditioner/appliance replacement programme, and is asked to bring a recent Taipower bill showing the electricity account number, address, usage in kWh and payment history.",
+  "verifier": "District office or charity running an appliance-replacement or energy-subsidy programme",
+  "predicate": "The Taipower account is a member of the set of accounts on the current low-income / subsidised-household roll (membership, no address or usage revealed).",
+  "disclosed_today": "Full electricity bill copy with account number, installation address, monthly kWh usage (which reveals occupancy and habits), billing name and payment record.",
+  "issuer": "Taipower (or the water/gas utility) signing roll membership for the account"
+ },
+ {
+  "id": "c011",
+  "title": "Current-staff check for a corporate-discount purchase at a telco or retailer counter",
+  "moment": "A person buys a phone plan or appliance at a store under an employee-benefit partnership, and the clerk photocopies the employee badge and ID card to confirm the buyer works at the partner company.",
+  "verifier": "Telco or retail store clerk running a corporate-partner discount (企業員工專案)",
+  "predicate": "Holder is a current employee of the partner company today, not a former one still carrying an old badge.",
+  "disclosed_today": "Photo of the employee badge, ID card copy, sometimes a payslip, giving name, ID number, department and photo.",
+  "issuer": "The partner employer, signing a freshness-bound 'currently employed here' status and revoking it when the person leaves."
+ },
+ {
+  "id": "c012",
+  "title": "One-per-person lottery entry for convenience-store and department-store promotions",
+  "moment": "A person enters an online draw (for example a 7-Eleven or anniversary-sale prize draw) that is limited to one entry per person, and the organizer wants to stop people from entering with many throwaway phone numbers.",
+  "verifier": "A retailer or the marketing agency running the promotion campaign page.",
+  "predicate": "This entrant holds exactly one real, active postpaid or verified prepaid subscription, and has not entered this campaign before (campaign-scoped uniqueness tag).",
+  "disclosed_today": "Mobile phone number, an SMS one-time code, often name, email and sometimes national ID number or the last digits of it, all stored in the campaign database.",
+  "issuer": "A Taiwanese mobile carrier (such as Chunghwa Telecom, Taiwan Mobile or FarEasTone), which already registers every SIM against a real-name identity."
+ },
+ {
+  "id": "c013",
+  "title": "Sick-leave validity window for a school or exam make-up without the diagnosis",
+  "moment": "A parent in Taiwan asks a school to excuse a child's absence from a midterm or a school trip, or a university student asks for a make-up exam after illness. The school asks for the diagnosis certificate (診斷證明書) to be photocopied or photographed and sent over LINE or the school portal.",
+  "verifier": "School administrative office or university registrar",
+  "predicate": "A hospital physician attests that the holder was medically unfit to attend school or sit exams between date A and date B. The proof is valid only for that window and reveals no diagnosis, department or treatment.",
+  "disclosed_today": "Full diagnosis certificate showing the diagnosis, the ICD wording, the physician, the department, the full name and the national ID number. It is often kept in the student file or sent through a class group chat.",
+  "issuer": "Treating hospital, via its physician-signed certificate system"
+ },
+ {
+  "id": "c014",
+  "title": "Student-status discount tied to the same person as the transit or telecom account",
+  "moment": "A student buys a youth/student monthly pass or a campus-plan mobile subscription, and the seller must be sure the enrolled student is the same person as the account holder.",
+  "verifier": "Transit operator student-pass counter or telecom reseller",
+  "predicate": "The university-signed \"currently enrolled\" claim and the national-ID-bound claim in the wallet refer to the same person, without revealing the ID number or student number.",
+  "disclosed_today": "Student ID card photo, national ID card photo or number, birth date, school name, student number, sometimes a photocopy kept on file.",
+  "issuer": "University (enrollment status), matched against a second issuer such as the MOI digital ID or a telecom account"
+ },
+ {
+  "id": "c015",
+  "title": "Proving a vehicle owner has no unpaid traffic fines before a used-car sale transfer",
+  "moment": "A buyer at a second-hand car dealer, or a private seller, needs the seller to show that the seller has no unpaid traffic fines or license-suspension notices attached to them or the plate before ownership transfer is processed at the motor vehicle office or agreed privately.",
+  "verifier": "A used-car dealer or a private buyer, and sometimes an escrow or insurance agent",
+  "predicate": "The holder is not on the list of persons with outstanding unpaid traffic penalties or an active licence suspension (non-membership), tied to the holder, not to a photo of a document.",
+  "disclosed_today": "Full ID card, driver licence photo, vehicle licence and registration details, and sometimes screenshots of the government fine-lookup page showing the entire list of violations with dates and places.",
+  "issuer": "Directorate General of Highways (Ministry of Transportation and Communications) or the Motor Vehicles Office"
+ },
+ {
+  "id": "c016",
+  "title": "Online marketplace seller sales threshold for a night-market or pop-up stall slot",
+  "moment": "A Shopee or Ruten seller applies to a city-run weekend creative market (such as a Taichung or Tainan pop-up bazaar) for a priority stall slot that is reserved for sellers who already have a proven online sales record.",
+  "verifier": "Market organizer or district office running the stall lottery",
+  "predicate": "Seller account has at least 200 completed orders and at least 95 percent positive reviews in the past 6 months",
+  "disclosed_today": "Screenshots of the seller dashboard with revenue, customer names, supplier costs, and the shop's bank payout details, sometimes the full order spreadsheet",
+  "issuer": "Marketplace seller account (seller center), shown through a zkTLS proof over the seller center page"
+ },
+ {
+  "id": "c017",
+  "title": "Fit-to-fly / low-infection-risk window for a cruise or group-tour boarding",
+  "moment": "A traveller boards a cruise ship at Keelung or joins a group tour, and the operator asks for a recent negative test, a vaccination record or a doctor's note showing no infectious illness in the last few days.",
+  "verifier": "Cruise line or tour operator boarding desk",
+  "predicate": "Hospital attests \"cleared of notifiable infectious condition\" and the attestation is valid only for the 72 hours around departure (valid-from / valid-to window), nothing else.",
+  "disclosed_today": "Full lab report or clinic certificate with name, ID number, diagnosis context, test type, clinic and physician, kept as a photocopy or photo by the operator.",
+  "issuer": "Hospital or its outpatient clinic, signing a short-lived status credential into the digital wallet."
+ },
+ {
+  "id": "c018",
+  "title": "Landlord-free proof that a rented unit is on the residential-rate roll for a tenant subsidy",
+  "moment": "A tenant applies for a municipal rent subsidy or a student housing grant that requires the unit to be billed at the residential rate (not commercial or illegal sub-divided rates). The office asks for water and electricity bills, which expose the landlord's account, the tenant's name, and the exact unit.",
+  "verifier": "City housing bureau or university housing office",
+  "predicate": "The tenant's utility account is a member of the set of accounts on the residential tariff class at an eligible metering configuration (individual meter, not shared)",
+  "disclosed_today": "Water and electricity bills with full address, landlord or account-holder name, usage, and sometimes unrelated charges",
+  "issuer": "Taipower and Taiwan Water Corporation (each signs its own roll membership)"
+ },
+ {
+  "id": "c019",
+  "title": "Dorm or campus-housing landlord checks tenant is the enrolled student named on the lease deposit subsidy",
+  "moment": "A private landlord renting near a university takes a student tenant who claims a rent subsidy or student-rate lease, and the landlord's bank or local-government subsidy office needs to confirm the tenant is the enrolled student.",
+  "verifier": "Private landlord or housing subsidy office",
+  "predicate": "The university enrollment claim and the tenant's government-issued identity claim belong to the same person, with the ID number and student number withheld.",
+  "disclosed_today": "Full ID card copy, student ID copy, home address, parents' contact details, sometimes a transcript or enrollment certificate.",
+  "issuer": "University (enrollment), matched against the national digital ID or household registration credential"
+ },
+ {
+  "id": "c020",
+  "title": "Proving a tenant's subsidised-utility status to a landlord or social-housing agency without revealing the rented address",
+  "moment": "A person applying for a rent subsidy or a social-housing waitlist slot must show they currently hold a utility account on the subsidised roll, but the agency is also a different locality from the one they rent in, and the applicant does not want a prospective landlord or agency to see the address and usage history.",
+  "verifier": "Municipal housing bureau or social-housing intermediary (e.g. a city social housing agency or a rent-subsidy application window)",
+  "predicate": "The applicant's utility account belongs to the set of accounts on the subsidised-rate roll (and is active), without revealing which account or address.",
+  "disclosed_today": "Recent utility bills with address and consumption, lease copy, household registration, and sometimes several months of statements to show continuity.",
+  "issuer": "Taipower / Taiwan Water Corporation"
+ },
+ {
+  "id": "c021",
+  "title": "Postpartum or post-surgery 'not fit to travel / fit to return' window for employer leave and insurer claims",
+  "moment": "An employee on 病假 or 產假 extension submits a doctor's certificate to HR, or a patient submits it to a travel insurer, to show they were medically unable to work or travel on specific dates.",
+  "verifier": "Employer HR department or travel/health insurer claims desk",
+  "predicate": "Hospital attests 'medically unfit for work/travel for the period [start, end]' as a boolean over a date range, with no diagnosis.",
+  "disclosed_today": "診斷證明書 with diagnosis name, ICD code, procedures, and attending physician notes, sent to HR or insurer by scan or email.",
+  "issuer": "Treating hospital"
+ },
+ {
+  "id": "c022",
+  "title": "Hospital internship or clinical-placement badge matched to professional licence",
+  "moment": "A nursing or medical student starts a clinical placement at a teaching hospital, and the hospital must confirm the university-enrolled student is the same person as the holder of a separate vaccination or background-check record from another issuer.",
+  "verifier": "Hospital HR or placement coordinator",
+  "predicate": "The university-signed placement-eligibility claim and the health-authority vaccination claim refer to the same person, with neither the ID number nor other health records revealed.",
+  "disclosed_today": "Full vaccination card, national ID copy, student ID, sometimes a full health check report, collected into a paper file.",
+  "issuer": "University (placement eligibility), matched against a second issuer such as the health authority vaccination record"
+ },
+ {
+  "id": "c023",
+  "title": "Proving no outstanding exit restriction when buying a used car at a dealer",
+  "moment": "A buyer or seller at a used-car dealership or consignment lot in Taiwan needs the vehicle transfer to go through, and the dealer wants assurance the seller is not under a travel or asset restriction and the car is not seized. Today the dealer photocopies the seller's ID, license and often household register.",
+  "verifier": "Used-car dealer or consignment broker",
+  "predicate": "The seller's national ID is NOT on the court or administrative enforcement (seizure / transfer-restriction) register for this vehicle's plate at the time of signing.",
+  "disclosed_today": "Front-and-back ID copy, driver's license copy, sometimes household register transcript with address and family members; the dealer keeps the copies in the deal folder.",
+  "issuer": "Directorate General of Highways / MVDO jointly with Judicial Yuan enforcement records (government signs a non-membership attestation over the restriction register)."
+ },
+ {
+  "id": "c024",
+  "title": "Active-staff proof for staff-only discount at a hospital or university cafeteria and parking",
+  "moment": "A nurse or contract cleaner at a hospital in Taichung wants the staff meal rate and staff parking tariff, which operators run via outsourced concessions that must not give staff rates to people who have left.",
+  "verifier": "Outsourced cafeteria or parking concessionaire",
+  "predicate": "Holder is on the active payroll or roster of this institution as of today (freshness under 24 hours).",
+  "disclosed_today": "Staff card with name, photo and employee number, which the cashier or parking system logs and may keep.",
+  "issuer": "Hospital or university HR/outsourcing employer, including the contractor employer for outsourced workers."
+ },
+ {
+  "id": "c025",
+  "title": "Medical-electricity-equipment household flag for priority outage notification or emergency-shelter registration",
+  "moment": "A household that uses life-support equipment at home (ventilator, oxygen concentrator, dialysis) signs up with the city fire department or a typhoon-season emergency program to get priority power-restoration and evacuation help, and an outage-relief volunteer group or shelter operator wants to confirm the household is on the utility's medical-need roll.",
+  "verifier": "District emergency management office, fire department, or a community volunteer network running outage and typhoon response",
+  "predicate": "The household's utility account is a member of the set of accounts flagged by the utility as having medical-equipment dependency (a priority-care roll), without revealing the specific address or usage pattern to every volunteer who handles the list.",
+  "disclosed_today": "Full address, a copy of the utility bill, the medical certificate or disability card, and a list of equipment, often collected on paper forms and shared with many volunteers.",
+  "issuer": "Taipower, signing membership in a priority-care or medical-need account list"
+ },
+ {
+  "id": "c026",
+  "title": "Anonymous eligibility for community solar or energy-saving appliance rebate lottery",
+  "moment": "A resident enters a local government rebate draw for efficient appliances or a rooftop solar subsidy that is reserved for households on the utility's subsidised or demand-response enrolled roll, and is asked to upload a bill so officials can check enrolment and de-duplicate entries.",
+  "verifier": "City government bureau running the rebate draw",
+  "predicate": "The entrant's account is a member of the enrolled subsidy roll and has not already entered (membership plus a single-use token), with no address or usage revealed.",
+  "disclosed_today": "Bill image with name, address, account number and monthly kWh, stored by the contractor handling the application.",
+  "issuer": "Taipower, signing enrolment membership of its subsidy or demand-response roll"
+ },
+ {
+  "id": "c027",
+  "title": "Ride-hailing driver tenure for a fleet-lease or insurance quote",
+  "moment": "A Taiwan Taxi (台灣大車隊) or Uber driver applies for a lower-premium commercial auto policy or a leased vehicle from a fleet owner, who wants proof of steady driving history.",
+  "verifier": "Fleet leasing company or commercial auto insurer's agent",
+  "predicate": "Active trips completed in the last 12 months is at least 3000 AND account age is at least 24 months",
+  "disclosed_today": "Full monthly income statements, trip logs with pickup and dropoff addresses, and sometimes the driver's whole app account screenshots",
+  "issuer": "Ride-hailing platform driver account, attested via zkTLS"
+ },
+ {
+  "id": "c028",
+  "title": "Proof of recent negative infectious-disease clearance for a short-stay care-facility or day-care visit",
+  "moment": "A visitor, volunteer or new aide at a nursing home, long-term care center or kindergarten has to show they were tested or cleared (for example no active TB, influenza or norovirus symptoms) within the past few days before entering. Staff today often ask for a photo of the lab report or hospital slip at the door.",
+  "verifier": "Long-term care facility, nursing home or kindergarten staff at the entrance or HR desk",
+  "predicate": "A hospital signs a status of cleared for entry, valid only for N days from the test date. The verifier checks that the status is still in its window and learns neither the test type, the result detail nor any other clinical content.",
+  "disclosed_today": "The entire lab or screening report, with the name, ID number, test types, other tested items and often the hospital visit details.",
+  "issuer": "Hospital laboratory or infection-control department"
+ },
+ {
+  "id": "c029",
+  "title": "Still-employed check on gig-platform or staffing-agency workers entering a client factory gate",
+  "moment": "A dispatched worker from a staffing agency arrives at a client's plant in Taoyuan; the gate must confirm that the agency still employs them, since dispatch contracts end abruptly.",
+  "verifier": "Client factory security gate or contractor-access system",
+  "predicate": "Holder is currently employed by a named staffing agency under a live dispatch contract, with the signature issued today and revocable.",
+  "disclosed_today": "National ID card copy or number, full name, phone number, agency contract copy, entered into a visitor log.",
+  "issuer": "Staffing or dispatch agency as employer."
+ },
+ {
+  "id": "c030",
+  "title": "Not a delinquent taxpayer when a seller registers on a marketplace or bids for a small public contract",
+  "moment": "A sole proprietor or freelancer signs up to sell on an online platform or to bid for a small municipal procurement and is asked to prove they have no overdue taxes or tax-collection restrictions.",
+  "verifier": "Online marketplace onboarding team or a city-government procurement clerk",
+  "predicate": "Holder is not on the list of persons with overdue taxes or with enforced-collection or restricted-exit tax cases (欠稅 / 移送執行名單) at issuance time",
+  "disclosed_today": "A full tax-clearance certificate (完稅證明 / 無欠稅證明) showing taxpayer name, ID number, and often tax amounts or income categories, plus a business registration copy",
+  "issuer": "Ministry of Finance National Taxation Bureau (財政部國稅局), or the local tax bureau for local taxes"
+ },
+ {
+  "id": "c031",
+  "title": "Delivery-platform courier rating for a building management committee hire",
+  "moment": "A residential community (社區) in Taipei hires a part-time package-room or night-shift concierge, or lets a gig courier get a building access tag. The management committee wants evidence of reliability.",
+  "verifier": "Community management committee (管理委員會) or its property management company",
+  "predicate": "Lifetime completed deliveries on a delivery platform is at least 500 AND average customer rating is at least 4.7",
+  "disclosed_today": "Screenshots of the courier app profile showing real name, photo, phone number, order history, earnings, and city zones worked",
+  "issuer": "Delivery platform account (Uber Eats / foodpanda courier app), attested via zkTLS over the logged-in session; the platform never agreed to issue credentials"
+ },
+ {
+  "id": "c032",
+  "title": "Delivery-platform rating threshold for a building's package-room courier access",
+  "moment": "A freelance food or parcel courier (Uber Eats, foodpanda, Lalamove driver) applies to a Taipei residential community management committee (社區管委會) or a premium office building for a standing courier access pass, and the building wants evidence the courier is experienced and reliable.",
+  "verifier": "Community management office or building property manager issuing recurring courier access",
+  "predicate": "Platform account has at least 500 completed deliveries and a rating of at least 4.7 over the last 12 months",
+  "disclosed_today": "Full screenshots of the driver app showing real name, photo, vehicle plate, earnings, home-area zone, and sometimes the national ID photo copy for the access register",
+  "issuer": "The delivery platform's own driver account, attested through a zkTLS session over the driver app's stats page (platform did not agree to issue credentials)"
+ },
+ {
+  "id": "c033",
+  "title": "Hospital-signed fit-to-fly or fit-to-travel window for an airline or ferry to the outlying islands",
+  "moment": "A passenger recovering from surgery, late pregnancy or a heart event books a flight to Kinmen, Penghu or Lanyu, or a long-haul flight, and the carrier or tour operator asks for a doctor's fitness note. Staff photocopy or photograph the note and sometimes keep it with the booking.",
+  "verifier": "Airline check-in counter, ferry operator or travel agent handling the booking",
+  "predicate": "A hospital physician signs that the holder is medically fit to travel for a trip on dates within a stated window, and the proof stops being valid after the window. No diagnosis, procedure, gestational detail or medication is shown.",
+  "disclosed_today": "A medical certificate with the diagnosis, the procedure or gestational age, the medications, the physician details and the full ID number. It is copied and stored with the booking records.",
+  "issuer": "Treating hospital (attending physician's office)"
+ },
+ {
+  "id": "c034",
+  "title": "Pet boarding and grooming intake without exposing owner's animal-abuse record",
+  "moment": "Booking a multi-day stay at a pet hotel or applying to adopt from a private shelter; the operator wants assurance the person is not on the registered list of those penalized under the Animal Protection Act (e.g., banned from keeping animals).",
+  "verifier": "Pet hotel, private rescue group, or adoption platform",
+  "predicate": "Holder is not on the competent authority's register of persons prohibited from keeping or adopting animals (non-membership in a sanction list).",
+  "disclosed_today": "Full ID card photo, name, address, phone, sometimes a hand-written declaration; shelters may also ask for household and employment details.",
+  "issuer": "Ministry of Agriculture / local animal protection office (Animal Protection Act enforcement)"
+ },
+ {
+  "id": "c035",
+  "title": "Hospital-signed 'currently in treatment course' status for a pharmacy or school to grant a temporary accommodation",
+  "moment": "A parent asks a school for a short-term accommodation (exempting a child from PE or the cafeteria, or allowing a medication break) or a worker asks a company for a temporary shift change during a defined treatment cycle such as chemotherapy or post-fracture recovery.",
+  "verifier": "School health office (健康中心), employer, or gym/pool operator",
+  "predicate": "Hospital attests 'accommodation category X applies' valid until the course end date, auto-expiring afterward.",
+  "disclosed_today": "Hospital certificate or discharge summary naming the disease and treatment plan, often photocopied and kept in the school file indefinitely.",
+  "issuer": "Treating hospital"
+ },
+ {
+  "id": "c036",
+  "title": "Disaster-relief priority for households on the medical-equipment power-dependent roll",
+  "moment": "During a typhoon outage or planned rolling blackout, a household that depends on home ventilators or oxygen concentrators wants priority for restoration or a generator loan from the local fire or health station. Staff ask people to send the address, a medical certificate, and electricity bill by chat or phone.",
+  "verifier": "District fire department or public health center distributing priority generators",
+  "predicate": "The account is a member of Taipower's registered power-dependent medical-use customer roll",
+  "disclosed_today": "Address, diagnosis or medical certificate, bill, and sometimes a photo of the device",
+  "issuer": "Taipower (maintains the priority-restoration list for medical-equipment households)"
+ },
+ {
+  "id": "c037",
+  "title": "Ride-hailing driver trip count to qualify for a fleet vehicle lease discount",
+  "moment": "A part-time Uber or LINE Taxi driver in Kaohsiung applies at a car leasing company for a discounted lease reserved for drivers with a proven active record.",
+  "verifier": "Car leasing or fleet financing company",
+  "predicate": "Platform account shows at least 1,000 completed trips and at least 12 active months",
+  "disclosed_today": "Monthly earnings statements and the full trip history export, including pickup and drop-off addresses of passengers, the driver's bank account and tax details",
+  "issuer": "Ride-hailing platform account (driver portal), proven by zkTLS over the logged-in driver portal session"
+ },
+ {
+  "id": "c038",
+  "title": "Low-income electricity subsidy proof for school lunch or tuition aid",
+  "moment": "A parent applies for a school's low-income or near-poor student aid (tuition waiver, free lunch, after-school care subsidy) and is asked to submit a household certificate plus a copy of recent utility bills to show the household sits on the subsidised-electricity roll.",
+  "verifier": "School administrative office or district education bureau",
+  "predicate": "The household's electricity account is a member of the utility's low-income or welfare-tariff roll (set membership), with no address or kWh usage revealed.",
+  "disclosed_today": "Full utility bill with address, account number, meter number, monthly usage and payment history, often photocopied and kept in the student file.",
+  "issuer": "Taiwan Power Company (Taipower), signing membership of its welfare-tariff roll"
+ },
+ {
+  "id": "c039",
+  "title": "Employer sick-leave or surgery-recovery verification for a specific absence period",
+  "moment": "An employee is hospitalised or has outpatient surgery and the HR department wants proof that the absence is genuine and covers a date range, before approving paid sick leave or the Labor Standards Act sick-leave allowance.",
+  "verifier": "Employer HR or payroll department",
+  "predicate": "A hospital-signed attestation that the holder was medically unfit for work for the dates from X to Y (credential valid only for that interval), with no diagnosis.",
+  "disclosed_today": "Diagnosis certificate (診斷證明書) listing the diagnosis, procedure, ward, treating physician and recommended rest days; HR staff and sometimes line managers see the whole certificate.",
+  "issuer": "Hospital (attending physician or medical records office)"
+ },
+ {
+  "id": "c040",
+  "title": "Contract cleaner or security guard proves current on-duty authorization at a building gate",
+  "moment": "A building management office or gated community in Taiwan lets outsourced staff (cleaning, security, delivery of company goods) enter when their employer vouches they are currently on its roster, and today collects an ID copy and writes down the national ID number in a paper visitor log.",
+  "verifier": "Building management committee or reception desk",
+  "predicate": "Holder is on the active roster of a named contractor employer as of now",
+  "disclosed_today": "National ID card photocopy or recorded ID number, full name, phone number, plus a paper letter from the contractor",
+  "issuer": "The contracting employer, signing a short-lived roster-membership credential and revoking it when the worker leaves"
+ },
+ {
+  "id": "c041",
+  "title": "Night-market stall helper proves current employment to get a staff-only phone plan or rental viewing slot",
+  "moment": "A landlord or agency in Taipei offers a lower rent or fast-track viewing to tenants who are currently employed at a stable company, and asks for a recent pay slip or employment certificate.",
+  "verifier": "Private landlord or rental agency",
+  "predicate": "Holder is currently employed by a registered employer (not terminated or resigned) as of the last 24 hours",
+  "disclosed_today": "Employment certificate or pay slip showing full name, national ID number, salary, employer, job title, address",
+  "issuer": "The employer, via an employer-signed credential with revocation upon termination"
+ },
+ {
+  "id": "c042",
+  "title": "One vote per resident in a building or community management committee online poll",
+  "moment": "A Taiwanese apartment building management committee or a neighbourhood association runs a mobile vote on a repair levy or a rule change; today the organiser collects names, unit numbers and phone numbers to prevent duplicate votes.",
+  "verifier": "Building management committee or community association",
+  "predicate": "One distinct real person per ballot, scoped to this poll, with no name, number or unit published in the tally.",
+  "disclosed_today": "Full name, unit number, phone number, and sometimes a photo of the ID card to confirm that a voter is a real, single person.",
+  "issuer": "Telco as the real-name subscriber record, with the committee separately knowing the eligible list or an eligibility credential."
+ },
+ {
+  "id": "c043",
+  "title": "Currently-employed proof for the convenience-store parcel pickup of a company-paid corporate card",
+  "moment": "A new hire at a Hsinchu science-park firm opens a corporate-sponsored e-commerce or transit-subsidy account that is only valid while the person is employed, and the platform must re-confirm every month that the employment has not ended.",
+  "verifier": "Corporate benefits platform or commuter-shuttle/subsidy operator that serves many employers",
+  "predicate": "Holder is currently employed by a firm enrolled in the programme, as attested within the last 30 days, and the attestation has not been revoked.",
+  "disclosed_today": "Employee ID, full name, department, job title, employer HR letter or staff card photo, sometimes payroll slip.",
+  "issuer": "Employer HR system (signs a short-lived employment-active credential and revokes it on resignation)."
+ },
+ {
+  "id": "c044",
+  "title": "Linking a university research-participant record to a hospital clinical-trial enrolment",
+  "moment": "A university hospital-affiliated lab recruits a graduate student or staff member for a paid study that requires both a university-signed role claim (for example, enrolled in a health-science program) and a separate hospital or health-agency issued eligibility claim, and the study office wants to be sure both refer to the same person.",
+  "verifier": "University institutional review board office or the clinical-trial coordinator",
+  "predicate": "The university-signed claim and the claim from the second issuer (hospital or health insurance) belong to the same holder, shown without revealing the national ID number or health insurance number to the study office.",
+  "disclosed_today": "Full name, national ID number, student number, health insurance card details and sometimes a scanned copy of both documents, stored in the study consent file.",
+  "issuer": "University (program enrolment) cross-matched with a hospital or health insurance issuer."
+ },
+ {
+  "id": "c045",
+  "title": "One ticket-grab account per person for a popular concert presale",
+  "moment": "A Taiwanese ticketing platform opens a presale for a sold-out concert; the organiser wants each fan to hold only one buying account so scalpers cannot run hundreds of accounts, but fans do not want to hand over their ID.",
+  "verifier": "Ticketing platform and concert organiser",
+  "predicate": "This person holds exactly one active mobile subscription, and the proof is bound to this event so the same person cannot register twice for it, while accounts are not linkable across events.",
+  "disclosed_today": "Mobile number with SMS OTP (trivially farmed with prepaid SIMs), or in the strict case a national ID number and a photo of the ID card.",
+  "issuer": "Telco (Chunghwa Telecom, Taiwan Mobile, FarEasTone) that already holds the real-name subscriber record."
+ },
+ {
+  "id": "c046",
+  "title": "Telecom student-plan SIM activation tied to a university enrolment",
+  "moment": "A student applies online or in a shop for a discounted student mobile plan or a campus-partner SIM and the telecom must confirm that the enrolled student is the same named person applying, not someone using stolen identity data.",
+  "verifier": "Telecom operator online applications platform or retail shop",
+  "predicate": "The university-signed enrolment claim and the wallet identity credential refer to the same holder, proved with a possession-bound match instead of typing in ID number and issue date.",
+  "disclosed_today": "National ID number, ID issue date, name, birthdate, student number, and sometimes uploaded photos of the ID and student card.",
+  "issuer": "University (enrolment) cross-matched with the national digital wallet identity credential."
+ },
+ {
+  "id": "c047",
+  "title": "Merchant proving monthly card-sales volume for a terminal or subsidy eligibility without exposing customers' transactions",
+  "moment": "A night-market stall owner or small shop applying for a mobile-payment terminal upgrade, a municipal small-business subsidy or a supplier credit line is asked for twelve months of acquiring-bank settlement records, which list every customer card transaction.",
+  "verifier": "Local government economic development bureau, payment processor, or wholesale supplier offering trade credit",
+  "predicate": "Average monthly card and mobile-payment settlement over the last 12 months is between NT$A and NT$B, with no month below NT$C.",
+  "disclosed_today": "Full settlement statements with per-transaction timestamps, amounts, masked card numbers, and the shop's account balances and bank transfers.",
+  "issuer": "The merchant's acquiring or settlement bank (signing a sales aggregate)"
+ },
+ {
+  "id": "c048",
+  "title": "One free-trial or student-discount sign-up per person on an online learning or streaming service",
+  "moment": "A Taiwanese online course platform or video streaming service offers a one-time free trial or first-month discount, and abusers re-register with new emails and bought SMS numbers to get repeated trials.",
+  "verifier": "A subscription streaming or e-learning platform operating in Taiwan.",
+  "predicate": "The signer is one unique real telco subscriber, with a trial-specific nullifier not seen before.",
+  "disclosed_today": "Mobile phone number, email, sometimes a credit card number for the trial, and device fingerprints, which together identify the person for later marketing and cross-service tracking.",
+  "issuer": "A Taiwanese mobile carrier."
+ },
+ {
+  "id": "c049",
+  "title": "Showing a nanny or tutor is not on the sex-offender notification register",
+  "moment": "A parent hires a private after-school tutor, a babysitter from a platform, or a cram-school teaches a trial class, and the hiring side wants assurance the person is not on the sexual-offender registry (性侵害加害人登記). Today they ask for a police record certificate (良民證) from the candidate.",
+  "verifier": "A parent, a childcare or tutoring platform, or a small cram-school owner",
+  "predicate": "The holder is not on the sexual-offence offender registration or notification list (non-membership), plus the signing authority and date.",
+  "disclosed_today": "A full criminal-record certificate, which can reveal unrelated old convictions, offences already expunged in practice, and the candidate's complete identity details, and is photocopied and kept by the employer.",
+  "issuer": "Ministry of the Interior (police administration), or the Ministry of Justice for the criminal record side"
+ },
+ {
+  "id": "c050",
+  "title": "Tenant screening without handing over full ID for a stalking or protection-order check",
+  "moment": "A landlord or a shared-housing (cohabitation) operator screens a prospective roommate or tenant in a female-only or family-oriented building and wants to know the applicant is not subject to an active protection order or sex-offender community notification/registration under the Sexual Assault Crime Prevention Act.",
+  "verifier": "Landlord, shared-housing operator, or rental platform",
+  "predicate": "Holder does not appear on the sex-offender registration/notification register nor is subject to an active protection order restricting residence near others.",
+  "disclosed_today": "ID card copy, household registration transcript, criminal record certificate (which shows far more than needed), employer letter, sometimes family details.",
+  "issuer": "Ministry of the Interior / National Police Agency, or Judicial Yuan for court orders"
+ },
+ {
+  "id": "c051",
+  "title": "Renter proves tenancy at a utility-registered address to a school or clinic without a bill",
+  "moment": "A family enrolling a child in a public school catchment, or registering at a community clinic's local-resident programme, is asked for a recent water or electricity bill as proof that they live in a utility-registered dwelling in the district, when they rent and the household registration is elsewhere.",
+  "verifier": "School administration or local clinic enrolment desk",
+  "predicate": "The water account belongs to the set of active residential accounts registered within the district catchment (membership in a geographic roll, not the exact address or usage).",
+  "disclosed_today": "Photocopy of a water or electricity bill showing name, full address, account number, usage and amount owed, which is then filed with the application.",
+  "issuer": "Taiwan Water Corporation or Taipower signing district-roll membership for the account"
+ },
+ {
+  "id": "c052",
+  "title": "Post-surgery or post-procedure \"may be left alone / cleared for pickup\" window for a ride or care service",
+  "moment": "After day surgery or a colonoscopy under sedation, the patient is collected by a family member, a taxi or a nursing-aide service that asks for the discharge summary to prove the patient is cleared to leave and who is responsible.",
+  "verifier": "Taxi or care-transport dispatcher, home-care agency, or a hotel or recovery guesthouse near the hospital",
+  "predicate": "Hospital signs \"discharged in stable condition, may travel or stay unaccompanied after time T\" and it is valid only for the next 24 hours.",
+  "disclosed_today": "The whole discharge note, including diagnosis, procedure name, medications and attending doctor, photographed or handed over on paper.",
+  "issuer": "Hospital discharge system issuing a time-limited status."
+ },
+ {
+  "id": "c053",
+  "title": "Proving not being on the court-ordered debtor restriction list when taking a school-bus or after-school care contract",
+  "moment": "A parent enrolling a child with a private after-school care or school-bus operator is asked for a guarantor or prepayment, and the operator wants assurance the parent is not under a court-ordered restriction (such as a debtor under compulsory enforcement or restricted from leaving the country). It is applied as a general screen by some operators.",
+  "verifier": "Private after-school care or school-bus operator",
+  "predicate": "The parent is NOT on the compulsory-enforcement debtor register maintained by the courts.",
+  "disclosed_today": "Parent's ID copy, contact details, sometimes bank account statement or proof of employment to show solvency.",
+  "issuer": "Judicial Yuan / district court enforcement office."
+ },
+ {
+  "id": "c054",
+  "title": "Proving a stable monthly foreign-remittance pattern to a migrant worker's home-country sponsor or broker",
+  "moment": "A migrant worker in Taiwan, or the Taiwanese employer or broker, is asked by a recruitment agency, a visa-renewal service or a home-country lender to show the worker regularly sends money home, and the agency collects full remittance receipts and bank statements.",
+  "verifier": "Recruitment broker (仲介), home-country microfinance lender, or family-visit visa service",
+  "predicate": "Total remitted abroad in the last 6 months is at least NT$X and remittances occurred in at least 5 of 6 months.",
+  "disclosed_today": "Complete bank statements and remittance slips including employer salary details, deductions, beneficiary names, and sometimes a passport copy.",
+  "issuer": "The worker's bank or remittance-licensed bank (signing a sum and count over transfers)"
+ },
+ {
+  "id": "c055",
+  "title": "Exam-venue or scholarship-exam eligibility matched to government residency claim",
+  "moment": "A student applies to a county or city government scholarship or a subsidised dormitory or rental programme restricted to local residents who are currently enrolled, and the office wants to confirm that the enrolled student and the registered resident are one person.",
+  "verifier": "Local government bureau or foundation administering a resident-student scholarship or rent subsidy",
+  "predicate": "The holder of a university-signed current-enrolment credential is the same person as the holder of a household-registration residency credential from the household registration office, without revealing the ID number, school identifier, grades or household members.",
+  "disclosed_today": "Full household registration transcript (including parents and siblings), national ID copy, student ID, enrolment certificate, often bank passbook cover.",
+  "issuer": "University (enrolment claim), matched to the household registration office (residency claim)"
+ },
+ {
+  "id": "c056",
+  "title": "Library or lab-resource borrowing across two institutions",
+  "moment": "A graduate student from one university wants to borrow materials or book lab equipment at a different institution's library or shared research facility under a reciprocal-access agreement, and the host must confirm the borrower is a current member of the home university and the same person who holds the host's own visitor registration.",
+  "verifier": "Host institution's library desk or shared-instrument facility.",
+  "predicate": "The home university's signed membership claim and the host's visitor account (issued by the host) belong to the same person, with no identifier shown to the host and no record of what the person borrowed linked to a national ID.",
+  "disclosed_today": "Student card, national ID number or passport number for registering a visitor account, and a lending record tied to that identity.",
+  "issuer": "Home university (membership or enrolment), matched against the host institution's own visitor credential."
+ },
+ {
+  "id": "c057",
+  "title": "Ride-hail rating as a deposit waiver for scooter and car-share rental",
+  "moment": "A traveler or student at a shared-car or e-scooter kiosk in Taipei or Kaohsiung is asked to leave a deposit, or the operator screenshots the person's Uber or LINE Taxi passenger profile to judge reliability.",
+  "verifier": "Car-share or scooter-rental operator (for example a station-based car-share service or a rental shop near a train station)",
+  "predicate": "Passenger rating on the ride-hail account is at least 4.8 and the account has at least 50 completed trips",
+  "disclosed_today": "Screenshot of the whole account page, including name, photo, saved addresses, recent trips and phone number; or a cash deposit instead",
+  "issuer": "Ride-hail platform account, with the claim made verifiable through a zkTLS session proof against the platform's own logged-in page (the platform is not an issuer and has not agreed to anything)"
+ },
+ {
+  "id": "c058",
+  "title": "Night-market stall applies for a platform seller badge with a turnover band, not account history",
+  "moment": "A small food or goods vendor applying to sell through a delivery or e-commerce platform in Taiwan is asked to upload bank statements to show monthly receipts, so the platform can set a deposit or credit limit.",
+  "verifier": "Delivery or e-commerce platform's merchant onboarding team",
+  "predicate": "Total incoming deposits across the vendor's business accounts over the last 6 months fall in a stated band (for example NT$100,000 to NT$300,000 per month), and no month is more than 30 percent below the average.",
+  "disclosed_today": "Complete statements for personal and business accounts, including customer names on transfers, private spending, and family transfers, often mixed in the same account.",
+  "issuer": "The vendor's bank (including a credit cooperative or farmers' and fishermen's association bank), signing a turnover-band aggregate."
+ },
+ {
+  "id": "c059",
+  "title": "Alumni-discount claim matched to a transit or telecom subscriber account",
+  "moment": "A graduate renews a subsidised or alumni-linked service (for example a campus-partner telecom plan, a university-affiliated co-working or gym membership, or an alumni association rate) and the vendor wants proof that the person holding the subscription account is the same person the university recognises as an alumnus.",
+  "verifier": "Alumni association or partner vendor offering alumni pricing",
+  "predicate": "The person who holds a university-signed alumnus credential is the same person as the holder of a second issuer's credential (a telecom or membership account credential), proven without revealing the national ID or student number to the vendor.",
+  "disclosed_today": "Photo of national ID, student or alumni card, graduation year, department, phone number, sometimes a scanned diploma.",
+  "issuer": "University (alumnus status claim), matched to a telecom or membership issuer's subscriber claim"
+ },
+ {
+  "id": "c060",
+  "title": "One vote per resident in a building or community management committee online poll",
+  "moment": "An apartment community (a Taiwanese condominium management committee) runs an online vote on a repair levy or elevator replacement, and wants each household member or owner-resident counted once without a roll of who voted how.",
+  "verifier": "The condominium management committee or its property management company.",
+  "predicate": "The voter is one unique real subscriber and has not already cast a ballot in this poll (poll-scoped uniqueness), with no phone number or name revealed.",
+  "disclosed_today": "Name, unit number, phone number, LINE ID, and often a photo of the national ID or the property deed sent through a group chat.",
+  "issuer": "A telco that can sign the person as one real subscriber; ownership or residency would still need a separate attestation."
+ },
+ {
+  "id": "c061",
+  "title": "Electricity-bill subsidy roll as proof of eligibility for a school lunch or after-school care fee waiver",
+  "moment": "A parent enrolls a child in a public after-school care program (or applies for a lunch-fee reduction) at the start of the semester and must show proof of being a low-income or subsidised household.",
+  "verifier": "School administration office / district after-school care operator",
+  "predicate": "The household's utility account is a member of the set of accounts on the low-income or subsidised-rate roll (for example, accounts receiving the low-income household electricity discount).",
+  "disclosed_today": "A photocopy of the full utility bill (name, address, meter number, usage in kWh, amount due) or a household certificate from the district office, plus household registration details.",
+  "issuer": "Taipower (or the local water company), signing membership in the subsidised-account roll"
+ },
+ {
+  "id": "c062",
+  "title": "Landlord rent-payment track record without sharing the tenant's bank statements",
+  "moment": "A tenant renewing a lease or applying for a new rental in Taipei is asked by the landlord or agent to hand over several months of passbook pages or bank app screenshots to show they pay rent on time.",
+  "verifier": "Private landlord or rental agency (房仲/包租代管業者)",
+  "predicate": "Over the last 12 months, at least 11 monthly outgoing transfers to the same payee were made on or before the 5th of the month (count and on-time ratio computed by the bank).",
+  "disclosed_today": "Full passbook or app screenshots showing every transaction, balances, salary source, merchants, other account numbers, and often the ID card copy.",
+  "issuer": "The tenant's bank (signing a payment-regularity statistic over the account's transfers)"
+ },
+ {
+  "id": "c063",
+  "title": "Small-claims or maintenance negotiation proving total outflow to one payee",
+  "moment": "In a mediation at a township mediation committee or a family-court conciliation, one party says they have paid the other a certain total (for example support or a loan repayment) over a year, and the other side disputes the sum.",
+  "verifier": "Mediator, court clerk or the counterparty's lawyer",
+  "predicate": "Sum of transfers from the person's account to a named payee account between two dates equals or exceeds a stated amount",
+  "disclosed_today": "Printed or screenshotted full account statements for the period, exposing every unrelated transaction, which are often partly blacked out by hand and then questioned for authenticity.",
+  "issuer": "The bank holding the paying account, signing a sum over a filtered set of transactions"
+ },
+ {
+  "id": "c064",
+  "title": "Dormitory and campus-housing off-campus lease renewal tied to a landlord-side identity record",
+  "moment": "A student renting a room near campus is asked by the landlord or a rental agency to prove both that they are enrolled and that the person named on the lease is the same one the university enrolled, so the landlord can claim rent subsidy or insurance cover.",
+  "verifier": "Private landlord or rental agency, and possibly a subsidy administrator reviewing the lease.",
+  "predicate": "The university's signed enrolment claim and the lease or household-record claim from a second issuer (such as the household registration office) refer to the same person, without disclosing the ID number to the landlord.",
+  "disclosed_today": "Photocopy of national ID card front and back, student ID, and sometimes household register transcript, kept by the agent with no stated retention limit.",
+  "issuer": "University registrar, matched against a household registration or ID credential from a government issuer."
+ },
+ {
+  "id": "c065",
+  "title": "Gig courier proves current platform affiliation to access a company mailroom or campus dock",
+  "moment": "A delivery rider arrives at a science-park company mailroom or hospital loading dock that only admits couriers currently contracted with a recognized logistics platform, and staff ask to see a worker card and ID.",
+  "verifier": "Science park, hospital or corporate mailroom security",
+  "predicate": "Rider is currently active and in good standing with a named logistics employer as of now",
+  "disclosed_today": "Worker card, national ID or driver licence shown or photographed, name, phone number, vehicle plate",
+  "issuer": "The logistics employer or platform operator, with revocation upon contract end or suspension"
+ },
+ {
+  "id": "c066",
+  "title": "One-per-person limited-edition drop and sneaker or concert pre-sale queues",
+  "moment": "A Taiwanese buyer tries to claim a limited sale (a console restock, a convenience-store collab figurine, a concert pre-sale) where each person may buy only one, and scalpers use many accounts.",
+  "verifier": "Online retailer or ticketing platform running a limited release.",
+  "predicate": "This account is bound to a distinct, currently active real-name mobile subscriber, and no other account on this platform (for this drop) was bound to the same subscriber.",
+  "disclosed_today": "Mobile number plus SMS OTP, often also national ID number, full name, birthday, and sometimes a photo of the ID, all kept in the platform's database.",
+  "issuer": "A Taiwanese mobile carrier (real-name registered subscriber under NCC rules)."
+ },
+ {
+  "id": "c067",
+  "title": "Hospital-signed 'infection-free window' for a hospital-ward caregiver or private nursing-home visitor",
+  "moment": "A family member or foreign live-in caregiver (外籍看護) arrives at a Taiwanese nursing home or a ward during an outbreak and must show they recently tested negative or are not in an infectious period.",
+  "verifier": "Nursing home (護理之家) front desk or ward access control",
+  "predicate": "Hospital attests 'no active infectious-disease restriction' valid from test date to test date + N days (e.g. 7 days); nothing else.",
+  "disclosed_today": "Photo or paper of the lab report or clinic certificate showing diagnosis, test type, lab values, name, ID number, and sometimes medication.",
+  "issuer": "Hospital or clinic laboratory that ran the test"
+ },
+ {
+  "id": "c068",
+  "title": "Micro-business owner proves quarterly card-sales turnover to a landlord or platform without exposing customers",
+  "moment": "A night-market stall or small shop owner applying for a stall lease, a delivery-platform onboarding, or a government small-business subsidy is asked for bank statements of the business account to show monthly sales volume.",
+  "verifier": "Market management office, platform, or subsidy-handling agency",
+  "predicate": "Sum of incoming mobile-payment and card-settlement deposits over the last 3 months is at least a stated threshold, and the number of distinct payers exceeds a stated minimum.",
+  "disclosed_today": "Complete business account statements listing every customer transfer, supplier payment, personal withdrawals and balances.",
+  "issuer": "Bank holding the business account, as merchant acquirer or account holder"
+ },
+ {
+  "id": "c069",
+  "title": "Game or app account level for a community tournament entry",
+  "moment": "A local esports or board-game-app tournament in Taiwan limits entry to players above a ranking or account level, to stop smurf accounts, and today asks players to hand over account login or screen-share the profile.",
+  "verifier": "Tournament organizer or community Discord moderator",
+  "predicate": "In-game ranked tier >= Diamond (or rating >= 2400) and account age >= 1 year",
+  "disclosed_today": "Account name and login or full screen-share, often including linked email, purchase history, friends list, and real name on the profile",
+  "issuer": "The game publisher's player profile API, attested through a zkTLS proof of the logged-in profile response"
+ },
+ {
+  "id": "c070",
+  "title": "Delivery-platform order count as proof of regular-customer standing for a landlord or building management",
+  "moment": "A tenant applicant for a small rental unit, or a resident asking for a parcel-locker or after-hours access arrangement, is asked by the building manager or landlord to show an app order history as proof of stable residence at an address.",
+  "verifier": "Landlord, agent, or community building management committee",
+  "predicate": "The delivery account has at least 12 completed orders to the same address over the last 6 months",
+  "disclosed_today": "Screenshots of the order history list showing restaurants, items, times, amounts and the full delivery address",
+  "issuer": "Food-delivery platform account, via a zkTLS proof of the order-history page; the platform did not design the page to be a credential"
+ },
+ {
+  "id": "c071",
+  "title": "E-commerce seller reputation for a landlord's short-term shop-space sublease",
+  "moment": "A small online seller on a Taiwanese marketplace wants to rent a pop-up counter or storefront from a landlord. The landlord asks for backend sales dashboards to judge whether the seller can pay rent.",
+  "verifier": "Landlord or property manager of a pop-up space",
+  "predicate": "Trailing 6-month monthly average order revenue >= NT$150,000 and seller cancellation rate <= 2%",
+  "disclosed_today": "Full seller-center screenshots exposing customer order lists, product margins, supplier names, and bank-payout details",
+  "issuer": "The e-commerce marketplace seller dashboard, attested by a zkTLS proof of the logged-in seller-center response"
+ },
+ {
+  "id": "c072",
+  "title": "Insurer or employer wellness program checks monthly gym and pharmacy spending band, not itemized purchases",
+  "moment": "A health-insurance discount programme or a corporate wellness benefit in Taiwan asks participants to upload credit-card statements to prove they spent on fitness, with the same statements revealing pharmacy, clinic and other purchases.",
+  "verifier": "Private insurer or employer benefits administrator",
+  "predicate": "Total card spending in merchant categories for gyms and sports venues over 12 months falls in a stated band, computed by the bank over the cardholder's cards, with no other category disclosed.",
+  "disclosed_today": "Itemized card statements across all merchants, showing health, pharmacy, entertainment and location patterns.",
+  "issuer": "Card-issuing bank, which categorizes transactions by merchant category code"
+ },
+ {
+  "id": "c073",
+  "title": "Student-rate transit pass bound to the same person as the telecom/bank account",
+  "moment": "A student buys a discounted monthly commuter pass or youth fare product through a transit operator's app, which must be sure the student-status claim belongs to the same person who holds the stored-value or payment account the pass is loaded onto.",
+  "verifier": "Transit operator or e-ticketing issuer (e.g. a city MRT or bus card scheme, or an e-ticket platform).",
+  "predicate": "The university-signed enrolled-this-semester claim and the payment or ticketing account's holder claim refer to the same person, shown without revealing the national ID number to the operator.",
+  "disclosed_today": "Photo of student ID card, sometimes national ID number and date of birth, entered or photographed at a counter or in the app, and often retained for the pass record.",
+  "issuer": "University registrar (enrolment status), matched against the wallet-held account or identity credential from a second issuer."
+ },
+ {
+  "id": "c074",
+  "title": "Not a sex-offender-registry entry when joining a cram school or sports club as a part-time coach",
+  "moment": "A university student or retiree applies as an after-school tutor, swim coach, or children's activity assistant, and the employer asks for a police criminal-record certificate and a check against child-protection restriction lists before the first class.",
+  "verifier": "Cram school (補習班), sports club, or after-school care operator",
+  "predicate": "Holder does not appear on the sexual-offense or child-protection employment-restriction register (性侵害加害人 / 兒少性剝削 登記查閱名單) at issuance time",
+  "disclosed_today": "A police good-conduct certificate (良民證) or a similar paper listing full name, ID number, birth date and a statement about the full criminal-record status, which can expose unrelated, old, or expunged entries",
+  "issuer": "Ministry of the Interior Police Administration (內政部警政署) or the competent local education or social-welfare bureau"
+ },
+ {
+  "id": "c075",
+  "title": "Still-employed proof for a landlord's mid-lease rent-guarantee renewal",
+  "moment": "A tenant in Taipei renews a one-year lease, and the landlord's agent asks again for a recent employment certificate, payslip and ID copy to confirm the tenant still has a job, even though the original paperwork was collected at signing.",
+  "verifier": "Landlord or rental agency (房東 / 租賃仲介)",
+  "predicate": "Tenant is currently employed by a registered employer (not terminated or resigned) as of today, with no employer name, salary or ID number revealed.",
+  "disclosed_today": "Full ID copy, payslips showing salary and employer, employment certificate with company name, title and start date.",
+  "issuer": "The employer's HR system, which signs a short-lived 'active employee' status and revokes it on termination or resignation."
+ },
+ {
+  "id": "c076",
+  "title": "Overseas-study sponsor shows enough funds without handing a school the family's whole account history",
+  "moment": "A Taiwanese family applying for a student visa or university admission abroad must show a parent's bank statements proving funds for tuition and living costs for the first year, and the parent sends months of statements to a foreign admissions office or visa agent.",
+  "verifier": "Foreign university admissions office, embassy, or study-abroad agency in Taiwan",
+  "predicate": "The sponsor's combined balance across the bank's accounts has stayed at or above the required amount (for example NT$1,000,000) for each of the last 90 days.",
+  "disclosed_today": "Full statements and sometimes a copy of the national ID, revealing the family's spending, other relatives' transfers, employer, and exact balances well above the threshold.",
+  "issuer": "The sponsor's bank, signing a minimum-balance-over-period aggregate across the sponsor's accounts at that bank."
+ },
+ {
+  "id": "c077",
+  "title": "Ride-hailing driver rating and trip count for a fleet-leasing deposit waiver",
+  "moment": "A part-time driver in Taipei applies to a car-leasing or fleet company that waives the deposit for proven reliable drivers. Today the company asks for screenshots of the driver app showing earnings history, ratings, and trip details.",
+  "verifier": "Fleet leasing company or taxi/ride-hailing fleet operator",
+  "predicate": "Completed trips on the platform in the last 12 months >= 500 and average rating >= 4.8",
+  "disclosed_today": "Full screenshots of the driver account, including passenger names or addresses in trip lists, daily earnings, platform account ID, and phone number",
+  "issuer": "The ride-hailing platform account page, via a zkTLS session proof over the driver's logged-in API response (the platform does not issue credentials)"
+ },
+ {
+  "id": "c078",
+  "title": "Teaching-assistant or part-time lab hire matched to a work-permit or labour-insurance claim",
+  "moment": "A university department hires an international or a cross-campus student as a part-time research assistant, and the payroll office must confirm that the student who holds the university's enrolment and department-approval claim is the same person who holds a valid work-permit or labour-insurance enrolment from a government issuer.",
+  "verifier": "University or research-institute human resources and payroll office",
+  "predicate": "The holder of a university-signed enrolment and supervisor-approval credential is the same person as the holder of a government-issued work-eligibility credential (work permit or labour insurance status), proven without revealing passport or ARC number to the department that only needs to approve the hire.",
+  "disclosed_today": "Passport and ARC copy, enrolment certificate, work-permit scan, bank details, handed to department staff who are not payroll specialists and often keep photocopies in unsecured folders.",
+  "issuer": "University (enrolment and approval claim), matched to the Ministry of Labor or immigration agency (work eligibility claim)"
+ },
+ {
+  "id": "c079",
+  "title": "Contagion-free window for a school or childcare return after an illness",
+  "moment": "A child returns to kindergarten or an after-school care centre (afterschool \"anqinban\") after hand-foot-mouth disease, influenza or another notifiable illness, and staff ask for the doctor's certificate to confirm the child is no longer contagious.",
+  "verifier": "Kindergarten, childcare centre or after-school class",
+  "predicate": "Hospital signs \"not contagious from date A\", valid for the school term week in which the child returns, and optionally \"not contagious through date B\" for rolling attendance.",
+  "disclosed_today": "The clinic certificate or medical receipt showing the diagnosis, sometimes the whole medical visit record, which is often photographed by staff and kept in a messaging group.",
+  "issuer": "Hospital or paediatric clinic."
+ },
+ {
+  "id": "c080",
+  "title": "Cram school or kindergarten fee-installment eligibility from average monthly balance",
+  "moment": "A parent enrolling a child in a private kindergarten, cram school or bilingual programme asks for a multi-month instalment plan, and the school wants reassurance the parent can sustain the payments.",
+  "verifier": "Private school or cram school finance office",
+  "predicate": "Average daily balance across all the parent's accounts at the bank over the last 6 months is at least a threshold equal to the remaining tuition",
+  "disclosed_today": "Photocopy of the passbook or bank statements, or a post-dated cheque plus a guarantor's details, revealing balances, counterparties and sometimes the guarantor's identity.",
+  "issuer": "The parent's bank, signing an average-balance statistic over the accounts held there"
+ },
+ {
+  "id": "c081",
+  "title": "Landlord screening by months of on-time rent transfers",
+  "moment": "A tenant in Taipei applies for a rental flat and the landlord or agent asks for bank statements to judge whether the tenant reliably pays rent on time.",
+  "verifier": "Landlord or rental agency (e.g. a property agent handling the lease)",
+  "predicate": "Count of months in the last 12 in which a rent-sized recurring transfer (at or above a stated amount) was made on or before the due day is at least 11",
+  "disclosed_today": "Several months of full bank statements or passbook photocopies, showing every merchant, salary source, medical payment and balance.",
+  "issuer": "The tenant's bank, signing a statistic computed from its own transaction ledger"
+ },
+ {
+  "id": "c082",
+  "title": "Proving no outstanding exit restriction at the airport check-in counter",
+  "moment": "A Taiwanese traveler checks in for an international flight, and the airline or ground handler must confirm the passenger is not subject to a government travel ban (出境限制, for example from tax arrears or court orders) before issuing a boarding pass, or a travel agent confirms it before booking a non-refundable group tour.",
+  "verifier": "Airline ground-handling staff or a travel agency booking desk",
+  "predicate": "The holder's national ID is not on the current exit-restriction register (non-membership), signed with a short validity window.",
+  "disclosed_today": "Full passport and national ID number, often copied or photographed. If a restriction exists, staff can see it, and the traveler may be questioned about the reason in front of others.",
+  "issuer": "National Immigration Agency, drawing on court and tax-authority restriction records"
+ },
+ {
+  "id": "c083",
+  "title": "One free-trial or sign-up bonus per person for a delivery app promotion",
+  "moment": "A Taiwanese food-delivery or e-commerce app gives a new-user coupon worth a few hundred NT dollars; people farm it with many accounts and burner numbers, so the app starts asking for ID verification or e-invoice carrier and bank details.",
+  "verifier": "Delivery or shopping app running a new-user promotion",
+  "predicate": "This is a distinct subscriber who has not already claimed this promotion under this app's scope, without revealing the number or identity.",
+  "disclosed_today": "Phone number plus SMS code, sometimes ID photo, payment card, or a mobile barcode carrier, all of which can be linked across services.",
+  "issuer": "Telco with the real-name subscriber record."
+ },
+ {
+  "id": "c084",
+  "title": "Neighbourhood group-buy and community app one-vote-per-household style polls",
+  "moment": "A residents' community app or LINE-based building management committee runs a poll or a subsidised bulk-purchase (for example a shared water-purifier contract) where each member may take part once, and joining currently means giving a phone number and name to the organiser.",
+  "verifier": "Building management committee or community group-buy organiser.",
+  "predicate": "This participant is one real subscriber and has not already responded in this poll, without revealing the number.",
+  "disclosed_today": "Name, unit number, mobile number, and often a LINE ID, shared with whoever administers the group, and visible to other volunteers.",
+  "issuer": "A Taiwanese mobile carrier."
+ },
+ {
+  "id": "c085",
+  "title": "Current-employee check for a sealed corporate-purchase or tender-staff conflict declaration",
+  "moment": "A procurement officer at a public body or large firm needs evidence that a bidder's named evaluator or subcontract signer is currently employed by the bidding company, without receiving the employee's personnel record, before a tender opening.",
+  "verifier": "Procurement or tender-opening officer",
+  "predicate": "Employer signed, bound to the tender's opening date, that the holder is a current employee in a role authorised to sign; the signature is fresh as of the submission cut-off and can be revoked if the person leaves before opening.",
+  "disclosed_today": "Company letter with seal (公司大小章), authorisation letter, copy of the signer's ID card and sometimes labor insurance record, enclosed with the sealed bid.",
+  "issuer": "Employer (company authorised signatory) issuing a status credential."
+ },
+ {
+  "id": "c086",
+  "title": "One free trial or new-user coupon per person on food delivery and ride apps",
+  "moment": "A person opens a food-delivery, scooter-share, or streaming app and wants the first-order coupon or free trial, which the app restricts to new users, so people create repeat accounts with spare numbers and the app asks for ever more data to stop it.",
+  "verifier": "Food-delivery, bike or scooter share, or subscription app.",
+  "predicate": "This is the first account created on this service by a real subscriber, shown as a service-specific pseudonym, with no phone number or ID revealed.",
+  "disclosed_today": "Mobile number with OTP, sometimes email, device ID, payment card, and in some scooter-sharing services a driver licence photo and selfie.",
+  "issuer": "A Taiwanese mobile carrier."
+ },
+ {
+  "id": "c087",
+  "title": "One Lunar New Year red-envelope or limited-edition drop claim per person on a Taiwanese convenience-store app",
+  "moment": "A convenience-store or delivery app in Taiwan releases a limited batch of free coffee coupons or a collectible item at a set hour, and people create many throwaway accounts with prepaid SIM numbers to grab several.",
+  "verifier": "A convenience-store chain loyalty app operator running a limited-quantity promotion.",
+  "predicate": "The claimant holds exactly one active, real-name-registered mobile subscription, and this promotion-specific nullifier has not been used before.",
+  "disclosed_today": "Mobile phone number (verified by SMS OTP), often name, birthday, email, and device ID; the phone number itself links the account to a person across every other service.",
+  "issuer": "A Taiwanese mobile carrier (real-name SIM registration holder)."
+ },
+ {
+  "id": "c088",
+  "title": "Not on the restricted-exit list when booking a package tour",
+  "moment": "A traveler pays a deposit for an overseas group tour or a visa-assisted trip, and the travel agency asks for a passport copy and ID card copy to check that the traveler is not barred from leaving the country.",
+  "verifier": "Travel agency (旅行社) booking desk",
+  "predicate": "Holder does not appear on the national restricted-exit (限制出境) register as of today",
+  "disclosed_today": "Full photocopy of the ID card (national ID number, address, photo) and passport (passport number, birth date, photo), kept in agency files",
+  "issuer": "Ministry of the Interior National Immigration Agency (內政部移民署), as the keeper of the restricted-exit register"
+ },
+ {
+  "id": "c089",
+  "title": "One vote per person in an apartment-building or community management committee online poll",
+  "moment": "A Taiwanese residential community (a building management committee) runs an online poll for a repair fund or rule change, and needs one ballot per resident household member without exposing who voted how.",
+  "verifier": "The community management committee (or its property management company) running a LINE or web voting tool.",
+  "predicate": "The voter is one unique real subscriber, and the ballot nullifier is unique for this poll.",
+  "disclosed_today": "Name, unit number, phone number, and often a LINE ID, all tied to the ballot or at least visible to the administrator.",
+  "issuer": "A Taiwanese mobile carrier."
+ },
+ {
+  "id": "c090",
+  "title": "Dormitory/communal-housing \"no contagious infection\" clearance during an outbreak window",
+  "moment": "A university dorm, long-term-care facility, or migrant-worker dormitory re-opens after a legionella, tuberculosis, or enterovirus alert and asks incoming residents or returning staff to show they are cleared to share rooms.",
+  "verifier": "Dormitory administrator or facility infection-control officer",
+  "predicate": "Hospital has cleared the person of the named communicable condition (screening negative or isolation completed) and the clearance is valid from issue date until the end of the outbreak watch period (e.g. 14 or 30 days).",
+  "disclosed_today": "A photocopy of the hospital certificate or lab report (diagnosis, test results, physician notes), or a health-declaration form with symptom history; sometimes a full medical certificate stored in a paper folder.",
+  "issuer": "Hospital (infection-control or outpatient department)"
+ },
+ {
+  "id": "c091",
+  "title": "Alumni-discount student-ID match at a Taiwan High Speed Rail or TRA concession counter",
+  "moment": "A graduate student buys a student concession fare or a campus-partner ticket at a station counter or kiosk and is asked to show a student card plus national ID so the clerk can see both names match.",
+  "verifier": "Railway or bus operator concession desk, or a third-party ticketing vendor handling campus partner deals",
+  "predicate": "The enrolled-student claim signed by the university and the holder of the digital wallet national-ID credential refer to the same person, shown as a match proof without revealing the national ID number or student number.",
+  "disclosed_today": "Student card (name, student number, photo, department, validity sticker) and often national ID card shown side by side or photographed for the sales record.",
+  "issuer": "University (enrolment status) cross-matched with the national digital wallet identity credential."
+ },
+ {
+  "id": "c092",
+  "title": "Proving a rooftop-solar or farm-pump account is on the registered roll for a grant",
+  "moment": "A farmer or small household applies for a county subsidy for solar panels, a cold-storage unit or an efficient irrigation pump, and the county office asks for the electricity account's power-contract copy and recent bills to confirm the site is on the registered agricultural or residential-subsidy contract class.",
+  "verifier": "County agriculture or environment bureau processing the grant",
+  "predicate": "The electricity account belongs to the set of accounts under the agricultural-use or registered-subsidy contract class (membership, without the account number, location or consumption).",
+  "disclosed_today": "Contract copy and bills listing account number, exact site address, contract capacity and monthly consumption, which reveal the size and operating pattern of the farm.",
+  "issuer": "Taipower signing contract-class roll membership for the account"
+ },
+ {
+  "id": "c093",
+  "title": "Water-rate discount roll proof when renting out or switching landlord",
+  "moment": "A tenant in a subsidised-water or senior/disabled-household rate category moves into a new rental and the new landlord or property manager asks for the previous water or electricity bill to confirm the household qualifies for the shared-meter discount split.",
+  "verifier": "Landlord or property management company",
+  "predicate": "The tenant's household is in the water utility's discounted-rate roll (set membership), without disclosing the previous address or consumption.",
+  "disclosed_today": "Previous water bill showing old address, account holder name, usage volumes, and arrears status.",
+  "issuer": "Taiwan Water Corporation or Taipei Water Department, signing discount-roll membership"
+ },
+ {
+  "id": "c094",
+  "title": "Seller reputation on an auction platform as a threshold for a high-value in-person handover",
+  "moment": "A buyer of a used camera or console arranged on a second-hand marketplace is asked by a seller to prove being a trusted buyer before the seller will meet at a convenience store pickup point, or a seller is asked to prove good standing before a buyer pays by a third-party escrow.",
+  "verifier": "The counterparty in a private sale, or a convenience-store pickup service gating a high-value parcel",
+  "predicate": "Account positive-feedback share is at least 98 percent with at least 30 reviews, on an account older than one year",
+  "disclosed_today": "The account name and link to the profile, which exposes the whole transaction history, other listings, location hints and sometimes real name; or the counterparty's phone number and LINE ID",
+  "issuer": "Second-hand or auction marketplace account, with a zkTLS proof over the platform's profile or feedback API response"
+ },
+ {
+  "id": "c095",
+  "title": "Still-employed proof for landlord rent-guarantee renewal",
+  "moment": "A tenant renews a lease mid-term and the landlord or rental-management company asks for proof that the tenant is still employed, as a condition of keeping a reduced deposit.",
+  "verifier": "Landlord or property management / rental platform",
+  "predicate": "Employer has signed within the last 7 days that this holder is currently an active employee (not terminated, not on unpaid leave beyond a threshold); signature is revocable on resignation.",
+  "disclosed_today": "Photocopy of the employment certificate (在職證明) or labor insurance enrollment record showing full name, ID number, employer, salary band, enrollment date; often photographed and kept in LINE chats.",
+  "issuer": "Employer (HR system) issuing a short-lived employment-status credential into the wallet."
+ }
+]

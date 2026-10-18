@@ -1,0 +1,866 @@
+[
+ {
+  "id": "c000",
+  "family": "where_you_belong",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "volatile",
+  "attester": "company"
+ },
+ {
+  "id": "c001",
+  "family": "what_you_hold",
+  "family_secondary": "what_state_youre_in",
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "slow",
+  "attester": "company"
+ },
+ {
+  "id": "c002",
+  "family": "who_you_are",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "event",
+  "attester": "company"
+ },
+ {
+  "id": "c003",
+  "family": "where_you_belong",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "volatile",
+  "attester": "company"
+ },
+ {
+  "id": "c004",
+  "family": "what_youve_done",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "volatile",
+  "attester": "platform"
+ },
+ {
+  "id": "c005",
+  "family": "what_youve_done",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "slow",
+  "attester": "company"
+ },
+ {
+  "id": "c006",
+  "family": "what_state_youre_in",
+  "family_secondary": null,
+  "sensitivity": "special",
+  "special_kind": "health",
+  "stability": "volatile",
+  "attester": "school_or_hospital"
+ },
+ {
+  "id": "c007",
+  "family": "what_youve_done",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "slow",
+  "attester": "government"
+ },
+ {
+  "id": "c008",
+  "family": "what_youve_done",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "slow",
+  "attester": "company"
+ },
+ {
+  "id": "c009",
+  "family": "what_youve_done",
+  "family_secondary": null,
+  "sensitivity": "special",
+  "special_kind": "criminal record",
+  "stability": "slow",
+  "attester": "government"
+ },
+ {
+  "id": "c010",
+  "family": "what_you_hold",
+  "family_secondary": "what_state_youre_in",
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "slow",
+  "attester": "company"
+ },
+ {
+  "id": "c011",
+  "family": "where_you_belong",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "volatile",
+  "attester": "company"
+ },
+ {
+  "id": "c012",
+  "family": "who_you_are",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "event",
+  "attester": "company"
+ },
+ {
+  "id": "c013",
+  "family": "what_state_youre_in",
+  "family_secondary": null,
+  "sensitivity": "special",
+  "special_kind": "health",
+  "stability": "event",
+  "attester": "school_or_hospital"
+ },
+ {
+  "id": "c014",
+  "family": "where_you_belong",
+  "family_secondary": "who_you_are_linked_to",
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "slow",
+  "attester": "school_or_hospital"
+ },
+ {
+  "id": "c015",
+  "family": "what_youve_done",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "volatile",
+  "attester": "government"
+ },
+ {
+  "id": "c016",
+  "family": "what_youve_done",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "volatile",
+  "attester": "platform"
+ },
+ {
+  "id": "c017",
+  "family": "what_state_youre_in",
+  "family_secondary": null,
+  "sensitivity": "special",
+  "special_kind": "health",
+  "stability": "volatile",
+  "attester": "school_or_hospital"
+ },
+ {
+  "id": "c018",
+  "family": "what_you_hold",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "slow",
+  "attester": "company"
+ },
+ {
+  "id": "c019",
+  "family": "where_you_belong",
+  "family_secondary": "who_you_are_linked_to",
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "slow",
+  "attester": "school_or_hospital"
+ },
+ {
+  "id": "c020",
+  "family": "what_you_hold",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "slow",
+  "attester": "company"
+ },
+ {
+  "id": "c021",
+  "family": "what_state_youre_in",
+  "family_secondary": null,
+  "sensitivity": "special",
+  "special_kind": "health",
+  "stability": "event",
+  "attester": "school_or_hospital"
+ },
+ {
+  "id": "c022",
+  "family": "where_you_belong",
+  "family_secondary": "who_you_are_linked_to",
+  "sensitivity": "special",
+  "special_kind": "health",
+  "stability": "slow",
+  "attester": "school_or_hospital"
+ },
+ {
+  "id": "c023",
+  "family": "what_you_hold",
+  "family_secondary": "what_youve_done",
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "volatile",
+  "attester": "government"
+ },
+ {
+  "id": "c024",
+  "family": "where_you_belong",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "volatile",
+  "attester": "school_or_hospital"
+ },
+ {
+  "id": "c025",
+  "family": "what_state_youre_in",
+  "family_secondary": "what_you_hold",
+  "sensitivity": "special",
+  "special_kind": "health",
+  "stability": "slow",
+  "attester": "company"
+ },
+ {
+  "id": "c026",
+  "family": "what_you_hold",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "slow",
+  "attester": "company"
+ },
+ {
+  "id": "c027",
+  "family": "what_youve_done",
+  "family_secondary": "where_you_belong",
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "volatile",
+  "attester": "platform"
+ },
+ {
+  "id": "c028",
+  "family": "what_state_youre_in",
+  "family_secondary": null,
+  "sensitivity": "special",
+  "special_kind": "health",
+  "stability": "volatile",
+  "attester": "school_or_hospital"
+ },
+ {
+  "id": "c029",
+  "family": "where_you_belong",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "volatile",
+  "attester": "company"
+ },
+ {
+  "id": "c030",
+  "family": "what_youve_done",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "volatile",
+  "attester": "government"
+ },
+ {
+  "id": "c031",
+  "family": "what_youve_done",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "volatile",
+  "attester": "platform"
+ },
+ {
+  "id": "c032",
+  "family": "what_youve_done",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "volatile",
+  "attester": "platform"
+ },
+ {
+  "id": "c033",
+  "family": "what_state_youre_in",
+  "family_secondary": null,
+  "sensitivity": "special",
+  "special_kind": "health",
+  "stability": "event",
+  "attester": "school_or_hospital"
+ },
+ {
+  "id": "c034",
+  "family": "what_youve_done",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "slow",
+  "attester": "government"
+ },
+ {
+  "id": "c035",
+  "family": "what_state_youre_in",
+  "family_secondary": null,
+  "sensitivity": "special",
+  "special_kind": "health",
+  "stability": "volatile",
+  "attester": "school_or_hospital"
+ },
+ {
+  "id": "c036",
+  "family": "what_state_youre_in",
+  "family_secondary": "what_you_hold",
+  "sensitivity": "special",
+  "special_kind": "health",
+  "stability": "slow",
+  "attester": "company"
+ },
+ {
+  "id": "c037",
+  "family": "what_youve_done",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "volatile",
+  "attester": "platform"
+ },
+ {
+  "id": "c038",
+  "family": "what_you_hold",
+  "family_secondary": "what_state_youre_in",
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "slow",
+  "attester": "company"
+ },
+ {
+  "id": "c039",
+  "family": "what_state_youre_in",
+  "family_secondary": null,
+  "sensitivity": "special",
+  "special_kind": "health",
+  "stability": "event",
+  "attester": "school_or_hospital"
+ },
+ {
+  "id": "c040",
+  "family": "where_you_belong",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "volatile",
+  "attester": "company"
+ },
+ {
+  "id": "c041",
+  "family": "where_you_belong",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "volatile",
+  "attester": "company"
+ },
+ {
+  "id": "c042",
+  "family": "who_you_are",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "event",
+  "attester": "company"
+ },
+ {
+  "id": "c043",
+  "family": "where_you_belong",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "volatile",
+  "attester": "company"
+ },
+ {
+  "id": "c044",
+  "family": "where_you_belong",
+  "family_secondary": "who_you_are_linked_to",
+  "sensitivity": "special",
+  "special_kind": "health",
+  "stability": "slow",
+  "attester": "school_or_hospital"
+ },
+ {
+  "id": "c045",
+  "family": "who_you_are",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "event",
+  "attester": "company"
+ },
+ {
+  "id": "c046",
+  "family": "where_you_belong",
+  "family_secondary": "who_you_are_linked_to",
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "slow",
+  "attester": "school_or_hospital"
+ },
+ {
+  "id": "c047",
+  "family": "what_youve_done",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "volatile",
+  "attester": "company"
+ },
+ {
+  "id": "c048",
+  "family": "who_you_are",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "event",
+  "attester": "company"
+ },
+ {
+  "id": "c049",
+  "family": "what_youve_done",
+  "family_secondary": null,
+  "sensitivity": "special",
+  "special_kind": "criminal record",
+  "stability": "slow",
+  "attester": "government"
+ },
+ {
+  "id": "c050",
+  "family": "what_youve_done",
+  "family_secondary": "what_state_youre_in",
+  "sensitivity": "special",
+  "special_kind": "criminal record",
+  "stability": "slow",
+  "attester": "government"
+ },
+ {
+  "id": "c051",
+  "family": "where_you_belong",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "slow",
+  "attester": "company"
+ },
+ {
+  "id": "c052",
+  "family": "what_state_youre_in",
+  "family_secondary": null,
+  "sensitivity": "special",
+  "special_kind": "health",
+  "stability": "volatile",
+  "attester": "school_or_hospital"
+ },
+ {
+  "id": "c053",
+  "family": "what_youve_done",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "volatile",
+  "attester": "government"
+ },
+ {
+  "id": "c054",
+  "family": "what_youve_done",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "slow",
+  "attester": "company"
+ },
+ {
+  "id": "c055",
+  "family": "where_you_belong",
+  "family_secondary": "who_you_are_linked_to",
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "slow",
+  "attester": "school_or_hospital"
+ },
+ {
+  "id": "c056",
+  "family": "where_you_belong",
+  "family_secondary": "who_you_are_linked_to",
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "slow",
+  "attester": "school_or_hospital"
+ },
+ {
+  "id": "c057",
+  "family": "what_youve_done",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "volatile",
+  "attester": "platform"
+ },
+ {
+  "id": "c058",
+  "family": "what_youve_done",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "volatile",
+  "attester": "company"
+ },
+ {
+  "id": "c059",
+  "family": "where_you_belong",
+  "family_secondary": "who_you_are_linked_to",
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "slow",
+  "attester": "school_or_hospital"
+ },
+ {
+  "id": "c060",
+  "family": "who_you_are",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "event",
+  "attester": "company"
+ },
+ {
+  "id": "c061",
+  "family": "what_you_hold",
+  "family_secondary": "what_state_youre_in",
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "slow",
+  "attester": "company"
+ },
+ {
+  "id": "c062",
+  "family": "what_youve_done",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "slow",
+  "attester": "company"
+ },
+ {
+  "id": "c063",
+  "family": "what_youve_done",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "event",
+  "attester": "company"
+ },
+ {
+  "id": "c064",
+  "family": "where_you_belong",
+  "family_secondary": "who_you_are_linked_to",
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "slow",
+  "attester": "school_or_hospital"
+ },
+ {
+  "id": "c065",
+  "family": "where_you_belong",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "volatile",
+  "attester": "company"
+ },
+ {
+  "id": "c066",
+  "family": "who_you_are",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "volatile",
+  "attester": "company"
+ },
+ {
+  "id": "c067",
+  "family": "what_state_youre_in",
+  "family_secondary": null,
+  "sensitivity": "special",
+  "special_kind": "health",
+  "stability": "volatile",
+  "attester": "school_or_hospital"
+ },
+ {
+  "id": "c068",
+  "family": "what_youve_done",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "volatile",
+  "attester": "company"
+ },
+ {
+  "id": "c069",
+  "family": "what_you_can_do",
+  "family_secondary": "what_youve_done",
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "volatile",
+  "attester": "platform"
+ },
+ {
+  "id": "c070",
+  "family": "what_youve_done",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "volatile",
+  "attester": "platform"
+ },
+ {
+  "id": "c071",
+  "family": "what_youve_done",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "volatile",
+  "attester": "platform"
+ },
+ {
+  "id": "c072",
+  "family": "what_youve_done",
+  "family_secondary": "what_state_youre_in",
+  "sensitivity": "special",
+  "special_kind": "health",
+  "stability": "volatile",
+  "attester": "company"
+ },
+ {
+  "id": "c073",
+  "family": "where_you_belong",
+  "family_secondary": "who_you_are_linked_to",
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "volatile",
+  "attester": "school_or_hospital"
+ },
+ {
+  "id": "c074",
+  "family": "what_youve_done",
+  "family_secondary": null,
+  "sensitivity": "special",
+  "special_kind": "criminal record",
+  "stability": "slow",
+  "attester": "government"
+ },
+ {
+  "id": "c075",
+  "family": "where_you_belong",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "volatile",
+  "attester": "company"
+ },
+ {
+  "id": "c076",
+  "family": "what_you_hold",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "volatile",
+  "attester": "company"
+ },
+ {
+  "id": "c077",
+  "family": "what_youve_done",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "volatile",
+  "attester": "platform"
+ },
+ {
+  "id": "c078",
+  "family": "where_you_belong",
+  "family_secondary": "who_you_are_linked_to",
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "slow",
+  "attester": "school_or_hospital"
+ },
+ {
+  "id": "c079",
+  "family": "what_state_youre_in",
+  "family_secondary": null,
+  "sensitivity": "special",
+  "special_kind": "health",
+  "stability": "volatile",
+  "attester": "school_or_hospital"
+ },
+ {
+  "id": "c080",
+  "family": "what_you_hold",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "volatile",
+  "attester": "company"
+ },
+ {
+  "id": "c081",
+  "family": "what_youve_done",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "slow",
+  "attester": "company"
+ },
+ {
+  "id": "c082",
+  "family": "what_youve_done",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "volatile",
+  "attester": "government"
+ },
+ {
+  "id": "c083",
+  "family": "who_you_are",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "event",
+  "attester": "company"
+ },
+ {
+  "id": "c084",
+  "family": "who_you_are",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "event",
+  "attester": "company"
+ },
+ {
+  "id": "c085",
+  "family": "where_you_belong",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "volatile",
+  "attester": "company"
+ },
+ {
+  "id": "c086",
+  "family": "who_you_are",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "event",
+  "attester": "company"
+ },
+ {
+  "id": "c087",
+  "family": "who_you_are",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "event",
+  "attester": "company"
+ },
+ {
+  "id": "c088",
+  "family": "what_youve_done",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "volatile",
+  "attester": "government"
+ },
+ {
+  "id": "c089",
+  "family": "who_you_are",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "event",
+  "attester": "company"
+ },
+ {
+  "id": "c090",
+  "family": "what_state_youre_in",
+  "family_secondary": null,
+  "sensitivity": "special",
+  "special_kind": "health",
+  "stability": "volatile",
+  "attester": "school_or_hospital"
+ },
+ {
+  "id": "c091",
+  "family": "where_you_belong",
+  "family_secondary": "who_you_are_linked_to",
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "slow",
+  "attester": "school_or_hospital"
+ },
+ {
+  "id": "c092",
+  "family": "what_you_hold",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "slow",
+  "attester": "company"
+ },
+ {
+  "id": "c093",
+  "family": "what_you_hold",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "slow",
+  "attester": "company"
+ },
+ {
+  "id": "c094",
+  "family": "what_youve_done",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "volatile",
+  "attester": "platform"
+ },
+ {
+  "id": "c095",
+  "family": "where_you_belong",
+  "family_secondary": null,
+  "sensitivity": "ordinary",
+  "special_kind": null,
+  "stability": "volatile",
+  "attester": "company"
+ }
+]
