@@ -1,0 +1,162 @@
+[
+ {
+  "review_id": "p08-0",
+  "title": "University-town late-night beer vending machine with a court-ordered unmasking exception",
+  "moment": "A graduate student buys two cans of beer at 10:40pm from a machine outside a convenience-store cluster near National Taiwan University. The machine owner wants to check age without logging who bought alcohol, but must still be able to hand over identity if police investigate a sale to a minor using a borrowed credential.",
+  "verifier": "The company operating a network of alcohol vending machines near campuses",
+  "predicate": "Purchaser is at least 18 (threshold), with a revocable-pseudonym escrow so the issuer can identify the holder only on a lawful request tied to a proven abuse",
+  "disclosed_today": "Machine-camera photo of the buyer's face and ID card, matched by an operator-side service and retained for a period for disputes, effectively a biometric and ID log of every buyer",
+  "issuer": "Ministry of the Interior (household register) as the base issuer; a wallet provider acts as a custodian of a sealed identity escrow, opened only by court order",
+  "why_zk": "Default is unlinkable and unlogged: the machine learns only over-18. Borrowing a parent's or older friend's credential is the real risk, so the design keeps a narrow exception, as in witness protection where identity stays hidden except to law enforcement under court order, so police can trace an abusing credential holder while ordinary buyers stay anonymous. Weakness: the escrow exception re-introduces a trust point and a potential honeypot, and strong anti-sharing needs liveness or device binding that may itself collect biometric data; the added complexity may exceed the harm of a simple ID check.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In an-b-witness-protection, the program holder hides the true identity but must disclose it to law enforcement on request or by court order; here, the wallet custodian's sealed escrow, opened only on a court order after a minor-sale investigation, plays that role.",
+    "source_excerpt": "A protected person must be able to show a new identity without revealing the old one, but the program holder keeps a discretionary exception that lets it disclose the true identity to law enforcement or by court order. | mechanism: Discretionary non-disclosure of identity and location, with a mandatory disclosure exception to State or local law enforcement on request or by court order when the person is under investigation or charged with a serious offense."
+   },
+   {
+    "borrowed_aspect": "In rd-google-wallet-zkp-age-no-linkage, the proof is untrackable by issuer and relying party and no credential data is stored server side; here, the vending machine's ordinary purchase flow plays that role, with linkage possible only through the escrow.",
+    "source_excerpt": "A gatekeeper needs one yes/no fact about a holder, and the proof it receives must not reveal the underlying birth date or let the issuer or the gatekeeper track the holder. | mechanism: Zero-knowledge proof on ISO 18013-7 mdocs for an over-18 statement, device-bound transactions, no server-side storage of credential data."
+   }
+  ]
+ },
+ {
+  "review_id": "p08-1",
+  "title": "Columbarium niche purchase: kin status without a scanned ID card",
+  "moment": "A son buys a columbarium niche (納骨塔位) at a private temple-run facility in Tainan for his late grandmother's ashes, because the other relatives live abroad. The clerk scans his ID card and a transcript to check that he is an eligible next of kin allowed to contract for the remains, and the scans sit in the facility's files and are sometimes shared with the sales agent.",
+  "verifier": "Private columbarium / temple niche operator (納骨塔業者)",
+  "predicate": "Holder is a member of the set of next of kin entitled, in the current priority order, to arrange the disposition of the deceased's remains.",
+  "disclosed_today": "Scanned front and back of the buyer's national ID card, plus household registration transcript with relatives' details, retained in the facility's files.",
+  "issuer": "Household registration office, with the funeral home that arranged the cremation optionally countersigning as a second attester that the cremation took place.",
+  "why_zk": "The operator only needs one yes-or-no fact, yet the scan captures the whole card, much like the Virginia ID-scan case where field limits exist but the holder still reveals everything at the moment of the scan. A proof removes the ID scan and the retained copy from a small business that is not well placed to protect personal data. Weakness: this is a commercial, not statutory, collection, so the operator has little incentive to change, and where the law does not require the copy the benefit is mainly better privacy hygiene.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In the Virginia scanning rule, a merchant reads a whole license to check one fact while a statute caps what is kept; here, the columbarium clerk's ID scan plays the whole-card read and the kin-eligibility proof plays the no-scan alternative.",
+    "source_excerpt": "A venue must confirm that a person is over a threshold age from an identity document, but scanning captures the whole card, so the rule caps what is kept to a few fields and bans secondary use, while the holder still sees everything on the card at the moment of the scan. | mechanism: Statutory field-limit and retention ban on scan data, with a prohibition on sale or marketing dissemination; no proof-of-age mechanism that avoids reading the document."
+   },
+   {
+    "borrowed_aspect": "In the securities agent rule, an ID copy stands in for proof that a representative is genuine and authorised; here, the buyer's ID copy plays that stand-in for authority over the deceased's remains.",
+    "source_excerpt": "A foreign investor must prove that its local agent is a real, identified person, and the agent hands over a full copy of an ID card, with no alternative verification stated. | mechanism: None stated; full ID copy required with no less-intrusive alternative given."
+   }
+  ]
+ },
+ {
+  "review_id": "p08-2",
+  "title": "Member-only discount at a party-affiliated community venue",
+  "moment": "A neighbourhood party chapter runs a community kitchen and a book-and-merchandise corner. Registered district members get a discount card price. Today the volunteer asks members to show their ID and sign a paper sheet with name and ID number to prove membership and to stop one person claiming the discount repeatedly.",
+  "verifier": "Volunteer cashier at a party chapter's community shop",
+  "predicate": "This person is a registered member in this district, and has claimed the member discount only once today (or once per month).",
+  "disclosed_today": "Name, ID number, and signature on a paper claim sheet, which creates a record linking named people to party membership.",
+  "issuer": "The party's district chapter, through its membership system.",
+  "why_zk": "The discount needs only 'member, not already used', so a credential with a periodic nullifier can replace the signed sheet. The benefit is voluntary, so the person may also simply decline. Weakness: the stakes are small and the chapter already knows its own members. The gain is mainly that the sign-in sheets no longer exist to leak.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In rd-singpass-myinfo-minimal-request, a partner retrieves only the named fields a single purpose needs under a rule against over-collecting; here, the shop's request for just a membership-and-not-used proof plays that rule, but enforced by the credential rather than by policy alone.",
+    "source_excerpt": "A service provider needs a few verified fields for one purpose, but the retrieval interface returns a broad profile and the only limit is a policy rule on the partner. | mechanism: Consent-gated retrieval of named MyInfo fields, with a rule to request only needed data and purge unsubmitted drafts."
+   },
+   {
+    "borrowed_aspect": "In tw-platform-google-id-upload-complaint, a service demands an ID and address proof when payment confirmation would do; here, the shop's demand for a signed ID sheet when a membership check would do is the over-collection being replaced.",
+    "source_excerpt": "A service needs to confirm a subscriber's payment, but it demands an identity document and address proof, and threatens suspension if the user refuses, without stating the purpose or necessity. | mechanism: None; the complaint notes no stated purpose or less-intrusive alternative was offered."
+   }
+  ]
+ },
+ {
+  "review_id": "p08-3",
+  "title": "Separating who may borrow from what the child reads at a school-library partner card",
+  "moment": "A mother signs up her 9-year-old for a combined school-and-public library children's card at the city library branch near the child's elementary school in Taipei. She is asked to show the child's student ID plus her own ID, and the library keeps both records linked in its membership database. The mother does not want the library to build a profile of who her child is and what the child borrows tied to her national ID number.",
+  "verifier": "Municipal public library membership system, in partnership with the child's elementary school library",
+  "predicate": "Holder is a registered guardian of a child enrolled and under the card's age limit, proved without revealing the guardian's national ID number, and with a different unlinkable card identifier used at borrowing time than at enrolment.",
+  "disclosed_today": "Guardian's national ID number, name, phone and address, child's name, school, class and ID number, all stored together with the full borrowing history in one membership record.",
+  "issuer": "The child's school (via the education bureau's student registry) cosigning with the household registry, issuing a guardian-of-enrolled-child credential.",
+  "why_zk": "Eligibility is checked once at enrolment with a proof, and the borrowing record is kept under a separate card pseudonym, so the library cannot trivially join the guardian's identity to the child's reading history. This is the same split as a secret ballot where eligibility is checked apart from the ballot. Weakness: library staff or the system operator can still link the two at enrolment time if the issuer and verifier collude or if the card number is derivable, and borrowing-history retention is mostly governed by policy, not by the proof.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In the Australian secret ballot, eligibility is checked separately from the sealed ballot so identity is not attached to the vote at counting; here, the guardian-eligibility proof at enrolment plays the eligibility check and the unlinkable borrowing card pseudonym plays the sealed ballot.",
+    "source_excerpt": "A voter must prove eligibility and cast a valid choice while the record of that choice cannot be linked back to them, but the same process must still let officials verify who voted, so the separation depends on procedure rather than on a proof. | mechanism: Separate voting compartments and two-envelope sealing for postal and absentee ballots so identity is not attached to the vote at counting; eligibility is checked separately from the ballot."
+   },
+   {
+    "borrowed_aspect": "In Title 13 census, staff can see raw records but no publication may identify a particular respondent; here, the library's loan-statistics reports (popular titles by age band) play the publication, built from pseudonymous card activity so no output singles out a guardian or child.",
+    "source_excerpt": "An agency holding individual responses must release aggregate results, and the legal duty bars any output from which a particular respondent can be singled out, while the holder's staff can still see the raw records. | mechanism: Statutory use limitation and publication prohibition enforced by sworn-oath duties and penalties; statistical disclosure limitation (for example differential privacy in later census products) is a technical layer not specified in the statute."
+   }
+  ]
+ },
+ {
+  "review_id": "p08-4",
+  "title": "University scholarship desk checks status without keeping the household register",
+  "moment": "A freshman at a national university in Hualien applies for the 原住民學生獎助學金 at the student affairs office. Staff currently ask for a full 戶口名簿 or 戶籍謄本 photocopy, which shows parents' names, siblings, addresses and tribal names, and file it with the application.",
+  "verifier": "University student affairs / financial aid office",
+  "predicate": "Holds recognised indigenous status (原住民身分) under the Status Act for Indigenous Peoples, currently valid, and is enrolled at this school.",
+  "disclosed_today": "Full household register copy: national ID number, parents' and siblings' names, registered address, tribe name, birth dates, marital history. Kept in the application file for years.",
+  "issuer": "Household registration office (戶政事務所) under the Ministry of the Interior, with the Council of Indigenous Peoples as the authority for status rules.",
+  "why_zk": "The office only needs a yes/no on status and a check that it has not been presented twice for the same term. A signed membership credential with a per-term nullifier gives both without the register copy. The tribe name itself is special-category data the office does not need. Weakness: some scholarships are tribe-specific or quota-based by tribe, so a selective reveal of tribe would be needed there. Also, students without a smartphone wallet need a counter fallback.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In rd-cnpd-lu-tourist-inspect-not-copy, the accommodation host verifies eligibility by inspecting the identity document and is barred from copying it; here, the scholarship desk's verification of a signed status proof plays that role, so nothing is retained.",
+    "source_excerpt": "A host must confirm a visitor's identity and eligibility, but the usual practice is to keep a copy of the whole identity document; the regulator says looking at it is enough. | mechanism: Visual inspection of the identity document with no copy taken; the statutory duty is met by checking, not retaining."
+   },
+   {
+    "borrowed_aspect": "In tw-pdpa-art11-3-deletion-exception, a collector can keep data after its purpose lapses by citing its own duties; here, the university's habit of retaining household register copies for audit is replaced by retaining only a verified-yes receipt, so the open-ended exception has nothing sensitive to cover.",
+    "source_excerpt": "A party that has collected a person's data must delete it once the reason for holding it ends, but an open-ended exception lets it keep the data whenever it says it still needs it for its own duties. | mechanism: Statutory deletion-on-purpose-lapse duty with exceptions for lawful duties or written consent; no technical erasure mechanism specified."
+   }
+  ]
+ },
+ {
+  "review_id": "p08-5",
+  "title": "Electronic ballot for a 社區 repair-fund vote while the committee cannot link votes to residents",
+  "moment": "A large Taichung complex with several hundred units moves its repair-fund (公共基金) vote to a LINE-based or app-based ballot. The vendor requires residents to register with name, unit number and phone, then keeps a log of who voted how, which the 主委 and vendor can both read, and which later fuels neighbour disputes.",
+  "verifier": "The vote platform operator contracted by the 管委會, plus the 監察 committee (監委) who audit the tally",
+  "predicate": "This holder is an eligible voter for one enrolled unit (owner or authorised resident), carries that unit's weight, and a per-vote nullifier shows the unit has not voted; the ballot content is submitted with no link to the identity.",
+  "disclosed_today": "Name, unit number, phone number or LINE ID, and a stored log tying each identified resident to their choice and timestamp.",
+  "issuer": "The 管委會 issues unit voting credentials after checking ownership once at enrolment, with the 監委 co-signing the roll so the committee cannot add phantom units alone.",
+  "why_zk": "The tally needs weight and one-ballot-per-unit, not an identity-to-choice log. An unlinkable credential lets auditors verify the count while the vendor and the 主委 cannot see who voted which way. Weakness: 公寓大廈管理條例 and many 規約 still require paper or signed records for some resolutions, and the committee that issues the credentials is also the party being protected against, so the trust shifts to the enrolment step rather than disappearing.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In an-b-ala-library-records, a library must keep a record of who used what without it becoming a readable log of interests, relying on a confidentiality policy; here, the vote platform's ballot record plays that role and an unlinkable credential replaces the policy-only protection.",
+    "source_excerpt": "A service provider must keep a record of who used what without that record becoming a readable log of a person's interests, but the duty is a recommended policy that depends on each institution adopting it and on courts or subpoenas being resisted. | mechanism: Institutional confidentiality policy plus procedures for handling subpoenas and law-enforcement requests; no technical minimization of records is specified."
+   },
+   {
+    "borrowed_aspect": "In privacy-pass-unlinkable-proof, clients present proofs that cannot be linked to the issuance interaction; here, a resident's unit-voting credential presented at the ballot box plays that role.",
+    "source_excerpt": "A gatekeeper only needs to know that the visitor already passed some check, but the proof it accepts doubles as a persistent identifier. | mechanism: Blind-signed tokens that attest prior authorisation and cannot be linked to the issuance interaction."
+   }
+  ]
+ },
+ {
+  "review_id": "p08-6",
+  "title": "Borrowing at a partner university library without exposing a loan history",
+  "moment": "A National Taiwan University graduate student walks into National Chengchi University's library to borrow thesis references through the inter-university borrowing agreement. The desk wants to confirm she has no overdue or lost items at any partner library. Today staff look up her full cross-library borrowing record, which shows every title she has ever checked out, including sensitive topics.",
+  "verifier": "Partner university library circulation desk",
+  "predicate": "Non-membership: the student's ID is not on the network's current list of patrons with overdue or lost items.",
+  "disclosed_today": "Student ID, name, department, and a cross-library circulation view with titles, due dates and fine history.",
+  "issuer": "The home university library, or the inter-library consortium, signing a periodically refreshed clean-standing credential.",
+  "why_zk": "Good fit. The check is a single negative fact, and a non-membership proof against a signed delinquency list reveals nothing about what she borrowed. Weakness: the credential goes stale, so it needs a short validity window or a fresh revocation or list root, and the home library still sees which partner asked unless a presentation is made unlinkable.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In the ALA library-records guidance, the library treats who-borrowed-what as confidential by policy; here, a non-membership proof plays that role by making the confidentiality technical, so the partner library never sees circulation records at all.",
+    "source_excerpt": "A service provider must keep a record of who used what without that record becoming a readable log of a person's interests, but the duty is a recommended policy that depends on each institution adopting it and on courts or subpoenas being resisted. | mechanism: Institutional confidentiality policy plus procedures for handling subpoenas and law-enforcement requests; no technical minimization of records is specified."
+   },
+   {
+    "borrowed_aspect": "In the AEPD hotel case, the host records only the fields the registration rule requires rather than copying the whole ID; here, the proof of no overdue items plays that role by giving the desk only the one bit it needs instead of the full borrowing record.",
+    "source_excerpt": "A registrant must prove a small set of facts to a host, but the host asks for a full copy of the identity document, which carries many extra fields the rule never needed. | mechanism: Inspect the identity document in person and record only the fields the registration rule requires; no copy retained."
+   }
+  ]
+ },
+ {
+  "review_id": "p08-7",
+  "title": "Witness walks into the Taipei District Court without handing over the whole summons",
+  "moment": "A 55-year-old shopkeeper summoned as a witness in a neighbor's civil dispute arrives at the Taipei District Court entrance. The guard checks the paper summons, which lists her full name, address, national ID number, the case number, the parties and the cause of action, and also asks to see her ID card, then writes her name and ID number in the visitor log.",
+  "verifier": "Judicial Yuan court security desk (法警 / court police) at the district court entrance",
+  "predicate": "Holder is in the set of persons summoned or noticed for a session at this court today (membership in today's hearing roll)",
+  "disclosed_today": "Full paper summons (name, address, ID number, case number, parties, cause of action), the physical ID card, and a handwritten visitor log entry with name and ID number",
+  "issuer": "The Judicial Yuan / the court clerk's office that issues the summons, signing a daily-scoped credential at the time of service or via the e-service system",
+  "why_zk": "Moderately strong: the guard only needs 'this person is on today's roll for this courthouse', yet the summons reveals the nature of the dispute and personal data to anyone glancing over it. A signed membership claim scoped to court and date can be shown without case number or parties. Weakness: courts must still admit people without digital credentials (paper fallback is legally required), and the clerk already knows the holder, so privacy gain is about the guard and visitor log, not the issuer.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In the Swiss e-ID, selective disclosure lets a holder release only the one attribute a transaction needs from a whole credential; here, the summons credential plays that role by revealing only 'summoned to this courthouse today' and withholding case number and parties.",
+    "source_excerpt": "A business needs one attribute to proceed, but the credential is issued as a whole, so the holder must rely on the wallet to release only the needed attribute. | mechanism: SD-JWT VC selective disclosure with OpenID4VP presentation and status-list validity check."
+   },
+   {
+    "borrowed_aspect": "In PDPA Article 11(3), data must be deleted when its purpose lapses but an open-ended duty exception lets the collector keep it; here, the visitor log plays that role, and a proof that leaves nothing identifying to write down makes retention moot.",
+    "source_excerpt": "A party that has collected a person's data must delete it once the reason for holding it ends, but an open-ended exception lets it keep the data whenever it says it still needs it for its own duties. | mechanism: Statutory deletion-on-purpose-lapse duty with exceptions for lawful duties or written consent; no technical erasure mechanism specified."
+   }
+  ]
+ }
+]

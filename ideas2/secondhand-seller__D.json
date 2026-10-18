@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Carousell buyer checks a seller's track record without seeing a full profile",
+    "moment": "A student in Taichung wants to buy a used Switch for NT$5,500 from a Carousell Taiwan seller and meet at an MRT station. To feel safe, the buyer scrolls the seller's whole profile, past reviews with names, item history and sometimes asks for an ID photo. The buyer only needs to know the seller has completed at least 10 sales with no open disputes.",
+    "verifier": "Individual buyer (and the marketplace app on the buyer's behalf) deciding whether to hand over cash in a face-to-face trade",
+    "predicate": "Seller has completed >= 10 sales on this platform with zero unresolved disputes in the past 12 months",
+    "disclosed_today": "Public profile with username, photo, join date, every past listing, full review texts with reviewer names, plus informal requests for a photo of the national ID card or a phone number",
+    "issuer": "The marketplace platform (e.g. Carousell Taiwan), which holds the sale-completion and dispute records",
+    "why_zk": "The platform already knows the count and dispute state, so it can sign a credential and the seller can prove the threshold without exposing the listing history, counterparties or real identity. Moderate strength: the platform's badge already does a crude version of this, so the gain is mainly unlinkability across platforms and no need to hand over ID photos; the platform remains a trusted issuer and can still track the seller itself.",
+    "inspired_by": [
+      {
+        "seed_id": "rd-google-wallet-zkp-age-no-linkage",
+        "borrowed_aspect": "In Google Wallet's age proof, a ZKP lets the verifier learn only the over-18 claim without being able to track the holder; here, the seller's 'at least 10 clean sales' proof plays that role so the buyer learns only the threshold, not the history."
+      },
+      {
+        "seed_id": "tw-platform-gym-id-card-copies-interp",
+        "borrowed_aspect": "In the gym-membership case, a provider asks for front-and-back ID and card copies when a lesser check would do; here, buyers asking sellers for ID photos to feel safe plays that over-collection role, and the threshold proof is the less-intrusive alternative the letter never named."
+      }
+    ]
+  },
+  {
+    "title": "Cross-platform seller reputation when moving between Facebook groups and a new marketplace",
+    "moment": "A woman in Kaohsiung who has sold baby clothes for years in Facebook second-hand groups joins a new app that gates high-value listings (strollers, laptops) behind a 'trusted seller' tier. The new app asks her to upload screenshots of old chats, orders and her ID to prove she is established. All it needs is that she has sold at least 20 items with no disputes elsewhere.",
+    "verifier": "A newly joined second-hand marketplace app's seller-onboarding team that decides who gets the trusted-seller tier",
+    "predicate": "Holder has >= 20 completed sales with no disputes across one or more prior platforms (aggregate over credentials from several issuers)",
+    "disclosed_today": "Screenshots of old chats and orders containing buyers' names and addresses, ID card photo, phone number, links to past profiles",
+    "issuer": "The prior marketplaces or payment/escrow services that handled the sales (for example a logistics pickup service such as a convenience-store shipping provider, or the original platform), each signing its own count",
+    "why_zk": "Each past platform can sign a per-seller sales count and dispute flag, and the holder can prove a combined threshold without revealing buyers or listings, which also protects third parties whose data sits in screenshots. Weakness: Facebook groups issue nothing, so this only works where a platform or logistics intermediary is willing to issue; summing across issuers also needs the holder to prove the credentials belong to the same person, which is hard without an identifier.",
+    "inspired_by": [
+      {
+        "seed_id": "rd-singpass-myinfo-minimal-request",
+        "borrowed_aspect": "In Singpass MyInfo, a partner is told only to request the fields one purpose needs but the interface returns a broad profile; here, the new marketplace's onboarding form plays the partner and a single threshold predicate replaces the broad screenshot dump."
+      },
+      {
+        "seed_id": "an-a-oauth-scopes",
+        "borrowed_aspect": "In OAuth, a client states a narrow scope and the server may grant more or less than asked; here, the new app requests only the 'sales >= 20, no disputes' scope from the seller's wallet, and the wallet can refuse to release anything beyond it."
+      }
+    ]
+  },
+  {
+    "title": "Cashless pickup locker or consignment shop accepts only vetted peer sellers",
+    "moment": "A neighbourhood second-hand consignment shop in Tainan, or a community drop-box programme run with a district office, lets residents leave items for resale. Today the shop owner photocopies each new consignor's national ID and writes down their phone and bank account to guard against stolen goods and complaints. The owner really only wants to know the consignor has sold at least 5 items elsewhere with no disputes.",
+    "verifier": "The consignment shop owner (a small business) onboarding a new consignor",
+    "predicate": "Consignor has sold >= 5 items in peer trade with no upheld disputes, signed by a platform or community body",
+    "disclosed_today": "Photocopy of national ID (front and back), home address, phone number, bank account details, sometimes a handwritten consignment ledger entry",
+    "issuer": "A community body such as a neighbourhood association or district office running a reuse programme, or a marketplace platform the consignor has sold on",
+    "why_zk": "A signed aggregate lets the owner skip ID copies and keep no personal data file, reducing breach risk for a tiny business with no data-protection staff. Weak-to-moderate: the owner may still be legally or practically expected to identify consignors of used goods under second-hand dealer rules (古物商 record-keeping), so the proof can only replace the reputation part of the check, not any statutory identity registration.",
+    "inspired_by": [
+      {
+        "seed_id": "tw-bank-deposit-dual-id-check",
+        "borrowed_aspect": "In the bank deposit rule, the institution must examine identity documents at account opening and the text is silent on copies and retention; here, the consignment shop's intake photocopying plays that role, and the aggregate proof replaces the reputation-driven part of the copy habit while leaving any statutory ID duty untouched."
+      },
+      {
+        "seed_id": "an-b-jury-selection",
+        "borrowed_aspect": "In jury selection, someone must be seated from a pool without the public learning who they are, with confidentiality only as a discretionary exception; here, the vetted consignor is admitted to the shop's trusted pool by proof of a clean record, with anonymity as the default rather than the owner's discretion."
+      }
+    ]
+  }
+]

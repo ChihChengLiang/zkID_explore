@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Debt collector checks 'is this person a director' without a register-linked address dossier",
+    "moment": "A private debt-recovery agent in Taipei wants to know whether a debtor is a registered company director so it can pursue the company's assets or decide on a negotiation approach. Today staff pull the Ministry of Economic Affairs company registry, then cross-reference land registry transcripts and household data to build the debtor's home address. The agent only needs a yes/no on directorship, not the address.",
+    "verifier": "Licensed debt-recovery or collection agency (and the law firm instructing it)",
+    "predicate": "Holder is currently listed as a director or supervisor of at least one company in the Taiwan company registry (cross-source match between a person identifier and the registry entry), without disclosing the company's registered address, the person's home address or land parcels.",
+    "disclosed_today": "Full name, national ID number, the complete company registry extract with director address fields, plus land registry transcripts (owner name, parcel number, address) that together reveal where the person lives.",
+    "issuer": "Ministry of Economic Affairs Department of Commerce (company registry), co-signing with the household registration office for the identity binding",
+    "why_zk": "A signed 'is-director' attestation lets the collector proceed with a lawful purpose and no home-address dossier. Weakness: the facts are already public, so a determined actor can still scrape the registers directly; the proof only helps for verifiers who would accept it instead of searching, and it does not stop a bad actor who ignores it.",
+    "inspired_by": [
+      {
+        "seed_id": "an-b-hipaa-min-necessary",
+        "borrowed_aspect": "In HIPAA minimum-necessary, the holder of records releases only the subset serving a stated purpose but nothing proves the subset was minimal; here, a signed directorship attestation plays that role of provably minimal release so the collector receives only the yes/no."
+      },
+      {
+        "seed_id": "tw-pdpa-art5-purpose-limit",
+        "borrowed_aspect": "In PDPA Article 5, the collector alone decides what is necessary for the purpose; here, the predicate itself fixes the necessary scope in advance so the collector cannot widen it to address lookup."
+      }
+    ]
+  },
+  {
+    "title": "Landlord tenant-screening confirms 'owns property' without a land-register address trail",
+    "moment": "A prospective landlord or agency in Taichung screening a renter wants comfort that the applicant is a landowner or company director (stable roots, assets), so staff search the land registry and company registry, ending up with the applicant's current home address and other property locations. Applicant presents an attestation instead, and the landlord learns only that the applicant is a landowner or director somewhere in Taiwan.",
+    "verifier": "Real-estate agency or private landlord screening tenants",
+    "predicate": "Holder appears as owner in the land registry or as director in the company registry (cross-source match across two registers, either suffices), without disclosing parcel numbers, addresses, or which register matched.",
+    "disclosed_today": "Applicant's ID copy, plus registry transcripts naming parcels, addresses and companies, often retained by the agency in tenant files.",
+    "issuer": "Ministry of the Interior land administration (land registry office) and Department of Commerce, via a joint wallet-facing attestation service",
+    "why_zk": "An 'either register' proof hides which register matched and where, so the agency's file does not become a map of the applicant's holdings. Weakness: landlords can simply ask for rent deposits or a guarantor instead, and the agency's legal need for this signal is thin, so adoption pressure is low.",
+    "inspired_by": [
+      {
+        "seed_id": "rd-swiss-eid-necessary-data-only",
+        "borrowed_aspect": "In the Swiss e-ID, the business needs one attribute and the wallet releases only that one via selective disclosure; here, the landlord needs only 'owns property or is a director' and the wallet releases that single derived attribute."
+      },
+      {
+        "seed_id": "tw-telco-sim-live-photo-retention",
+        "borrowed_aspect": "In the telco SIM rule, the provider keeps a live photo with no retention limit; here, the agency's tenant file keeping full registry transcripts plays that role, replaced by a proof that leaves nothing sensitive to retain."
+      }
+    ]
+  },
+  {
+    "title": "Process server confirms a defendant's director status via a relay that never sees both identity and address",
+    "moment": "A civil-litigation clerk or bailiff's contractor needs to serve papers on a company director. Today a clerk compiles company registry, land transcripts and household data into one file naming the person and a home address, which then circulates among staff and outside process servers. Instead a court-run relay answers 'this person is a director of company X' to the firm, and a separate service handles delivery to the address without learning the matter or the person's registry history.",
+    "verifier": "Law firm clerk or contracted process-serving agent",
+    "predicate": "The named individual is a registered director of the named company (cross-source match of person identity and company registry), with address resolution split so no single party holds identity, case, and home address together.",
+    "disclosed_today": "A compiled dossier: full name, ID number, home address from land or household sources, company roles, and often copies of transcripts sent by email between staff.",
+    "issuer": "Judicial Yuan court service or Ministry of Justice acting as relay, using Department of Commerce registry data as the signed source",
+    "why_zk": "Splitting knowledge across a relay means a leak at one hop does not expose both the person and the home address, easing stalking risk when service files are mishandled. Weakness: court service already has statutory address-lookup powers, so the split is largely organisational design rather than cryptography, and ZK adds only modest value over access control.",
+    "inspired_by": [
+      {
+        "seed_id": "an-a-tor-onion",
+        "borrowed_aspect": "In Tor onion routing, each relay knows only its neighbours so none holds both origin identity and destination; here, the court relay and the delivery service each hold only part of person, case and address."
+      },
+      {
+        "seed_id": "tw-pdpa-art11-3-deletion-exception",
+        "borrowed_aspect": "In PDPA Article 11(3), data must be deleted when the purpose lapses but an open exception lets the holder keep it; here, the served-and-closed case triggers a verifiable discard of the compiled dossier with no 'still needed for duties' escape because the dossier is never created."
+      }
+    ]
+  }
+]

@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Cremation booking: next-of-kin rank without a family-tree dump",
+    "moment": "A daughter walks into a funeral home in Taichung the morning after her father dies at home, to sign the cremation authorization. The director must confirm she is the highest-ranking living next of kin (e.g. spouse is deceased, she is an adult child), and today photocopies the deceased's household registration transcript showing every relative, ID numbers, addresses and marital history.",
+    "verifier": "Private funeral home (殯葬業者) arranging cremation",
+    "predicate": "Holder is a member of the set of persons who are the deceased's highest-priority living next of kin under the applicable priority order (spouse, then children, then parents, etc.), with no higher-ranking relative alive.",
+    "disclosed_today": "Full household registration transcript (戶籍謄本) of the deceased, with ID numbers, birthdates, addresses, parents, spouse and all siblings, plus a copy of the applicant's national ID card front and back.",
+    "issuer": "Ministry of the Interior household registration office (戶政事務所), signing a kin-rank credential derived from the registry when the death is registered.",
+    "why_zk": "Rank is a membership claim over a registry the household office already holds, so a signed credential could state only 'holder is first-priority next of kin of deceased X' with the wallet proving it. This mirrors the Swiss e-ID idea of sharing only the needed attribute rather than the whole record. Weakness: it needs the household office to issue such credentials at death registration, and the funeral home may still be legally expected to retain a document copy, so adoption depends on regulator acceptance.",
+    "inspired_by": [
+      {
+        "seed_id": "rd-swiss-eid-necessary-data-only",
+        "borrowed_aspect": "In the Swiss e-ID, selective disclosure releases only the one attribute a transaction needs from a whole credential; here, the household registration record plays the whole credential and 'first-priority next of kin' is the single attribute released."
+      },
+      {
+        "seed_id": "tw-securities-foreign-agent-id-copy",
+        "borrowed_aspect": "In the Taiwan securities agent rule, a full ID copy is demanded with no lighter alternative to prove the agent is a real identified person; here, the full household transcript and ID copy play that over-collection and the rank proof replaces them."
+      }
+    ]
+  },
+  {
+    "title": "Crematorium counter: one relative signs, siblings stay private",
+    "moment": "At a municipal crematorium service window in Kaohsiung, the family sends the eldest son to submit the cremation permit paperwork for his mother. The window staff and the contracted funeral home need assurance he is a legitimate next of kin at the right rank, and in practice collect a transcript listing his siblings, a half-sibling from an earlier marriage, and their addresses, which the family would rather keep private.",
+    "verifier": "Municipal funeral service office / crematorium counter staff (殯葬管理所)",
+    "predicate": "Holder belongs to the group of the deceased's children (same priority tier) and no spouse or higher-tier relative is registered as living.",
+    "disclosed_today": "Household registration transcript naming all children, spouse history, half-siblings and their ID numbers and addresses, plus an ID copy of the applicant.",
+    "issuer": "Household registration office, issuing the credential at the time of death registration, with the applicant's wallet holding a membership proof.",
+    "why_zk": "A membership proof lets the counter confirm 'in the child tier, no higher tier alive' without learning how many siblings exist or who they are, so family secrets such as half-siblings or estrangements are not exposed to clerks and contractors. Like the juror seed, the default practice here is wide exposure of identities, with discretion being the only protection. Weakness: disputes among equal-rank relatives are not resolved by a proof, and the counter may still need a human check for contested cases.",
+    "inspired_by": [
+      {
+        "seed_id": "an-b-jury-selection",
+        "borrowed_aspect": "In the jury plan, a judge's discretionary exception is the only thing keeping seated persons' names from public release; here, the cryptographic membership proof plays that protection by keeping the relatives' identities hidden by default rather than by clerk discretion."
+      },
+      {
+        "seed_id": "rd-singpass-myinfo-minimal-request",
+        "borrowed_aspect": "In Singpass MyInfo, partners get a broad profile and are only told by policy not to over-collect; here, the counter's rule to request only the kin-tier claim plays that policy and the credential makes the limit technical rather than a promise."
+      }
+    ]
+  },
+  {
+    "title": "Columbarium niche purchase: kin status without a scanned ID card",
+    "moment": "A son buys a columbarium niche (納骨塔位) at a private temple-run facility in Tainan for his late grandmother's ashes, because the other relatives live abroad. The clerk scans his ID card and a transcript to check that he is an eligible next of kin allowed to contract for the remains, and the scans sit in the facility's files and are sometimes shared with the sales agent.",
+    "verifier": "Private columbarium / temple niche operator (納骨塔業者)",
+    "predicate": "Holder is a member of the set of next of kin entitled, in the current priority order, to arrange the disposition of the deceased's remains.",
+    "disclosed_today": "Scanned front and back of the buyer's national ID card, plus household registration transcript with relatives' details, retained in the facility's files.",
+    "issuer": "Household registration office, with the funeral home that arranged the cremation optionally countersigning as a second attester that the cremation took place.",
+    "why_zk": "The operator only needs one yes-or-no fact, yet the scan captures the whole card, much like the Virginia ID-scan case where field limits exist but the holder still reveals everything at the moment of the scan. A proof removes the ID scan and the retained copy from a small business that is not well placed to protect personal data. Weakness: this is a commercial, not statutory, collection, so the operator has little incentive to change, and where the law does not require the copy the benefit is mainly better privacy hygiene.",
+    "inspired_by": [
+      {
+        "seed_id": "an-b-va-id-scanning",
+        "borrowed_aspect": "In the Virginia scanning rule, a merchant reads a whole license to check one fact while a statute caps what is kept; here, the columbarium clerk's ID scan plays the whole-card read and the kin-eligibility proof plays the no-scan alternative."
+      },
+      {
+        "seed_id": "tw-securities-foreign-agent-id-copy",
+        "borrowed_aspect": "In the securities agent rule, an ID copy stands in for proof that a representative is genuine and authorised; here, the buyer's ID copy plays that stand-in for authority over the deceased's remains."
+      }
+    ]
+  }
+]

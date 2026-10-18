@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Roommate-sharing app: 'clean record' badge without sending a criminal record certificate",
+    "moment": "A 26-year-old in Taichung wants to share a three-bedroom flat found through a roommate-matching app. The app offers a 'verified safe' badge that gets more replies, but to earn it the user must upload a 良民證 (police criminal record certificate) scan with national ID number, full name and address, which the platform staff and the app's contractors can see.",
+    "verifier": "The roommate-matching platform, acting on behalf of strangers who will read the badge",
+    "predicate": "The holder's ID is not on the current violent-offender list (non-membership), proven against a list root that the signer publishes and refreshes",
+    "disclosed_today": "Full scan of the criminal record certificate: name, national ID number, birth date, household address, the full list of recorded offences, and the issue date",
+    "issuer": "National Police Agency (via the police criminal record service), signing a non-membership credential against a dated violent-offender list root",
+    "why_zk": "The badge only needs one bit (not on the list as of date X) but the certificate hands the platform a copy of the person's full identity and record, which it can then retain indefinitely under a vague 'business need' exception. A proof of non-membership against a signed, dated list root gives the same assurance with no ID number stored. Weakness: strangers must trust that the list is the right list, and 'violent-offender list' is not an existing public Taiwanese register, so the list and its legal basis would have to be created; a list covering only convictions misses unreported danger.",
+    "inspired_by": [
+      {
+        "seed_id": "gdpr-data-minimisation",
+        "borrowed_aspect": "In gdpr-data-minimisation, controllers collect a whole document when a narrower field would serve the purpose; here, the roommate platform collects a whole criminal record certificate when a single not-on-the-list bit would serve."
+      },
+      {
+        "seed_id": "tw-pdpa-art11-3-deletion-exception",
+        "borrowed_aspect": "In tw-pdpa-art11-3-deletion-exception, a collector keeps data after its purpose ends by claiming it is needed for its own business; here, the platform's retention of uploaded certificate scans plays that role, and a proof that leaves nothing to keep removes the loophole."
+      }
+    ]
+  },
+  {
+    "title": "Carpool pairing: a driver proves non-membership to a rider before a late-night shared ride",
+    "moment": "A woman in Kaohsiung books a shared ride home from a concert with a stranger who posts seats in a community carpool group chat. She wants some assurance the driver is not on a violent-offender list, but the group admin's only method is to ask drivers to send a photo of their ID card and driver licence in the chat, where every group member can see and save it.",
+    "verifier": "The rider (a peer stranger), via the carpool group's admin bot",
+    "predicate": "The driver is not on the violent-offender list as of a date within the last 30 days, with the proof bound to the driver's licence-holder key so it cannot be passed to another person",
+    "disclosed_today": "Photo of the national ID card and driving licence posted in a group chat: name, ID number, photo, birth date, address, licence class",
+    "issuer": "National Police Agency signs the non-membership credential; the Directorate General of Highways' licence data is a possible binding anchor",
+    "why_zk": "The rider only needs a yes/no from a source she trusts, yet today the driver benefits from a seat fill by exposing identity documents to dozens of strangers in a chat. A blind-signed, unlinkable token means the police issuer never learns which carpool group or which ride the proof is shown for, and the rider's app learns no ID number. Weakness: a clean list result says nothing about someone with no record yet, and drivers can lend their phones, so device binding and liveness matter more than the cryptography.",
+    "inspired_by": [
+      {
+        "seed_id": "an-a-chaum-blind",
+        "borrowed_aspect": "In an-a-chaum-blind, the ballot authority signs a voter's ballot without seeing its content and cannot link it to the counted ballot; here, the police issuer signs the driver's not-on-list token blind, so it cannot later link the token to the specific ride or group where it is shown."
+      },
+      {
+        "seed_id": "tw-bank-deposit-dual-id-check",
+        "borrowed_aspect": "In tw-bank-deposit-dual-id-check, a bank inspects two identity documents without stating whether copies are kept; here, the group admin's request for ID and licence photos plays that role, and a proof replaces the copies so retention stops being a question."
+      }
+    ]
+  },
+  {
+    "title": "Landlord-less sublet: a flat's current tenants screen an incoming roommate without seeing a document",
+    "moment": "Three university graduates in Tainan in a shared flat need a fourth to take over a room in two weeks. A candidate who answers the listing is asked to email a scan of their ID, criminal record certificate and student card to all three tenants, and the tenants forward it between themselves on a messaging app to decide.",
+    "verifier": "The three existing tenants, as a peer group choosing a new roommate",
+    "predicate": "The candidate is not on the violent-offender list as of the current list root, shown separately to each tenant with a fresh presentation so tenants cannot collude to link them",
+    "disclosed_today": "Scans of ID card, criminal record certificate and student card, forwarded among three tenants and stored in their chat histories",
+    "issuer": "A community-run issuer is unrealistic; the practical issuer is the National Police Agency or a licensed intermediary (e.g. the roommate platform's identity partner) holding a delegated signing key for a police-published list root",
+    "why_zk": "Each tenant needs only the not-on-list bit, yet document scans end up in four private chat histories with no deletion duty, since private individuals fall outside the real enforcement reach of the PDPA's household exception. Per-verifier presentations hide the candidate's identity from tenants who then reject them, which today leaves a rejected person's documents circulating. Weakness: the PDPA's household-use exception means no one is legally compelled to minimise, so adoption relies entirely on the platform or wallet making the proof easier than sending a scan; and a landlord or school would still ask for a student card, which this proof does not replace.",
+    "inspired_by": [
+      {
+        "seed_id": "tw-gov-household-register-proxy-copy-discretion",
+        "borrowed_aspect": "In tw-gov-household-register-proxy-copy-discretion, the office may ask for copies of identity documents at its own discretion with no stated limit; here, each of the three tenants plays that role, deciding for themselves what scans to demand, and the proof replaces that open discretion with a fixed single predicate."
+      },
+      {
+        "seed_id": "an-a-tor-onion",
+        "borrowed_aspect": "In an-a-tor-onion, no single relay holds both origin identity and final destination; here, the issuer, the presenting wallet and each tenant each see only their own layer (list root, proof, a one-time presentation), so none holds both the candidate's identity and the full screening outcome."
+      }
+    ]
+  }
+]

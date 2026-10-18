@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Stall-slot lottery check without copying the permit",
+    "moment": "A Tuesday morning at a Taipei night market, the management committee runs its monthly draw for vacant stall slots. Each applicant must show a current food-hygiene registration and stall (temporary-place) permit. Today a committee clerk photocopies the permit, the owner's ID card and the business registration into a binder.",
+    "verifier": "Night-market management committee (self-governing association) clerk",
+    "predicate": "Holder has a food-hygiene registration and stall permit that is valid today (not expired, not revoked), and is a person authorised to operate in this market district.",
+    "disclosed_today": "Full photocopy of the permit (permit number, vendor full name, ID number, home or registered address, product categories, issue and expiry dates) plus ID card copy, kept in paper binders.",
+    "issuer": "Local health bureau (e.g. Taipei City Department of Health) for the hygiene registration, and the city market/street-vendor authority for the stall permit, co-signing one freshness-stamped credential.",
+    "why_zk": "The committee only needs 'valid today, for this market'. A freshness proof with a short expiry window avoids the binder of ID numbers and addresses. Weakness: the committee may be required by its contract with the city or by its own insurer to retain a copy as evidence, which would defeat the privacy gain; and revocation must be checked live or the issuer must re-sign frequently.",
+    "inspired_by": [
+      {
+        "seed_id": "tw-pdpa-art5-purpose-limit",
+        "borrowed_aspect": "In tw-pdpa-art5-purpose-limit, the rule says collection must stay within what the purpose needs but gives no way to show it; here, a predicate-only 'valid today for this market' proof plays that role by making the necessary scope concrete and checkable."
+      },
+      {
+        "seed_id": "tw-bank-deposit-dual-id-check",
+        "borrowed_aspect": "In tw-bank-deposit-dual-id-check, the bank inspects documents but retention of copies is unspecified; here, the proof replaces the photocopy so the retention question never arises for the committee."
+      }
+    ]
+  },
+  {
+    "title": "Weekly spot inspection at the stall without leaking the permit number",
+    "moment": "At 7pm on a Friday a market-office patrol worker walks the stalls and checks that each operator's hygiene and stall permit is current. Today the vendor hands over the laminated permit or a phone photo, which shows the permit number, ID number and address, and the worker photographs it for the log. Permit numbers and the owner's identity numbers then circulate in chat groups of the market office.",
+    "verifier": "Market-office patrol staff acting for the committee",
+    "predicate": "The permit presented was current when issued within the last 24 hours, and its issuance is bound to this stall's wallet, not to a transferable number.",
+    "disclosed_today": "Permit number, name, ID card number, registered address, and a photo of the permit placed in a shared chat or log.",
+    "issuer": "Health bureau, issuing a short-lived (daily-refreshed) freshness attestation to the vendor's wallet app.",
+    "why_zk": "Because a permit number is a static identifier, anyone who sees it can reuse it to impersonate the stall, as with a leaked ID number that survives card reissue. A holder-bound proof that is fresh each day, and shown only to the patrol device, means a leaked log photo is useless. Weakness: many vendors are older and may lack a smartphone, and the patrol can also just look at the physical permit, so adoption pressure is low.",
+    "inspired_by": [
+      {
+        "seed_id": "tw-gov-id-number-reissue-misuse-2025",
+        "borrowed_aspect": "In tw-gov-id-number-reissue-misuse-2025, a static number keeps working for impostors after the card is reissued; here, a holder-bound daily-fresh proof plays the role of the changing credential so a leaked permit number has no value."
+      },
+      {
+        "seed_id": "an-a-samesite-cookies",
+        "borrowed_aspect": "In an-a-samesite-cookies, the cookie attribute limits where the stored credential is sent; here, binding the proof to the patrol verifier and the current context plays that role so the same permit cannot be replayed to unrelated parties."
+      }
+    ]
+  },
+  {
+    "title": "Food-delivery platform onboarding of a stall without the full permit file",
+    "moment": "A stall owner at the night market wants to list on a food-delivery platform so that customers can order during the evening. The platform's merchant onboarding asks for a scan of the hygiene registration and stall permit, which includes the owner's ID number, home address and every product category, and reviewers on the platform's outsourced team see it all.",
+    "verifier": "Food-delivery platform merchant onboarding team",
+    "predicate": "The merchant holds a food-hygiene registration and stall permit that is current as of the onboarding date and covers selling prepared food at a market location.",
+    "disclosed_today": "Full scan of the permit and business registration including owner's ID number, home address, phone, and issue and expiry dates, stored in the platform's onboarding system.",
+    "issuer": "Health bureau as the primary issuer; alternatively the night-market committee could countersign, since it already vets stall holders.",
+    "why_zk": "The platform needs only 'currently permitted to sell prepared food'; a proof limited to that and a coarse category would avoid holding home addresses and ID numbers. It would also let the platform re-ask for a fresh proof monthly instead of keeping a stale scan. Weakness: platform terms and the state's tax and consumer-protection rules may require the platform to know the merchant's real identity anyway, so the identity scan would still be collected for other reasons, leaving the permit proof as only a partial gain.",
+    "inspired_by": [
+      {
+        "seed_id": "an-b-hipaa-safe-harbor",
+        "borrowed_aspect": "In an-b-hipaa-safe-harbor, a fixed list of identifiers is removed before sharing; here, a fixed list of permit fields (ID number, home address, phone) is withheld and only the validity and category fields are released."
+      },
+      {
+        "seed_id": "tw-pdpa-art5-purpose-limit",
+        "borrowed_aspect": "In tw-pdpa-art5-purpose-limit, the collector decides what is necessary for the purpose; here, the signed predicate fixes what is necessary so the platform cannot quietly widen it."
+      }
+    ]
+  }
+]

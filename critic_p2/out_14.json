@@ -1,0 +1,98 @@
+[
+ {
+  "review_id": "p14-0",
+  "context_purpose": "The rental desk must confirm a foreign visitor may lawfully be contracted with and is identifiable for the rental, while the hostel has its own lodging-registration duty.",
+  "norm_violation_today": {"violated": "unclear", "parameter": "recipient", "reason": "A second business duplicating the passport image is plausible rental KYC, but the copy also travels into LINE chats and a second file, which exceeds what the rental needs."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "An anonymous entry-status token cannot give the rental firm or its insurer the name, driving licence and contact needed for the contract, liability and recovery of a vehicle."},
+  "transmission_check": {"principle_today": "commercial_convenience", "permits_minimal_flow": "unclear", "reason": "Rental firms and insurers likely require the driver's identity and licence regardless of the hostel check, and I cannot confirm any rule on passport copies."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "no", "verifier_can_check": "unknown"},
+  "rubric_score": 2,
+  "novelty": 3,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "p14-1",
+  "context_purpose": "The organiser wants only eligible chapter members to vote once on a local project, so the result is credible.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "ID photos and membership card photos kept in a shared drive go far beyond an eligibility and one-vote check, and party membership is sensitive political affiliation."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Little is lost; the organiser needs only a member-in-district claim and a once-per-forum nullifier, though vote-selling and coercion remain unsolved."},
+  "transmission_check": {"principle_today": "commercial_convenience", "permits_minimal_flow": "permits", "reason": "A private forum has no apparent legal duty to hold ID photos, so a chapter-signed credential is not blocked."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 5,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p14-2",
+  "context_purpose": "HR must verify that a leave request is legitimate for the dates asked before granting it.",
+  "norm_violation_today": {"violated": "yes", "parameter": "retention", "reason": "Filing the full order, with respondent and abuse details, in a personnel file readable by managers and payroll goes beyond verifying leave dates."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Nothing material; a time-bounded eligibility attestation covers the leave window, though HR still sees the leave was taken."},
+  "transmission_check": {"principle_today": "consented_for_benefit", "permits_minimal_flow": "unclear", "reason": "The employee hands over the order to obtain leave, and I cannot say whether labour rules require the employer to keep the document."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 4,
+  "novelty": 4,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p14-3",
+  "context_purpose": "The school must release a child only to an adult the guardian has authorised, for child safety.",
+  "norm_violation_today": {"violated": "yes", "parameter": "retention", "reason": "Copying the ID and leaving phone numbers in a gate logbook readable by any later guard keeps more than a one-off authorisation check needs."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "A yes/no token cannot bind the presenter to the person authorised without a photo or code, and the school may want an accountable record of who collected the child."},
+  "transmission_check": {"principle_today": "safety_security", "permits_minimal_flow": "unclear", "reason": "Schools may be expected to keep pickup records for child safety, and I cannot confirm any rule requiring ID copies."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 5,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "p14-4",
+  "context_purpose": "Court security wants to admit only people with business at the court that day and screen for safety.",
+  "norm_violation_today": {"violated": "yes", "parameter": "recipient", "reason": "Case type and names are exposed to bystanders in a public queue, a wider audience than the guard's access-control purpose requires."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "A bare attendance pass loses the guard's ability to direct people to the right division and to check ID for high-risk hearings."},
+  "transmission_check": {"principle_today": "safety_security", "permits_minimal_flow": "unclear", "reason": "Court entry rules may require ID or the notice, and I cannot confirm what is mandated."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 4,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "p14-5",
+  "context_purpose": "Court security must admit only expected participants and screen visitors for safety.",
+  "norm_violation_today": {"violated": "unclear", "parameter": "information_type", "reason": "Showing the summons with parties and cause of action goes beyond an entry check, but courts routinely and legitimately inspect ID at the door."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "An anonymous token drops the identity check and the visitor log that security may need for high-risk hearings or later incident tracing."},
+  "transmission_check": {"principle_today": "safety_security", "permits_minimal_flow": "unclear", "reason": "Security and visitor-register rules may require identification, and I cannot confirm the rules."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 4,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "p14-6",
+  "context_purpose": "The landlord needs evidence that the tenant qualifies for early lease termination so it can release her without penalty.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "The full order exposes the respondent, case facts and ID number to a private third party who needs only a validity window."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Little; the landlord needs a valid-through-date claim, though it may still want to confirm the statutory right applies and that the order is not revoked."},
+  "transmission_check": {"principle_today": "consented_for_benefit", "permits_minimal_flow": "unclear", "reason": "The tenant volunteers the order to exercise a termination right, and I cannot confirm whether the law prescribes the form of proof."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 4,
+  "novelty": 4,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p14-7",
+  "context_purpose": "HR must confirm that a leave or schedule request is legitimate for the requested dates.",
+  "norm_violation_today": {"violated": "yes", "parameter": "retention", "reason": "Copying the whole order into a personnel file that supervisors and payroll can read exceeds what leave verification requires."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Nothing material; an active-order-for-these-dates attestation covers the decision, though employer habit and legal caution may resist."},
+  "transmission_check": {"principle_today": "consented_for_benefit", "permits_minimal_flow": "unclear", "reason": "The employee volunteers the order for leave and the leave entitlement itself is unclear, so I cannot say whether any document is required."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 4,
+  "novelty": 2,
+  "provenance_faithful": "no"
+ }
+]

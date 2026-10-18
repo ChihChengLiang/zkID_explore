@@ -1,0 +1,59 @@
+[
+  {
+    "title": "ICU visiting: prove 'I am the registered spouse or proxy' without handing over an ID copy",
+    "moment": "A man arrives at a regional hospital's ICU in Taichung at 2 pm visiting hour to see his wife after surgery. The ward desk currently asks for his national ID card, copies or scans it, and checks the name against the patient's file; only spouses and the named proxy may enter during restricted hours.",
+    "verifier": "ICU ward nurse station / hospital security desk",
+    "predicate": "Holder is a member of the patient's authorised visitor set (spouse, partner or named proxy) for this admission, without revealing name, ID number, address or the exact relationship type.",
+    "disclosed_today": "Full national ID card shown and often photocopied or photographed: name, ID number, birth date, address, photo, plus the relationship stated verbally and written in a visitor log.",
+    "issuer": "The hospital itself, issuing a per-admission 'authorised visitor' credential at admission, based on the household registration record or the patient's signed proxy designation; the patient can add or revoke names.",
+    "why_zk": "The ward only needs 'is on this patient's allowed list' for this admission, yet the ID copy is the only handle the desk has, like the agent ID copy in the securities case where a full copy is demanded with no lighter option. Selective disclosure of a single membership bit, in the spirit of the Swiss e-ID sharing only necessary data, would let the nurse see a green check for this ward and date. Weakness: the hospital is both issuer and verifier, so it could just keep a plain list at the desk; the gain is mainly that the desk stops copying and logging ID cards and that visitors can't be linked across wards or visits. Also a wallet-less elderly spouse needs a paper or card fallback.",
+    "inspired_by": [
+      {
+        "seed_id": "tw-securities-foreign-agent-id-copy",
+        "borrowed_aspect": "In the securities agent case, the verifier demands a full ID card copy to confirm a third party is a real identified person with no lighter alternative; here, the ward desk's ID photocopy for visitors plays that role and the single-bit membership proof replaces it."
+      },
+      {
+        "seed_id": "rd-swiss-eid-necessary-data-only",
+        "borrowed_aspect": "In the Swiss e-ID, the wallet releases only the attribute a transaction needs via selective disclosure; here, the visitor's wallet releases only 'on this admission's visitor list' to the ward desk."
+      }
+    ]
+  },
+  {
+    "title": "Pediatric ward night security: a parent or guardian badge that does not reveal which child or which parent",
+    "moment": "At 9 pm at a children's hospital in Taipei, after general visiting hours end, only a parent, partner of the parent or a named guardian may stay overnight with a child. The guard at the ward door currently checks an ID card and compares it with a handwritten overnight-stay list at the desk, which is left lying on the counter and visible to other families.",
+    "verifier": "Hospital night security guard at the pediatric ward entrance",
+    "predicate": "Holder is a member of the set of overnight companions approved for this ward bed tonight (parent, parent's partner or named guardian).",
+    "disclosed_today": "ID card shown to the guard, name and ID number written or read against a paper list that exposes other children's names, bed numbers and guardians' names to anyone at the counter.",
+    "issuer": "The pediatric ward, issuing a time-limited companion credential at admission after the parents sign the guardian form; the child's household registration or the signed proxy form is the basis.",
+    "why_zk": "Child safety is a legitimate reason to check, but the check only needs 'approved companion for this ward tonight'. Like a SameSite cookie that should only be honoured in its own context, the credential should be accepted only by this ward's door reader and be valid for the night, so a presentation can't be replayed at other wards or used to track a parent between visits. This also removes the exposed paper list. Honest limit: a guard still needs to see the person matches an expected adult, and in practice a face check against the bed's nurse remains, so ZK only removes the ID number and list exposure, not the human check.",
+    "inspired_by": [
+      {
+        "seed_id": "an-a-samesite-cookies",
+        "borrowed_aspect": "In the SameSite cookie case, the attribute restricts a stored credential to same-site requests so third parties cannot recognise the holder across contexts; here, a ward-and-night scoped presentation plays that role so the credential works only at this ward door and cannot link the parent elsewhere."
+      },
+      {
+        "seed_id": "tw-pdpa-art5-purpose-limit",
+        "borrowed_aspect": "In PDPA Article 5, the collector must stay within the necessary scope of the stated purpose but nothing shows what was necessary; here, the credential makes 'approved companion tonight' the provable necessary scope, replacing the guard's discretion over how much ID data to record."
+      }
+    ]
+  },
+  {
+    "title": "Consent to a family-signed procedure: prove 'I am the named proxy' to the surgical consent counter",
+    "moment": "An elderly patient in Kaohsiung is incapacitated before a non-emergency procedure, and her adult daughter, named as the medical proxy in an advance care plan (預立醫療決定), comes to sign the consent form. Today the admissions clerk requests the daughter's ID, the patient's ID, a household register extract and sometimes a copy of the advance directive, and files copies in the chart.",
+    "verifier": "Hospital admissions and consent clerk, with downstream audit by the hospital's records office",
+    "predicate": "Holder is the named health care proxy for this patient for this episode of care (membership in the proxy set of size one or two).",
+    "disclosed_today": "Copies of the daughter's ID card, the patient's ID, household register transcript showing the whole family's names and addresses, and the advance directive text, which may contain diagnoses and end-of-life wishes.",
+    "issuer": "The patient's regular hospital or a notarised advance-care-planning consultation unit that already records the proxy designation; alternatively a notary or the national health insurance system holding the advance decision record.",
+    "why_zk": "The clerk needs one fact, 'this person is the named proxy', but collects whole-family household data and sensitive directive content, much like HIPAA's minimum-necessary rule where the holder is told to limit disclosure but nothing proves it did. A proof lets the clerk's own staff see only the yes/no and a proxy-scope flag, in the spirit of census-style rules where staff can still see raw records but the output must not single out individuals. Weakness: the legal weight of consent still rests on signed paper under Taiwanese medical law, so the credential supplements rather than replaces the signature, and the issuer must be trusted to have captured the designation validly.",
+    "inspired_by": [
+      {
+        "seed_id": "an-b-hipaa-min-necessary",
+        "borrowed_aspect": "In HIPAA's minimum-necessary rule, the covered entity is trusted to limit health information to what the request needs without any proof; here, a membership proof of proxy status plays that role by making the released subset verifiably just 'is the named proxy'."
+      },
+      {
+        "seed_id": "an-b-census-title13",
+        "borrowed_aspect": "In the census statute, staff can see raw individual records while published outputs must not identify a particular respondent; here, the consent counter's output (a yes/no proxy result in the audit log) plays the published output, so the records office sees no household register extracts or directive text."
+      }
+    ]
+  }
+]

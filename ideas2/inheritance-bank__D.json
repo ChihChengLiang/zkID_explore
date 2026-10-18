@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Heir proves a 1/4 statutory share at the bank counter without the family tree",
+    "moment": "A woman in Taichung goes to a bank branch to claim her one-quarter share of her late father's deposits. Today the clerk photocopies the full 繼承系統表 and a stack of household registration transcripts for the father, the mother, and all siblings, so the whole family tree sits in the bank's files. She wants to show only that her statutory share is at least 1/4.",
+    "verifier": "Bank branch handling deceased-depositor account release (e.g. a commercial bank's estate desk)",
+    "predicate": "Heir's statutory inheritance share of this decedent's estate is >= 1/4 (threshold on a share computed from the Civil Code order of succession and the household registry)",
+    "disclosed_today": "繼承系統表, full household registration transcripts of decedent and heirs, ID copies of every heir, names, relationships, marital and disclaimer status of all family members",
+    "issuer": "Ministry of the Interior household registration offices (戶政事務所), signing a share-computation attestation derived from registry data",
+    "why_zk": "The bank only needs to know the claimant's share clears the amount she asks to withdraw, yet it collects the full family structure, including relatives who are not claiming. A threshold proof on a registry-signed computation avoids that. Weakness: banks and the Financial Supervisory Commission rules expect the paperwork on file for audit, and the other heirs' disclaimers or the existence of a will can change the share, so the proof would need to cover those or the bank will still demand the documents.",
+    "inspired_by": [
+      {
+        "seed_id": "an-b-hipaa-min-necessary",
+        "borrowed_aspect": "In HIPAA minimum-necessary, the covered entity must judge for itself what subset of records serves the purpose with no proof it was minimal; here, a signed share-threshold attestation plays that role by making the minimal disclosure checkable instead of judged by the bank clerk."
+      },
+      {
+        "seed_id": "rd-eudi-wallet-selective-disclosure-recital",
+        "borrowed_aspect": "In the EUDI wallet recital, the wallet lets a user reveal only some attributes from an attestation to a relying party; here, the heir's wallet reveals only the share-at-least-X attribute from the household registry record."
+      }
+    ]
+  },
+  {
+    "title": "Bank matches claimed withdrawal to heir share without learning who the other heirs are",
+    "moment": "Three siblings in Kaohsiung each want to withdraw their part of their mother's NT$2 million deposit at different times and at different branches. One sibling is estranged and does not want the others' spouses, children, and a half-brother from a prior marriage written into the bank's file. The bank teller wants confidence that each requested amount does not exceed that person's entitlement.",
+    "verifier": "Bank back-office estate-settlement unit that approves partial releases for each claimant",
+    "predicate": "Claimant's entitled share >= requested withdrawal fraction, without listing the other heirs (threshold)",
+    "disclosed_today": "Full list of heirs with names, ID numbers and addresses, relationship chart, any 拋棄繼承 (disclaimer) court records, copies of every heir's ID card",
+    "issuer": "Household registration office jointly with the family court's disclaimer registry, each signing its part of the claim",
+    "why_zk": "The bank's real question is a per-claimant ceiling check. Revealing the entire heir roster to every branch spreads sensitive family details widely and creates leak risk. A threshold claim per heir would let each claim stand alone. Honest limit: a bank handling a joint account release or a contested estate may legitimately need to see all heirs to protect itself from later claims by a missed heir, so the proof must also assert completeness of the roster, which is harder than a one-sided threshold.",
+    "inspired_by": [
+      {
+        "seed_id": "an-b-jury-selection",
+        "borrowed_aspect": "In jury selection, the court draws people from a pool and seats them while keeping identities confidential from the public; here, the bank draws one claimant's entitlement from the hidden heir pool and keeps the other heirs' identities confidential from the branch staff."
+      },
+      {
+        "seed_id": "an-b-hipaa-safe-harbor",
+        "borrowed_aspect": "In HIPAA safe harbor, identifiers of relatives and household members are removed before sharing; here, the names and IDs of the non-claiming relatives are removed from the share attestation before it reaches the bank."
+      }
+    ]
+  },
+  {
+    "title": "Foreign-resident heir proves share through a local agent without handing over a full ID copy",
+    "moment": "A Taiwanese-descent heir living in Vancouver authorizes an agent in Taipei to collect a one-third share from their late uncle's bank account. The bank requires the agent's full national ID copy plus the heir's passport and the family tree, which the agent then keeps copies of too. The heir would rather the bank learn only that the agent is authorized for a share of at least one-third.",
+    "verifier": "Bank branch accepting an agent-submitted estate release request on behalf of an overseas heir",
+    "predicate": "Agent holds authority from an heir whose statutory share is >= 1/3 of the estate (threshold on share, plus a delegation link)",
+    "disclosed_today": "Agent's full national ID or residence permit copy, heir's passport copy, power of attorney authenticated abroad, family-tree documents for the whole family",
+    "issuer": "Ministry of the Interior household registration (share) plus a Taiwan overseas mission (TECO) that authenticates the power of attorney",
+    "why_zk": "The bank collects a full ID copy of the agent and the whole family tree when it needs only agent identity-for-this-transaction and a share floor. Delegation plus threshold can be proven with signed credentials from two issuers. Weak point: anti-money-laundering rules and bank practice in Taiwan currently ask for ID copies by regulation, so adoption needs a regulator to accept the proof as a substitute, and overseas authentication chains are slow to digitize.",
+    "inspired_by": [
+      {
+        "seed_id": "tw-securities-foreign-agent-id-copy",
+        "borrowed_aspect": "In the Taiwan securities rule, a foreign investor's domestic agent hands over a full ID copy to prove they are a real identified person; here, a signed agent-authority credential plays that role without exposing the ID image."
+      },
+      {
+        "seed_id": "rd-singpass-myinfo-minimal-request",
+        "borrowed_aspect": "In Singpass MyInfo, a partner requests only the named fields a single purpose needs on consent; here, the bank requests only the share-floor and delegation fields from the heir's wallet rather than the whole registry profile."
+      }
+    ]
+  }
+]

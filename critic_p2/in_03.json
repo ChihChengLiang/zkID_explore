@@ -1,0 +1,162 @@
+[
+ {
+  "review_id": "p03-0",
+  "title": "Clean-record seller badge on a Carousell-style listing without exposing the sales history",
+  "moment": "A Taipei student wants to sell a used iPhone on a Taiwanese peer marketplace. Buyers hesitate unless the seller looks trustworthy, so the platform and buyers browse the seller's full list of past sales, item titles, buyer nicknames and review text to judge reliability.",
+  "verifier": "The prospective buyer, and the marketplace's listing page acting on the buyer's behalf",
+  "predicate": "Seller has completed at least 10 sales through the platform with zero open or lost disputes in the past 24 months (threshold met: yes/no).",
+  "disclosed_today": "Full public transaction history: every item sold, prices, dates, counterparty nicknames, and free-text reviews, which also reveals the seller's home, hobbies, finances and what they are clearing out.",
+  "issuer": "The marketplace platform (or its payment/escrow arm) signs an aggregate credential over its own dispute and completion ledger.",
+  "why_zk": "Moderate. The platform already holds the ledger, so it could simply show a badge; the proof only matters if the seller wants to carry the reputation to another platform or a Line group without that platform seeing the history. The issuer must be trusted not to wash disputes, and a seller can keep a clean alias, so the proof gives selective disclosure but not Sybil resistance.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In the ALA library-records policy, the circulation log must exist for the library's operation without being a readable record of a user's interests; here, the platform's sales ledger plays that role, with the aggregate credential replacing the readable history.",
+    "source_excerpt": "A service provider must keep a record of who used what without that record becoming a readable log of a person's interests, but the duty is a recommended policy that depends on each institution adopting it and on courts or subpoenas being resisted. | mechanism: Institutional confidentiality policy plus procedures for handling subpoenas and law-enforcement requests; no technical minimization of records is specified."
+   },
+   {
+    "borrowed_aspect": "In the secret ballot, eligibility is checked separately from the ballot so identity is not attached to the choice; here, the seller's reputation threshold is checked separately from the listing content so the item history is not attached to the trust signal.",
+    "source_excerpt": "A voter must prove eligibility and cast a valid choice while the record of that choice cannot be linked back to them, but the same process must still let officials verify who voted, so the separation depends on procedure rather than on a proof. | mechanism: Separate voting compartments and two-envelope sealing for postal and absentee ballots so identity is not attached to the vote at counting; eligibility is checked separately from the ballot."
+   }
+  ]
+ },
+ {
+  "review_id": "p03-1",
+  "title": "Consent to a family-signed procedure: prove 'I am the named proxy' to the surgical consent counter",
+  "moment": "An elderly patient in Kaohsiung is incapacitated before a non-emergency procedure, and her adult daughter, named as the medical proxy in an advance care plan (預立醫療決定), comes to sign the consent form. Today the admissions clerk requests the daughter's ID, the patient's ID, a household register extract and sometimes a copy of the advance directive, and files copies in the chart.",
+  "verifier": "Hospital admissions and consent clerk, with downstream audit by the hospital's records office",
+  "predicate": "Holder is the named health care proxy for this patient for this episode of care (membership in the proxy set of size one or two).",
+  "disclosed_today": "Copies of the daughter's ID card, the patient's ID, household register transcript showing the whole family's names and addresses, and the advance directive text, which may contain diagnoses and end-of-life wishes.",
+  "issuer": "The patient's regular hospital or a notarised advance-care-planning consultation unit that already records the proxy designation; alternatively a notary or the national health insurance system holding the advance decision record.",
+  "why_zk": "The clerk needs one fact, 'this person is the named proxy', but collects whole-family household data and sensitive directive content, much like HIPAA's minimum-necessary rule where the holder is told to limit disclosure but nothing proves it did. A proof lets the clerk's own staff see only the yes/no and a proxy-scope flag, in the spirit of census-style rules where staff can still see raw records but the output must not single out individuals. Weakness: the legal weight of consent still rests on signed paper under Taiwanese medical law, so the credential supplements rather than replaces the signature, and the issuer must be trusted to have captured the designation validly.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In HIPAA's minimum-necessary rule, the covered entity is trusted to limit health information to what the request needs without any proof; here, a membership proof of proxy status plays that role by making the released subset verifiably just 'is the named proxy'.",
+    "source_excerpt": "A holder of sensitive records must release only the subset that serves a stated purpose, but the rule leaves it to the holder to judge what is minimal and gives no mechanism that proves the released subset was minimal. | mechanism: Purpose-based minimum-necessary rule with reasonable-efforts standard, role-based access and reasonable reliance on requester representations (45 CFR 164.514(d)); no cryptographic or proof-based check."
+   },
+   {
+    "borrowed_aspect": "In the census statute, staff can see raw individual records while published outputs must not identify a particular respondent; here, the consent counter's output (a yes/no proxy result in the audit log) plays the published output, so the records office sees no household register extracts or directive text.",
+    "source_excerpt": "An agency holding individual responses must release aggregate results, and the legal duty bars any output from which a particular respondent can be singled out, while the holder's staff can still see the raw records. | mechanism: Statutory use limitation and publication prohibition enforced by sworn-oath duties and penalties; statistical disclosure limitation (for example differential privacy in later census products) is a technical layer not specified in the statute."
+   }
+  ]
+ },
+ {
+  "review_id": "p03-2",
+  "title": "Anonymous-but-countable ballot on a contested management-fee increase",
+  "moment": "A building with a split over raising monthly management fees (管理費) and hiring a new security firm holds a ballot by paper slip signed with name and unit number, collected by the committee. Residents who disagree with the chair fear retaliation or social pressure, and the committee must still keep a legally defensible record that each unit voted once, because meeting resolutions can be challenged in court and the minutes must be kept and shown to the district's building-management supervision office (主管機關).",
+  "verifier": "The management committee together with the auditor (監察人), who must be able to show a court or the district authority that each unit voted at most once with correct weights",
+  "predicate": "This ballot comes from a unit in the owner roll, with weight w, and that unit's nullifier for this ballot appears for the first time (uniqueness), without linking the ballot to a name.",
+  "disclosed_today": "Name, unit number and signature on the ballot itself, which ties each vote to a person, plus ID checks at the door; the ballots and minutes are retained for later challenge.",
+  "issuer": "The management committee itself as a community-body issuer, issuing each registered unit a single-use voting credential at roll-call from the verified owner roll, with the auditor (監察人) holding the audit key.",
+  "why_zk": "Credential issuance at roll-call separates 'eligible unit' from 'this vote', so the committee can prove one-vote-per-unit weighted tallies to a court without a name-linked ballot, which is the secret-ballot property that paper slips with names cannot give. Weakness: the statute and most bylaws are written around open, signed votes, the issuer is the same body that counts, so a corrupt committee could issue extra credentials, and small buildings may simply not need it. It is also a social question whether neighbours accept anonymity, so the strongest case is only for contested, high-stakes items.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In Tor onion routing, no single relay holds both the origin identity and the final destination; here, the roll-call issuer sees who is eligible and the ballot box sees only the vote with its nullifier, so no single party holds both the person and the choice.",
+    "source_excerpt": "A route must be relayed through intermediaries so that no single intermediary holds both the origin identity and the final destination, while the traffic still reaches the endpoint. | mechanism: Onion routing, where the message is wrapped in one encryption layer per relay, and each relay peels only its own layer and passes the rest to the next hop."
+   },
+   {
+    "borrowed_aspect": "In the ALA library-records policy, the library keeps a record of use without it becoming a readable log of a person's interests, subject to subpoena resistance; here, the retained ballot record plays that role, and the nullifier-only record means a court order to the committee yields unit counts rather than who opposed the chair.",
+    "source_excerpt": "A service provider must keep a record of who used what without that record becoming a readable log of a person's interests, but the duty is a recommended policy that depends on each institution adopting it and on courts or subpoenas being resisted. | mechanism: Institutional confidentiality policy plus procedures for handling subpoenas and law-enforcement requests; no technical minimization of records is specified."
+   }
+  ]
+ },
+ {
+  "review_id": "p03-3",
+  "title": "Online scholarship portal replaces ID-number-and-date checks for indigenous student aid",
+  "moment": "A foundation or corporate CSR programme in Taipei runs an online application for indigenous high school students' study grants. Today the form asks for ID number, ID issue date and an uploaded household register scan, and the foundation staff open every scan to decide who qualifies. Fraudsters with stolen ID data can claim grants, as in other ID-number-only online checks.",
+  "verifier": "Private foundation or company-run education grant programme",
+  "predicate": "Holds recognised indigenous status, and the presenter is the credential holder (bound to a wallet key), once per grant round.",
+  "disclosed_today": "ID number, issue date, scanned household register or ID card, tribe name, home address, and often parents' details, kept in the foundation's email and drive.",
+  "issuer": "Household registration office (戶政事務所) or the Council of Indigenous Peoples through the national digital wallet.",
+  "why_zk": "The foundation needs to be sure the applicant is genuinely indigenous and is the person applying, not who their relatives are. An ID number plus issue date is easy to copy, while a wallet-bound credential is not. A per-round nullifier prevents double-claiming without a national-ID database at the foundation. Weakness: many small foundations lack the verifier tooling, and if the programme is also open to non-indigenous applicants on other grounds, the benefit of the claim is smaller.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In tw-telco-online-id-check-fraud-2021, the telco accepts an ID number and issue date as proof and so passes stolen identities; here, the foundation's portal accepts a holder-bound status credential in place of those copyable identifiers.",
+    "source_excerpt": "A provider must verify that a new applicant is the named person, but its check uses identifiers that are easy to copy, so a stolen identity passes and the real person bears the consequences. | mechanism: None; online verification only checked ID number and issue date."
+   },
+   {
+    "borrowed_aspect": "In an-b-jury-selection, selected people's identities risk default publication unless a discretionary exception applies; here, the list of grant recipients that the foundation might publish in reports plays that role, and a verified-status-only record means recipients' tribal identities are not in the file to publish.",
+    "source_excerpt": "Someone must be drawn from a pool and seated for a task without the wider public learning who they are, but the default rule can flip to full publication of the identities of everyone selected, with confidentiality only as a judge-level exception. | mechanism: Judge-discretionary confidentiality of juror names under a court's jury selection plan; no technical mechanism specified."
+   }
+  ]
+ },
+ {
+  "review_id": "p03-4",
+  "title": "Hospital-to-funeral handover with kin priority proven separately from the deceased's file",
+  "moment": "A patient dies in a hospital in Kaohsiung and the family chooses a funeral home. The funeral home must be sure that the person who calls and signs is the kin with the right to decide, while the hospital's death certificate and medical details should stay with the hospital and the doctor. Today the funeral home receives bundles that mix the death certificate, cause of death and family information.",
+  "verifier": "Funeral home intake staff receiving the body from a hospital morgue",
+  "predicate": "The signer is a next of kin of the deceased in the correct priority order, shown independently of the death certificate's medical content.",
+  "disclosed_today": "A bundle containing the death certificate (cause of death), the signer's ID copy, family-register pages and sometimes the deceased's insurance and address details.",
+  "issuer": "Household Registration Office for the kin-rank claim; the hospital or attending physician separately for the fact of death, so the two never travel in one document.",
+  "why_zk": "As in a secret ballot, eligibility is checked in one channel and the sensitive record in another, so the funeral home links the kin claim to the case only through a case number. This separation is procedural more than cryptographic: a funeral home that also receives the death certificate can still link everything, so the proof helps only if the hospital sends the medical content to the crematorium or registry and not to the funeral home.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In the Australian secret ballot, eligibility is checked separately from the ballot so identity is not attached to the vote at counting; here, the kin-rank presentation is checked separately from the death certificate so medical content is not attached to the family's identity at the funeral home.",
+    "source_excerpt": "A voter must prove eligibility and cast a valid choice while the record of that choice cannot be linked back to them, but the same process must still let officials verify who voted, so the separation depends on procedure rather than on a proof. | mechanism: Separate voting compartments and two-envelope sealing for postal and absentee ballots so identity is not attached to the vote at counting; eligibility is checked separately from the ballot."
+   },
+   {
+    "borrowed_aspect": "In the EUDI Wallet recital, only some attributes of a larger record are disclosed to the relying party; here, only the rank-of-kin attribute from the registry record is disclosed to the funeral home intake staff.",
+    "source_excerpt": "A verifier needs one attribute from a larger identity record, but the holder cannot share just that attribute from the record. | mechanism: Selective disclosure of attributes from electronic attestations held in the EU Digital Identity Wallet."
+   }
+  ]
+ },
+ {
+  "review_id": "p03-5",
+  "title": "Foreign-resident heir proves share through a local agent without handing over a full ID copy",
+  "moment": "A Taiwanese-descent heir living in Vancouver authorizes an agent in Taipei to collect a one-third share from their late uncle's bank account. The bank requires the agent's full national ID copy plus the heir's passport and the family tree, which the agent then keeps copies of too. The heir would rather the bank learn only that the agent is authorized for a share of at least one-third.",
+  "verifier": "Bank branch accepting an agent-submitted estate release request on behalf of an overseas heir",
+  "predicate": "Agent holds authority from an heir whose statutory share is >= 1/3 of the estate (threshold on share, plus a delegation link)",
+  "disclosed_today": "Agent's full national ID or residence permit copy, heir's passport copy, power of attorney authenticated abroad, family-tree documents for the whole family",
+  "issuer": "Ministry of the Interior household registration (share) plus a Taiwan overseas mission (TECO) that authenticates the power of attorney",
+  "why_zk": "The bank collects a full ID copy of the agent and the whole family tree when it needs only agent identity-for-this-transaction and a share floor. Delegation plus threshold can be proven with signed credentials from two issuers. Weak point: anti-money-laundering rules and bank practice in Taiwan currently ask for ID copies by regulation, so adoption needs a regulator to accept the proof as a substitute, and overseas authentication chains are slow to digitize.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In the Taiwan securities rule, a foreign investor's domestic agent hands over a full ID copy to prove they are a real identified person; here, a signed agent-authority credential plays that role without exposing the ID image.",
+    "source_excerpt": "A foreign investor must prove that its local agent is a real, identified person, and the agent hands over a full copy of an ID card, with no alternative verification stated. | mechanism: None stated; full ID copy required with no less-intrusive alternative given."
+   },
+   {
+    "borrowed_aspect": "In Singpass MyInfo, a partner requests only the named fields a single purpose needs on consent; here, the bank requests only the share-floor and delegation fields from the heir's wallet rather than the whole registry profile.",
+    "source_excerpt": "A service provider needs a few verified fields for one purpose, but the retrieval interface returns a broad profile and the only limit is a policy rule on the partner. | mechanism: Consent-gated retrieval of named MyInfo fields, with a rule to request only needed data and purge unsubmitted drafts."
+   }
+  ]
+ },
+ {
+  "review_id": "p03-6",
+  "title": "School-to-university library access for a high schooler borrowing across the network",
+  "moment": "A senior at a Taichung high school applies for a visiting-reader pass at a nearby university library to prepare a science fair project. The university asks the school librarian to send a note about the student, and the school pulls the student's full loan history to show nothing is overdue, which exposes interests and personal reading choices to staff at both institutions.",
+  "verifier": "University library visitor-pass office",
+  "predicate": "Non-membership: the student is not listed as having overdue or lost items in the school or public library network.",
+  "disclosed_today": "Student name, school ID, a librarian-written letter, and often a printed loan history with titles and dates.",
+  "issuer": "The school library, or the city public library system, signing the standing status on request.",
+  "why_zk": "Moderate to weak. The privacy gain is real for a minor, since a loan history can reveal personal matters. The practical limit is that a school librarian can already vouch in a short letter, so a proof mainly helps by removing the temptation to attach the history, and it matters only if it is easy to issue and a university pass office will accept it.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In attorney-client privilege, a confidential exchange is damaged when an extra party is in the room; here, a minimal proof plays that role by keeping the school librarian and university staff from each learning more than the status requires.",
+    "source_excerpt": "A party must consult an advisor about a sensitive matter without the advisor, or anyone else, learning or revealing more than the matter requires, but the protection breaks as soon as an outsider is in the room unless the outsider is essential to the relationship. | mechanism: Evidentiary privilege over communications, lost by third-party presence except essential agents such as interpreters; no technical mechanism."
+   },
+   {
+    "borrowed_aspect": "In the telco case, the check used copyable identifiers and let a stolen identity pass; here, a signed credential bound to the student plays the contrasting role by making the claim hard to borrow or forge, unlike a bare ID number.",
+    "source_excerpt": "A provider must verify that a new applicant is the named person, but its check uses identifiers that are easy to copy, so a stolen identity passes and the real person bears the consequences. | mechanism: None; online verification only checked ID number and issue date."
+   }
+  ]
+ },
+ {
+  "review_id": "p03-7",
+  "title": "Spouse or named proxy proof at the ICU visiting desk without a household registry copy",
+  "moment": "A man arrives at the ICU visiting desk of a regional hospital in Taichung at night to see his wife after emergency surgery. The nurse station, to guard against unauthorised visitors, asks for his ID and a 戶口名簿 or 戶籍謄本 photocopy to prove marriage, which also reveals every other household member, their birth dates and addresses.",
+  "verifier": "ICU ward nurse station / hospital security desk",
+  "predicate": "The visitor is a member of the patient's authorised-visitor set (spouse, registered partner, or a proxy named by the patient on admission), without revealing which role or any other household member.",
+  "disclosed_today": "Full national ID card shown and often photocopied, plus household registration transcript listing all household members with ID numbers, birth dates, addresses, parents and marital history; the visit log keeps name and ID number.",
+  "issuer": "The hospital itself at admission: when the patient (or a registry check of 戶政 data at that time) designates visitors, the hospital signs a per-visitor membership credential; a Ministry of the Interior household-registry signature could back the spouse case.",
+  "why_zk": "Membership in a small, hospital-defined set is a clean predicate, and the ward only needs a yes plus an audit stamp, not the registry. Weakness: the hospital is also the issuer and knows the list anyway, so the gain is mostly against copies of IDs and household transcripts and against later reuse of the visit log, not against the hospital itself; staff may also accept a verbal statement in real emergencies, so adoption pressure is low. The inspect-not-copy norm in Luxembourg already shows the ward could simply look and not retain; ZK adds value only where proof must be checked by a guard who cannot be trusted to hold the data.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In rd-cnpd-lu-tourist-inspect-not-copy, the host confirms eligibility by inspecting the identity document without keeping a copy; here, the nurse station's check of a membership proof on the visitor's phone plays that role, with nothing retained beyond a pass/fail stamp.",
+    "source_excerpt": "A host must confirm a visitor's identity and eligibility, but the usual practice is to keep a copy of the whole identity document; the regulator says looking at it is enough. | mechanism: Visual inspection of the identity document with no copy taken; the statutory duty is met by checking, not retaining."
+   },
+   {
+    "borrowed_aspect": "In tw-securities-foreign-agent-id-copy, a local agent must hand over a full ID copy to prove they are a real identified person with no lighter alternative; here, the visitor's household transcript copy plays that over-collection role and is replaced by a one-bit membership proof.",
+    "source_excerpt": "A foreign investor must prove that its local agent is a real, identified person, and the agent hands over a full copy of an ID card, with no alternative verification stated. | mechanism: None stated; full ID copy required with no less-intrusive alternative given."
+   }
+  ]
+ }
+]

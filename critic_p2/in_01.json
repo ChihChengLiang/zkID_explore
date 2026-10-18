@@ -1,0 +1,162 @@
+[
+ {
+  "review_id": "p01-0",
+  "title": "Elder-care shelter handover: pharmacist and charge nurse need to know the helper is a nurse, not who she is",
+  "moment": "In a long-running evacuation shelter in Taitung, a hospital-affiliated charge nurse on a rotating roster must hand over insulin storage and wound-dressing duties to walk-in volunteers during a night shift. She needs to be sure each claimed nurse really holds a licence that has not lapsed, but would rather not collect and store everyone's identity papers in the shelter's clinical corner, where residents' records also sit.",
+  "verifier": "Charge nurse on duty at the shelter's medical corner (staff of the partner hospital or public health centre, 衛生所)",
+  "predicate": "Holder has a nursing licence valid and in good standing as of a signed status timestamp no older than 48 hours, presented in person by NFC or QR with the presenter's local confirmation; shelter learns nothing else.",
+  "disclosed_today": "The nurse shows her licence and national ID card; the charge nurse copies the name and licence number into a handover notebook kept in the same box as the residents' medication sheets, and sometimes takes a phone photo of the licence for the roster.",
+  "issuer": "Local public health centre (衛生所) of the county health bureau, re-signing licence status from the MOHW registry for each deployment window",
+  "why_zk": "The data minimisation benefit is real because the notebook sits next to sensitive resident health records, so a leak would link volunteers' identities with patients' data, and a professional-to-professional confidentiality boundary is better protected if no extra outsider identity data enters the room. Weakness: a charge nurse working beside a volunteer can often judge competence by conversation, the legal duty to log who treated whom may still require the name, and a health centre issuer adds a local process that may not be staffed in a disaster.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In an-b-attorney-client, confidentiality collapses when a non-essential outsider is in the room; here, the volunteer's identity papers and licence copies filed beside residents' medication sheets play that outsider, and a bare status proof keeps them out of the clinical record.",
+    "source_excerpt": "A party must consult an advisor about a sensitive matter without the advisor, or anyone else, learning or revealing more than the matter requires, but the protection breaks as soon as an outsider is in the room unless the outsider is essential to the relationship. | mechanism: Evidentiary privilege over communications, lost by third-party presence except essential agents such as interpreters; no technical mechanism."
+   },
+   {
+    "borrowed_aspect": "In tw-gov-household-register-proxy-copy-discretion, the office may collect a principal's ID copy at its own discretion; here, the charge nurse's discretion over how much licence and ID paperwork to copy plays that role, and a fixed predicate removes that discretion.",
+    "source_excerpt": "A government office that holds a record may ask a proxy's requester for a copy of the principal's identity document, and the scope of what it may collect is left to the office's discretion. | mechanism: None stated; collection of document copies left to agency discretion under PDPA and administrative procedure rules."
+   }
+  ]
+ },
+ {
+  "review_id": "p01-1",
+  "title": "Hospital nurses' union walkout vote without the hospital seeing the list",
+  "moment": "Nurses at a large hospital are voting whether to join a work-to-rule or strike action. Union organizers fear that any sign-in sheet or check against hospital HR records lets management identify supporters, and a paper sign-in at the ward lets supervisors see who showed up to vote.",
+  "verifier": "The hospital branch union's election committee and an external observer, such as the Ministry of Labor-appointed supervisor or a labor-affairs department monitor",
+  "predicate": "I am a dues-paying member of the hospital nurses' union as of the cut-off date, proven without a name, and I have not voted already",
+  "disclosed_today": "Name, employee ID and signature on an on-site sign-in sheet, sometimes cross-checked with hospital HR staff lists and the union's dues roster",
+  "issuer": "The nurses' union branch, signing a credential when dues are collected, held in the member's phone wallet",
+  "why_zk": "The observer can verify that only paid members voted and that no one voted twice, with no name on any sheet the hospital's HR or supervisors can see, which matters because union membership is special-category data and retaliation is the real fear. Weakness: the Labor Union Act and strike-vote rules may require the union to keep a full named membership list, and coercion at the ballot box is not solved by a credential; the proof covers record-keeping, not social pressure.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In PDPA Article 11(3), a collector must delete data when the purpose lapses but keeps it whenever it claims duty needs it; here, the sign-in sheet plays that role, and a nullifier-based proof removes the need to keep names after the ballot closes.",
+    "source_excerpt": "A party that has collected a person's data must delete it once the reason for holding it ends, but an open-ended exception lets it keep the data whenever it says it still needs it for its own duties. | mechanism: Statutory deletion-on-purpose-lapse duty with exceptions for lawful duties or written consent; no technical erasure mechanism specified."
+   },
+   {
+    "borrowed_aspect": "In SameSite cookies, a credential is sent on any triggered request so third parties can match the holder across contexts; here, the membership credential plays that role, and a per-ballot nullifier stops the ballot from being linkable to the member's other presentations.",
+    "source_excerpt": "A stored credential should be presented only to the party that issued it in the current context, but the browser sends it on any request the context triggers, so an unrelated observer can match the holder across contexts. | mechanism: The SameSite cookie attribute, which limits the cookie to same-site requests (Strict, Lax, or None); the IETF draft describes it as a per-cookie setting, and cross-site behaviour depends on the chosen value."
+   }
+  ]
+ },
+ {
+  "review_id": "p01-2",
+  "title": "Sealed validity proof for a public tender's site-safety roster",
+  "moment": "A contractor that won a public works contract in Taichung must show the owner agency, before the start date, that every worker assigned to scaffolding or high-work tasks holds valid training. Today the contractor submits a roster with ID numbers and certificate scans to the agency weeks ahead, and competing subcontractors in the same bid package can sometimes see each other's crews and their qualifications.",
+  "verifier": "Public owner agency (project management office) or its supervising engineer on a government construction contract",
+  "predicate": "Every listed worker holds a safety-training certificate for scaffolding or high work that is still valid on the planned start date, committed to ahead of time and opened only at the start date.",
+  "disclosed_today": "Roster with names, ID numbers, certificate numbers, issuing institution and expiry dates for every worker, submitted in a document that several subcontractors and the agency's staff can read.",
+  "issuer": "Accredited training provider that issues each certificate; the contractor aggregates the proofs but does not issue anything itself.",
+  "why_zk": "The agency needs a time-bounded yes at the start date, and the roster can be committed early and checked only at the opening moment, as with a sealed bid that stays closed until the scheduled opening. The agency keeps a record of when each proof was checked, so it can show that nobody looked early. Weakness: public contracts often require named workers for audits and labour-insurance cross-checks, so the anonymous proof can only apply to the pre-start screening, and the agency may still demand names later.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In an-b-sealed-bid-far, bids stay unopened in a locked box until the scheduled opening and an official may open an envelope only to identify it; here, the committed roster proof plays the sealed bid, opened only at the start date, and the project office's single designated checker plays the official who may see only the wrapper (the validity result).",
+    "source_excerpt": "A party submits a value that must stay hidden from competitors until a fixed moment, while the holder of the submissions must be able to prove later that none were seen early and must handle identifying wrappers without exposing the content. | mechanism: Physical and access-control safeguarding of sealed bids with designated-official exception for envelope identification, plus a written record of any mistaken early opening."
+   },
+   {
+    "borrowed_aspect": "In an-b-attorney-client, confidentiality breaks when an outsider is present unless they are essential to the relationship; here, rival subcontractors reading the same roster play the outsiders, and the agency's checker is the only essential party allowed to see the validity result.",
+    "source_excerpt": "A party must consult an advisor about a sensitive matter without the advisor, or anyone else, learning or revealing more than the matter requires, but the protection breaks as soon as an outsider is in the room unless the outsider is essential to the relationship. | mechanism: Evidentiary privilege over communications, lost by third-party presence except essential agents such as interpreters; no technical mechanism."
+   }
+  ]
+ },
+ {
+  "review_id": "p01-3",
+  "title": "School-gym shelter with children: nurse volunteer allowed near the child-care corner without a copy of her ID",
+  "moment": "A shelter in a Taichung elementary school gym houses families with young children after a flood. The school's safety officer and a social-work NGO require that anyone staffing the infant and child health corner be a verified nurse, to prevent impersonation by strangers with access to children. A nurse who has just come off shift arrives, and the NGO wants a photocopy of her licence and ID for its volunteer file, which sits in a filing box in the school office for months.",
+  "verifier": "Social-work NGO volunteer lead jointly with the school safety officer controlling access to the child-care corner",
+  "predicate": "Nursing licence confirmed in good standing within the last 12 hours, shown on the volunteer's phone at the corner entrance and checked against the shelter's rota",
+  "disclosed_today": "Photocopy of licence and national ID card (including address and ID number) filed in a paper volunteer binder, plus name and phone on a sign-in sheet",
+  "issuer": "Ministry of Health and Welfare nurse registry, with the issuance bound to the nurse's phone wallet so a screenshot or borrowed phone cannot be replayed",
+  "why_zk": "Scope of what the NGO and school may collect is left to their discretion, much like a household registry office asking for proxy ID copies, and that copy habit is where the harm sits: months of retained ID copies of volunteers in a school office. A fresh, holder-bound proof meets the child-safety aim without a copy. Weakness: child safety also normally calls for a criminal-record or reference check which this claim does not cover, and a proof of licence does not show the person at the door is the licence holder unless wallet binding or a quick in-person ID glance is kept.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In the household-registry proxy rule, the office may collect a copy of the principal's identity document at its own discretion; here, the NGO's and school's habit of filing licence and ID copies plays that role and the on-phone proof replaces the copy so discretion has nothing to collect.",
+    "source_excerpt": "A government office that holds a record may ask a proxy's requester for a copy of the principal's identity document, and the scope of what it may collect is left to the office's discretion. | mechanism: None stated; collection of document copies left to agency discretion under PDPA and administrative procedure rules."
+   },
+   {
+    "borrowed_aspect": "In attorney-client privilege, confidentiality is lost as soon as an unnecessary third party is in the room; here, the shelter's paper binder and extra staff who handle the ID copy play that third party and the wallet proof keeps the exchange between the nurse and the single gate check.",
+    "source_excerpt": "A party must consult an advisor about a sensitive matter without the advisor, or anyone else, learning or revealing more than the matter requires, but the protection breaks as soon as an outsider is in the room unless the outsider is essential to the relationship. | mechanism: Evidentiary privilege over communications, lost by third-party presence except essential agents such as interpreters; no technical mechanism."
+   }
+  ]
+ },
+ {
+  "review_id": "p01-4",
+  "title": "Typhoon-night shelter triage desk: nurse volunteer walks in with a licence that is current today",
+  "moment": "After a typhoon floods a district in Kaohsiung, a township office opens a school gym as a shelter. A retired nurse arrives at 11 pm to help with elderly evacuees' medication and wound care. The volunteer coordinator at the sign-in desk must decide within minutes whether she may be placed at the medical corner, where she will handle residents' medicines and dressings.",
+  "verifier": "Shelter volunteer coordinator at the township disaster-response centre (civil-defence / district office staff or an NGO lead running the shelter)",
+  "predicate": "Licence status was checked against the issuer's register within the last 24 hours and shows a nursing licence that is valid and in good standing (no suspension or revocation); no name, ID number or licence number revealed.",
+  "disclosed_today": "Volunteers fill a paper sign-in sheet and hand over a photo of the national ID card and a photocopy or phone photo of the nursing licence (name, ID number, birth date, licence number, registration place), which the coordinator keeps in a shared LINE group or on a clipboard with no stated retention or deletion.",
+  "issuer": "Ministry of Health and Welfare (MOHW) via the nurse-registration database, with the licence status attested by the wallet-issued credential and refreshed per presentation",
+  "why_zk": "Strong fit on the freshness side: a photocopied licence proves nothing about suspension since it was printed, while a short-lived signed status proof proves 'valid today' and nothing else. The coordinator needs a yes/no for safety (medicine access, vulnerable evacuees), so hiding name and ID number loses little, though shelters later need some named accountability for incident handling, which can be handled by an opaque per-shelter pseudonym. Weakness: night-time, power and network outages may block the online status refresh, and the nurse registry must expose a machine-readable status first.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In tw-bank-deposit-dual-id-check, the bank's rule demands document inspection to fight fraud without saying whether copies are kept; here, the shelter's sign-in sheet plays that role, where checking the licence is justified for safety but retention of the copy is left unspecified, and a freshness proof replaces the copy.",
+    "source_excerpt": "A bank must verify who a person is before opening an account, which means examining identity documents, but the cited rule does not say whether copies are kept or for how long. | mechanism: Dual identity-document inspection at account opening; retention and copy handling not specified in the cited text."
+   },
+   {
+    "borrowed_aspect": "In rd-twdiw-field-selection-consent, the user picks fields to release per scenario after scanning a QR code; here, the nurse scans the shelter's QR at the desk and releases only the 'licence valid today' attribute instead of the whole licence record.",
+    "source_excerpt": "A user must prove one eligibility fact to a counter, while the credential holds a whole identity record and the user chooses fields at presentation time with no field-level guarantee. | mechanism: Per-scenario field selection after scanning a QR code, confirmed by biometric check, in the TW DIW sandbox."
+   }
+  ]
+ },
+ {
+  "review_id": "p01-5",
+  "title": "Stall-slot lottery check without copying the permit",
+  "moment": "A Tuesday morning at a Taipei night market, the management committee runs its monthly draw for vacant stall slots. Each applicant must show a current food-hygiene registration and stall (temporary-place) permit. Today a committee clerk photocopies the permit, the owner's ID card and the business registration into a binder.",
+  "verifier": "Night-market management committee (self-governing association) clerk",
+  "predicate": "Holder has a food-hygiene registration and stall permit that is valid today (not expired, not revoked), and is a person authorised to operate in this market district.",
+  "disclosed_today": "Full photocopy of the permit (permit number, vendor full name, ID number, home or registered address, product categories, issue and expiry dates) plus ID card copy, kept in paper binders.",
+  "issuer": "Local health bureau (e.g. Taipei City Department of Health) for the hygiene registration, and the city market/street-vendor authority for the stall permit, co-signing one freshness-stamped credential.",
+  "why_zk": "The committee only needs 'valid today, for this market'. A freshness proof with a short expiry window avoids the binder of ID numbers and addresses. Weakness: the committee may be required by its contract with the city or by its own insurer to retain a copy as evidence, which would defeat the privacy gain; and revocation must be checked live or the issuer must re-sign frequently.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In tw-pdpa-art5-purpose-limit, the rule says collection must stay within what the purpose needs but gives no way to show it; here, a predicate-only 'valid today for this market' proof plays that role by making the necessary scope concrete and checkable.",
+    "source_excerpt": "A rule requires anyone collecting personal data to stay within the necessary scope of its stated purpose, but it gives no concrete way to show what was necessary, so the collector decides what counts as necessary. | mechanism: Legal purpose-limitation and proportionality principle; no technical mechanism specified."
+   },
+   {
+    "borrowed_aspect": "In tw-bank-deposit-dual-id-check, the bank inspects documents but retention of copies is unspecified; here, the proof replaces the photocopy so the retention question never arises for the committee.",
+    "source_excerpt": "A bank must verify who a person is before opening an account, which means examining identity documents, but the cited rule does not say whether copies are kept or for how long. | mechanism: Dual identity-document inspection at account opening; retention and copy handling not specified in the cited text."
+   }
+  ]
+ },
+ {
+  "review_id": "p01-6",
+  "title": "Company-director confirmation for a bank or supplier without exposing home address",
+  "moment": "A small supplier in Tainan opens a trade account with a wholesaler. The wholesaler's credit clerk wants to know the signer is really a registered director of the company, so they search the Ministry of Economic Affairs company registry and then look up the person's land holdings and residence to judge creditworthiness, accumulating a home address file for a private individual.",
+  "verifier": "Wholesaler's credit or onboarding clerk checking that the signer is a registered director of the contracting company",
+  "predicate": "Cross-source match: the person presenting is listed as a director or representative of company N in the company registry, with no other registry data linked.",
+  "disclosed_today": "Registry printout, personal ID copy, and often informal extra lookups of the person's property and address from other public registers.",
+  "issuer": "Department of Commerce, Ministry of Economic Affairs (經濟部商業發展署), the company registry operator, signing a director-status claim.",
+  "why_zk": "The check needs only director status for one company, but the open registers let the clerk join the person to a home address. A signed claim bound to the person's identity credential lets the clerk verify status and nothing joinable. Honest limit: the company registry itself lists director names publicly, so the verifier could still run the lookups; the benefit depends on the clerk's process accepting the claim instead of searching, and a malicious reader is not stopped.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In tw-telco-online-id-check-fraud-2021, the provider verifies identity using easily copied identifiers (ID number and issue date); here, a holder-bound director credential plays the role of the stronger check that replaces copyable registry details.",
+    "source_excerpt": "A provider must verify that a new applicant is the named person, but its check uses identifiers that are easy to copy, so a stolen identity passes and the real person bears the consequences. | mechanism: None; online verification only checked ID number and issue date."
+   },
+   {
+    "borrowed_aspect": "In tw-pdpa-art11-3-deletion-exception, the collector can keep data when it says it needs it for its own duties; here, the clerk's retained address file plays that role and is avoided because only a yes/no claim is ever received.",
+    "source_excerpt": "A party that has collected a person's data must delete it once the reason for holding it ends, but an open-ended exception lets it keep the data whenever it says it still needs it for its own duties. | mechanism: Statutory deletion-on-purpose-lapse duty with exceptions for lawful duties or written consent; no technical erasure mechanism specified."
+   }
+  ]
+ },
+ {
+  "review_id": "p01-7",
+  "title": "Temple-fair homestay and meal vouchers: a pilgrim token that cannot follow you around the town",
+  "moment": "During the nine-day Baishatun Mazu pilgrimage, local homestays, vegetarian restaurants and charity meal stations offer a congregation rate or free lodging to registered pilgrims. Hosts today photograph the pilgrim card and note the believer's temple, sometimes adding them to a LINE group for next year's promotion, so the same pilgrim is recognised across hosts and years.",
+  "verifier": "A homestay owner or vegetarian restaurant along the route offering pilgrim-rate lodging and meals",
+  "predicate": "Holder belongs to a registered pilgrimage congregation this year (membership), presented so that two different hosts cannot link the presentations",
+  "disclosed_today": "Photo of pilgrim card, name, phone, home temple, LINE contact; kept for marketing and no-show screening",
+  "issuer": "The pilgrimage organising committee (the temple that runs the procession), issuing an annual pilgrim credential with an expiry",
+  "why_zk": "The host's real need is to confirm the rate is deserved, not to build a customer list with religion attached. A presentation scoped to one verifier and one visit prevents cross-host matching, as a cookie restricted to same-site context prevents third parties from recognising the browser. Weakness: the host often wants a phone number for a deposit or a no-show, which ZK does not solve; and the collection is purely marketing convenience, so there is no legal duty pushing hosts to adopt it.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In SameSite cookies, the browser sends a credential only on same-site requests so third parties cannot recognise the holder across sites; here, the pilgrim token bound to a single host and visit plays that role, preventing hosts from matching the same pilgrim across lodgings.",
+    "source_excerpt": "A stored credential should be presented only to the party that issued it in the current context, but the browser sends it on any request the context triggers, so an unrelated observer can match the holder across contexts. | mechanism: The SameSite cookie attribute, which limits the cookie to same-site requests (Strict, Lax, or None); the IETF draft describes it as a per-cookie setting, and cross-site behaviour depends on the chosen value."
+   },
+   {
+    "borrowed_aspect": "In the Swiss e-ID, a selective-disclosure presentation with a status-list validity check releases only what the transaction needs; here, the pilgrim wallet shows 'registered this year' with an expiry check and nothing about name or temple.",
+    "source_excerpt": "A business needs one attribute to proceed, but the credential is issued as a whole, so the holder must rely on the wallet to release only the needed attribute. | mechanism: SD-JWT VC selective disclosure with OpenID4VP presentation and status-list validity check."
+   }
+  ]
+ }
+]

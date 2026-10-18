@@ -1,0 +1,162 @@
+[
+ {
+  "review_id": "p16-0",
+  "title": "Day-pass bath house: proving 'qualifies for women's area' without being re-checked each time",
+  "moment": "A regular at a neighbourhood public bath in Taichung buys a monthly pass. Staff keep a register with her ID details to decide which gender area she may use and to flag minors or tattooed guests under policy. Each visit she is matched against the register, so the bath builds a visit log tied to her identity, which it also uses for promotions.",
+  "verifier": "Neighbourhood public bath / spa operator with a monthly pass scheme",
+  "predicate": "Holder possesses a valid 'female or over tattoo-policy age' attestation and presents it unlinkably for each entry (membership in the set of eligible holders)",
+  "disclosed_today": "Name, ID number, birth date and gender recorded in the pass register, plus a timestamped visit history linked to that identity",
+  "issuer": "The bath operator itself issues an anonymous-credential pass after one in-person check against the national ID wallet; alternatively the local township office",
+  "why_zk": "Unlinkable presentations let the bath verify eligibility each visit without building a per-person visit log, and the issuer cannot match redemption to issuance. Honest limit: the operator is both issuer and verifier, so unlinkability only helps if the issuance step truly keeps no mapping; a small bath with few regulars can often recognise people by sight anyway, so protection is partly social rather than cryptographic.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In an-a-privacy-pass, clients present unlinkable proofs of a prior authorisation so the origin cannot link redemption to issuance or to other redemptions; here, the monthly bath pass presented at the turnstile plays that role.",
+    "source_excerpt": "A verifier only needs to learn that the holder passed an earlier check, but the proof it receives can be matched to the issuance event and to every other use of the same proof. | mechanism: Clients present unlinkable proofs that attest to a prior authorisation, so the origin cannot link redemption to issuance or to other redemptions."
+   },
+   {
+    "borrowed_aspect": "In tw-pdpa-art11-3-deletion-exception, a collector may keep data past its purpose by claiming it is needed for its business; here, the bath's habit of retaining the visit register 'for operations' plays that role, and a proof that never stores identity removes the data that the exception would otherwise let it keep.",
+    "source_excerpt": "A party that has collected a person's data must delete it once the reason for holding it ends, but an open-ended exception lets it keep the data whenever it says it still needs it for its own duties. | mechanism: Statutory deletion-on-purpose-lapse duty with exceptions for lawful duties or written consent; no technical erasure mechanism specified."
+   }
+  ]
+ },
+ {
+  "review_id": "p16-1",
+  "title": "One-member-one-vote at a district party primary without a membership roster dump",
+  "moment": "A county-level party chapter in Taichung runs a candidate nomination primary at a community hall. To get the member-only free voting-day meal box and shuttle ride, members now hand over their ID card and party membership card so staff can tick them off a roster and make sure nobody votes twice.",
+  "verifier": "Local party chapter election committee volunteers running the primary",
+  "predicate": "Holder is a registered member of this party in this district, and has not already cast a ballot in this primary (one-time uniqueness token per primary)",
+  "disclosed_today": "Full name, national ID number, address, party membership card and membership number, shown to volunteers who tick a paper roster; the roster itself reveals political affiliation for everyone listed",
+  "issuer": "The party's central membership office (or the district chapter), signing a district-membership credential",
+  "why_zk": "A district-scoped, primary-scoped nullifier proves membership and single use without name, ID number or address, and the roster no longer needs to exist as a political-opinion list. Honest limit: the party is itself the issuer and already knows its members, so the gain is against volunteers, leaks and later roster reuse, not against the party; the party may also not want to give up the roster for audit and dues reasons.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In gdpr-data-minimisation, controllers collect a whole document when a narrower field would serve the purpose; here, the volunteer collecting an ID card and membership card when only 'member of this district, not yet voted' is needed plays that role.",
+    "source_excerpt": "A rule obliges anyone requesting information to take only what the purpose needs, but gives no practical way to request less than a whole document. | mechanism: Legal principle of data minimisation; no technical mechanism specified."
+   },
+   {
+    "borrowed_aspect": "In rd-swiss-eid-necessary-data-only, the wallet releases only the one attribute a transaction needs through selective disclosure; here, the member's wallet releasing only a district-membership attestation to the volunteer plays that role.",
+    "source_excerpt": "A business needs one attribute to proceed, but the credential is issued as a whole, so the holder must rely on the wallet to release only the needed attribute. | mechanism: SD-JWT VC selective disclosure with OpenID4VP presentation and status-list validity check."
+   }
+  ]
+ },
+ {
+  "review_id": "p16-2",
+  "title": "Indigenous reserved-land lease applicant proves status without exposing family and tribal ties to the township office",
+  "moment": "A person in Taitung applies at the township office (鄉公所) for a lease or use right on indigenous reserved land (原住民保留地), and clerks, who are often from the same small community, read through the applicant's household register and tribe details in a shared counter file.",
+  "verifier": "Township office land section handling reserved-land applications",
+  "predicate": "Holds recognised indigenous status, issued within a recent window and not revoked, without revealing which tribe, household or relatives.",
+  "disclosed_today": "Household register transcript with tribe name, parents' names, address, household members, plus ID number, stored in a paper case file visible to local staff.",
+  "issuer": "Household registration office (戶政事務所) signing status; the Council of Indigenous Peoples as trust anchor for the public key.",
+  "why_zk": "In a small community, a local clerk learning an applicant's family and tribal detail is a real social-exposure harm, not just a data-minimisation nicety. A blind-issued status credential lets the office confirm status while the registry cannot see which office or programme the applicant used it at, and the clerk cannot browse the family. Weakness: land law also requires proof of residence and prior holdings, which are separate claims; this idea only removes the status part of the file.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In an-a-chaum-blind, the ballot authority signs a ballot without seeing it and cannot later link it to the signing; here, the household registration office signs a status token that the applicant unblinds, so the registry cannot link a presentation at the township office to the issuance.",
+    "source_excerpt": "A signer must certify that a holder has a valid token without seeing the token's content, and must later be unable to link the certified token back to the signing event. | mechanism: A blind signature, where the message is blinded with a random factor before signing, and the holder unblinds the signature so it verifies against the original message under the signer's public key."
+   },
+   {
+    "borrowed_aspect": "In an-b-attorney-client, confidentiality is lost once an unnecessary third party is in the room; here, the extra local clerks and staff who can read the shared case file play the third party, and a presentation that reveals only status keeps them out of the family detail.",
+    "source_excerpt": "A party must consult an advisor about a sensitive matter without the advisor, or anyone else, learning or revealing more than the matter requires, but the protection breaks as soon as an outsider is in the room unless the outsider is essential to the relationship. | mechanism: Evidentiary privilege over communications, lost by third-party presence except essential agents such as interpreters; no technical mechanism."
+   }
+  ]
+ },
+ {
+  "review_id": "p16-3",
+  "title": "Landlord-or-director check without a register trawl",
+  "moment": "A tenant in Taichung is asked by a prospective roommate-finding platform or a property agent to prove that the person offering a room really owns the flat. Today the agent or tenant pulls the land/building transcript (土地建物謄本) and cross-checks it with the company registry, which exposes the owner's full ID details, other holdings and home address.",
+  "verifier": "Rental platform or real-estate agent verifying that a lister is the registered owner of the offered property",
+  "predicate": "Cross-source match: the person presenting is the registered owner of the building at lot X, per the land register, without revealing any other holdings, ID number or residence address.",
+  "disclosed_today": "Full land and building transcript (owner name, partial ID number, address, all lots, mortgage entries), often plus an ID copy and a company-registry printout.",
+  "issuer": "Land administration office (地政事務所) under the Ministry of the Interior, signing an ownership attestation for one named lot.",
+  "why_zk": "The data is already public, so the harm is aggregation: the verifier gets more than the single fact needed. A signed single-lot ownership claim bound to the holder's digital ID removes the extra fields and the ability to stitch a home address together. Weakness: the land office already sells transcripts, and a determined stalker can still pull them separately, so this protects against the verifier's over-collection and retention, not against the public register itself.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In tw-pdpa-art5-purpose-limit, the collector decides what is necessary for its stated purpose with no concrete proof; here, a single-lot ownership attestation plays that role by making the necessary scope a fixed, checkable claim.",
+    "source_excerpt": "A rule requires anyone collecting personal data to stay within the necessary scope of its stated purpose, but it gives no concrete way to show what was necessary, so the collector decides what counts as necessary. | mechanism: Legal purpose-limitation and proportionality principle; no technical mechanism specified."
+   },
+   {
+    "borrowed_aspect": "In tw-gov-household-register-proxy-copy-discretion, the office may collect extra identity copies at its discretion; here, the agent's habit of demanding whole transcripts and ID copies plays that role and is replaced by one signed claim.",
+    "source_excerpt": "A government office that holds a record may ask a proxy's requester for a copy of the principal's identity document, and the scope of what it may collect is left to the office's discretion. | mechanism: None stated; collection of document copies left to agency discretion under PDPA and administrative procedure rules."
+   }
+  ]
+ },
+ {
+  "review_id": "p16-4",
+  "title": "Temple children's summer camp volunteer check without photocopying records",
+  "moment": "A temple in Tainan runs a free summer reading camp for neighbourhood children. A retired teacher and several university students sign up as volunteers. Today the coordinator asks each one for an ID card copy and a printed 良民證 (police criminal record certificate) and keeps the pile in a cabinet in the temple office.",
+  "verifier": "The temple committee member who coordinates the children's programme",
+  "predicate": "The volunteer has no child-related or sexual-offence conviction on record (non-membership in the conviction list), checked fresh within the last 30 days",
+  "disclosed_today": "A full certificate with name, national ID number, date of birth, household address and the complete record status, plus a photocopy of the ID card front and back, kept on paper by a volunteer coordinator with no retention policy",
+  "issuer": "The Criminal Investigation Bureau / Ministry of Justice, via the existing criminal-record certificate service, issuing a signed wallet credential",
+  "why_zk": "A yes/no non-membership proof fits well, and the volunteer can show it from the phone without the temple ever holding the ID number or address. It is moderately strong: the proof is only as good as the issuer's willingness to issue a short-lived, machine-readable credential, and under current practice only some record types appear on a certificate, so the temple may still ask for more. Refresh time matters because a conviction after issuance would not show up.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In Google Wallet's ZKP age check, the gatekeeper learns one yes/no fact without the birth date or any trackable identifier; here, the temple coordinator learns only 'no child-related conviction' without the ID number or address, and the issuer cannot see which temple was shown.",
+    "source_excerpt": "A gatekeeper needs one yes/no fact about a holder, and the proof it receives must not reveal the underlying birth date or let the issuer or the gatekeeper track the holder. | mechanism: Zero-knowledge proof on ISO 18013-7 mdocs for an over-18 statement, device-bound transactions, no server-side storage of credential data."
+   },
+   {
+    "borrowed_aspect": "In the gym case, the provider asks for front-and-back ID copies and the regulator leaves necessity to case-by-case review; here, the temple's habit of photocopying ID and certificates plays that role, and the proof replaces the copies.",
+    "source_excerpt": "A service provider signing up a customer must check identity and payment, but it asks for full front-and-back copies of identity and card documents, and the regulator leaves whether that exceeds the purpose to case-by-case fact-finding. | mechanism: None stated; the letter says less-intrusive alternatives must be considered but names none."
+   }
+  ]
+ },
+ {
+  "review_id": "p16-5",
+  "title": "Heir proves a statutory share of 1/4 or more without handing over the whole household registry tree",
+  "moment": "After her father dies, a daughter walks into a Taiwan Bank branch in Taichung to claim the NT$1.2M in his savings account. The teller asks for the full 繼承系統表 and a complete set of household registration transcripts for every sibling, spouse and parent, plus ID copies of everyone listed, to work out who inherits what. She only needs to show she is entitled to at least a stated fraction (for example 1/4) of the estate so the bank can release that portion.",
+  "verifier": "Bank branch (retail deposits / estate-settlement desk) releasing a deceased customer's account",
+  "predicate": "Heir's statutory inheritance share >= 1/4 (or any stated threshold) of the estate of decedent X, computed under Civil Code succession order and shares, with the decedent's death status and the heir's relationship bound to the claim",
+  "disclosed_today": "Full inheritance system chart, household registration transcripts of the decedent and all relatives, ID card copies of every heir, names, birthdates, addresses, marital and adoption history of the whole family",
+  "issuer": "Ministry of the Interior household registration office (戶政事務所), signing a derived entitlement credential from the household registry at the time of death",
+  "why_zk": "A threshold on a computed share is exactly what a selective-disclosure proof gives: the registry already holds the tree, so the issuer can sign (decedent, heir, share fraction) and the heir proves share >= threshold without revealing siblings, half-siblings, or adoptions. Weakness: the bank may also need the complete list of heirs to be sure no one else can later claim the money, and the Civil Code gives each heir joint ownership, so banks often insist on all heirs signing or a court-issued 繼承權利證明書; the threshold alone does not discharge the bank's own liability.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In the gym ID-copy case, the provider asks for full front-and-back identity documents when it only needs to confirm identity and payment; here, the bank's request for the entire family tree and everyone's ID copies plays that role, with a single share-threshold proof as the less-intrusive alternative that was never named.",
+    "source_excerpt": "A service provider signing up a customer must check identity and payment, but it asks for full front-and-back copies of identity and card documents, and the regulator leaves whether that exceeds the purpose to case-by-case fact-finding. | mechanism: None stated; the letter says less-intrusive alternatives must be considered but names none."
+   },
+   {
+    "borrowed_aspect": "In the census statute, the holder of individual records may release results but not anything that lets a particular respondent be singled out; here, the household registry plays the holder and the entitlement credential plays the aggregate output that reveals only the share, not the other family members.",
+    "source_excerpt": "An agency holding individual responses must release aggregate results, and the legal duty bars any output from which a particular respondent can be singled out, while the holder's staff can still see the raw records. | mechanism: Statutory use limitation and publication prohibition enforced by sworn-oath duties and penalties; statistical disclosure limitation (for example differential privacy in later census products) is a technical layer not specified in the statute."
+   }
+  ]
+ },
+ {
+  "review_id": "p16-6",
+  "title": "Community association vouches for a tribe member to an outside scholarship foundation",
+  "moment": "A high-school senior in Pingtung applies to a private foundation scholarship for indigenous youth. The foundation asks for an ID copy and a tribal elder's letter, and the student does not want the foundation, or the elder who helped, to learn more than necessary. The tribal community council or church association that already knows her can issue a membership attestation, while the foundation never sees her address or family and the council never learns which scholarships she applies to.",
+  "verifier": "Private scholarship foundation (not a government body) reviewing applications",
+  "predicate": "Holder is a recognised indigenous person and is vouched for as a community member by her tribal council, proven without revealing to the council which foundation is asking",
+  "disclosed_today": "ID card copy, household transcript, and an elder's signed letter naming the student, her family and village",
+  "issuer": "Tribal community council or association (部落會議 / 社區發展協會) co-signing with the household registration status; the foundation only checks both signatures",
+  "why_zk": "Partial fit: the unlinkability gain is real, since the council currently learns every scholarship the student chases and the foundation learns family detail. Weak points: community issuers vary in capacity and trust, a council attestation is not a legal status record and could be disputed, and small tribes mean an issuer can often guess who is applying anyway. Best framed as an add-on to the government-issued status claim, not a replacement.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In an-a-tor-onion, each relay knows only the previous and next hop so no one holds both origin and destination; here, the tribal council plays the first hop that knows the person and the foundation plays the destination, with the presentation unlinkable so neither learns the other's side.",
+    "source_excerpt": "A route must be relayed through intermediaries so that no single intermediary holds both the origin identity and the final destination, while the traffic still reaches the endpoint. | mechanism: Onion routing, where the message is wrapped in one encryption layer per relay, and each relay peels only its own layer and passes the rest to the next hop."
+   },
+   {
+    "borrowed_aspect": "In an-b-attorney-client, confidentiality is lost when an outsider is present unless essential, so the advisor learns only what the matter needs; here, the elder who vouches plays the essential agent, and the proof keeps other third parties such as foundation staff from seeing the student's household details.",
+    "source_excerpt": "A party must consult an advisor about a sensitive matter without the advisor, or anyone else, learning or revealing more than the matter requires, but the protection breaks as soon as an outsider is in the room unless the outsider is essential to the relationship. | mechanism: Evidentiary privilege over communications, lost by third-party presence except essential agents such as interpreters; no technical mechanism."
+   }
+  ]
+ },
+ {
+  "review_id": "p16-7",
+  "title": "Treasurer and incense-money counter for temple donations",
+  "moment": "Before the Lunar New Year rush, a temple in Tainan recruits volunteers to count 香油錢 (incense donations) and handle the donation account. The committee asks each volunteer to show an ID card and a criminal record extract in person, and an elder writes down the ID number in a notebook that others in the office can read.",
+  "verifier": "The temple's board treasurer (財務委員) assigning cash-handling shifts",
+  "predicate": "Holder has no fraud, embezzlement or breach-of-trust conviction on the register (non-membership), proved without naming the holder to any single volunteer organiser.",
+  "disclosed_today": "Name, ID number, home address and the full criminal record extract, read aloud or copied into a shared notebook seen by several office volunteers.",
+  "issuer": "The Ministry of Justice (or a prosecutors' office that holds the judgment records), signing a fraud-and-property-offence non-membership claim.",
+  "why_zk": "Moderate. The treasurer needs only 'no property-crime conviction' for a cash shift, yet the check shows the whole record to whoever sits at the desk. The proof could be presented to a scanner at the committee level so that the shift-assigning volunteer never sees the name behind it, in the way each hop in onion routing knows only its neighbours. Weak points: small temples know their volunteers personally and may trust reputation over any credential, and unreported fraud, or fraud under a different name, would not appear on the register at all.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In onion routing, each relay peels one layer and learns only the previous and next hop; here, the shift-assigning volunteer learns only 'cleared for cash handling' and the committee verifier learns only the register check, so no single person holds the identity and the clearance together.",
+    "source_excerpt": "A route must be relayed through intermediaries so that no single intermediary holds both the origin identity and the final destination, while the traffic still reaches the endpoint. | mechanism: Onion routing, where the message is wrapped in one encryption layer per relay, and each relay peels only its own layer and passes the rest to the next hop."
+   },
+   {
+    "borrowed_aspect": "In the HIPAA minimum-necessary rule, the holder of records must release only the subset that serves a stated purpose but nothing proves it was minimal; here, a proof bound to the purpose 'cash handling' plays that role and makes the minimal release checkable.",
+    "source_excerpt": "A holder of sensitive records must release only the subset that serves a stated purpose, but the rule leaves it to the holder to judge what is minimal and gives no mechanism that proves the released subset was minimal. | mechanism: Purpose-based minimum-necessary rule with reasonable-efforts standard, role-based access and reasonable reliance on requester representations (45 CFR 164.514(d)); no cryptographic or proof-based check."
+   }
+  ]
+ }
+]

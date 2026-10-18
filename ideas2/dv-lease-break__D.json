@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Landlord accepts early lease termination without seeing the protection order",
+    "moment": "A tenant in Taichung who holds a civil protection order against a violent ex-partner needs to leave her rental mid-term. Today she hands the landlord the court's 通常保護令 copy to waive the early-termination penalty, and the landlord sees the abuser's name, the allegations, the court and the case details, and may keep a photocopy.",
+    "verifier": "Private landlord or property-management agency handling an early lease termination",
+    "predicate": "Holder is covered by a protection order that is active today and whose validity window overlaps the requested lease-break date",
+    "disclosed_today": "Full protection order document: abuser's name, case number, court, findings, children's names, the holder's old address, sometimes a photocopy retained in the tenant file",
+    "issuer": "Court that issued the order (judicial registry), possibly via the 家庭暴力暨性侵害防治中心 attestation channel",
+    "why_zk": "A time-bounded predicate (active now, covers the break window) is exactly what the landlord needs; the abuser's identity and case content are irrelevant to the lease decision. Weakness: it only helps if landlords agree to accept the proof in place of the paper order, and few small landlords have verifier software, so it needs a simple QR or app flow or a social-worker intermediary.",
+    "inspired_by": [
+      {
+        "seed_id": "rd-eudi-wallet-selective-disclosure-recital",
+        "borrowed_aspect": "In the EUDI wallet, selective disclosure releases only the one attribute a relying party needs from a larger attestation; here, the court-issued protection order plays the larger record and 'active and covers the break window' plays the single attribute."
+      },
+      {
+        "seed_id": "an-b-attorney-client",
+        "borrowed_aspect": "In attorney-client privilege, confidentiality collapses when an unnecessary third party is in the room; here, the landlord plays the outsider who should not be handed the case details, so the proof must be a narrow yes or no."
+      }
+    ]
+  },
+  {
+    "title": "Employer grants protection-order leave without collecting the order file",
+    "moment": "A woman working at a Hsinchu factory asks her HR officer for the leave days she needs to attend hearings, relocate and arrange safe housing under a protection order. HR today asks for the full order and a copy for the personnel file, which then sits where supervisors and payroll staff can see it.",
+    "verifier": "Employer HR department deciding on leave and schedule accommodation",
+    "predicate": "Employee is covered by an active protection order for the requested leave window, with no other details",
+    "disclosed_today": "Whole protection order or court notice, including the respondent's name, the nature of the violence and the case number, filed in the personnel record",
+    "issuer": "Court registry, or the local domestic violence prevention center acting on the court's order",
+    "why_zk": "HR only needs to know that the leave request is legitimate for these dates; the claim is time-bounded so it expires with the order and cannot be reused later. It also stops the personnel file from becoming a store of sensitive victim data that could leak at the workplace. Weakness: employers may still insist on documents out of habit or legal caution, and the leave entitlement itself is not clearly defined in law for this case, so adoption depends on guidance from the labour authority.",
+    "inspired_by": [
+      {
+        "seed_id": "tw-gov-uid-duplicate-minimal-disclosure",
+        "borrowed_aspect": "In the household-registration ruling, the registry answers only whether a duplicate exists instead of giving the reassigned number; here, the issuer plays the registry and answers only whether an active order covers the leave window."
+      },
+      {
+        "seed_id": "an-b-sealed-bid-far",
+        "borrowed_aspect": "In the sealed-bid rule, content stays unopened and only a designated official may open an envelope to identify it, with a record kept; here, the HR officer plays the designated handler who sees only the outer label (valid for these dates) and never the sealed order content."
+      }
+    ]
+  },
+  {
+    "title": "Rental platform fast-lane for protected tenants without exposing victim status to agents",
+    "moment": "A protected tenant using a Taiwanese rental listing platform or a social-housing application wants the platform's fee waiver and the quick-move option offered to people leaving violent homes. Today she must upload her order or a social-worker letter to the platform's support staff, and the agent on the other end can see everything and she cannot be sure who else does.",
+    "verifier": "Rental platform operator or social-housing application desk granting a fee waiver and priority",
+    "predicate": "Applicant is covered by an active protection order during the lease-signing and move-in window",
+    "disclosed_today": "Uploaded protection order scan or social worker letter, plus ID card images, visible to customer service staff and stored in the support ticket system",
+    "issuer": "Local government social affairs bureau (domestic violence and sexual assault prevention center), attesting from the court order",
+    "why_zk": "The platform wants only to apply a benefit rule, so a time-bounded 'covered now' proof is enough and avoids creating a database of victims. A second benefit is that a copied or stolen ID number is not enough, since the proof is bound to the holder's wallet, which addresses the weakness of identity checks that rely on easy-to-copy identifiers. Weakness: the benefit is small, the platform may not have an incentive to build verification, and the municipality would have to operate an issuing service.",
+    "inspired_by": [
+      {
+        "seed_id": "tw-telco-online-id-check-fraud-2021",
+        "borrowed_aspect": "In the telco fraud case, the check relied on an ID number and issue date that were easy to copy, so a stolen identity passed; here, a wallet-bound signed claim from the bureau plays the stronger check in place of copyable document scans."
+      },
+      {
+        "seed_id": "rd-korea-mdl-age-check-barcode",
+        "borrowed_aspect": "In Korea's mobile licence age check, a scan at the counter is meant to yield only the age result rather than the whole card; here, a scan at the platform or housing desk yields only the 'covered now' result rather than the order."
+      }
+    ]
+  }
+]

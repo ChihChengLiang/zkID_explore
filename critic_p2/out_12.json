@@ -1,0 +1,98 @@
+[
+ {
+  "review_id": "p12-0",
+  "context_purpose": "The library issues a children's card only to a parent or legal guardian who can answer for the child's loans.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "A library needs only guardian status, not the court findings, parents' details or the child's record shown on the order or register."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Nothing material; the library cannot check the guardianship basis or duration, which it does not need for a card."},
+  "transmission_check": {"principle_today": "consented_for_benefit", "permits_minimal_flow": "permits", "reason": "The guardian hands over documents voluntarily to get a service, and no rule I know of obliges a library to keep the full order."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "no", "verifier_can_check": "unknown"},
+  "rubric_score": 3,
+  "novelty": 4,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p12-1",
+  "context_purpose": "The market committee confirms each vendor setting up has a valid food-hygiene and stall permit before trading.",
+  "norm_violation_today": {"violated": "unclear", "parameter": "retention", "reason": "Checking the permit is within the committee's role, but a typed-up spreadsheet of names, addresses and categories goes beyond a daily pass/fail need unless a lease or stall record is legitimately required."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "The committee could not tie a named vendor to a stall, handle disputes or keep a record for lease management if it needs one."},
+  "transmission_check": {"principle_today": "safety_security", "permits_minimal_flow": "unclear", "reason": "Food-safety regulators may require inspection records or stall assignments, and I cannot say whether a committee's own log is mandated."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 4,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p12-2",
+  "context_purpose": "Carpool members want reasonable assurance that a stranger sharing an early-morning car poses no violent risk.",
+  "norm_violation_today": {"violated": "yes", "parameter": "recipient", "reason": "A selfie with ID and a police record screenshot placed in a shared drive reaches every member and a cloud provider, far beyond the driver's need."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "A one-time non-membership check says nothing about later behaviour and cannot reveal repeat complaints across groups, which a full record or reputation system could."},
+  "transmission_check": {"principle_today": "safety_security", "permits_minimal_flow": "permits", "reason": "The organiser has no legal duty to collect this, so a narrower proof is allowed, though a suitable police-backed issuer is the real obstacle."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 2,
+  "novelty": 4,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p12-3",
+  "context_purpose": "The temple wants assurance that a volunteer working with primary-school children has no child-related or fraud conviction.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "The whole certificate with unrelated old entries, ID number and address is kept indefinitely when a listed/not-listed answer would serve."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "A non-membership claim cannot show convictions outside the register's categories, so the temple loses discretion over borderline cases it might have wanted to judge."},
+  "transmission_check": {"principle_today": "safety_security", "permits_minimal_flow": "unclear", "reason": "Child-protection rules may require certain organisations to see a certificate, and I cannot confirm whether a temple programme is covered."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "unknown"},
+  "rubric_score": 3,
+  "novelty": 3,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p12-4",
+  "context_purpose": "The scholarship office confirms an applicant has recognised indigenous status to award a status-restricted tuition benefit.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "A full household transcript exposes parents, address and marital history when only the status is needed."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "If the scholarship needs the specific people for quotas or reports, the status flag alone is not enough and a second attribute must be disclosed."},
+  "transmission_check": {"principle_today": "consented_for_benefit", "permits_minimal_flow": "unclear", "reason": "The applicant volunteers documents for a benefit, but audit rules may require the school to keep a copy and I cannot say whether a presentation record would count."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 4,
+  "novelty": 2,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p12-5",
+  "context_purpose": "The guesthouse owner verifies a group really belongs to the temple before granting a pilgrim group rate.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "Photos of ID cards, believer cards and a roster over LINE kept on a personal phone reveal religion and identity beyond a discount check."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Nothing for the discount; the owner still needs ordinary lodging identity records separately."},
+  "transmission_check": {"principle_today": "commercial_convenience", "permits_minimal_flow": "unclear", "reason": "The discount check is voluntary, but lodging registration may legally require identity records, and I cannot say what is required of a small guesthouse."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "no"},
+  "rubric_score": 2,
+  "novelty": 4,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p12-6",
+  "context_purpose": "The landlord decides whether to waive an early-termination penalty because the tenant is protected by a current court order.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "The landlord receives the abuser's name, allegations, children's names and old address, and may keep a photocopy, none of which bears on the lease."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Little; the landlord cannot verify the case details, but does not need them."},
+  "transmission_check": {"principle_today": "consented_for_benefit", "permits_minimal_flow": "permits", "reason": "The tenant volunteers the order to obtain a lease waiver and no law I know of requires the landlord to hold the full order."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "no"},
+  "rubric_score": 4,
+  "novelty": 4,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "p12-7",
+  "context_purpose": "The broker confirms travellers qualify for an affinity-group rate and collects the fields needed to issue the group policy.",
+  "norm_violation_today": {"violated": "unclear", "parameter": "information_type", "reason": "A roster naming the congregation reveals religion, but the group rate may legitimately depend on that affinity and the policy may name the group anyway."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "The insurer may need the group name on the policy or a roster for claims, which a membership proof alone does not provide."},
+  "transmission_check": {"principle_today": "commercial_convenience", "permits_minimal_flow": "unclear", "reason": "The affinity proof is a business choice, but insurance regulation may require identity fields and a traveller list, and I cannot say what applies."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "no"},
+  "rubric_score": 2,
+  "novelty": 3,
+  "provenance_faithful": "yes"
+ }
+]

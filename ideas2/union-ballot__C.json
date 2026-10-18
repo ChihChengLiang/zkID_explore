@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Strike authorization vote at a Taiwan Airlines flight attendants' union",
+    "moment": "Cabin crew at an airline are asked to vote on authorizing a strike over rosters and pay. The union currently has each member log in to an online ballot with employee number and dues record, and the ballot system's vendor and some staff can link names to votes; crew fear the airline will learn who voted yes.",
+    "verifier": "The union's election committee running the strike authorization ballot (under the Labor Union Act and the Act for Settlement of Labor-Management Disputes strike-vote rules)",
+    "predicate": "I am a current dues-paying member of this union (membership as of the ballot cut-off date) and I have not yet cast a ballot in this vote, shown with a one-time nullifier",
+    "disclosed_today": "Full name, employee number, membership roll entry, dues payment history and a login identity, all tied to the ballot record",
+    "issuer": "The union itself, signing a membership credential at dues reconciliation; the airline plays no part in issuance",
+    "why_zk": "A membership credential plus a per-ballot nullifier gives one-person-one-vote without the ballot record carrying a name, so the employer or vendor cannot link voter to vote. Weakness: the union already holds the roll and law requires a verifiable member count for a valid strike vote, so the roll must still exist; the gain is unlinkability of the ballot, not hiding membership from the union.",
+    "inspired_by": [
+      {
+        "seed_id": "an-b-census-title13",
+        "borrowed_aspect": "In the census statute, a rule bars any output from which a particular respondent can be singled out while staff still see raw records; here, the ballot tally plays that role, so the election committee publishes only aggregate counts and cannot tie a ballot to a member."
+      },
+      {
+        "seed_id": "gdpr-data-minimisation",
+        "borrowed_aspect": "In data minimisation, a requester must take only what the purpose needs but has no way to ask for less than a whole document; here, the ballot check plays that role, asking only for 'eligible and not yet voted' rather than a full member record."
+      }
+    ]
+  },
+  {
+    "title": "Shared bargaining ballot across an industrial union branch and the enterprise union",
+    "moment": "A factory-branch union of a multi-site manufacturer holds a ballot on whether to accept a collective-agreement offer. Members at contractor and subsidiary sites vote too, so the organizing union must confirm they are dues-paying members of an affiliated union, and today that means sending their union ID photos and payroll dues slips, which expose both membership and employer to the host union.",
+    "verifier": "The confederation or industrial union's ballot organizer collecting votes from affiliated enterprise unions' members",
+    "predicate": "I am a dues-paying member in good standing of one of the affiliated unions, without disclosing which one or my employer, and I vote once",
+    "disclosed_today": "Union membership card photo, national ID number, employer name and payroll dues slip from the member's own union",
+    "issuer": "Each affiliated union signs a membership credential; the confederation accepts any of the registered unions' issuer keys as a set",
+    "why_zk": "A set-membership proof over the affiliated unions' issuer keys shows 'member of some affiliate' without revealing which workplace, protecting contract and subcontract workers from retaliation by their own employer. Weakness: small affiliates make the anonymity set tiny, and a union may legitimately need to know which affiliate a vote came from for weighting, so some deployments need the branch disclosed.",
+    "inspired_by": [
+      {
+        "seed_id": "tw-securities-foreign-agent-id-copy",
+        "borrowed_aspect": "In the securities foreign-agent rule, a full ID copy is the only way an agent proves it is a real identified person; here, the union card photo and payroll slip play that role, and a signed membership credential replaces them."
+      },
+      {
+        "seed_id": "an-b-jury-selection",
+        "borrowed_aspect": "In jury selection, names of those seated are published unless a judge grants confidentiality; here, the roll of who voted plays that role, and the proof makes confidentiality the default instead of an exception granted case by case."
+      }
+    ]
+  },
+  {
+    "title": "Hospital nurses' union walkout vote without the hospital seeing the list",
+    "moment": "Nurses at a large hospital are voting whether to join a work-to-rule or strike action. Union organizers fear that any sign-in sheet or check against hospital HR records lets management identify supporters, and a paper sign-in at the ward lets supervisors see who showed up to vote.",
+    "verifier": "The hospital branch union's election committee and an external observer, such as the Ministry of Labor-appointed supervisor or a labor-affairs department monitor",
+    "predicate": "I am a dues-paying member of the hospital nurses' union as of the cut-off date, proven without a name, and I have not voted already",
+    "disclosed_today": "Name, employee ID and signature on an on-site sign-in sheet, sometimes cross-checked with hospital HR staff lists and the union's dues roster",
+    "issuer": "The nurses' union branch, signing a credential when dues are collected, held in the member's phone wallet",
+    "why_zk": "The observer can verify that only paid members voted and that no one voted twice, with no name on any sheet the hospital's HR or supervisors can see, which matters because union membership is special-category data and retaliation is the real fear. Weakness: the Labor Union Act and strike-vote rules may require the union to keep a full named membership list, and coercion at the ballot box is not solved by a credential; the proof covers record-keeping, not social pressure.",
+    "inspired_by": [
+      {
+        "seed_id": "tw-pdpa-art11-3-deletion-exception",
+        "borrowed_aspect": "In PDPA Article 11(3), a collector must delete data when the purpose lapses but keeps it whenever it claims duty needs it; here, the sign-in sheet plays that role, and a nullifier-based proof removes the need to keep names after the ballot closes."
+      },
+      {
+        "seed_id": "an-a-samesite-cookies",
+        "borrowed_aspect": "In SameSite cookies, a credential is sent on any triggered request so third parties can match the holder across contexts; here, the membership credential plays that role, and a per-ballot nullifier stops the ballot from being linkable to the member's other presentations."
+      }
+    ]
+  }
+]

@@ -1,0 +1,162 @@
+[
+ {
+  "review_id": "p15-0",
+  "title": "Presenting a protection-order claim to a rental platform or social housing office once, not per listing",
+  "moment": "A survivor searching for a new rental applies to many listings through a rental platform and a city social-housing or rent-subsidy office, each of which wants the order shown to qualify her for priority placement, deposit waiver or subsidy. Every landlord she applies to receives a fresh copy, and the same document lets them recognise her across unrelated applications.",
+  "verifier": "City housing bureau or rent-subsidy office, and rental platforms offering a priority or reduced-deposit channel",
+  "predicate": "Holder is currently covered by an active protection order for the next lease-start window, shown as a presentation bound to the specific verifier and application.",
+  "disclosed_today": "A copy of the order or a social worker letter with her name, ID number, and case details, given repeatedly to multiple parties who can compare and match the copies.",
+  "issuer": "The municipal 家庭暴力暨性侵害防治中心 or a contracted women's shelter (such as a 婦女救援基金會 branch) signing the attestation.",
+  "why_zk": "The credential should work only for the party and context it was presented to, like a SameSite-restricted cookie, so that two landlords or a landlord and a platform cannot match her across applications. Zero-knowledge presentations that are unlinkable and verifier-bound give this directly, where a copied PDF cannot. Weakness: the housing office may legitimately need to confirm identity for subsidy payment, so that disclosure still occurs there; the unlinkability benefit is mostly against private landlords and platforms.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In SameSite cookies, an attribute limits a stored credential to requests from the issuing context so third parties cannot recognise the browser across sites; here, a verifier-bound, unlinkable presentation plays that attribute so each landlord or platform sees the claim only in its own application.",
+    "source_excerpt": "A stored credential should be presented only to the party that issued it in the current context, but the browser sends it on any request the context triggers, so an unrelated observer can match the holder across contexts. | mechanism: The SameSite cookie attribute, which limits the cookie to same-site requests (Strict, Lax, or None); the IETF draft describes it as a per-cookie setting, and cross-site behaviour depends on the chosen value."
+   },
+   {
+    "borrowed_aspect": "In the foreign-investor account opening, an agent hands over a full ID copy to prove they are a real identified person with no alternative stated; here, the survivor's copied order or social-worker letter plays that role, replaced by a signed claim that proves standing without the full document.",
+    "source_excerpt": "A foreign investor must prove that its local agent is a real, identified person, and the agent hands over a full copy of an ID card, with no alternative verification stated. | mechanism: None stated; full ID copy required with no less-intrusive alternative given."
+   }
+  ]
+ },
+ {
+  "review_id": "p15-1",
+  "title": "Strike authorization vote at a TSMC-supplier factory union",
+  "moment": "A Taoyuan electronics-plant enterprise union holds a strike authorization ballot over a bargaining impasse. Members queue at the canteen with their employee badge; today the union checks them against the dues roster, which includes names, employee IDs and department, and management-side HR is often asked to confirm staff status, so the employer can infer who showed up or abstained.",
+  "verifier": "The enterprise union's election committee running the strike ballot",
+  "predicate": "Holder is a current dues-paying member of this union (dues paid through the last billing month) and has not yet cast a ballot in this vote round (one-time nullifier).",
+  "disclosed_today": "Full name, employee ID, department and shift, national ID number against the dues roster, plus a signature on a paper sign-in sheet that HR or foremen can sometimes see.",
+  "issuer": "The union itself (its membership office), co-signing dues status from its payroll-deduction ledger",
+  "why_zk": "The union must verify membership and one-person-one-vote, but the employer must never learn who voted. A membership proof with a per-ballot nullifier gives eligibility and once-only without a name linking to the ballot. Weakness: the union already knows its own members, so the gain is mainly against employer observation and roster leaks, and in-person queues remain observable regardless of the cryptography.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In Taiwan's Digital Identity Wallet, the user picks which fields to release per scenario after scanning a QR code; here, the union member's wallet releases only a membership-and-not-yet-voted proof at the ballot station instead of the whole badge record.",
+    "source_excerpt": "A user must prove one eligibility fact to a counter, while the credential holds a whole identity record and the user chooses fields at presentation time with no field-level guarantee. | mechanism: Per-scenario field selection after scanning a QR code, confirmed by biometric check, in the TW DIW sandbox."
+   },
+   {
+    "borrowed_aspect": "In the Virginia ID-scanning rule, a statute caps scan data to a few fields and bans secondary use while the holder still exposes the whole card; here, the ballot station accepts only the proof, so the full roster record is never exposed at the point of voting.",
+    "source_excerpt": "A venue must confirm that a person is over a threshold age from an identity document, but scanning captures the whole card, so the rule caps what is kept to a few fields and bans secondary use, while the holder still sees everything on the card at the moment of the scan. | mechanism: Statutory field-limit and retention ban on scan data, with a prohibition on sale or marketing dissemination; no proof-of-age mechanism that avoids reading the document."
+   }
+  ]
+ },
+ {
+  "review_id": "p15-2",
+  "title": "Deposit-free rental application through a rental platform or NGO housing service",
+  "moment": "A worker who just changed employer through a transfer in Kaohsiung applies via an NGO-run housing matching service to rent a shared flat with a reduced deposit. The agent asks for the new employer's permit transfer approval, ARC, and pay history to prove stability, and forwards the bundle to several landlords at once.",
+  "verifier": "NGO or commercial rental matching platform forwarding applications to landlords",
+  "predicate": "Holder's work authorisation with a sponsoring employer was valid at a time no more than 3 days ago, bound to a one-time application nonce so it cannot be forwarded and reused with other landlords (freshness plus unlinkability).",
+  "disclosed_today": "Whole application bundle: ARC, transfer approval letter, employer details, payslips, forwarded to every landlord contacted.",
+  "issuer": "Ministry of Labor Workforce Development Agency, or an authorised employer-side HR platform issuing signed status for each application.",
+  "why_zk": "Each landlord needs one bit of fresh status; the bundle forwarded to many parties lets them match the worker across listings and keep stale copies after the worker moves. Per-application nonces keep each presentation to its own verifier. Weakness: a worker mid-transfer has a gap in status that the registry may not reflect quickly, so freshness could wrongly fail exactly the people who most need housing.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In SameSite cookies, a credential is sent on any triggered request so third parties can recognise the browser across contexts; here, the forwarded application bundle plays the cookie and the per-landlord nonce plays the SameSite restriction.",
+    "source_excerpt": "A stored credential should be presented only to the party that issued it in the current context, but the browser sends it on any request the context triggers, so an unrelated observer can match the holder across contexts. | mechanism: The SameSite cookie attribute, which limits the cookie to same-site requests (Strict, Lax, or None); the IETF draft describes it as a per-cookie setting, and cross-site behaviour depends on the chosen value."
+   },
+   {
+    "borrowed_aspect": "In sealed-bid rules, the holder of submissions handles identifying wrappers without exposing the content and can prove nothing was seen early; here, the matching platform plays the bid-box holder that sees only the envelope-level fact that status is fresh, not the documents.",
+    "source_excerpt": "A party submits a value that must stay hidden from competitors until a fixed moment, while the holder of the submissions must be able to prove later that none were seen early and must handle identifying wrappers without exposing the content. | mechanism: Physical and access-control safeguarding of sealed bids with designated-official exception for envelope identification, plus a written record of any mistaken early opening."
+   }
+  ]
+ },
+ {
+  "review_id": "p15-3",
+  "title": "Cremation arrangement without photocopying the whole family register",
+  "moment": "After a death in a Taipei household, the eldest son goes to a funeral home to sign the cremation and service contract. Staff photocopy his national ID and the deceased's household registration transcript (戶籍謄本), which lists parents, spouse, siblings and children, to confirm he is the right next of kin to authorise cremation.",
+  "verifier": "Funeral home (殯葬業者) handling cremation authorisation",
+  "predicate": "Holder is a next of kin of the named deceased, and no living kin of higher priority (spouse, then adult children, then parents, and so on) exists who has not consented or been accounted for.",
+  "disclosed_today": "Full ID copy of the signer, plus a household registration transcript showing every household member's name, ID number, birth date, address, marital status and family ties.",
+  "issuer": "Household Registration Office (戶政事務所, Ministry of the Interior), signing a kin-rank attestation derived from the register.",
+  "why_zk": "The funeral home needs only the signer's rank in the order of kin, not the whole family tree. A signed attestation of relationship and priority rank, shown through selective disclosure, replaces the full transcript. It is weaker where the order depends on facts not in the register (estrangement, unregistered partners, disputes among siblings of equal rank), so the proof can establish priority from the register but cannot settle a family dispute.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In the EUDI Wallet recital, the holder discloses only some attributes of an attestation to a relying party; here, the household-registry kin-rank attestation plays that role, revealing only 'next of kin, rank 1' and not the rest of the family record.",
+    "source_excerpt": "A verifier needs one attribute from a larger identity record, but the holder cannot share just that attribute from the record. | mechanism: Selective disclosure of attributes from electronic attestations held in the EU Digital Identity Wallet."
+   },
+   {
+    "borrowed_aspect": "In the Taiwan foreign-investor agent account opening, a full ID copy is required with no lighter alternative; here, the funeral home's photocopy of the ID and the family register is that excess practice the proof replaces.",
+    "source_excerpt": "A foreign investor must prove that its local agent is a real, identified person, and the agent hands over a full copy of an ID card, with no alternative verification stated. | mechanism: None stated; full ID copy required with no less-intrusive alternative given."
+   }
+  ]
+ },
+ {
+  "review_id": "p15-4",
+  "title": "Peer-vouched volunteer for a one-day temple festival children's activity",
+  "moment": "Ahead of a temple festival in Kaohsiung, a church-linked youth group lends a dozen parents and teens to run a children's craft corner for a single day. There is no time to order official certificates for everyone. The temple volunteer lead asks for ID copies and a handwritten declaration and writes down names and phone numbers.",
+  "verifier": "The temple volunteer lead running the festival children's corner",
+  "predicate": "The helper has no child-related conviction, attested by a trusted community or school body that has itself checked the record (non-membership, peer or community issuer)",
+  "disclosed_today": "ID card copy, phone number and a handwritten self-declaration on paper, which the lead cannot verify, kept in a personal notebook",
+  "issuer": "A community body such as the youth group's parent organisation or a school that already holds a recent criminal-record check for its own volunteers and countersigns a short-lived credential",
+  "why_zk": "This is weak to moderate. A proof is only worth the trust placed in the signing body, and a youth group's attestation is not an official check, so the temple gains less assurance than with a state-issued credential. The benefit is that it replaces unverifiable paper declarations and ID copies with a signed yes/no that the helper presents unlinkably; if the group's own checking is sloppy, the zero-knowledge layer adds privacy but not truth.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In attorney-client privilege, an essential third party such as an interpreter may be present without destroying confidentiality; here, the youth group as vouching issuer plays that essential-intermediary role, and the temple lead sees only the outcome, not the record behind it.",
+    "source_excerpt": "A party must consult an advisor about a sensitive matter without the advisor, or anyone else, learning or revealing more than the matter requires, but the protection breaks as soon as an outsider is in the room unless the outsider is essential to the relationship. | mechanism: Evidentiary privilege over communications, lost by third-party presence except essential agents such as interpreters; no technical mechanism."
+   },
+   {
+    "borrowed_aspect": "In the Google subscription complaint, a service demands an ID and address proof with no stated purpose or lighter alternative; here, the temple's blanket request for ID copies plays that role, and the signed predicate is the lighter alternative.",
+    "source_excerpt": "A service needs to confirm a subscriber's payment, but it demands an identity document and address proof, and threatens suspension if the user refuses, without stating the purpose or necessity. | mechanism: None; the complaint notes no stated purpose or less-intrusive alternative was offered."
+   }
+  ]
+ },
+ {
+  "review_id": "p15-5",
+  "title": "Company dormitory operator checking a worker still belongs to a sponsoring employer at monthly re-lease",
+  "moment": "A third-party dormitory operator in Taichung leases beds to several small factories' migrant workers. Each month, before renewing bed allocation and a subsidised meal bundle, the front desk photocopies the worker's ARC and asks the broker for an updated employer letter, since workers who change employer or leave the permit can no longer legally be housed under the factory-block contract.",
+  "verifier": "Dormitory operator / dorm manager serving multiple employers' workers",
+  "predicate": "Freshness: on the date of renewal, the holder is legally employed by a sponsoring employer (permit active and not in transfer, termination or absconder status), proven by an attestation signed within the last 7 days",
+  "disclosed_today": "Photocopied ARC (ID number, birthdate, address), employer letter with company tax ID and contract dates, sometimes broker's file listing wages and deductions, stored in a paper binder at the front desk",
+  "issuer": "Workforce Development Agency permit registry, or the sponsoring employer's e-signature via a government-recognised issuer, expiring after 7 days",
+  "why_zk": "A short expiry makes the claim a real freshness check: a worker who was dismissed last week cannot present an old photocopy as proof. The operator learns yes/no plus the employer's pseudonymous ID for billing, not the ARC, address or wages. Honest limit: the operator is legally required in some circumstances to keep a copy of the ARC for fire-safety and police registers, so full minimisation only works if regulators accept the attestation in place of the copy, and a coerced worker has no real power to refuse the paper route.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In the Virginia ID-scanning rule, a statute caps which fields a merchant may keep from a scanned licence and bans secondary use; here, the dorm operator's binder of photocopied ARCs plays the scan data, and an attestation that discloses only a yes/no plus billing pseudonym plays the cap on retained fields.",
+    "source_excerpt": "A venue must confirm that a person is over a threshold age from an identity document, but scanning captures the whole card, so the rule caps what is kept to a few fields and bans secondary use, while the holder still sees everything on the card at the moment of the scan. | mechanism: Statutory field-limit and retention ban on scan data, with a prohibition on sale or marketing dissemination; no proof-of-age mechanism that avoids reading the document."
+   },
+   {
+    "borrowed_aspect": "In the bank dual-ID rule, a regulator requires document inspection but is silent on copies and retention; here, the dormitory's duty to confirm the worker's lawful employment plays the inspection duty, and the attestation lets the check happen without a retained copy.",
+    "source_excerpt": "A bank must verify who a person is before opening an account, which means examining identity documents, but the cited rule does not say whether copies are kept or for how long. | mechanism: Dual identity-document inspection at account opening; retention and copy handling not specified in the cited text."
+   }
+  ]
+ },
+ {
+  "review_id": "p15-6",
+  "title": "Juror or lay-judge candidate proves summons for today's session at the Taiwan High Court's new lay-participation trial desk",
+  "moment": "A citizen called as a prospective lay judge (國民法官) for a trial at a district court arrives for the selection day. The security desk today photocopies or records the summons and national ID to ensure only the called pool enters the secured area, while the candidate's identity is supposed to be shielded from the public and parties.",
+  "verifier": "Court security desk handling the lay-judge candidate pool entrance, plus the clerk seating them",
+  "predicate": "Holder is one of the candidates called for this specific selection session (membership in the called pool), without revealing name or ID number to the entrance desk.",
+  "disclosed_today": "Name, national ID number, address on the summons, and sometimes a scanned copy of the summons and ID kept in the desk's attendance record.",
+  "issuer": "The district court administering the lay-judge candidate list (the court's lay-judge office), signing pool membership",
+  "why_zk": "Identities of lay-judge candidates are legally sensitive and the entrance desk only needs pool membership. A membership proof lets the desk admit people without keeping a list of names and ID numbers, reducing risk of leaks or pressure on candidates. Weakness: the courtroom clerk later must know who each person is to run selection and record attendance, so identity is revealed eventually; the benefit is limited to the first perimeter checkpoint and retention of copies, and the law on required ID checks for attendance may still demand a visual check.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In the Taiwan bank dual-ID rule, the institution examines identity documents and the text is silent on copies and retention; here, the court security desk examines the summons and ID and is equally silent on whether copies are kept, which a membership proof would make moot.",
+    "source_excerpt": "A bank must verify who a person is before opening an account, which means examining identity documents, but the cited rule does not say whether copies are kept or for how long. | mechanism: Dual identity-document inspection at account opening; retention and copy handling not specified in the cited text."
+   },
+   {
+    "borrowed_aspect": "In the Chaum ballot scheme, the authority certifies without seeing content and cannot link later; here, the lay-judge office certifies pool membership with a blinded credential so the entrance desk's record cannot be tied back to the candidate list.",
+    "source_excerpt": "A signer must certify that a holder has a valid token without seeing the token's content, and must later be unable to link the certified token back to the signing event. | mechanism: A blind signature, where the message is blinded with a random factor before signing, and the holder unblinds the signature so it verifies against the original message under the signer's public key."
+   }
+  ]
+ },
+ {
+  "review_id": "p15-7",
+  "title": "Cremation booking: next-of-kin rank without a family-tree dump",
+  "moment": "A daughter walks into a funeral home in Taichung the morning after her father dies at home, to sign the cremation authorization. The director must confirm she is the highest-ranking living next of kin (e.g. spouse is deceased, she is an adult child), and today photocopies the deceased's household registration transcript showing every relative, ID numbers, addresses and marital history.",
+  "verifier": "Private funeral home (殯葬業者) arranging cremation",
+  "predicate": "Holder is a member of the set of persons who are the deceased's highest-priority living next of kin under the applicable priority order (spouse, then children, then parents, etc.), with no higher-ranking relative alive.",
+  "disclosed_today": "Full household registration transcript (戶籍謄本) of the deceased, with ID numbers, birthdates, addresses, parents, spouse and all siblings, plus a copy of the applicant's national ID card front and back.",
+  "issuer": "Ministry of the Interior household registration office (戶政事務所), signing a kin-rank credential derived from the registry when the death is registered.",
+  "why_zk": "Rank is a membership claim over a registry the household office already holds, so a signed credential could state only 'holder is first-priority next of kin of deceased X' with the wallet proving it. This mirrors the Swiss e-ID idea of sharing only the needed attribute rather than the whole record. Weakness: it needs the household office to issue such credentials at death registration, and the funeral home may still be legally expected to retain a document copy, so adoption depends on regulator acceptance.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In the Swiss e-ID, selective disclosure releases only the one attribute a transaction needs from a whole credential; here, the household registration record plays the whole credential and 'first-priority next of kin' is the single attribute released.",
+    "source_excerpt": "A business needs one attribute to proceed, but the credential is issued as a whole, so the holder must rely on the wallet to release only the needed attribute. | mechanism: SD-JWT VC selective disclosure with OpenID4VP presentation and status-list validity check."
+   },
+   {
+    "borrowed_aspect": "In the Taiwan securities agent rule, a full ID copy is demanded with no lighter alternative to prove the agent is a real identified person; here, the full household transcript and ID copy play that over-collection and the rank proof replaces them.",
+    "source_excerpt": "A foreign investor must prove that its local agent is a real, identified person, and the agent hands over a full copy of an ID card, with no alternative verification stated. | mechanism: None stated; full ID copy required with no less-intrusive alternative given."
+   }
+  ]
+ }
+]

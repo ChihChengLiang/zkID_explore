@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Picking up a child's library card without showing the household register",
+    "moment": "A grandmother or parent goes to a city library branch in Taiwan to apply for a children's reading card for a 7-year-old. The counter staff ask for the child's ID or household register (戶口名簿) and the adult's national ID, and photocopy them or key the numbers into the library system. The library only needs to know that this adult is a legal guardian of a child under the card age limit.",
+    "verifier": "Municipal public library branch counter (e.g. a branch of the Taipei Public Library or New Taipei City Library)",
+    "predicate": "The holder is a registered legal guardian (parent or appointed guardian) of at least one child whose age is below the children's card limit, with the child's identity bound to the card application.",
+    "disclosed_today": "Adult's full name, national ID number and address; child's name, ID number, birth date and address, shown on the household register or ID cards and often copied or retained.",
+    "issuer": "Ministry of the Interior Department of Household Registration, through the household registration office (戶政事務所), as a signed attestation in the TW FidO digital wallet",
+    "why_zk": "Household registration data is already held by the government, so a signed guardian-of-minor attestation is feasible. The library only needs a yes/no membership proof plus a child-specific pseudonym for the card, and not ID numbers or addresses. Weakness: Taiwan's household register records parentage, not every guardianship (grandparents with only informal custody are not covered), and many branches will keep accepting paper documents, so ZK only helps if the wallet is widely held.",
+    "inspired_by": [
+      {
+        "seed_id": "rd-eudi-wallet-selective-disclosure-recital",
+        "borrowed_aspect": "In the EUDI wallet recital, the holder discloses only the attribute a relying party needs from a larger identity record; here, the guardian-of-a-minor attribute from the household register plays that role instead of handing over the whole register."
+      },
+      {
+        "seed_id": "tw-telco-online-id-check-fraud-2021",
+        "borrowed_aspect": "In the telco fraud case, checking only an ID number and issue date let a stolen identity pass; here, a signed guardianship attestation bound to the holder's wallet device plays the role of a check that cannot be passed by copying ID numbers."
+      }
+    ]
+  },
+  {
+    "title": "Joining a library story-time and summer reading program as a guardian, with unlinkable visits",
+    "moment": "A parent signs a child up for a free weekend story-time and a summer reading challenge run by a county library, which gives out prizes and tracks attendance. The sign-up form asks for the guardian's name, phone number and ID number and the child's name and birth date, and the library can later link every visit to the family. The library only needs to know that the person signing up is the guardian of an eligible child, and, for the prize cap, that each child is counted once.",
+    "verifier": "County cultural bureau library running a children's reading promotion program",
+    "predicate": "The holder is a legal guardian of a child under the program's age limit, shown as a proof that can be reused at each visit without being linkable between visits, plus a per-program nullifier so one child gets one prize.",
+    "disclosed_today": "Guardian's name, phone and ID number; child's name, school, birth date; and a visit log tying them together across weeks.",
+    "issuer": "Household registration office (戶政事務所) for the guardianship attestation; the child's school can additionally sign enrolment if the program is school-linked",
+    "why_zk": "This is a consented-for-benefit setting where the library wants attendance statistics and fairness (one prize per child), not a profile of each family. A ZK proof with device-bound, unlinkable presentations gives age-eligibility and guardian status without the library or issuer being able to track visits. Weakness: the per-program nullifier to stop double prizes must be designed carefully, and small-town libraries with staff who know everyone may prefer a quick paper form.",
+    "inspired_by": [
+      {
+        "seed_id": "rd-google-wallet-zkp-age-no-linkage",
+        "borrowed_aspect": "In Google Wallet's age ZKP, a gatekeeper receives a yes/no fact that neither the issuer nor the gatekeeper can use to track the holder; here, the guardian-of-an-eligible-child proof at each story-time visit plays that role."
+      },
+      {
+        "seed_id": "an-b-secret-ballot-moad",
+        "borrowed_aspect": "In the secret ballot, eligibility is checked separately from the ballot so identity is not attached to the choice; here, the guardian eligibility check at sign-up is separated from the attendance and prize record so the record is not tied to the family's identity."
+      }
+    ]
+  },
+  {
+    "title": "A foster or relative caregiver borrowing for a child without exposing a custody case",
+    "moment": "An aunt who holds court-appointed guardianship (監護) of her nephew after a family crisis comes to a library to get him a children's card. Showing a court order or the household register would expose the custody dispute, the parents' situation and the child's history to a counter clerk and into a scanned record. The library only needs to know that she is a legal guardian of a child under the age limit.",
+    "verifier": "Public library branch counter and its card registration system",
+    "predicate": "The holder is the legally appointed guardian of a child under the card's age limit, whatever the legal basis (parent, court-appointed guardian, or foster placement).",
+    "disclosed_today": "Court order or household register pages showing parents' names, reasons for guardianship, addresses and the child's full record, often photocopied.",
+    "issuer": "The family court (家事法庭) for court-appointed guardianship, or the local social affairs bureau (社會局) for foster placements, countersigned into a wallet credential through the household registration office",
+    "why_zk": "Here the verifier collects far more than it needs, and the extra material is sensitive and stigmatizing. A signed guardianship credential that proves only membership in the 'legal guardian of a minor' set hides the basis and the parents' details, in the same way a privileged consultation should not expose the matter to outsiders. Weakness: courts and social bureaus do not currently issue digital credentials, so this would need new issuer pipelines, and the number of such cases per library is small, so the justification is humane rather than statistical.",
+    "inspired_by": [
+      {
+        "seed_id": "an-b-attorney-client",
+        "borrowed_aspect": "In attorney-client privilege, a sensitive matter is shared with an advisor without outsiders learning more than needed; here, the custody case behind the guardianship stays with the court and the library clerk learns only that the holder is a guardian."
+      },
+      {
+        "seed_id": "rd-eudi-wallet-selective-disclosure-recital",
+        "borrowed_aspect": "In the EUDI wallet recital, a relying party gets only the attribute it needs from a larger attestation; here, the single guardian-of-a-minor attribute is drawn out of the court order or foster placement record."
+      }
+    ]
+  }
+]

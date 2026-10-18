@@ -1,0 +1,59 @@
+[
+  {
+    "title": "University scholarship desk checks status without seeing household registry",
+    "moment": "A first-year student from Hualien applies for the indigenous student tuition-support scholarship at the university's student affairs office. Staff currently ask for a full household registration transcript (戶籍謄本) and photocopy it, which shows parents, address, birthplace and marital history, when the only question is whether the applicant holds recognised indigenous status.",
+    "verifier": "University student affairs / scholarship office",
+    "predicate": "Holder is currently registered with recognised indigenous status (any of the recognised peoples), valid on the application date",
+    "disclosed_today": "Full household registration transcript or indigenous identity card photocopy: name, national ID number, address, family members, tribe, tribal name, birth details",
+    "issuer": "Ministry of Interior household registration offices (戶政事務所), with the Council of Indigenous Peoples as the authority for status rules",
+    "why_zk": "Strong fit: the fact is already a government registry entry, so an issuer exists and the claim is a simple membership proof. The office needs a yes/no, not the family tree. Weakness: the scholarship may legitimately need the specific people (e.g. Amis vs Atayal) for quota or reporting, in which case a selective-disclosure credential should reveal that one attribute only. Also, institutions may keep copies for audit, so the benefit depends on accepting a verifiable presentation as the audit record.",
+    "inspired_by": [
+      {
+        "seed_id": "gdpr-data-minimisation",
+        "borrowed_aspect": "In gdpr-data-minimisation, a controller collects a whole document when a narrower field would serve the purpose; here, the household transcript plays the whole document and the single 'recognised indigenous status' flag plays the narrower field."
+      },
+      {
+        "seed_id": "an-b-census-title13",
+        "borrowed_aspect": "In an-b-census-title13, the agency may publish only aggregates from which no individual can be singled out; here, the university's scholarship report to the Ministry of Education plays the publication and receives only counts of verified recipients per people, never individual records."
+      }
+    ]
+  },
+  {
+    "title": "Township land office confirms eligibility for reserved-land programme without a retained ID photo",
+    "moment": "An elderly woman in Taitung goes to the township office to apply for the indigenous reserved-land (原住民保留地) use or loan programme. The clerk photocopies her ID card and household transcript and files them in the case folder, where they stay indefinitely, although the programme only needs to know she holds indigenous status and has not been enrolled twice.",
+    "verifier": "Township office (鄉公所) land administration section",
+    "predicate": "Holder has recognised indigenous status, shown without handing over a reusable copy of ID number or address",
+    "disclosed_today": "Photocopy of national ID card and household transcript retained in a paper case file: ID number, address, family details, photo",
+    "issuer": "Household registration office (戶政事務所) under the Ministry of Interior",
+    "why_zk": "Moderate fit: the proof removes the retained photocopy and the clerk's discretionary access to family details. However, land programmes also need to link the person to a specific parcel and to prove residence or kinship, which a bare membership claim does not cover, and elderly applicants may struggle with wallet apps, so a counter-assisted flow is needed. The benefit is mostly about not leaving copies in an unlocked folder.",
+    "inspired_by": [
+      {
+        "seed_id": "tw-telco-sim-live-photo-retention",
+        "borrowed_aspect": "In tw-telco-sim-live-photo-retention, the provider captures and keeps a live photo with no retention limit or lighter alternative; here, the photocopied ID and household transcript in the case folder play that retained artefact, and a one-time verified presentation plays the less intrusive alternative."
+      },
+      {
+        "seed_id": "an-b-ala-library-records",
+        "borrowed_aspect": "In an-b-ala-library-records, a library avoids its circulation log becoming a readable record of a person's interests; here, the township's case file plays that log, and keeping only a verification receipt rather than identity copies stops it becoming a readable record of who is indigenous."
+      }
+    ]
+  },
+  {
+    "title": "Community association vouches for a tribe member to an outside scholarship foundation",
+    "moment": "A high-school senior in Pingtung applies to a private foundation scholarship for indigenous youth. The foundation asks for an ID copy and a tribal elder's letter, and the student does not want the foundation, or the elder who helped, to learn more than necessary. The tribal community council or church association that already knows her can issue a membership attestation, while the foundation never sees her address or family and the council never learns which scholarships she applies to.",
+    "verifier": "Private scholarship foundation (not a government body) reviewing applications",
+    "predicate": "Holder is a recognised indigenous person and is vouched for as a community member by her tribal council, proven without revealing to the council which foundation is asking",
+    "disclosed_today": "ID card copy, household transcript, and an elder's signed letter naming the student, her family and village",
+    "issuer": "Tribal community council or association (部落會議 / 社區發展協會) co-signing with the household registration status; the foundation only checks both signatures",
+    "why_zk": "Partial fit: the unlinkability gain is real, since the council currently learns every scholarship the student chases and the foundation learns family detail. Weak points: community issuers vary in capacity and trust, a council attestation is not a legal status record and could be disputed, and small tribes mean an issuer can often guess who is applying anyway. Best framed as an add-on to the government-issued status claim, not a replacement.",
+    "inspired_by": [
+      {
+        "seed_id": "an-a-tor-onion",
+        "borrowed_aspect": "In an-a-tor-onion, each relay knows only the previous and next hop so no one holds both origin and destination; here, the tribal council plays the first hop that knows the person and the foundation plays the destination, with the presentation unlinkable so neither learns the other's side."
+      },
+      {
+        "seed_id": "an-b-attorney-client",
+        "borrowed_aspect": "In an-b-attorney-client, confidentiality is lost when an outsider is present unless essential, so the advisor learns only what the matter needs; here, the elder who vouches plays the essential agent, and the proof keeps other third parties such as foundation staff from seeing the student's household details."
+      }
+    ]
+  }
+]

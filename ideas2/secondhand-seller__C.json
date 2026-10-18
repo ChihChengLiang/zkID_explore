@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Clean-record seller badge on a Carousell-style listing without exposing the sales history",
+    "moment": "A Taipei student wants to sell a used iPhone on a Taiwanese peer marketplace. Buyers hesitate unless the seller looks trustworthy, so the platform and buyers browse the seller's full list of past sales, item titles, buyer nicknames and review text to judge reliability.",
+    "verifier": "The prospective buyer, and the marketplace's listing page acting on the buyer's behalf",
+    "predicate": "Seller has completed at least 10 sales through the platform with zero open or lost disputes in the past 24 months (threshold met: yes/no).",
+    "disclosed_today": "Full public transaction history: every item sold, prices, dates, counterparty nicknames, and free-text reviews, which also reveals the seller's home, hobbies, finances and what they are clearing out.",
+    "issuer": "The marketplace platform (or its payment/escrow arm) signs an aggregate credential over its own dispute and completion ledger.",
+    "why_zk": "Moderate. The platform already holds the ledger, so it could simply show a badge; the proof only matters if the seller wants to carry the reputation to another platform or a Line group without that platform seeing the history. The issuer must be trusted not to wash disputes, and a seller can keep a clean alias, so the proof gives selective disclosure but not Sybil resistance.",
+    "inspired_by": [
+      {
+        "seed_id": "an-b-ala-library-records",
+        "borrowed_aspect": "In the ALA library-records policy, the circulation log must exist for the library's operation without being a readable record of a user's interests; here, the platform's sales ledger plays that role, with the aggregate credential replacing the readable history."
+      },
+      {
+        "seed_id": "an-b-secret-ballot-moad",
+        "borrowed_aspect": "In the secret ballot, eligibility is checked separately from the ballot so identity is not attached to the choice; here, the seller's reputation threshold is checked separately from the listing content so the item history is not attached to the trust signal."
+      }
+    ]
+  },
+  {
+    "title": "Face-to-face handover at a convenience-store meetup: proving a clean selling record without a phone number or ID photo",
+    "moment": "Two strangers agree to swap a secondhand baby stroller at a 7-Eleven near an MRT exit. The buyer, nervous about scams, asks the seller to show an ID card, a LINE profile, and a bank-transfer screenshot of past sales, and the seller hands over far more personal data than the deal needs.",
+    "verifier": "The buyer at an in-person pickup",
+    "predicate": "Seller has sold at least 5 items with no disputes, shown as a one-time QR presentation that is bound to this meeting and cannot be replayed.",
+    "disclosed_today": "ID card number and photo, real name, LINE ID, phone number, and screenshots of bank transfers or earlier chats that expose other buyers.",
+    "issuer": "A peer-trade platform or escrow service (for example an app tied to a convenience-store pickup service) that records completed deliveries and disputes.",
+    "why_zk": "Real but narrow. The buyer's actual fear is that this person will vanish with the money or sell a bad item, and a record of clean completed sales answers that without a name. But an unlinkable proof still cannot stop a scammer who builds a record with a few cheap sales, and an ID check does not stop that either, so the proof is a modest privacy gain over screenshots rather than a fraud cure.",
+    "inspired_by": [
+      {
+        "seed_id": "tw-gov-id-number-reissue-misuse-2025",
+        "borrowed_aspect": "In the Taiwan ID-number misuse case, a leaked static number is replayed by others even after the card is reissued; here, a one-time meeting-bound presentation of the claim plays the role that a non-replayable credential would, instead of showing a static ID number."
+      },
+      {
+        "seed_id": "an-b-attorney-client",
+        "borrowed_aspect": "In attorney-client privilege, confidentiality breaks when an unnecessary third party is in the room; here, the nosy bystander is the extra data (ID, LINE, bank screenshots) shown to the counterparty, which the aggregate proof keeps out of the exchange."
+      }
+    ]
+  },
+  {
+    "title": "Community buy-and-sell Facebook group admission without handing admins a sales dossier",
+    "moment": "A neighborhood second-hand group in Kaohsiung, run by volunteer admins, wants to let only reliable sellers post high-value items such as e-bikes and appliances. Admins now ask applicants to send screenshots of their sales on other platforms, their Facebook profile, and sometimes a photo of their ID to prove they are experienced.",
+    "verifier": "The volunteer group admin deciding whether to grant the seller posting rights",
+    "predicate": "Applicant has completed at least 20 sales on any participating platform with no disputes (aggregate, threshold only; platform and items not revealed).",
+    "disclosed_today": "Screenshots of past orders with item names, prices, buyer names and chats, plus a Facebook profile link and sometimes an ID photo, all kept indefinitely in the admins' private messages and group notes.",
+    "issuer": "Any participating marketplace or payment platform, each signing its own sales aggregate; a peer vouching network of earlier buyers is a possible but weaker alternative.",
+    "why_zk": "Weak-to-moderate. Admins are volunteers who would probably keep using screenshots because they are free and familiar, and no law requires anything better. The proof helps only if several platforms issue compatible credentials, which is a real adoption barrier, and counting sales across platforms lets a seller double-count unless issuers share a nullifier scheme.",
+    "inspired_by": [
+      {
+        "seed_id": "tw-pdpa-art11-3-deletion-exception",
+        "borrowed_aspect": "In PDPA Article 11-3, a collector must delete data once its purpose lapses but may keep it whenever it claims business need; here, the admin's saved screenshots play that open-ended retained pile, and a verify-then-discard threshold proof removes the need to hold anything after the admission decision."
+      },
+      {
+        "seed_id": "an-b-jury-selection",
+        "borrowed_aspect": "In jury selection, the default can flip to full publication of everyone seated, with confidentiality only as a discretionary exception; here, the group's visible member and seller roster plays that role, and a threshold proof keeps seller identities from being published by default to the whole group."
+      }
+    ]
+  }
+]

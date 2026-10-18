@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Rental viewing: 'still employed today' without handing over the ARC and employment contract",
+    "moment": "A Vietnamese factory worker in Taoyuan views a shared room advertised by a private landlord. To get the deposit discount for 'stable tenants', the landlord asks her to photograph her 居留證 (ARC), passport, employment contract and recent payslip, which he keeps in a LINE chat.",
+    "verifier": "Individual landlord or sub-letting agent of a shared rental flat near an industrial zone",
+    "predicate": "Freshness: the holder has a valid employment permit with a named sponsoring employer, issued/refreshed within the last 30 days (not revoked, not expired, not in 'runaway' status)",
+    "disclosed_today": "Full ARC front and back (ID number, address, permit expiry), passport photo page, whole employment contract with salary and broker name, payslip, often kept indefinitely in a personal LINE/phone gallery",
+    "issuer": "Ministry of Labor Workforce Development Agency (勞動部勞動力發展署) via the foreign-worker permit system, signing a short-lived employment-status attestation",
+    "why_zk": "The landlord needs only 'currently permitted to work for an employer' as a basis for trusting rent will be paid; a fresh signed status with a short validity gives that without ID number, salary or contract terms. Honest limit: private landlords have little motivation to adopt a wallet flow, the claim only helps where the tenant has bargaining power via the discount, and the same ARC is still often demanded for the rental-contract filing and registered-residence rules, which would need legal change.",
+    "inspired_by": [
+      {
+        "seed_id": "gdpr-data-minimisation",
+        "borrowed_aspect": "In GDPR data minimisation, a controller is told to take only what the purpose needs but has no way to ask for less than a whole document; here, a freshness-only employment attestation plays the narrower request that the landlord can actually make."
+      },
+      {
+        "seed_id": "tw-platform-google-id-upload-complaint",
+        "borrowed_aspect": "In the Google subscription complaint, the service demands an ID and address bill just to confirm payment status and offers no lesser alternative; here, the landlord demanding the ARC, passport and contract to confirm employment status plays that over-collecting service, and the signed status proof plays the missing alternative."
+      }
+    ]
+  },
+  {
+    "title": "Company dormitory operator checking a worker still belongs to a sponsoring employer at monthly re-lease",
+    "moment": "A third-party dormitory operator in Taichung leases beds to several small factories' migrant workers. Each month, before renewing bed allocation and a subsidised meal bundle, the front desk photocopies the worker's ARC and asks the broker for an updated employer letter, since workers who change employer or leave the permit can no longer legally be housed under the factory-block contract.",
+    "verifier": "Dormitory operator / dorm manager serving multiple employers' workers",
+    "predicate": "Freshness: on the date of renewal, the holder is legally employed by a sponsoring employer (permit active and not in transfer, termination or absconder status), proven by an attestation signed within the last 7 days",
+    "disclosed_today": "Photocopied ARC (ID number, birthdate, address), employer letter with company tax ID and contract dates, sometimes broker's file listing wages and deductions, stored in a paper binder at the front desk",
+    "issuer": "Workforce Development Agency permit registry, or the sponsoring employer's e-signature via a government-recognised issuer, expiring after 7 days",
+    "why_zk": "A short expiry makes the claim a real freshness check: a worker who was dismissed last week cannot present an old photocopy as proof. The operator learns yes/no plus the employer's pseudonymous ID for billing, not the ARC, address or wages. Honest limit: the operator is legally required in some circumstances to keep a copy of the ARC for fire-safety and police registers, so full minimisation only works if regulators accept the attestation in place of the copy, and a coerced worker has no real power to refuse the paper route.",
+    "inspired_by": [
+      {
+        "seed_id": "an-b-va-id-scanning",
+        "borrowed_aspect": "In the Virginia ID-scanning rule, a statute caps which fields a merchant may keep from a scanned licence and bans secondary use; here, the dorm operator's binder of photocopied ARCs plays the scan data, and an attestation that discloses only a yes/no plus billing pseudonym plays the cap on retained fields."
+      },
+      {
+        "seed_id": "tw-bank-deposit-dual-id-check",
+        "borrowed_aspect": "In the bank dual-ID rule, a regulator requires document inspection but is silent on copies and retention; here, the dormitory's duty to confirm the worker's lawful employment plays the inspection duty, and the attestation lets the check happen without a retained copy."
+      }
+    ]
+  },
+  {
+    "title": "Employer-change window: proving 'not yet out of status' to a new room without exposing the old employer dispute",
+    "moment": "A Filipino caregiver in Tainan has left an abusive employer and, within the 60-day transfer window, is looking for a room through a community-run (church / NGO) shelter-to-rental programme. The programme offers a subsidised bed to workers who are still lawfully working or lawfully seeking transfer, and currently asks for her old employment termination letter and complaint records, which reveal the dispute.",
+    "verifier": "Community NGO or church-run migrant housing programme allocating subsidised beds",
+    "predicate": "Freshness: as of today, the holder's permit status is 'active or in lawful transfer period' with a sponsoring employer on record, without revealing the reason for the transfer",
+    "disclosed_today": "Termination letter naming the old employer and dispute, labour-bureau complaint receipts, ARC copy, sometimes the caregiver's whole case file shared by a social worker",
+    "issuer": "Workforce Development Agency, signing a status-only attestation at the time of query; alternatively a local labour bureau counter that issues the same signed statement",
+    "why_zk": "Dispute history is sensitive and could follow her to future employers if leaked; the housing programme needs only a same-day statement that she is lawfully in status. Honest limit: NGOs often want the case story anyway to prioritise vulnerable applicants and to report to funders, so the proof replaces only the eligibility check, not the social assessment; also, an issuer able to sign 'lawful transfer period' state must exist and workers with irregular status are excluded entirely.",
+    "inspired_by": [
+      {
+        "seed_id": "an-b-attorney-client",
+        "borrowed_aspect": "In attorney-client privilege, confidentiality about a sensitive matter breaks when an outsider is present unless essential; here, the dispute details with the old employer play the privileged matter, and the housing programme plays the outsider who should receive only the status result rather than the story."
+      },
+      {
+        "seed_id": "gdpr-data-minimisation",
+        "borrowed_aspect": "In GDPR data minimisation, a purpose-limited request is stated but no mechanism lets the requester ask for a single field; here, the housing programme's eligibility question plays the stated purpose and a status-only attestation plays the single field it can request."
+      }
+    ]
+  }
+]

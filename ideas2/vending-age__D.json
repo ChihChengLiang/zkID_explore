@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Cigarette-and-vape locker at a 7-Eleven-style convenience pickup point",
+    "moment": "A 23-year-old collects an online-ordered e-cigarette pod refill (or a nicotine-free vape device where age rules still apply) from an unattended smart locker in a Taipei MRT station concourse at 11pm. The locker must confirm the buyer is over the legal age, and no clerk is present.",
+    "verifier": "The locker operator (a logistics/locker company) acting for the e-commerce seller",
+    "predicate": "Holder's age is at least the statutory minimum (18 for tobacco/e-cigarette products under Taiwan's tobacco hazards control rules), evaluated on the day of pickup",
+    "disclosed_today": "Full national ID card photographed or scanned at the locker camera, or a typed ID number plus birth date, name and photo, retained in the operator's pickup log for audit",
+    "issuer": "Ministry of the Interior household registration system via the Taiwan Digital Wallet (MODA), which already holds the birth date from the household register",
+    "why_zk": "The legal duty is only to ensure the buyer is of age, yet the locker today keeps an ID image that is a ready identity-theft and tracking record of who buys nicotine and when. A threshold proof with device binding gives the locker a yes/no with no name, ID number or birth date to store. Weakness: the locker still needs to link the pickup to the order, so the order code ties the transaction to an account at the seller; the proof only removes the government identity data from the locker operator's hands.",
+    "inspired_by": [
+      {
+        "seed_id": "rd-google-wallet-zkp-age-no-linkage",
+        "borrowed_aspect": "In rd-google-wallet-zkp-age-no-linkage, a zero-knowledge over-18 proof on a device-bound mdoc gives the gatekeeper only a yes/no; here, the Taiwan Digital Wallet age proof presented to the locker plays that role."
+      },
+      {
+        "seed_id": "rd-cnpd-lu-tourist-inspect-not-copy",
+        "borrowed_aspect": "In rd-cnpd-lu-tourist-inspect-not-copy, the regulator says the host meets its duty by inspecting the ID without copying it; here, the locker's check of a one-time proof without retaining an ID image plays that role."
+      }
+    ]
+  },
+  {
+    "title": "Alcohol vending machine in a Hualien guesthouse lobby with a regulator audit trail",
+    "moment": "A traveller at a minsu (B&B) in Hualien buys a bottle of local millet wine from a self-service machine in the lobby at 9pm. The owner is asleep; the machine must show the vending licence authority that every sale was age-checked, but the owner does not want a guest ID database.",
+    "verifier": "The guesthouse owner, as licence holder for the machine, answerable to the local public health or tax authority on inspection",
+    "predicate": "Purchaser is at least 18 at time of sale, proven per transaction, with a signed log entry showing a valid proof was accepted",
+    "disclosed_today": "Passport or ID number typed in or photographed at the machine or at check-in, plus birth date and nationality, kept in a notebook or spreadsheet the owner can barely secure",
+    "issuer": "Foreign travellers' home-country government via an ISO 18013-5 mobile ID where available; for locals the Ministry of the Interior wallet; the owner's machine vendor only verifies, it does not issue",
+    "why_zk": "Today the owner over-collects to be able to prove compliance later, creating a stored copy of tourists' identity documents that few small operators protect. The inspect-not-copy logic suggests the duty is met by checking, and a log line recording only 'valid over-18 proof accepted, time, machine ID' lets the inspector audit compliance without the identity data. Weakness: many foreign visitors do not hold a compatible wallet credential, so a fallback of the owner checking a passport in person on video call remains, and that fallback is not zero-knowledge.",
+    "inspired_by": [
+      {
+        "seed_id": "rd-cnpd-lu-tourist-inspect-not-copy",
+        "borrowed_aspect": "In rd-cnpd-lu-tourist-inspect-not-copy, the accommodation host may inspect guests' identity documents but not copy them; here, the machine's verification of an over-18 proof with only a compliance log line plays that role."
+      },
+      {
+        "seed_id": "an-b-sealed-bid-far",
+        "borrowed_aspect": "In an-b-sealed-bid-far, a written record of any mistaken early opening lets the holder prove later that rules were followed without exposing the content; here, the signed per-sale log of accepted proofs plays that record for the inspector."
+      }
+    ]
+  },
+  {
+    "title": "University-town late-night beer vending machine with a court-ordered unmasking exception",
+    "moment": "A graduate student buys two cans of beer at 10:40pm from a machine outside a convenience-store cluster near National Taiwan University. The machine owner wants to check age without logging who bought alcohol, but must still be able to hand over identity if police investigate a sale to a minor using a borrowed credential.",
+    "verifier": "The company operating a network of alcohol vending machines near campuses",
+    "predicate": "Purchaser is at least 18 (threshold), with a revocable-pseudonym escrow so the issuer can identify the holder only on a lawful request tied to a proven abuse",
+    "disclosed_today": "Machine-camera photo of the buyer's face and ID card, matched by an operator-side service and retained for a period for disputes, effectively a biometric and ID log of every buyer",
+    "issuer": "Ministry of the Interior (household register) as the base issuer; a wallet provider acts as a custodian of a sealed identity escrow, opened only by court order",
+    "why_zk": "Default is unlinkable and unlogged: the machine learns only over-18. Borrowing a parent's or older friend's credential is the real risk, so the design keeps a narrow exception, as in witness protection where identity stays hidden except to law enforcement under court order, so police can trace an abusing credential holder while ordinary buyers stay anonymous. Weakness: the escrow exception re-introduces a trust point and a potential honeypot, and strong anti-sharing needs liveness or device binding that may itself collect biometric data; the added complexity may exceed the harm of a simple ID check.",
+    "inspired_by": [
+      {
+        "seed_id": "an-b-witness-protection",
+        "borrowed_aspect": "In an-b-witness-protection, the program holder hides the true identity but must disclose it to law enforcement on request or by court order; here, the wallet custodian's sealed escrow, opened only on a court order after a minor-sale investigation, plays that role."
+      },
+      {
+        "seed_id": "rd-google-wallet-zkp-age-no-linkage",
+        "borrowed_aspect": "In rd-google-wallet-zkp-age-no-linkage, the proof is untrackable by issuer and relying party and no credential data is stored server side; here, the vending machine's ordinary purchase flow plays that role, with linkage possible only through the escrow."
+      }
+    ]
+  }
+]

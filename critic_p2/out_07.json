@@ -1,0 +1,98 @@
+[
+ {
+  "review_id": "p07-0",
+  "context_purpose": "Prevent a child from being released to someone the custodial guardian has not approved.",
+  "norm_violation_today": {"violated": "yes", "parameter": "recipient", "reason": "A sign-out sheet listing the delegate's ID, phone and custody situation is readable by other parents and staff who have no need to see it."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "A guardian-signed token cannot show the guardian is the legally custodial one, and cannot let staff verify that the person standing there is the delegate; a court-ordered restriction or an in-person identity check is not covered."},
+  "transmission_check": {"principle_today": "safety_security", "permits_minimal_flow": "permits", "reason": "Child safety is a business practice, not a known statutory demand for ID copies, so a stricter-than-sheet authorisation should be acceptable, though I am not certain of Taiwanese buxiban rules."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 4,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p07-1",
+  "context_purpose": "Make sure alcohol is only sold to people over the legal drinking age.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "Photocopying passport or ARC with nationality and document number to unlock a vending machine collects far more than an age check requires."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Nothing for the sale itself, but the hotel loses a copy for registration, which it collects separately anyway."},
+  "transmission_check": {"principle_today": "required_by_law", "permits_minimal_flow": "unclear", "reason": "Hotel guest registration is plausibly a legal duty, but the vending age check is a separate step whose copy requirement I cannot confirm; it is largely a variant of the age-gated purchase."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 2,
+  "novelty": 2,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p07-2",
+  "context_purpose": "Confirm that each voter is an eligible party member in the district and votes only once in the primary.",
+  "norm_violation_today": {"violated": "yes", "parameter": "retention", "reason": "Photocopying ID cards and recording address at a polling table creates a retained record of members' political affiliation beyond what eligibility and double-vote checks need."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Little: the committee cannot resolve disputes about a specific named person's vote without the issuer, which is acceptable for a secret ballot."},
+  "transmission_check": {"principle_today": "other", "permits_minimal_flow": "permits", "reason": "Party primaries are internal governance and, as far as I know, no statute requires copying the ID card, but I cannot confirm party or election-commission rules."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "yes", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 5,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "p07-3",
+  "context_purpose": "Release only each heir's rightful share of a deceased depositor's account and protect the bank from claims by a missed heir.",
+  "norm_violation_today": {"violated": "no", "parameter": "none", "reason": "The bank settling an estate is entitled to the full heir record, and spreading it to branches is an internal handling issue rather than a flow violation."},
+  "purpose_sufficiency": {"rating": "insufficient", "lost": "The bank cannot verify completeness of the heir roster, disclaimers, or contested claims from a one-sided share threshold, which is the very thing protecting it from liability."},
+  "transmission_check": {"principle_today": "required_by_law", "permits_minimal_flow": "blocks", "reason": "Banks generally need an inheritance record from all heirs (and sometimes a court document) to release estate funds, so a per-heir threshold would not satisfy this."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "unknown"},
+  "rubric_score": 2,
+  "novelty": 4,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p07-4",
+  "context_purpose": "Ensure the renter is lawfully in Taiwan for the whole rental period and can be traced if the scooter is not returned.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "Keeping full passport scans in a phone or LINE chat holds much more than a stay-validity fact and exposes it to loose handling."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "The shop also wants a way to find a tourist who absconds with the scooter, and a driving licence check, which an expiry predicate does not provide."},
+  "transmission_check": {"principle_today": "commercial_convenience", "permits_minimal_flow": "unclear", "reason": "Passport copy is mostly shop practice and insurer demand; I cannot confirm any rental statute demanding it, and a licence record is probably still required."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "no", "verifier_can_check": "yes"},
+  "rubric_score": 2,
+  "novelty": 3,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "p07-5",
+  "context_purpose": "Protect newborns and mothers by letting only authorised visitors onto the ward.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "Asking for marital status, household registration and a partner address to check relationship exceeds what a named-visitor door check needs and retains it in a log."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "The door needs to bind the pass to the physical visitor and keep an audit trail for infant-abduction incidents, which unlinkable passes weaken."},
+  "transmission_check": {"principle_today": "safety_security", "permits_minimal_flow": "unclear", "reason": "Infant security policy is hospital-set and a named-list pass probably suffices, but liability logging rules for hospitals are unknown to me."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "yes", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 4,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "p07-6",
+  "context_purpose": "Confirm each voter owns a unit and holds one ballot, and compute quorum by ownership share for the owners' meeting.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "A full transcript and ID copy reveal mortgages, liens and ID numbers to volunteer committee members when only unit and share are needed."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Little, though audit of a disputed quorum needs a retained record of unit, share and ballot, which the pseudonym scheme can supply."},
+  "transmission_check": {"principle_today": "required_by_law", "permits_minimal_flow": "unclear", "reason": "The management statute and building bylaws require records of the meeting and quorum, but I cannot confirm that they demand copies of the transcript."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 4,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "p07-7",
+  "context_purpose": "Lend valuable items only to members with good standing in the co-ops.",
+  "norm_violation_today": {"violated": "yes", "parameter": "recipient", "reason": "Circulating a member's name and past conduct in group chats shares a negative reputation with parties who have no relation to this loan."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Little: a good-standing check is all the steward needs, though stewards lose context about past incidents they may weigh in person."},
+  "transmission_check": {"principle_today": "commercial_convenience", "permits_minimal_flow": "permits", "reason": "Volunteer co-ops have no legal duty to collect ID photos or share lists, so a lighter proof is allowed."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "no"},
+  "rubric_score": 2,
+  "novelty": 5,
+  "provenance_faithful": "no"
+ }
+]

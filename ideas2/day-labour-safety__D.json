@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Scaffold crew sign-in at a Kaohsiung site gate without handing over the training card file",
+    "moment": "At 6:50am a general contractor's site foreman in Kaohsiung lets a subcontractor's scaffolders onto a building site. Under occupational safety rules the site must confirm each worker holds a valid scaffold-assembly / high-place work safety training certificate. Today each worker's ID card and training certificate are photocopied into the site's entry file, which also shows national ID number, address and birth date.",
+    "verifier": "Contractor's site safety officer (the main contractor responsible for labour safety on the site)",
+    "predicate": "Holder has a scaffolding or high-place work safety training certificate whose validity period covers today's date (time-bounded: valid_until >= today), and the issuing class is in the legally recognised list.",
+    "disclosed_today": "Photocopy of National ID card and of the training certificate: full name, national ID number, date of birth, address, photo, training class date, certificate number, training institution, expiry date. Copies are kept in the site file for inspection.",
+    "issuer": "A MOL-accredited training institution (e.g. a labour-safety training centre or vocational school course) co-signing with the Ministry of Labor / Occupational Safety and Health Administration training registry",
+    "why_zk": "The law obliges the site to be able to show that every worker was qualified, so the check cannot be dropped, but it only needs 'valid today for this class' rather than the ID copy. A proof of non-expiry plus a recognised-issuer signature fits well. Weakness: inspectors may still insist on an auditable record, so the site may have to keep a signed proof log (timestamp, issuer key, pseudonymous per-site nullifier) rather than nothing; and workers without smartphones or with older paper cards need a fallback.",
+    "inspired_by": [
+      {
+        "seed_id": "rd-aepd-hotel-no-id-copy",
+        "borrowed_aspect": "In rd-aepd-hotel-no-id-copy, the hotel inspects the ID in person and records only the fields the registration rule requires with no copy retained; here, the site gate verifier checks a certificate proof and logs only 'valid on date, class X' and no ID photocopy plays that role."
+      },
+      {
+        "seed_id": "an-a-oauth-scopes",
+        "borrowed_aspect": "In an-a-oauth-scopes, the authorization server may grant narrower scope than the client requested; here, the worker's wallet plays the authorization server and releases only the validity predicate even if the site's form asks for the whole certificate."
+      }
+    ]
+  },
+  {
+    "title": "Day-labour hiring hall in Taipei Wanhua matching walk-in workers to high-work jobs",
+    "moment": "At dawn, a labour-dispatch hall near Wanhua lists same-day scaffolding and exterior-wall jobs. Walk-in workers are asked by the dispatcher to show their training certificates, and the dispatcher snaps phone photos of cards and ID to forward to the contractor via LINE, so that the contractor can confirm legal compliance before accepting the worker. Photos then sit in a LINE group of dozens of people.",
+    "verifier": "Private dispatcher / contractor-run hiring hall that screens workers for high-place jobs",
+    "predicate": "Holder possesses a currently valid high-place or scaffolding safety training certificate (expiry date not passed), proven without revealing name or ID number until actually hired.",
+    "disclosed_today": "Phone photos of the ID card front and back, the training certificate and sometimes the health-insurance card, forwarded in group chat: name, ID number, address, photo, certificate number, expiry date.",
+    "issuer": "Training institution accredited by the Ministry of Labor, with the OSHA registry as the countersigning root of trust",
+    "why_zk": "Screening happens before any employment relation exists, so there is no reason for the hall or the LINE group to hold identity data; the legal duty to verify arises only for the contractor that finally employs the worker. ZK lets the hall pre-screen with an unlinkable 'valid certificate' proof and reveal identity only to the hiring contractor. Honest limits: many day labourers are older, have low smartphone literacy, and halls operate informally; a paper-card-with-QR fallback issued by the trainer would be needed, and halls have little incentive to change.",
+    "inspired_by": [
+      {
+        "seed_id": "an-a-samesite-cookies",
+        "borrowed_aspect": "In an-a-samesite-cookies, the SameSite attribute stops a credential being sent to third parties who could match the holder across contexts; here, per-verifier presentation scoping plays that role so the hall's proof cannot be replayed or linked with the contractor's later check."
+      },
+      {
+        "seed_id": "an-a-oauth-scopes",
+        "borrowed_aspect": "In an-a-oauth-scopes, the client asks for broad scopes while only one narrow permission is needed; here, the dispatcher's habit of asking for all card photos plays the over-broad request, and the wallet grants only the single validity predicate."
+      }
+    ]
+  },
+  {
+    "title": "Labour inspection spot check that counts valid scaffolders without identifying them",
+    "moment": "A Taichung labour inspection office does a surprise visit to a mid-rise renovation site and must determine whether the workers on scaffolds hold valid high-place work training. Inspectors currently collect the name list, ID numbers and card copies of every person on site, and the contractor's office staff can see all of it afterwards.",
+    "verifier": "Labour inspector from the city government's labour inspection office (statutory enforcement)",
+    "predicate": "Each worker on the roster presents a proof that their scaffold/high-place training certificate is valid today; inspector receives per-worker pass/fail and a count, with identity revealed only for a failed check or on an actual violation finding.",
+    "disclosed_today": "Full roster with names, ID numbers, photocopied cards and certificates, photographed on inspector's phone and attached to the inspection file.",
+    "issuer": "Ministry of Labor / OSHA training registry, with accredited training bodies delegating signing",
+    "why_zk": "The inspector has a statutory right to check, so identity could legitimately be demanded in a violation case, but for the compliant majority the aggregate result suffices and the inspection file need not become a store of identity copies. Differential-style aggregate reporting limits what the file reveals. Weak point: inspectors may legally require full identification, and for enforcement the need to match a person to the physical body on the scaffold (face or ID) defeats unlinkability; ZK helps mainly with the compliant case and retained records.",
+    "inspired_by": [
+      {
+        "seed_id": "an-b-census-title13",
+        "borrowed_aspect": "In an-b-census-title13, the agency holds raw records but may publish only results that cannot single out a respondent; here, the inspection file plays the publication and keeps only counts and pass/fail per site, not the worker identifiers."
+      },
+      {
+        "seed_id": "an-b-hipaa-safe-harbor",
+        "borrowed_aspect": "In an-b-hipaa-safe-harbor, a fixed checklist of identifiers is removed before a record set is shared; here, the inspector's stored record plays that role with name, ID number, address and photo stripped and only class, validity and site code kept."
+      }
+    ]
+  }
+]

@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Scaffolding crew check-in without a stack of ID copies",
+    "moment": "At 6:30 a.m. a Taipei scaffolding subcontractor's site foreman signs in a crew of day-hired workers before they climb a building facade. Today each worker hands over a photocopy of their ID card and a photocopy of the 高空作業/鷹架 safety-training certificate, and the foreman keeps the pile in a folder in the site office to show labour inspectors.",
+    "verifier": "Scaffolding subcontractor (site foreman or safety officer) on a construction site in Taipei",
+    "predicate": "Holds a safety-training certificate for scaffold assembly or work at height that is valid today (issue date plus validity period has not run out), without revealing name, ID number, birth date, address or training venue.",
+    "disclosed_today": "Photocopy of national ID card and of the training certificate, with full name, ID number, birth date, certificate number, training institution and exact training dates; copies are kept in the site file.",
+    "issuer": "A training institution accredited by the Ministry of Labor (or the Occupational Safety and Health Administration) that already runs the course and records completion.",
+    "why_zk": "A time-bounded predicate (not expired at the check-in date) fits a selective-disclosure credential well, and the foreman only needs a yes for today. The legal duty to confirm training stays, but the law asks for evidence of valid training, not for a stored ID copy. Weakness: inspectors may still insist on seeing the paper certificate or a named record, and the foreman may also legitimately need to know who is on site for insurance and accident reporting, so the proof would replace the photocopy pile but not the roster.",
+    "inspired_by": [
+      {
+        "seed_id": "tw-pdpa-art11-3-deletion-exception",
+        "borrowed_aspect": "In tw-pdpa-art11-3-deletion-exception, the 'necessary for duties' exception lets the collector keep data indefinitely after its purpose lapses; here, a verification receipt that records only 'valid on this date' plays that role by giving the foreman something he can lawfully keep while the ID copy has nothing to justify its retention."
+      },
+      {
+        "seed_id": "tw-gov-household-register-proxy-copy-discretion",
+        "borrowed_aspect": "In tw-gov-household-register-proxy-copy-discretion, the office decides at its own discretion how many identity document copies to collect; here, the foreman's habit of photocopying the ID and certificate plays that role, and the proof replaces that discretion with a fixed, minimal question."
+      }
+    ]
+  },
+  {
+    "title": "Hiring hall dispatch that checks the certificate only on the morning of the job",
+    "moment": "A labour hiring hall (營造工會 or private labour contractor) in Kaohsiung dispatches day workers to a high-rise renovation. The contractor who orders workers wants assurance that each worker's high-work training is valid on the day of dispatch, but the hall today forwards the worker's full certificate scan and ID to every contractor who asks, so many contractors accumulate the worker's data.",
+    "verifier": "Contractor ordering day labour through a hiring hall, and the hiring hall as relaying party",
+    "predicate": "Holds a high-work or scaffolding training certificate that is valid on the dispatch date, presented to the contractor through the hall without the hall or the contractor learning the worker's identity beyond a per-job pseudonym.",
+    "disclosed_today": "Full scan of the certificate and ID card, forwarded by the hall to each contractor, including name, ID number, certificate number, training provider and dates.",
+    "issuer": "Accredited training provider (Ministry of Labor accredited institute) issuing the credential at course completion.",
+    "why_zk": "Like onion routing, the hall and the contractor each see only one layer: the hall sees who is dispatched, the contractor sees only 'valid today' for a job-specific pseudonym, so no single party holds both identity and the whole dossier. The time-bounded check (validity at the dispatch date) is a simple predicate. Weakness: the hall must still know the worker's real identity to pay and insure them, and contractors who are liable for site accidents may argue they need the real identity anyway, so the privacy gain is mostly against the many contractors rather than against the hall.",
+    "inspired_by": [
+      {
+        "seed_id": "an-a-tor-onion",
+        "borrowed_aspect": "In an-a-tor-onion, each relay peels one layer and knows only its neighbours; here, the hiring hall and the ordering contractor play the relays, with the hall knowing the worker's identity and the contractor knowing only the validity proof."
+      },
+      {
+        "seed_id": "an-a-samesite-cookies",
+        "borrowed_aspect": "In an-a-samesite-cookies, the cookie is limited to same-site requests so third parties cannot match the browser across contexts; here, a per-job scoped proof plays that role, so the same worker's credential cannot be linked across different contractors' requests."
+      }
+    ]
+  },
+  {
+    "title": "Sealed validity proof for a public tender's site-safety roster",
+    "moment": "A contractor that won a public works contract in Taichung must show the owner agency, before the start date, that every worker assigned to scaffolding or high-work tasks holds valid training. Today the contractor submits a roster with ID numbers and certificate scans to the agency weeks ahead, and competing subcontractors in the same bid package can sometimes see each other's crews and their qualifications.",
+    "verifier": "Public owner agency (project management office) or its supervising engineer on a government construction contract",
+    "predicate": "Every listed worker holds a safety-training certificate for scaffolding or high work that is still valid on the planned start date, committed to ahead of time and opened only at the start date.",
+    "disclosed_today": "Roster with names, ID numbers, certificate numbers, issuing institution and expiry dates for every worker, submitted in a document that several subcontractors and the agency's staff can read.",
+    "issuer": "Accredited training provider that issues each certificate; the contractor aggregates the proofs but does not issue anything itself.",
+    "why_zk": "The agency needs a time-bounded yes at the start date, and the roster can be committed early and checked only at the opening moment, as with a sealed bid that stays closed until the scheduled opening. The agency keeps a record of when each proof was checked, so it can show that nobody looked early. Weakness: public contracts often require named workers for audits and labour-insurance cross-checks, so the anonymous proof can only apply to the pre-start screening, and the agency may still demand names later.",
+    "inspired_by": [
+      {
+        "seed_id": "an-b-sealed-bid-far",
+        "borrowed_aspect": "In an-b-sealed-bid-far, bids stay unopened in a locked box until the scheduled opening and an official may open an envelope only to identify it; here, the committed roster proof plays the sealed bid, opened only at the start date, and the project office's single designated checker plays the official who may see only the wrapper (the validity result)."
+      },
+      {
+        "seed_id": "an-b-attorney-client",
+        "borrowed_aspect": "In an-b-attorney-client, confidentiality breaks when an outsider is present unless they are essential to the relationship; here, rival subcontractors reading the same roster play the outsiders, and the agency's checker is the only essential party allowed to see the validity result."
+      }
+    ]
+  }
+]

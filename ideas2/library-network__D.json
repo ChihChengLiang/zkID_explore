@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Borrowing at a partner university library without exposing a loan history",
+    "moment": "A National Taiwan University graduate student walks into National Chengchi University's library to borrow thesis references through the inter-university borrowing agreement. The desk wants to confirm she has no overdue or lost items at any partner library. Today staff look up her full cross-library borrowing record, which shows every title she has ever checked out, including sensitive topics.",
+    "verifier": "Partner university library circulation desk",
+    "predicate": "Non-membership: the student's ID is not on the network's current list of patrons with overdue or lost items.",
+    "disclosed_today": "Student ID, name, department, and a cross-library circulation view with titles, due dates and fine history.",
+    "issuer": "The home university library, or the inter-library consortium, signing a periodically refreshed clean-standing credential.",
+    "why_zk": "Good fit. The check is a single negative fact, and a non-membership proof against a signed delinquency list reveals nothing about what she borrowed. Weakness: the credential goes stale, so it needs a short validity window or a fresh revocation or list root, and the home library still sees which partner asked unless a presentation is made unlinkable.",
+    "inspired_by": [
+      {
+        "seed_id": "an-b-ala-library-records",
+        "borrowed_aspect": "In the ALA library-records guidance, the library treats who-borrowed-what as confidential by policy; here, a non-membership proof plays that role by making the confidentiality technical, so the partner library never sees circulation records at all."
+      },
+      {
+        "seed_id": "rd-aepd-hotel-no-id-copy",
+        "borrowed_aspect": "In the AEPD hotel case, the host records only the fields the registration rule requires rather than copying the whole ID; here, the proof of no overdue items plays that role by giving the desk only the one bit it needs instead of the full borrowing record."
+      }
+    ]
+  },
+  {
+    "title": "Public library card upgrade for a member of a community reading cooperative",
+    "moment": "A resident in Tainan joins a neighborhood book-sharing cooperative that lends from members' shelves and offers priority access to the city library's special collections. To admit new members, the cooperative coordinator asks them to bring a printout of their library account page, which shows current loans and holds, to prove they have no overdue or lost books elsewhere.",
+    "verifier": "Community reading cooperative coordinator (volunteer)",
+    "predicate": "Non-membership: the member is not on the public library network's overdue or lost-item list.",
+    "disclosed_today": "A screenshot or printout of the library account page with current loans, holds, reading history and fines, plus name and card number.",
+    "issuer": "The municipal public library, which could sign a standing attestation through its app.",
+    "why_zk": "Moderate. The volunteer needs no more than a clean-standing result, and a signed non-membership statement avoids handing over a reading history. The honest weakness is that the stakes are low and a volunteer group may simply trust a verbal statement or not care, so adoption depends on the library app offering this with no extra effort.",
+    "inspired_by": [
+      {
+        "seed_id": "an-b-ala-library-records",
+        "borrowed_aspect": "In the ALA guidance, circulation records are confidential and not handed to outsiders; here, the signed clean-standing proof plays that role by keeping the account page away from the cooperative volunteer."
+      },
+      {
+        "seed_id": "tw-gov-household-register-original-only",
+        "borrowed_aspect": "In the household register rule, the applicant shows an original for inspection and nothing is retained; here, presenting the credential from the phone plays that role, so the volunteer sees a valid result and keeps no copy."
+      }
+    ]
+  },
+  {
+    "title": "School-to-university library access for a high schooler borrowing across the network",
+    "moment": "A senior at a Taichung high school applies for a visiting-reader pass at a nearby university library to prepare a science fair project. The university asks the school librarian to send a note about the student, and the school pulls the student's full loan history to show nothing is overdue, which exposes interests and personal reading choices to staff at both institutions.",
+    "verifier": "University library visitor-pass office",
+    "predicate": "Non-membership: the student is not listed as having overdue or lost items in the school or public library network.",
+    "disclosed_today": "Student name, school ID, a librarian-written letter, and often a printed loan history with titles and dates.",
+    "issuer": "The school library, or the city public library system, signing the standing status on request.",
+    "why_zk": "Moderate to weak. The privacy gain is real for a minor, since a loan history can reveal personal matters. The practical limit is that a school librarian can already vouch in a short letter, so a proof mainly helps by removing the temptation to attach the history, and it matters only if it is easy to issue and a university pass office will accept it.",
+    "inspired_by": [
+      {
+        "seed_id": "an-b-attorney-client",
+        "borrowed_aspect": "In attorney-client privilege, a confidential exchange is damaged when an extra party is in the room; here, a minimal proof plays that role by keeping the school librarian and university staff from each learning more than the status requires."
+      },
+      {
+        "seed_id": "tw-telco-online-id-check-fraud-2021",
+        "borrowed_aspect": "In the telco case, the check used copyable identifiers and let a stolen identity pass; here, a signed credential bound to the student plays the contrasting role by making the claim hard to borrow or forge, unlike a bare ID number."
+      }
+    ]
+  }
+]

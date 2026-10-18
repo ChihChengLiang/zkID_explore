@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Beer locker at a university-district convenience store, late night",
+    "moment": "At 11:30 pm a student buys a six-pack from an unattended self-service alcohol locker outside a 24-hour convenience store near NTU. Today the kiosk asks them to scan the front of their National ID card or driver's licence so a back-office service can read the birth date, and the image is stored with the sale log for 'compliance'.",
+    "verifier": "Operator of the self-service alcohol locker (convenience-store franchisee / vending operator)",
+    "predicate": "Holder's age on today's date is at least 18 (threshold on birth date), proven without revealing birth date, ID number or name",
+    "disclosed_today": "Full ID image or scan: name, ID number, birth date, photo, household-registration address, kept in the transaction log",
+    "issuer": "Ministry of the Interior household registration system, via the TW FidO / digital ID wallet",
+    "why_zk": "Strong fit: the machine only needs a yes/no on age >= 18, yet it retains a full identity record, creating a breach target with no staff to apply judgment. Weakness: the operator's liability may make it want proof an adult was present for each sale, so a bare proof may not satisfy a regulator that expects a log; a per-sale proof receipt (no identity) would have to be accepted as that log.",
+    "inspired_by": [
+      {
+        "seed_id": "an-b-hipaa-safe-harbor",
+        "borrowed_aspect": "In HIPAA Safe Harbor, a checklist of enumerated identifiers is removed before sharing and the holder must still judge leftovers; here, the age-threshold proof plays the removal step by guaranteeing the log contains none of the ID's enumerated fields, so no leftover judgment is needed."
+      },
+      {
+        "seed_id": "tw-pdpa-art11-3-deletion-exception",
+        "borrowed_aspect": "In PDPA Art. 11(3), data must be deleted when its purpose lapses but an open 'needed for our duties' exception lets the collector keep it; here, a proof that never contains the birth date plays the role of making retention exceptions moot because nothing identifying exists to retain."
+      }
+    ]
+  },
+  {
+    "title": "E-cigarette vending kiosk in a night-market station concourse",
+    "moment": "A 20-year-old at an MRT station concourse wants to buy nicotine-free vape pods from a vending kiosk. Because the Tobacco Hazards Prevention Act restricts e-cigarette-type products and sales to minors, the kiosk requires an ID photo plus a selfie, which are sent to a vendor cloud for matching and stored.",
+    "verifier": "Kiosk vendor and its cloud age-verification subcontractor",
+    "predicate": "Holder is at least 18 (or the statutory minimum for the product) as of today, proven with a credential bound to the holder's device, with no face image sent",
+    "disclosed_today": "ID card photo, selfie biometric, name, birth date, ID number, transmitted to a third-party vendor",
+    "issuer": "Ministry of the Interior (household registration), as holder of the authoritative birth date",
+    "why_zk": "Good fit: the unattended kiosk sends biometric and ID data to a subcontractor, so two parties see the full identity. The vendor then learns who bought what. Using a threshold proof, the subcontractor role disappears. Weakness: binding the proof to the person at the machine (rather than a borrowed phone) still needs a device unlock or liveness step, and that step is not solved by the credential alone.",
+    "inspired_by": [
+      {
+        "seed_id": "an-a-tor-onion",
+        "borrowed_aspect": "In Tor onion routing, relays are layered so no single intermediary holds both origin identity and destination; here, the age proof plays that role by letting the kiosk see 'adult yes' and purchase while the cloud vendor never sees identity, so no party holds both who and what."
+      },
+      {
+        "seed_id": "an-b-hipaa-min-necessary",
+        "borrowed_aspect": "In HIPAA minimum necessary, the holder is told to release only what the purpose needs but has no mechanism proving minimality; here, the threshold proof plays the mechanism, making the released subset provably just 'age >= 18'."
+      }
+    ]
+  },
+  {
+    "title": "Hotel-lobby minibar and craft-liquor vending machine for foreign visitors and residents",
+    "moment": "A resident foreigner with an ARC, and a Taiwanese guest, each try to buy a bottle from a lobby vending machine at a tourist hotel in Hualien. Today the hotel front desk photocopies the passport or ARC to unlock the machine for the room, and the copies sit in a folder.",
+    "verifier": "Hotel operator running an alcohol vending machine unlocked via the front-desk system",
+    "predicate": "Holder is over the legal drinking age, proven from either a Taiwan ID or ARC credential, without disclosing nationality, passport number or ARC number",
+    "disclosed_today": "Photocopy of passport or ARC (name, nationality, document number, birth date, photo) retained by the hotel",
+    "issuer": "National Immigration Agency for ARC holders, Ministry of the Interior for citizens",
+    "why_zk": "Moderate fit: the hotel already collects passport copies for registration, so the vending step adds little new exposure for guests already checked in. Value is mainly for non-guests and for ending an extra retained copy. Weakness: foreign tourists without any Taiwan-issued credential cannot use this, and their home-country ID would need a separate issuer, so coverage is partial.",
+    "inspired_by": [
+      {
+        "seed_id": "tw-gov-household-register-proxy-copy-discretion",
+        "borrowed_aspect": "In the household-register proxy-copy ruling, an office may collect ID copies at its own discretion with no stated limit; here, the hotel's discretionary photocopying plays that role, and the threshold credential replaces discretion with a fixed single-predicate answer."
+      },
+      {
+        "seed_id": "an-b-hipaa-safe-harbor",
+        "borrowed_aspect": "In HIPAA Safe Harbor, identifiers of relatives and employers are stripped alongside the individual's own; here, the proof omits nationality and document number the way Safe Harbor drops secondary identifiers, so only the age fact is shared."
+      }
+    ]
+  }
+]

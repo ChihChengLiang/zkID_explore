@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Baseball gate: one-person-one-seat face lane without a face database",
+    "moment": "At the Taipei Dome on a CPBL game night, the club runs a fast 'face lane' so fans skip the ticket scan. Each fan today enrols a selfie that the club's vendor stores as a template linked to their name and phone, in order to stop ticket resale and duplicate entry. The fan wants to walk in once, show a face, and have nothing kept.",
+    "verifier": "Professional baseball club's gate operations (stadium operator and its face-gate vendor)",
+    "predicate": "This credential was issued to exactly one living person, it has not been presented at any gate in this event yet, and the person presenting it now is the one it was issued to (uniqueness: one holder, one entry).",
+    "disclosed_today": "Selfie and a stored face template, full name, mobile number, ticket ID, seat, and purchase history, kept in the vendor's database after the game for marketing and fraud screening.",
+    "issuer": "The ticketing platform (e.g. a ticket-sales service) issues the ticket as a credential bound to a device-held key and to a single 'unique person' attestation from a government-recognised digital wallet; the face is matched only against the holder's own device, not against a central template.",
+    "why_zk": "The gate needs a one-time 'this is the single holder of a valid, unused ticket' proof, which a nullifier-style proof can give without a name, number, or face template; the live face only unlocks the holder's own wallet. Honest limits: the club's resale-fraud worry is real, and the device-side face match is only as strong as the phone's biometrics. The legal pressure to drop templates is weak under the PDPA unless the biometric is treated as special category, so adoption would be driven by liability and trust rather than law.",
+    "inspired_by": [
+      {
+        "seed_id": "an-a-chaum-blind",
+        "borrowed_aspect": "In the Chaum blind-signature ballot scheme, the authority signs a ballot without seeing it and cannot later link it to the signing event; here, the ticketing platform signs a blinded entry token so the gate can verify it without linking it to the buyer's name."
+      },
+      {
+        "seed_id": "rd-cnpd-lu-tourist-inspect-not-copy",
+        "borrowed_aspect": "In the Luxembourg tourist rule, the host may inspect the identity document but must not copy it; here, the gate inspects a proof of unique holder and enters the fan but retains no face template or copy."
+      }
+    ]
+  },
+  {
+    "title": "Concert queue: stopping a stolen-identity ticket resale at Kaohsiung Arena",
+    "moment": "Before a sold-out K-pop concert in Kaohsiung, buyers register with their national ID number and issue date to get a 'real-name' ticket, and the promoter keeps a face photo for gate matching. Scalpers have already used stolen ID details to buy blocks of tickets. The promoter needs the person entering to be the one real, single buyer, not someone using copied identifiers.",
+    "verifier": "Concert promoter and the arena's entrance security",
+    "predicate": "The holder is a single distinct real person who bought this ticket and is not one of several accounts controlled by the same buyer (uniqueness of buyer, plus presence of the same key at the gate).",
+    "disclosed_today": "National ID number, issue date, face photo and template, phone, email, and device identifiers, retained by the promoter and its ticket vendor to screen fraud and reuse in future marketing.",
+    "issuer": "The national digital identity wallet operator (government) issues a one-person-one-credential attestation that is bound to a hardware key, not to ID number and issue date.",
+    "why_zk": "Today's check on ID number and issue date is easy to copy, the same weakness as the 2021 telco online sign-up fraud, so it protects neither the promoter nor the real person. A uniqueness proof tied to a device key defeats bulk purchases with stolen identifiers while revealing no ID number and keeping no face. Weakness: it requires the buyer to have the government wallet, and the promoter may still want a face photo for its own dispute handling; quantity limits can also be enforced simply with per-ID purchase caps.",
+    "inspired_by": [
+      {
+        "seed_id": "tw-telco-online-id-check-fraud-2021",
+        "borrowed_aspect": "In the 2021 telco case, a check of only ID number and issue date let stolen identities pass; here, a device-bound one-person credential plays the role of the stronger check that copied identifiers cannot satisfy."
+      },
+      {
+        "seed_id": "an-b-hipaa-min-necessary",
+        "borrowed_aspect": "In HIPAA minimum-necessary, the holder must judge what subset serves the purpose with no proof that it was minimal; here, the proof of uniqueness replaces the promoter's own judgment about how much identity data to collect."
+      }
+    ]
+  },
+  {
+    "title": "Campus sports day: a school stadium entry gate that counts parents without recording faces",
+    "moment": "At a high school's annual sports day held in the city stadium, a parent-volunteer team uses a tablet with a face-recognition app to admit one ticketed family member per student pass, to avoid overcrowding and strangers. The app stores photos of parents and siblings in the school's cloud drive. The school only needs to know that each pass is used by one person at a time.",
+    "verifier": "The school's student affairs office running the event gate",
+    "predicate": "The person at the gate is the single registered pass-holder for that student's guest pass and has not already entered on the same pass (uniqueness per pass).",
+    "disclosed_today": "Photos of the parent and relatives, names, relationship to the student, phone number and class, stored in a shared cloud folder and group chat after the event.",
+    "issuer": "The school (or the student-information system run by the school) issues the guest pass; the parent's own phone holds a key and shows the proof so the gate learns only 'valid pass, first entry'.",
+    "why_zk": "Crowd control needs 'one valid pass, one entry', not a family photo archive, and a blinded pass lets the school sign without learning which parent or relative will use it. The weakness is that a school volunteer can usually just recognise parents by sight, so the technology may be heavier than the problem; it matters mainly if the school insists on face recognition, and then the PDPA special-category question makes deleting the templates the simplest alternative.",
+    "inspired_by": [
+      {
+        "seed_id": "an-b-jury-selection",
+        "borrowed_aspect": "In the jury-selection plan, names of seated jurors may be public unless a judge keeps them confidential as a discretionary exception; here, the proof makes confidentiality the default for who attended, instead of depending on an organiser's discretion."
+      },
+      {
+        "seed_id": "an-a-chaum-blind",
+        "borrowed_aspect": "In the Chaum scheme, the authority signs without seeing the ballot content; here, the school signs a blinded guest pass without learning which relative will present it."
+      }
+    ]
+  }
+]

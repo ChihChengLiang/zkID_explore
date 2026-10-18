@@ -1,0 +1,59 @@
+[
+  {
+    "title": "One-unit-one-vote at the annual 區分所有權人會議 without handing over the ownership transcript",
+    "moment": "A mid-size Taipei condominium holds its annual owners' meeting. To get a ballot, each owner currently shows the 建物所有權狀 or a 建物謄本 and an ID, and the secretary photocopies them into the meeting file so the quorum by 區分所有權比例 can be audited later.",
+    "verifier": "The 管理委員會 secretary (主任委員's office) running the owners' meeting under 公寓大廈管理條例 and the 規約",
+    "predicate": "This holder is the registered owner of exactly the unit identified by a per-building pseudonym, with that unit's 專有部分 area share, and has not already cast a ballot in this meeting (a per-meeting nullifier for the unit makes a second ballot detectable without saying who voted).",
+    "disclosed_today": "Full 建物謄本 or 所有權狀 copy: owner name, national ID number, address, floor area, mortgage and lien entries (他項權利), co-owners; plus an ID copy.",
+    "issuer": "The land administration office (地政事務所) issuing a signed ownership attestation from the land registry, with the 管委會 enrolling unit pseudonyms and weights once per term.",
+    "why_zk": "The vote needs only 'owner of unit X with share s, first ballot'. The transcript leaks mortgage and lien data to a volunteer committee. Weakness: the statute lets owners inspect the 區分所有權人名冊 anyway, and the committee often already holds the roster, so the privacy gain is mainly against the mortgage/lien and ID copies in the paper file, and the registry attestation has to be built before this can work.",
+    "inspired_by": [
+      {
+        "seed_id": "tw-gov-household-register-original-only",
+        "borrowed_aspect": "In tw-gov-household-register-original-only, the agency inspects the original document and states no copy is kept; here, a signed ownership attestation checked on the spot and not copied plays that role."
+      },
+      {
+        "seed_id": "rd-eudi-wallet-selective-disclosure-recital",
+        "borrowed_aspect": "In rd-eudi-wallet-selective-disclosure-recital, the wallet shows one attribute out of a larger identity record; here, the owner's wallet shows only unit and share out of the full land registry transcript."
+      }
+    ]
+  },
+  {
+    "title": "Tenant proxy vote on an elevator replacement without exposing the lease",
+    "moment": "A tenant living in a unit wants to vote on a special assessment (e.g. elevator replacement) in a community whose 規約 lets residents vote or be proxies. The committee asks for the 租賃契約 copy plus the owner's written proxy (委託書) with ID copies, so the lease rent, deposit and landlord's ID all end up in the committee's drawer.",
+    "verifier": "The 管委會 clerk or building management company (物業公司) counting ballots on a 住戶 vote",
+    "predicate": "This holder holds a currently valid residency or proxy right for unit X granted by that unit's registered owner, and the unit's single vote has not been cast by anyone else (one ballot per unit per vote, with owner and tenant mutually exclusive).",
+    "disclosed_today": "Lease contract copy (rent, deposit, term, landlord's name and ID number), owner's signed proxy with ID copy, tenant's ID copy.",
+    "issuer": "The unit owner, who signs the delegation as a peer issuer from their own wallet, optionally co-attested by the 管委會 when it enrolls the unit.",
+    "why_zk": "The committee needs only 'authorised for unit X, not already counted', not the rent or the landlord's ID. The proof also lets the owner revoke by issuing a fresh delegation. Weakness: the owner and tenant can collude or both claim the vote, which the per-unit nullifier handles only if both use the same enrolled unit pseudonym, and many small buildings will still prefer a paper proxy slip because it is simple and trusted.",
+    "inspired_by": [
+      {
+        "seed_id": "privacy-pass-unlinkable-proof",
+        "borrowed_aspect": "In privacy-pass-unlinkable-proof, a gatekeeper accepts a blind-signed token attesting prior authorisation that cannot be linked back to issuance; here, the owner's signed delegation token for the unit plays that role, spent once per vote."
+      },
+      {
+        "seed_id": "tw-platform-gym-id-card-copies-interp",
+        "borrowed_aspect": "In tw-platform-gym-id-card-copies-interp, a gym asks for full ID and card copies when a lighter check might do and the regulator names no alternative; here, the committee's demand for lease and ID copies plays that role and the delegation proof is the named lighter alternative."
+      }
+    ]
+  },
+  {
+    "title": "Electronic ballot for a 社區 repair-fund vote while the committee cannot link votes to residents",
+    "moment": "A large Taichung complex with several hundred units moves its repair-fund (公共基金) vote to a LINE-based or app-based ballot. The vendor requires residents to register with name, unit number and phone, then keeps a log of who voted how, which the 主委 and vendor can both read, and which later fuels neighbour disputes.",
+    "verifier": "The vote platform operator contracted by the 管委會, plus the 監察 committee (監委) who audit the tally",
+    "predicate": "This holder is an eligible voter for one enrolled unit (owner or authorised resident), carries that unit's weight, and a per-vote nullifier shows the unit has not voted; the ballot content is submitted with no link to the identity.",
+    "disclosed_today": "Name, unit number, phone number or LINE ID, and a stored log tying each identified resident to their choice and timestamp.",
+    "issuer": "The 管委會 issues unit voting credentials after checking ownership once at enrolment, with the 監委 co-signing the roll so the committee cannot add phantom units alone.",
+    "why_zk": "The tally needs weight and one-ballot-per-unit, not an identity-to-choice log. An unlinkable credential lets auditors verify the count while the vendor and the 主委 cannot see who voted which way. Weakness: 公寓大廈管理條例 and many 規約 still require paper or signed records for some resolutions, and the committee that issues the credentials is also the party being protected against, so the trust shifts to the enrolment step rather than disappearing.",
+    "inspired_by": [
+      {
+        "seed_id": "an-b-ala-library-records",
+        "borrowed_aspect": "In an-b-ala-library-records, a library must keep a record of who used what without it becoming a readable log of interests, relying on a confidentiality policy; here, the vote platform's ballot record plays that role and an unlinkable credential replaces the policy-only protection."
+      },
+      {
+        "seed_id": "privacy-pass-unlinkable-proof",
+        "borrowed_aspect": "In privacy-pass-unlinkable-proof, clients present proofs that cannot be linked to the issuance interaction; here, a resident's unit-voting credential presented at the ballot box plays that role."
+      }
+    ]
+  }
+]

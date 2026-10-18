@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Dajia Mazu pilgrimage bus: congregation seat without a member roster",
+    "moment": "A Taichung neighbourhood temple organises its yearly walking pilgrimage with chartered buses and group accident insurance. The tour agency wants proof that each rider belongs to this temple's believers' association (to get the congregation group fare and the temple's group policy), and today asks everyone to hand in a copy of their ID plus the temple's member card and fill a form listing religion and parish.",
+    "verifier": "The travel agency and the group-insurance broker booking the chartered buses for the temple pilgrimage",
+    "predicate": "Holder is a currently registered member of temple association X (membership, boolean), with no name, ID number or religion field released",
+    "disclosed_today": "Full name, national ID number, birth date, phone, copy of the temple member card (which itself reveals religious affiliation), sometimes household address, kept in the agency's spreadsheet and forwarded to the insurer",
+    "issuer": "The temple's registered believers' association (the community body that already keeps the member register), signing a membership credential at renewal each year",
+    "why_zk": "The fare discount only needs 'is in the association', yet the agency stores a religious-affiliation list, which is special-category data and a leak risk. A presentation of association membership with a per-trip validity check removes that list. Weakness: the insurer still needs real names and IDs of insured travellers for the policy itself, so ZK only removes the religion/congregation part, not identity; and small temples may lack the capacity to run an issuer.",
+    "inspired_by": [
+      {
+        "seed_id": "rd-swiss-eid-necessary-data-only",
+        "borrowed_aspect": "In the Swiss e-ID, the wallet releases only the attribute a transaction needs from a whole credential; here, the temple membership card plays that role by revealing only 'member of association X' and not religion, address or ID number."
+      },
+      {
+        "seed_id": "tw-pdpa-art11-3-deletion-exception",
+        "borrowed_aspect": "In PDPA Art. 11(3), the collector may keep data whenever it claims business necessity after the purpose lapses; here, the agency's post-trip member spreadsheet plays that role, and a one-time proof that leaves nothing to retain removes the need for the exception."
+      }
+    ]
+  },
+  {
+    "title": "Relay pilgrimage: the sponsoring temple vouches for riders without learning who they are, and the bus company learns only the count",
+    "moment": "A Tainan temple joins a multi-temple incense-division (進香) trip. Each branch temple must show the host temple that its riders are genuine followers, so the host hands out the limited 'congregation-rate' seats, while the bus company and the roadside stop vendors must not receive the faith roster. Today every rider's name and religion are passed from branch temple to the host temple to the bus company.",
+    "verifier": "The host temple's trip organiser, who allocates limited congregation-rate seats across several branch temples (and the bus operator behind it)",
+    "predicate": "Holder is a member of one of the participating branch congregations (membership in a set), proven once per trip as an unlinkable token",
+    "disclosed_today": "Name, phone, branch temple, religion/parish and ID number on the rosters that pass from branch to host to bus operator",
+    "issuer": "Each branch temple's management committee, signing membership credentials; the host temple only holds the list of accepted branch issuer keys",
+    "why_zk": "The relayed structure means no single party needs both who the rider is and which faith group they belong to: the branch issues, the host verifies a membership token against several accepted issuers, the bus operator sees only a ticket. This reduces the roster that gets chained along. Weakness: small village temples may have only dozens of members, so anonymity sets are tiny and the host may still recognise people by face; the benefit is mostly against the downstream data copies.",
+    "inspired_by": [
+      {
+        "seed_id": "an-a-tor-onion",
+        "borrowed_aspect": "In onion routing, each relay peels only its own layer so no single relay sees both origin and destination; here, the branch temple, host temple and bus operator play the relays, each seeing only its own layer of the claim (identity, congregation, ticket)."
+      },
+      {
+        "seed_id": "an-b-jury-selection",
+        "borrowed_aspect": "In jury selection, juror names may be published unless a judge grants confidentiality; here, the published rider roster plays that default, and a credential check that never produces names makes confidentiality the technical default rather than a discretionary exception."
+      }
+    ]
+  },
+  {
+    "title": "Temple-fair homestay and meal vouchers: a pilgrim token that cannot follow you around the town",
+    "moment": "During the nine-day Baishatun Mazu pilgrimage, local homestays, vegetarian restaurants and charity meal stations offer a congregation rate or free lodging to registered pilgrims. Hosts today photograph the pilgrim card and note the believer's temple, sometimes adding them to a LINE group for next year's promotion, so the same pilgrim is recognised across hosts and years.",
+    "verifier": "A homestay owner or vegetarian restaurant along the route offering pilgrim-rate lodging and meals",
+    "predicate": "Holder belongs to a registered pilgrimage congregation this year (membership), presented so that two different hosts cannot link the presentations",
+    "disclosed_today": "Photo of pilgrim card, name, phone, home temple, LINE contact; kept for marketing and no-show screening",
+    "issuer": "The pilgrimage organising committee (the temple that runs the procession), issuing an annual pilgrim credential with an expiry",
+    "why_zk": "The host's real need is to confirm the rate is deserved, not to build a customer list with religion attached. A presentation scoped to one verifier and one visit prevents cross-host matching, as a cookie restricted to same-site context prevents third parties from recognising the browser. Weakness: the host often wants a phone number for a deposit or a no-show, which ZK does not solve; and the collection is purely marketing convenience, so there is no legal duty pushing hosts to adopt it.",
+    "inspired_by": [
+      {
+        "seed_id": "an-a-samesite-cookies",
+        "borrowed_aspect": "In SameSite cookies, the browser sends a credential only on same-site requests so third parties cannot recognise the holder across sites; here, the pilgrim token bound to a single host and visit plays that role, preventing hosts from matching the same pilgrim across lodgings."
+      },
+      {
+        "seed_id": "rd-swiss-eid-necessary-data-only",
+        "borrowed_aspect": "In the Swiss e-ID, a selective-disclosure presentation with a status-list validity check releases only what the transaction needs; here, the pilgrim wallet shows 'registered this year' with an expiry check and nothing about name or temple."
+      }
+    ]
+  }
+]

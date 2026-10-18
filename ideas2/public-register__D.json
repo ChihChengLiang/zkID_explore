@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Landlord-or-director check without a register trawl",
+    "moment": "A tenant in Taichung is asked by a prospective roommate-finding platform or a property agent to prove that the person offering a room really owns the flat. Today the agent or tenant pulls the land/building transcript (土地建物謄本) and cross-checks it with the company registry, which exposes the owner's full ID details, other holdings and home address.",
+    "verifier": "Rental platform or real-estate agent verifying that a lister is the registered owner of the offered property",
+    "predicate": "Cross-source match: the person presenting is the registered owner of the building at lot X, per the land register, without revealing any other holdings, ID number or residence address.",
+    "disclosed_today": "Full land and building transcript (owner name, partial ID number, address, all lots, mortgage entries), often plus an ID copy and a company-registry printout.",
+    "issuer": "Land administration office (地政事務所) under the Ministry of the Interior, signing an ownership attestation for one named lot.",
+    "why_zk": "The data is already public, so the harm is aggregation: the verifier gets more than the single fact needed. A signed single-lot ownership claim bound to the holder's digital ID removes the extra fields and the ability to stitch a home address together. Weakness: the land office already sells transcripts, and a determined stalker can still pull them separately, so this protects against the verifier's over-collection and retention, not against the public register itself.",
+    "inspired_by": [
+      {
+        "seed_id": "tw-pdpa-art5-purpose-limit",
+        "borrowed_aspect": "In tw-pdpa-art5-purpose-limit, the collector decides what is necessary for its stated purpose with no concrete proof; here, a single-lot ownership attestation plays that role by making the necessary scope a fixed, checkable claim."
+      },
+      {
+        "seed_id": "tw-gov-household-register-proxy-copy-discretion",
+        "borrowed_aspect": "In tw-gov-household-register-proxy-copy-discretion, the office may collect extra identity copies at its discretion; here, the agent's habit of demanding whole transcripts and ID copies plays that role and is replaced by one signed claim."
+      }
+    ]
+  },
+  {
+    "title": "Company-director confirmation for a bank or supplier without exposing home address",
+    "moment": "A small supplier in Tainan opens a trade account with a wholesaler. The wholesaler's credit clerk wants to know the signer is really a registered director of the company, so they search the Ministry of Economic Affairs company registry and then look up the person's land holdings and residence to judge creditworthiness, accumulating a home address file for a private individual.",
+    "verifier": "Wholesaler's credit or onboarding clerk checking that the signer is a registered director of the contracting company",
+    "predicate": "Cross-source match: the person presenting is listed as a director or representative of company N in the company registry, with no other registry data linked.",
+    "disclosed_today": "Registry printout, personal ID copy, and often informal extra lookups of the person's property and address from other public registers.",
+    "issuer": "Department of Commerce, Ministry of Economic Affairs (經濟部商業發展署), the company registry operator, signing a director-status claim.",
+    "why_zk": "The check needs only director status for one company, but the open registers let the clerk join the person to a home address. A signed claim bound to the person's identity credential lets the clerk verify status and nothing joinable. Honest limit: the company registry itself lists director names publicly, so the verifier could still run the lookups; the benefit depends on the clerk's process accepting the claim instead of searching, and a malicious reader is not stopped.",
+    "inspired_by": [
+      {
+        "seed_id": "tw-telco-online-id-check-fraud-2021",
+        "borrowed_aspect": "In tw-telco-online-id-check-fraud-2021, the provider verifies identity using easily copied identifiers (ID number and issue date); here, a holder-bound director credential plays the role of the stronger check that replaces copyable registry details."
+      },
+      {
+        "seed_id": "tw-pdpa-art11-3-deletion-exception",
+        "borrowed_aspect": "In tw-pdpa-art11-3-deletion-exception, the collector can keep data when it says it needs it for its own duties; here, the clerk's retained address file plays that role and is avoided because only a yes/no claim is ever received."
+      }
+    ]
+  },
+  {
+    "title": "Community committee verifying a landowner's standing without handing out the address list",
+    "moment": "An urban renewal (都市更新) consultation in a Taipei neighbourhood requires the organiser to confirm that each attendee casting a vote is a registered landowner of a lot in the renewal zone. Organisers currently assemble transcripts and cross-match owner names to household and company records, producing a sheet of owners' names and home addresses that circulates among volunteers and sometimes outside.",
+    "verifier": "Urban renewal organiser or community committee volunteer checking voter eligibility at a meeting",
+    "predicate": "Cross-source match: the attendee is a registered owner of a lot inside renewal zone Z, revealing neither which lot nor any holdings elsewhere nor residence address.",
+    "disclosed_today": "Owner name, ID number, lot number, share ratio and home address, collected into a shared attendance and eligibility sheet.",
+    "issuer": "District land administration office or the city's Urban Redevelopment Office, signing a zone-membership claim.",
+    "why_zk": "Eligibility only needs membership in the zone, yet the sheet becomes a ready-made list of owners and their homes that a stalker or scammer could use. A zone-membership proof keeps the list from existing. The sealed ballot logic also applies: eligibility can be shown without exposing what each person owns. Honest limit: ownership is public by law and share ratios may be needed for weighted votes, which a membership-only claim does not cover without an extra range claim.",
+    "inspired_by": [
+      {
+        "seed_id": "an-b-sealed-bid-far",
+        "borrowed_aspect": "In an-b-sealed-bid-far, an official may open the envelope only to identify it while the content stays sealed; here, the organiser plays that role by checking eligibility membership while lot and holdings stay hidden."
+      },
+      {
+        "seed_id": "tw-pdpa-art5-purpose-limit",
+        "borrowed_aspect": "In tw-pdpa-art5-purpose-limit, collection must stay within what the stated purpose requires; here, the voter-eligibility purpose plays that role and fixes the claim to zone membership only."
+      }
+    ]
+  }
+]

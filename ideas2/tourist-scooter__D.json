@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Scooter rental: still-legal-to-stay check without a passport scan",
+    "moment": "A tourist walks into a rental shop in Hualien to hire an e-scooter for three days. Staff photocopy or photograph the passport and the ARC/visa page to confirm the visitor is lawfully in Taiwan through the rental period, then keep the copy in a binder or LINE chat.",
+    "verifier": "Small e-scooter rental shop owner in a tourist town",
+    "predicate": "Entry status is valid and its permitted-stay end date is on or after the planned return date (time-bounded: stay_expiry >= rental_end), plus a signed-by-issuer freshness stamp.",
+    "disclosed_today": "Full passport scan (name, passport number, nationality, birth date, photo) and entry stamp/visa page, stored on the owner's phone or in paper files.",
+    "issuer": "National Immigration Agency (Ministry of the Interior), via an entry-status credential issued into the visitor's wallet at border control or at pre-arrival online registration.",
+    "why_zk": "The shop only needs 'permitted to be here until at least date D', and a one-sided range proof on the expiry date delivers that without the passport number. Weakness: Taiwan rental rules and insurers often require a driving-licence copy and ID record, so the shop may still keep those by practice; the entry-status proof only removes the immigration-document copy. Adoption depends on the NIA actually issuing such a credential, which does not exist today.",
+    "inspired_by": [
+      {
+        "seed_id": "rd-swiss-eid-necessary-data-only",
+        "borrowed_aspect": "In the Swiss e-ID, selective disclosure releases only the attribute a transaction needs from a whole credential; here, the NIA entry-status credential plays that role by releasing only the stay-expiry predicate to the shop rather than the whole passport record."
+      },
+      {
+        "seed_id": "rd-apple-wallet-age-request-categories",
+        "borrowed_aspect": "In Apple's Verify with Wallet, an Age Over N flag is requestable separately from the photo and issuing authority; here, a 'stay valid through D' flag plays that role, requested separately from passport photo and number."
+      }
+    ]
+  },
+  {
+    "title": "Prepaid tourist SIM counter: lawful-entry proof that cannot be replayed from a stolen passport",
+    "moment": "A visitor at a Taoyuan airport telecom counter or an online telecom portal buys a 15-day prepaid data SIM. Telecom rules oblige the operator to register the user, so staff scan the passport and entry date, and the online flow only checks passport number and entry date, the kind of weak check that fraud rings have exploited before.",
+    "verifier": "Telecom operator's airport kiosk or online SIM-activation flow",
+    "predicate": "Holder possesses a currently valid entry status (not expired as of today, with the SIM's validity window inside the permitted stay), proven with a holder-bound, freshly signed proof rather than copyable identifiers.",
+    "disclosed_today": "Passport number, name, nationality, birth date, passport photo and entry date, retained by the operator for the legally required period.",
+    "issuer": "National Immigration Agency, issuing a wallet-bound entry-status credential at the border gate, with the status list kept current by NIA.",
+    "why_zk": "The 2021 incidents show that identifiers alone are copyable; a proof bound to the holder's wallet key and showing 'status valid, expiry covers the SIM window' is harder to forge from stolen passport data. Honest limit: the statute may require the operator to retain identity data for real-name registration, so a pure predicate proof can satisfy only the entry-status part and the operator may still need to record a pseudonymous registration reference (or the regulator must accept the issuer-attested registration). Binding to a person-level identity still needs more than this claim.",
+    "inspired_by": [
+      {
+        "seed_id": "tw-telco-online-id-check-fraud-2021",
+        "borrowed_aspect": "In the 2021 telecom fraud, an online check accepts only an ID number and issue date, which a thief can copy; here, a holder-bound, freshly signed entry-status proof plays the role of the stronger check that replaces those copyable identifiers."
+      },
+      {
+        "seed_id": "privacy-pass-unlinkable-proof",
+        "borrowed_aspect": "In Privacy Pass, a gatekeeper accepts an unlinkable token showing prior authorisation instead of a persistent identifier; here, the unlinkable entry-status proof plays the token, so the operator learns the visitor passed immigration without receiving a trackable identifier."
+      }
+    ]
+  },
+  {
+    "title": "Hostel-run scooter desk: blind-issued day pass tied to entry status",
+    "moment": "A backpacker staying at a hostel in Tainan books a scooter through the hostel's desk, which partners with a rental company. The hostel already copied the passport at check-in, and the desk copies it again for the rental, so the same passport image sits in two businesses' files.",
+    "verifier": "Rental company's partner desk at a hostel (second business handling the same visitor)",
+    "predicate": "The visitor holds a still-valid entry status through the rental dates, shown via a token the hostel or rental firm already accepted at an earlier step, without carrying identity from the first step to the second.",
+    "disclosed_today": "A second full passport copy plus name and passport number written into the rental contract and LINE chat.",
+    "issuer": "National Immigration Agency as root issuer of the entry-status credential; the hostel (under its lodging registration duty) can act as a secondary issuer of a short-lived 'verified stay valid' token, blind-signed so that the rental company cannot link it back to the hostel check-in record.",
+    "why_zk": "Each business has its own legal reason to check, but the second does not need the first's identity record, only proof that someone with valid entry status was checked. A blind-signed day token avoids duplicating passport copies across businesses. Honest weakness: the hostel must still keep its own register by law, the rental company's insurer may want a driving licence and a contact, and a hostel acting as issuer is a trust and liability burden few owners will accept without a government-run alternative.",
+    "inspired_by": [
+      {
+        "seed_id": "an-a-chaum-blind",
+        "borrowed_aspect": "In Chaum's blind signature, the ballot authority certifies a ballot without seeing its content and cannot link it afterwards; here, the hostel's token issuance plays the authority, certifying entry status without letting the rental company link the token to the check-in record."
+      },
+      {
+        "seed_id": "privacy-pass-unlinkable-proof",
+        "borrowed_aspect": "In Privacy Pass, a server accepts a blind-signed token as evidence of prior authorisation; here, the rental desk accepts the hostel's token as evidence that entry status was already verified."
+      }
+    ]
+  }
+]

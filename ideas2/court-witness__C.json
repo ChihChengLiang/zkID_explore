@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Witness walks into the Taipei District Court without handing over the whole summons",
+    "moment": "A 55-year-old shopkeeper summoned as a witness in a neighbor's civil dispute arrives at the Taipei District Court entrance. The guard checks the paper summons, which lists her full name, address, national ID number, the case number, the parties and the cause of action, and also asks to see her ID card, then writes her name and ID number in the visitor log.",
+    "verifier": "Judicial Yuan court security desk (法警 / court police) at the district court entrance",
+    "predicate": "Holder is in the set of persons summoned or noticed for a session at this court today (membership in today's hearing roll)",
+    "disclosed_today": "Full paper summons (name, address, ID number, case number, parties, cause of action), the physical ID card, and a handwritten visitor log entry with name and ID number",
+    "issuer": "The Judicial Yuan / the court clerk's office that issues the summons, signing a daily-scoped credential at the time of service or via the e-service system",
+    "why_zk": "Moderately strong: the guard only needs 'this person is on today's roll for this courthouse', yet the summons reveals the nature of the dispute and personal data to anyone glancing over it. A signed membership claim scoped to court and date can be shown without case number or parties. Weakness: courts must still admit people without digital credentials (paper fallback is legally required), and the clerk already knows the holder, so privacy gain is about the guard and visitor log, not the issuer.",
+    "inspired_by": [
+      {
+        "seed_id": "rd-swiss-eid-necessary-data-only",
+        "borrowed_aspect": "In the Swiss e-ID, selective disclosure lets a holder release only the one attribute a transaction needs from a whole credential; here, the summons credential plays that role by revealing only 'summoned to this courthouse today' and withholding case number and parties."
+      },
+      {
+        "seed_id": "tw-pdpa-art11-3-deletion-exception",
+        "borrowed_aspect": "In PDPA Article 11(3), data must be deleted when its purpose lapses but an open-ended duty exception lets the collector keep it; here, the visitor log plays that role, and a proof that leaves nothing identifying to write down makes retention moot."
+      }
+    ]
+  },
+  {
+    "title": "Juror candidate or lay judge pool check-in without showing the full notice",
+    "moment": "Under Taiwan's Citizen Judges Act (國民法官法), a person selected to the candidate pool arrives at the Taichung District Court on the morning of the selection session. The security desk and registration counter look at the notice letter and ID card, photocopy or photograph it, and record the person's name, national ID and address to confirm they were notified for this session.",
+    "verifier": "Court police and registration staff at the district court's citizen-judge selection session",
+    "predicate": "Holder is among the candidate citizens summoned for the selection session held today at this court (membership)",
+    "disclosed_today": "Notice letter with name, address, ID number and case reference, plus ID card shown and often copied or photographed at check-in",
+    "issuer": "The District Court's citizen-judge office, issuing a credential blindly signed so the holder can show it later without the issuance event being linkable to the arrival event",
+    "why_zk": "Real but partial: candidates are particularly sensitive to being identified (to defendants, press, other attendees) and the court has an interest in not creating a list that links named people to a specific criminal case. A blind-issued, session-scoped membership token lets the desk confirm eligibility without writing down who is in which case. Weakness: the court itself must later call and seat candidates by name, so identity is unavoidably revealed inside the courtroom process; the gain is limited to the entrance and any external contractors or building security.",
+    "inspired_by": [
+      {
+        "seed_id": "an-a-chaum-blind",
+        "borrowed_aspect": "In Chaum's blind-signature voting, the ballot authority signs a ballot without seeing its content and cannot later link it to the voter; here, the court's citizen-judge office plays that role by signing the entry token blind so the building desk cannot link the holder to a specific criminal case."
+      },
+      {
+        "seed_id": "rd-swiss-eid-necessary-data-only",
+        "borrowed_aspect": "In the Swiss e-ID, the wallet shares only the necessary data for the transaction; here, the candidate's wallet plays that role by presenting only 'in today's pool' rather than the full notice letter."
+      }
+    ]
+  },
+  {
+    "title": "Building security contractor at a shared judicial building sees entry rights, not the hearing it relates to",
+    "moment": "In a multi-tenant judicial complex (for example a court building that also houses a prosecutors' office or legal aid foundation counter), the private security contractor staffing the lobby screen visitors. A woman arriving for a family-court mediation session shows her notice at the lobby, and the contractor's guard reads it aloud to find the right floor, exposing a domestic matter to a queue of strangers and to the contractor, which is not a court employee.",
+    "verifier": "Outsourced lobby security contractor at the shared judicial building",
+    "predicate": "Holder has a hearing or notice for today's session in this building (membership), shown as an opaque entry pass that routes to a floor without naming the matter",
+    "disclosed_today": "Full hearing notice read or photographed by the guard, naming the family-court matter, parties and room, plus ID card details for the lobby log",
+    "issuer": "The court clerk's office, with the pass relayed through an unlinkable intermediate step so the lobby contractor and the floor reception each learn only their own part",
+    "why_zk": "Moderate: the contractor needs only 'admit to building, floor 4' and the floor reception needs only 'session at 10:00', and splitting these across layers prevents any one party from knowing both who the person is and what the matter is. Weakness: this is as much an access-control design problem as a zero-knowledge one; a simple sealed or QR pass with floor routing, issued by the court, would capture most of the benefit, and verification of a pass-through relay across two parties is more complex than the harm it avoids for most visitors.",
+    "inspired_by": [
+      {
+        "seed_id": "an-a-tor-onion",
+        "borrowed_aspect": "In onion routing, each relay peels only its own layer so no single relay sees both origin and destination; here, the lobby contractor and the floor reception play the relays, with the lobby learning only 'admit to the building' and the floor learning only 'session at this time', never the identity and the matter together."
+      },
+      {
+        "seed_id": "an-a-samesite-cookies",
+        "borrowed_aspect": "In SameSite cookies, a credential is restricted to be sent only to the party in the right context so third parties cannot recognise the holder; here, the entry pass is scoped to this building and this date so it cannot be reused or matched by other venues."
+      }
+    ]
+  }
+]

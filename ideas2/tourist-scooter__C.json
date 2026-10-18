@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Prepaid SIM counter at Taoyuan airport: stay-valid-until proof instead of passport scan",
+    "moment": "A tourist lands at Taoyuan airport and buys a prepaid data SIM at a telecom kiosk. Under the telecom real-name registration rules the clerk scans the passport and keeps a copy, even though the SIM only needs to be tied to a person who is lawfully in Taiwan for the SIM's validity period.",
+    "verifier": "Telecom operator's airport counter clerk (or the operator's self-service kiosk)",
+    "predicate": "Holder has a valid entry status (visa-exempt entry or visa) whose permitted stay ends on or after the SIM's expiry date, proven as a time-bounded claim with no passport number, name or photo revealed to the counter.",
+    "disclosed_today": "Full passport scan: name, passport number, nationality, date of birth, photo, plus the entry stamp or landing date; copy retained by the operator for the statutory retention period.",
+    "issuer": "National Immigration Agency (NIA), signing an entry-status credential at the border e-gate or on arrival card submission",
+    "why_zk": "The operator must satisfy a regulator that a real, lawfully present person is behind each SIM, but the legal need is the existence of a registered subscriber and a bounded stay, not a passport image stored in retail systems. A time-bounded entry-status proof plus a per-SIM pseudonym lets the operator hand the regulator a verifiable registration. Weakness: the regulation may literally require the identity details to be recorded, so the regulator would have to accept an escrowed or issuer-held identity retrievable by court order rather than a copy at the counter; without that rule change the operator will keep scanning.",
+    "inspired_by": [
+      {
+        "seed_id": "tw-securities-foreign-agent-id-copy",
+        "borrowed_aspect": "In tw-securities-foreign-agent-id-copy, a full ID copy is demanded with no less-intrusive alternative stated; here, the entry-status credential plays that role of the alternative the rule never offered."
+      },
+      {
+        "seed_id": "an-b-ala-library-records",
+        "borrowed_aspect": "In an-b-ala-library-records, the provider must keep a record of who used what without it becoming a readable log; here, the SIM registration record holding only a pseudonym and a verified expiry plays that role."
+      }
+    ]
+  },
+  {
+    "title": "E-scooter rental at Sun Moon Lake: proof that the visitor is still lawfully in the country for the rental period",
+    "moment": "A foreign visitor rents a shared e-scooter or a rental e-scooter from a small shop at a tourist spot. The shop photographs the passport and the home-country driving permit or International Driving Permit, mainly to be able to chase the renter for fines or damage, and needs to know the visitor is not about to leave the country before the bike is returned.",
+    "verifier": "Rental shop owner or the scooter-sharing app's onboarding flow",
+    "predicate": "Holder's lawful stay does not end before the planned return time plus a grace period, and holds a driving authorization valid for a light scooter in Taiwan, shown as two time-bounded claims with no passport details.",
+    "disclosed_today": "Passport photo page image, entry stamp, driving permit image, often a phone number and hotel name; stored on the shop owner's phone and in chat apps.",
+    "issuer": "National Immigration Agency for the stay claim; Ministry of Transportation and Communications (Directorate General of Highways / motor vehicle office) for the driving-authorization claim",
+    "why_zk": "The shop's real risk is unrecoverable loss if the renter leaves Taiwan, so the stay-end bound and a driving-authorization flag address it directly without keeping passport images on a shop owner's personal phone. Weakness: the shop also wants a deposit and a way to chase the person, and a pure predicate proof does not provide a contact for debt recovery; the deposit on a payment card would still do that job, and the claim only removes the identity-document photo, not the commercial risk.",
+    "inspired_by": [
+      {
+        "seed_id": "tw-gov-household-register-proxy-copy-discretion",
+        "borrowed_aspect": "In tw-gov-household-register-proxy-copy-discretion, how many document copies get collected is left to the office's own discretion; here, the shop owner's habit of photographing everything plays that role of unbounded discretion that a fixed predicate proof would cap."
+      },
+      {
+        "seed_id": "an-b-attorney-client",
+        "borrowed_aspect": "In an-b-attorney-client, protection collapses when an unnecessary third party is in the room; here, the owner's personal phone and chat groups holding the passport photo play that role of the outside party, which the proof removes."
+      }
+    ]
+  },
+  {
+    "title": "Campus-area SIM shop for exchange students: study-permit validity as a rolling claim for monthly plans",
+    "moment": "An exchange student or short-term language-course student walks into a telecom shop near a university in Taipei to open a postpaid or monthly plan. The shop collects the ARC or entry documents plus the school enrollment letter to be sure the contract does not outlast the right to stay, and collects them again at each renewal.",
+    "verifier": "Telecom shop staff handling contract plans for non-citizens",
+    "predicate": "Holder's residence or study status is valid through a stated date, re-proven at each monthly renewal as a fresh short-lived claim rather than re-copying documents.",
+    "disclosed_today": "Alien Resident Certificate or passport copy, enrollment certificate, address, local contact; re-collected at renewals and kept by the shop.",
+    "issuer": "National Immigration Agency for residence status; the university's international office may co-sign the enrollment end date",
+    "why_zk": "A telecom operator is legally required to identify subscribers and does not want a contract that outlives the holder's status, so a rolling time-bounded proof maps well to the monthly renewal cycle and avoids stacking up copies. Weakness: the one-time identification obligation still exists at contract opening and the operator may be required to retain ID details then, so zero-knowledge only helps for the renewals and for cases where the regulator accepts an issuer-attested registration; the first signup may remain a full identification.",
+    "inspired_by": [
+      {
+        "seed_id": "an-a-nist-dp",
+        "borrowed_aspect": "In an-a-nist-dp, a quantified privacy-loss bound is what makes repeated releases safe; here, a fresh unlinkable expiry proof at each renewal plays that role of limiting what repeated checks accumulate about the same student."
+      },
+      {
+        "seed_id": "an-b-ala-library-records",
+        "borrowed_aspect": "In an-b-ala-library-records, a policy keeps circulation records confidential and resists legal demands; here, the shop's renewal log holding only dated proof receipts rather than documents plays that role of a record with little to subpoena."
+      }
+    ]
+  }
+]

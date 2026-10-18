@@ -1,0 +1,99 @@
+[
+ {
+  "review_id": "p16-0",
+  "context_purpose": "A bath operator needs to enforce gender-area and age/tattoo policy for each entry and manage a monthly pass.",
+  "norm_violation_today": {"violated": "yes", "parameter": "retention", "reason": "Keeping a per-person visit log tied to full ID details and reusing it for promotions goes beyond the entry-policy purpose."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "Unlinkable entry cannot support promotions, abuse or ban follow-up, or per-member usage limits; the operator is also the issuer, so it saw the ID at issuance."},
+  "transmission_check": {"principle_today": "commercial_convenience", "permits_minimal_flow": "permits", "reason": "No known legal duty requires the bath to keep an identity register, so a pass with no identity stored is allowed."},
+  "aggregation": "high",
+  "adoption": {"issuer_willing": "yes", "verifier_can_check": "yes"},
+  "rubric_score": 2,
+  "novelty": 4,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p16-1",
+  "context_purpose": "The party chapter must confirm that only its district members vote, once each, in its primary.",
+  "norm_violation_today": {"violated": "yes", "parameter": "recipient", "reason": "Volunteers see ID number, address and party affiliation, and a roster listing political opinion is kept, which exceeds what a member-and-single-vote check needs."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Audit of who voted, dues reconciliation and dispute resolution would be harder without a roster."},
+  "transmission_check": {"principle_today": "other", "permits_minimal_flow": "unclear", "reason": "Party primary procedures are internal rules, and whether any regulation requires a named roster is not known."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 5,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "p16-2",
+  "context_purpose": "The township land section must confirm that the applicant has indigenous status, which is required for reserved-land use.",
+  "norm_violation_today": {"violated": "yes", "parameter": "recipient", "reason": "Local clerks in a small community can browse family and tribe detail in a shared file that the status check does not need."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "Residence, prior holdings and tribe-specific rules may still require the full record, so only the status part is replaced."},
+  "transmission_check": {"principle_today": "required_by_law", "permits_minimal_flow": "unclear", "reason": "Land administration rules may require specific documents in the case file, and which ones is not known."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 4,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "p16-3",
+  "context_purpose": "A rental platform or agent needs to confirm that a lister owns the property offered, to prevent fraud.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "Full transcripts expose other holdings, mortgages and ID details beyond the single fact of ownership of this lot."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Mortgage or encumbrance status relevant to a lease would not be shown unless added as a separate claim."},
+  "transmission_check": {"principle_today": "public_record", "permits_minimal_flow": "permits", "reason": "The transcript is a public-register extract the agent chooses to request; nothing known requires the full document."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 3,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p16-4",
+  "context_purpose": "The temple wants assurance that volunteers working with children have no relevant criminal record.",
+  "norm_violation_today": {"violated": "yes", "parameter": "retention", "reason": "ID copies and full certificates are kept in an office cabinet with no retention policy after a one-time check."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Freshness after issuance is lost, and the temple cannot see non-listed record types if it wanted a broader screen."},
+  "transmission_check": {"principle_today": "safety_security", "permits_minimal_flow": "permits", "reason": "The temple is a private body with no known duty to keep the full certificate, so a short-lived yes/no proof can satisfy it."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 4,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "p16-5",
+  "context_purpose": "The bank must release a deceased customer's funds only to the people legally entitled, limiting its own liability.",
+  "norm_violation_today": {"violated": "unclear", "parameter": "information_type", "reason": "The bank may legitimately need the full heir set to avoid paying out wrongly, so collecting the whole tree may be proportionate."},
+  "purpose_sufficiency": {"rating": "insufficient", "lost": "A single share threshold cannot show that no other heirs exist, which is what discharges the bank's liability."},
+  "transmission_check": {"principle_today": "required_by_law", "permits_minimal_flow": "blocks", "reason": "Banks typically require complete heir documentation or a court-issued certificate, and a threshold claim does not replace it."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "unknown"},
+  "rubric_score": 2,
+  "novelty": 4,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p16-6",
+  "context_purpose": "A private foundation needs to confirm that an applicant is a member of an indigenous community to award a targeted scholarship.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "The foundation receives household transcripts and family detail, and the elder learns every scholarship the student pursues."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "A community council attestation is not a legal status record and may be disputed, so the foundation may still want the government record."},
+  "transmission_check": {"principle_today": "consented_for_benefit", "permits_minimal_flow": "permits", "reason": "A private foundation sets its own application requirements and no known law requires the full transcript."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 3,
+  "provenance_faithful": "no"
+}
+,
+ {
+  "review_id": "p16-7",
+  "context_purpose": "The temple treasurer wants assurance that volunteers handling donation cash have no property-offence record.",
+  "norm_violation_today": {"violated": "yes", "parameter": "recipient", "reason": "The full record and ID number are read aloud or copied into a notebook visible to several volunteers who do not need them."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Nothing of note, though reputation-based trust and unreported offences are not captured either way."},
+  "transmission_check": {"principle_today": "safety_security", "permits_minimal_flow": "permits", "reason": "The temple is a private body with no known duty to keep the full extract, so a narrower non-membership proof is allowed."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 3,
+  "provenance_faithful": "no"
+ }
+]

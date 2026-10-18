@@ -1,0 +1,162 @@
+[
+ {
+  "review_id": "p04-0",
+  "title": "Building security contractor at a shared judicial building sees entry rights, not the hearing it relates to",
+  "moment": "In a multi-tenant judicial complex (for example a court building that also houses a prosecutors' office or legal aid foundation counter), the private security contractor staffing the lobby screen visitors. A woman arriving for a family-court mediation session shows her notice at the lobby, and the contractor's guard reads it aloud to find the right floor, exposing a domestic matter to a queue of strangers and to the contractor, which is not a court employee.",
+  "verifier": "Outsourced lobby security contractor at the shared judicial building",
+  "predicate": "Holder has a hearing or notice for today's session in this building (membership), shown as an opaque entry pass that routes to a floor without naming the matter",
+  "disclosed_today": "Full hearing notice read or photographed by the guard, naming the family-court matter, parties and room, plus ID card details for the lobby log",
+  "issuer": "The court clerk's office, with the pass relayed through an unlinkable intermediate step so the lobby contractor and the floor reception each learn only their own part",
+  "why_zk": "Moderate: the contractor needs only 'admit to building, floor 4' and the floor reception needs only 'session at 10:00', and splitting these across layers prevents any one party from knowing both who the person is and what the matter is. Weakness: this is as much an access-control design problem as a zero-knowledge one; a simple sealed or QR pass with floor routing, issued by the court, would capture most of the benefit, and verification of a pass-through relay across two parties is more complex than the harm it avoids for most visitors.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In onion routing, each relay peels only its own layer so no single relay sees both origin and destination; here, the lobby contractor and the floor reception play the relays, with the lobby learning only 'admit to the building' and the floor learning only 'session at this time', never the identity and the matter together.",
+    "source_excerpt": "A route must be relayed through intermediaries so that no single intermediary holds both the origin identity and the final destination, while the traffic still reaches the endpoint. | mechanism: Onion routing, where the message is wrapped in one encryption layer per relay, and each relay peels only its own layer and passes the rest to the next hop."
+   },
+   {
+    "borrowed_aspect": "In SameSite cookies, a credential is restricted to be sent only to the party in the right context so third parties cannot recognise the holder; here, the entry pass is scoped to this building and this date so it cannot be reused or matched by other venues.",
+    "source_excerpt": "A stored credential should be presented only to the party that issued it in the current context, but the browser sends it on any request the context triggers, so an unrelated observer can match the holder across contexts. | mechanism: The SameSite cookie attribute, which limits the cookie to same-site requests (Strict, Lax, or None); the IETF draft describes it as a per-cookie setting, and cross-site behaviour depends on the chosen value."
+   }
+  ]
+ },
+ {
+  "review_id": "p04-1",
+  "title": "Relay pilgrimage: the sponsoring temple vouches for riders without learning who they are, and the bus company learns only the count",
+  "moment": "A Tainan temple joins a multi-temple incense-division (進香) trip. Each branch temple must show the host temple that its riders are genuine followers, so the host hands out the limited 'congregation-rate' seats, while the bus company and the roadside stop vendors must not receive the faith roster. Today every rider's name and religion are passed from branch temple to the host temple to the bus company.",
+  "verifier": "The host temple's trip organiser, who allocates limited congregation-rate seats across several branch temples (and the bus operator behind it)",
+  "predicate": "Holder is a member of one of the participating branch congregations (membership in a set), proven once per trip as an unlinkable token",
+  "disclosed_today": "Name, phone, branch temple, religion/parish and ID number on the rosters that pass from branch to host to bus operator",
+  "issuer": "Each branch temple's management committee, signing membership credentials; the host temple only holds the list of accepted branch issuer keys",
+  "why_zk": "The relayed structure means no single party needs both who the rider is and which faith group they belong to: the branch issues, the host verifies a membership token against several accepted issuers, the bus operator sees only a ticket. This reduces the roster that gets chained along. Weakness: small village temples may have only dozens of members, so anonymity sets are tiny and the host may still recognise people by face; the benefit is mostly against the downstream data copies.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In onion routing, each relay peels only its own layer so no single relay sees both origin and destination; here, the branch temple, host temple and bus operator play the relays, each seeing only its own layer of the claim (identity, congregation, ticket).",
+    "source_excerpt": "A route must be relayed through intermediaries so that no single intermediary holds both the origin identity and the final destination, while the traffic still reaches the endpoint. | mechanism: Onion routing, where the message is wrapped in one encryption layer per relay, and each relay peels only its own layer and passes the rest to the next hop."
+   },
+   {
+    "borrowed_aspect": "In jury selection, juror names may be published unless a judge grants confidentiality; here, the published rider roster plays that default, and a credential check that never produces names makes confidentiality the technical default rather than a discretionary exception.",
+    "source_excerpt": "Someone must be drawn from a pool and seated for a task without the wider public learning who they are, but the default rule can flip to full publication of the identities of everyone selected, with confidentiality only as a judge-level exception. | mechanism: Judge-discretionary confidentiality of juror names under a court's jury selection plan; no technical mechanism specified."
+   }
+  ]
+ },
+ {
+  "review_id": "p04-2",
+  "title": "Township land office confirms eligibility for reserved-land programme without a retained ID photo",
+  "moment": "An elderly woman in Taitung goes to the township office to apply for the indigenous reserved-land (原住民保留地) use or loan programme. The clerk photocopies her ID card and household transcript and files them in the case folder, where they stay indefinitely, although the programme only needs to know she holds indigenous status and has not been enrolled twice.",
+  "verifier": "Township office (鄉公所) land administration section",
+  "predicate": "Holder has recognised indigenous status, shown without handing over a reusable copy of ID number or address",
+  "disclosed_today": "Photocopy of national ID card and household transcript retained in a paper case file: ID number, address, family details, photo",
+  "issuer": "Household registration office (戶政事務所) under the Ministry of Interior",
+  "why_zk": "Moderate fit: the proof removes the retained photocopy and the clerk's discretionary access to family details. However, land programmes also need to link the person to a specific parcel and to prove residence or kinship, which a bare membership claim does not cover, and elderly applicants may struggle with wallet apps, so a counter-assisted flow is needed. The benefit is mostly about not leaving copies in an unlocked folder.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In tw-telco-sim-live-photo-retention, the provider captures and keeps a live photo with no retention limit or lighter alternative; here, the photocopied ID and household transcript in the case folder play that retained artefact, and a one-time verified presentation plays the less intrusive alternative.",
+    "source_excerpt": "A provider must confirm a new subscriber's identity before activating a service; the rule requires capturing a live photo of the person at point of sale, with no stated limit on retention. | mechanism: None minimal; in-store photo capture required, no retention limit or less-intrusive alternative stated."
+   },
+   {
+    "borrowed_aspect": "In an-b-ala-library-records, a library avoids its circulation log becoming a readable record of a person's interests; here, the township's case file plays that log, and keeping only a verification receipt rather than identity copies stops it becoming a readable record of who is indigenous.",
+    "source_excerpt": "A service provider must keep a record of who used what without that record becoming a readable log of a person's interests, but the duty is a recommended policy that depends on each institution adopting it and on courts or subpoenas being resisted. | mechanism: Institutional confidentiality policy plus procedures for handling subpoenas and law-enforcement requests; no technical minimization of records is specified."
+   }
+  ]
+ },
+ {
+  "review_id": "p04-3",
+  "title": "Cross-platform seller reputation when moving between Facebook groups and a new marketplace",
+  "moment": "A woman in Kaohsiung who has sold baby clothes for years in Facebook second-hand groups joins a new app that gates high-value listings (strollers, laptops) behind a 'trusted seller' tier. The new app asks her to upload screenshots of old chats, orders and her ID to prove she is established. All it needs is that she has sold at least 20 items with no disputes elsewhere.",
+  "verifier": "A newly joined second-hand marketplace app's seller-onboarding team that decides who gets the trusted-seller tier",
+  "predicate": "Holder has >= 20 completed sales with no disputes across one or more prior platforms (aggregate over credentials from several issuers)",
+  "disclosed_today": "Screenshots of old chats and orders containing buyers' names and addresses, ID card photo, phone number, links to past profiles",
+  "issuer": "The prior marketplaces or payment/escrow services that handled the sales (for example a logistics pickup service such as a convenience-store shipping provider, or the original platform), each signing its own count",
+  "why_zk": "Each past platform can sign a per-seller sales count and dispute flag, and the holder can prove a combined threshold without revealing buyers or listings, which also protects third parties whose data sits in screenshots. Weakness: Facebook groups issue nothing, so this only works where a platform or logistics intermediary is willing to issue; summing across issuers also needs the holder to prove the credentials belong to the same person, which is hard without an identifier.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In Singpass MyInfo, a partner is told only to request the fields one purpose needs but the interface returns a broad profile; here, the new marketplace's onboarding form plays the partner and a single threshold predicate replaces the broad screenshot dump.",
+    "source_excerpt": "A service provider needs a few verified fields for one purpose, but the retrieval interface returns a broad profile and the only limit is a policy rule on the partner. | mechanism: Consent-gated retrieval of named MyInfo fields, with a rule to request only needed data and purge unsubmitted drafts."
+   },
+   {
+    "borrowed_aspect": "In OAuth, a client states a narrow scope and the server may grant more or less than asked; here, the new app requests only the 'sales >= 20, no disputes' scope from the seller's wallet, and the wallet can refuse to release anything beyond it.",
+    "source_excerpt": "A holder asks a verifier for a credential covering more attributes than the single fact the relying party needs, and the issuer has no obligation to honour a narrower request. | mechanism: The client states a scope parameter in the request, and the authorization server returns the granted scope in the token response; the server may grant less than requested."
+   }
+  ]
+ },
+ {
+  "review_id": "p04-4",
+  "title": "Civic forum participatory-budget vote that does not log who belongs to which party",
+  "moment": "A neighbourhood civic forum in Tainan lets residents who are party members in the district vote on a members-only discount package for a party-run community class and on a set of local proposals. The organiser's online form asks for a photo of ID plus a screenshot of the party app membership page, and threatens to drop the registration if they are not supplied.",
+  "verifier": "Volunteer organisers of a community civic forum using an online vote form",
+  "predicate": "Holder is a registered party member in this district, and each member can submit only one vote per proposal round (uniqueness)",
+  "disclosed_today": "ID photo, screenshot of the party membership page, phone number and home address; the stored uploads reveal each participant's political party",
+  "issuer": "The party's district chapter signing a membership credential; the forum only checks its signature and a per-round nullifier",
+  "why_zk": "The forum needs only 'member, one vote'; a presentation with a per-round nullifier gives that without the forum becoming a keeper of political-opinion records that a small volunteer group cannot secure. Honest limit: the party, as issuer, must agree to issue wallet credentials, and a small civic group may find the verification tooling heavier than a spreadsheet.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In tw-platform-google-id-upload-complaint, a service demands an ID document and address proof on threat of suspension without a stated purpose or lighter alternative; here, the forum organiser demanding an ID photo and membership screenshot to register a vote plays that role.",
+    "source_excerpt": "A service needs to confirm a subscriber's payment, but it demands an identity document and address proof, and threatens suspension if the user refuses, without stating the purpose or necessity. | mechanism: None; the complaint notes no stated purpose or less-intrusive alternative was offered."
+   },
+   {
+    "borrowed_aspect": "In an-b-hipaa-min-necessary, the holder of sensitive records is left to judge what is minimal with no proof the released subset was minimal; here, the volunteer organiser deciding for themselves how much membership evidence is enough plays that role, and a proof makes the minimum checkable.",
+    "source_excerpt": "A holder of sensitive records must release only the subset that serves a stated purpose, but the rule leaves it to the holder to judge what is minimal and gives no mechanism that proves the released subset was minimal. | mechanism: Purpose-based minimum-necessary rule with reasonable-efforts standard, role-based access and reasonable reliance on requester representations (45 CFR 164.514(d)); no cryptographic or proof-based check."
+   }
+  ]
+ },
+ {
+  "review_id": "p04-5",
+  "title": "Beer locker at a university-district convenience store, late night",
+  "moment": "At 11:30 pm a student buys a six-pack from an unattended self-service alcohol locker outside a 24-hour convenience store near NTU. Today the kiosk asks them to scan the front of their National ID card or driver's licence so a back-office service can read the birth date, and the image is stored with the sale log for 'compliance'.",
+  "verifier": "Operator of the self-service alcohol locker (convenience-store franchisee / vending operator)",
+  "predicate": "Holder's age on today's date is at least 18 (threshold on birth date), proven without revealing birth date, ID number or name",
+  "disclosed_today": "Full ID image or scan: name, ID number, birth date, photo, household-registration address, kept in the transaction log",
+  "issuer": "Ministry of the Interior household registration system, via the TW FidO / digital ID wallet",
+  "why_zk": "Strong fit: the machine only needs a yes/no on age >= 18, yet it retains a full identity record, creating a breach target with no staff to apply judgment. Weakness: the operator's liability may make it want proof an adult was present for each sale, so a bare proof may not satisfy a regulator that expects a log; a per-sale proof receipt (no identity) would have to be accepted as that log.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In HIPAA Safe Harbor, a checklist of enumerated identifiers is removed before sharing and the holder must still judge leftovers; here, the age-threshold proof plays the removal step by guaranteeing the log contains none of the ID's enumerated fields, so no leftover judgment is needed.",
+    "source_excerpt": "A party wants to share a record set that cannot identify any person, but the test is a checklist of removable fields plus a no-actual-knowledge condition, so the holder must still judge whether leftover fields re-identify someone. | mechanism: Safe Harbor method removing 18 enumerated identifiers (with ZIP-code truncation rule and age aggregation), or an expert-determination alternative; re-identification codes allowed only if not derived from or disclosed about the individual."
+   },
+   {
+    "borrowed_aspect": "In PDPA Art. 11(3), data must be deleted when its purpose lapses but an open 'needed for our duties' exception lets the collector keep it; here, a proof that never contains the birth date plays the role of making retention exceptions moot because nothing identifying exists to retain.",
+    "source_excerpt": "A party that has collected a person's data must delete it once the reason for holding it ends, but an open-ended exception lets it keep the data whenever it says it still needs it for its own duties. | mechanism: Statutory deletion-on-purpose-lapse duty with exceptions for lawful duties or written consent; no technical erasure mechanism specified."
+   }
+  ]
+ },
+ {
+  "review_id": "p04-6",
+  "title": "Debt collector checks 'is this person a director' without a register-linked address dossier",
+  "moment": "A private debt-recovery agent in Taipei wants to know whether a debtor is a registered company director so it can pursue the company's assets or decide on a negotiation approach. Today staff pull the Ministry of Economic Affairs company registry, then cross-reference land registry transcripts and household data to build the debtor's home address. The agent only needs a yes/no on directorship, not the address.",
+  "verifier": "Licensed debt-recovery or collection agency (and the law firm instructing it)",
+  "predicate": "Holder is currently listed as a director or supervisor of at least one company in the Taiwan company registry (cross-source match between a person identifier and the registry entry), without disclosing the company's registered address, the person's home address or land parcels.",
+  "disclosed_today": "Full name, national ID number, the complete company registry extract with director address fields, plus land registry transcripts (owner name, parcel number, address) that together reveal where the person lives.",
+  "issuer": "Ministry of Economic Affairs Department of Commerce (company registry), co-signing with the household registration office for the identity binding",
+  "why_zk": "A signed 'is-director' attestation lets the collector proceed with a lawful purpose and no home-address dossier. Weakness: the facts are already public, so a determined actor can still scrape the registers directly; the proof only helps for verifiers who would accept it instead of searching, and it does not stop a bad actor who ignores it.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In HIPAA minimum-necessary, the holder of records releases only the subset serving a stated purpose but nothing proves the subset was minimal; here, a signed directorship attestation plays that role of provably minimal release so the collector receives only the yes/no.",
+    "source_excerpt": "A holder of sensitive records must release only the subset that serves a stated purpose, but the rule leaves it to the holder to judge what is minimal and gives no mechanism that proves the released subset was minimal. | mechanism: Purpose-based minimum-necessary rule with reasonable-efforts standard, role-based access and reasonable reliance on requester representations (45 CFR 164.514(d)); no cryptographic or proof-based check."
+   },
+   {
+    "borrowed_aspect": "In PDPA Article 5, the collector alone decides what is necessary for the purpose; here, the predicate itself fixes the necessary scope in advance so the collector cannot widen it to address lookup.",
+    "source_excerpt": "A rule requires anyone collecting personal data to stay within the necessary scope of its stated purpose, but it gives no concrete way to show what was necessary, so the collector decides what counts as necessary. | mechanism: Legal purpose-limitation and proportionality principle; no technical mechanism specified."
+   }
+  ]
+ },
+ {
+  "review_id": "p04-7",
+  "title": "Lease renewal check without photocopying the ARC and work permit",
+  "moment": "A landlord in Taoyuan renting rooms to factory workers does a quarterly re-check that each tenant is still legally employed before renewing the lease. Today the tenant hands over photocopies of the ARC (居留證), the employer's permit letter and sometimes the passport, which the landlord keeps in a drawer or LINE chat.",
+  "verifier": "Small private landlord or sub-letting agent (二房東) renting to migrant workers",
+  "predicate": "Holder has a valid work authorisation with a named sponsoring employer as of a date within the last 7 days (freshness), without revealing ARC number, passport, permit number, wage or employer address.",
+  "disclosed_today": "Full ARC copy (ID number, passport number, photo, address), the employer's permit letter, often a payslip, kept indefinitely on paper or in chat apps.",
+  "issuer": "Ministry of Labor Workforce Development Agency (勞動部勞動力發展署) foreign-worker registry, re-signing a short-lived attestation each time the worker's permit status is current.",
+  "why_zk": "The landlord only needs 'currently permitted to work, checked this week', yet today collects a whole identity file that PDPA discretion does not really limit. A signed freshness attestation from the registry lets the worker prove current status without the landlord keeping any copy. Weakness: landlords are not formally obliged to verify this, so adoption depends on the benefit (e.g. no deposit) being offered, and the registry must run an issuing service.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In the household-register proxy rule, the office may collect a copy of the principal's ID at its own discretion; here, the landlord's habit of photocopying the ARC plays that role and is replaced by a bounded proof.",
+    "source_excerpt": "A government office that holds a record may ask a proxy's requester for a copy of the principal's identity document, and the scope of what it may collect is left to the office's discretion. | mechanism: None stated; collection of document copies left to agency discretion under PDPA and administrative procedure rules."
+   },
+   {
+    "borrowed_aspect": "In GDPR data minimisation, a controller must take only what the purpose needs but has no way to ask for less than the whole document; here, the freshness attestation plays the narrower field that serves the landlord's single question.",
+    "source_excerpt": "A rule obliges anyone requesting information to take only what the purpose needs, but gives no practical way to request less than a whole document. | mechanism: Legal principle of data minimisation; no technical mechanism specified."
+   }
+  ]
+ }
+]

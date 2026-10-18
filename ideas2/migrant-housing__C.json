@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Lease renewal check without photocopying the ARC and work permit",
+    "moment": "A landlord in Taoyuan renting rooms to factory workers does a quarterly re-check that each tenant is still legally employed before renewing the lease. Today the tenant hands over photocopies of the ARC (居留證), the employer's permit letter and sometimes the passport, which the landlord keeps in a drawer or LINE chat.",
+    "verifier": "Small private landlord or sub-letting agent (二房東) renting to migrant workers",
+    "predicate": "Holder has a valid work authorisation with a named sponsoring employer as of a date within the last 7 days (freshness), without revealing ARC number, passport, permit number, wage or employer address.",
+    "disclosed_today": "Full ARC copy (ID number, passport number, photo, address), the employer's permit letter, often a payslip, kept indefinitely on paper or in chat apps.",
+    "issuer": "Ministry of Labor Workforce Development Agency (勞動部勞動力發展署) foreign-worker registry, re-signing a short-lived attestation each time the worker's permit status is current.",
+    "why_zk": "The landlord only needs 'currently permitted to work, checked this week', yet today collects a whole identity file that PDPA discretion does not really limit. A signed freshness attestation from the registry lets the worker prove current status without the landlord keeping any copy. Weakness: landlords are not formally obliged to verify this, so adoption depends on the benefit (e.g. no deposit) being offered, and the registry must run an issuing service.",
+    "inspired_by": [
+      {
+        "seed_id": "tw-gov-household-register-proxy-copy-discretion",
+        "borrowed_aspect": "In the household-register proxy rule, the office may collect a copy of the principal's ID at its own discretion; here, the landlord's habit of photocopying the ARC plays that role and is replaced by a bounded proof."
+      },
+      {
+        "seed_id": "gdpr-data-minimisation",
+        "borrowed_aspect": "In GDPR data minimisation, a controller must take only what the purpose needs but has no way to ask for less than the whole document; here, the freshness attestation plays the narrower field that serves the landlord's single question."
+      }
+    ]
+  },
+  {
+    "title": "Dormitory operator confirms employer sponsorship at move-in and monthly door-access renewal",
+    "moment": "A company dormitory run by a third-party operator in Taichung issues access cards to workers from several sponsoring employers. Each month, to keep the card active and the employer-subsidised bed rate, the operator asks for the employer's letter and the worker's permit copy, and the broker's staff see everything.",
+    "verifier": "Third-party dormitory operator (宿舍管理公司) with multiple employer clients",
+    "predicate": "Holder is legally working for a sponsoring employer in a named list of the operator's contracted employers today (freshness, with set-membership of employer), revealing neither which employer nor identity beyond the card.",
+    "disclosed_today": "Employer name and letter, ARC copy, passport number, job title and sometimes salary slip to the operator's front desk and brokers.",
+    "issuer": "The sponsoring employer's HR system co-signing with the labor ministry registry (employer as issuer for monthly employment status, registry for permit validity).",
+    "why_zk": "The operator needs to know only that the worker belongs to one of its paying client employers and is currently permitted, not who the employer is or the worker's documents; broker staff seeing full files is a known exploitation channel. A per-month signed token with employer-set membership gives the bed-rate benefit with less exposure. Weakness: the operator often does hold a contract naming the employer, so it may genuinely already know, and employers may resist issuing credentials that make workers more mobile.",
+    "inspired_by": [
+      {
+        "seed_id": "an-b-attorney-client",
+        "borrowed_aspect": "In attorney-client privilege, an outsider's presence destroys confidentiality unless essential like an interpreter; here, the broker's front-desk staff are the outsiders and the proof lets the operator's gate system, not the staff, be the only reader."
+      },
+      {
+        "seed_id": "an-b-hipaa-min-necessary",
+        "borrowed_aspect": "In HIPAA minimum necessary, the holder judges what subset serves the purpose with no proof it was minimal; here, the dormitory operator's self-judged file requests play that role, and a membership-and-freshness token makes minimality checkable."
+      }
+    ]
+  },
+  {
+    "title": "Deposit-free rental application through a rental platform or NGO housing service",
+    "moment": "A worker who just changed employer through a transfer in Kaohsiung applies via an NGO-run housing matching service to rent a shared flat with a reduced deposit. The agent asks for the new employer's permit transfer approval, ARC, and pay history to prove stability, and forwards the bundle to several landlords at once.",
+    "verifier": "NGO or commercial rental matching platform forwarding applications to landlords",
+    "predicate": "Holder's work authorisation with a sponsoring employer was valid at a time no more than 3 days ago, bound to a one-time application nonce so it cannot be forwarded and reused with other landlords (freshness plus unlinkability).",
+    "disclosed_today": "Whole application bundle: ARC, transfer approval letter, employer details, payslips, forwarded to every landlord contacted.",
+    "issuer": "Ministry of Labor Workforce Development Agency, or an authorised employer-side HR platform issuing signed status for each application.",
+    "why_zk": "Each landlord needs one bit of fresh status; the bundle forwarded to many parties lets them match the worker across listings and keep stale copies after the worker moves. Per-application nonces keep each presentation to its own verifier. Weakness: a worker mid-transfer has a gap in status that the registry may not reflect quickly, so freshness could wrongly fail exactly the people who most need housing.",
+    "inspired_by": [
+      {
+        "seed_id": "an-a-samesite-cookies",
+        "borrowed_aspect": "In SameSite cookies, a credential is sent on any triggered request so third parties can recognise the browser across contexts; here, the forwarded application bundle plays the cookie and the per-landlord nonce plays the SameSite restriction."
+      },
+      {
+        "seed_id": "an-b-sealed-bid-far",
+        "borrowed_aspect": "In sealed-bid rules, the holder of submissions handles identifying wrappers without exposing the content and can prove nothing was seen early; here, the matching platform plays the bid-box holder that sees only the envelope-level fact that status is fresh, not the documents."
+      }
+    ]
+  }
+]

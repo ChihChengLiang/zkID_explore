@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Stall slot lottery: permit-current check without handing over the permit file",
+    "moment": "A Taipei night market's management committee draws lots each month for vacant stall slots. Applicants currently photocopy their food business registration, health-bureau permit, and ID, and the committee clerk files the stack in a cabinet, just to confirm the permit has not expired.",
+    "verifier": "Night-market management committee clerk running the monthly slot allocation",
+    "predicate": "Holder has a food-hygiene registration and stall permit that is valid today (expiry date after today), proven as a fresh, non-expired status",
+    "disclosed_today": "Photocopy of full permit including business address, registrant name, national ID number, permit number, scope of food categories, and often a copy of the ID card",
+    "issuer": "Local health bureau (e.g. Taipei City Department of Health) via its food business registration system, signing a short-lived permit-status attestation",
+    "why_zk": "The committee only needs 'valid today'; a signed attestation with a short validity window lets the applicant prove freshness without the ID number, home address, or other business registrations. Weakness: the committee may be legally expected to keep a permit copy for audit, in which case selective disclosure only reduces what is shown, not what is retained; and the issuing bureau would have to build a status-attestation service.",
+    "inspired_by": [
+      {
+        "seed_id": "an-b-secret-ballot-moad",
+        "borrowed_aspect": "In the Australian secret ballot, eligibility is checked separately from the ballot so identity is not attached to the vote at counting; here, the permit-validity check at the gate is separated from the lottery entry so the drawn slot is not linked to the full permit file."
+      },
+      {
+        "seed_id": "an-b-hipaa-min-necessary",
+        "borrowed_aspect": "In HIPAA minimum-necessary, the holder of records must limit release to what a stated purpose needs but has no proof that it did; here, the stall applicant's proof plays that role by cryptographically limiting the release to 'permit current' for the slot-allocation purpose."
+      }
+    ]
+  },
+  {
+    "title": "Daily gate check by the market inspector without a roster of permit holders",
+    "moment": "Each evening a committee patrol officer walks the stall rows at a night market and checks that every vendor setting up has a current permit, today by reading the laminated permit card and noting names and permit numbers in a notebook that gets typed into a shared spreadsheet.",
+    "verifier": "Committee patrol officer doing evening setup inspection",
+    "predicate": "Vendor's food-hygiene and stall permit is current as of today, shown as a fresh presentation tied to this evening and this market",
+    "disclosed_today": "Name, permit number, photo, registered address and food categories read off the card and copied into a spreadsheet kept by the committee",
+    "issuer": "Local health bureau, issuing the permit credential to the vendor's phone wallet with an expiry and revocation status",
+    "why_zk": "The officer needs a yes/no for tonight, not a durable log of who sells what and where they live. A presentation bound to the date and market lets the check pass without creating a spreadsheet that can be leaked or used to track vendors across markets. Weakness: the committee may have a regulatory or lease-management reason to record which permit holder occupies which stall, and many older vendors do not use smartphone wallets.",
+    "inspired_by": [
+      {
+        "seed_id": "an-b-ala-library-records",
+        "borrowed_aspect": "In the ALA library-records policy, the library avoids keeping a readable log of who borrowed what; here, the patrol officer's nightly check plays that role by recording only a pass/fail tick rather than a roster of identified vendors."
+      },
+      {
+        "seed_id": "an-a-samesite-cookies",
+        "borrowed_aspect": "In SameSite cookies, a credential is sent only to the issuing context so unrelated observers cannot match the holder across sites; here, the permit presentation is scoped to this one market and date so that two different markets cannot link the same vendor."
+      }
+    ]
+  },
+  {
+    "title": "Platform and landlord check before a vendor joins a pop-up night market event",
+    "moment": "A pop-up night market at a school grounds or temple plaza is organised by a district office contractor. Vendors from other districts apply online and upload scans of their permit and ID card; the organiser has to confirm permits are current but stores everything in a shared cloud folder.",
+    "verifier": "Event organiser contractor for a temporary pop-up night market",
+    "predicate": "Applicant holds a food-hygiene and stall permit that is not expired on the event date, and the freshness is shown by a recent issuer signature rather than an old scan",
+    "disclosed_today": "Uploaded scan of permit and ID card, home address, mobile number, sometimes business tax registration, stored in a shared cloud folder with loose access",
+    "issuer": "Health bureau of the vendor's home municipality, with the Ministry of Health and Welfare food registration platform as the signing authority",
+    "why_zk": "The organiser is a short-lived contractor with weak data handling; a proof of 'current permit' removes the need for them to hold ID scans after the event. A fresh signed status also stops stale-scan fraud, where an expired permit is photographed and reused. Weakness: the PDPA and event contracts may still require the organiser to retain application records, and cross-municipality issuer coverage is not guaranteed, so some vendors would still need paper fallback.",
+    "inspired_by": [
+      {
+        "seed_id": "tw-gov-household-register-proxy-copy-discretion",
+        "borrowed_aspect": "In the household-register proxy rule, the office may collect a copy of the principal's ID document at its own discretion; here, the event organiser plays that role by collecting ID scans simply because nothing stops it, which the permit proof would make unnecessary."
+      },
+      {
+        "seed_id": "an-b-hipaa-min-necessary",
+        "borrowed_aspect": "In HIPAA minimum-necessary, a holder is told to release only what a purpose needs but is left to judge what that is; here, the vendor's wallet plays that role by releasing only the 'permit current on event date' claim for the stated purpose of event admission."
+      }
+    ]
+  }
+]

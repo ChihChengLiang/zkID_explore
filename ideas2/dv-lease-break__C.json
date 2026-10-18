@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Lease early-termination without handing the landlord the protection order",
+    "moment": "A woman holding a 民事通常保護令 (civil protection order) must leave her rented flat in Taichung within weeks. To use the statutory right to end the lease early without penalty, she emails the landlord or property manager a scan of the court order, which contains the abuser's name, the case facts and her ID number, and the landlord's agent often keeps it in a LINE chat.",
+    "verifier": "Private landlord or rental management company (包租代管業者) handling an early lease termination",
+    "predicate": "Holder is protected by an order that is valid today and whose protection period covers the intended move-out date; no case number, respondent, or facts revealed.",
+    "disclosed_today": "Full scan of the court's protection order (respondent name, address, case narrative, applicant ID number), plus often a copy of her ID card, kept indefinitely in the landlord's chat or files.",
+    "issuer": "The district court (or the 家庭暴力暨性侵害防治中心 of the municipal government) that issued or registered the order, signing a short-lived validity attestation.",
+    "why_zk": "The landlord only needs a yes/no with a time window, and the order's content is exactly what should not circulate to a third party. A signed validity-window attestation lets the holder show 'covered through date X' without the abuser's identity or case facts. Weakness: the landlord must also trust that the law actually grants the lease-break right, and orders can be revoked or modified mid-term, so the attestation needs short expiry or a revocation check.",
+    "inspired_by": [
+      {
+        "seed_id": "tw-platform-gym-id-card-copies-interp",
+        "borrowed_aspect": "In the gym membership letter, a service provider asks for full front-and-back ID copies where a narrow check would do and the regulator leaves necessity to case-by-case review; here, the landlord's request for the whole court order plays that role and the validity-window attestation is the less-intrusive alternative the letter never names."
+      },
+      {
+        "seed_id": "an-b-ala-library-records",
+        "borrowed_aspect": "In the ALA library policy, confidentiality of user records rests on each institution voluntarily adopting a policy and resisting demands; here, the landlord's informal promise to keep the order private plays that role, which the attestation replaces by never giving the landlord the content at all."
+      }
+    ]
+  },
+  {
+    "title": "Employer leave for protection-order holders, kept apart from the personnel file",
+    "moment": "A convenience-store chain employee in Kaohsiung with a protection order needs a few days of 家庭暴力 related leave to move and attend hearings. HR asks for the court order or a police report and files it in her personnel record, where her store manager and later payroll staff can read it.",
+    "verifier": "Employer HR department granting protection-order-related leave",
+    "predicate": "Employee is covered by an active protection order during the requested leave dates (time-bounded), with nothing else disclosed.",
+    "disclosed_today": "Copy of the protection order or related police and court papers, which names the respondent and describes the abuse, stored in the personnel file.",
+    "issuer": "The municipal 家庭暴力暨性侵害防治中心 (social affairs bureau), which already handles the case and can sign a leave-eligibility attestation per leave window.",
+    "why_zk": "HR needs only that the leave window falls inside an active order, so a signed time-bounded claim does the job. Following the secret-ballot idea, eligibility is checked in one step and the record kept afterward cannot be tied back to case details: HR logs 'eligible, verified on date' rather than the order. Weakness: HR will still see that the employee used the leave and may infer the reason, and small employers can guess from context; the proof hides content, not the fact of the leave.",
+    "inspired_by": [
+      {
+        "seed_id": "an-b-secret-ballot-moad",
+        "borrowed_aspect": "In the Australian secret ballot, eligibility is checked in one step and the vote is sealed in a separate envelope so the two are not linked at counting; here, the issuer's eligibility attestation plays the eligibility check and HR's leave log plays the sealed ballot, holding only 'verified' with no case content."
+      },
+      {
+        "seed_id": "tw-gov-id-number-reissue-misuse-2025",
+        "borrowed_aspect": "In the reissued-ID story, a leaked stable number keeps working for impostors after the card is replaced; here, the stable ID number and case number printed on the order play that role, and a per-leave, short-lived attestation avoids giving HR a lasting identifier to leak."
+      }
+    ]
+  },
+  {
+    "title": "Presenting a protection-order claim to a rental platform or social housing office once, not per listing",
+    "moment": "A survivor searching for a new rental applies to many listings through a rental platform and a city social-housing or rent-subsidy office, each of which wants the order shown to qualify her for priority placement, deposit waiver or subsidy. Every landlord she applies to receives a fresh copy, and the same document lets them recognise her across unrelated applications.",
+    "verifier": "City housing bureau or rent-subsidy office, and rental platforms offering a priority or reduced-deposit channel",
+    "predicate": "Holder is currently covered by an active protection order for the next lease-start window, shown as a presentation bound to the specific verifier and application.",
+    "disclosed_today": "A copy of the order or a social worker letter with her name, ID number, and case details, given repeatedly to multiple parties who can compare and match the copies.",
+    "issuer": "The municipal 家庭暴力暨性侵害防治中心 or a contracted women's shelter (such as a 婦女救援基金會 branch) signing the attestation.",
+    "why_zk": "The credential should work only for the party and context it was presented to, like a SameSite-restricted cookie, so that two landlords or a landlord and a platform cannot match her across applications. Zero-knowledge presentations that are unlinkable and verifier-bound give this directly, where a copied PDF cannot. Weakness: the housing office may legitimately need to confirm identity for subsidy payment, so that disclosure still occurs there; the unlinkability benefit is mostly against private landlords and platforms.",
+    "inspired_by": [
+      {
+        "seed_id": "an-a-samesite-cookies",
+        "borrowed_aspect": "In SameSite cookies, an attribute limits a stored credential to requests from the issuing context so third parties cannot recognise the browser across sites; here, a verifier-bound, unlinkable presentation plays that attribute so each landlord or platform sees the claim only in its own application."
+      },
+      {
+        "seed_id": "tw-securities-foreign-agent-id-copy",
+        "borrowed_aspect": "In the foreign-investor account opening, an agent hands over a full ID copy to prove they are a real identified person with no alternative stated; here, the survivor's copied order or social-worker letter plays that role, replaced by a signed claim that proves standing without the full document."
+      }
+    ]
+  }
+]

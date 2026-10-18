@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Spouse or named proxy proof at the ICU visiting desk without a household registry copy",
+    "moment": "A man arrives at the ICU visiting desk of a regional hospital in Taichung at night to see his wife after emergency surgery. The nurse station, to guard against unauthorised visitors, asks for his ID and a 戶口名簿 or 戶籍謄本 photocopy to prove marriage, which also reveals every other household member, their birth dates and addresses.",
+    "verifier": "ICU ward nurse station / hospital security desk",
+    "predicate": "The visitor is a member of the patient's authorised-visitor set (spouse, registered partner, or a proxy named by the patient on admission), without revealing which role or any other household member.",
+    "disclosed_today": "Full national ID card shown and often photocopied, plus household registration transcript listing all household members with ID numbers, birth dates, addresses, parents and marital history; the visit log keeps name and ID number.",
+    "issuer": "The hospital itself at admission: when the patient (or a registry check of 戶政 data at that time) designates visitors, the hospital signs a per-visitor membership credential; a Ministry of the Interior household-registry signature could back the spouse case.",
+    "why_zk": "Membership in a small, hospital-defined set is a clean predicate, and the ward only needs a yes plus an audit stamp, not the registry. Weakness: the hospital is also the issuer and knows the list anyway, so the gain is mostly against copies of IDs and household transcripts and against later reuse of the visit log, not against the hospital itself; staff may also accept a verbal statement in real emergencies, so adoption pressure is low. The inspect-not-copy norm in Luxembourg already shows the ward could simply look and not retain; ZK adds value only where proof must be checked by a guard who cannot be trusted to hold the data.",
+    "inspired_by": [
+      {
+        "seed_id": "rd-cnpd-lu-tourist-inspect-not-copy",
+        "borrowed_aspect": "In rd-cnpd-lu-tourist-inspect-not-copy, the host confirms eligibility by inspecting the identity document without keeping a copy; here, the nurse station's check of a membership proof on the visitor's phone plays that role, with nothing retained beyond a pass/fail stamp."
+      },
+      {
+        "seed_id": "tw-securities-foreign-agent-id-copy",
+        "borrowed_aspect": "In tw-securities-foreign-agent-id-copy, a local agent must hand over a full ID copy to prove they are a real identified person with no lighter alternative; here, the visitor's household transcript copy plays that over-collection role and is replaced by a one-bit membership proof."
+      }
+    ]
+  },
+  {
+    "title": "Consent-to-treatment proxy proof for an unconscious patient, issued blind in advance",
+    "moment": "An elderly patient in a Kaohsiung hospital is rolled into emergency surgery and the surgeon needs someone to sign the consent form. The person who arrives says they are the patient's chosen proxy (a friend, not a relative), and the admissions clerk asks for the 預立醫療決定 or 醫療委任代理人 paperwork and photocopies the proxy's ID and the patient's health card, which can reveal diagnoses and living arrangements.",
+    "verifier": "Hospital admissions and surgical consent desk",
+    "predicate": "The person presenting is a named healthcare proxy of this patient, valid now and not revoked.",
+    "disclosed_today": "Proxy's full ID copy, patient's ID and health insurance card details, the whole advance-directive document including treatment preferences, and the relationship narrative written on the form.",
+    "issuer": "The patient, as a peer issuer, signs a proxy credential through a notary or a hospital counselling service during advance care planning (預立醫療照護諮商); the National Health Insurance or MOHW advance-directive registry could countersign validity.",
+    "why_zk": "Blind issuance fits: a counsellor or registry certifies the proxy credential without seeing what the proxy's later use looks like, and the surgical desk later learns only proxy-of-this-patient and not revoked, not the treatment preferences in the directive. Weakness: consent law already requires the hospital to read the directive for substantive content and the clinical team needs it, so the proof only replaces the identity-and-relationship part, and revocation checking forces a live registry lookup that can itself leak a hit on that patient.",
+    "inspired_by": [
+      {
+        "seed_id": "an-a-chaum-blind",
+        "borrowed_aspect": "In an-a-chaum-blind, the ballot authority signs a ballot without seeing its content and cannot later link it to the signing event; here, the advance-care registry plays the authority, certifying the proxy credential without learning at which hospital or occasion it will later be used."
+      },
+      {
+        "seed_id": "tw-pdpa-art11-3-deletion-exception",
+        "borrowed_aspect": "In tw-pdpa-art11-3-deletion-exception, a collector may keep data after its purpose lapses by claiming operational need; here, the admissions desk's habit of retaining proxy ID copies plays that open-ended exception, and the proof removes the copy that would otherwise be retained."
+      }
+    ]
+  },
+  {
+    "title": "Partner-visit pass for a same-sex partner or unmarried partner at a maternity or psychiatric ward",
+    "moment": "At a Tainan hospital maternity ward, a woman's long-term unmarried partner wants to visit mother and newborn. Ward policy is for infant security: only the father, spouse or two named visitors may enter, and staff ask to see the baby's 出生證明 and the partner's ID and the parents' household registration to verify the relation, exposing the family's marital status and the partner's address to security staff and the front desk log.",
+    "verifier": "Maternity ward infant-security entrance (bracelet and pass checkpoint)",
+    "predicate": "The visitor is on the mother's named visitor list for this admission and is a spouse, registered partner or declared co-parent.",
+    "disclosed_today": "Partner's national ID (often scanned into a visitor system), marital status and household composition from the registry copy, and linkage between partner name and baby, kept in a visitor log with no stated deletion date.",
+    "issuer": "The ward midwife or hospital social worker signs a visit pass at admission after the mother names the partner; peer endorsement by the mother is the base signature, with an optional household-registry signature for the legally married.",
+    "why_zk": "Unlinkable passes let the door check a visitor each time without building a diary of who came when, and the door learns only that the holder is on the list, not marital status. Weakness: the ward needs staff to physically recognise the visitor and a face-matching step defeats anonymity, and wards often keep logs anyway for liability, so the unlinkability benefit is easily overridden by law or policy unless retention is bounded; the field-limit idea from age scanning shows a cheaper partial fix of capping the logged fields.",
+    "inspired_by": [
+      {
+        "seed_id": "an-a-privacy-pass",
+        "borrowed_aspect": "In an-a-privacy-pass, clients present unlinkable proofs of a prior authorisation so the origin cannot link redemption to issuance or other uses; here, the visitor's pass redeemed at each ward entry plays that proof, so the door cannot tie one visit to another or to the registry data."
+      },
+      {
+        "seed_id": "an-b-va-id-scanning",
+        "borrowed_aspect": "In an-b-va-id-scanning, a venue scans a whole card but the law caps stored fields and bans secondary use; here, the ward's visitor-system scan plays that scan, and the proof replaces the scan so the capped-field rule is not the only protection."
+      }
+    ]
+  }
+]

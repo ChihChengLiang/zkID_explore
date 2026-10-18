@@ -1,0 +1,162 @@
+[
+ {
+  "review_id": "p14-0",
+  "title": "Hostel-run scooter desk: blind-issued day pass tied to entry status",
+  "moment": "A backpacker staying at a hostel in Tainan books a scooter through the hostel's desk, which partners with a rental company. The hostel already copied the passport at check-in, and the desk copies it again for the rental, so the same passport image sits in two businesses' files.",
+  "verifier": "Rental company's partner desk at a hostel (second business handling the same visitor)",
+  "predicate": "The visitor holds a still-valid entry status through the rental dates, shown via a token the hostel or rental firm already accepted at an earlier step, without carrying identity from the first step to the second.",
+  "disclosed_today": "A second full passport copy plus name and passport number written into the rental contract and LINE chat.",
+  "issuer": "National Immigration Agency as root issuer of the entry-status credential; the hostel (under its lodging registration duty) can act as a secondary issuer of a short-lived 'verified stay valid' token, blind-signed so that the rental company cannot link it back to the hostel check-in record.",
+  "why_zk": "Each business has its own legal reason to check, but the second does not need the first's identity record, only proof that someone with valid entry status was checked. A blind-signed day token avoids duplicating passport copies across businesses. Honest weakness: the hostel must still keep its own register by law, the rental company's insurer may want a driving licence and a contact, and a hostel acting as issuer is a trust and liability burden few owners will accept without a government-run alternative.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In Chaum's blind signature, the ballot authority certifies a ballot without seeing its content and cannot link it afterwards; here, the hostel's token issuance plays the authority, certifying entry status without letting the rental company link the token to the check-in record.",
+    "source_excerpt": "A signer must certify that a holder has a valid token without seeing the token's content, and must later be unable to link the certified token back to the signing event. | mechanism: A blind signature, where the message is blinded with a random factor before signing, and the holder unblinds the signature so it verifies against the original message under the signer's public key."
+   },
+   {
+    "borrowed_aspect": "In Privacy Pass, a server accepts a blind-signed token as evidence of prior authorisation; here, the rental desk accepts the hostel's token as evidence that entry status was already verified.",
+    "source_excerpt": "A gatekeeper only needs to know that the visitor already passed some check, but the proof it accepts doubles as a persistent identifier. | mechanism: Blind-signed tokens that attest prior authorisation and cannot be linked to the issuance interaction."
+   }
+  ]
+ },
+ {
+  "review_id": "p14-1",
+  "title": "Registered-member check for a civic forum vote on a local budget",
+  "moment": "A district party chapter co-hosts a participatory-budgeting forum with a neighbourhood association. Members of the party in this district may vote on which local project the chapter backs. An organiser at an online voting page asks members to upload an ID photo and a party membership card photo to confirm they are eligible and have voted once.",
+  "verifier": "Forum organiser running an online vote for a party chapter and neighbourhood association",
+  "predicate": "This person is a registered party member in this district, and this is their only vote in this forum (nullifier per forum).",
+  "disclosed_today": "Photos of the national ID and membership card, plus name and phone number, stored in the organiser's shared drive or messaging app.",
+  "issuer": "The party's district chapter, with the neighbourhood association checking the signature but not holding the roll.",
+  "why_zk": "The association is a separate body from the party and should not learn the roll. It needs to verify only a chapter-signed 'member in this district' credential with a one-vote nullifier, rather than keeping ID photos in a shared drive. Weakness: online votes also face coercion and vote-selling that a credential does not solve, and a small chapter can make members identifiable from timing even without names.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In an-b-hipaa-safe-harbor, the holder strips a fixed list of identifiers before sharing a record set; here, the chapter plays that role by handing the association a proof with every identifier stripped, leaving only 'eligible, voted once'.",
+    "source_excerpt": "A party wants to share a record set that cannot identify any person, but the test is a checklist of removable fields plus a no-actual-knowledge condition, so the holder must still judge whether leftover fields re-identify someone. | mechanism: Safe Harbor method removing 18 enumerated identifiers (with ZIP-code truncation rule and age aggregation), or an expert-determination alternative; re-identification codes allowed only if not derived from or disclosed about the individual."
+   },
+   {
+    "borrowed_aspect": "In tw-securities-foreign-agent-id-copy, an agent proves identity by handing over a full ID copy with no lighter alternative; here, the voter's ID and membership card photos play that role, and a credential proof is the lighter alternative.",
+    "source_excerpt": "A foreign investor must prove that its local agent is a real, identified person, and the agent hands over a full copy of an ID card, with no alternative verification stated. | mechanism: None stated; full ID copy required with no less-intrusive alternative given."
+   }
+  ]
+ },
+ {
+  "review_id": "p14-2",
+  "title": "Employer leave for protection-order holders, kept apart from the personnel file",
+  "moment": "A convenience-store chain employee in Kaohsiung with a protection order needs a few days of 家庭暴力 related leave to move and attend hearings. HR asks for the court order or a police report and files it in her personnel record, where her store manager and later payroll staff can read it.",
+  "verifier": "Employer HR department granting protection-order-related leave",
+  "predicate": "Employee is covered by an active protection order during the requested leave dates (time-bounded), with nothing else disclosed.",
+  "disclosed_today": "Copy of the protection order or related police and court papers, which names the respondent and describes the abuse, stored in the personnel file.",
+  "issuer": "The municipal 家庭暴力暨性侵害防治中心 (social affairs bureau), which already handles the case and can sign a leave-eligibility attestation per leave window.",
+  "why_zk": "HR needs only that the leave window falls inside an active order, so a signed time-bounded claim does the job. Following the secret-ballot idea, eligibility is checked in one step and the record kept afterward cannot be tied back to case details: HR logs 'eligible, verified on date' rather than the order. Weakness: HR will still see that the employee used the leave and may infer the reason, and small employers can guess from context; the proof hides content, not the fact of the leave.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In the Australian secret ballot, eligibility is checked in one step and the vote is sealed in a separate envelope so the two are not linked at counting; here, the issuer's eligibility attestation plays the eligibility check and HR's leave log plays the sealed ballot, holding only 'verified' with no case content.",
+    "source_excerpt": "A voter must prove eligibility and cast a valid choice while the record of that choice cannot be linked back to them, but the same process must still let officials verify who voted, so the separation depends on procedure rather than on a proof. | mechanism: Separate voting compartments and two-envelope sealing for postal and absentee ballots so identity is not attached to the vote at counting; eligibility is checked separately from the ballot."
+   },
+   {
+    "borrowed_aspect": "In the reissued-ID story, a leaked stable number keeps working for impostors after the card is replaced; here, the stable ID number and case number printed on the order play that role, and a per-leave, short-lived attestation avoids giving HR a lasting identifier to leak.",
+    "source_excerpt": "Once the number that identifies a person leaks, reissuing the physical card does not stop someone presenting the same number, so verifiers that check the number and a photo can be fooled. | mechanism: None; reissuing the card does not change the number."
+   }
+  ]
+ },
+ {
+  "review_id": "p14-3",
+  "title": "Grandparent pickup at an elementary school gate (國小校門接送)",
+  "moment": "At 4pm on a Wednesday a grandmother who has never picked up her grandson before arrives at a Taipei elementary school gate because the parents are stuck at work. The 導護 volunteer or guard today photocopies or photographs her national ID, writes her phone number in a logbook and calls the homeroom teacher to confirm.",
+  "verifier": "School gate guard / 導護志工 and the homeroom teacher",
+  "predicate": "The holder presents a credential valid only for today's date and this named child stating that a guardian has authorised the holder to collect that child; the guard learns only valid / not valid and the child's class, nothing about the holder's identity number, address or family tree.",
+  "disclosed_today": "Full ID card shown or copied (name, national ID number, birth date, address), phone number in a paper logbook, and a phone call to the teacher; the logbook stays at the gate and can be read by any later guard.",
+  "issuer": "The guardian, via a parent-side wallet or the school's existing parent app, counter-signing with the school's registered-guardian credential (the school as root issuer of guardian status, the parent as delegator).",
+  "why_zk": "Fits well: the claim is a short-lived delegation, and the gate needs only a yes/no for today plus a way to ensure the presenter is the person the parent authorised. Weakness: the guard still needs some binding between presenter and credential (a face match to a photo the parent supplied, or a one-time code), and many grandparents have no smartphone, so a printed QR on a card would be the realistic fallback. The privacy gain is real but moderate, since the paper logbook is the main leak today.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In the AEPD hotel case, the host inspects the ID document in person and records only the fields the registration rule needs without keeping a copy; here, the gate guard checking a time-bounded delegation token plays that role and the ID copy and logbook are dropped.",
+    "source_excerpt": "A registrant must prove a small set of facts to a host, but the host asks for a full copy of the identity document, which carries many extra fields the rule never needed. | mechanism: Inspect the identity document in person and record only the fields the registration rule requires; no copy retained."
+   },
+   {
+    "borrowed_aspect": "In the ALA library policy, circulation records that name who used what are treated as confidential so they do not become a readable log of a person's interests; here, the school's paper pickup logbook that names every adult who collected a child plays that record, which the token approach would avoid creating.",
+    "source_excerpt": "A service provider must keep a record of who used what without that record becoming a readable log of a person's interests, but the duty is a recommended policy that depends on each institution adopting it and on courts or subpoenas being resisted. | mechanism: Institutional confidentiality policy plus procedures for handling subpoenas and law-enforcement requests; no technical minimization of records is specified."
+   }
+  ]
+ },
+ {
+  "review_id": "p14-4",
+  "title": "Domestic-violence victim attends a protection-order hearing without the guard reading her case details",
+  "moment": "A person attending a hearing on a protective order (保護令) at the Shilin District Court family division queues at the entrance in public view. Today the guard reads the hearing notice aloud or inspects it for division, case type and names, which exposes within earshot of others that she is a domestic-violence applicant, and notes her ID.",
+  "verifier": "Court security guard at the family-division entrance, within earshot of the waiting public",
+  "predicate": "Holder is in the set of persons notified for a session of this courthouse today; nothing about the case type, division or role is shown.",
+  "disclosed_today": "Hearing notice showing case type (protection order), division, parties' names, case number, plus ID card shown in public at the queue.",
+  "issuer": "The court (clerk's office of the family division), signing a minimal 'attendee for today' credential that omits case type",
+  "why_zk": "Safety screening is the purpose, and the guard needs only attendance membership; sensitive case type is currently exposed in a public queue to gain access. A selective-disclosure credential from the court that carries only a date-and-courthouse attribute removes that exposure. Weakness: this is largely achieved by simply redesigning the notice or giving a separate neutral pass, so ZK adds little beyond a better-designed barcode; also the verifier's QR scan could be done with a plain signed token, since no zero-knowledge relation is really needed beyond selective disclosure.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In HIPAA's minimum-necessary rule, the holder of sensitive records is told to release only what the purpose requires but has no mechanism proving it; here, the hearing-notice holder is the one who should reveal only 'attending today' and the credential format is the mechanism that enforces minimality instead of the guard's discretion.",
+    "source_excerpt": "A holder of sensitive records must release only the subset that serves a stated purpose, but the rule leaves it to the holder to judge what is minimal and gives no mechanism that proves the released subset was minimal. | mechanism: Purpose-based minimum-necessary rule with reasonable-efforts standard, role-based access and reasonable reliance on requester representations (45 CFR 164.514(d)); no cryptographic or proof-based check."
+   },
+   {
+    "borrowed_aspect": "In Korea's digital licence age check, a barcode scan is meant to output only the age result but the screen also shows the photo; here, the entrance scan is meant to output only 'attending today' but the paper notice also shows case type and parties.",
+    "source_excerpt": "A shop must confirm that a buyer is above an age threshold, but the buyer's credential shows the full photo and card details to the cashier, not just the age result. | mechanism: QR or barcode scan from the wallet app for age verification at the counter; the age result, not the full card, is the intended output."
+   }
+  ]
+ },
+ {
+  "review_id": "p14-5",
+  "title": "Witness enters the district court with a blind-signed hearing token instead of showing the summons and ID",
+  "moment": "A woman summoned as a witness in a civil case at the Taipei District Court arrives at the security desk at 8:50. Today the guard asks to see the paper summons (which lists case number, parties, cause of action) and her national ID card, and sometimes logs name and ID number in a visitor register, to decide if she may pass the metal detector.",
+  "verifier": "Judicial Police (法警) / contracted security guard at the courthouse entrance",
+  "predicate": "Holder possesses a valid, unexpired token for a hearing session at this courthouse today (membership in the set of today's summoned persons), without revealing the case number, party role or identity.",
+  "disclosed_today": "Full summons document (case number, parties, cause of action, role as witness/party), national ID card with photo, ID number, name, often written into a paper or digital visitor log.",
+  "issuer": "The court clerk's office (書記官處) of the Judicial Yuan, issuing a one-time per-session token when the summons is generated or when the person checks in online",
+  "why_zk": "The guard only needs 'is expected here today'. A blind-signed per-session token lets the court sign without being able to link the presented token back to a specific case file, and the desk learns nothing else. Weakness: the court itself knows who it summoned, so the privacy gain is against the guard, the visitor log and leaks, not against the court; guards also still do physical screening and may legitimately want ID for high-risk hearings, and elderly summoned persons may lack a smartphone so paper fallback is required.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In the Chaum ballot scheme, the ballot authority signs a blinded ballot so it cannot later link the counted ballot to the voter; here, the court clerk's office signs a blinded hearing token so the entrance desk cannot link the presented token to a case file or a person.",
+    "source_excerpt": "A signer must certify that a holder has a valid token without seeing the token's content, and must later be unable to link the certified token back to the signing event. | mechanism: A blind signature, where the message is blinded with a random factor before signing, and the holder unblinds the signature so it verifies against the original message under the signer's public key."
+   },
+   {
+    "borrowed_aspect": "In Privacy Pass, a gatekeeper accepts an unlinkable token showing prior authorisation instead of a cookie that tracks the client; here, the courthouse security desk accepts an unlinkable 'summoned today' token instead of a summons paper and ID that act as a persistent identifier.",
+    "source_excerpt": "A gatekeeper only needs to know that the visitor already passed some check, but the proof it accepts doubles as a persistent identifier. | mechanism: Blind-signed tokens that attest prior authorisation and cannot be linked to the issuance interaction."
+   }
+  ]
+ },
+ {
+  "review_id": "p14-6",
+  "title": "Lease early-termination without handing the landlord the protection order",
+  "moment": "A woman holding a 民事通常保護令 (civil protection order) must leave her rented flat in Taichung within weeks. To use the statutory right to end the lease early without penalty, she emails the landlord or property manager a scan of the court order, which contains the abuser's name, the case facts and her ID number, and the landlord's agent often keeps it in a LINE chat.",
+  "verifier": "Private landlord or rental management company (包租代管業者) handling an early lease termination",
+  "predicate": "Holder is protected by an order that is valid today and whose protection period covers the intended move-out date; no case number, respondent, or facts revealed.",
+  "disclosed_today": "Full scan of the court's protection order (respondent name, address, case narrative, applicant ID number), plus often a copy of her ID card, kept indefinitely in the landlord's chat or files.",
+  "issuer": "The district court (or the 家庭暴力暨性侵害防治中心 of the municipal government) that issued or registered the order, signing a short-lived validity attestation.",
+  "why_zk": "The landlord only needs a yes/no with a time window, and the order's content is exactly what should not circulate to a third party. A signed validity-window attestation lets the holder show 'covered through date X' without the abuser's identity or case facts. Weakness: the landlord must also trust that the law actually grants the lease-break right, and orders can be revoked or modified mid-term, so the attestation needs short expiry or a revocation check.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In the gym membership letter, a service provider asks for full front-and-back ID copies where a narrow check would do and the regulator leaves necessity to case-by-case review; here, the landlord's request for the whole court order plays that role and the validity-window attestation is the less-intrusive alternative the letter never names.",
+    "source_excerpt": "A service provider signing up a customer must check identity and payment, but it asks for full front-and-back copies of identity and card documents, and the regulator leaves whether that exceeds the purpose to case-by-case fact-finding. | mechanism: None stated; the letter says less-intrusive alternatives must be considered but names none."
+   },
+   {
+    "borrowed_aspect": "In the ALA library policy, confidentiality of user records rests on each institution voluntarily adopting a policy and resisting demands; here, the landlord's informal promise to keep the order private plays that role, which the attestation replaces by never giving the landlord the content at all.",
+    "source_excerpt": "A service provider must keep a record of who used what without that record becoming a readable log of a person's interests, but the duty is a recommended policy that depends on each institution adopting it and on courts or subpoenas being resisted. | mechanism: Institutional confidentiality policy plus procedures for handling subpoenas and law-enforcement requests; no technical minimization of records is specified."
+   }
+  ]
+ },
+ {
+  "review_id": "p14-7",
+  "title": "Employer grants protection-order leave without collecting the order file",
+  "moment": "A woman working at a Hsinchu factory asks her HR officer for the leave days she needs to attend hearings, relocate and arrange safe housing under a protection order. HR today asks for the full order and a copy for the personnel file, which then sits where supervisors and payroll staff can see it.",
+  "verifier": "Employer HR department deciding on leave and schedule accommodation",
+  "predicate": "Employee is covered by an active protection order for the requested leave window, with no other details",
+  "disclosed_today": "Whole protection order or court notice, including the respondent's name, the nature of the violence and the case number, filed in the personnel record",
+  "issuer": "Court registry, or the local domestic violence prevention center acting on the court's order",
+  "why_zk": "HR only needs to know that the leave request is legitimate for these dates; the claim is time-bounded so it expires with the order and cannot be reused later. It also stops the personnel file from becoming a store of sensitive victim data that could leak at the workplace. Weakness: employers may still insist on documents out of habit or legal caution, and the leave entitlement itself is not clearly defined in law for this case, so adoption depends on guidance from the labour authority.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In the household-registration ruling, the registry answers only whether a duplicate exists instead of giving the reassigned number; here, the issuer plays the registry and answers only whether an active order covers the leave window.",
+    "source_excerpt": "A party asks a registry for identity-number information to settle a dispute; the registry could disclose the full reassigned value, but a narrower answer, whether a duplicate exists, is enough to settle it. | mechanism: Registry reports only whether the number is duplicated, not the reassigned number; the bank marks its own internal record instead."
+   },
+   {
+    "borrowed_aspect": "In the sealed-bid rule, content stays unopened and only a designated official may open an envelope to identify it, with a record kept; here, the HR officer plays the designated handler who sees only the outer label (valid for these dates) and never the sealed order content.",
+    "source_excerpt": "A party submits a value that must stay hidden from competitors until a fixed moment, while the holder of the submissions must be able to prove later that none were seen early and must handle identifying wrappers without exposing the content. | mechanism: Physical and access-control safeguarding of sealed bids with designated-official exception for envelope identification, plus a written record of any mistaken early opening."
+   }
+  ]
+ }
+]

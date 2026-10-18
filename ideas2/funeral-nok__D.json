@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Cremation arrangement without photocopying the whole family register",
+    "moment": "After a death in a Taipei household, the eldest son goes to a funeral home to sign the cremation and service contract. Staff photocopy his national ID and the deceased's household registration transcript (戶籍謄本), which lists parents, spouse, siblings and children, to confirm he is the right next of kin to authorise cremation.",
+    "verifier": "Funeral home (殯葬業者) handling cremation authorisation",
+    "predicate": "Holder is a next of kin of the named deceased, and no living kin of higher priority (spouse, then adult children, then parents, and so on) exists who has not consented or been accounted for.",
+    "disclosed_today": "Full ID copy of the signer, plus a household registration transcript showing every household member's name, ID number, birth date, address, marital status and family ties.",
+    "issuer": "Household Registration Office (戶政事務所, Ministry of the Interior), signing a kin-rank attestation derived from the register.",
+    "why_zk": "The funeral home needs only the signer's rank in the order of kin, not the whole family tree. A signed attestation of relationship and priority rank, shown through selective disclosure, replaces the full transcript. It is weaker where the order depends on facts not in the register (estrangement, unregistered partners, disputes among siblings of equal rank), so the proof can establish priority from the register but cannot settle a family dispute.",
+    "inspired_by": [
+      {
+        "seed_id": "rd-eudi-wallet-selective-disclosure-recital",
+        "borrowed_aspect": "In the EUDI Wallet recital, the holder discloses only some attributes of an attestation to a relying party; here, the household-registry kin-rank attestation plays that role, revealing only 'next of kin, rank 1' and not the rest of the family record."
+      },
+      {
+        "seed_id": "tw-securities-foreign-agent-id-copy",
+        "borrowed_aspect": "In the Taiwan foreign-investor agent account opening, a full ID copy is required with no lighter alternative; here, the funeral home's photocopy of the ID and the family register is that excess practice the proof replaces."
+      }
+    ]
+  },
+  {
+    "title": "Crematorium counter checks the right to collect ashes by looking, not keeping",
+    "moment": "A relative arrives at a municipal crematorium or columbarium (納骨塔) service desk to collect the ashes or sign the cremation permit paperwork. The counter asks for ID copies and a family-register printout to confirm that this person, and not a more senior relative, has the authority to take the remains.",
+    "verifier": "Municipal crematorium or columbarium counter staff (殯儀館 / 納骨塔 service desk)",
+    "predicate": "Holder belongs to the group of next of kin of the deceased and is the one entitled to act on the family's behalf at this step.",
+    "disclosed_today": "ID copy, family-register printout, and sometimes handwritten statements naming other relatives, all filed in the facility's paper records.",
+    "issuer": "Household Registration Office, or the funeral home that already verified the kin and countersigns a short-lived authorisation for the later step.",
+    "why_zk": "The counter only needs a yes/no on authority at the moment of collection, and a presentation that is checked and discarded fits the statute's purpose. Luxembourg's regulator already accepts that looking suffices without retention. The weakness is that many facilities have no digital reader and may still insist on paper copies for audit, so the benefit depends on a change in the facility's rules, not just on the proof.",
+    "inspired_by": [
+      {
+        "seed_id": "rd-cnpd-lu-tourist-inspect-not-copy",
+        "borrowed_aspect": "In the Luxembourg tourist accommodation guidance, the host inspects the identity document and takes no copy; here, the crematorium counter inspects a verified kin-authority presentation and retains only a pass/fail log entry."
+      },
+      {
+        "seed_id": "rd-singpass-myinfo-minimal-request",
+        "borrowed_aspect": "In Singpass MyInfo, partners may request only the named fields needed for one purpose; here, the facility requests only the 'authorised to collect ashes' field and not the full relationship record."
+      }
+    ]
+  },
+  {
+    "title": "Hospital-to-funeral handover with kin priority proven separately from the deceased's file",
+    "moment": "A patient dies in a hospital in Kaohsiung and the family chooses a funeral home. The funeral home must be sure that the person who calls and signs is the kin with the right to decide, while the hospital's death certificate and medical details should stay with the hospital and the doctor. Today the funeral home receives bundles that mix the death certificate, cause of death and family information.",
+    "verifier": "Funeral home intake staff receiving the body from a hospital morgue",
+    "predicate": "The signer is a next of kin of the deceased in the correct priority order, shown independently of the death certificate's medical content.",
+    "disclosed_today": "A bundle containing the death certificate (cause of death), the signer's ID copy, family-register pages and sometimes the deceased's insurance and address details.",
+    "issuer": "Household Registration Office for the kin-rank claim; the hospital or attending physician separately for the fact of death, so the two never travel in one document.",
+    "why_zk": "As in a secret ballot, eligibility is checked in one channel and the sensitive record in another, so the funeral home links the kin claim to the case only through a case number. This separation is procedural more than cryptographic: a funeral home that also receives the death certificate can still link everything, so the proof helps only if the hospital sends the medical content to the crematorium or registry and not to the funeral home.",
+    "inspired_by": [
+      {
+        "seed_id": "an-b-secret-ballot-moad",
+        "borrowed_aspect": "In the Australian secret ballot, eligibility is checked separately from the ballot so identity is not attached to the vote at counting; here, the kin-rank presentation is checked separately from the death certificate so medical content is not attached to the family's identity at the funeral home."
+      },
+      {
+        "seed_id": "rd-eudi-wallet-selective-disclosure-recital",
+        "borrowed_aspect": "In the EUDI Wallet recital, only some attributes of a larger record are disclosed to the relying party; here, only the rank-of-kin attribute from the registry record is disclosed to the funeral home intake staff."
+      }
+    ]
+  }
+]

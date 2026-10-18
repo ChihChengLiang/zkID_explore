@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Borrowing-privilege reciprocity at a partner university library",
+    "moment": "A National Taiwan University alumnus walks into a partner university library in another city to get a visitor reader card and borrowing rights. The desk asks for a national ID, photocopies it, and phones or emails the home library to check for overdue or lost books.",
+    "verifier": "Partner university library circulation desk",
+    "predicate": "Not a member of the set of patrons with overdue or lost items in the library network (non-membership in the delinquent-patron set)",
+    "disclosed_today": "National ID number, full name, ID photocopy, home-library record, and a staff-visible list of all past loans and fines",
+    "issuer": "The home university library or the inter-library consortium, signing a short-lived good-standing credential with a revocation or delinquent-set accumulator",
+    "why_zk": "The partner needs one bit: no outstanding overdue or lost items. A non-membership proof against the consortium's delinquent list gives that bit without revealing identity or loan history. It is fairly strong because the relationship is voluntary and the issuer already holds the data. The weakness is freshness: the delinquent set changes daily, so the proof needs a current accumulator root, and real overdue records are small enough that staff may keep phoning instead.",
+    "inspired_by": [
+      {
+        "seed_id": "an-b-hipaa-min-necessary",
+        "borrowed_aspect": "In HIPAA minimum-necessary, the holder of records is trusted to judge what subset to release with no proof it was minimal; here, the consortium-signed non-membership proof plays that role by making the released subset provably one bit rather than a judgment call by desk staff."
+      },
+      {
+        "seed_id": "an-b-secret-ballot-moad",
+        "borrowed_aspect": "In the Australian secret ballot, eligibility is checked separately from the ballot so identity is not attached to the vote; here, the good-standing check is separated from the loan record so the partner library sees eligibility without the borrowing history."
+      }
+    ]
+  },
+  {
+    "title": "Student discount on a library-linked reading-room pass without exposing the lending record",
+    "moment": "A public library in a New Taipei district offers a free cross-branch study-room booking and a municipal reading-benefit points scheme to patrons in good standing. To enrol, the patron shows the library card, and the front desk looks up the full account, including every title borrowed and any fine history, to confirm nothing is overdue anywhere in the city network.",
+    "verifier": "Municipal public library branch running the study-room and points programme",
+    "predicate": "Not on the network-wide overdue or lost-item list (non-membership), proven at the time of booking",
+    "disclosed_today": "Library card number, name, phone, and full lending history visible to the clerk, including titles that reveal health, religion or sexuality interests",
+    "issuer": "The municipal library system's central circulation service, issuing a re-randomisable good-standing credential to each patron's phone",
+    "why_zk": "Titles borrowed are sensitive, yet the clerk needs only to know there is no overdue or lost item anywhere in the network. A non-membership proof removes the clerk's view of reading history. It is moderately strong, since the issuer is a single public body that could instead simply return a yes or no to the branch. The honest weakness is that a plain server-side yes or no already solves most of this, and ZK only adds value if the clerk must not learn who the patron is, which is rarely required for a named study-room booking.",
+    "inspired_by": [
+      {
+        "seed_id": "an-b-census-title13",
+        "borrowed_aspect": "In the Title 13 census rule, staff can see raw records but nothing may be published that singles out a respondent; here, the proof plays that role by letting the clerk act on a network-wide result while the underlying lending records stay unseen."
+      },
+      {
+        "seed_id": "an-a-samesite-cookies",
+        "borrowed_aspect": "In SameSite cookies, a stored credential is sent only to the party it was issued for so third parties cannot match the holder across contexts; here, an unlinkable per-presentation proof plays that role so the study-room desk and the points scheme cannot link the same patron across visits."
+      }
+    ]
+  },
+  {
+    "title": "Community book-swap shelf and neighbourhood tool library lending between peers",
+    "moment": "A community-run book and tool lending co-op in a Tainan neighbourhood lets members borrow expensive items such as a drill or a rare reference book. Before lending, the volunteer asks the member to show a photo of their ID and WhatsApps the sister co-ops to ask whether this person has ever failed to return something.",
+    "verifier": "Volunteer steward of a neighbourhood lending co-op",
+    "predicate": "Not on the shared list of members with unreturned or lost items across the participating co-ops (non-membership)",
+    "disclosed_today": "Photo of national ID, name, phone number, and informal gossip from other co-ops about the person's past conduct",
+    "issuer": "A federation of co-ops, or a peer co-op steward co-signing a standing credential and a shared revocation list for members who have not returned items",
+    "why_zk": "Volunteers collect an ID photo and circulate names between group chats only to confirm one negative fact. A non-membership proof from the federation replaces the ID photo and the gossip. It is a plausible fit but weak on practicality: the co-ops are small, informal and unlikely to run an issuer or maintain an accumulator, and a trusted steward's word often suffices. The strongest value is stopping a lender from building a registry of neighbours' identities.",
+    "inspired_by": [
+      {
+        "seed_id": "an-b-jury-selection",
+        "borrowed_aspect": "In jury selection, names are public by default and confidentiality depends on a judge's discretionary exception; here, the federation-signed proof plays that role by making confidentiality of the borrower's identity the default instead of a steward's discretion."
+      },
+      {
+        "seed_id": "an-b-hipaa-min-necessary",
+        "borrowed_aspect": "In HIPAA minimum-necessary, a holder is expected to release only what a stated purpose needs but nothing proves it did; here, the federation's credential plays that role by proving the lender received only the good-standing fact and nothing more."
+      }
+    ]
+  }
+]

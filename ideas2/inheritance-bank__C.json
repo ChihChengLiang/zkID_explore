@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Heir proves a statutory share of 1/4 or more without handing over the whole household registry tree",
+    "moment": "After her father dies, a daughter walks into a Taiwan Bank branch in Taichung to claim the NT$1.2M in his savings account. The teller asks for the full 繼承系統表 and a complete set of household registration transcripts for every sibling, spouse and parent, plus ID copies of everyone listed, to work out who inherits what. She only needs to show she is entitled to at least a stated fraction (for example 1/4) of the estate so the bank can release that portion.",
+    "verifier": "Bank branch (retail deposits / estate-settlement desk) releasing a deceased customer's account",
+    "predicate": "Heir's statutory inheritance share >= 1/4 (or any stated threshold) of the estate of decedent X, computed under Civil Code succession order and shares, with the decedent's death status and the heir's relationship bound to the claim",
+    "disclosed_today": "Full inheritance system chart, household registration transcripts of the decedent and all relatives, ID card copies of every heir, names, birthdates, addresses, marital and adoption history of the whole family",
+    "issuer": "Ministry of the Interior household registration office (戶政事務所), signing a derived entitlement credential from the household registry at the time of death",
+    "why_zk": "A threshold on a computed share is exactly what a selective-disclosure proof gives: the registry already holds the tree, so the issuer can sign (decedent, heir, share fraction) and the heir proves share >= threshold without revealing siblings, half-siblings, or adoptions. Weakness: the bank may also need the complete list of heirs to be sure no one else can later claim the money, and the Civil Code gives each heir joint ownership, so banks often insist on all heirs signing or a court-issued 繼承權利證明書; the threshold alone does not discharge the bank's own liability.",
+    "inspired_by": [
+      {
+        "seed_id": "tw-platform-gym-id-card-copies-interp",
+        "borrowed_aspect": "In the gym ID-copy case, the provider asks for full front-and-back identity documents when it only needs to confirm identity and payment; here, the bank's request for the entire family tree and everyone's ID copies plays that role, with a single share-threshold proof as the less-intrusive alternative that was never named."
+      },
+      {
+        "seed_id": "an-b-census-title13",
+        "borrowed_aspect": "In the census statute, the holder of individual records may release results but not anything that lets a particular respondent be singled out; here, the household registry plays the holder and the entitlement credential plays the aggregate output that reveals only the share, not the other family members."
+      }
+    ]
+  },
+  {
+    "title": "Foreign-resident heir proves entitlement through a local agent without the agent seeing the full family tree",
+    "moment": "A Taiwanese man dies leaving funds at a Cathay United branch; his daughter lives in Canada and appoints her uncle in Taipei as agent to collect her share. The bank wants the agent's full ID copy, a power of attorney, the heir's passport copy, and the full 繼承系統表 showing every relative, so the uncle holds a document about the whole family. The bank only needs to know that the principal heir is entitled to at least a stated share, and that the person appearing is her authorized agent.",
+    "verifier": "Bank branch handling a cross-border estate claim via an agent (代理人)",
+    "predicate": "Principal is an heir with entitlement >= stated share of decedent X's deposits AND the presenter is the designated agent of that heir, shown without disclosing other heirs",
+    "disclosed_today": "Agent's national ID copy, heir's passport copy, full inheritance chart, notarized/consularly authenticated power of attorney, full names and relationships of all family members",
+    "issuer": "Household registration office for the entitlement credential, plus the Taipei Economic and Cultural Office (or the heir herself, as a peer) for the delegation credential",
+    "why_zk": "The agent needs to carry a proof, not a copy of the family chart: a delegated-credential proof says 'this person is acting for an heir entitled to >= threshold', so the uncle and bank clerks never see siblings or other relatives. This mirrors the problem of the foreign investor's local agent who hands over a full ID copy. Weakness: consular authentication and wet-ink powers of attorney are mandated by law and practice, and the issuance of a delegation credential by a foreign resident would need new infrastructure.",
+    "inspired_by": [
+      {
+        "seed_id": "tw-securities-foreign-agent-id-copy",
+        "borrowed_aspect": "In the securities rule, a domestic agent for a foreign investor hands over a full ID copy to prove they are a real person; here, the Taipei uncle acting for his Canadian niece plays that role, and a delegated entitlement proof replaces the ID copy and the whole family chart."
+      },
+      {
+        "seed_id": "an-a-tor-onion",
+        "borrowed_aspect": "In onion routing, no single intermediary holds both origin identity and final destination; here, the agent holds only the delegated proof and the bank holds only the share threshold, so neither intermediary holds the heir's identity together with the family tree."
+      }
+    ]
+  },
+  {
+    "title": "Several heirs each claim their own slice, and the bank stops keeping a full copy of the family tree in each file",
+    "moment": "Four siblings agree to withdraw their late mother's NT$800k from a post office savings account in separate slices over several weeks. Each time, the clerk photocopies the full family chart and transcripts and keeps them in the case file, so by the end the bank holds four copies of the same sensitive tree in four files and any staff member can read them. The bank, under its AML recordkeeping duty, must retain evidence of why it paid each person, but only needs the entitlement fact.",
+    "verifier": "Chunghwa Post branch (or a bank's estate-settlement back office) handling staged payouts to multiple heirs and retaining case records",
+    "predicate": "Each claimant is an heir of decedent X entitled to >= their claimed payout fraction, with a verifiable proof retained instead of the family tree, and sum of claimed shares not exceeding 1",
+    "disclosed_today": "Full inheritance chart and registry transcripts copied and retained in each claimant's file, ID copies of every heir, addresses, family relationships",
+    "issuer": "Household registration office, with the bank's estate desk acting as an aggregator that checks the shares add up without seeing the tree",
+    "why_zk": "Retention is the real harm: the bank must keep records for AML and audit, and a stored proof plus a share commitment satisfies auditors without keeping the readable tree, like a publication that cannot single out a respondent. Weakness: auditors and courts may still demand the original documents on request, and the bank's staff today can freely see the whole file, so the benefit depends on the bank accepting a proof as sufficient evidence under its internal rules and the Financial Supervisory Commission accepting it.",
+    "inspired_by": [
+      {
+        "seed_id": "an-b-ala-library-records",
+        "borrowed_aspect": "In the library policy, a service provider must keep a record of who used what without it becoming a readable log; here, the bank's case file plays that role, and a stored entitlement proof replaces the retained family tree so the record shows the payout basis without being a readable profile."
+      },
+      {
+        "seed_id": "an-b-census-title13",
+        "borrowed_aspect": "In the census statute, individual responses are aggregated and nothing may identify a particular respondent; here, the bank's staged-payout ledger plays the aggregate, showing that shares sum to at most 1 without exposing any single heir's relationships."
+      }
+    ]
+  }
+]

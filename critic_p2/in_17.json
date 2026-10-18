@@ -1,0 +1,162 @@
+[
+ {
+  "review_id": "p17-0",
+  "title": "Juror candidate or lay judge pool check-in without showing the full notice",
+  "moment": "Under Taiwan's Citizen Judges Act (國民法官法), a person selected to the candidate pool arrives at the Taichung District Court on the morning of the selection session. The security desk and registration counter look at the notice letter and ID card, photocopy or photograph it, and record the person's name, national ID and address to confirm they were notified for this session.",
+  "verifier": "Court police and registration staff at the district court's citizen-judge selection session",
+  "predicate": "Holder is among the candidate citizens summoned for the selection session held today at this court (membership)",
+  "disclosed_today": "Notice letter with name, address, ID number and case reference, plus ID card shown and often copied or photographed at check-in",
+  "issuer": "The District Court's citizen-judge office, issuing a credential blindly signed so the holder can show it later without the issuance event being linkable to the arrival event",
+  "why_zk": "Real but partial: candidates are particularly sensitive to being identified (to defendants, press, other attendees) and the court has an interest in not creating a list that links named people to a specific criminal case. A blind-issued, session-scoped membership token lets the desk confirm eligibility without writing down who is in which case. Weakness: the court itself must later call and seat candidates by name, so identity is unavoidably revealed inside the courtroom process; the gain is limited to the entrance and any external contractors or building security.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In Chaum's blind-signature voting, the ballot authority signs a ballot without seeing its content and cannot later link it to the voter; here, the court's citizen-judge office plays that role by signing the entry token blind so the building desk cannot link the holder to a specific criminal case.",
+    "source_excerpt": "A signer must certify that a holder has a valid token without seeing the token's content, and must later be unable to link the certified token back to the signing event. | mechanism: A blind signature, where the message is blinded with a random factor before signing, and the holder unblinds the signature so it verifies against the original message under the signer's public key."
+   },
+   {
+    "borrowed_aspect": "In the Swiss e-ID, the wallet shares only the necessary data for the transaction; here, the candidate's wallet plays that role by presenting only 'in today's pool' rather than the full notice letter.",
+    "source_excerpt": "A business needs one attribute to proceed, but the credential is issued as a whole, so the holder must rely on the wallet to release only the needed attribute. | mechanism: SD-JWT VC selective disclosure with OpenID4VP presentation and status-list validity check."
+   }
+  ]
+ },
+ {
+  "review_id": "p17-1",
+  "title": "Employer-change window: proving 'not yet out of status' to a new room without exposing the old employer dispute",
+  "moment": "A Filipino caregiver in Tainan has left an abusive employer and, within the 60-day transfer window, is looking for a room through a community-run (church / NGO) shelter-to-rental programme. The programme offers a subsidised bed to workers who are still lawfully working or lawfully seeking transfer, and currently asks for her old employment termination letter and complaint records, which reveal the dispute.",
+  "verifier": "Community NGO or church-run migrant housing programme allocating subsidised beds",
+  "predicate": "Freshness: as of today, the holder's permit status is 'active or in lawful transfer period' with a sponsoring employer on record, without revealing the reason for the transfer",
+  "disclosed_today": "Termination letter naming the old employer and dispute, labour-bureau complaint receipts, ARC copy, sometimes the caregiver's whole case file shared by a social worker",
+  "issuer": "Workforce Development Agency, signing a status-only attestation at the time of query; alternatively a local labour bureau counter that issues the same signed statement",
+  "why_zk": "Dispute history is sensitive and could follow her to future employers if leaked; the housing programme needs only a same-day statement that she is lawfully in status. Honest limit: NGOs often want the case story anyway to prioritise vulnerable applicants and to report to funders, so the proof replaces only the eligibility check, not the social assessment; also, an issuer able to sign 'lawful transfer period' state must exist and workers with irregular status are excluded entirely.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In attorney-client privilege, confidentiality about a sensitive matter breaks when an outsider is present unless essential; here, the dispute details with the old employer play the privileged matter, and the housing programme plays the outsider who should receive only the status result rather than the story.",
+    "source_excerpt": "A party must consult an advisor about a sensitive matter without the advisor, or anyone else, learning or revealing more than the matter requires, but the protection breaks as soon as an outsider is in the room unless the outsider is essential to the relationship. | mechanism: Evidentiary privilege over communications, lost by third-party presence except essential agents such as interpreters; no technical mechanism."
+   },
+   {
+    "borrowed_aspect": "In GDPR data minimisation, a purpose-limited request is stated but no mechanism lets the requester ask for a single field; here, the housing programme's eligibility question plays the stated purpose and a status-only attestation plays the single field it can request.",
+    "source_excerpt": "A rule obliges anyone requesting information to take only what the purpose needs, but gives no practical way to request less than a whole document. | mechanism: Legal principle of data minimisation; no technical mechanism specified."
+   }
+  ]
+ },
+ {
+  "review_id": "p17-2",
+  "title": "One unit, one weighted ballot at the annual 區分所有權人會議",
+  "moment": "At a 40-unit Taipei apartment building's annual owners' meeting (區分所有權人會議), the committee secretary checks each attendee against the ownership register to count one vote per unit, weighted by floor-area share (坡度比例). Owners hand over 權狀 photocopies, ID copies and proxy forms, and the sign-in sheet is posted in the lobby. A co-owner of two units, or a person present in person and also named as someone's proxy, is easy to miscount.",
+  "verifier": "The building management committee secretary (管委會總幹事/主任委員) running the meeting under the 公寓大廈管理條例 and the building's bylaws (規約)",
+  "predicate": "This holder is the one registered voter for unit X, X carries floor-area share w, and no other ballot has been issued for X in this meeting (uniqueness per unit per meeting).",
+  "disclosed_today": "Full name, national ID number, copy of the 建物所有權狀 (with address, area, co-owner shares, mortgage notes), signature on a sign-in sheet visible to all, and proxy forms carrying the principal's ID copy.",
+  "issuer": "The district Land Administration Office (地政事務所) signing an ownership-share credential from the land register, with a meeting-scoped nullifier derived from the unit identifier.",
+  "why_zk": "A selective-disclosure credential from the land office can prove 'I am the registered owner of a unit with share w' and a per-meeting nullifier makes double voting for the same unit detectable without showing the 權狀, address or ID. Weakness: co-owned units need threshold or delegate logic, the land registry is already semi-public (謄本 can be pulled by anyone with an address), and many committees run on paper with no wallet infrastructure, so the privacy gain is mostly against the neighbours and the secretary rather than against the state. Real value is modest but the double-count prevention is concrete.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In HIPAA minimum-necessary, the holder of records decides by judgement what subset to release for a stated purpose; here, the committee secretary's habit of collecting full 權狀 copies plays that role, and the proof of 'unit and share only' replaces the judgement call.",
+    "source_excerpt": "A holder of sensitive records must release only the subset that serves a stated purpose, but the rule leaves it to the holder to judge what is minimal and gives no mechanism that proves the released subset was minimal. | mechanism: Purpose-based minimum-necessary rule with reasonable-efforts standard, role-based access and reasonable reliance on requester representations (45 CFR 164.514(d)); no cryptographic or proof-based check."
+   },
+   {
+    "borrowed_aspect": "In NIST differential privacy, a published aggregate must not reveal whether one individual contributed, with the leak bounded; here, the posted weighted vote tally plays that role, and the per-meeting nullifier means the tally leaks only a unit count and not who sits behind each unit.",
+    "source_excerpt": "A releaser must answer queries about a dataset so that an observer learns almost nothing about whether any one individual contributed, and the leak must be expressed as a bound that can be checked. | mechanism: Differential privacy, a randomised release mechanism with a quantified privacy-loss parameter; NIST notes that the guarantee depends on how the framework is realised in practice and lists privacy hazards that can break it."
+   }
+  ]
+ },
+ {
+  "review_id": "p17-3",
+  "title": "Summer camp helper recruited through a school-district WeChat-style group",
+  "moment": "A temple in Kaohsiung runs a week-long summer camp for 7- to 12-year-olds and takes students from a nearby university as helpers. Parents ask the camp organiser what checks were done. Today the organiser collects a scan of each student's ID and a signed consent form allowing the temple to query records, and keeps the files on a personal phone, then keeps them after camp ends.",
+  "verifier": "The camp organiser (a temple deacon) and, indirectly, the parents who ask what checks were done",
+  "predicate": "Helper is not on the child-protection and fraud conviction register (non-membership), valid for the camp dates, with no stored identity afterwards.",
+  "disclosed_today": "ID scan, student card, phone number and a signed consent form that opens the helper's records to the temple, all stored on a personal phone without a deletion date.",
+  "issuer": "The helper's university student affairs office, after querying the national register on the student's behalf, or the Ministry of Justice directly.",
+  "why_zk": "Moderate to weak. Parents get a real assurance and the organiser can publish a count of 'checked' helpers without a list of names. The deletion exception in the Personal Data Protection Act lets a temple keep data whenever it says it needs it for its activities, so a proof that leaves nothing to store removes the need for the exception. Weak points: the organiser and parents may not trust or understand a wallet proof, many camps rely on word of mouth, and a university acting as issuer takes on liability it may not want.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In PDPA Article 11(3), a collector must delete data when its purpose ends but may keep it for its own duties; here, the one-shot proof plays the deletion duty by leaving nothing on the organiser's phone to keep.",
+    "source_excerpt": "A party that has collected a person's data must delete it once the reason for holding it ends, but an open-ended exception lets it keep the data whenever it says it still needs it for its own duties. | mechanism: Statutory deletion-on-purpose-lapse duty with exceptions for lawful duties or written consent; no technical erasure mechanism specified."
+   },
+   {
+    "borrowed_aspect": "In attorney-client privilege, confidentiality holds only if no outsider is present beyond the essential agent; here, the university office plays the essential agent that sees the record, and the organiser and parents are the outsiders who receive only the yes/no.",
+    "source_excerpt": "A party must consult an advisor about a sensitive matter without the advisor, or anyone else, learning or revealing more than the matter requires, but the protection breaks as soon as an outsider is in the room unless the outsider is essential to the relationship. | mechanism: Evidentiary privilege over communications, lost by third-party presence except essential agents such as interpreters; no technical mechanism."
+   }
+  ]
+ },
+ {
+  "review_id": "p17-4",
+  "title": "Pediatric ward night security: a parent or guardian badge that does not reveal which child or which parent",
+  "moment": "At 9 pm at a children's hospital in Taipei, after general visiting hours end, only a parent, partner of the parent or a named guardian may stay overnight with a child. The guard at the ward door currently checks an ID card and compares it with a handwritten overnight-stay list at the desk, which is left lying on the counter and visible to other families.",
+  "verifier": "Hospital night security guard at the pediatric ward entrance",
+  "predicate": "Holder is a member of the set of overnight companions approved for this ward bed tonight (parent, parent's partner or named guardian).",
+  "disclosed_today": "ID card shown to the guard, name and ID number written or read against a paper list that exposes other children's names, bed numbers and guardians' names to anyone at the counter.",
+  "issuer": "The pediatric ward, issuing a time-limited companion credential at admission after the parents sign the guardian form; the child's household registration or the signed proxy form is the basis.",
+  "why_zk": "Child safety is a legitimate reason to check, but the check only needs 'approved companion for this ward tonight'. Like a SameSite cookie that should only be honoured in its own context, the credential should be accepted only by this ward's door reader and be valid for the night, so a presentation can't be replayed at other wards or used to track a parent between visits. This also removes the exposed paper list. Honest limit: a guard still needs to see the person matches an expected adult, and in practice a face check against the bed's nurse remains, so ZK only removes the ID number and list exposure, not the human check.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In the SameSite cookie case, the attribute restricts a stored credential to same-site requests so third parties cannot recognise the holder across contexts; here, a ward-and-night scoped presentation plays that role so the credential works only at this ward door and cannot link the parent elsewhere.",
+    "source_excerpt": "A stored credential should be presented only to the party that issued it in the current context, but the browser sends it on any request the context triggers, so an unrelated observer can match the holder across contexts. | mechanism: The SameSite cookie attribute, which limits the cookie to same-site requests (Strict, Lax, or None); the IETF draft describes it as a per-cookie setting, and cross-site behaviour depends on the chosen value."
+   },
+   {
+    "borrowed_aspect": "In PDPA Article 5, the collector must stay within the necessary scope of the stated purpose but nothing shows what was necessary; here, the credential makes 'approved companion tonight' the provable necessary scope, replacing the guard's discretion over how much ID data to record.",
+    "source_excerpt": "A rule requires anyone collecting personal data to stay within the necessary scope of its stated purpose, but it gives no concrete way to show what was necessary, so the collector decides what counts as necessary. | mechanism: Legal purpose-limitation and proportionality principle; no technical mechanism specified."
+   }
+  ]
+ },
+ {
+  "review_id": "p17-5",
+  "title": "Borrowing-privilege reciprocity at a partner university library",
+  "moment": "A National Taiwan University alumnus walks into a partner university library in another city to get a visitor reader card and borrowing rights. The desk asks for a national ID, photocopies it, and phones or emails the home library to check for overdue or lost books.",
+  "verifier": "Partner university library circulation desk",
+  "predicate": "Not a member of the set of patrons with overdue or lost items in the library network (non-membership in the delinquent-patron set)",
+  "disclosed_today": "National ID number, full name, ID photocopy, home-library record, and a staff-visible list of all past loans and fines",
+  "issuer": "The home university library or the inter-library consortium, signing a short-lived good-standing credential with a revocation or delinquent-set accumulator",
+  "why_zk": "The partner needs one bit: no outstanding overdue or lost items. A non-membership proof against the consortium's delinquent list gives that bit without revealing identity or loan history. It is fairly strong because the relationship is voluntary and the issuer already holds the data. The weakness is freshness: the delinquent set changes daily, so the proof needs a current accumulator root, and real overdue records are small enough that staff may keep phoning instead.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In HIPAA minimum-necessary, the holder of records is trusted to judge what subset to release with no proof it was minimal; here, the consortium-signed non-membership proof plays that role by making the released subset provably one bit rather than a judgment call by desk staff.",
+    "source_excerpt": "A holder of sensitive records must release only the subset that serves a stated purpose, but the rule leaves it to the holder to judge what is minimal and gives no mechanism that proves the released subset was minimal. | mechanism: Purpose-based minimum-necessary rule with reasonable-efforts standard, role-based access and reasonable reliance on requester representations (45 CFR 164.514(d)); no cryptographic or proof-based check."
+   },
+   {
+    "borrowed_aspect": "In the Australian secret ballot, eligibility is checked separately from the ballot so identity is not attached to the vote; here, the good-standing check is separated from the loan record so the partner library sees eligibility without the borrowing history.",
+    "source_excerpt": "A voter must prove eligibility and cast a valid choice while the record of that choice cannot be linked back to them, but the same process must still let officials verify who voted, so the separation depends on procedure rather than on a proof. | mechanism: Separate voting compartments and two-envelope sealing for postal and absentee ballots so identity is not attached to the vote at counting; eligibility is checked separately from the ballot."
+   }
+  ]
+ },
+ {
+  "review_id": "p17-6",
+  "title": "Fan-club presale lane that confirms one real member per ticket, not who",
+  "moment": "A Taiwanese pop star's fan club runs a members-only presale for a Kaohsiung stadium show. To keep brokers out, the platform asks every fan to upload their ID card and a selfie, and later reuses the selfie for entry matching.",
+  "verifier": "Fan-club presale operator and the stadium gate staff who admit the presale lane",
+  "predicate": "The presenter is one distinct, verified fan-club member who has not already redeemed a presale allocation for this event (uniqueness of the member across redemptions)",
+  "disclosed_today": "ID card photo, selfie, name, birth date, phone and home address, plus a face template reused at the gate",
+  "issuer": "The fan club (a community body run by the artist's agency) signs a membership credential at sign-up; membership year and status are attested, and a nullifier is derived per event so one member can redeem only once",
+  "why_zk": "The presale lane only needs 'a unique paid-up member who has not yet redeemed', which the membership credential with a per-event nullifier proves without ID photos or selfies. This is a good fit because the fan club already knows its members and is the natural issuer. The weakness is that the sign-up check is only as good as the fan club's initial vetting, and a broker can still sign up many accounts with fake or borrowed identities. Uniqueness here is about members, not real persons, unless the issuer ties the credential to a government-attested identity. Collection today is for convenience and fraud screening, so no law pushes the club to change.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In OAuth, a client asks for broad scopes when it needs one narrow permission and the server may grant less; here, the presale operator asks for ID plus selfie when it needs only 'one unredeemed member', and the credential grants only that narrow scope.",
+    "source_excerpt": "A holder asks a verifier for a credential covering more attributes than the single fact the relying party needs, and the issuer has no obligation to honour a narrower request. | mechanism: The client states a scope parameter in the request, and the authorization server returns the granted scope in the token response; the server may grant less than requested."
+   },
+   {
+    "borrowed_aspect": "In the household-register proxy rule, the office may collect an ID copy at its own discretion with no mechanism limiting the scope; here, the fan-club operator's discretionary ID and selfie collection plays that role and the membership proof replaces the discretionary copy.",
+    "source_excerpt": "A government office that holds a record may ask a proxy's requester for a copy of the principal's identity document, and the scope of what it may collect is left to the office's discretion. | mechanism: None stated; collection of document copies left to agency discretion under PDPA and administrative procedure rules."
+   }
+  ]
+ },
+ {
+  "review_id": "p17-7",
+  "title": "Platform and landlord check before a vendor joins a pop-up night market event",
+  "moment": "A pop-up night market at a school grounds or temple plaza is organised by a district office contractor. Vendors from other districts apply online and upload scans of their permit and ID card; the organiser has to confirm permits are current but stores everything in a shared cloud folder.",
+  "verifier": "Event organiser contractor for a temporary pop-up night market",
+  "predicate": "Applicant holds a food-hygiene and stall permit that is not expired on the event date, and the freshness is shown by a recent issuer signature rather than an old scan",
+  "disclosed_today": "Uploaded scan of permit and ID card, home address, mobile number, sometimes business tax registration, stored in a shared cloud folder with loose access",
+  "issuer": "Health bureau of the vendor's home municipality, with the Ministry of Health and Welfare food registration platform as the signing authority",
+  "why_zk": "The organiser is a short-lived contractor with weak data handling; a proof of 'current permit' removes the need for them to hold ID scans after the event. A fresh signed status also stops stale-scan fraud, where an expired permit is photographed and reused. Weakness: the PDPA and event contracts may still require the organiser to retain application records, and cross-municipality issuer coverage is not guaranteed, so some vendors would still need paper fallback.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In the household-register proxy rule, the office may collect a copy of the principal's ID document at its own discretion; here, the event organiser plays that role by collecting ID scans simply because nothing stops it, which the permit proof would make unnecessary.",
+    "source_excerpt": "A government office that holds a record may ask a proxy's requester for a copy of the principal's identity document, and the scope of what it may collect is left to the office's discretion. | mechanism: None stated; collection of document copies left to agency discretion under PDPA and administrative procedure rules."
+   },
+   {
+    "borrowed_aspect": "In HIPAA minimum-necessary, a holder is told to release only what a purpose needs but is left to judge what that is; here, the vendor's wallet plays that role by releasing only the 'permit current on event date' claim for the stated purpose of event admission.",
+    "source_excerpt": "A holder of sensitive records must release only the subset that serves a stated purpose, but the rule leaves it to the holder to judge what is minimal and gives no mechanism that proves the released subset was minimal. | mechanism: Purpose-based minimum-necessary rule with reasonable-efforts standard, role-based access and reasonable reliance on requester representations (45 CFR 164.514(d)); no cryptographic or proof-based check."
+   }
+  ]
+ }
+]

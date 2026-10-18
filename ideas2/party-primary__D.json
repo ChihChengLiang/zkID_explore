@@ -1,0 +1,59 @@
+[
+  {
+    "title": "One-member-one-vote at a district party primary",
+    "moment": "A Taiwan county-level party branch holds a nominating primary for a city councillor seat. Members vote at a school gym. Today staff compare each voter's ID card against a printed membership roll and photocopy the card or write down the ID number and address, so the roll can be checked for double voting.",
+    "verifier": "Party branch election committee (volunteer staff at the polling table)",
+    "predicate": "This person is a registered member of the party in this district, and has not already cast a ballot in this primary (a one-time nullifier per primary).",
+    "disclosed_today": "Full name, national ID number, address, and often a photocopy of the ID card. Because the roll is party membership, the list itself reveals political opinion.",
+    "issuer": "The party's central membership office, signing a district-membership credential when dues are registered.",
+    "why_zk": "The committee needs only 'member of this district, one vote', not who the person is. A membership credential with a per-primary nullifier gives uniqueness without a name or ID number, and without leaving a copy of who voted. Weakness: parties already hold the roll and many branches are small, so volunteers may see no gain, and the party as issuer can still link a credential to a member at issuance.",
+    "inspired_by": [
+      {
+        "seed_id": "rd-cnpd-lu-tourist-inspect-not-copy",
+        "borrowed_aspect": "In rd-cnpd-lu-tourist-inspect-not-copy, the host may inspect the guest's identity document but not copy it; here, the polling-table check of a membership credential plays that role, so the check is done on the spot and nothing is retained."
+      },
+      {
+        "seed_id": "an-b-jury-selection",
+        "borrowed_aspect": "In an-b-jury-selection, people seated for a task are not publicly identified unless a judge decides otherwise; here, the voters seated to cast a primary ballot stay unnamed by default, with no published list of who voted."
+      }
+    ]
+  },
+  {
+    "title": "Member-only discount at a party-affiliated community venue",
+    "moment": "A neighbourhood party chapter runs a community kitchen and a book-and-merchandise corner. Registered district members get a discount card price. Today the volunteer asks members to show their ID and sign a paper sheet with name and ID number to prove membership and to stop one person claiming the discount repeatedly.",
+    "verifier": "Volunteer cashier at a party chapter's community shop",
+    "predicate": "This person is a registered member in this district, and has claimed the member discount only once today (or once per month).",
+    "disclosed_today": "Name, ID number, and signature on a paper claim sheet, which creates a record linking named people to party membership.",
+    "issuer": "The party's district chapter, through its membership system.",
+    "why_zk": "The discount needs only 'member, not already used', so a credential with a periodic nullifier can replace the signed sheet. The benefit is voluntary, so the person may also simply decline. Weakness: the stakes are small and the chapter already knows its own members. The gain is mainly that the sign-in sheets no longer exist to leak.",
+    "inspired_by": [
+      {
+        "seed_id": "rd-singpass-myinfo-minimal-request",
+        "borrowed_aspect": "In rd-singpass-myinfo-minimal-request, a partner retrieves only the named fields a single purpose needs under a rule against over-collecting; here, the shop's request for just a membership-and-not-used proof plays that rule, but enforced by the credential rather than by policy alone."
+      },
+      {
+        "seed_id": "tw-platform-google-id-upload-complaint",
+        "borrowed_aspect": "In tw-platform-google-id-upload-complaint, a service demands an ID and address proof when payment confirmation would do; here, the shop's demand for a signed ID sheet when a membership check would do is the over-collection being replaced."
+      }
+    ]
+  },
+  {
+    "title": "Registered-member check for a civic forum vote on a local budget",
+    "moment": "A district party chapter co-hosts a participatory-budgeting forum with a neighbourhood association. Members of the party in this district may vote on which local project the chapter backs. An organiser at an online voting page asks members to upload an ID photo and a party membership card photo to confirm they are eligible and have voted once.",
+    "verifier": "Forum organiser running an online vote for a party chapter and neighbourhood association",
+    "predicate": "This person is a registered party member in this district, and this is their only vote in this forum (nullifier per forum).",
+    "disclosed_today": "Photos of the national ID and membership card, plus name and phone number, stored in the organiser's shared drive or messaging app.",
+    "issuer": "The party's district chapter, with the neighbourhood association checking the signature but not holding the roll.",
+    "why_zk": "The association is a separate body from the party and should not learn the roll. It needs to verify only a chapter-signed 'member in this district' credential with a one-vote nullifier, rather than keeping ID photos in a shared drive. Weakness: online votes also face coercion and vote-selling that a credential does not solve, and a small chapter can make members identifiable from timing even without names.",
+    "inspired_by": [
+      {
+        "seed_id": "an-b-hipaa-safe-harbor",
+        "borrowed_aspect": "In an-b-hipaa-safe-harbor, the holder strips a fixed list of identifiers before sharing a record set; here, the chapter plays that role by handing the association a proof with every identifier stripped, leaving only 'eligible, voted once'."
+      },
+      {
+        "seed_id": "tw-securities-foreign-agent-id-copy",
+        "borrowed_aspect": "In tw-securities-foreign-agent-id-copy, an agent proves identity by handing over a full ID copy with no lighter alternative; here, the voter's ID and membership card photos play that role, and a credential proof is the lighter alternative."
+      }
+    ]
+  }
+]

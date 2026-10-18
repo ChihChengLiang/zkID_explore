@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Strike authorization vote at a TSMC-supplier factory union",
+    "moment": "A Taoyuan electronics-plant enterprise union holds a strike authorization ballot over a bargaining impasse. Members queue at the canteen with their employee badge; today the union checks them against the dues roster, which includes names, employee IDs and department, and management-side HR is often asked to confirm staff status, so the employer can infer who showed up or abstained.",
+    "verifier": "The enterprise union's election committee running the strike ballot",
+    "predicate": "Holder is a current dues-paying member of this union (dues paid through the last billing month) and has not yet cast a ballot in this vote round (one-time nullifier).",
+    "disclosed_today": "Full name, employee ID, department and shift, national ID number against the dues roster, plus a signature on a paper sign-in sheet that HR or foremen can sometimes see.",
+    "issuer": "The union itself (its membership office), co-signing dues status from its payroll-deduction ledger",
+    "why_zk": "The union must verify membership and one-person-one-vote, but the employer must never learn who voted. A membership proof with a per-ballot nullifier gives eligibility and once-only without a name linking to the ballot. Weakness: the union already knows its own members, so the gain is mainly against employer observation and roster leaks, and in-person queues remain observable regardless of the cryptography.",
+    "inspired_by": [
+      {
+        "seed_id": "rd-twdiw-field-selection-consent",
+        "borrowed_aspect": "In Taiwan's Digital Identity Wallet, the user picks which fields to release per scenario after scanning a QR code; here, the union member's wallet releases only a membership-and-not-yet-voted proof at the ballot station instead of the whole badge record."
+      },
+      {
+        "seed_id": "an-b-va-id-scanning",
+        "borrowed_aspect": "In the Virginia ID-scanning rule, a statute caps scan data to a few fields and bans secondary use while the holder still exposes the whole card; here, the ballot station accepts only the proof, so the full roster record is never exposed at the point of voting."
+      }
+    ]
+  },
+  {
+    "title": "Hospital nurses' union bargaining ballot by mobile phone",
+    "moment": "Nurses across three shifts at a regional hospital vote on a collective-agreement offer using a phone link, since they cannot gather in one room. Today the union e-voting vendor asks them to log in with national ID, hospital employee number and work email, and the hospital's IT network sees the traffic and the work email domain, so management could infer participation.",
+    "verifier": "The nurses' union e-voting committee and its outsourced voting platform",
+    "predicate": "Holder is a dues-paying member of the nurses' union branch in good standing and has not voted on this specific ballot.",
+    "disclosed_today": "National ID number, hospital employee number, work email, phone number, and often a photo of the badge or union card uploaded for manual review.",
+    "issuer": "The nurses' union branch (a legally registered occupational union), signing membership status",
+    "why_zk": "The platform vendor currently becomes a store of who is a union member and who voted, a special-category fact sitting outside the union's control. A membership-plus-nullifier proof lets the vendor check eligibility without holding identities, and can be done from a personal phone off the hospital network. Weakness: if the union pre-registers voters on the vendor, the vendor already knows a list, and network metadata or coercion by supervisors still leaks participation.",
+    "inspired_by": [
+      {
+        "seed_id": "an-b-hipaa-safe-harbor",
+        "borrowed_aspect": "In HIPAA Safe Harbor, a fixed list of identifiers including employers must be stripped before data can be shared; here, the proof strips employer, employee number and name from the credential so the vendor receives only a de-identified eligibility signal."
+      },
+      {
+        "seed_id": "tw-pdpa-art11-3-deletion-exception",
+        "borrowed_aspect": "In PDPA Article 11-3, the collector must delete data when the purpose lapses but may keep it whenever it says its duties require; here, the voting platform has no identity data to retain, so the deletion duty needs no open-ended exception."
+      }
+    ]
+  },
+  {
+    "title": "Delivery riders' platform-union strike poll without telling the platform",
+    "moment": "Food-delivery riders in Kaohsiung, mostly contracted, vote in a union poll on whether to log off for a day over per-order pay cuts. The union asks riders to prove they are paying members; today they send a screenshot of the platform app profile plus their ID, which exposes their rider account and earnings to organisers, and the platform could retaliate against identified organisers or voters.",
+    "verifier": "The riders' union branch (a registered occupational union) running the strike poll",
+    "predicate": "Holder is a dues-paying member of the riders' union and has not voted in this poll round.",
+    "disclosed_today": "Name, national ID number, rider account ID, a screenshot of the delivery app profile with earnings, and sometimes a photo of the ID card and a membership card.",
+    "issuer": "The riders' union, issuing a membership credential into the member's wallet at sign-up and on dues renewal",
+    "why_zk": "Riders have no employer HR file proving membership, so the union is the only natural issuer, and the credential must not carry the platform account at all. A proof of membership and one vote per poll avoids the screenshot habit that gives organisers more rider data than the vote needs. Weakness: a small union may know every member personally, and a rider logging off is observable by the platform anyway, so privacy protects the ballot, not the strike action.",
+    "inspired_by": [
+      {
+        "seed_id": "an-a-oauth-scopes",
+        "borrowed_aspect": "In OAuth, a client asks for broad scopes and the authorization server may grant less; here, organisers ask for rider profile screenshots and the wallet grants only a narrow membership-and-once-only proof."
+      },
+      {
+        "seed_id": "rd-singpass-myinfo-minimal-request",
+        "borrowed_aspect": "In Singpass MyInfo, partners are told by policy not to over-collect beyond a single purpose; here, the union's own ballot rules would name membership-in-good-standing as the only field the poll may request."
+      }
+    ]
+  }
+]

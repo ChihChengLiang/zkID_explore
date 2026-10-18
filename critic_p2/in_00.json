@@ -1,0 +1,162 @@
+[
+ {
+  "review_id": "p00-0",
+  "title": "Public bath changing-room door: female-only gate check that leaves no record linking person to visit",
+  "moment": "A municipal public bath in Taichung has a women's-only side. A staff member at the ticket booth is suspicious of a visitor and asks for ID to confirm she is allowed in the women's area. Staff also write ID numbers in a logbook for 'safety'. Instead, the visitor scans a wallet proof at the turnstile that shows only 'women's-area eligible', and the gate logs only a count.",
+  "verifier": "Turnstile or ticket booth of a public bath run by a district office or contractor",
+  "predicate": "Holder is a member of the set of persons registered female, proven at the gate with a one-time presentation that carries no stable identifier",
+  "disclosed_today": "ID number and name written into the visitor logbook, sometimes a face-and-ID photo taken by staff",
+  "issuer": "Household registration office (government_admin), via the national wallet; the gate only checks the signature and status list",
+  "why_zk": "Separating the eligibility check from any record of who entered mirrors the secret ballot, where the gatekeeper checks eligibility but nothing links the person to what they did. The logbook collection is commercial or habit-driven, so removing it is lawful and cheap. Weakness: the gate still sees a live person at the door, so staff can recognize a face, and unlinkable presentations need wallet support that older visitors may not have; staff discretion at the door cannot be proven away.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In the Australian secret ballot, eligibility is checked separately from the ballot so identity is not attached to the vote; here, the turnstile's eligibility proof is kept separate from the visit log so no ID is attached to the bath entry.",
+    "source_excerpt": "A voter must prove eligibility and cast a valid choice while the record of that choice cannot be linked back to them, but the same process must still let officials verify who voted, so the separation depends on procedure rather than on a proof. | mechanism: Separate voting compartments and two-envelope sealing for postal and absentee ballots so identity is not attached to the vote at counting; eligibility is checked separately from the ballot."
+   },
+   {
+    "borrowed_aspect": "In SameSite cookies, a stored credential is limited to the context where it was meant so third parties cannot match the holder across sites; here, the bath-gate proof is bound to a single presentation so the bath and other venues cannot link the same visitor.",
+    "source_excerpt": "A stored credential should be presented only to the party that issued it in the current context, but the browser sends it on any request the context triggers, so an unrelated observer can match the holder across contexts. | mechanism: The SameSite cookie attribute, which limits the cookie to same-site requests (Strict, Lax, or None); the IETF draft describes it as a per-cookie setting, and cross-site behaviour depends on the chosen value."
+   }
+  ]
+ },
+ {
+  "review_id": "p00-1",
+  "title": "Concert queue: stopping a stolen-identity ticket resale at Kaohsiung Arena",
+  "moment": "Before a sold-out K-pop concert in Kaohsiung, buyers register with their national ID number and issue date to get a 'real-name' ticket, and the promoter keeps a face photo for gate matching. Scalpers have already used stolen ID details to buy blocks of tickets. The promoter needs the person entering to be the one real, single buyer, not someone using copied identifiers.",
+  "verifier": "Concert promoter and the arena's entrance security",
+  "predicate": "The holder is a single distinct real person who bought this ticket and is not one of several accounts controlled by the same buyer (uniqueness of buyer, plus presence of the same key at the gate).",
+  "disclosed_today": "National ID number, issue date, face photo and template, phone, email, and device identifiers, retained by the promoter and its ticket vendor to screen fraud and reuse in future marketing.",
+  "issuer": "The national digital identity wallet operator (government) issues a one-person-one-credential attestation that is bound to a hardware key, not to ID number and issue date.",
+  "why_zk": "Today's check on ID number and issue date is easy to copy, the same weakness as the 2021 telco online sign-up fraud, so it protects neither the promoter nor the real person. A uniqueness proof tied to a device key defeats bulk purchases with stolen identifiers while revealing no ID number and keeping no face. Weakness: it requires the buyer to have the government wallet, and the promoter may still want a face photo for its own dispute handling; quantity limits can also be enforced simply with per-ID purchase caps.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In the 2021 telco case, a check of only ID number and issue date let stolen identities pass; here, a device-bound one-person credential plays the role of the stronger check that copied identifiers cannot satisfy.",
+    "source_excerpt": "A provider must verify that a new applicant is the named person, but its check uses identifiers that are easy to copy, so a stolen identity passes and the real person bears the consequences. | mechanism: None; online verification only checked ID number and issue date."
+   },
+   {
+    "borrowed_aspect": "In HIPAA minimum-necessary, the holder must judge what subset serves the purpose with no proof that it was minimal; here, the proof of uniqueness replaces the promoter's own judgment about how much identity data to collect.",
+    "source_excerpt": "A holder of sensitive records must release only the subset that serves a stated purpose, but the rule leaves it to the holder to judge what is minimal and gives no mechanism that proves the released subset was minimal. | mechanism: Purpose-based minimum-necessary rule with reasonable-efforts standard, role-based access and reasonable reliance on requester representations (45 CFR 164.514(d)); no cryptographic or proof-based check."
+   }
+  ]
+ },
+ {
+  "review_id": "p00-2",
+  "title": "Community committee verifying a landowner's standing without handing out the address list",
+  "moment": "An urban renewal (都市更新) consultation in a Taipei neighbourhood requires the organiser to confirm that each attendee casting a vote is a registered landowner of a lot in the renewal zone. Organisers currently assemble transcripts and cross-match owner names to household and company records, producing a sheet of owners' names and home addresses that circulates among volunteers and sometimes outside.",
+  "verifier": "Urban renewal organiser or community committee volunteer checking voter eligibility at a meeting",
+  "predicate": "Cross-source match: the attendee is a registered owner of a lot inside renewal zone Z, revealing neither which lot nor any holdings elsewhere nor residence address.",
+  "disclosed_today": "Owner name, ID number, lot number, share ratio and home address, collected into a shared attendance and eligibility sheet.",
+  "issuer": "District land administration office or the city's Urban Redevelopment Office, signing a zone-membership claim.",
+  "why_zk": "Eligibility only needs membership in the zone, yet the sheet becomes a ready-made list of owners and their homes that a stalker or scammer could use. A zone-membership proof keeps the list from existing. The sealed ballot logic also applies: eligibility can be shown without exposing what each person owns. Honest limit: ownership is public by law and share ratios may be needed for weighted votes, which a membership-only claim does not cover without an extra range claim.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In an-b-sealed-bid-far, an official may open the envelope only to identify it while the content stays sealed; here, the organiser plays that role by checking eligibility membership while lot and holdings stay hidden.",
+    "source_excerpt": "A party submits a value that must stay hidden from competitors until a fixed moment, while the holder of the submissions must be able to prove later that none were seen early and must handle identifying wrappers without exposing the content. | mechanism: Physical and access-control safeguarding of sealed bids with designated-official exception for envelope identification, plus a written record of any mistaken early opening."
+   },
+   {
+    "borrowed_aspect": "In tw-pdpa-art5-purpose-limit, collection must stay within what the stated purpose requires; here, the voter-eligibility purpose plays that role and fixes the claim to zone membership only.",
+    "source_excerpt": "A rule requires anyone collecting personal data to stay within the necessary scope of its stated purpose, but it gives no concrete way to show what was necessary, so the collector decides what counts as necessary. | mechanism: Legal purpose-limitation and proportionality principle; no technical mechanism specified."
+   }
+  ]
+ },
+ {
+  "review_id": "p00-3",
+  "title": "Alcohol vending machine in a Hualien guesthouse lobby with a regulator audit trail",
+  "moment": "A traveller at a minsu (B&B) in Hualien buys a bottle of local millet wine from a self-service machine in the lobby at 9pm. The owner is asleep; the machine must show the vending licence authority that every sale was age-checked, but the owner does not want a guest ID database.",
+  "verifier": "The guesthouse owner, as licence holder for the machine, answerable to the local public health or tax authority on inspection",
+  "predicate": "Purchaser is at least 18 at time of sale, proven per transaction, with a signed log entry showing a valid proof was accepted",
+  "disclosed_today": "Passport or ID number typed in or photographed at the machine or at check-in, plus birth date and nationality, kept in a notebook or spreadsheet the owner can barely secure",
+  "issuer": "Foreign travellers' home-country government via an ISO 18013-5 mobile ID where available; for locals the Ministry of the Interior wallet; the owner's machine vendor only verifies, it does not issue",
+  "why_zk": "Today the owner over-collects to be able to prove compliance later, creating a stored copy of tourists' identity documents that few small operators protect. The inspect-not-copy logic suggests the duty is met by checking, and a log line recording only 'valid over-18 proof accepted, time, machine ID' lets the inspector audit compliance without the identity data. Weakness: many foreign visitors do not hold a compatible wallet credential, so a fallback of the owner checking a passport in person on video call remains, and that fallback is not zero-knowledge.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In rd-cnpd-lu-tourist-inspect-not-copy, the accommodation host may inspect guests' identity documents but not copy them; here, the machine's verification of an over-18 proof with only a compliance log line plays that role.",
+    "source_excerpt": "A host must confirm a visitor's identity and eligibility, but the usual practice is to keep a copy of the whole identity document; the regulator says looking at it is enough. | mechanism: Visual inspection of the identity document with no copy taken; the statutory duty is met by checking, not retaining."
+   },
+   {
+    "borrowed_aspect": "In an-b-sealed-bid-far, a written record of any mistaken early opening lets the holder prove later that rules were followed without exposing the content; here, the signed per-sale log of accepted proofs plays that record for the inspector.",
+    "source_excerpt": "A party submits a value that must stay hidden from competitors until a fixed moment, while the holder of the submissions must be able to prove later that none were seen early and must handle identifying wrappers without exposing the content. | mechanism: Physical and access-control safeguarding of sealed bids with designated-official exception for envelope identification, plus a written record of any mistaken early opening."
+   }
+  ]
+ },
+ {
+  "review_id": "p00-4",
+  "title": "Typhoon-night shelter triage desk accepts a nurse on a freshness proof, not a licence photo",
+  "moment": "After a typhoon floods a township in Pingtung, the district office opens a school gym as a shelter. At 9 pm a retired nurse walks in and offers to staff the first-aid corner. The volunteer coordinator, a borough warden, currently photographs her nursing licence and ID card on a personal phone and posts them to the shelter's LINE group so the health-bureau liaison can vouch for her. She needs to start within minutes, and the coordinator only needs to know the licence is valid today.",
+  "verifier": "Shelter volunteer coordinator (borough warden / township office staff) running the first-aid corner",
+  "predicate": "Holds a nursing licence that was confirmed in good standing (not revoked, suspended or lapsed) within the last 24 hours; no name, licence number, or ID number revealed",
+  "disclosed_today": "Photo of the nursing licence, photo of national ID card (name, ID number, birth date, address), phone number, posted to a LINE group and kept on the coordinator's phone",
+  "issuer": "Ministry of Health and Welfare nurse-registry service, issuing a short-lived 'licence active as of now' attestation into the nurse's wallet each time she asks",
+  "why_zk": "The need is a freshness check: a licence valid last year proves little, so a static scan is the wrong evidence anyway, while a wallet proof bound to a recent registry check is better evidence and reveals nothing else. Weakness: during a disaster, phones, power and registry connectivity may be down, and shelters often must also log who is present for safety, so some identification may legitimately remain; the proof helps most for the clinical-role decision, not for the head-count roll.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In HIPAA minimum-necessary, the holder is trusted to judge and limit what is released to the purpose with no proof it was minimal; here, the nurse's wallet proof plays that role by making the released fact exactly 'licensed and current today' so minimality is enforced rather than left to the warden's judgement.",
+    "source_excerpt": "A holder of sensitive records must release only the subset that serves a stated purpose, but the rule leaves it to the holder to judge what is minimal and gives no mechanism that proves the released subset was minimal. | mechanism: Purpose-based minimum-necessary rule with reasonable-efforts standard, role-based access and reasonable reliance on requester representations (45 CFR 164.514(d)); no cryptographic or proof-based check."
+   },
+   {
+    "borrowed_aspect": "In the bank dual-ID rule, the institution inspects two identity documents and the text is silent on copies and retention; here, the shelter's licence-plus-ID photo check plays that role and the freshness proof replaces both photos so there is no copy to retain.",
+    "source_excerpt": "A bank must verify who a person is before opening an account, which means examining identity documents, but the cited rule does not say whether copies are kept or for how long. | mechanism: Dual identity-document inspection at account opening; retention and copy handling not specified in the cited text."
+   }
+  ]
+ },
+ {
+  "review_id": "p00-5",
+  "title": "Joining a library story-time and summer reading program as a guardian, with unlinkable visits",
+  "moment": "A parent signs a child up for a free weekend story-time and a summer reading challenge run by a county library, which gives out prizes and tracks attendance. The sign-up form asks for the guardian's name, phone number and ID number and the child's name and birth date, and the library can later link every visit to the family. The library only needs to know that the person signing up is the guardian of an eligible child, and, for the prize cap, that each child is counted once.",
+  "verifier": "County cultural bureau library running a children's reading promotion program",
+  "predicate": "The holder is a legal guardian of a child under the program's age limit, shown as a proof that can be reused at each visit without being linkable between visits, plus a per-program nullifier so one child gets one prize.",
+  "disclosed_today": "Guardian's name, phone and ID number; child's name, school, birth date; and a visit log tying them together across weeks.",
+  "issuer": "Household registration office (戶政事務所) for the guardianship attestation; the child's school can additionally sign enrolment if the program is school-linked",
+  "why_zk": "This is a consented-for-benefit setting where the library wants attendance statistics and fairness (one prize per child), not a profile of each family. A ZK proof with device-bound, unlinkable presentations gives age-eligibility and guardian status without the library or issuer being able to track visits. Weakness: the per-program nullifier to stop double prizes must be designed carefully, and small-town libraries with staff who know everyone may prefer a quick paper form.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In Google Wallet's age ZKP, a gatekeeper receives a yes/no fact that neither the issuer nor the gatekeeper can use to track the holder; here, the guardian-of-an-eligible-child proof at each story-time visit plays that role.",
+    "source_excerpt": "A gatekeeper needs one yes/no fact about a holder, and the proof it receives must not reveal the underlying birth date or let the issuer or the gatekeeper track the holder. | mechanism: Zero-knowledge proof on ISO 18013-7 mdocs for an over-18 statement, device-bound transactions, no server-side storage of credential data."
+   },
+   {
+    "borrowed_aspect": "In the secret ballot, eligibility is checked separately from the ballot so identity is not attached to the choice; here, the guardian eligibility check at sign-up is separated from the attendance and prize record so the record is not tied to the family's identity.",
+    "source_excerpt": "A voter must prove eligibility and cast a valid choice while the record of that choice cannot be linked back to them, but the same process must still let officials verify who voted, so the separation depends on procedure rather than on a proof. | mechanism: Separate voting compartments and two-envelope sealing for postal and absentee ballots so identity is not attached to the vote at counting; eligibility is checked separately from the ballot."
+   }
+  ]
+ },
+ {
+  "review_id": "p00-6",
+  "title": "Roommate-sharing app: 'not on violent-offender list' badge instead of a criminal record certificate",
+  "moment": "A graduate student in Taipei wants to move into a shared 3-bedroom flat found through a roommate-matching group. The existing tenants ask every applicant to send a photo of their national ID plus a 良民證 (police criminal record certificate) over LINE, and the files stay in the group chat forever.",
+  "verifier": "Existing tenants of the flat (private individuals, strangers to the applicant), via the matching platform",
+  "predicate": "Applicant's identity (bound to a holder key) does not appear on the violent-offender register as of a stated date, and the proof is fresh (issued within 30 days)",
+  "disclosed_today": "Full ID card photo (name, ID number, address, birthdate, photo) and a full 良民證 listing all record fields, kept indefinitely in chat history",
+  "issuer": "National Police Agency criminal records unit, or Ministry of Justice, issuing a signed non-membership attestation through the TW DIW wallet",
+  "why_zk": "The tenants need only a yes/no on one list; a non-membership proof stops strangers from holding a copy of the applicant's ID number and address, which is exactly what is later used for identity fraud. Weakness: the issuer must have a legal basis to expose a list-check service for private use, and a 'clean' result can be stale within days; the register itself may not be designed for citizen-initiated checks.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In tw-telco-online-id-check-fraud-2021, the provider accepts easily copied identifiers (ID number and issue date) as proof of who the applicant is; here, the holder-key binding of the signed attestation plays the role that replaces copyable ID details, so a stolen ID photo cannot pass the check.",
+    "source_excerpt": "A provider must verify that a new applicant is the named person, but its check uses identifiers that are easy to copy, so a stolen identity passes and the real person bears the consequences. | mechanism: None; online verification only checked ID number and issue date."
+   },
+   {
+    "borrowed_aspect": "In rd-twdiw-field-selection-consent, the wallet lets users pick fields to disclose per scenario with no field-level guarantee; here, a fixed single-predicate presentation request from the tenants plays the role that guarantees only the non-membership bit is released.",
+    "source_excerpt": "A user must prove one eligibility fact to a counter, while the credential holds a whole identity record and the user chooses fields at presentation time with no field-level guarantee. | mechanism: Per-scenario field selection after scanning a QR code, confirmed by biometric check, in the TW DIW sandbox."
+   }
+  ]
+ },
+ {
+  "review_id": "p00-7",
+  "title": "Pickup-day-only guardian proof at the library's children's reading room",
+  "moment": "A grandmother in Tainan's Yongkang district takes her 6-year-old grandson to the public library's children's room and wants to apply for his first children's card. The desk asks her to show her ID and the household registration transcript (戶籍謄本) so staff can confirm she is a legal guardian of a child under 12, and staff photocopy or scan both.",
+  "verifier": "Public library circulation desk (city or county public library children's card service)",
+  "predicate": "Holder is a legal guardian (parent, or court- or household-registered guardian) of a child registered under the age limit for this card; no name, ID number, address or household members disclosed.",
+  "disclosed_today": "Guardian's national ID copy, child's name and ID number, household registration transcript showing parents, spouses, siblings and address, and a signed application form with phone and address.",
+  "issuer": "Ministry of the Interior household registration office (戶政事務所), signing a guardian-of-child-under-N membership credential into the guardian's digital wallet.",
+  "why_zk": "The library only needs a yes/no that this adult is a guardian of a child under the card's age limit, but the transcript exposes the whole household. A selective-disclosure credential from the household registry can prove membership in the guardian set with a child-age predicate. Weakness: the library still wants a child-specific card number and may need a stable pseudonym to link loans, so some per-card linkability is unavoidable; it also depends on the household registry issuing such credentials, and grandparents with informal custody may not be in the registry as guardians.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In the HIPAA Safe Harbor rule, a fixed checklist of identifiers of the individual and of relatives and household members is removed before data is shared; here, the household registration transcript's list of parents, siblings, spouses and address is the checklist stripped away, leaving only the guardian-of-a-child-under-N fact.",
+    "source_excerpt": "A party wants to share a record set that cannot identify any person, but the test is a checklist of removable fields plus a no-actual-knowledge condition, so the holder must still judge whether leftover fields re-identify someone. | mechanism: Safe Harbor method removing 18 enumerated identifiers (with ZIP-code truncation rule and age aggregation), or an expert-determination alternative; re-identification codes allowed only if not derived from or disclosed about the individual."
+   },
+   {
+    "borrowed_aspect": "In PDPA Article 5, the collector must stay within the necessary scope of the stated purpose but decides alone what is necessary; here, the credential schema fixes in advance that the library can only ask for guardian-of-child-under-N, so necessity is enforced by the proof rather than by the desk clerk's judgement.",
+    "source_excerpt": "A rule requires anyone collecting personal data to stay within the necessary scope of its stated purpose, but it gives no concrete way to show what was necessary, so the collector decides what counts as necessary. | mechanism: Legal purpose-limitation and proportionality principle; no technical mechanism specified."
+   }
+  ]
+ }
+]

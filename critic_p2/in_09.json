@@ -1,0 +1,162 @@
+[
+ {
+  "review_id": "p09-0",
+  "title": "Tenant proxy vote on an elevator replacement without exposing the lease",
+  "moment": "A tenant living in a unit wants to vote on a special assessment (e.g. elevator replacement) in a community whose 規約 lets residents vote or be proxies. The committee asks for the 租賃契約 copy plus the owner's written proxy (委託書) with ID copies, so the lease rent, deposit and landlord's ID all end up in the committee's drawer.",
+  "verifier": "The 管委會 clerk or building management company (物業公司) counting ballots on a 住戶 vote",
+  "predicate": "This holder holds a currently valid residency or proxy right for unit X granted by that unit's registered owner, and the unit's single vote has not been cast by anyone else (one ballot per unit per vote, with owner and tenant mutually exclusive).",
+  "disclosed_today": "Lease contract copy (rent, deposit, term, landlord's name and ID number), owner's signed proxy with ID copy, tenant's ID copy.",
+  "issuer": "The unit owner, who signs the delegation as a peer issuer from their own wallet, optionally co-attested by the 管委會 when it enrolls the unit.",
+  "why_zk": "The committee needs only 'authorised for unit X, not already counted', not the rent or the landlord's ID. The proof also lets the owner revoke by issuing a fresh delegation. Weakness: the owner and tenant can collude or both claim the vote, which the per-unit nullifier handles only if both use the same enrolled unit pseudonym, and many small buildings will still prefer a paper proxy slip because it is simple and trusted.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In privacy-pass-unlinkable-proof, a gatekeeper accepts a blind-signed token attesting prior authorisation that cannot be linked back to issuance; here, the owner's signed delegation token for the unit plays that role, spent once per vote.",
+    "source_excerpt": "A gatekeeper only needs to know that the visitor already passed some check, but the proof it accepts doubles as a persistent identifier. | mechanism: Blind-signed tokens that attest prior authorisation and cannot be linked to the issuance interaction."
+   },
+   {
+    "borrowed_aspect": "In tw-platform-gym-id-card-copies-interp, a gym asks for full ID and card copies when a lighter check might do and the regulator names no alternative; here, the committee's demand for lease and ID copies plays that role and the delegation proof is the named lighter alternative.",
+    "source_excerpt": "A service provider signing up a customer must check identity and payment, but it asks for full front-and-back copies of identity and card documents, and the regulator leaves whether that exceeds the purpose to case-by-case fact-finding. | mechanism: None stated; the letter says less-intrusive alternatives must be considered but names none."
+   }
+  ]
+ },
+ {
+  "review_id": "p09-1",
+  "title": "Tenant votes on elevator repair levy without exposing the lease",
+  "moment": "A building plans to replace its aging elevator and the committee lets resident tenants (住戶) vote alongside owners on matters the bylaws open to them, or lets a tenant act as the owner's delegate. The tenant is asked to show the lease (租賃契約), which lists monthly rent, deposit and the landlord's ID and bank details, so the committee can confirm they really live in the unit and that the owner has not also voted.",
+  "verifier": "The management committee chair (主任委員) verifying resident-tenant and proxy standing for a vote on elevator replacement",
+  "predicate": "This holder lives in unit X under a currently valid lease, the owner of unit X has authorized the tenant to vote on this item, and unit X's ballot has not already been cast by anyone else (uniqueness).",
+  "disclosed_today": "Whole lease contract including rent amount, deposit, landlord's name, ID and bank account, the tenant's ID copy, and a signed owner authorization letter (委託書) with the owner's ID copy.",
+  "issuer": "The unit owner (a peer issuer) signing a time-limited voting delegation credential, optionally countersigned by the 租賃住宅 registration platform (the Ministry of the Interior's rental registration, 租賃住宅服務業 / 租賃備案) so that 'lease is valid' is checked by a registry rather than by reading the contract.",
+  "why_zk": "A delegation credential signed by the owner, with a nullifier bound to the unit and the agenda item, proves standing and prevents the owner and tenant both voting, while rent, deposit and landlord banking never leave the tenant. Weakness: the issuer is a private individual so trust rests on the owner's key custody, many small landlords will not operate a wallet, and an unregistered lease (common in Taiwan) has no registry to countersign. Where the lease is not registered, a simple signed letter does most of the job.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In the household-register proxy ruling, the office may ask the requester for a copy of the principal's identity document at its own discretion; here, the committee chair's demand for the owner's ID copy with each 委託書 plays that role, and the signed delegation credential replaces the copy.",
+    "source_excerpt": "A government office that holds a record may ask a proxy's requester for a copy of the principal's identity document, and the scope of what it may collect is left to the office's discretion. | mechanism: None stated; collection of document copies left to agency discretion under PDPA and administrative procedure rules."
+   },
+   {
+    "borrowed_aspect": "In attorney-client privilege, confidentiality is lost when an outsider is present unless the outsider is essential to the relationship; here, the landlord-tenant financial terms play the protected content and the committee plays the outsider, so only the essential fact of valid residence reaches it.",
+    "source_excerpt": "A party must consult an advisor about a sensitive matter without the advisor, or anyone else, learning or revealing more than the matter requires, but the protection breaks as soon as an outsider is in the room unless the outsider is essential to the relationship. | mechanism: Evidentiary privilege over communications, lost by third-party presence except essential agents such as interpreters; no technical mechanism."
+   }
+  ]
+ },
+ {
+  "review_id": "p09-2",
+  "title": "E-cigarette vending kiosk in a night-market station concourse",
+  "moment": "A 20-year-old at an MRT station concourse wants to buy nicotine-free vape pods from a vending kiosk. Because the Tobacco Hazards Prevention Act restricts e-cigarette-type products and sales to minors, the kiosk requires an ID photo plus a selfie, which are sent to a vendor cloud for matching and stored.",
+  "verifier": "Kiosk vendor and its cloud age-verification subcontractor",
+  "predicate": "Holder is at least 18 (or the statutory minimum for the product) as of today, proven with a credential bound to the holder's device, with no face image sent",
+  "disclosed_today": "ID card photo, selfie biometric, name, birth date, ID number, transmitted to a third-party vendor",
+  "issuer": "Ministry of the Interior (household registration), as holder of the authoritative birth date",
+  "why_zk": "Good fit: the unattended kiosk sends biometric and ID data to a subcontractor, so two parties see the full identity. The vendor then learns who bought what. Using a threshold proof, the subcontractor role disappears. Weakness: binding the proof to the person at the machine (rather than a borrowed phone) still needs a device unlock or liveness step, and that step is not solved by the credential alone.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In Tor onion routing, relays are layered so no single intermediary holds both origin identity and destination; here, the age proof plays that role by letting the kiosk see 'adult yes' and purchase while the cloud vendor never sees identity, so no party holds both who and what.",
+    "source_excerpt": "A route must be relayed through intermediaries so that no single intermediary holds both the origin identity and the final destination, while the traffic still reaches the endpoint. | mechanism: Onion routing, where the message is wrapped in one encryption layer per relay, and each relay peels only its own layer and passes the rest to the next hop."
+   },
+   {
+    "borrowed_aspect": "In HIPAA minimum necessary, the holder is told to release only what the purpose needs but has no mechanism proving minimality; here, the threshold proof plays the mechanism, making the released subset provably just 'age >= 18'.",
+    "source_excerpt": "A holder of sensitive records must release only the subset that serves a stated purpose, but the rule leaves it to the holder to judge what is minimal and gives no mechanism that proves the released subset was minimal. | mechanism: Purpose-based minimum-necessary rule with reasonable-efforts standard, role-based access and reasonable reliance on requester representations (45 CFR 164.514(d)); no cryptographic or proof-based check."
+   }
+  ]
+ },
+ {
+  "review_id": "p09-3",
+  "title": "Labour inspection spot check that counts valid scaffolders without identifying them",
+  "moment": "A Taichung labour inspection office does a surprise visit to a mid-rise renovation site and must determine whether the workers on scaffolds hold valid high-place work training. Inspectors currently collect the name list, ID numbers and card copies of every person on site, and the contractor's office staff can see all of it afterwards.",
+  "verifier": "Labour inspector from the city government's labour inspection office (statutory enforcement)",
+  "predicate": "Each worker on the roster presents a proof that their scaffold/high-place training certificate is valid today; inspector receives per-worker pass/fail and a count, with identity revealed only for a failed check or on an actual violation finding.",
+  "disclosed_today": "Full roster with names, ID numbers, photocopied cards and certificates, photographed on inspector's phone and attached to the inspection file.",
+  "issuer": "Ministry of Labor / OSHA training registry, with accredited training bodies delegating signing",
+  "why_zk": "The inspector has a statutory right to check, so identity could legitimately be demanded in a violation case, but for the compliant majority the aggregate result suffices and the inspection file need not become a store of identity copies. Differential-style aggregate reporting limits what the file reveals. Weak point: inspectors may legally require full identification, and for enforcement the need to match a person to the physical body on the scaffold (face or ID) defeats unlinkability; ZK helps mainly with the compliant case and retained records.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In an-b-census-title13, the agency holds raw records but may publish only results that cannot single out a respondent; here, the inspection file plays the publication and keeps only counts and pass/fail per site, not the worker identifiers.",
+    "source_excerpt": "An agency holding individual responses must release aggregate results, and the legal duty bars any output from which a particular respondent can be singled out, while the holder's staff can still see the raw records. | mechanism: Statutory use limitation and publication prohibition enforced by sworn-oath duties and penalties; statistical disclosure limitation (for example differential privacy in later census products) is a technical layer not specified in the statute."
+   },
+   {
+    "borrowed_aspect": "In an-b-hipaa-safe-harbor, a fixed checklist of identifiers is removed before a record set is shared; here, the inspector's stored record plays that role with name, ID number, address and photo stripped and only class, validity and site code kept.",
+    "source_excerpt": "A party wants to share a record set that cannot identify any person, but the test is a checklist of removable fields plus a no-actual-knowledge condition, so the holder must still judge whether leftover fields re-identify someone. | mechanism: Safe Harbor method removing 18 enumerated identifiers (with ZIP-code truncation rule and age aggregation), or an expert-determination alternative; re-identification codes allowed only if not derived from or disclosed about the individual."
+   }
+  ]
+ },
+ {
+  "review_id": "p09-4",
+  "title": "Prepaid SIM counter at Taoyuan airport: stay-valid-until proof instead of passport scan",
+  "moment": "A tourist lands at Taoyuan airport and buys a prepaid data SIM at a telecom kiosk. Under the telecom real-name registration rules the clerk scans the passport and keeps a copy, even though the SIM only needs to be tied to a person who is lawfully in Taiwan for the SIM's validity period.",
+  "verifier": "Telecom operator's airport counter clerk (or the operator's self-service kiosk)",
+  "predicate": "Holder has a valid entry status (visa-exempt entry or visa) whose permitted stay ends on or after the SIM's expiry date, proven as a time-bounded claim with no passport number, name or photo revealed to the counter.",
+  "disclosed_today": "Full passport scan: name, passport number, nationality, date of birth, photo, plus the entry stamp or landing date; copy retained by the operator for the statutory retention period.",
+  "issuer": "National Immigration Agency (NIA), signing an entry-status credential at the border e-gate or on arrival card submission",
+  "why_zk": "The operator must satisfy a regulator that a real, lawfully present person is behind each SIM, but the legal need is the existence of a registered subscriber and a bounded stay, not a passport image stored in retail systems. A time-bounded entry-status proof plus a per-SIM pseudonym lets the operator hand the regulator a verifiable registration. Weakness: the regulation may literally require the identity details to be recorded, so the regulator would have to accept an escrowed or issuer-held identity retrievable by court order rather than a copy at the counter; without that rule change the operator will keep scanning.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In tw-securities-foreign-agent-id-copy, a full ID copy is demanded with no less-intrusive alternative stated; here, the entry-status credential plays that role of the alternative the rule never offered.",
+    "source_excerpt": "A foreign investor must prove that its local agent is a real, identified person, and the agent hands over a full copy of an ID card, with no alternative verification stated. | mechanism: None stated; full ID copy required with no less-intrusive alternative given."
+   },
+   {
+    "borrowed_aspect": "In an-b-ala-library-records, the provider must keep a record of who used what without it becoming a readable log; here, the SIM registration record holding only a pseudonym and a verified expiry plays that role.",
+    "source_excerpt": "A service provider must keep a record of who used what without that record becoming a readable log of a person's interests, but the duty is a recommended policy that depends on each institution adopting it and on courts or subpoenas being resisted. | mechanism: Institutional confidentiality policy plus procedures for handling subpoenas and law-enforcement requests; no technical minimization of records is specified."
+   }
+  ]
+ },
+ {
+  "review_id": "p09-5",
+  "title": "Hospital nurses' union bargaining ballot by mobile phone",
+  "moment": "Nurses across three shifts at a regional hospital vote on a collective-agreement offer using a phone link, since they cannot gather in one room. Today the union e-voting vendor asks them to log in with national ID, hospital employee number and work email, and the hospital's IT network sees the traffic and the work email domain, so management could infer participation.",
+  "verifier": "The nurses' union e-voting committee and its outsourced voting platform",
+  "predicate": "Holder is a dues-paying member of the nurses' union branch in good standing and has not voted on this specific ballot.",
+  "disclosed_today": "National ID number, hospital employee number, work email, phone number, and often a photo of the badge or union card uploaded for manual review.",
+  "issuer": "The nurses' union branch (a legally registered occupational union), signing membership status",
+  "why_zk": "The platform vendor currently becomes a store of who is a union member and who voted, a special-category fact sitting outside the union's control. A membership-plus-nullifier proof lets the vendor check eligibility without holding identities, and can be done from a personal phone off the hospital network. Weakness: if the union pre-registers voters on the vendor, the vendor already knows a list, and network metadata or coercion by supervisors still leaks participation.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In HIPAA Safe Harbor, a fixed list of identifiers including employers must be stripped before data can be shared; here, the proof strips employer, employee number and name from the credential so the vendor receives only a de-identified eligibility signal.",
+    "source_excerpt": "A party wants to share a record set that cannot identify any person, but the test is a checklist of removable fields plus a no-actual-knowledge condition, so the holder must still judge whether leftover fields re-identify someone. | mechanism: Safe Harbor method removing 18 enumerated identifiers (with ZIP-code truncation rule and age aggregation), or an expert-determination alternative; re-identification codes allowed only if not derived from or disclosed about the individual."
+   },
+   {
+    "borrowed_aspect": "In PDPA Article 11-3, the collector must delete data when the purpose lapses but may keep it whenever it says its duties require; here, the voting platform has no identity data to retain, so the deletion duty needs no open-ended exception.",
+    "source_excerpt": "A party that has collected a person's data must delete it once the reason for holding it ends, but an open-ended exception lets it keep the data whenever it says it still needs it for its own duties. | mechanism: Statutory deletion-on-purpose-lapse duty with exceptions for lawful duties or written consent; no technical erasure mechanism specified."
+   }
+  ]
+ },
+ {
+  "review_id": "p09-6",
+  "title": "Landlord tenant-screening confirms 'owns property' without a land-register address trail",
+  "moment": "A prospective landlord or agency in Taichung screening a renter wants comfort that the applicant is a landowner or company director (stable roots, assets), so staff search the land registry and company registry, ending up with the applicant's current home address and other property locations. Applicant presents an attestation instead, and the landlord learns only that the applicant is a landowner or director somewhere in Taiwan.",
+  "verifier": "Real-estate agency or private landlord screening tenants",
+  "predicate": "Holder appears as owner in the land registry or as director in the company registry (cross-source match across two registers, either suffices), without disclosing parcel numbers, addresses, or which register matched.",
+  "disclosed_today": "Applicant's ID copy, plus registry transcripts naming parcels, addresses and companies, often retained by the agency in tenant files.",
+  "issuer": "Ministry of the Interior land administration (land registry office) and Department of Commerce, via a joint wallet-facing attestation service",
+  "why_zk": "An 'either register' proof hides which register matched and where, so the agency's file does not become a map of the applicant's holdings. Weakness: landlords can simply ask for rent deposits or a guarantor instead, and the agency's legal need for this signal is thin, so adoption pressure is low.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In the Swiss e-ID, the business needs one attribute and the wallet releases only that one via selective disclosure; here, the landlord needs only 'owns property or is a director' and the wallet releases that single derived attribute.",
+    "source_excerpt": "A business needs one attribute to proceed, but the credential is issued as a whole, so the holder must rely on the wallet to release only the needed attribute. | mechanism: SD-JWT VC selective disclosure with OpenID4VP presentation and status-list validity check."
+   },
+   {
+    "borrowed_aspect": "In the telco SIM rule, the provider keeps a live photo with no retention limit; here, the agency's tenant file keeping full registry transcripts plays that role, replaced by a proof that leaves nothing sensitive to retain.",
+    "source_excerpt": "A provider must confirm a new subscriber's identity before activating a service; the rule requires capturing a live photo of the person at point of sale, with no stated limit on retention. | mechanism: None minimal; in-store photo capture required, no retention limit or less-intrusive alternative stated."
+   }
+  ]
+ },
+ {
+  "review_id": "p09-7",
+  "title": "Cashless pickup locker or consignment shop accepts only vetted peer sellers",
+  "moment": "A neighbourhood second-hand consignment shop in Tainan, or a community drop-box programme run with a district office, lets residents leave items for resale. Today the shop owner photocopies each new consignor's national ID and writes down their phone and bank account to guard against stolen goods and complaints. The owner really only wants to know the consignor has sold at least 5 items elsewhere with no disputes.",
+  "verifier": "The consignment shop owner (a small business) onboarding a new consignor",
+  "predicate": "Consignor has sold >= 5 items in peer trade with no upheld disputes, signed by a platform or community body",
+  "disclosed_today": "Photocopy of national ID (front and back), home address, phone number, bank account details, sometimes a handwritten consignment ledger entry",
+  "issuer": "A community body such as a neighbourhood association or district office running a reuse programme, or a marketplace platform the consignor has sold on",
+  "why_zk": "A signed aggregate lets the owner skip ID copies and keep no personal data file, reducing breach risk for a tiny business with no data-protection staff. Weak-to-moderate: the owner may still be legally or practically expected to identify consignors of used goods under second-hand dealer rules (古物商 record-keeping), so the proof can only replace the reputation part of the check, not any statutory identity registration.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In the bank deposit rule, the institution must examine identity documents at account opening and the text is silent on copies and retention; here, the consignment shop's intake photocopying plays that role, and the aggregate proof replaces the reputation-driven part of the copy habit while leaving any statutory ID duty untouched.",
+    "source_excerpt": "A bank must verify who a person is before opening an account, which means examining identity documents, but the cited rule does not say whether copies are kept or for how long. | mechanism: Dual identity-document inspection at account opening; retention and copy handling not specified in the cited text."
+   },
+   {
+    "borrowed_aspect": "In jury selection, someone must be seated from a pool without the public learning who they are, with confidentiality only as a discretionary exception; here, the vetted consignor is admitted to the shop's trusted pool by proof of a clean record, with anonymity as the default rather than the owner's discretion.",
+    "source_excerpt": "Someone must be drawn from a pool and seated for a task without the wider public learning who they are, but the default rule can flip to full publication of the identities of everyone selected, with confidentiality only as a judge-level exception. | mechanism: Judge-discretionary confidentiality of juror names under a court's jury selection plan; no technical mechanism specified."
+   }
+  ]
+ }
+]

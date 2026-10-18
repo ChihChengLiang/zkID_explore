@@ -1,0 +1,98 @@
+[
+ {
+  "review_id": "p05-0",
+  "context_purpose": "A rider wants reasonable assurance that a stranger driver poses no known violent-offender risk before a late-night shared ride.",
+  "norm_violation_today": {"violated": "yes", "parameter": "recipient", "reason": "Full ID and licence photos go to every member of a group chat, far beyond the one rider who needs a safety assurance."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "A clean list result says nothing about people with no record yet, and cannot show the driver is insured, sober or the same person as the licence holder."},
+  "transmission_check": {"principle_today": "safety_security", "permits_minimal_flow": "permits", "reason": "The photo request is a group-admin habit with no legal duty, so a proof can replace it; whether police would issue such a non-membership credential is a separate question."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "no", "verifier_can_check": "yes"},
+  "rubric_score": 2,
+  "novelty": 5,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p05-1",
+  "context_purpose": "A school bus driver must hand a child only to an adult the guardian has authorised.",
+  "norm_violation_today": {"violated": "unclear", "parameter": "information_type", "reason": "Writing the aunt's ID number and circulating the parent's phone number is plausibly more than a handover check needs, but this is routine child-safety practice."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Almost nothing; a one-time pass conveys the authorisation, though it does not itself prove the person presenting it is the aunt."},
+  "transmission_check": {"principle_today": "safety_security", "permits_minimal_flow": "unclear", "reason": "The school sets handover procedure for child safety and may require a name record; I cannot confirm what regulators require."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "yes", "verifier_can_check": "unknown"},
+  "rubric_score": 3,
+  "novelty": 4,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p05-2",
+  "context_purpose": "A hot-spring hotel directs guests to the correct gendered bath hall and applies its tattoo-age policy.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "Copying a whole ID card, with number and address, to decide a hall assignment collects far more than the one fact needed."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Nothing material; the venue needs only a yes/no, though the predicate is odd and the national ID may not carry a gender marker the wallet can attest."},
+  "transmission_check": {"principle_today": "commercial_convenience", "permits_minimal_flow": "permits", "reason": "The hotel has no stated legal duty to copy the ID, so a minimal proof is allowed."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "unknown"},
+  "rubric_score": 3,
+  "novelty": 5,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "p05-3",
+  "context_purpose": "A union organiser must confirm that each voter is an eligible dues-paying member of an affiliated union and votes once.",
+  "norm_violation_today": {"violated": "yes", "parameter": "recipient", "reason": "Sending employer name and payroll slips to a host union exposes workers' membership and workplace to people with no need to see them."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "Weighting by affiliate and detecting fraud in small affiliates may need the branch, and a tiny anonymity set undermines the hiding."},
+  "transmission_check": {"principle_today": "consented_for_benefit", "permits_minimal_flow": "unclear", "reason": "Voting rules are set by union bylaws and labour law I cannot confirm, and they may require an auditable roll."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 5,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p05-4",
+  "context_purpose": "A kindergarten receptionist must release a child only to someone the guardian has authorised for that day.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "Forwarded chat screenshots expose other families' names and phone numbers, which the receptionist has no need to see."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "A delegation proves guardian authorisation but not identity of the presenter, driver trustworthiness or insurance, so staff will likely still check ID."},
+  "transmission_check": {"principle_today": "safety_security", "permits_minimal_flow": "unclear", "reason": "The duty of care is a school practice and I cannot confirm whether any rule requires an ID check at pickup."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "yes", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 3,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p05-5",
+  "context_purpose": "A union election committee must run a valid strike vote limited to eligible members, one vote each.",
+  "norm_violation_today": {"violated": "yes", "parameter": "recipient", "reason": "A vendor and staff able to link names to votes break the expected secrecy of a ballot, and crew fear employer exposure."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Nothing for ballot eligibility, but the committee still needs the roll for a verifiable member count, so only vote-to-name unlinkability is gained."},
+  "transmission_check": {"principle_today": "required_by_law", "permits_minimal_flow": "unclear", "reason": "Strike-vote rules likely require an auditable eligibility roll and count, but I cannot confirm whether an anonymous ballot satisfies them."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "yes", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 4,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p05-6",
+  "context_purpose": "A hospital ICU desk must admit only spouses and named proxies during restricted visiting hours.",
+  "norm_violation_today": {"violated": "yes", "parameter": "retention", "reason": "Photocopying visitors' ID cards and logging them keeps full identity records beyond the single admission check."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "A bare list-membership bit cannot confirm the person at the desk is the listed one without an ID or device-bound check, and infection or incident tracing may need a name log."},
+  "transmission_check": {"principle_today": "safety_security", "permits_minimal_flow": "unclear", "reason": "Hospitals may keep visitor logs for infection control or security, and I cannot confirm what is required."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "yes", "verifier_can_check": "yes"},
+  "rubric_score": 2,
+  "novelty": 4,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "p05-7",
+  "context_purpose": "A concert organiser wants to stop scalped or resold tickets and duplicate entry at the gate.",
+  "norm_violation_today": {"violated": "yes", "parameter": "retention", "reason": "Keeping a persistent face template and ID-linked account long after the show goes beyond what a one-night entry check needs."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "A nullifier stops duplicate entry, but binding the person to the ticket still needs a biometric on the holder's phone, and lending the phone defeats it."},
+  "transmission_check": {"principle_today": "commercial_convenience", "permits_minimal_flow": "permits", "reason": "The organiser has no stated legal duty to hold faces, so a template-free scheme is allowed; real-name ticketing rules, if any, are unclear to me."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 5,
+  "provenance_faithful": "no"
+ }
+]

@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Typhoon-night shelter triage desk accepts a nurse on a freshness proof, not a licence photo",
+    "moment": "After a typhoon floods a township in Pingtung, the district office opens a school gym as a shelter. At 9 pm a retired nurse walks in and offers to staff the first-aid corner. The volunteer coordinator, a borough warden, currently photographs her nursing licence and ID card on a personal phone and posts them to the shelter's LINE group so the health-bureau liaison can vouch for her. She needs to start within minutes, and the coordinator only needs to know the licence is valid today.",
+    "verifier": "Shelter volunteer coordinator (borough warden / township office staff) running the first-aid corner",
+    "predicate": "Holds a nursing licence that was confirmed in good standing (not revoked, suspended or lapsed) within the last 24 hours; no name, licence number, or ID number revealed",
+    "disclosed_today": "Photo of the nursing licence, photo of national ID card (name, ID number, birth date, address), phone number, posted to a LINE group and kept on the coordinator's phone",
+    "issuer": "Ministry of Health and Welfare nurse-registry service, issuing a short-lived 'licence active as of now' attestation into the nurse's wallet each time she asks",
+    "why_zk": "The need is a freshness check: a licence valid last year proves little, so a static scan is the wrong evidence anyway, while a wallet proof bound to a recent registry check is better evidence and reveals nothing else. Weakness: during a disaster, phones, power and registry connectivity may be down, and shelters often must also log who is present for safety, so some identification may legitimately remain; the proof helps most for the clinical-role decision, not for the head-count roll.",
+    "inspired_by": [
+      {
+        "seed_id": "an-b-hipaa-min-necessary",
+        "borrowed_aspect": "In HIPAA minimum-necessary, the holder is trusted to judge and limit what is released to the purpose with no proof it was minimal; here, the nurse's wallet proof plays that role by making the released fact exactly 'licensed and current today' so minimality is enforced rather than left to the warden's judgement."
+      },
+      {
+        "seed_id": "tw-bank-deposit-dual-id-check",
+        "borrowed_aspect": "In the bank dual-ID rule, the institution inspects two identity documents and the text is silent on copies and retention; here, the shelter's licence-plus-ID photo check plays that role and the freshness proof replaces both photos so there is no copy to retain."
+      }
+    ]
+  },
+  {
+    "title": "Hospital-to-shelter nurse rota: proving current licence without disclosing the employer",
+    "moment": "A county health bureau asks hospital nurses to take weekend rotations at an earthquake evacuation shelter in Hualien. The shelter's volunteer platform wants confirmation that each rotating nurse is licensed and in good standing this week, and its sign-up form asks for employer, ward, and licence scan. Nurses working in psychiatric or oncology wards, or who work for a rival hospital, do not want their workplace or ward revealed to community volunteers who may be their neighbours or patients' relatives.",
+    "verifier": "Civil-defence / volunteer-platform operator (county volunteer coordination centre) rostering nurses across shelters",
+    "predicate": "Licence in good standing as of the last 7 days; employer, ward, and licence number not disclosed",
+    "disclosed_today": "Licence scan, employer name, department/ward, staff ID, phone and home district, held in a shared volunteer spreadsheet visible to many coordinators",
+    "issuer": "Taiwan Nurses Association or Ministry of Health and Welfare registry, issuing a weekly renewable licence-status credential; the employing hospital is not involved",
+    "why_zk": "The sign-up form copies the HIPAA habit of enumerating fields to strip, but leftover fields (ward, district, employer) still re-identify a nurse and her patients' circle; a proof that discloses only licence currency makes the leftover-field judgement unnecessary. Weakness: the platform may still need a contact channel and an emergency contact, and registry-issued weekly credentials require infrastructure the health authority may not provide, so adoption depends on the ministry rather than the volunteer centre.",
+    "inspired_by": [
+      {
+        "seed_id": "an-b-hipaa-safe-harbor",
+        "borrowed_aspect": "In HIPAA Safe Harbor, the sharer removes a checklist of identifiers of the individual and relatives or employers yet must still judge residual re-identification; here, the nurse's credential plays that role by disclosing only licence currency so employer and ward never enter the rota and nothing is left to judge."
+      },
+      {
+        "seed_id": "an-b-jury-selection",
+        "borrowed_aspect": "In jury selection, names of those seated may be published by default with confidentiality only as a judge-level exception; here, the volunteer rota's default of listing employer and ward plays that role and the credential makes confidentiality the default instead of an exception granted per nurse."
+      }
+    ]
+  },
+  {
+    "title": "School-gym shelter with children: nurse volunteer allowed near the child-care corner without a copy of her ID",
+    "moment": "A shelter in a Taichung elementary school gym houses families with young children after a flood. The school's safety officer and a social-work NGO require that anyone staffing the infant and child health corner be a verified nurse, to prevent impersonation by strangers with access to children. A nurse who has just come off shift arrives, and the NGO wants a photocopy of her licence and ID for its volunteer file, which sits in a filing box in the school office for months.",
+    "verifier": "Social-work NGO volunteer lead jointly with the school safety officer controlling access to the child-care corner",
+    "predicate": "Nursing licence confirmed in good standing within the last 12 hours, shown on the volunteer's phone at the corner entrance and checked against the shelter's rota",
+    "disclosed_today": "Photocopy of licence and national ID card (including address and ID number) filed in a paper volunteer binder, plus name and phone on a sign-in sheet",
+    "issuer": "Ministry of Health and Welfare nurse registry, with the issuance bound to the nurse's phone wallet so a screenshot or borrowed phone cannot be replayed",
+    "why_zk": "Scope of what the NGO and school may collect is left to their discretion, much like a household registry office asking for proxy ID copies, and that copy habit is where the harm sits: months of retained ID copies of volunteers in a school office. A fresh, holder-bound proof meets the child-safety aim without a copy. Weakness: child safety also normally calls for a criminal-record or reference check which this claim does not cover, and a proof of licence does not show the person at the door is the licence holder unless wallet binding or a quick in-person ID glance is kept.",
+    "inspired_by": [
+      {
+        "seed_id": "tw-gov-household-register-proxy-copy-discretion",
+        "borrowed_aspect": "In the household-registry proxy rule, the office may collect a copy of the principal's identity document at its own discretion; here, the NGO's and school's habit of filing licence and ID copies plays that role and the on-phone proof replaces the copy so discretion has nothing to collect."
+      },
+      {
+        "seed_id": "an-b-attorney-client",
+        "borrowed_aspect": "In attorney-client privilege, confidentiality is lost as soon as an unnecessary third party is in the room; here, the shelter's paper binder and extra staff who handle the ID copy play that third party and the wallet proof keeps the exchange between the nurse and the single gate check."
+      }
+    ]
+  }
+]

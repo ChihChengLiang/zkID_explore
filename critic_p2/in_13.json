@@ -1,0 +1,162 @@
+[
+ {
+  "review_id": "p13-0",
+  "title": "Cram school (安親班) bus or staff releasing a child to a non-regular adult",
+  "moment": "A private after-school care centre (安親班) in Taichung normally releases children to the two registered parents. Today a family friend arrives to take a child because both parents are in a hospital appointment. The centre owner currently accepts a LINE message from the parent, screenshots it, and keeps the screenshot plus the friend's photographed ID to protect against later disputes.",
+  "verifier": "安親班 owner / front-desk staff",
+  "predicate": "The holder proves that a registered guardian authorised them to collect this specific child before today's closing time; the centre learns nothing about the friend's ID number, address or relationship to the family beyond what the guardian chose to attest.",
+  "disclosed_today": "A LINE message screenshot (exposing the parent's chat identity and often other conversation context), a photographed ID of the friend, and a stored phone number, all kept on the owner's personal phone indefinitely.",
+  "issuer": "The guardian's own wallet signing a delegation, anchored to the centre's enrolment record in which the guardian is registered; alternatively a peer-issued delegation with the centre as verifier of the guardian's key.",
+  "why_zk": "A reasonable fit: the centre's real fear is a later dispute, so it wants proof that it was authorised, which a signed time-bounded delegation provides better than a screenshot and without hoarding ID photos. Honest weakness: small centres are often informal, have no verifier app and no legal duty to adopt it, so adoption would depend on a free tool or a parent-app integration; the 'proof for disputes' need also means some record is kept, so unlinkability only partly applies.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In the Taiwan securities rule, a local agent proves their identity to the broker by handing over a full ID copy with no lighter alternative; here, the family friend's photographed ID at the 安親班 plays that role, and a signed delegation from the guardian is the less intrusive alternative.",
+    "source_excerpt": "A foreign investor must prove that its local agent is a real, identified person, and the agent hands over a full copy of an ID card, with no alternative verification stated. | mechanism: None stated; full ID copy required with no less-intrusive alternative given."
+   },
+   {
+    "borrowed_aspect": "In SameSite cookies, a credential is restricted so it is sent only to the party in the current context and cannot be used to recognise the holder elsewhere; here, a delegation token scoped to one centre, one child and one day plays that restriction so that it cannot be replayed at another venue or on another day.",
+    "source_excerpt": "A stored credential should be presented only to the party that issued it in the current context, but the browser sends it on any request the context triggers, so an unrelated observer can match the holder across contexts. | mechanism: The SameSite cookie attribute, which limits the cookie to same-site requests (Strict, Lax, or None); the IETF draft describes it as a per-cookie setting, and cross-site behaviour depends on the chosen value."
+   }
+  ]
+ },
+ {
+  "review_id": "p13-1",
+  "title": "Roommate-sharing app: 'clean record' badge without sending a criminal record certificate",
+  "moment": "A 26-year-old in Taichung wants to share a three-bedroom flat found through a roommate-matching app. The app offers a 'verified safe' badge that gets more replies, but to earn it the user must upload a 良民證 (police criminal record certificate) scan with national ID number, full name and address, which the platform staff and the app's contractors can see.",
+  "verifier": "The roommate-matching platform, acting on behalf of strangers who will read the badge",
+  "predicate": "The holder's ID is not on the current violent-offender list (non-membership), proven against a list root that the signer publishes and refreshes",
+  "disclosed_today": "Full scan of the criminal record certificate: name, national ID number, birth date, household address, the full list of recorded offences, and the issue date",
+  "issuer": "National Police Agency (via the police criminal record service), signing a non-membership credential against a dated violent-offender list root",
+  "why_zk": "The badge only needs one bit (not on the list as of date X) but the certificate hands the platform a copy of the person's full identity and record, which it can then retain indefinitely under a vague 'business need' exception. A proof of non-membership against a signed, dated list root gives the same assurance with no ID number stored. Weakness: strangers must trust that the list is the right list, and 'violent-offender list' is not an existing public Taiwanese register, so the list and its legal basis would have to be created; a list covering only convictions misses unreported danger.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In gdpr-data-minimisation, controllers collect a whole document when a narrower field would serve the purpose; here, the roommate platform collects a whole criminal record certificate when a single not-on-the-list bit would serve.",
+    "source_excerpt": "A rule obliges anyone requesting information to take only what the purpose needs, but gives no practical way to request less than a whole document. | mechanism: Legal principle of data minimisation; no technical mechanism specified."
+   },
+   {
+    "borrowed_aspect": "In tw-pdpa-art11-3-deletion-exception, a collector keeps data after its purpose ends by claiming it is needed for its own business; here, the platform's retention of uploaded certificate scans plays that role, and a proof that leaves nothing to keep removes the loophole.",
+    "source_excerpt": "A party that has collected a person's data must delete it once the reason for holding it ends, but an open-ended exception lets it keep the data whenever it says it still needs it for its own duties. | mechanism: Statutory deletion-on-purpose-lapse duty with exceptions for lawful duties or written consent; no technical erasure mechanism specified."
+   }
+  ]
+ },
+ {
+  "review_id": "p13-2",
+  "title": "Scaffolding crew check-in without a stack of ID copies",
+  "moment": "At 6:30 a.m. a Taipei scaffolding subcontractor's site foreman signs in a crew of day-hired workers before they climb a building facade. Today each worker hands over a photocopy of their ID card and a photocopy of the 高空作業/鷹架 safety-training certificate, and the foreman keeps the pile in a folder in the site office to show labour inspectors.",
+  "verifier": "Scaffolding subcontractor (site foreman or safety officer) on a construction site in Taipei",
+  "predicate": "Holds a safety-training certificate for scaffold assembly or work at height that is valid today (issue date plus validity period has not run out), without revealing name, ID number, birth date, address or training venue.",
+  "disclosed_today": "Photocopy of national ID card and of the training certificate, with full name, ID number, birth date, certificate number, training institution and exact training dates; copies are kept in the site file.",
+  "issuer": "A training institution accredited by the Ministry of Labor (or the Occupational Safety and Health Administration) that already runs the course and records completion.",
+  "why_zk": "A time-bounded predicate (not expired at the check-in date) fits a selective-disclosure credential well, and the foreman only needs a yes for today. The legal duty to confirm training stays, but the law asks for evidence of valid training, not for a stored ID copy. Weakness: inspectors may still insist on seeing the paper certificate or a named record, and the foreman may also legitimately need to know who is on site for insurance and accident reporting, so the proof would replace the photocopy pile but not the roster.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In tw-pdpa-art11-3-deletion-exception, the 'necessary for duties' exception lets the collector keep data indefinitely after its purpose lapses; here, a verification receipt that records only 'valid on this date' plays that role by giving the foreman something he can lawfully keep while the ID copy has nothing to justify its retention.",
+    "source_excerpt": "A party that has collected a person's data must delete it once the reason for holding it ends, but an open-ended exception lets it keep the data whenever it says it still needs it for its own duties. | mechanism: Statutory deletion-on-purpose-lapse duty with exceptions for lawful duties or written consent; no technical erasure mechanism specified."
+   },
+   {
+    "borrowed_aspect": "In tw-gov-household-register-proxy-copy-discretion, the office decides at its own discretion how many identity document copies to collect; here, the foreman's habit of photocopying the ID and certificate plays that role, and the proof replaces that discretion with a fixed, minimal question.",
+    "source_excerpt": "A government office that holds a record may ask a proxy's requester for a copy of the principal's identity document, and the scope of what it may collect is left to the office's discretion. | mechanism: None stated; collection of document copies left to agency discretion under PDPA and administrative procedure rules."
+   }
+  ]
+ },
+ {
+  "review_id": "p13-3",
+  "title": "Carousell buyer checks a seller's track record without seeing a full profile",
+  "moment": "A student in Taichung wants to buy a used Switch for NT$5,500 from a Carousell Taiwan seller and meet at an MRT station. To feel safe, the buyer scrolls the seller's whole profile, past reviews with names, item history and sometimes asks for an ID photo. The buyer only needs to know the seller has completed at least 10 sales with no open disputes.",
+  "verifier": "Individual buyer (and the marketplace app on the buyer's behalf) deciding whether to hand over cash in a face-to-face trade",
+  "predicate": "Seller has completed >= 10 sales on this platform with zero unresolved disputes in the past 12 months",
+  "disclosed_today": "Public profile with username, photo, join date, every past listing, full review texts with reviewer names, plus informal requests for a photo of the national ID card or a phone number",
+  "issuer": "The marketplace platform (e.g. Carousell Taiwan), which holds the sale-completion and dispute records",
+  "why_zk": "The platform already knows the count and dispute state, so it can sign a credential and the seller can prove the threshold without exposing the listing history, counterparties or real identity. Moderate strength: the platform's badge already does a crude version of this, so the gain is mainly unlinkability across platforms and no need to hand over ID photos; the platform remains a trusted issuer and can still track the seller itself.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In Google Wallet's age proof, a ZKP lets the verifier learn only the over-18 claim without being able to track the holder; here, the seller's 'at least 10 clean sales' proof plays that role so the buyer learns only the threshold, not the history.",
+    "source_excerpt": "A gatekeeper needs one yes/no fact about a holder, and the proof it receives must not reveal the underlying birth date or let the issuer or the gatekeeper track the holder. | mechanism: Zero-knowledge proof on ISO 18013-7 mdocs for an over-18 statement, device-bound transactions, no server-side storage of credential data."
+   },
+   {
+    "borrowed_aspect": "In the gym-membership case, a provider asks for front-and-back ID and card copies when a lesser check would do; here, buyers asking sellers for ID photos to feel safe plays that over-collection role, and the threshold proof is the less-intrusive alternative the letter never named.",
+    "source_excerpt": "A service provider signing up a customer must check identity and payment, but it asks for full front-and-back copies of identity and card documents, and the regulator leaves whether that exceeds the purpose to case-by-case fact-finding. | mechanism: None stated; the letter says less-intrusive alternatives must be considered but names none."
+   }
+  ]
+ },
+ {
+  "review_id": "p13-4",
+  "title": "Gate handoff relay so the face camera vendor never sees the ticket and the ticket office never sees the face",
+  "moment": "At a Taichung baseball stadium that uses a third-party face-recognition gate vendor for season-ticket holders, the vendor receives both the face and the season-ticket account number, so one company can link a person's face to their attendance history at every game.",
+  "verifier": "Third-party face-gate vendor under contract to the baseball club",
+  "predicate": "The person entering is the single season-ticket holder registered for this seat and this game, and this seat has not been entered already (uniqueness per seat per game)",
+  "disclosed_today": "Face image and template, season-ticket account number, name, phone and the full list of games attended, held by the vendor and the club",
+  "issuer": "The baseball club signs the season-ticket credential; the holder's phone does the local liveness and face-to-credential match, and only a proof plus a per-game nullifier is passed to the gate",
+  "why_zk": "Splitting what each party sees mirrors onion routing: the gate vendor learns only that a valid unused seat credential was presented and the club learns only a nullifier, so neither side can build a face-to-attendance history. The local match on the phone must still be trusted, and a compromised phone app or a lent phone defeats it. The vendor and club also gain a reason to keep the old system running because face gates are faster than phone scans in a queue. Today's collection is a commercial choice, so adoption depends on the club wanting the privacy benefit.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In Tor, each relay peels one layer and knows only its neighbours so no single relay holds both origin and destination; here, the gate vendor and the baseball club play the relays, with the vendor seeing the proof but not the account and the club seeing the nullifier but not the face.",
+    "source_excerpt": "A route must be relayed through intermediaries so that no single intermediary holds both the origin identity and the final destination, while the traffic still reaches the endpoint. | mechanism: Onion routing, where the message is wrapped in one encryption layer per relay, and each relay peels only its own layer and passes the rest to the next hop."
+   },
+   {
+    "borrowed_aspect": "In attorney-client privilege, confidentiality breaks when an outsider is present unless the outsider is essential; here, the third-party gate vendor is the outsider in the club-and-fan relationship, and the design keeps it from holding more than its essential check.",
+    "source_excerpt": "A party must consult an advisor about a sensitive matter without the advisor, or anyone else, learning or revealing more than the matter requires, but the protection breaks as soon as an outsider is in the room unless the outsider is essential to the relationship. | mechanism: Evidentiary privilege over communications, lost by third-party presence except essential agents such as interpreters; no technical mechanism."
+   }
+  ]
+ },
+ {
+  "review_id": "p13-5",
+  "title": "Dajia Mazu pilgrimage bus: congregation seat without a member roster",
+  "moment": "A Taichung neighbourhood temple organises its yearly walking pilgrimage with chartered buses and group accident insurance. The tour agency wants proof that each rider belongs to this temple's believers' association (to get the congregation group fare and the temple's group policy), and today asks everyone to hand in a copy of their ID plus the temple's member card and fill a form listing religion and parish.",
+  "verifier": "The travel agency and the group-insurance broker booking the chartered buses for the temple pilgrimage",
+  "predicate": "Holder is a currently registered member of temple association X (membership, boolean), with no name, ID number or religion field released",
+  "disclosed_today": "Full name, national ID number, birth date, phone, copy of the temple member card (which itself reveals religious affiliation), sometimes household address, kept in the agency's spreadsheet and forwarded to the insurer",
+  "issuer": "The temple's registered believers' association (the community body that already keeps the member register), signing a membership credential at renewal each year",
+  "why_zk": "The fare discount only needs 'is in the association', yet the agency stores a religious-affiliation list, which is special-category data and a leak risk. A presentation of association membership with a per-trip validity check removes that list. Weakness: the insurer still needs real names and IDs of insured travellers for the policy itself, so ZK only removes the religion/congregation part, not identity; and small temples may lack the capacity to run an issuer.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In the Swiss e-ID, the wallet releases only the attribute a transaction needs from a whole credential; here, the temple membership card plays that role by revealing only 'member of association X' and not religion, address or ID number.",
+    "source_excerpt": "A business needs one attribute to proceed, but the credential is issued as a whole, so the holder must rely on the wallet to release only the needed attribute. | mechanism: SD-JWT VC selective disclosure with OpenID4VP presentation and status-list validity check."
+   },
+   {
+    "borrowed_aspect": "In PDPA Art. 11(3), the collector may keep data whenever it claims business necessity after the purpose lapses; here, the agency's post-trip member spreadsheet plays that role, and a one-time proof that leaves nothing to retain removes the need for the exception.",
+    "source_excerpt": "A party that has collected a person's data must delete it once the reason for holding it ends, but an open-ended exception lets it keep the data whenever it says it still needs it for its own duties. | mechanism: Statutory deletion-on-purpose-lapse duty with exceptions for lawful duties or written consent; no technical erasure mechanism specified."
+   }
+  ]
+ },
+ {
+  "review_id": "p13-6",
+  "title": "Weekly spot inspection at the stall without leaking the permit number",
+  "moment": "At 7pm on a Friday a market-office patrol worker walks the stalls and checks that each operator's hygiene and stall permit is current. Today the vendor hands over the laminated permit or a phone photo, which shows the permit number, ID number and address, and the worker photographs it for the log. Permit numbers and the owner's identity numbers then circulate in chat groups of the market office.",
+  "verifier": "Market-office patrol staff acting for the committee",
+  "predicate": "The permit presented was current when issued within the last 24 hours, and its issuance is bound to this stall's wallet, not to a transferable number.",
+  "disclosed_today": "Permit number, name, ID card number, registered address, and a photo of the permit placed in a shared chat or log.",
+  "issuer": "Health bureau, issuing a short-lived (daily-refreshed) freshness attestation to the vendor's wallet app.",
+  "why_zk": "Because a permit number is a static identifier, anyone who sees it can reuse it to impersonate the stall, as with a leaked ID number that survives card reissue. A holder-bound proof that is fresh each day, and shown only to the patrol device, means a leaked log photo is useless. Weakness: many vendors are older and may lack a smartphone, and the patrol can also just look at the physical permit, so adoption pressure is low.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In tw-gov-id-number-reissue-misuse-2025, a static number keeps working for impostors after the card is reissued; here, a holder-bound daily-fresh proof plays the role of the changing credential so a leaked permit number has no value.",
+    "source_excerpt": "Once the number that identifies a person leaks, reissuing the physical card does not stop someone presenting the same number, so verifiers that check the number and a photo can be fooled. | mechanism: None; reissuing the card does not change the number."
+   },
+   {
+    "borrowed_aspect": "In an-a-samesite-cookies, the cookie attribute limits where the stored credential is sent; here, binding the proof to the patrol verifier and the current context plays that role so the same permit cannot be replayed to unrelated parties.",
+    "source_excerpt": "A stored credential should be presented only to the party that issued it in the current context, but the browser sends it on any request the context triggers, so an unrelated observer can match the holder across contexts. | mechanism: The SameSite cookie attribute, which limits the cookie to same-site requests (Strict, Lax, or None); the IETF draft describes it as a per-cookie setting, and cross-site behaviour depends on the chosen value."
+   }
+  ]
+ },
+ {
+  "review_id": "p13-7",
+  "title": "Neighbour-or-relative picks up the child's card at a community reading corner",
+  "moment": "A community reading corner (社區閱讀角) in a Kaohsiung township, run by a volunteer association and linked to the public library network, lets children borrow books on the library card. A working father sends his sister to enrol his 5-year-old niece, and the volunteer at the table asks her to hand over copies of her own ID, the father's ID and a signed delegation note to prove she may act for the guardian.",
+  "verifier": "Volunteer-run community reading corner acting as a library satellite point",
+  "predicate": "Presenter holds a delegated, revocable guardian-agent credential from a legal guardian of a child under the card's age limit, valid for this enrolment only; no ID copies of the guardian or the agent are collected.",
+  "disclosed_today": "Copies of the aunt's ID and the father's ID, the signed delegation note, the child's name and household details, handled by an untrained volunteer who stores them in a folder or photographs them on a personal phone.",
+  "issuer": "The legal guardian himself, as a peer issuer, signing a delegation on top of his household-registry guardian credential from the household registration office.",
+  "why_zk": "Copies of two adults' IDs held by volunteers is a clear over-collection with weak storage, much like a foreign investor's agent handing over a full ID copy because no lighter alternative is stated. A delegated proof shows only that a real guardian authorised this agent for this card, and the volunteer never holds a document to leak. This is also close to the privilege problem: a third party in the room should not learn more than the relationship requires. Weakness: the delegation chain relies on the guardian's credential being genuine, and a peer-issued delegation is only as trustworthy as the registry credential beneath it. Rural guardians may lack a wallet or smartphone, so a paper fallback will remain.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In the Taiwan securities rule, a local agent proves they are a real, identified person by handing over a full ID card copy with no lighter alternative; here, a delegated guardian-agent proof plays that role without leaving an ID copy at the reading corner.",
+    "source_excerpt": "A foreign investor must prove that its local agent is a real, identified person, and the agent hands over a full copy of an ID card, with no alternative verification stated. | mechanism: None stated; full ID copy required with no less-intrusive alternative given."
+   },
+   {
+    "borrowed_aspect": "In attorney-client privilege, confidentiality survives a third party only if the outsider is essential to the relationship, like an interpreter; here, the volunteer is the outsider and the delegated proof makes the aunt the essential agent while the volunteer learns only that a guardian authorised her.",
+    "source_excerpt": "A party must consult an advisor about a sensitive matter without the advisor, or anyone else, learning or revealing more than the matter requires, but the protection breaks as soon as an outsider is in the room unless the outsider is essential to the relationship. | mechanism: Evidentiary privilege over communications, lost by third-party presence except essential agents such as interpreters; no technical mechanism."
+   }
+  ]
+ }
+]

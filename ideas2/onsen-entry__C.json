@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Hot-spring hotel front desk: tattoo-policy age or women's-bath eligibility without ID photo",
+    "moment": "A family checks into a hot-spring hotel in Beitou. The desk clerk wants to confirm the guests may use the women's bath and, for a guest with visible tattoos, whether the guest meets the venue's tattoo-policy age. Today the clerk photocopies or photographs the national ID card and logs it on a paper sheet kept at the counter.",
+    "verifier": "Front desk of a Beitou hot-spring hotel (private operator)",
+    "predicate": "Holder is registered female in the household register OR holder's age is at or above the venue's tattoo-policy threshold (membership in the set of eligible persons); nothing else is revealed",
+    "disclosed_today": "Full national ID card copy or photo: name, ID number, birth date, address, household-register details, photo",
+    "issuer": "Ministry of the Interior household registration offices, through the Taiwan digital wallet (TW FidO) credential",
+    "why_zk": "The venue collects the ID copy out of habit and fraud screening, with no legal duty, so a one-bit OR claim removes the whole copy. Weakness: gender is binary in the register, so the claim says nothing for trans or non-binary guests, who may still be challenged by staff, and a guest whose phone is dead falls back to the old copy. Staff may also keep demanding ID because it is easy.",
+    "inspired_by": [
+      {
+        "seed_id": "rd-swiss-eid-necessary-data-only",
+        "borrowed_aspect": "In the Swiss e-ID, the wallet releases only the attribute a transaction needs through selective disclosure; here, the Taiwan digital wallet releases only the single 'female or over threshold' flag to the hotel desk."
+      },
+      {
+        "seed_id": "tw-securities-foreign-agent-id-copy",
+        "borrowed_aspect": "In the securities foreign-agent rule, a full ID card copy is demanded with no less-intrusive alternative stated; here, the hotel's photocopy habit plays that role and the one-bit credential is the missing alternative."
+      }
+    ]
+  },
+  {
+    "title": "Public bath changing-room door: female-only gate check that leaves no record linking person to visit",
+    "moment": "A municipal public bath in Taichung has a women's-only side. A staff member at the ticket booth is suspicious of a visitor and asks for ID to confirm she is allowed in the women's area. Staff also write ID numbers in a logbook for 'safety'. Instead, the visitor scans a wallet proof at the turnstile that shows only 'women's-area eligible', and the gate logs only a count.",
+    "verifier": "Turnstile or ticket booth of a public bath run by a district office or contractor",
+    "predicate": "Holder is a member of the set of persons registered female, proven at the gate with a one-time presentation that carries no stable identifier",
+    "disclosed_today": "ID number and name written into the visitor logbook, sometimes a face-and-ID photo taken by staff",
+    "issuer": "Household registration office (government_admin), via the national wallet; the gate only checks the signature and status list",
+    "why_zk": "Separating the eligibility check from any record of who entered mirrors the secret ballot, where the gatekeeper checks eligibility but nothing links the person to what they did. The logbook collection is commercial or habit-driven, so removing it is lawful and cheap. Weakness: the gate still sees a live person at the door, so staff can recognize a face, and unlinkable presentations need wallet support that older visitors may not have; staff discretion at the door cannot be proven away.",
+    "inspired_by": [
+      {
+        "seed_id": "an-b-secret-ballot-moad",
+        "borrowed_aspect": "In the Australian secret ballot, eligibility is checked separately from the ballot so identity is not attached to the vote; here, the turnstile's eligibility proof is kept separate from the visit log so no ID is attached to the bath entry."
+      },
+      {
+        "seed_id": "an-a-samesite-cookies",
+        "borrowed_aspect": "In SameSite cookies, a stored credential is limited to the context where it was meant so third parties cannot match the holder across sites; here, the bath-gate proof is bound to a single presentation so the bath and other venues cannot link the same visitor."
+      }
+    ]
+  },
+  {
+    "title": "Onsen day-pass sold through a ticketing app: age-over-threshold claim for tattoo rules, then deletion",
+    "moment": "A traveler buys an online day-pass for a tattoo-friendly-with-conditions onsen in Wulai through a booking platform. The platform asks for an uploaded ID photo to confirm the visitor is over the age threshold at which tattoos are allowed, and keeps it 'for business needs'. The visitor instead shares an age-over claim from the wallet at booking and the platform stores only the pass.",
+    "verifier": "Online booking platform and onsen operator in Wulai",
+    "predicate": "Holder's age is at or over the venue's tattoo-policy age (membership in the over-threshold set), checked once at booking",
+    "disclosed_today": "Uploaded ID photo with name, ID number, birth date and address, retained by the platform after the visit",
+    "issuer": "Ministry of the Interior via the national digital wallet; an alternative issuer for foreign visitors is the immigration agency through the residence-permit credential",
+    "why_zk": "Taiwan's PDPA lets a business keep data when it says it is necessary for its business, so the deletion-on-purpose-lapse rule offers little protection; a claim that never delivers the birth date means there is nothing to delete or leak. Weakness: tourists without a Taiwan wallet or residence credential cannot use it, so the ID upload stays as the fallback, and the onsen may still view the tattoo on arrival regardless of the claim.",
+    "inspired_by": [
+      {
+        "seed_id": "tw-pdpa-art11-3-deletion-exception",
+        "borrowed_aspect": "In PDPA Article 11(3), a collector may keep data past its purpose by citing business necessity; here, the booking platform's 'business need' retention of the ID photo plays that role, and the age-over claim removes the data that could be retained."
+      },
+      {
+        "seed_id": "tw-gov-household-register-proxy-copy-discretion",
+        "borrowed_aspect": "In the household-register proxy rule, the office's discretion decides how many identity document copies are collected; here, the platform's own discretion over what ID to request plays that role and a predicate-only claim would bound it."
+      }
+    ]
+  }
+]

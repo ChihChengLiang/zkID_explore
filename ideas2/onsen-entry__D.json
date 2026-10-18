@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Hot-spring hotel bath: gender-area entry without handing over ID",
+    "moment": "A traveler checks in at a Beitou hot-spring hotel whose public bath has separate men's and women's halls plus a tattoo-restricted policy. The front desk photocopies or photographs her ID card 'to confirm gender and age' and logs it with the booking, although she only needs to show she qualifies for the women's hall or is old enough under the house tattoo-age rule.",
+    "verifier": "Front desk of a Beitou hot-spring hotel operating a public bath",
+    "predicate": "Holder is recorded as female OR holder's age is at or above the venue's tattoo-policy age threshold (a membership/set-inclusion claim over the attributes held by the household registration or national ID record)",
+    "disclosed_today": "Full ID card image or photocopy: name, national ID number, birth date, address, household registration details, photo, gender marker",
+    "issuer": "Ministry of the Interior household registration offices, via the Taiwan Digital Wallet (TW DIW) national ID credential",
+    "why_zk": "The venue needs one yes/no fact per visit, not an identity. A device-bound ZK presentation of 'female OR age >= N' avoids the ID copy and keeps the bath's ledger free of ID numbers and addresses. Weakness: the venue has no legal duty to check, so adoption depends on the hotel seeing a benefit (less liability for holding ID images, easier compliance with the PDPA minimisation principle), and the existing practice of simply looking at the ID is only mildly invasive when not copied.",
+    "inspired_by": [
+      {
+        "seed_id": "rd-google-wallet-zkp-age-no-linkage",
+        "borrowed_aspect": "In rd-google-wallet-zkp-age-no-linkage, a ZK proof on an mdoc lets a gatekeeper learn only an over-18 claim without the birth date; here, the national ID wallet credential proving 'female or over tattoo-age' plays that role for the hotel front desk."
+      },
+      {
+        "seed_id": "gdpr-data-minimisation",
+        "borrowed_aspect": "In gdpr-data-minimisation, controllers collect whole documents when a narrower field would serve; here, the front desk photocopying a whole ID card when one bit is needed plays that role, and the selective-disclosure proof supplies the missing narrower field."
+      }
+    ]
+  },
+  {
+    "title": "Day-pass bath house: proving 'qualifies for women's area' without being re-checked each time",
+    "moment": "A regular at a neighbourhood public bath in Taichung buys a monthly pass. Staff keep a register with her ID details to decide which gender area she may use and to flag minors or tattooed guests under policy. Each visit she is matched against the register, so the bath builds a visit log tied to her identity, which it also uses for promotions.",
+    "verifier": "Neighbourhood public bath / spa operator with a monthly pass scheme",
+    "predicate": "Holder possesses a valid 'female or over tattoo-policy age' attestation and presents it unlinkably for each entry (membership in the set of eligible holders)",
+    "disclosed_today": "Name, ID number, birth date and gender recorded in the pass register, plus a timestamped visit history linked to that identity",
+    "issuer": "The bath operator itself issues an anonymous-credential pass after one in-person check against the national ID wallet; alternatively the local township office",
+    "why_zk": "Unlinkable presentations let the bath verify eligibility each visit without building a per-person visit log, and the issuer cannot match redemption to issuance. Honest limit: the operator is both issuer and verifier, so unlinkability only helps if the issuance step truly keeps no mapping; a small bath with few regulars can often recognise people by sight anyway, so protection is partly social rather than cryptographic.",
+    "inspired_by": [
+      {
+        "seed_id": "an-a-privacy-pass",
+        "borrowed_aspect": "In an-a-privacy-pass, clients present unlinkable proofs of a prior authorisation so the origin cannot link redemption to issuance or to other redemptions; here, the monthly bath pass presented at the turnstile plays that role."
+      },
+      {
+        "seed_id": "tw-pdpa-art11-3-deletion-exception",
+        "borrowed_aspect": "In tw-pdpa-art11-3-deletion-exception, a collector may keep data past its purpose by claiming it is needed for its business; here, the bath's habit of retaining the visit register 'for operations' plays that role, and a proof that never stores identity removes the data that the exception would otherwise let it keep."
+      }
+    ]
+  },
+  {
+    "title": "Spa event or festival bath: crowd entry with attendant-visible result only",
+    "moment": "At a seasonal open-air hot-spring festival in Wulai, temporary staff at the bath entrance check wristbands and ask guests to show ID so attendants can steer women to the women's area and screen for the tattoo age rule. Many temporary staff handle IDs openly in a queue, and guests' details are seen by passers-by.",
+    "verifier": "Temporary entrance staff at a festival-run public bath area (contracted event operator)",
+    "predicate": "Holder is female OR age at or above the tattoo-policy age; staff device shows only a pass/fail and the area (women's / general) to use",
+    "disclosed_today": "Full ID shown aloud or held up in a public queue: name, birth date, ID number, photo and gender marker visible to staff and bystanders",
+    "issuer": "Ministry of the Interior (national ID wallet); a local township office may issue a short-lived festival-day credential for residents without the wallet",
+    "why_zk": "Staff are temporary and not trained in data handling, so reducing what they can see to a pass/fail result limits who can learn identities, similar to a court keeping juror identities confidential by default rather than by judge discretion. Weaknesses: queue speed and wallet adoption among older visitors are real obstacles, and the festival has no legal duty to check, so a paper fallback will remain.",
+    "inspired_by": [
+      {
+        "seed_id": "an-b-jury-selection",
+        "borrowed_aspect": "In an-b-jury-selection, the identities of those seated are kept from the wider public unless a judge decides otherwise; here, the festival entrance reveals only pass/fail to staff and onlookers, and the verifier app configuration plays the role of the default-confidential rule."
+      },
+      {
+        "seed_id": "an-b-hipaa-min-necessary",
+        "borrowed_aspect": "In an-b-hipaa-min-necessary, the holder of sensitive records releases only the subset serving a stated purpose but nothing proves it was minimal; here, the entrance check releasing only the area decision plays that role, with the ZK proof supplying the missing proof of minimality."
+      }
+    ]
+  }
+]

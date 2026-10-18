@@ -1,0 +1,162 @@
+[
+ {
+  "review_id": "p07-0",
+  "title": "After-school cram school (補習班) sign-out for a shared-custody child",
+  "moment": "A 9-year-old in a split-custody family attends a buxiban near the elementary school. On days when the other parent or an uncle collects her, the buxiban front desk asks for the person's ID, writes it into a sign-out sheet and sometimes keeps a phone photo, to prevent a non-custodial abduction.",
+  "verifier": "Buxiban front-desk staff",
+  "predicate": "The person presenting is authorised by the custodial guardian for this child on today's date only, and the proof reveals nothing about the custody arrangement or the delegate's identity.",
+  "disclosed_today": "Delegate's name, ID number, relationship, phone number and often a photo, plus implicitly the family's custody situation, all on a sheet read by other parents and other staff.",
+  "issuer": "The custodial guardian's own wallet app (peer-issued), anchored to the guardian's government-issued digital ID so the buxiban can tell the guardian is a registered guardian",
+  "why_zk": "The sign-out sheet exposes custody details and a delegate's identity to many people. A peer-issued, date-bounded token lets the desk learn only that the guardian said yes today. Honesty note: the buxiban is a private business with no duty to adopt it, parents may find a phone call simpler, and a court-ordered custody restriction cannot be proven by this token because the guardian could be lying or be the non-custodial one.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In privacy-pass-unlinkable-proof, a blind-signed token attests prior authorisation without being linkable to the issuance interaction; here, the guardian's day-pass plays that token so the front desk cannot link today's pickup to earlier pickups or to the delegate's identity.",
+    "source_excerpt": "A gatekeeper only needs to know that the visitor already passed some check, but the proof it accepts doubles as a persistent identifier. | mechanism: Blind-signed tokens that attest prior authorisation and cannot be linked to the issuance interaction."
+   },
+   {
+    "borrowed_aspect": "In an-b-census-title13, results may not allow a particular respondent to be identified even though staff can see raw records; here, the sign-out record plays the published output and must not let a reader single out one family's custody arrangement.",
+    "source_excerpt": "An agency holding individual responses must release aggregate results, and the legal duty bars any output from which a particular respondent can be singled out, while the holder's staff can still see the raw records. | mechanism: Statutory use limitation and publication prohibition enforced by sworn-oath duties and penalties; statistical disclosure limitation (for example differential privacy in later census products) is a technical layer not specified in the statute."
+   }
+  ]
+ },
+ {
+  "review_id": "p07-1",
+  "title": "Hotel-lobby minibar and craft-liquor vending machine for foreign visitors and residents",
+  "moment": "A resident foreigner with an ARC, and a Taiwanese guest, each try to buy a bottle from a lobby vending machine at a tourist hotel in Hualien. Today the hotel front desk photocopies the passport or ARC to unlock the machine for the room, and the copies sit in a folder.",
+  "verifier": "Hotel operator running an alcohol vending machine unlocked via the front-desk system",
+  "predicate": "Holder is over the legal drinking age, proven from either a Taiwan ID or ARC credential, without disclosing nationality, passport number or ARC number",
+  "disclosed_today": "Photocopy of passport or ARC (name, nationality, document number, birth date, photo) retained by the hotel",
+  "issuer": "National Immigration Agency for ARC holders, Ministry of the Interior for citizens",
+  "why_zk": "Moderate fit: the hotel already collects passport copies for registration, so the vending step adds little new exposure for guests already checked in. Value is mainly for non-guests and for ending an extra retained copy. Weakness: foreign tourists without any Taiwan-issued credential cannot use this, and their home-country ID would need a separate issuer, so coverage is partial.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In the household-register proxy-copy ruling, an office may collect ID copies at its own discretion with no stated limit; here, the hotel's discretionary photocopying plays that role, and the threshold credential replaces discretion with a fixed single-predicate answer.",
+    "source_excerpt": "A government office that holds a record may ask a proxy's requester for a copy of the principal's identity document, and the scope of what it may collect is left to the office's discretion. | mechanism: None stated; collection of document copies left to agency discretion under PDPA and administrative procedure rules."
+   },
+   {
+    "borrowed_aspect": "In HIPAA Safe Harbor, identifiers of relatives and employers are stripped alongside the individual's own; here, the proof omits nationality and document number the way Safe Harbor drops secondary identifiers, so only the age fact is shared.",
+    "source_excerpt": "A party wants to share a record set that cannot identify any person, but the test is a checklist of removable fields plus a no-actual-knowledge condition, so the holder must still judge whether leftover fields re-identify someone. | mechanism: Safe Harbor method removing 18 enumerated identifiers (with ZIP-code truncation rule and age aggregation), or an expert-determination alternative; re-identification codes allowed only if not derived from or disclosed about the individual."
+   }
+  ]
+ },
+ {
+  "review_id": "p07-2",
+  "title": "One-member-one-vote at a district party primary",
+  "moment": "A Taiwan county-level party branch holds a nominating primary for a city councillor seat. Members vote at a school gym. Today staff compare each voter's ID card against a printed membership roll and photocopy the card or write down the ID number and address, so the roll can be checked for double voting.",
+  "verifier": "Party branch election committee (volunteer staff at the polling table)",
+  "predicate": "This person is a registered member of the party in this district, and has not already cast a ballot in this primary (a one-time nullifier per primary).",
+  "disclosed_today": "Full name, national ID number, address, and often a photocopy of the ID card. Because the roll is party membership, the list itself reveals political opinion.",
+  "issuer": "The party's central membership office, signing a district-membership credential when dues are registered.",
+  "why_zk": "The committee needs only 'member of this district, one vote', not who the person is. A membership credential with a per-primary nullifier gives uniqueness without a name or ID number, and without leaving a copy of who voted. Weakness: parties already hold the roll and many branches are small, so volunteers may see no gain, and the party as issuer can still link a credential to a member at issuance.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In rd-cnpd-lu-tourist-inspect-not-copy, the host may inspect the guest's identity document but not copy it; here, the polling-table check of a membership credential plays that role, so the check is done on the spot and nothing is retained.",
+    "source_excerpt": "A host must confirm a visitor's identity and eligibility, but the usual practice is to keep a copy of the whole identity document; the regulator says looking at it is enough. | mechanism: Visual inspection of the identity document with no copy taken; the statutory duty is met by checking, not retaining."
+   },
+   {
+    "borrowed_aspect": "In an-b-jury-selection, people seated for a task are not publicly identified unless a judge decides otherwise; here, the voters seated to cast a primary ballot stay unnamed by default, with no published list of who voted.",
+    "source_excerpt": "Someone must be drawn from a pool and seated for a task without the wider public learning who they are, but the default rule can flip to full publication of the identities of everyone selected, with confidentiality only as a judge-level exception. | mechanism: Judge-discretionary confidentiality of juror names under a court's jury selection plan; no technical mechanism specified."
+   }
+  ]
+ },
+ {
+  "review_id": "p07-3",
+  "title": "Bank matches claimed withdrawal to heir share without learning who the other heirs are",
+  "moment": "Three siblings in Kaohsiung each want to withdraw their part of their mother's NT$2 million deposit at different times and at different branches. One sibling is estranged and does not want the others' spouses, children, and a half-brother from a prior marriage written into the bank's file. The bank teller wants confidence that each requested amount does not exceed that person's entitlement.",
+  "verifier": "Bank back-office estate-settlement unit that approves partial releases for each claimant",
+  "predicate": "Claimant's entitled share >= requested withdrawal fraction, without listing the other heirs (threshold)",
+  "disclosed_today": "Full list of heirs with names, ID numbers and addresses, relationship chart, any 拋棄繼承 (disclaimer) court records, copies of every heir's ID card",
+  "issuer": "Household registration office jointly with the family court's disclaimer registry, each signing its part of the claim",
+  "why_zk": "The bank's real question is a per-claimant ceiling check. Revealing the entire heir roster to every branch spreads sensitive family details widely and creates leak risk. A threshold claim per heir would let each claim stand alone. Honest limit: a bank handling a joint account release or a contested estate may legitimately need to see all heirs to protect itself from later claims by a missed heir, so the proof must also assert completeness of the roster, which is harder than a one-sided threshold.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In jury selection, the court draws people from a pool and seats them while keeping identities confidential from the public; here, the bank draws one claimant's entitlement from the hidden heir pool and keeps the other heirs' identities confidential from the branch staff.",
+    "source_excerpt": "Someone must be drawn from a pool and seated for a task without the wider public learning who they are, but the default rule can flip to full publication of the identities of everyone selected, with confidentiality only as a judge-level exception. | mechanism: Judge-discretionary confidentiality of juror names under a court's jury selection plan; no technical mechanism specified."
+   },
+   {
+    "borrowed_aspect": "In HIPAA safe harbor, identifiers of relatives and household members are removed before sharing; here, the names and IDs of the non-claiming relatives are removed from the share attestation before it reaches the bank.",
+    "source_excerpt": "A party wants to share a record set that cannot identify any person, but the test is a checklist of removable fields plus a no-actual-knowledge condition, so the holder must still judge whether leftover fields re-identify someone. | mechanism: Safe Harbor method removing 18 enumerated identifiers (with ZIP-code truncation rule and age aggregation), or an expert-determination alternative; re-identification codes allowed only if not derived from or disclosed about the individual."
+   }
+  ]
+ },
+ {
+  "review_id": "p07-4",
+  "title": "Scooter rental: still-legal-to-stay check without a passport scan",
+  "moment": "A tourist walks into a rental shop in Hualien to hire an e-scooter for three days. Staff photocopy or photograph the passport and the ARC/visa page to confirm the visitor is lawfully in Taiwan through the rental period, then keep the copy in a binder or LINE chat.",
+  "verifier": "Small e-scooter rental shop owner in a tourist town",
+  "predicate": "Entry status is valid and its permitted-stay end date is on or after the planned return date (time-bounded: stay_expiry >= rental_end), plus a signed-by-issuer freshness stamp.",
+  "disclosed_today": "Full passport scan (name, passport number, nationality, birth date, photo) and entry stamp/visa page, stored on the owner's phone or in paper files.",
+  "issuer": "National Immigration Agency (Ministry of the Interior), via an entry-status credential issued into the visitor's wallet at border control or at pre-arrival online registration.",
+  "why_zk": "The shop only needs 'permitted to be here until at least date D', and a one-sided range proof on the expiry date delivers that without the passport number. Weakness: Taiwan rental rules and insurers often require a driving-licence copy and ID record, so the shop may still keep those by practice; the entry-status proof only removes the immigration-document copy. Adoption depends on the NIA actually issuing such a credential, which does not exist today.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In the Swiss e-ID, selective disclosure releases only the attribute a transaction needs from a whole credential; here, the NIA entry-status credential plays that role by releasing only the stay-expiry predicate to the shop rather than the whole passport record.",
+    "source_excerpt": "A business needs one attribute to proceed, but the credential is issued as a whole, so the holder must rely on the wallet to release only the needed attribute. | mechanism: SD-JWT VC selective disclosure with OpenID4VP presentation and status-list validity check."
+   },
+   {
+    "borrowed_aspect": "In Apple's Verify with Wallet, an Age Over N flag is requestable separately from the photo and issuing authority; here, a 'stay valid through D' flag plays that role, requested separately from passport photo and number.",
+    "source_excerpt": "A verifier wants a single over-threshold fact, but the request category bundles the issuing authority and a face photo with it, so the verifier can receive more than the age claim. | mechanism: Age Over N Flag as a separate requestable value under an entitlement-gated API; no shared name or address."
+   }
+  ]
+ },
+ {
+  "review_id": "p07-5",
+  "title": "Partner-visit pass for a same-sex partner or unmarried partner at a maternity or psychiatric ward",
+  "moment": "At a Tainan hospital maternity ward, a woman's long-term unmarried partner wants to visit mother and newborn. Ward policy is for infant security: only the father, spouse or two named visitors may enter, and staff ask to see the baby's 出生證明 and the partner's ID and the parents' household registration to verify the relation, exposing the family's marital status and the partner's address to security staff and the front desk log.",
+  "verifier": "Maternity ward infant-security entrance (bracelet and pass checkpoint)",
+  "predicate": "The visitor is on the mother's named visitor list for this admission and is a spouse, registered partner or declared co-parent.",
+  "disclosed_today": "Partner's national ID (often scanned into a visitor system), marital status and household composition from the registry copy, and linkage between partner name and baby, kept in a visitor log with no stated deletion date.",
+  "issuer": "The ward midwife or hospital social worker signs a visit pass at admission after the mother names the partner; peer endorsement by the mother is the base signature, with an optional household-registry signature for the legally married.",
+  "why_zk": "Unlinkable passes let the door check a visitor each time without building a diary of who came when, and the door learns only that the holder is on the list, not marital status. Weakness: the ward needs staff to physically recognise the visitor and a face-matching step defeats anonymity, and wards often keep logs anyway for liability, so the unlinkability benefit is easily overridden by law or policy unless retention is bounded; the field-limit idea from age scanning shows a cheaper partial fix of capping the logged fields.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In an-a-privacy-pass, clients present unlinkable proofs of a prior authorisation so the origin cannot link redemption to issuance or other uses; here, the visitor's pass redeemed at each ward entry plays that proof, so the door cannot tie one visit to another or to the registry data.",
+    "source_excerpt": "A verifier only needs to learn that the holder passed an earlier check, but the proof it receives can be matched to the issuance event and to every other use of the same proof. | mechanism: Clients present unlinkable proofs that attest to a prior authorisation, so the origin cannot link redemption to issuance or to other redemptions."
+   },
+   {
+    "borrowed_aspect": "In an-b-va-id-scanning, a venue scans a whole card but the law caps stored fields and bans secondary use; here, the ward's visitor-system scan plays that scan, and the proof replaces the scan so the capped-field rule is not the only protection.",
+    "source_excerpt": "A venue must confirm that a person is over a threshold age from an identity document, but scanning captures the whole card, so the rule caps what is kept to a few fields and bans secondary use, while the holder still sees everything on the card at the moment of the scan. | mechanism: Statutory field-limit and retention ban on scan data, with a prohibition on sale or marketing dissemination; no proof-of-age mechanism that avoids reading the document."
+   }
+  ]
+ },
+ {
+  "review_id": "p07-6",
+  "title": "One-unit-one-vote at the annual 區分所有權人會議 without handing over the ownership transcript",
+  "moment": "A mid-size Taipei condominium holds its annual owners' meeting. To get a ballot, each owner currently shows the 建物所有權狀 or a 建物謄本 and an ID, and the secretary photocopies them into the meeting file so the quorum by 區分所有權比例 can be audited later.",
+  "verifier": "The 管理委員會 secretary (主任委員's office) running the owners' meeting under 公寓大廈管理條例 and the 規約",
+  "predicate": "This holder is the registered owner of exactly the unit identified by a per-building pseudonym, with that unit's 專有部分 area share, and has not already cast a ballot in this meeting (a per-meeting nullifier for the unit makes a second ballot detectable without saying who voted).",
+  "disclosed_today": "Full 建物謄本 or 所有權狀 copy: owner name, national ID number, address, floor area, mortgage and lien entries (他項權利), co-owners; plus an ID copy.",
+  "issuer": "The land administration office (地政事務所) issuing a signed ownership attestation from the land registry, with the 管委會 enrolling unit pseudonyms and weights once per term.",
+  "why_zk": "The vote needs only 'owner of unit X with share s, first ballot'. The transcript leaks mortgage and lien data to a volunteer committee. Weakness: the statute lets owners inspect the 區分所有權人名冊 anyway, and the committee often already holds the roster, so the privacy gain is mainly against the mortgage/lien and ID copies in the paper file, and the registry attestation has to be built before this can work.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In tw-gov-household-register-original-only, the agency inspects the original document and states no copy is kept; here, a signed ownership attestation checked on the spot and not copied plays that role.",
+    "source_excerpt": "A person asking an agency for a record must prove identity; the rule specifies inspecting the original card rather than handing over a copy, and it does not say the agency retains anything. | mechanism: Original identity document shown for in-person inspection; the checklist states no retention or copy requirement."
+   },
+   {
+    "borrowed_aspect": "In rd-eudi-wallet-selective-disclosure-recital, the wallet shows one attribute out of a larger identity record; here, the owner's wallet shows only unit and share out of the full land registry transcript.",
+    "source_excerpt": "A verifier needs one attribute from a larger identity record, but the holder cannot share just that attribute from the record. | mechanism: Selective disclosure of attributes from electronic attestations held in the EU Digital Identity Wallet."
+   }
+  ]
+ },
+ {
+  "review_id": "p07-7",
+  "title": "Community book-swap shelf and neighbourhood tool library lending between peers",
+  "moment": "A community-run book and tool lending co-op in a Tainan neighbourhood lets members borrow expensive items such as a drill or a rare reference book. Before lending, the volunteer asks the member to show a photo of their ID and WhatsApps the sister co-ops to ask whether this person has ever failed to return something.",
+  "verifier": "Volunteer steward of a neighbourhood lending co-op",
+  "predicate": "Not on the shared list of members with unreturned or lost items across the participating co-ops (non-membership)",
+  "disclosed_today": "Photo of national ID, name, phone number, and informal gossip from other co-ops about the person's past conduct",
+  "issuer": "A federation of co-ops, or a peer co-op steward co-signing a standing credential and a shared revocation list for members who have not returned items",
+  "why_zk": "Volunteers collect an ID photo and circulate names between group chats only to confirm one negative fact. A non-membership proof from the federation replaces the ID photo and the gossip. It is a plausible fit but weak on practicality: the co-ops are small, informal and unlikely to run an issuer or maintain an accumulator, and a trusted steward's word often suffices. The strongest value is stopping a lender from building a registry of neighbours' identities.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In jury selection, names are public by default and confidentiality depends on a judge's discretionary exception; here, the federation-signed proof plays that role by making confidentiality of the borrower's identity the default instead of a steward's discretion.",
+    "source_excerpt": "Someone must be drawn from a pool and seated for a task without the wider public learning who they are, but the default rule can flip to full publication of the identities of everyone selected, with confidentiality only as a judge-level exception. | mechanism: Judge-discretionary confidentiality of juror names under a court's jury selection plan; no technical mechanism specified."
+   },
+   {
+    "borrowed_aspect": "In HIPAA minimum-necessary, a holder is expected to release only what a stated purpose needs but nothing proves it did; here, the federation's credential plays that role by proving the lender received only the good-standing fact and nothing more.",
+    "source_excerpt": "A holder of sensitive records must release only the subset that serves a stated purpose, but the rule leaves it to the holder to judge what is minimal and gives no mechanism that proves the released subset was minimal. | mechanism: Purpose-based minimum-necessary rule with reasonable-efforts standard, role-based access and reasonable reliance on requester representations (45 CFR 164.514(d)); no cryptographic or proof-based check."
+   }
+  ]
+ }
+]

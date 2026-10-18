@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Grandparent pickup at an elementary school gate (國小校門接送)",
+    "moment": "At 4pm on a Wednesday a grandmother who has never picked up her grandson before arrives at a Taipei elementary school gate because the parents are stuck at work. The 導護 volunteer or guard today photocopies or photographs her national ID, writes her phone number in a logbook and calls the homeroom teacher to confirm.",
+    "verifier": "School gate guard / 導護志工 and the homeroom teacher",
+    "predicate": "The holder presents a credential valid only for today's date and this named child stating that a guardian has authorised the holder to collect that child; the guard learns only valid / not valid and the child's class, nothing about the holder's identity number, address or family tree.",
+    "disclosed_today": "Full ID card shown or copied (name, national ID number, birth date, address), phone number in a paper logbook, and a phone call to the teacher; the logbook stays at the gate and can be read by any later guard.",
+    "issuer": "The guardian, via a parent-side wallet or the school's existing parent app, counter-signing with the school's registered-guardian credential (the school as root issuer of guardian status, the parent as delegator).",
+    "why_zk": "Fits well: the claim is a short-lived delegation, and the gate needs only a yes/no for today plus a way to ensure the presenter is the person the parent authorised. Weakness: the guard still needs some binding between presenter and credential (a face match to a photo the parent supplied, or a one-time code), and many grandparents have no smartphone, so a printed QR on a card would be the realistic fallback. The privacy gain is real but moderate, since the paper logbook is the main leak today.",
+    "inspired_by": [
+      {
+        "seed_id": "rd-aepd-hotel-no-id-copy",
+        "borrowed_aspect": "In the AEPD hotel case, the host inspects the ID document in person and records only the fields the registration rule needs without keeping a copy; here, the gate guard checking a time-bounded delegation token plays that role and the ID copy and logbook are dropped."
+      },
+      {
+        "seed_id": "an-b-ala-library-records",
+        "borrowed_aspect": "In the ALA library policy, circulation records that name who used what are treated as confidential so they do not become a readable log of a person's interests; here, the school's paper pickup logbook that names every adult who collected a child plays that record, which the token approach would avoid creating."
+      }
+    ]
+  },
+  {
+    "title": "Cram school (安親班) bus or staff releasing a child to a non-regular adult",
+    "moment": "A private after-school care centre (安親班) in Taichung normally releases children to the two registered parents. Today a family friend arrives to take a child because both parents are in a hospital appointment. The centre owner currently accepts a LINE message from the parent, screenshots it, and keeps the screenshot plus the friend's photographed ID to protect against later disputes.",
+    "verifier": "安親班 owner / front-desk staff",
+    "predicate": "The holder proves that a registered guardian authorised them to collect this specific child before today's closing time; the centre learns nothing about the friend's ID number, address or relationship to the family beyond what the guardian chose to attest.",
+    "disclosed_today": "A LINE message screenshot (exposing the parent's chat identity and often other conversation context), a photographed ID of the friend, and a stored phone number, all kept on the owner's personal phone indefinitely.",
+    "issuer": "The guardian's own wallet signing a delegation, anchored to the centre's enrolment record in which the guardian is registered; alternatively a peer-issued delegation with the centre as verifier of the guardian's key.",
+    "why_zk": "A reasonable fit: the centre's real fear is a later dispute, so it wants proof that it was authorised, which a signed time-bounded delegation provides better than a screenshot and without hoarding ID photos. Honest weakness: small centres are often informal, have no verifier app and no legal duty to adopt it, so adoption would depend on a free tool or a parent-app integration; the 'proof for disputes' need also means some record is kept, so unlinkability only partly applies.",
+    "inspired_by": [
+      {
+        "seed_id": "tw-securities-foreign-agent-id-copy",
+        "borrowed_aspect": "In the Taiwan securities rule, a local agent proves their identity to the broker by handing over a full ID copy with no lighter alternative; here, the family friend's photographed ID at the 安親班 plays that role, and a signed delegation from the guardian is the less intrusive alternative."
+      },
+      {
+        "seed_id": "an-a-samesite-cookies",
+        "borrowed_aspect": "In SameSite cookies, a credential is restricted so it is sent only to the party in the current context and cannot be used to recognise the holder elsewhere; here, a delegation token scoped to one centre, one child and one day plays that restriction so that it cannot be replayed at another venue or on another day."
+      }
+    ]
+  },
+  {
+    "title": "Ride-share or school-bus driver handing a child over at the door (交通車接送)",
+    "moment": "A kindergarten's contracted 交通車 driver in Kaohsiung reaches a stop at 5:30pm where the usual parent is absent and an aunt waits instead. The driver is not allowed to leave the child with an unlisted adult, so the driver phones the school office, which phones the parent, while the other children wait on the bus; the aunt is asked to show her ID so the driver can note her name.",
+    "verifier": "Kindergarten bus driver / bus aide (隨車老師)",
+    "predicate": "The holder proves, offline and at the kerb, that a guardian authorised this named stop handover for this child today; the driver sees only a pass/fail and the child's first name, not the aunt's ID details or the parent's phone number.",
+    "disclosed_today": "A phone call chain through the school office, the aunt's name and sometimes ID number written in the driver's handover sheet, and the parent's phone number shared among driver, office and aunt.",
+    "issuer": "The kindergarten, as the party that holds the enrolment and authorised-adult list, issuing the one-time handover pass after the guardian approves it in the school's app.",
+    "why_zk": "Moderate fit: the real gain is not privacy from the driver alone but removing the phone-call chain and the handover sheet that spreads names and numbers, and offline verification matters on a moving bus with patchy signal. Weaknesses: the driver's tablet must verify without connectivity, revocation within the same afternoon is hard offline, and the school could simply issue a numeric one-time code, which achieves most of the benefit without any zero-knowledge proof at all.",
+    "inspired_by": [
+      {
+        "seed_id": "an-b-attorney-client",
+        "borrowed_aspect": "In attorney-client privilege, confidentiality is lost when an outsider is present unless the outsider is an essential agent such as an interpreter; here, the extra intermediaries in the phone chain (office staff, other drivers reading the handover sheet) play the outsiders, and a pass that only the driver and aunt see keeps the circle to the essential parties."
+      },
+      {
+        "seed_id": "rd-aepd-hotel-no-id-copy",
+        "borrowed_aspect": "In the AEPD hotel case, the host records only the fields the rule requires instead of copying the whole document; here, the driver's handover sheet records only a pass-valid-for-today result and not the aunt's ID number, playing the role of the minimal registration entry."
+      }
+    ]
+  }
+]

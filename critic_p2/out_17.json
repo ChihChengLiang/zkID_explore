@@ -1,0 +1,98 @@
+[
+ {
+  "review_id": "p17-0",
+  "context_purpose": "The court confirms that a summoned citizen is in the candidate pool for the day's selection session so the session can proceed lawfully.",
+  "norm_violation_today": {"violated": "no", "parameter": "none", "reason": "The court is the issuer and is entitled to the notice and ID; only copying by entrance security or contractors could exceed norms, which is a minor point."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "The court must later call and seat candidates by name, so identity must be revealed inside the process; a token only covers the entrance."},
+  "transmission_check": {"principle_today": "required_by_law", "permits_minimal_flow": "unclear", "reason": "The court likely needs to record attendance of summoned persons for the selection procedure, and I cannot say whether a token would satisfy that."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 2,
+  "novelty": 4,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p17-1",
+  "context_purpose": "A shelter programme allocates scarce subsidised beds to migrant workers who are lawfully in status or in a lawful transfer period.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "Asking for the termination letter and complaint records exposes dispute details beyond what a status check needs, though the NGO may have a social-assessment reason for some of it."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "A status attestation cannot support the NGO's vulnerability prioritisation or funder reporting, which need the case story."},
+  "transmission_check": {"principle_today": "consented_for_benefit", "permits_minimal_flow": "permits", "reason": "The NGO is a voluntary programme with no stated legal duty to hold the case file, so a status attestation is not legally blocked."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 5,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p17-2",
+  "context_purpose": "The owners' committee counts one weighted vote per unit and prevents double counting at the meeting.",
+  "norm_violation_today": {"violated": "yes", "parameter": "recipient", "reason": "Full title deeds, ID copies and a lobby-posted sign-in sheet expose address, mortgage and ID data to neighbours who only need unit and share."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Little: unit, share and uniqueness are what the vote count needs, though co-owner and proxy logic add complexity."},
+  "transmission_check": {"principle_today": "required_by_law", "permits_minimal_flow": "unclear", "reason": "The building management rules and bylaws probably require verifying ownership, but I cannot say whether they require document copies."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "unknown"},
+  "rubric_score": 3,
+  "novelty": 4,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p17-3",
+  "context_purpose": "A temple camp organiser wants assurance to parents that volunteer helpers have no child-protection-relevant record.",
+  "norm_violation_today": {"violated": "yes", "parameter": "retention", "reason": "ID scans and an open-ended records consent are kept on a personal phone after camp ends, beyond the one-off check the purpose needs."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Almost nothing for the organiser; parents get the same yes/no, though a proof is less intuitive than a certificate."},
+  "transmission_check": {"principle_today": "safety_security", "permits_minimal_flow": "permits", "reason": "This is an informal safety check with no legal duty to keep the documents, so a proof does not conflict with any obligation I know of."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "no", "verifier_can_check": "unknown"},
+  "rubric_score": 2,
+  "novelty": 4,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p17-4",
+  "context_purpose": "The hospital lets only approved adult companions stay overnight with children, to protect child patients.",
+  "norm_violation_today": {"violated": "yes", "parameter": "recipient", "reason": "A paper list showing children's names, beds and guardians' names left on the counter discloses data to other families who have no need for it."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "The guard still needs to match the person to an expected adult and nurses may recheck by face, so the proof removes only ID numbers and the visible list."},
+  "transmission_check": {"principle_today": "safety_security", "permits_minimal_flow": "permits", "reason": "Ward access control is a hospital safety policy, and a time-limited companion credential serves it as well as a list."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "yes", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 4,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p17-5",
+  "context_purpose": "A partner library grants visitor borrowing rights only to patrons in good standing at their home library.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "The partner desk copies the ID and may see loan and fine history when only good standing is needed."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Little: good standing is the decision; recourse for lost books would need identity, which a reciprocal agreement may require."},
+  "transmission_check": {"principle_today": "consented_for_benefit", "permits_minimal_flow": "permits", "reason": "Reciprocal borrowing is a voluntary service, so a signed good-standing credential should be acceptable if the consortium agrees."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "yes", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 4,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p17-6",
+  "context_purpose": "The presale operator wants to keep brokers out and give each real fan-club member a single presale allocation.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "ID photo, selfie, address and a reused face template go well beyond a membership and one-redemption check."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "Brokers can still register many fake accounts unless issuance is tied to a verified identity, so anti-scalping power depends on the issuer."},
+  "transmission_check": {"principle_today": "commercial_convenience", "permits_minimal_flow": "permits", "reason": "No known duty forces the club to collect ID, so it can accept a membership proof if it chooses."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "yes", "verifier_can_check": "yes"},
+  "rubric_score": 4,
+  "novelty": 4,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p17-7",
+  "context_purpose": "The event organiser confirms that each vendor holds a current food and stall permit on the event date.",
+  "norm_violation_today": {"violated": "yes", "parameter": "retention", "reason": "ID scans and permit copies sit in a loosely controlled shared folder held by a short-lived contractor beyond need."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Little: current permit status is the check, though the organiser may want records for dispute or audit."},
+  "transmission_check": {"principle_today": "required_by_law", "permits_minimal_flow": "unclear", "reason": "The organiser likely must verify permits and may have to keep application records, and I cannot say whether a signed status would satisfy either."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 3,
+  "provenance_faithful": "no"
+ }
+]

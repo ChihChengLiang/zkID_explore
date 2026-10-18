@@ -1,0 +1,98 @@
+[
+ {
+  "review_id": "p09-0",
+  "context_purpose": "The building committee must confirm that the person casting a unit's single ballot is authorised and that the unit has not already voted.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "Rent, deposit and the landlord's ID number go well beyond what a ballot count needs and sit in a committee drawer."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "The committee cannot inspect the lease to settle a dispute over whether the tenancy is genuine, though the owner's delegation covers authorisation."},
+  "transmission_check": {"principle_today": "consented_for_benefit", "permits_minimal_flow": "permits", "reason": "The tenant volunteers documents to take part in a vote under building bylaws, and nothing I know of requires the lease copy itself."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "unknown"},
+  "rubric_score": 3,
+  "novelty": 4,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p09-1",
+  "context_purpose": "The committee chair must confirm that a resident tenant or proxy is entitled to vote and that the unit's ballot has not been cast twice.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "The full lease exposes rent, deposit and the landlord's bank details and ID, none of which are needed to verify voting standing."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "The committee cannot read the lease to resolve a dispute over residence, but the owner's signed delegation covers voting standing."},
+  "transmission_check": {"principle_today": "consented_for_benefit", "permits_minimal_flow": "permits", "reason": "Tenants hand over documents voluntarily to take part in a vote, and I know of no rule requiring the lease itself."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "unknown"},
+  "rubric_score": 3,
+  "novelty": 4,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p09-2",
+  "context_purpose": "The kiosk operator must show that e-cigarette-type products are not sold to under-age buyers.",
+  "norm_violation_today": {"violated": "yes", "parameter": "recipient", "reason": "Face images and full ID details go to a cloud subcontractor and are stored, although the sale needs only an age threshold."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "A bare age proof does not show that the person at the machine is the credential holder, which needs a separate device unlock or liveness step."},
+  "transmission_check": {"principle_today": "required_by_law", "permits_minimal_flow": "unclear", "reason": "The law restricts sales to minors, but I cannot say whether it requires or merely allows ID capture and storage."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 4,
+  "novelty": 2,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p09-3",
+  "context_purpose": "A labour inspector must verify on site that workers on scaffolds hold valid high-place work training, as part of statutory enforcement.",
+  "norm_violation_today": {"violated": "unclear", "parameter": "retention", "reason": "The inspector is entitled to check identity on site, but photographing every card and keeping them in the file may exceed what compliant workers' cases need."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "Matching a person to the body on the scaffold and pursuing violations needs identity, which an unlinkable pass/fail proof cannot give."},
+  "transmission_check": {"principle_today": "required_by_law", "permits_minimal_flow": "unclear", "reason": "The inspector has statutory powers to demand identification, and I cannot say whether the law requires copies be kept."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "unknown"},
+  "rubric_score": 2,
+  "novelty": 4,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p09-4",
+  "context_purpose": "The telecom operator must register a real, lawfully present subscriber for each prepaid SIM as the real-name rules require.",
+  "norm_violation_today": {"violated": "unclear", "parameter": "retention", "reason": "A retained passport scan may be what the rule requires, and the proposal itself concedes the regulation may literally require recording identity details."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "The operator and regulator could not trace a named subscriber without an escrow or court-order route that does not exist today."},
+  "transmission_check": {"principle_today": "required_by_law", "permits_minimal_flow": "blocks", "reason": "Telecom real-name registration is regulator-mandated and, as I understand it, expects identity details to be recorded."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "unknown"},
+  "rubric_score": 2,
+  "novelty": 3,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p09-5",
+  "context_purpose": "The union's e-voting committee must confirm that each voter is an eligible member in good standing and votes only once on a bargaining ballot.",
+  "norm_violation_today": {"violated": "yes", "parameter": "recipient", "reason": "An outsourced vendor and the hospital network learn who is a union member and who voted, which is sensitive and exposed to the employer."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "The union cannot audit named voters from the vendor side, though it already holds its own membership list."},
+  "transmission_check": {"principle_today": "other", "permits_minimal_flow": "permits", "reason": "Internal union voting procedures set the checks, and I know of no statute requiring the vendor to hold national ID or employee numbers."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "yes", "verifier_can_check": "yes"},
+  "rubric_score": 4,
+  "novelty": 5,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p09-6",
+  "context_purpose": "A landlord or agency wants a sign of stability and assets from a rental applicant before signing a lease.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "Registry transcripts reveal parcels, home addresses and company holdings far beyond a single stability signal."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "Owning land or directing a company says little about ability to pay rent, and the signal can be hollow."},
+  "transmission_check": {"principle_today": "commercial_convenience", "permits_minimal_flow": "permits", "reason": "The landlord has no legal duty to run this check and could accept other evidence such as a deposit or guarantor."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "unknown"},
+  "rubric_score": 2,
+  "novelty": 4,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p09-7",
+  "context_purpose": "A small consignment shop wants to avoid taking stolen goods and complaints from new consignors.",
+  "norm_violation_today": {"violated": "unclear", "parameter": "information_type", "reason": "Photocopied ID and bank details exceed the reputation signal the owner wants, but second-hand dealer record-keeping rules may require some identity record."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "A reputation proof cannot replace any statutory identity registration for second-hand dealers or trace a consignor for stolen goods."},
+  "transmission_check": {"principle_today": "required_by_law", "permits_minimal_flow": "unclear", "reason": "Second-hand dealer rules may require identifying sellers, and I cannot confirm their scope for a consignment shop."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "unknown"},
+  "rubric_score": 2,
+  "novelty": 4,
+  "provenance_faithful": "no"
+ }
+]

@@ -1,0 +1,162 @@
+[
+ {
+  "review_id": "p11-0",
+  "title": "Scaffold crew sign-in at a Kaohsiung site gate without handing over the training card file",
+  "moment": "At 6:50am a general contractor's site foreman in Kaohsiung lets a subcontractor's scaffolders onto a building site. Under occupational safety rules the site must confirm each worker holds a valid scaffold-assembly / high-place work safety training certificate. Today each worker's ID card and training certificate are photocopied into the site's entry file, which also shows national ID number, address and birth date.",
+  "verifier": "Contractor's site safety officer (the main contractor responsible for labour safety on the site)",
+  "predicate": "Holder has a scaffolding or high-place work safety training certificate whose validity period covers today's date (time-bounded: valid_until >= today), and the issuing class is in the legally recognised list.",
+  "disclosed_today": "Photocopy of National ID card and of the training certificate: full name, national ID number, date of birth, address, photo, training class date, certificate number, training institution, expiry date. Copies are kept in the site file for inspection.",
+  "issuer": "A MOL-accredited training institution (e.g. a labour-safety training centre or vocational school course) co-signing with the Ministry of Labor / Occupational Safety and Health Administration training registry",
+  "why_zk": "The law obliges the site to be able to show that every worker was qualified, so the check cannot be dropped, but it only needs 'valid today for this class' rather than the ID copy. A proof of non-expiry plus a recognised-issuer signature fits well. Weakness: inspectors may still insist on an auditable record, so the site may have to keep a signed proof log (timestamp, issuer key, pseudonymous per-site nullifier) rather than nothing; and workers without smartphones or with older paper cards need a fallback.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In rd-aepd-hotel-no-id-copy, the hotel inspects the ID in person and records only the fields the registration rule requires with no copy retained; here, the site gate verifier checks a certificate proof and logs only 'valid on date, class X' and no ID photocopy plays that role.",
+    "source_excerpt": "A registrant must prove a small set of facts to a host, but the host asks for a full copy of the identity document, which carries many extra fields the rule never needed. | mechanism: Inspect the identity document in person and record only the fields the registration rule requires; no copy retained."
+   },
+   {
+    "borrowed_aspect": "In an-a-oauth-scopes, the authorization server may grant narrower scope than the client requested; here, the worker's wallet plays the authorization server and releases only the validity predicate even if the site's form asks for the whole certificate.",
+    "source_excerpt": "A holder asks a verifier for a credential covering more attributes than the single fact the relying party needs, and the issuer has no obligation to honour a narrower request. | mechanism: The client states a scope parameter in the request, and the authorization server returns the granted scope in the token response; the server may grant less than requested."
+   }
+  ]
+ },
+ {
+  "review_id": "p11-1",
+  "title": "Campus sports day: a school stadium entry gate that counts parents without recording faces",
+  "moment": "At a high school's annual sports day held in the city stadium, a parent-volunteer team uses a tablet with a face-recognition app to admit one ticketed family member per student pass, to avoid overcrowding and strangers. The app stores photos of parents and siblings in the school's cloud drive. The school only needs to know that each pass is used by one person at a time.",
+  "verifier": "The school's student affairs office running the event gate",
+  "predicate": "The person at the gate is the single registered pass-holder for that student's guest pass and has not already entered on the same pass (uniqueness per pass).",
+  "disclosed_today": "Photos of the parent and relatives, names, relationship to the student, phone number and class, stored in a shared cloud folder and group chat after the event.",
+  "issuer": "The school (or the student-information system run by the school) issues the guest pass; the parent's own phone holds a key and shows the proof so the gate learns only 'valid pass, first entry'.",
+  "why_zk": "Crowd control needs 'one valid pass, one entry', not a family photo archive, and a blinded pass lets the school sign without learning which parent or relative will use it. The weakness is that a school volunteer can usually just recognise parents by sight, so the technology may be heavier than the problem; it matters mainly if the school insists on face recognition, and then the PDPA special-category question makes deleting the templates the simplest alternative.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In the jury-selection plan, names of seated jurors may be public unless a judge keeps them confidential as a discretionary exception; here, the proof makes confidentiality the default for who attended, instead of depending on an organiser's discretion.",
+    "source_excerpt": "Someone must be drawn from a pool and seated for a task without the wider public learning who they are, but the default rule can flip to full publication of the identities of everyone selected, with confidentiality only as a judge-level exception. | mechanism: Judge-discretionary confidentiality of juror names under a court's jury selection plan; no technical mechanism specified."
+   },
+   {
+    "borrowed_aspect": "In the Chaum scheme, the authority signs without seeing the ballot content; here, the school signs a blinded guest pass without learning which relative will present it.",
+    "source_excerpt": "A signer must certify that a holder has a valid token without seeing the token's content, and must later be unable to link the certified token back to the signing event. | mechanism: A blind signature, where the message is blinded with a random factor before signing, and the holder unblinds the signature so it verifies against the original message under the signer's public key."
+   }
+  ]
+ },
+ {
+  "review_id": "p11-2",
+  "title": "Onsen day-pass sold through a ticketing app: age-over-threshold claim for tattoo rules, then deletion",
+  "moment": "A traveler buys an online day-pass for a tattoo-friendly-with-conditions onsen in Wulai through a booking platform. The platform asks for an uploaded ID photo to confirm the visitor is over the age threshold at which tattoos are allowed, and keeps it 'for business needs'. The visitor instead shares an age-over claim from the wallet at booking and the platform stores only the pass.",
+  "verifier": "Online booking platform and onsen operator in Wulai",
+  "predicate": "Holder's age is at or over the venue's tattoo-policy age (membership in the over-threshold set), checked once at booking",
+  "disclosed_today": "Uploaded ID photo with name, ID number, birth date and address, retained by the platform after the visit",
+  "issuer": "Ministry of the Interior via the national digital wallet; an alternative issuer for foreign visitors is the immigration agency through the residence-permit credential",
+  "why_zk": "Taiwan's PDPA lets a business keep data when it says it is necessary for its business, so the deletion-on-purpose-lapse rule offers little protection; a claim that never delivers the birth date means there is nothing to delete or leak. Weakness: tourists without a Taiwan wallet or residence credential cannot use it, so the ID upload stays as the fallback, and the onsen may still view the tattoo on arrival regardless of the claim.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In PDPA Article 11(3), a collector may keep data past its purpose by citing business necessity; here, the booking platform's 'business need' retention of the ID photo plays that role, and the age-over claim removes the data that could be retained.",
+    "source_excerpt": "A party that has collected a person's data must delete it once the reason for holding it ends, but an open-ended exception lets it keep the data whenever it says it still needs it for its own duties. | mechanism: Statutory deletion-on-purpose-lapse duty with exceptions for lawful duties or written consent; no technical erasure mechanism specified."
+   },
+   {
+    "borrowed_aspect": "In the household-register proxy rule, the office's discretion decides how many identity document copies are collected; here, the platform's own discretion over what ID to request plays that role and a predicate-only claim would bound it.",
+    "source_excerpt": "A government office that holds a record may ask a proxy's requester for a copy of the principal's identity document, and the scope of what it may collect is left to the office's discretion. | mechanism: None stated; collection of document copies left to agency discretion under PDPA and administrative procedure rules."
+   }
+  ]
+ },
+ {
+  "review_id": "p11-3",
+  "title": "Grandparent pickup at a public elementary school gate",
+  "moment": "At 4pm on a Thursday, a grandmother who does not appear on the school's pickup list arrives at a Taipei public elementary school gate because the parents are stuck at work. The guard currently photographs her ID card and phones the homeroom teacher, who calls the parent to confirm.",
+  "verifier": "School gate guard / 校門警衛 (with homeroom teacher as fallback)",
+  "predicate": "A guardian-signed credential, valid only for today's date and for this one child, shows the holder is the delegate. The holder proves it with no name, ID number or photo shown to the guard.",
+  "disclosed_today": "Full ID card photographed or copied (name, national ID number, address, photo), plus the guardian's phone number and a handwritten gate log kept in a paper binder.",
+  "issuer": "The child's guardian, with the school's family-app (e.g. parent communication app) co-signing so the guard can check that the guardian really is the registered one",
+  "why_zk": "The guard needs only 'authorised today for this child', yet the ID-card photo is a lasting copy of a national ID number that sits in a binder or phone gallery with no deletion date. A one-day, one-child proof removes the copy. Weakness: the guard still has to match the face to the person physically present, because bearer proof alone does not stop a stolen phone, and a school staff member will still want a human look at the person.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In tw-pdpa-art11-3-deletion-exception, the collected data must be deleted when its purpose lapses but an open exception lets the holder keep it; here, a credential that expires at day's end plays the role of a built-in lapse, so no copy exists to be kept under the exception.",
+    "source_excerpt": "A party that has collected a person's data must delete it once the reason for holding it ends, but an open-ended exception lets it keep the data whenever it says it still needs it for its own duties. | mechanism: Statutory deletion-on-purpose-lapse duty with exceptions for lawful duties or written consent; no technical erasure mechanism specified."
+   },
+   {
+    "borrowed_aspect": "In gdpr-data-minimisation, a controller collects a whole document when a narrower field would serve; here, the guard's whole ID-card photo plays the over-collected document and the one-day 'authorised for this child' flag plays the narrower field.",
+    "source_excerpt": "A rule obliges anyone requesting information to take only what the purpose needs, but gives no practical way to request less than a whole document. | mechanism: Legal principle of data minimisation; no technical mechanism specified."
+   }
+  ]
+ },
+ {
+  "review_id": "p11-4",
+  "title": "Crematorium counter checks the right to collect ashes by looking, not keeping",
+  "moment": "A relative arrives at a municipal crematorium or columbarium (納骨塔) service desk to collect the ashes or sign the cremation permit paperwork. The counter asks for ID copies and a family-register printout to confirm that this person, and not a more senior relative, has the authority to take the remains.",
+  "verifier": "Municipal crematorium or columbarium counter staff (殯儀館 / 納骨塔 service desk)",
+  "predicate": "Holder belongs to the group of next of kin of the deceased and is the one entitled to act on the family's behalf at this step.",
+  "disclosed_today": "ID copy, family-register printout, and sometimes handwritten statements naming other relatives, all filed in the facility's paper records.",
+  "issuer": "Household Registration Office, or the funeral home that already verified the kin and countersigns a short-lived authorisation for the later step.",
+  "why_zk": "The counter only needs a yes/no on authority at the moment of collection, and a presentation that is checked and discarded fits the statute's purpose. Luxembourg's regulator already accepts that looking suffices without retention. The weakness is that many facilities have no digital reader and may still insist on paper copies for audit, so the benefit depends on a change in the facility's rules, not just on the proof.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In the Luxembourg tourist accommodation guidance, the host inspects the identity document and takes no copy; here, the crematorium counter inspects a verified kin-authority presentation and retains only a pass/fail log entry.",
+    "source_excerpt": "A host must confirm a visitor's identity and eligibility, but the usual practice is to keep a copy of the whole identity document; the regulator says looking at it is enough. | mechanism: Visual inspection of the identity document with no copy taken; the statutory duty is met by checking, not retaining."
+   },
+   {
+    "borrowed_aspect": "In Singpass MyInfo, partners may request only the named fields needed for one purpose; here, the facility requests only the 'authorised to collect ashes' field and not the full relationship record.",
+    "source_excerpt": "A service provider needs a few verified fields for one purpose, but the retrieval interface returns a broad profile and the only limit is a policy rule on the partner. | mechanism: Consent-gated retrieval of named MyInfo fields, with a rule to request only needed data and purge unsubmitted drafts."
+   }
+  ]
+ },
+ {
+  "review_id": "p11-5",
+  "title": "Hiring hall dispatch that checks the certificate only on the morning of the job",
+  "moment": "A labour hiring hall (營造工會 or private labour contractor) in Kaohsiung dispatches day workers to a high-rise renovation. The contractor who orders workers wants assurance that each worker's high-work training is valid on the day of dispatch, but the hall today forwards the worker's full certificate scan and ID to every contractor who asks, so many contractors accumulate the worker's data.",
+  "verifier": "Contractor ordering day labour through a hiring hall, and the hiring hall as relaying party",
+  "predicate": "Holds a high-work or scaffolding training certificate that is valid on the dispatch date, presented to the contractor through the hall without the hall or the contractor learning the worker's identity beyond a per-job pseudonym.",
+  "disclosed_today": "Full scan of the certificate and ID card, forwarded by the hall to each contractor, including name, ID number, certificate number, training provider and dates.",
+  "issuer": "Accredited training provider (Ministry of Labor accredited institute) issuing the credential at course completion.",
+  "why_zk": "Like onion routing, the hall and the contractor each see only one layer: the hall sees who is dispatched, the contractor sees only 'valid today' for a job-specific pseudonym, so no single party holds both identity and the whole dossier. The time-bounded check (validity at the dispatch date) is a simple predicate. Weakness: the hall must still know the worker's real identity to pay and insure them, and contractors who are liable for site accidents may argue they need the real identity anyway, so the privacy gain is mostly against the many contractors rather than against the hall.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In an-a-tor-onion, each relay peels one layer and knows only its neighbours; here, the hiring hall and the ordering contractor play the relays, with the hall knowing the worker's identity and the contractor knowing only the validity proof.",
+    "source_excerpt": "A route must be relayed through intermediaries so that no single intermediary holds both the origin identity and the final destination, while the traffic still reaches the endpoint. | mechanism: Onion routing, where the message is wrapped in one encryption layer per relay, and each relay peels only its own layer and passes the rest to the next hop."
+   },
+   {
+    "borrowed_aspect": "In an-a-samesite-cookies, the cookie is limited to same-site requests so third parties cannot match the browser across contexts; here, a per-job scoped proof plays that role, so the same worker's credential cannot be linked across different contractors' requests.",
+    "source_excerpt": "A stored credential should be presented only to the party that issued it in the current context, but the browser sends it on any request the context triggers, so an unrelated observer can match the holder across contexts. | mechanism: The SameSite cookie attribute, which limits the cookie to same-site requests (Strict, Lax, or None); the IETF draft describes it as a per-cookie setting, and cross-site behaviour depends on the chosen value."
+   }
+  ]
+ },
+ {
+  "review_id": "p11-6",
+  "title": "Face-to-face handover at a convenience-store meetup: proving a clean selling record without a phone number or ID photo",
+  "moment": "Two strangers agree to swap a secondhand baby stroller at a 7-Eleven near an MRT exit. The buyer, nervous about scams, asks the seller to show an ID card, a LINE profile, and a bank-transfer screenshot of past sales, and the seller hands over far more personal data than the deal needs.",
+  "verifier": "The buyer at an in-person pickup",
+  "predicate": "Seller has sold at least 5 items with no disputes, shown as a one-time QR presentation that is bound to this meeting and cannot be replayed.",
+  "disclosed_today": "ID card number and photo, real name, LINE ID, phone number, and screenshots of bank transfers or earlier chats that expose other buyers.",
+  "issuer": "A peer-trade platform or escrow service (for example an app tied to a convenience-store pickup service) that records completed deliveries and disputes.",
+  "why_zk": "Real but narrow. The buyer's actual fear is that this person will vanish with the money or sell a bad item, and a record of clean completed sales answers that without a name. But an unlinkable proof still cannot stop a scammer who builds a record with a few cheap sales, and an ID check does not stop that either, so the proof is a modest privacy gain over screenshots rather than a fraud cure.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In the Taiwan ID-number misuse case, a leaked static number is replayed by others even after the card is reissued; here, a one-time meeting-bound presentation of the claim plays the role that a non-replayable credential would, instead of showing a static ID number.",
+    "source_excerpt": "Once the number that identifies a person leaks, reissuing the physical card does not stop someone presenting the same number, so verifiers that check the number and a photo can be fooled. | mechanism: None; reissuing the card does not change the number."
+   },
+   {
+    "borrowed_aspect": "In attorney-client privilege, confidentiality breaks when an unnecessary third party is in the room; here, the nosy bystander is the extra data (ID, LINE, bank screenshots) shown to the counterparty, which the aggregate proof keeps out of the exchange.",
+    "source_excerpt": "A party must consult an advisor about a sensitive matter without the advisor, or anyone else, learning or revealing more than the matter requires, but the protection breaks as soon as an outsider is in the room unless the outsider is essential to the relationship. | mechanism: Evidentiary privilege over communications, lost by third-party presence except essential agents such as interpreters; no technical mechanism."
+   }
+  ]
+ },
+ {
+  "review_id": "p11-7",
+  "title": "Community buy-and-sell Facebook group admission without handing admins a sales dossier",
+  "moment": "A neighborhood second-hand group in Kaohsiung, run by volunteer admins, wants to let only reliable sellers post high-value items such as e-bikes and appliances. Admins now ask applicants to send screenshots of their sales on other platforms, their Facebook profile, and sometimes a photo of their ID to prove they are experienced.",
+  "verifier": "The volunteer group admin deciding whether to grant the seller posting rights",
+  "predicate": "Applicant has completed at least 20 sales on any participating platform with no disputes (aggregate, threshold only; platform and items not revealed).",
+  "disclosed_today": "Screenshots of past orders with item names, prices, buyer names and chats, plus a Facebook profile link and sometimes an ID photo, all kept indefinitely in the admins' private messages and group notes.",
+  "issuer": "Any participating marketplace or payment platform, each signing its own sales aggregate; a peer vouching network of earlier buyers is a possible but weaker alternative.",
+  "why_zk": "Weak-to-moderate. Admins are volunteers who would probably keep using screenshots because they are free and familiar, and no law requires anything better. The proof helps only if several platforms issue compatible credentials, which is a real adoption barrier, and counting sales across platforms lets a seller double-count unless issuers share a nullifier scheme.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In PDPA Article 11-3, a collector must delete data once its purpose lapses but may keep it whenever it claims business need; here, the admin's saved screenshots play that open-ended retained pile, and a verify-then-discard threshold proof removes the need to hold anything after the admission decision.",
+    "source_excerpt": "A party that has collected a person's data must delete it once the reason for holding it ends, but an open-ended exception lets it keep the data whenever it says it still needs it for its own duties. | mechanism: Statutory deletion-on-purpose-lapse duty with exceptions for lawful duties or written consent; no technical erasure mechanism specified."
+   },
+   {
+    "borrowed_aspect": "In jury selection, the default can flip to full publication of everyone seated, with confidentiality only as a discretionary exception; here, the group's visible member and seller roster plays that role, and a threshold proof keeps seller identities from being published by default to the whole group.",
+    "source_excerpt": "Someone must be drawn from a pool and seated for a task without the wider public learning who they are, but the default rule can flip to full publication of the identities of everyone selected, with confidentiality only as a judge-level exception. | mechanism: Judge-discretionary confidentiality of juror names under a court's jury selection plan; no technical mechanism specified."
+   }
+  ]
+ }
+]

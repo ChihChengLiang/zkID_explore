@@ -1,0 +1,98 @@
+[
+ {
+  "review_id": "p13-0",
+  "context_purpose": "The after-school centre must release each child only to someone the guardian authorised and keep evidence in case of later dispute.",
+  "norm_violation_today": {"violated": "yes", "parameter": "retention", "reason": "Indefinite retention of a friend's ID photo and a chat screenshot on the owner's personal phone exceeds what a one-off release needs."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "A bare delegation proof does not tell the centre who physically took the child, so it cannot match a person to the proof or give police a name after an incident."},
+  "transmission_check": {"principle_today": "safety_security", "permits_minimal_flow": "permits", "reason": "Child-safety release is the centre's own practice with no known statute demanding an ID photo, so a signed delegation could substitute."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "yes", "verifier_can_check": "unknown"},
+  "rubric_score": 3,
+  "novelty": 4,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p13-1",
+  "context_purpose": "A roommate-matching platform wants to show prospective flatmates a trust signal that reduces risk of sharing a home with a dangerous person.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "A private platform and its contractors receive the full certificate with ID number, address and offence list when only a trust bit is needed."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "A non-membership bit on an invented violent-offender list covers a narrower set of risks than the full certificate and relies on a list that does not exist today."},
+  "transmission_check": {"principle_today": "commercial_convenience", "permits_minimal_flow": "permits", "reason": "The badge is voluntary and no legal duty is known to require the platform to hold certificate scans."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "no", "verifier_can_check": "yes"},
+  "rubric_score": 2,
+  "novelty": 3,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "p13-2",
+  "context_purpose": "The subcontractor must confirm each worker holds valid work-at-height training before they climb and keep evidence for labour inspectors.",
+  "norm_violation_today": {"violated": "unclear", "parameter": "retention", "reason": "Keeping ID and certificate copies in a site folder may be justified by inspection and accident-reporting duties, so over-collection is hard to call."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "A validity proof cannot show an inspector who was on site or support accident and insurance reporting, which need named workers."},
+  "transmission_check": {"principle_today": "required_by_law", "permits_minimal_flow": "unclear", "reason": "Occupational safety rules likely require evidence of training and inspectors may expect named records, and I cannot say whether a proof would satisfy them."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "unknown"},
+  "rubric_score": 3,
+  "novelty": 4,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p13-3",
+  "context_purpose": "A buyer deciding whether to hand cash to a stranger wants assurance of the seller's good track record.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "Informal requests for a seller's ID photo and phone number go beyond what a track-record check needs."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "A threshold proof says nothing about the specific item, whether the person meeting is the seller, or identity for recourse if the trade goes wrong."},
+  "transmission_check": {"principle_today": "commercial_convenience", "permits_minimal_flow": "permits", "reason": "Buyers ask for ID voluntarily with no legal duty, and the platform's own badge already works as a lighter flow."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 4,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p13-4",
+  "context_purpose": "The club and its gate vendor want fast, fraud-resistant entry for season-ticket holders with one entry per seat per game.",
+  "norm_violation_today": {"violated": "yes", "parameter": "recipient", "reason": "One vendor joins face data to account number and attendance history, a combination fans entering a ballpark would not expect a third party to hold."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "A phone-side match must be trusted and a lent or compromised phone defeats it, whereas the vendor's own face check does not depend on the holder's device."},
+  "transmission_check": {"principle_today": "commercial_convenience", "permits_minimal_flow": "permits", "reason": "Face gates are a business choice, though biometric rules may bind the vendor and I will not guess which."},
+  "aggregation": "high",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "unknown"},
+  "rubric_score": 3,
+  "novelty": 5,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p13-5",
+  "context_purpose": "The travel agency and insurer must verify temple-association membership for the group fare and insure named travellers.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "Collecting a member card and parish form builds a religious-affiliation list at an agency that only needs a fare-eligibility fact."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "The insurer still needs real names and IDs for the policy, so the proof only removes the religion and parish part."},
+  "transmission_check": {"principle_today": "consented_for_benefit", "permits_minimal_flow": "permits", "reason": "Riders hand it over for a discount and cover, and the insurer's identity needs can be met separately."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "unknown"},
+  "rubric_score": 3,
+  "novelty": 5,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p13-6",
+  "context_purpose": "The market office patrol must confirm each stall operator holds a current hygiene and stall permit.",
+  "norm_violation_today": {"violated": "yes", "parameter": "recipient", "reason": "Permit photos with ID number and address spread through market-office chat groups beyond the patrol staff who need them."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Little is lost since the patrol only needs current validity, though it gives up a photo log that could document that an inspection took place."},
+  "transmission_check": {"principle_today": "required_by_law", "permits_minimal_flow": "unclear", "reason": "Inspection is a regulatory duty and I cannot say whether a daily-refreshed proof would count as the permit or whether a logged copy is required."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 4,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p13-7",
+  "context_purpose": "A library satellite point must confirm an adult is authorised by a legal guardian to enrol a child for a library card.",
+  "norm_violation_today": {"violated": "yes", "parameter": "retention", "reason": "Untrained volunteers keep copies of two adults' IDs in folders or on personal phones for a simple enrolment."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Little is lost, though the library may want some enrolment record that the delegation existed."},
+  "transmission_check": {"principle_today": "consented_for_benefit", "permits_minimal_flow": "unclear", "reason": "Enrolment is a voluntary service but the library network may set its own rules on guardian documents that I cannot confirm."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "unknown"},
+  "rubric_score": 3,
+  "novelty": 3,
+  "provenance_faithful": "no"
+ }
+]

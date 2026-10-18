@@ -1,0 +1,59 @@
+[
+  {
+    "title": "One-ticket-one-body check at a Taipei Dome concert gate without a face gallery",
+    "moment": "A fan arrives at the Taipei Dome for a sold-out concert whose organiser uses face-recognition gates to stop scalped or resold tickets. Today she is asked to enrol her face against her ticket account, and the template sits in the ticketing platform's database long after the show.",
+    "verifier": "Concert organiser and its ticketing platform operating the face-recognition gate",
+    "predicate": "This gate scan shows the same single person who was bound to this one ticket at purchase; no second person is bound to it and the ticket has not already been used (uniqueness / one holder per ticket)",
+    "disclosed_today": "A face image and persistent face template, full name, phone number, national ID number or ID-linked membership account, and the purchase history, all kept in the platform's database",
+    "issuer": "The ticketing platform (or the organiser) signs a ticket credential at purchase that is bound to a holder key and a holder-side liveness commitment; the on-site gate verifies a proof against a per-event nullifier and never receives a face",
+    "why_zk": "The gate needs only 'one ticket, one holder, not yet used', which a ZK proof with a per-event nullifier gives without any stored template. The weakness: proving that the person at the gate is the person bound at purchase still needs some biometric or liveness step on the holder's own phone, and a ticket holder can hand the phone and credential to a friend. So it stops duplicate entry and bulk resale, not every form of proxy entry. Today's collection is commercial convenience, so the organiser has no legal duty to keep faces, but also little incentive to switch.",
+    "inspired_by": [
+      {
+        "seed_id": "an-a-nist-dp",
+        "borrowed_aspect": "In NIST differential privacy, a release mechanism lets an observer learn almost nothing about whether any one individual is in a dataset and the leak is bounded; here, the per-event nullifier plays that role by letting the gate and platform learn nothing about who entered beyond 'a valid unused ticket'."
+      },
+      {
+        "seed_id": "an-b-hipaa-min-necessary",
+        "borrowed_aspect": "In the HIPAA minimum-necessary rule, a record holder is asked to limit released data to what the purpose needs but has no proof it did so; here, the gate's face template collection is the over-collection, and the proof of uniqueness replaces it with a checkable minimum."
+      }
+    ]
+  },
+  {
+    "title": "Fan-club presale lane that confirms one real member per ticket, not who",
+    "moment": "A Taiwanese pop star's fan club runs a members-only presale for a Kaohsiung stadium show. To keep brokers out, the platform asks every fan to upload their ID card and a selfie, and later reuses the selfie for entry matching.",
+    "verifier": "Fan-club presale operator and the stadium gate staff who admit the presale lane",
+    "predicate": "The presenter is one distinct, verified fan-club member who has not already redeemed a presale allocation for this event (uniqueness of the member across redemptions)",
+    "disclosed_today": "ID card photo, selfie, name, birth date, phone and home address, plus a face template reused at the gate",
+    "issuer": "The fan club (a community body run by the artist's agency) signs a membership credential at sign-up; membership year and status are attested, and a nullifier is derived per event so one member can redeem only once",
+    "why_zk": "The presale lane only needs 'a unique paid-up member who has not yet redeemed', which the membership credential with a per-event nullifier proves without ID photos or selfies. This is a good fit because the fan club already knows its members and is the natural issuer. The weakness is that the sign-up check is only as good as the fan club's initial vetting, and a broker can still sign up many accounts with fake or borrowed identities. Uniqueness here is about members, not real persons, unless the issuer ties the credential to a government-attested identity. Collection today is for convenience and fraud screening, so no law pushes the club to change.",
+    "inspired_by": [
+      {
+        "seed_id": "an-a-oauth-scopes",
+        "borrowed_aspect": "In OAuth, a client asks for broad scopes when it needs one narrow permission and the server may grant less; here, the presale operator asks for ID plus selfie when it needs only 'one unredeemed member', and the credential grants only that narrow scope."
+      },
+      {
+        "seed_id": "tw-gov-household-register-proxy-copy-discretion",
+        "borrowed_aspect": "In the household-register proxy rule, the office may collect an ID copy at its own discretion with no mechanism limiting the scope; here, the fan-club operator's discretionary ID and selfie collection plays that role and the membership proof replaces the discretionary copy."
+      }
+    ]
+  },
+  {
+    "title": "Gate handoff relay so the face camera vendor never sees the ticket and the ticket office never sees the face",
+    "moment": "At a Taichung baseball stadium that uses a third-party face-recognition gate vendor for season-ticket holders, the vendor receives both the face and the season-ticket account number, so one company can link a person's face to their attendance history at every game.",
+    "verifier": "Third-party face-gate vendor under contract to the baseball club",
+    "predicate": "The person entering is the single season-ticket holder registered for this seat and this game, and this seat has not been entered already (uniqueness per seat per game)",
+    "disclosed_today": "Face image and template, season-ticket account number, name, phone and the full list of games attended, held by the vendor and the club",
+    "issuer": "The baseball club signs the season-ticket credential; the holder's phone does the local liveness and face-to-credential match, and only a proof plus a per-game nullifier is passed to the gate",
+    "why_zk": "Splitting what each party sees mirrors onion routing: the gate vendor learns only that a valid unused seat credential was presented and the club learns only a nullifier, so neither side can build a face-to-attendance history. The local match on the phone must still be trusted, and a compromised phone app or a lent phone defeats it. The vendor and club also gain a reason to keep the old system running because face gates are faster than phone scans in a queue. Today's collection is a commercial choice, so adoption depends on the club wanting the privacy benefit.",
+    "inspired_by": [
+      {
+        "seed_id": "an-a-tor-onion",
+        "borrowed_aspect": "In Tor, each relay peels one layer and knows only its neighbours so no single relay holds both origin and destination; here, the gate vendor and the baseball club play the relays, with the vendor seeing the proof but not the account and the club seeing the nullifier but not the face."
+      },
+      {
+        "seed_id": "an-b-attorney-client",
+        "borrowed_aspect": "In attorney-client privilege, confidentiality breaks when an outsider is present unless the outsider is essential; here, the third-party gate vendor is the outsider in the club-and-fan relationship, and the design keeps it from holding more than its essential check."
+      }
+    ]
+  }
+]

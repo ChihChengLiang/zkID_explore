@@ -1,0 +1,162 @@
+[
+ {
+  "review_id": "p02-0",
+  "title": "Cigarette-and-vape locker at a 7-Eleven-style convenience pickup point",
+  "moment": "A 23-year-old collects an online-ordered e-cigarette pod refill (or a nicotine-free vape device where age rules still apply) from an unattended smart locker in a Taipei MRT station concourse at 11pm. The locker must confirm the buyer is over the legal age, and no clerk is present.",
+  "verifier": "The locker operator (a logistics/locker company) acting for the e-commerce seller",
+  "predicate": "Holder's age is at least the statutory minimum (18 for tobacco/e-cigarette products under Taiwan's tobacco hazards control rules), evaluated on the day of pickup",
+  "disclosed_today": "Full national ID card photographed or scanned at the locker camera, or a typed ID number plus birth date, name and photo, retained in the operator's pickup log for audit",
+  "issuer": "Ministry of the Interior household registration system via the Taiwan Digital Wallet (MODA), which already holds the birth date from the household register",
+  "why_zk": "The legal duty is only to ensure the buyer is of age, yet the locker today keeps an ID image that is a ready identity-theft and tracking record of who buys nicotine and when. A threshold proof with device binding gives the locker a yes/no with no name, ID number or birth date to store. Weakness: the locker still needs to link the pickup to the order, so the order code ties the transaction to an account at the seller; the proof only removes the government identity data from the locker operator's hands.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In rd-google-wallet-zkp-age-no-linkage, a zero-knowledge over-18 proof on a device-bound mdoc gives the gatekeeper only a yes/no; here, the Taiwan Digital Wallet age proof presented to the locker plays that role.",
+    "source_excerpt": "A gatekeeper needs one yes/no fact about a holder, and the proof it receives must not reveal the underlying birth date or let the issuer or the gatekeeper track the holder. | mechanism: Zero-knowledge proof on ISO 18013-7 mdocs for an over-18 statement, device-bound transactions, no server-side storage of credential data."
+   },
+   {
+    "borrowed_aspect": "In rd-cnpd-lu-tourist-inspect-not-copy, the regulator says the host meets its duty by inspecting the ID without copying it; here, the locker's check of a one-time proof without retaining an ID image plays that role.",
+    "source_excerpt": "A host must confirm a visitor's identity and eligibility, but the usual practice is to keep a copy of the whole identity document; the regulator says looking at it is enough. | mechanism: Visual inspection of the identity document with no copy taken; the statutory duty is met by checking, not retaining."
+   }
+  ]
+ },
+ {
+  "review_id": "p02-1",
+  "title": "Dajia Mazu pilgrimage bus: group fare without a temple membership list",
+  "moment": "A Taichung travel agent sells seats on the chartered buses for the Dajia Mazu pilgrimage. Believers of a given temple get the group fare. Today the agent asks each person for the full name, ID number and a photo of the temple's believer card or membership register page, and keeps them in a LINE group and a spreadsheet.",
+  "verifier": "Travel agency booking clerk offering the congregation group fare",
+  "predicate": "Holder is a registered member of temple X's believer association this year (membership only).",
+  "disclosed_today": "Full name, national ID number, believer-card photo, address and often the register page showing other members' names.",
+  "issuer": "The temple's management committee (a registered 寺廟 juridical person), signing a yearly membership credential through the wallet.",
+  "why_zk": "The fare only needs yes or no for membership of temple X, so a signed membership proof with a per-trip unlinkable presentation removes the register photos and ID numbers the agent keeps for convenience. The agent also cannot build a list of religious affiliation across trips. Weakness: many temples have no digital system and informal members, so adoption depends on the committee issuing credentials, and the agent may still want ID for the travel insurance, which is a separate legal need.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In Privacy Pass, the client presents an unlinkable proof of a prior authorisation so the origin cannot link redemption to issuance; here, the temple's yearly membership credential plays that role, so the agency sees only 'member this year' and cannot match the booking to the temple's register or to other trips.",
+    "source_excerpt": "A verifier only needs to learn that the holder passed an earlier check, but the proof it receives can be matched to the issuance event and to every other use of the same proof. | mechanism: Clients present unlinkable proofs that attest to a prior authorisation, so the origin cannot link redemption to issuance or to other redemptions."
+   },
+   {
+    "borrowed_aspect": "In PDPA Article 5, the collector alone decides what is necessary for a stated purpose with no concrete test; here, the group-fare predicate plays the role of a concrete test by making 'member of temple X' the only thing the fare rule can ask.",
+    "source_excerpt": "A rule requires anyone collecting personal data to stay within the necessary scope of its stated purpose, but it gives no concrete way to show what was necessary, so the collector decides what counts as necessary. | mechanism: Legal purpose-limitation and proportionality principle; no technical mechanism specified."
+   }
+  ]
+ },
+ {
+  "review_id": "p02-2",
+  "title": "Process server confirms a defendant's director status via a relay that never sees both identity and address",
+  "moment": "A civil-litigation clerk or bailiff's contractor needs to serve papers on a company director. Today a clerk compiles company registry, land transcripts and household data into one file naming the person and a home address, which then circulates among staff and outside process servers. Instead a court-run relay answers 'this person is a director of company X' to the firm, and a separate service handles delivery to the address without learning the matter or the person's registry history.",
+  "verifier": "Law firm clerk or contracted process-serving agent",
+  "predicate": "The named individual is a registered director of the named company (cross-source match of person identity and company registry), with address resolution split so no single party holds identity, case, and home address together.",
+  "disclosed_today": "A compiled dossier: full name, ID number, home address from land or household sources, company roles, and often copies of transcripts sent by email between staff.",
+  "issuer": "Judicial Yuan court service or Ministry of Justice acting as relay, using Department of Commerce registry data as the signed source",
+  "why_zk": "Splitting knowledge across a relay means a leak at one hop does not expose both the person and the home address, easing stalking risk when service files are mishandled. Weakness: court service already has statutory address-lookup powers, so the split is largely organisational design rather than cryptography, and ZK adds only modest value over access control.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In Tor onion routing, each relay knows only its neighbours so none holds both origin identity and destination; here, the court relay and the delivery service each hold only part of person, case and address.",
+    "source_excerpt": "A route must be relayed through intermediaries so that no single intermediary holds both the origin identity and the final destination, while the traffic still reaches the endpoint. | mechanism: Onion routing, where the message is wrapped in one encryption layer per relay, and each relay peels only its own layer and passes the rest to the next hop."
+   },
+   {
+    "borrowed_aspect": "In PDPA Article 11(3), data must be deleted when the purpose lapses but an open exception lets the holder keep it; here, the served-and-closed case triggers a verifiable discard of the compiled dossier with no 'still needed for duties' escape because the dossier is never created.",
+    "source_excerpt": "A party that has collected a person's data must delete it once the reason for holding it ends, but an open-ended exception lets it keep the data whenever it says it still needs it for its own duties. | mechanism: Statutory deletion-on-purpose-lapse duty with exceptions for lawful duties or written consent; no technical erasure mechanism specified."
+   }
+  ]
+ },
+ {
+  "review_id": "p02-3",
+  "title": "Day-labour hiring hall in Taipei Wanhua matching walk-in workers to high-work jobs",
+  "moment": "At dawn, a labour-dispatch hall near Wanhua lists same-day scaffolding and exterior-wall jobs. Walk-in workers are asked by the dispatcher to show their training certificates, and the dispatcher snaps phone photos of cards and ID to forward to the contractor via LINE, so that the contractor can confirm legal compliance before accepting the worker. Photos then sit in a LINE group of dozens of people.",
+  "verifier": "Private dispatcher / contractor-run hiring hall that screens workers for high-place jobs",
+  "predicate": "Holder possesses a currently valid high-place or scaffolding safety training certificate (expiry date not passed), proven without revealing name or ID number until actually hired.",
+  "disclosed_today": "Phone photos of the ID card front and back, the training certificate and sometimes the health-insurance card, forwarded in group chat: name, ID number, address, photo, certificate number, expiry date.",
+  "issuer": "Training institution accredited by the Ministry of Labor, with the OSHA registry as the countersigning root of trust",
+  "why_zk": "Screening happens before any employment relation exists, so there is no reason for the hall or the LINE group to hold identity data; the legal duty to verify arises only for the contractor that finally employs the worker. ZK lets the hall pre-screen with an unlinkable 'valid certificate' proof and reveal identity only to the hiring contractor. Honest limits: many day labourers are older, have low smartphone literacy, and halls operate informally; a paper-card-with-QR fallback issued by the trainer would be needed, and halls have little incentive to change.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In an-a-samesite-cookies, the SameSite attribute stops a credential being sent to third parties who could match the holder across contexts; here, per-verifier presentation scoping plays that role so the hall's proof cannot be replayed or linked with the contractor's later check.",
+    "source_excerpt": "A stored credential should be presented only to the party that issued it in the current context, but the browser sends it on any request the context triggers, so an unrelated observer can match the holder across contexts. | mechanism: The SameSite cookie attribute, which limits the cookie to same-site requests (Strict, Lax, or None); the IETF draft describes it as a per-cookie setting, and cross-site behaviour depends on the chosen value."
+   },
+   {
+    "borrowed_aspect": "In an-a-oauth-scopes, the client asks for broad scopes while only one narrow permission is needed; here, the dispatcher's habit of asking for all card photos plays the over-broad request, and the wallet grants only the single validity predicate.",
+    "source_excerpt": "A holder asks a verifier for a credential covering more attributes than the single fact the relying party needs, and the issuer has no obligation to honour a narrower request. | mechanism: The client states a scope parameter in the request, and the authorization server returns the granted scope in the token response; the server may grant less than requested."
+   }
+  ]
+ },
+ {
+  "review_id": "p02-4",
+  "title": "Donation-box and fundraising treasurer vetted without exposing a personal record",
+  "moment": "A community temple in Taichung is choosing a volunteer treasurer to count the incense-money donations and handle the annual 平安燈 (lantern blessing) fundraising. The committee wants assurance that the person has no fraud or embezzlement conviction, so the chair asks the candidate to bring a criminal-record certificate and ID copy and passes them around at the committee meeting.",
+  "verifier": "The temple management committee (管理委員會) chair choosing a treasurer",
+  "predicate": "The candidate has no fraud, breach-of-trust or embezzlement conviction (non-membership in the economic-crime conviction list)",
+  "disclosed_today": "A full criminal-record certificate listing every entry, plus ID card copy, circulated among all committee members and often left in meeting files",
+  "issuer": "Ministry of Justice or the Judicial Yuan, issuing a category-specific signed credential covering fraud and breach-of-trust offences only",
+  "why_zk": "The check is narrow (one offence family), so a non-membership proof avoids exposing unrelated, possibly old and irrelevant records, such as a traffic offence, to a whole committee of neighbours. This is a moderate fit: it depends on the issuer offering category-scoped credentials, which does not exist today, and committees in small communities may trust personal reputation and decline a formal check anyway.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In HIPAA Safe Harbor, a fixed list of identifier fields is stripped before sharing so leftovers cannot re-identify anyone; here, the offence-category scope plays that role, so only the fraud-related yes/no is released and unrelated entries are removed by construction.",
+    "source_excerpt": "A party wants to share a record set that cannot identify any person, but the test is a checklist of removable fields plus a no-actual-knowledge condition, so the holder must still judge whether leftover fields re-identify someone. | mechanism: Safe Harbor method removing 18 enumerated identifiers (with ZIP-code truncation rule and age aggregation), or an expert-determination alternative; re-identification codes allowed only if not derived from or disclosed about the individual."
+   },
+   {
+    "borrowed_aspect": "In the household-registry proxy ruling, the office may collect ID copies at its own discretion with no stated limit; here, the temple committee's open-ended request for a whole certificate plays that role, and a fixed predicate limits what it can ask.",
+    "source_excerpt": "A government office that holds a record may ask a proxy's requester for a copy of the principal's identity document, and the scope of what it may collect is left to the office's discretion. | mechanism: None stated; collection of document copies left to agency discretion under PDPA and administrative procedure rules."
+   }
+  ]
+ },
+ {
+  "review_id": "p02-5",
+  "title": "Picking up a child's library card without showing the household register",
+  "moment": "A grandmother or parent goes to a city library branch in Taiwan to apply for a children's reading card for a 7-year-old. The counter staff ask for the child's ID or household register (戶口名簿) and the adult's national ID, and photocopy them or key the numbers into the library system. The library only needs to know that this adult is a legal guardian of a child under the card age limit.",
+  "verifier": "Municipal public library branch counter (e.g. a branch of the Taipei Public Library or New Taipei City Library)",
+  "predicate": "The holder is a registered legal guardian (parent or appointed guardian) of at least one child whose age is below the children's card limit, with the child's identity bound to the card application.",
+  "disclosed_today": "Adult's full name, national ID number and address; child's name, ID number, birth date and address, shown on the household register or ID cards and often copied or retained.",
+  "issuer": "Ministry of the Interior Department of Household Registration, through the household registration office (戶政事務所), as a signed attestation in the TW FidO digital wallet",
+  "why_zk": "Household registration data is already held by the government, so a signed guardian-of-minor attestation is feasible. The library only needs a yes/no membership proof plus a child-specific pseudonym for the card, and not ID numbers or addresses. Weakness: Taiwan's household register records parentage, not every guardianship (grandparents with only informal custody are not covered), and many branches will keep accepting paper documents, so ZK only helps if the wallet is widely held.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In the EUDI wallet recital, the holder discloses only the attribute a relying party needs from a larger identity record; here, the guardian-of-a-minor attribute from the household register plays that role instead of handing over the whole register.",
+    "source_excerpt": "A verifier needs one attribute from a larger identity record, but the holder cannot share just that attribute from the record. | mechanism: Selective disclosure of attributes from electronic attestations held in the EU Digital Identity Wallet."
+   },
+   {
+    "borrowed_aspect": "In the telco fraud case, checking only an ID number and issue date let a stolen identity pass; here, a signed guardianship attestation bound to the holder's wallet device plays the role of a check that cannot be passed by copying ID numbers.",
+    "source_excerpt": "A provider must verify that a new applicant is the named person, but its check uses identifiers that are easy to copy, so a stolen identity passes and the real person bears the consequences. | mechanism: None; online verification only checked ID number and issue date."
+   }
+  ]
+ },
+ {
+  "review_id": "p02-6",
+  "title": "Consent-to-treatment proxy proof for an unconscious patient, issued blind in advance",
+  "moment": "An elderly patient in a Kaohsiung hospital is rolled into emergency surgery and the surgeon needs someone to sign the consent form. The person who arrives says they are the patient's chosen proxy (a friend, not a relative), and the admissions clerk asks for the 預立醫療決定 or 醫療委任代理人 paperwork and photocopies the proxy's ID and the patient's health card, which can reveal diagnoses and living arrangements.",
+  "verifier": "Hospital admissions and surgical consent desk",
+  "predicate": "The person presenting is a named healthcare proxy of this patient, valid now and not revoked.",
+  "disclosed_today": "Proxy's full ID copy, patient's ID and health insurance card details, the whole advance-directive document including treatment preferences, and the relationship narrative written on the form.",
+  "issuer": "The patient, as a peer issuer, signs a proxy credential through a notary or a hospital counselling service during advance care planning (預立醫療照護諮商); the National Health Insurance or MOHW advance-directive registry could countersign validity.",
+  "why_zk": "Blind issuance fits: a counsellor or registry certifies the proxy credential without seeing what the proxy's later use looks like, and the surgical desk later learns only proxy-of-this-patient and not revoked, not the treatment preferences in the directive. Weakness: consent law already requires the hospital to read the directive for substantive content and the clinical team needs it, so the proof only replaces the identity-and-relationship part, and revocation checking forces a live registry lookup that can itself leak a hit on that patient.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In an-a-chaum-blind, the ballot authority signs a ballot without seeing its content and cannot later link it to the signing event; here, the advance-care registry plays the authority, certifying the proxy credential without learning at which hospital or occasion it will later be used.",
+    "source_excerpt": "A signer must certify that a holder has a valid token without seeing the token's content, and must later be unable to link the certified token back to the signing event. | mechanism: A blind signature, where the message is blinded with a random factor before signing, and the holder unblinds the signature so it verifies against the original message under the signer's public key."
+   },
+   {
+    "borrowed_aspect": "In tw-pdpa-art11-3-deletion-exception, a collector may keep data after its purpose lapses by claiming operational need; here, the admissions desk's habit of retaining proxy ID copies plays that open-ended exception, and the proof removes the copy that would otherwise be retained.",
+    "source_excerpt": "A party that has collected a person's data must delete it once the reason for holding it ends, but an open-ended exception lets it keep the data whenever it says it still needs it for its own duties. | mechanism: Statutory deletion-on-purpose-lapse duty with exceptions for lawful duties or written consent; no technical erasure mechanism specified."
+   }
+  ]
+ },
+ {
+  "review_id": "p02-7",
+  "title": "Stall slot lottery: permit-current check without handing over the permit file",
+  "moment": "A Taipei night market's management committee draws lots each month for vacant stall slots. Applicants currently photocopy their food business registration, health-bureau permit, and ID, and the committee clerk files the stack in a cabinet, just to confirm the permit has not expired.",
+  "verifier": "Night-market management committee clerk running the monthly slot allocation",
+  "predicate": "Holder has a food-hygiene registration and stall permit that is valid today (expiry date after today), proven as a fresh, non-expired status",
+  "disclosed_today": "Photocopy of full permit including business address, registrant name, national ID number, permit number, scope of food categories, and often a copy of the ID card",
+  "issuer": "Local health bureau (e.g. Taipei City Department of Health) via its food business registration system, signing a short-lived permit-status attestation",
+  "why_zk": "The committee only needs 'valid today'; a signed attestation with a short validity window lets the applicant prove freshness without the ID number, home address, or other business registrations. Weakness: the committee may be legally expected to keep a permit copy for audit, in which case selective disclosure only reduces what is shown, not what is retained; and the issuing bureau would have to build a status-attestation service.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In the Australian secret ballot, eligibility is checked separately from the ballot so identity is not attached to the vote at counting; here, the permit-validity check at the gate is separated from the lottery entry so the drawn slot is not linked to the full permit file.",
+    "source_excerpt": "A voter must prove eligibility and cast a valid choice while the record of that choice cannot be linked back to them, but the same process must still let officials verify who voted, so the separation depends on procedure rather than on a proof. | mechanism: Separate voting compartments and two-envelope sealing for postal and absentee ballots so identity is not attached to the vote at counting; eligibility is checked separately from the ballot."
+   },
+   {
+    "borrowed_aspect": "In HIPAA minimum-necessary, the holder of records must limit release to what a stated purpose needs but has no proof that it did; here, the stall applicant's proof plays that role by cryptographically limiting the release to 'permit current' for the slot-allocation purpose.",
+    "source_excerpt": "A holder of sensitive records must release only the subset that serves a stated purpose, but the rule leaves it to the holder to judge what is minimal and gives no mechanism that proves the released subset was minimal. | mechanism: Purpose-based minimum-necessary rule with reasonable-efforts standard, role-based access and reasonable reliance on requester representations (45 CFR 164.514(d)); no cryptographic or proof-based check."
+   }
+  ]
+ }
+]

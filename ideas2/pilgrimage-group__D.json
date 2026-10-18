@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Dajia Mazu pilgrimage bus: group fare without a temple membership list",
+    "moment": "A Taichung travel agent sells seats on the chartered buses for the Dajia Mazu pilgrimage. Believers of a given temple get the group fare. Today the agent asks each person for the full name, ID number and a photo of the temple's believer card or membership register page, and keeps them in a LINE group and a spreadsheet.",
+    "verifier": "Travel agency booking clerk offering the congregation group fare",
+    "predicate": "Holder is a registered member of temple X's believer association this year (membership only).",
+    "disclosed_today": "Full name, national ID number, believer-card photo, address and often the register page showing other members' names.",
+    "issuer": "The temple's management committee (a registered 寺廟 juridical person), signing a yearly membership credential through the wallet.",
+    "why_zk": "The fare only needs yes or no for membership of temple X, so a signed membership proof with a per-trip unlinkable presentation removes the register photos and ID numbers the agent keeps for convenience. The agent also cannot build a list of religious affiliation across trips. Weakness: many temples have no digital system and informal members, so adoption depends on the committee issuing credentials, and the agent may still want ID for the travel insurance, which is a separate legal need.",
+    "inspired_by": [
+      {
+        "seed_id": "an-a-privacy-pass",
+        "borrowed_aspect": "In Privacy Pass, the client presents an unlinkable proof of a prior authorisation so the origin cannot link redemption to issuance; here, the temple's yearly membership credential plays that role, so the agency sees only 'member this year' and cannot match the booking to the temple's register or to other trips."
+      },
+      {
+        "seed_id": "tw-pdpa-art5-purpose-limit",
+        "borrowed_aspect": "In PDPA Article 5, the collector alone decides what is necessary for a stated purpose with no concrete test; here, the group-fare predicate plays the role of a concrete test by making 'member of temple X' the only thing the fare rule can ask."
+      }
+    ]
+  },
+  {
+    "title": "Group travel insurance quote for a temple incense-tour with affiliation kept out of the policy file",
+    "moment": "A temple tour group of 40 people goes on a 3-day incense-offering trip to Mount Wutai-style sister temples abroad or around the island. The agent wants a group policy and the insurer's broker asks for a roster stating which congregation each traveller belongs to, to apply the group rate. The roster, with religion implied, goes by email to the broker and sits in the insurer's underwriting system.",
+    "verifier": "Insurance broker underwriting a group travel policy",
+    "predicate": "Traveller belongs to the named congregation that qualifies for the group rate (membership only, no religion field).",
+    "disclosed_today": "Name, ID number, birth date and the congregation name, which reveals religion, for every traveller.",
+    "issuer": "The congregation or temple association signing a membership credential; the broker's insurer accepts it as the 'affinity group' proof.",
+    "why_zk": "The group rate is an affinity-group discount, so the broker needs a membership proof, not a roster naming the faith. A selective-disclosure presentation lets the traveller prove the affinity discount and disclose the legally required insurance fields (name, ID, birth date) separately, so the religion link is not stored in the policy file. The broker can also ask for the minimum scope and the wallet shows what is released. Weakness: the insurer may still require the group name on the policy, which exposes the affinity anyway, and the broker can request a broader presentation than needed.",
+    "inspired_by": [
+      {
+        "seed_id": "an-a-oauth-scopes",
+        "borrowed_aspect": "In OAuth, the client requests a narrow scope but the server may grant more or less than requested; here, the broker's request for the 'group-rate membership' predicate plays the scope request, and the wallet grants only the membership proof rather than the full congregation record."
+      },
+      {
+        "seed_id": "rd-twdiw-field-selection-consent",
+        "borrowed_aspect": "In the TW Digital Identity Wallet, the user picks which fields to disclose after scanning a QR code; here, the traveller picks at the broker's counter to release the membership predicate and the legally required identity fields as separate disclosures."
+      }
+    ]
+  },
+  {
+    "title": "Temple lodging and meal booking for a congregation retreat at a mountain guesthouse",
+    "moment": "A congregation of a Taiwanese folk-religion temple books a night at a mountain guesthouse near Alishan that gives a pilgrim group rate and a vegetarian meal package. The guesthouse owner, to confirm the group really is the temple's, asks the leader to send a photo of the roster, each person's believer card and the ID card front and back via LINE, then keeps the photos on a phone.",
+    "verifier": "Guesthouse owner granting the pilgrim group rate",
+    "predicate": "Each guest is a member of the named congregation (membership only), checked at check-in in person.",
+    "disclosed_today": "Photos of ID cards, believer cards and the full roster with names, sent through a messaging app and retained on the owner's phone.",
+    "issuer": "The temple's committee issuing the credential; as a fallback, the tour leader (a peer) co-signs a group-attendance token.",
+    "why_zk": "At check-in the owner only needs to see a valid membership presentation on the guest's phone, in the manner of inspecting an original card and keeping nothing, with no photo copy needed. A wallet check done at the desk and leaving no stored copy replaces the LINE photo trail that is the real privacy loss. Weakness: this is a small, trust-based business and the owner has little incentive to adopt a wallet verifier, and for lodging registration the owner still has a legal duty to record identity, so the proof only replaces the religion-related photos.",
+    "inspired_by": [
+      {
+        "seed_id": "tw-gov-household-register-original-only",
+        "borrowed_aspect": "In the household register rule, the applicant shows the original document for inspection and the agency states no copy requirement; here, the guest's wallet presentation at the guesthouse desk plays the original document, shown once and not photographed."
+      },
+      {
+        "seed_id": "an-b-sealed-bid-far",
+        "borrowed_aspect": "In sealed-bid rules, submissions stay in a restricted-access box and are only opened by a designated official to identify them; here, the tour leader's roster plays the sealed bid, held in the wallet and opened only by the owner's verifier app for the single check-in purpose."
+      }
+    ]
+  }
+]

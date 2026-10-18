@@ -1,0 +1,98 @@
+[
+ {
+  "review_id": "p02-0",
+  "context_purpose": "Ensure tobacco/e-cigarette products are handed only to buyers of legal age at an unattended locker.",
+  "norm_violation_today": {"violated": "yes", "parameter": "retention", "reason": "The duty is an age check, but the operator keeps a full ID image and identity data in a pickup log, which exceeds what the age purpose needs."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Nothing for age gating; the operator cannot later prove to an auditor who was checked unless it keeps a proof receipt or log."},
+  "transmission_check": {"principle_today": "required_by_law", "permits_minimal_flow": "unclear", "reason": "The age-check duty is a legal one, but whether a regulator accepts a wallet proof instead of a retained ID record at an unattended point is unknown to me."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 4,
+  "novelty": 2,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "p02-1",
+  "context_purpose": "Offer a congregation group fare to members of a given temple and confirm eligibility.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "Collecting ID numbers, believer-card photos and register pages that expose other members goes well beyond a yes/no on membership and reveals religious affiliation."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Nothing for the fare; the agent loses a convenient contact list and any ID needed for travel insurance, which is a separate duty."},
+  "transmission_check": {"principle_today": "consented_for_benefit", "permits_minimal_flow": "permits", "reason": "The person hands over data voluntarily for a discount, with no legal duty requiring the full register or card photos."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 5,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "p02-2",
+  "context_purpose": "Locate and serve legal papers on a company director so that civil proceedings can continue.",
+  "norm_violation_today": {"violated": "unclear", "parameter": "recipient", "reason": "Service of process is a legitimate purpose, but circulating a combined dossier of person, role and home address among staff and outside agents widens the recipients beyond need."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "The server still needs an actual address to deliver, so the split only moves who holds it; some party must eventually combine person and address."},
+  "transmission_check": {"principle_today": "required_by_law", "permits_minimal_flow": "unclear", "reason": "Service rules and court address-lookup powers exist, but I cannot say whether they allow a split-relay design instead of a compiled file."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "unknown"},
+  "rubric_score": 2,
+  "novelty": 4,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "p02-3",
+  "context_purpose": "Pre-screen walk-in day labourers for high-place work so unqualified workers are not sent to contractors.",
+  "norm_violation_today": {"violated": "yes", "parameter": "recipient", "reason": "ID, address and certificate photos are broadcast to a LINE group of dozens before any employment exists, far beyond the contractor who finally hires."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Nothing for pre-screening; the hiring contractor still needs full identity once the worker is hired."},
+  "transmission_check": {"principle_today": "safety_security", "permits_minimal_flow": "permits", "reason": "The check exists to confirm safety training and the legal duty to verify rests with the final employer, so a validity proof at the hall is not blocked."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "unknown"},
+  "rubric_score": 3,
+  "novelty": 4,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p02-4",
+  "context_purpose": "Reduce the risk of embezzlement by a volunteer who will handle temple donation money.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "A full criminal-record certificate and ID copy shown to the whole committee reveals unrelated entries beyond the fraud question."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Nothing for the narrow fraud question; the committee loses context on other offences it might informally weigh."},
+  "transmission_check": {"principle_today": "commercial_convenience", "permits_minimal_flow": "permits", "reason": "The committee has no legal duty to collect the record; it asks as a trust measure, so a narrower proof is allowed if the candidate agrees."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "no", "verifier_can_check": "unknown"},
+  "rubric_score": 3,
+  "novelty": 3,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p02-5",
+  "context_purpose": "Issue a children's reading card to a child's legal guardian under the library's age limit.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "Copying household registers and ID numbers of adult and child collects addresses and family details a library card does not need."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "Informal guardians such as grandparents are not in the register, and the library may still need a way to contact the guardian."},
+  "transmission_check": {"principle_today": "consented_for_benefit", "permits_minimal_flow": "unclear", "reason": "Cards are a voluntary service, but whether library or city rules require retaining ID copies for borrower records is unknown to me."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "yes", "verifier_can_check": "unknown"},
+  "rubric_score": 3,
+  "novelty": 4,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "p02-6",
+  "context_purpose": "Confirm that the person consenting to emergency treatment is the patient's valid chosen proxy.",
+  "norm_violation_today": {"violated": "unclear", "parameter": "retention", "reason": "Reading the directive is justified in an emergency, but keeping photocopies of proxy ID and health card is likely more than needed; the clinical team legitimately sees the content."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "The team also needs the substantive treatment preferences in the directive, and a live revocation check is required."},
+  "transmission_check": {"principle_today": "required_by_law", "permits_minimal_flow": "blocks", "reason": "Consent rules, as I understand them, oblige the hospital to read and keep the directive and consent paperwork, so a bare proxy proof would not replace it."},
+  "aggregation": "high",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "no"},
+  "rubric_score": 2,
+  "novelty": 4,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "p02-7",
+  "context_purpose": "Confirm that applicants hold a current food business permit before entering them in the slot draw.",
+  "norm_violation_today": {"violated": "yes", "parameter": "retention", "reason": "A permit stack with ID numbers filed in a cabinet exceeds the need to see that a permit is not expired."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Nothing for the draw; the committee loses a paper copy for later audit unless a proof receipt is kept."},
+  "transmission_check": {"principle_today": "consented_for_benefit", "permits_minimal_flow": "unclear", "reason": "The committee collects to allocate stalls, but whether market or local rules require a retained permit copy for audit is unknown to me."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 3,
+  "provenance_faithful": "no"
+ }
+]

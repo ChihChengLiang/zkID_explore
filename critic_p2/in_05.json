@@ -1,0 +1,162 @@
+[
+ {
+  "review_id": "p05-0",
+  "title": "Carpool pairing: a driver proves non-membership to a rider before a late-night shared ride",
+  "moment": "A woman in Kaohsiung books a shared ride home from a concert with a stranger who posts seats in a community carpool group chat. She wants some assurance the driver is not on a violent-offender list, but the group admin's only method is to ask drivers to send a photo of their ID card and driver licence in the chat, where every group member can see and save it.",
+  "verifier": "The rider (a peer stranger), via the carpool group's admin bot",
+  "predicate": "The driver is not on the violent-offender list as of a date within the last 30 days, with the proof bound to the driver's licence-holder key so it cannot be passed to another person",
+  "disclosed_today": "Photo of the national ID card and driving licence posted in a group chat: name, ID number, photo, birth date, address, licence class",
+  "issuer": "National Police Agency signs the non-membership credential; the Directorate General of Highways' licence data is a possible binding anchor",
+  "why_zk": "The rider only needs a yes/no from a source she trusts, yet today the driver benefits from a seat fill by exposing identity documents to dozens of strangers in a chat. A blind-signed, unlinkable token means the police issuer never learns which carpool group or which ride the proof is shown for, and the rider's app learns no ID number. Weakness: a clean list result says nothing about someone with no record yet, and drivers can lend their phones, so device binding and liveness matter more than the cryptography.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In an-a-chaum-blind, the ballot authority signs a voter's ballot without seeing its content and cannot link it to the counted ballot; here, the police issuer signs the driver's not-on-list token blind, so it cannot later link the token to the specific ride or group where it is shown.",
+    "source_excerpt": "A signer must certify that a holder has a valid token without seeing the token's content, and must later be unable to link the certified token back to the signing event. | mechanism: A blind signature, where the message is blinded with a random factor before signing, and the holder unblinds the signature so it verifies against the original message under the signer's public key."
+   },
+   {
+    "borrowed_aspect": "In tw-bank-deposit-dual-id-check, a bank inspects two identity documents without stating whether copies are kept; here, the group admin's request for ID and licence photos plays that role, and a proof replaces the copies so retention stops being a question.",
+    "source_excerpt": "A bank must verify who a person is before opening an account, which means examining identity documents, but the cited rule does not say whether copies are kept or for how long. | mechanism: Dual identity-document inspection at account opening; retention and copy handling not specified in the cited text."
+   }
+  ]
+ },
+ {
+  "review_id": "p05-1",
+  "title": "Ride-share or school-bus driver handing a child over at the door (交通車接送)",
+  "moment": "A kindergarten's contracted 交通車 driver in Kaohsiung reaches a stop at 5:30pm where the usual parent is absent and an aunt waits instead. The driver is not allowed to leave the child with an unlisted adult, so the driver phones the school office, which phones the parent, while the other children wait on the bus; the aunt is asked to show her ID so the driver can note her name.",
+  "verifier": "Kindergarten bus driver / bus aide (隨車老師)",
+  "predicate": "The holder proves, offline and at the kerb, that a guardian authorised this named stop handover for this child today; the driver sees only a pass/fail and the child's first name, not the aunt's ID details or the parent's phone number.",
+  "disclosed_today": "A phone call chain through the school office, the aunt's name and sometimes ID number written in the driver's handover sheet, and the parent's phone number shared among driver, office and aunt.",
+  "issuer": "The kindergarten, as the party that holds the enrolment and authorised-adult list, issuing the one-time handover pass after the guardian approves it in the school's app.",
+  "why_zk": "Moderate fit: the real gain is not privacy from the driver alone but removing the phone-call chain and the handover sheet that spreads names and numbers, and offline verification matters on a moving bus with patchy signal. Weaknesses: the driver's tablet must verify without connectivity, revocation within the same afternoon is hard offline, and the school could simply issue a numeric one-time code, which achieves most of the benefit without any zero-knowledge proof at all.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In attorney-client privilege, confidentiality is lost when an outsider is present unless the outsider is an essential agent such as an interpreter; here, the extra intermediaries in the phone chain (office staff, other drivers reading the handover sheet) play the outsiders, and a pass that only the driver and aunt see keeps the circle to the essential parties.",
+    "source_excerpt": "A party must consult an advisor about a sensitive matter without the advisor, or anyone else, learning or revealing more than the matter requires, but the protection breaks as soon as an outsider is in the room unless the outsider is essential to the relationship. | mechanism: Evidentiary privilege over communications, lost by third-party presence except essential agents such as interpreters; no technical mechanism."
+   },
+   {
+    "borrowed_aspect": "In the AEPD hotel case, the host records only the fields the rule requires instead of copying the whole document; here, the driver's handover sheet records only a pass-valid-for-today result and not the aunt's ID number, playing the role of the minimal registration entry.",
+    "source_excerpt": "A registrant must prove a small set of facts to a host, but the host asks for a full copy of the identity document, which carries many extra fields the rule never needed. | mechanism: Inspect the identity document in person and record only the fields the registration rule requires; no copy retained."
+   }
+  ]
+ },
+ {
+  "review_id": "p05-2",
+  "title": "Hot-spring hotel bath: gender-area entry without handing over ID",
+  "moment": "A traveler checks in at a Beitou hot-spring hotel whose public bath has separate men's and women's halls plus a tattoo-restricted policy. The front desk photocopies or photographs her ID card 'to confirm gender and age' and logs it with the booking, although she only needs to show she qualifies for the women's hall or is old enough under the house tattoo-age rule.",
+  "verifier": "Front desk of a Beitou hot-spring hotel operating a public bath",
+  "predicate": "Holder is recorded as female OR holder's age is at or above the venue's tattoo-policy age threshold (a membership/set-inclusion claim over the attributes held by the household registration or national ID record)",
+  "disclosed_today": "Full ID card image or photocopy: name, national ID number, birth date, address, household registration details, photo, gender marker",
+  "issuer": "Ministry of the Interior household registration offices, via the Taiwan Digital Wallet (TW DIW) national ID credential",
+  "why_zk": "The venue needs one yes/no fact per visit, not an identity. A device-bound ZK presentation of 'female OR age >= N' avoids the ID copy and keeps the bath's ledger free of ID numbers and addresses. Weakness: the venue has no legal duty to check, so adoption depends on the hotel seeing a benefit (less liability for holding ID images, easier compliance with the PDPA minimisation principle), and the existing practice of simply looking at the ID is only mildly invasive when not copied.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In rd-google-wallet-zkp-age-no-linkage, a ZK proof on an mdoc lets a gatekeeper learn only an over-18 claim without the birth date; here, the national ID wallet credential proving 'female or over tattoo-age' plays that role for the hotel front desk.",
+    "source_excerpt": "A gatekeeper needs one yes/no fact about a holder, and the proof it receives must not reveal the underlying birth date or let the issuer or the gatekeeper track the holder. | mechanism: Zero-knowledge proof on ISO 18013-7 mdocs for an over-18 statement, device-bound transactions, no server-side storage of credential data."
+   },
+   {
+    "borrowed_aspect": "In gdpr-data-minimisation, controllers collect whole documents when a narrower field would serve; here, the front desk photocopying a whole ID card when one bit is needed plays that role, and the selective-disclosure proof supplies the missing narrower field.",
+    "source_excerpt": "A rule obliges anyone requesting information to take only what the purpose needs, but gives no practical way to request less than a whole document. | mechanism: Legal principle of data minimisation; no technical mechanism specified."
+   }
+  ]
+ },
+ {
+  "review_id": "p05-3",
+  "title": "Shared bargaining ballot across an industrial union branch and the enterprise union",
+  "moment": "A factory-branch union of a multi-site manufacturer holds a ballot on whether to accept a collective-agreement offer. Members at contractor and subsidiary sites vote too, so the organizing union must confirm they are dues-paying members of an affiliated union, and today that means sending their union ID photos and payroll dues slips, which expose both membership and employer to the host union.",
+  "verifier": "The confederation or industrial union's ballot organizer collecting votes from affiliated enterprise unions' members",
+  "predicate": "I am a dues-paying member in good standing of one of the affiliated unions, without disclosing which one or my employer, and I vote once",
+  "disclosed_today": "Union membership card photo, national ID number, employer name and payroll dues slip from the member's own union",
+  "issuer": "Each affiliated union signs a membership credential; the confederation accepts any of the registered unions' issuer keys as a set",
+  "why_zk": "A set-membership proof over the affiliated unions' issuer keys shows 'member of some affiliate' without revealing which workplace, protecting contract and subcontract workers from retaliation by their own employer. Weakness: small affiliates make the anonymity set tiny, and a union may legitimately need to know which affiliate a vote came from for weighting, so some deployments need the branch disclosed.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In the securities foreign-agent rule, a full ID copy is the only way an agent proves it is a real identified person; here, the union card photo and payroll slip play that role, and a signed membership credential replaces them.",
+    "source_excerpt": "A foreign investor must prove that its local agent is a real, identified person, and the agent hands over a full copy of an ID card, with no alternative verification stated. | mechanism: None stated; full ID copy required with no less-intrusive alternative given."
+   },
+   {
+    "borrowed_aspect": "In jury selection, names of those seated are published unless a judge grants confidentiality; here, the roll of who voted plays that role, and the proof makes confidentiality the default instead of an exception granted case by case.",
+    "source_excerpt": "Someone must be drawn from a pool and seated for a task without the wider public learning who they are, but the default rule can flip to full publication of the identities of everyone selected, with confidentiality only as a judge-level exception. | mechanism: Judge-discretionary confidentiality of juror names under a court's jury selection plan; no technical mechanism specified."
+   }
+  ]
+ },
+ {
+  "review_id": "p05-4",
+  "title": "Neighbourhood parent-run pickup carpool at a kindergarten",
+  "moment": "Four families at a private kindergarten in Taichung take turns driving each other's children home. Each driving parent shows up at the gate and the kindergarten receptionist asks to see ID and checks the name against a LINE message the parent forwards, which reveals the parents' group chat and contact details.",
+  "verifier": "Kindergarten receptionist / 幼兒園櫃台人員",
+  "predicate": "The holder is authorised by this child's guardian to collect the child today as part of a carpool rota, shown as a time-limited delegation that expires after the stated pickup window.",
+  "disclosed_today": "The driver's ID card, the guardian's forwarded LINE message with the chat screenshot (other parents' names and phone numbers), and the vehicle plate.",
+  "issuer": "Each child's guardian, signing a per-day delegation; the kindergarten registers the guardian's key at enrolment so the receptionist can verify the signature",
+  "why_zk": "Forwarded chat screenshots leak other families' details, and the receptionist only needs 'authorised today'. A per-child, per-day delegation avoids sending the group chat. It is weak in that the proof says nothing about whether the driver is trustworthy or insured, and the kindergarten may continue to ask for ID anyway because a childcare-law duty of care makes staff reluctant to rely only on a digital token.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In rd-apple-wallet-age-request-categories, a single over-threshold flag is requestable but its category also bundles issuer and photo; here, the 'authorised today' delegation plays the single flag and the driver's ID photo plays the bundled extras that the request must be able to leave out.",
+    "source_excerpt": "A verifier wants a single over-threshold fact, but the request category bundles the issuing authority and a face photo with it, so the verifier can receive more than the age claim. | mechanism: Age Over N Flag as a separate requestable value under an entitlement-gated API; no shared name or address."
+   },
+   {
+    "borrowed_aspect": "In tw-bank-deposit-dual-id-check, a bank must check two identity documents but the rule leaves copy retention unspecified; here, the receptionist's ID check plays that duty and a proof that is checked but never copied plays the missing retention rule.",
+    "source_excerpt": "A bank must verify who a person is before opening an account, which means examining identity documents, but the cited rule does not say whether copies are kept or for how long. | mechanism: Dual identity-document inspection at account opening; retention and copy handling not specified in the cited text."
+   }
+  ]
+ },
+ {
+  "review_id": "p05-5",
+  "title": "Strike authorization vote at a Taiwan Airlines flight attendants' union",
+  "moment": "Cabin crew at an airline are asked to vote on authorizing a strike over rosters and pay. The union currently has each member log in to an online ballot with employee number and dues record, and the ballot system's vendor and some staff can link names to votes; crew fear the airline will learn who voted yes.",
+  "verifier": "The union's election committee running the strike authorization ballot (under the Labor Union Act and the Act for Settlement of Labor-Management Disputes strike-vote rules)",
+  "predicate": "I am a current dues-paying member of this union (membership as of the ballot cut-off date) and I have not yet cast a ballot in this vote, shown with a one-time nullifier",
+  "disclosed_today": "Full name, employee number, membership roll entry, dues payment history and a login identity, all tied to the ballot record",
+  "issuer": "The union itself, signing a membership credential at dues reconciliation; the airline plays no part in issuance",
+  "why_zk": "A membership credential plus a per-ballot nullifier gives one-person-one-vote without the ballot record carrying a name, so the employer or vendor cannot link voter to vote. Weakness: the union already holds the roll and law requires a verifiable member count for a valid strike vote, so the roll must still exist; the gain is unlinkability of the ballot, not hiding membership from the union.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In the census statute, a rule bars any output from which a particular respondent can be singled out while staff still see raw records; here, the ballot tally plays that role, so the election committee publishes only aggregate counts and cannot tie a ballot to a member.",
+    "source_excerpt": "An agency holding individual responses must release aggregate results, and the legal duty bars any output from which a particular respondent can be singled out, while the holder's staff can still see the raw records. | mechanism: Statutory use limitation and publication prohibition enforced by sworn-oath duties and penalties; statistical disclosure limitation (for example differential privacy in later census products) is a technical layer not specified in the statute."
+   },
+   {
+    "borrowed_aspect": "In data minimisation, a requester must take only what the purpose needs but has no way to ask for less than a whole document; here, the ballot check plays that role, asking only for 'eligible and not yet voted' rather than a full member record.",
+    "source_excerpt": "A rule obliges anyone requesting information to take only what the purpose needs, but gives no practical way to request less than a whole document. | mechanism: Legal principle of data minimisation; no technical mechanism specified."
+   }
+  ]
+ },
+ {
+  "review_id": "p05-6",
+  "title": "ICU visiting: prove 'I am the registered spouse or proxy' without handing over an ID copy",
+  "moment": "A man arrives at a regional hospital's ICU in Taichung at 2 pm visiting hour to see his wife after surgery. The ward desk currently asks for his national ID card, copies or scans it, and checks the name against the patient's file; only spouses and the named proxy may enter during restricted hours.",
+  "verifier": "ICU ward nurse station / hospital security desk",
+  "predicate": "Holder is a member of the patient's authorised visitor set (spouse, partner or named proxy) for this admission, without revealing name, ID number, address or the exact relationship type.",
+  "disclosed_today": "Full national ID card shown and often photocopied or photographed: name, ID number, birth date, address, photo, plus the relationship stated verbally and written in a visitor log.",
+  "issuer": "The hospital itself, issuing a per-admission 'authorised visitor' credential at admission, based on the household registration record or the patient's signed proxy designation; the patient can add or revoke names.",
+  "why_zk": "The ward only needs 'is on this patient's allowed list' for this admission, yet the ID copy is the only handle the desk has, like the agent ID copy in the securities case where a full copy is demanded with no lighter option. Selective disclosure of a single membership bit, in the spirit of the Swiss e-ID sharing only necessary data, would let the nurse see a green check for this ward and date. Weakness: the hospital is both issuer and verifier, so it could just keep a plain list at the desk; the gain is mainly that the desk stops copying and logging ID cards and that visitors can't be linked across wards or visits. Also a wallet-less elderly spouse needs a paper or card fallback.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In the securities agent case, the verifier demands a full ID card copy to confirm a third party is a real identified person with no lighter alternative; here, the ward desk's ID photocopy for visitors plays that role and the single-bit membership proof replaces it.",
+    "source_excerpt": "A foreign investor must prove that its local agent is a real, identified person, and the agent hands over a full copy of an ID card, with no alternative verification stated. | mechanism: None stated; full ID copy required with no less-intrusive alternative given."
+   },
+   {
+    "borrowed_aspect": "In the Swiss e-ID, the wallet releases only the attribute a transaction needs via selective disclosure; here, the visitor's wallet releases only 'on this admission's visitor list' to the ward desk.",
+    "source_excerpt": "A business needs one attribute to proceed, but the credential is issued as a whole, so the holder must rely on the wallet to release only the needed attribute. | mechanism: SD-JWT VC selective disclosure with OpenID4VP presentation and status-list validity check."
+   }
+  ]
+ },
+ {
+  "review_id": "p05-7",
+  "title": "One-ticket-one-body check at a Taipei Dome concert gate without a face gallery",
+  "moment": "A fan arrives at the Taipei Dome for a sold-out concert whose organiser uses face-recognition gates to stop scalped or resold tickets. Today she is asked to enrol her face against her ticket account, and the template sits in the ticketing platform's database long after the show.",
+  "verifier": "Concert organiser and its ticketing platform operating the face-recognition gate",
+  "predicate": "This gate scan shows the same single person who was bound to this one ticket at purchase; no second person is bound to it and the ticket has not already been used (uniqueness / one holder per ticket)",
+  "disclosed_today": "A face image and persistent face template, full name, phone number, national ID number or ID-linked membership account, and the purchase history, all kept in the platform's database",
+  "issuer": "The ticketing platform (or the organiser) signs a ticket credential at purchase that is bound to a holder key and a holder-side liveness commitment; the on-site gate verifies a proof against a per-event nullifier and never receives a face",
+  "why_zk": "The gate needs only 'one ticket, one holder, not yet used', which a ZK proof with a per-event nullifier gives without any stored template. The weakness: proving that the person at the gate is the person bound at purchase still needs some biometric or liveness step on the holder's own phone, and a ticket holder can hand the phone and credential to a friend. So it stops duplicate entry and bulk resale, not every form of proxy entry. Today's collection is commercial convenience, so the organiser has no legal duty to keep faces, but also little incentive to switch.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In NIST differential privacy, a release mechanism lets an observer learn almost nothing about whether any one individual is in a dataset and the leak is bounded; here, the per-event nullifier plays that role by letting the gate and platform learn nothing about who entered beyond 'a valid unused ticket'.",
+    "source_excerpt": "A releaser must answer queries about a dataset so that an observer learns almost nothing about whether any one individual contributed, and the leak must be expressed as a bound that can be checked. | mechanism: Differential privacy, a randomised release mechanism with a quantified privacy-loss parameter; NIST notes that the guarantee depends on how the framework is realised in practice and lists privacy hazards that can break it."
+   },
+   {
+    "borrowed_aspect": "In the HIPAA minimum-necessary rule, a record holder is asked to limit released data to what the purpose needs but has no proof it did so; here, the gate's face template collection is the over-collection, and the proof of uniqueness replaces it with a checkable minimum.",
+    "source_excerpt": "A holder of sensitive records must release only the subset that serves a stated purpose, but the rule leaves it to the holder to judge what is minimal and gives no mechanism that proves the released subset was minimal. | mechanism: Purpose-based minimum-necessary rule with reasonable-efforts standard, role-based access and reasonable reliance on requester representations (45 CFR 164.514(d)); no cryptographic or proof-based check."
+   }
+  ]
+ }
+]

@@ -1,0 +1,59 @@
+[
+  {
+    "title": "One unit, one weighted ballot at the annual 區分所有權人會議",
+    "moment": "At a 40-unit Taipei apartment building's annual owners' meeting (區分所有權人會議), the committee secretary checks each attendee against the ownership register to count one vote per unit, weighted by floor-area share (坡度比例). Owners hand over 權狀 photocopies, ID copies and proxy forms, and the sign-in sheet is posted in the lobby. A co-owner of two units, or a person present in person and also named as someone's proxy, is easy to miscount.",
+    "verifier": "The building management committee secretary (管委會總幹事/主任委員) running the meeting under the 公寓大廈管理條例 and the building's bylaws (規約)",
+    "predicate": "This holder is the one registered voter for unit X, X carries floor-area share w, and no other ballot has been issued for X in this meeting (uniqueness per unit per meeting).",
+    "disclosed_today": "Full name, national ID number, copy of the 建物所有權狀 (with address, area, co-owner shares, mortgage notes), signature on a sign-in sheet visible to all, and proxy forms carrying the principal's ID copy.",
+    "issuer": "The district Land Administration Office (地政事務所) signing an ownership-share credential from the land register, with a meeting-scoped nullifier derived from the unit identifier.",
+    "why_zk": "A selective-disclosure credential from the land office can prove 'I am the registered owner of a unit with share w' and a per-meeting nullifier makes double voting for the same unit detectable without showing the 權狀, address or ID. Weakness: co-owned units need threshold or delegate logic, the land registry is already semi-public (謄本 can be pulled by anyone with an address), and many committees run on paper with no wallet infrastructure, so the privacy gain is mostly against the neighbours and the secretary rather than against the state. Real value is modest but the double-count prevention is concrete.",
+    "inspired_by": [
+      {
+        "seed_id": "an-b-hipaa-min-necessary",
+        "borrowed_aspect": "In HIPAA minimum-necessary, the holder of records decides by judgement what subset to release for a stated purpose; here, the committee secretary's habit of collecting full 權狀 copies plays that role, and the proof of 'unit and share only' replaces the judgement call."
+      },
+      {
+        "seed_id": "an-a-nist-dp",
+        "borrowed_aspect": "In NIST differential privacy, a published aggregate must not reveal whether one individual contributed, with the leak bounded; here, the posted weighted vote tally plays that role, and the per-meeting nullifier means the tally leaks only a unit count and not who sits behind each unit."
+      }
+    ]
+  },
+  {
+    "title": "Tenant votes on elevator repair levy without exposing the lease",
+    "moment": "A building plans to replace its aging elevator and the committee lets resident tenants (住戶) vote alongside owners on matters the bylaws open to them, or lets a tenant act as the owner's delegate. The tenant is asked to show the lease (租賃契約), which lists monthly rent, deposit and the landlord's ID and bank details, so the committee can confirm they really live in the unit and that the owner has not also voted.",
+    "verifier": "The management committee chair (主任委員) verifying resident-tenant and proxy standing for a vote on elevator replacement",
+    "predicate": "This holder lives in unit X under a currently valid lease, the owner of unit X has authorized the tenant to vote on this item, and unit X's ballot has not already been cast by anyone else (uniqueness).",
+    "disclosed_today": "Whole lease contract including rent amount, deposit, landlord's name, ID and bank account, the tenant's ID copy, and a signed owner authorization letter (委託書) with the owner's ID copy.",
+    "issuer": "The unit owner (a peer issuer) signing a time-limited voting delegation credential, optionally countersigned by the 租賃住宅 registration platform (the Ministry of the Interior's rental registration, 租賃住宅服務業 / 租賃備案) so that 'lease is valid' is checked by a registry rather than by reading the contract.",
+    "why_zk": "A delegation credential signed by the owner, with a nullifier bound to the unit and the agenda item, proves standing and prevents the owner and tenant both voting, while rent, deposit and landlord banking never leave the tenant. Weakness: the issuer is a private individual so trust rests on the owner's key custody, many small landlords will not operate a wallet, and an unregistered lease (common in Taiwan) has no registry to countersign. Where the lease is not registered, a simple signed letter does most of the job.",
+    "inspired_by": [
+      {
+        "seed_id": "tw-gov-household-register-proxy-copy-discretion",
+        "borrowed_aspect": "In the household-register proxy ruling, the office may ask the requester for a copy of the principal's identity document at its own discretion; here, the committee chair's demand for the owner's ID copy with each 委託書 plays that role, and the signed delegation credential replaces the copy."
+      },
+      {
+        "seed_id": "an-b-attorney-client",
+        "borrowed_aspect": "In attorney-client privilege, confidentiality is lost when an outsider is present unless the outsider is essential to the relationship; here, the landlord-tenant financial terms play the protected content and the committee plays the outsider, so only the essential fact of valid residence reaches it."
+      }
+    ]
+  },
+  {
+    "title": "Anonymous-but-countable ballot on a contested management-fee increase",
+    "moment": "A building with a split over raising monthly management fees (管理費) and hiring a new security firm holds a ballot by paper slip signed with name and unit number, collected by the committee. Residents who disagree with the chair fear retaliation or social pressure, and the committee must still keep a legally defensible record that each unit voted once, because meeting resolutions can be challenged in court and the minutes must be kept and shown to the district's building-management supervision office (主管機關).",
+    "verifier": "The management committee together with the auditor (監察人), who must be able to show a court or the district authority that each unit voted at most once with correct weights",
+    "predicate": "This ballot comes from a unit in the owner roll, with weight w, and that unit's nullifier for this ballot appears for the first time (uniqueness), without linking the ballot to a name.",
+    "disclosed_today": "Name, unit number and signature on the ballot itself, which ties each vote to a person, plus ID checks at the door; the ballots and minutes are retained for later challenge.",
+    "issuer": "The management committee itself as a community-body issuer, issuing each registered unit a single-use voting credential at roll-call from the verified owner roll, with the auditor (監察人) holding the audit key.",
+    "why_zk": "Credential issuance at roll-call separates 'eligible unit' from 'this vote', so the committee can prove one-vote-per-unit weighted tallies to a court without a name-linked ballot, which is the secret-ballot property that paper slips with names cannot give. Weakness: the statute and most bylaws are written around open, signed votes, the issuer is the same body that counts, so a corrupt committee could issue extra credentials, and small buildings may simply not need it. It is also a social question whether neighbours accept anonymity, so the strongest case is only for contested, high-stakes items.",
+    "inspired_by": [
+      {
+        "seed_id": "an-a-tor-onion",
+        "borrowed_aspect": "In Tor onion routing, no single relay holds both the origin identity and the final destination; here, the roll-call issuer sees who is eligible and the ballot box sees only the vote with its nullifier, so no single party holds both the person and the choice."
+      },
+      {
+        "seed_id": "an-b-ala-library-records",
+        "borrowed_aspect": "In the ALA library-records policy, the library keeps a record of use without it becoming a readable log of a person's interests, subject to subpoena resistance; here, the retained ballot record plays that role, and the nullifier-only record means a court order to the committee yields unit counts rather than who opposed the chair."
+      }
+    ]
+  }
+]

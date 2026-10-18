@@ -1,0 +1,98 @@
+[
+ {
+  "review_id": "p06-0",
+  "context_purpose": "A small rental shop wants to rent a scooter safely and be able to recover losses if a foreign visitor leaves the country or damages the vehicle.",
+  "norm_violation_today": {"violated": "yes", "parameter": "retention", "reason": "Passport and permit images kept indefinitely on a shop owner's phone and in chat apps exceed what the one-off rental check needs."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "The shop cannot get a contact or identity to chase fines, damage or unpaid costs after the renter leaves; a deposit would still be needed."},
+  "transmission_check": {"principle_today": "commercial_convenience", "permits_minimal_flow": "unclear", "reason": "Shops collect the documents for their own risk management, though a driving-licence check may be expected by regulators, and I cannot confirm whether a copy is mandated."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "unknown"},
+  "rubric_score": 3,
+  "novelty": 3,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p06-1",
+  "context_purpose": "A volunteer relief-point organiser wants to confirm a nurse's licence is valid before letting them handle residents' medical care.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "Full ID and licence photos posted in group chats go well beyond the good-standing fact and spread across unrelated groups with unknown retention."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Little; the organiser only needs current good standing, though informal personal trust and speed are lost."},
+  "transmission_check": {"principle_today": "safety_security", "permits_minimal_flow": "permits", "reason": "Volunteers are checked informally to protect residents, with no known duty to hold a licence copy."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "unknown"},
+  "rubric_score": 3,
+  "novelty": 4,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "p06-2",
+  "context_purpose": "Existing flatmates want to judge whether a stranger is safe and reliable to share a home with.",
+  "norm_violation_today": {"violated": "yes", "parameter": "recipient", "reason": "A criminal record certificate and ID scans forwarded among three private individuals and stored in chats go beyond what a roommate decision needs."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "Tenants cannot assess rent-paying ability or identity, and a not-on-list bit may not match the broader safety judgement they want."},
+  "transmission_check": {"principle_today": "commercial_convenience", "permits_minimal_flow": "permits", "reason": "No legal duty compels tenants to collect the documents; it is a private peer choice."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "no", "verifier_can_check": "unknown"},
+  "rubric_score": 2,
+  "novelty": 3,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p06-3",
+  "context_purpose": "A hot-spring hotel wants to apply its bath-access and tattoo-age rules at check-in.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "A full ID photocopy kept on a paper sheet far exceeds one eligibility bit."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "Gender-based eligibility is binary and a register flag cannot handle trans or non-binary guests; staff also lose a fallback for disputes."},
+  "transmission_check": {"principle_today": "commercial_convenience", "permits_minimal_flow": "unclear", "reason": "Guest registration at accommodation may be required by regulation, and I cannot confirm whether a copy of ID is mandated."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "unknown"},
+  "rubric_score": 3,
+  "novelty": 4,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "p06-4",
+  "context_purpose": "A private landlord wants assurance that a prospective tenant is currently employed and likely to pay rent.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "ARC, passport, contract and payslip kept in a LINE chat far exceed a current-employment signal."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "A permit-status flag does not show salary level or the rental-filing details the landlord may separately need."},
+  "transmission_check": {"principle_today": "consented_for_benefit", "permits_minimal_flow": "unclear", "reason": "The tenant volunteers documents for a deposit discount, but I cannot confirm whether tenancy filing rules require ARC details."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "unknown"},
+  "rubric_score": 3,
+  "novelty": 4,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "p06-5",
+  "context_purpose": "A baseball club wants to admit ticket holders quickly while preventing resale and duplicate entry.",
+  "norm_violation_today": {"violated": "yes", "parameter": "retention", "reason": "Face templates, names and purchase history kept after the game for marketing and fraud screening exceed what entry needs."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "The club loses a central record for banning abusers and for marketing, and the device-side face match is only as strong as the phone."},
+  "transmission_check": {"principle_today": "safety_security", "permits_minimal_flow": "permits", "reason": "Entry control and anti-resale are the club's own business choice, with no known legal duty to keep templates."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "unknown"},
+  "rubric_score": 2,
+  "novelty": 5,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p06-6",
+  "context_purpose": "A volunteer coordination centre wants to confirm that rostered nurses are currently licensed before staffing shelters.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "Employer, ward, home district and phone in a shared spreadsheet exceed the licence-currency check and expose nurses to neighbours."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "Coordinators still need contact details and scheduling information, which a pure licence proof does not provide."},
+  "transmission_check": {"principle_today": "safety_security", "permits_minimal_flow": "unclear", "reason": "Health authorities may require staffing records for deployed nurses, and I cannot confirm what must be retained."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "unknown"},
+  "rubric_score": 3,
+  "novelty": 3,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p06-7",
+  "context_purpose": "Sitting tenants want assurance that a sublet applicant has been vetted without reading the applicant's full record.",
+  "norm_violation_today": {"violated": "yes", "parameter": "retention", "reason": "The committee keeps copies of strangers' ID and criminal record certificates it has no reason to hold."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "Tenants rely on a committee whose authority for criminal checks is doubtful, and a not-on-list bit may not match their broader concerns."},
+  "transmission_check": {"principle_today": "commercial_convenience", "permits_minimal_flow": "unclear", "reason": "No known duty compels the check, and I cannot confirm whether a committee may lawfully run one for private persons."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "no", "verifier_can_check": "unknown"},
+  "rubric_score": 2,
+  "novelty": 2,
+  "provenance_faithful": "no"
+ }
+]

@@ -1,0 +1,98 @@
+[
+ {
+  "review_id": "p11-0",
+  "context_purpose": "The main contractor must be able to show that every scaffold worker on site holds a valid, recognised high-place work safety certificate.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "Photocopying the full ID card (ID number, address, birth date) goes well beyond the certificate-validity fact the site needs."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "Inspectors may want an auditable record tying a named worker to a certificate number; a bare validity proof loses that unless a signed proof log is kept."},
+  "transmission_check": {"principle_today": "required_by_law", "permits_minimal_flow": "unclear", "reason": "Occupational safety rules oblige the site to verify qualification, but whether a signed proof log would satisfy inspectors rather than copies is not something I can confirm."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 3,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "p11-1",
+  "context_purpose": "The school wants to limit stadium entry to one registered guest per student pass to prevent overcrowding and strangers.",
+  "norm_violation_today": {"violated": "yes", "parameter": "retention", "reason": "Keeping parent and sibling face photos and contact details in a shared cloud folder and group chat after the event outlasts the gate-check purpose."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Nothing material; a one-entry-per-pass check covers crowd control, though it cannot tell who the person is if a pass is handed to someone else."},
+  "transmission_check": {"principle_today": "safety_security", "permits_minimal_flow": "permits", "reason": "The school collects for event safety under its own discretion with no known duty to retain photos, so a pass-only flow is allowed."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 2,
+  "novelty": 5,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p11-2",
+  "context_purpose": "The onsen operator wants to confirm a visitor meets the venue's age threshold for its conditional tattoo policy.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "An ID photo with ID number, address and birth date is collected to answer a single over-age question, and then retained."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Nothing for the age rule; the tattoo itself is still judged on arrival."},
+  "transmission_check": {"principle_today": "commercial_convenience", "permits_minimal_flow": "permits", "reason": "No known legal duty requires a leisure venue to keep an ID image, so an age-over claim should be acceptable."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "yes", "verifier_can_check": "unknown"},
+  "rubric_score": 3,
+  "novelty": 4,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "p11-3",
+  "context_purpose": "The school gate must release a child only to a person authorised by the guardian, and be able to confirm that authorisation.",
+  "norm_violation_today": {"violated": "yes", "parameter": "retention", "reason": "Photographing the ID card leaves a lasting copy of the national ID number in a phone gallery or binder with no deletion date."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "A bearer proof does not tie the credential to the person standing there, so the guard still needs a face or ID check; an audit trail of who left with the child is also thinner."},
+  "transmission_check": {"principle_today": "safety_security", "permits_minimal_flow": "permits", "reason": "Child-safety checks at the gate are the school's own procedure and a delegation token serves the same safeguard."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 5,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "p11-4",
+  "context_purpose": "The facility must hand ashes only to the next of kin entitled to act, and be able to show it did so.",
+  "norm_violation_today": {"violated": "unclear", "parameter": "retention", "reason": "Collecting proof of kinship is legitimate, but filing ID copies, register printouts and statements naming other relatives in paper records may exceed what is needed."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "Disputes between relatives later may need the underlying documents, and a yes/no on authority hides rank among kin that the counter may have to weigh."},
+  "transmission_check": {"principle_today": "required_by_law", "permits_minimal_flow": "unclear", "reason": "Handling of remains and permits is regulated and I cannot confirm whether the rules require copies to be kept."},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "no"},
+  "rubric_score": 2,
+  "novelty": 5,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "p11-5",
+  "context_purpose": "The ordering contractor wants assurance that each dispatched day worker's high-work certificate is valid on the job date.",
+  "norm_violation_today": {"violated": "yes", "parameter": "recipient", "reason": "The hall forwards full certificate scans and ID cards to every contractor who asks, so many parties accumulate data they only need a validity fact from."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "Contractors liable for site accidents and site-entry rules may still need the real identity and a record of who worked, which a pseudonym removes."},
+  "transmission_check": {"principle_today": "required_by_law", "permits_minimal_flow": "unclear", "reason": "Site safety rules oblige verification of qualification, but whether a pseudonymous proof alone satisfies the contractor or site gate is not clear to me."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 2,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p11-6",
+  "context_purpose": "A buyer at a peer-to-peer handover wants some assurance the seller is trustworthy and will not scam them.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "Showing ID, LINE ID, phone number and bank screenshots that expose other buyers goes beyond a reputation signal for a stroller sale."},
+  "purpose_sufficiency": {"rating": "partly", "lost": "A clean-record count does not stop scammers who build a cheap record, and the buyer cannot identify the seller for recourse if something goes wrong."},
+  "transmission_check": {"principle_today": "commercial_convenience", "permits_minimal_flow": "permits", "reason": "The buyer is a private party with no legal duty to collect anything, so a lesser proof is acceptable to them."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 3,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p11-7",
+  "context_purpose": "Volunteer admins want to grant posting rights for high-value items only to sellers with a proven reliable sales history.",
+  "norm_violation_today": {"violated": "yes", "parameter": "information_type", "reason": "Order screenshots with buyer names and chats, profile links and sometimes an ID photo expose third-party data and far more than a sales-count threshold requires."},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Little; a threshold count with no disputes answers the admin's question, though cross-platform double-counting is hard to rule out."},
+  "transmission_check": {"principle_today": "commercial_convenience", "permits_minimal_flow": "permits", "reason": "Admins are volunteers under no legal duty, so any adequate proof can replace screenshots."},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "unknown"},
+  "rubric_score": 2,
+  "novelty": 3,
+  "provenance_faithful": "no"
+ }
+]

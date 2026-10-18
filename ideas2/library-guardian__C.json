@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Pickup-day-only guardian proof at the library's children's reading room",
+    "moment": "A grandmother in Tainan's Yongkang district takes her 6-year-old grandson to the public library's children's room and wants to apply for his first children's card. The desk asks her to show her ID and the household registration transcript (戶籍謄本) so staff can confirm she is a legal guardian of a child under 12, and staff photocopy or scan both.",
+    "verifier": "Public library circulation desk (city or county public library children's card service)",
+    "predicate": "Holder is a legal guardian (parent, or court- or household-registered guardian) of a child registered under the age limit for this card; no name, ID number, address or household members disclosed.",
+    "disclosed_today": "Guardian's national ID copy, child's name and ID number, household registration transcript showing parents, spouses, siblings and address, and a signed application form with phone and address.",
+    "issuer": "Ministry of the Interior household registration office (戶政事務所), signing a guardian-of-child-under-N membership credential into the guardian's digital wallet.",
+    "why_zk": "The library only needs a yes/no that this adult is a guardian of a child under the card's age limit, but the transcript exposes the whole household. A selective-disclosure credential from the household registry can prove membership in the guardian set with a child-age predicate. Weakness: the library still wants a child-specific card number and may need a stable pseudonym to link loans, so some per-card linkability is unavoidable; it also depends on the household registry issuing such credentials, and grandparents with informal custody may not be in the registry as guardians.",
+    "inspired_by": [
+      {
+        "seed_id": "an-b-hipaa-safe-harbor",
+        "borrowed_aspect": "In the HIPAA Safe Harbor rule, a fixed checklist of identifiers of the individual and of relatives and household members is removed before data is shared; here, the household registration transcript's list of parents, siblings, spouses and address is the checklist stripped away, leaving only the guardian-of-a-child-under-N fact."
+      },
+      {
+        "seed_id": "tw-pdpa-art5-purpose-limit",
+        "borrowed_aspect": "In PDPA Article 5, the collector must stay within the necessary scope of the stated purpose but decides alone what is necessary; here, the credential schema fixes in advance that the library can only ask for guardian-of-child-under-N, so necessity is enforced by the proof rather than by the desk clerk's judgement."
+      }
+    ]
+  },
+  {
+    "title": "Separating who may borrow from what the child reads at a school-library partner card",
+    "moment": "A mother signs up her 9-year-old for a combined school-and-public library children's card at the city library branch near the child's elementary school in Taipei. She is asked to show the child's student ID plus her own ID, and the library keeps both records linked in its membership database. The mother does not want the library to build a profile of who her child is and what the child borrows tied to her national ID number.",
+    "verifier": "Municipal public library membership system, in partnership with the child's elementary school library",
+    "predicate": "Holder is a registered guardian of a child enrolled and under the card's age limit, proved without revealing the guardian's national ID number, and with a different unlinkable card identifier used at borrowing time than at enrolment.",
+    "disclosed_today": "Guardian's national ID number, name, phone and address, child's name, school, class and ID number, all stored together with the full borrowing history in one membership record.",
+    "issuer": "The child's school (via the education bureau's student registry) cosigning with the household registry, issuing a guardian-of-enrolled-child credential.",
+    "why_zk": "Eligibility is checked once at enrolment with a proof, and the borrowing record is kept under a separate card pseudonym, so the library cannot trivially join the guardian's identity to the child's reading history. This is the same split as a secret ballot where eligibility is checked apart from the ballot. Weakness: library staff or the system operator can still link the two at enrolment time if the issuer and verifier collude or if the card number is derivable, and borrowing-history retention is mostly governed by policy, not by the proof.",
+    "inspired_by": [
+      {
+        "seed_id": "an-b-secret-ballot-moad",
+        "borrowed_aspect": "In the Australian secret ballot, eligibility is checked separately from the sealed ballot so identity is not attached to the vote at counting; here, the guardian-eligibility proof at enrolment plays the eligibility check and the unlinkable borrowing card pseudonym plays the sealed ballot."
+      },
+      {
+        "seed_id": "an-b-census-title13",
+        "borrowed_aspect": "In Title 13 census, staff can see raw records but no publication may identify a particular respondent; here, the library's loan-statistics reports (popular titles by age band) play the publication, built from pseudonymous card activity so no output singles out a guardian or child."
+      }
+    ]
+  },
+  {
+    "title": "Neighbour-or-relative picks up the child's card at a community reading corner",
+    "moment": "A community reading corner (社區閱讀角) in a Kaohsiung township, run by a volunteer association and linked to the public library network, lets children borrow books on the library card. A working father sends his sister to enrol his 5-year-old niece, and the volunteer at the table asks her to hand over copies of her own ID, the father's ID and a signed delegation note to prove she may act for the guardian.",
+    "verifier": "Volunteer-run community reading corner acting as a library satellite point",
+    "predicate": "Presenter holds a delegated, revocable guardian-agent credential from a legal guardian of a child under the card's age limit, valid for this enrolment only; no ID copies of the guardian or the agent are collected.",
+    "disclosed_today": "Copies of the aunt's ID and the father's ID, the signed delegation note, the child's name and household details, handled by an untrained volunteer who stores them in a folder or photographs them on a personal phone.",
+    "issuer": "The legal guardian himself, as a peer issuer, signing a delegation on top of his household-registry guardian credential from the household registration office.",
+    "why_zk": "Copies of two adults' IDs held by volunteers is a clear over-collection with weak storage, much like a foreign investor's agent handing over a full ID copy because no lighter alternative is stated. A delegated proof shows only that a real guardian authorised this agent for this card, and the volunteer never holds a document to leak. This is also close to the privilege problem: a third party in the room should not learn more than the relationship requires. Weakness: the delegation chain relies on the guardian's credential being genuine, and a peer-issued delegation is only as trustworthy as the registry credential beneath it. Rural guardians may lack a wallet or smartphone, so a paper fallback will remain.",
+    "inspired_by": [
+      {
+        "seed_id": "tw-securities-foreign-agent-id-copy",
+        "borrowed_aspect": "In the Taiwan securities rule, a local agent proves they are a real, identified person by handing over a full ID card copy with no lighter alternative; here, a delegated guardian-agent proof plays that role without leaving an ID copy at the reading corner."
+      },
+      {
+        "seed_id": "an-b-attorney-client",
+        "borrowed_aspect": "In attorney-client privilege, confidentiality survives a third party only if the outsider is essential to the relationship, like an interpreter; here, the volunteer is the outsider and the delegated proof makes the aunt the essential agent while the volunteer learns only that a guardian authorised her."
+      }
+    ]
+  }
+]

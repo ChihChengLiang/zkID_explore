@@ -1,0 +1,162 @@
+[
+ {
+  "review_id": "p10-0",
+  "title": "Crematorium counter: one relative signs, siblings stay private",
+  "moment": "At a municipal crematorium service window in Kaohsiung, the family sends the eldest son to submit the cremation permit paperwork for his mother. The window staff and the contracted funeral home need assurance he is a legitimate next of kin at the right rank, and in practice collect a transcript listing his siblings, a half-sibling from an earlier marriage, and their addresses, which the family would rather keep private.",
+  "verifier": "Municipal funeral service office / crematorium counter staff (殯葬管理所)",
+  "predicate": "Holder belongs to the group of the deceased's children (same priority tier) and no spouse or higher-tier relative is registered as living.",
+  "disclosed_today": "Household registration transcript naming all children, spouse history, half-siblings and their ID numbers and addresses, plus an ID copy of the applicant.",
+  "issuer": "Household registration office, issuing the credential at the time of death registration, with the applicant's wallet holding a membership proof.",
+  "why_zk": "A membership proof lets the counter confirm 'in the child tier, no higher tier alive' without learning how many siblings exist or who they are, so family secrets such as half-siblings or estrangements are not exposed to clerks and contractors. Like the juror seed, the default practice here is wide exposure of identities, with discretion being the only protection. Weakness: disputes among equal-rank relatives are not resolved by a proof, and the counter may still need a human check for contested cases.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In the jury plan, a judge's discretionary exception is the only thing keeping seated persons' names from public release; here, the cryptographic membership proof plays that protection by keeping the relatives' identities hidden by default rather than by clerk discretion.",
+    "source_excerpt": "Someone must be drawn from a pool and seated for a task without the wider public learning who they are, but the default rule can flip to full publication of the identities of everyone selected, with confidentiality only as a judge-level exception. | mechanism: Judge-discretionary confidentiality of juror names under a court's jury selection plan; no technical mechanism specified."
+   },
+   {
+    "borrowed_aspect": "In Singpass MyInfo, partners get a broad profile and are only told by policy not to over-collect; here, the counter's rule to request only the kin-tier claim plays that policy and the credential makes the limit technical rather than a promise.",
+    "source_excerpt": "A service provider needs a few verified fields for one purpose, but the retrieval interface returns a broad profile and the only limit is a policy rule on the partner. | mechanism: Consent-gated retrieval of named MyInfo fields, with a rule to request only needed data and purge unsubmitted drafts."
+   }
+  ]
+ },
+ {
+  "review_id": "p10-1",
+  "title": "Member-only ticket for a party-hosted candidate Q&A that cannot be linked across events",
+  "moment": "A party district office hosts a series of members-only candidate meet-ups at a rented restaurant and offers members a discounted banquet ticket. The venue's booking agent asks for the member's name, ID number and membership card photo at each event, so the same person's attendance can be tied together across events and handed to the venue.",
+  "verifier": "Third-party venue or ticketing agent selling member-priced tickets for a party event",
+  "predicate": "Holder is a registered member of this district chapter, one ticket per member per event (uniqueness scoped to the event)",
+  "disclosed_today": "Name, national ID number, membership card photo, phone number, and the pattern of which party events the person attended",
+  "issuer": "The party's district chapter, signing a membership credential; the ticketing agent verifies it offline",
+  "why_zk": "An event-scoped nullifier stops double ticket claims while keeping attendance at event A unlinkable to attendance at event B, so the venue cannot assemble a profile of a person's political activity; the same-context-only property is what the cookie scoping idea aims at. Honest limit: if tickets are bought with a personal credit card or the person is physically recognised, ZK does not remove that linkage, and the party itself can see attendance if it issues the ticket.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In an-a-samesite-cookies, the SameSite attribute stops a stored credential from letting third parties recognise the same browser across contexts; here, the event-scoped nullifier stops the venue from recognising the same member across party events and plays that role.",
+    "source_excerpt": "A stored credential should be presented only to the party that issued it in the current context, but the browser sends it on any request the context triggers, so an unrelated observer can match the holder across contexts. | mechanism: The SameSite cookie attribute, which limits the cookie to same-site requests (Strict, Lax, or None); the IETF draft describes it as a per-cookie setting, and cross-site behaviour depends on the chosen value."
+   },
+   {
+    "borrowed_aspect": "In tw-gov-household-register-proxy-copy-discretion, an office collects copies of an identity document at its own discretion with no fixed scope; here, the venue agent collecting ID and membership card photos at its own discretion plays that role.",
+    "source_excerpt": "A government office that holds a record may ask a proxy's requester for a copy of the principal's identity document, and the scope of what it may collect is left to the office's discretion. | mechanism: None stated; collection of document copies left to agency discretion under PDPA and administrative procedure rules."
+   }
+  ]
+ },
+ {
+  "review_id": "p10-2",
+  "title": "Food-delivery platform onboarding of a stall without the full permit file",
+  "moment": "A stall owner at the night market wants to list on a food-delivery platform so that customers can order during the evening. The platform's merchant onboarding asks for a scan of the hygiene registration and stall permit, which includes the owner's ID number, home address and every product category, and reviewers on the platform's outsourced team see it all.",
+  "verifier": "Food-delivery platform merchant onboarding team",
+  "predicate": "The merchant holds a food-hygiene registration and stall permit that is current as of the onboarding date and covers selling prepared food at a market location.",
+  "disclosed_today": "Full scan of the permit and business registration including owner's ID number, home address, phone, and issue and expiry dates, stored in the platform's onboarding system.",
+  "issuer": "Health bureau as the primary issuer; alternatively the night-market committee could countersign, since it already vets stall holders.",
+  "why_zk": "The platform needs only 'currently permitted to sell prepared food'; a proof limited to that and a coarse category would avoid holding home addresses and ID numbers. It would also let the platform re-ask for a fresh proof monthly instead of keeping a stale scan. Weakness: platform terms and the state's tax and consumer-protection rules may require the platform to know the merchant's real identity anyway, so the identity scan would still be collected for other reasons, leaving the permit proof as only a partial gain.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In an-b-hipaa-safe-harbor, a fixed list of identifiers is removed before sharing; here, a fixed list of permit fields (ID number, home address, phone) is withheld and only the validity and category fields are released.",
+    "source_excerpt": "A party wants to share a record set that cannot identify any person, but the test is a checklist of removable fields plus a no-actual-knowledge condition, so the holder must still judge whether leftover fields re-identify someone. | mechanism: Safe Harbor method removing 18 enumerated identifiers (with ZIP-code truncation rule and age aggregation), or an expert-determination alternative; re-identification codes allowed only if not derived from or disclosed about the individual."
+   },
+   {
+    "borrowed_aspect": "In tw-pdpa-art5-purpose-limit, the collector decides what is necessary for the purpose; here, the signed predicate fixes what is necessary so the platform cannot quietly widen it.",
+    "source_excerpt": "A rule requires anyone collecting personal data to stay within the necessary scope of its stated purpose, but it gives no concrete way to show what was necessary, so the collector decides what counts as necessary. | mechanism: Legal purpose-limitation and proportionality principle; no technical mechanism specified."
+   }
+  ]
+ },
+ {
+  "review_id": "p10-3",
+  "title": "Delivery riders' platform-union strike poll without telling the platform",
+  "moment": "Food-delivery riders in Kaohsiung, mostly contracted, vote in a union poll on whether to log off for a day over per-order pay cuts. The union asks riders to prove they are paying members; today they send a screenshot of the platform app profile plus their ID, which exposes their rider account and earnings to organisers, and the platform could retaliate against identified organisers or voters.",
+  "verifier": "The riders' union branch (a registered occupational union) running the strike poll",
+  "predicate": "Holder is a dues-paying member of the riders' union and has not voted in this poll round.",
+  "disclosed_today": "Name, national ID number, rider account ID, a screenshot of the delivery app profile with earnings, and sometimes a photo of the ID card and a membership card.",
+  "issuer": "The riders' union, issuing a membership credential into the member's wallet at sign-up and on dues renewal",
+  "why_zk": "Riders have no employer HR file proving membership, so the union is the only natural issuer, and the credential must not carry the platform account at all. A proof of membership and one vote per poll avoids the screenshot habit that gives organisers more rider data than the vote needs. Weakness: a small union may know every member personally, and a rider logging off is observable by the platform anyway, so privacy protects the ballot, not the strike action.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In OAuth, a client asks for broad scopes and the authorization server may grant less; here, organisers ask for rider profile screenshots and the wallet grants only a narrow membership-and-once-only proof.",
+    "source_excerpt": "A holder asks a verifier for a credential covering more attributes than the single fact the relying party needs, and the issuer has no obligation to honour a narrower request. | mechanism: The client states a scope parameter in the request, and the authorization server returns the granted scope in the token response; the server may grant less than requested."
+   },
+   {
+    "borrowed_aspect": "In Singpass MyInfo, partners are told by policy not to over-collect beyond a single purpose; here, the union's own ballot rules would name membership-in-good-standing as the only field the poll may request.",
+    "source_excerpt": "A service provider needs a few verified fields for one purpose, but the retrieval interface returns a broad profile and the only limit is a policy rule on the partner. | mechanism: Consent-gated retrieval of named MyInfo fields, with a rule to request only needed data and purge unsubmitted drafts."
+   }
+  ]
+ },
+ {
+  "review_id": "p10-4",
+  "title": "Heir proves a 1/4 statutory share at the bank counter without the family tree",
+  "moment": "A woman in Taichung goes to a bank branch to claim her one-quarter share of her late father's deposits. Today the clerk photocopies the full 繼承系統表 and a stack of household registration transcripts for the father, the mother, and all siblings, so the whole family tree sits in the bank's files. She wants to show only that her statutory share is at least 1/4.",
+  "verifier": "Bank branch handling deceased-depositor account release (e.g. a commercial bank's estate desk)",
+  "predicate": "Heir's statutory inheritance share of this decedent's estate is >= 1/4 (threshold on a share computed from the Civil Code order of succession and the household registry)",
+  "disclosed_today": "繼承系統表, full household registration transcripts of decedent and heirs, ID copies of every heir, names, relationships, marital and disclaimer status of all family members",
+  "issuer": "Ministry of the Interior household registration offices (戶政事務所), signing a share-computation attestation derived from registry data",
+  "why_zk": "The bank only needs to know the claimant's share clears the amount she asks to withdraw, yet it collects the full family structure, including relatives who are not claiming. A threshold proof on a registry-signed computation avoids that. Weakness: banks and the Financial Supervisory Commission rules expect the paperwork on file for audit, and the other heirs' disclaimers or the existence of a will can change the share, so the proof would need to cover those or the bank will still demand the documents.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In HIPAA minimum-necessary, the covered entity must judge for itself what subset of records serves the purpose with no proof it was minimal; here, a signed share-threshold attestation plays that role by making the minimal disclosure checkable instead of judged by the bank clerk.",
+    "source_excerpt": "A holder of sensitive records must release only the subset that serves a stated purpose, but the rule leaves it to the holder to judge what is minimal and gives no mechanism that proves the released subset was minimal. | mechanism: Purpose-based minimum-necessary rule with reasonable-efforts standard, role-based access and reasonable reliance on requester representations (45 CFR 164.514(d)); no cryptographic or proof-based check."
+   },
+   {
+    "borrowed_aspect": "In the EUDI wallet recital, the wallet lets a user reveal only some attributes from an attestation to a relying party; here, the heir's wallet reveals only the share-at-least-X attribute from the household registry record.",
+    "source_excerpt": "A verifier needs one attribute from a larger identity record, but the holder cannot share just that attribute from the record. | mechanism: Selective disclosure of attributes from electronic attestations held in the EU Digital Identity Wallet."
+   }
+  ]
+ },
+ {
+  "review_id": "p10-5",
+  "title": "Prepaid tourist SIM counter: lawful-entry proof that cannot be replayed from a stolen passport",
+  "moment": "A visitor at a Taoyuan airport telecom counter or an online telecom portal buys a 15-day prepaid data SIM. Telecom rules oblige the operator to register the user, so staff scan the passport and entry date, and the online flow only checks passport number and entry date, the kind of weak check that fraud rings have exploited before.",
+  "verifier": "Telecom operator's airport kiosk or online SIM-activation flow",
+  "predicate": "Holder possesses a currently valid entry status (not expired as of today, with the SIM's validity window inside the permitted stay), proven with a holder-bound, freshly signed proof rather than copyable identifiers.",
+  "disclosed_today": "Passport number, name, nationality, birth date, passport photo and entry date, retained by the operator for the legally required period.",
+  "issuer": "National Immigration Agency, issuing a wallet-bound entry-status credential at the border gate, with the status list kept current by NIA.",
+  "why_zk": "The 2021 incidents show that identifiers alone are copyable; a proof bound to the holder's wallet key and showing 'status valid, expiry covers the SIM window' is harder to forge from stolen passport data. Honest limit: the statute may require the operator to retain identity data for real-name registration, so a pure predicate proof can satisfy only the entry-status part and the operator may still need to record a pseudonymous registration reference (or the regulator must accept the issuer-attested registration). Binding to a person-level identity still needs more than this claim.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In the 2021 telecom fraud, an online check accepts only an ID number and issue date, which a thief can copy; here, a holder-bound, freshly signed entry-status proof plays the role of the stronger check that replaces those copyable identifiers.",
+    "source_excerpt": "A provider must verify that a new applicant is the named person, but its check uses identifiers that are easy to copy, so a stolen identity passes and the real person bears the consequences. | mechanism: None; online verification only checked ID number and issue date."
+   },
+   {
+    "borrowed_aspect": "In Privacy Pass, a gatekeeper accepts an unlinkable token showing prior authorisation instead of a persistent identifier; here, the unlinkable entry-status proof plays the token, so the operator learns the visitor passed immigration without receiving a trackable identifier.",
+    "source_excerpt": "A gatekeeper only needs to know that the visitor already passed some check, but the proof it accepts doubles as a persistent identifier. | mechanism: Blind-signed tokens that attest prior authorisation and cannot be linked to the issuance interaction."
+   }
+  ]
+ },
+ {
+  "review_id": "p10-6",
+  "title": "Dormitory operator confirms employer sponsorship at move-in and monthly door-access renewal",
+  "moment": "A company dormitory run by a third-party operator in Taichung issues access cards to workers from several sponsoring employers. Each month, to keep the card active and the employer-subsidised bed rate, the operator asks for the employer's letter and the worker's permit copy, and the broker's staff see everything.",
+  "verifier": "Third-party dormitory operator (宿舍管理公司) with multiple employer clients",
+  "predicate": "Holder is legally working for a sponsoring employer in a named list of the operator's contracted employers today (freshness, with set-membership of employer), revealing neither which employer nor identity beyond the card.",
+  "disclosed_today": "Employer name and letter, ARC copy, passport number, job title and sometimes salary slip to the operator's front desk and brokers.",
+  "issuer": "The sponsoring employer's HR system co-signing with the labor ministry registry (employer as issuer for monthly employment status, registry for permit validity).",
+  "why_zk": "The operator needs to know only that the worker belongs to one of its paying client employers and is currently permitted, not who the employer is or the worker's documents; broker staff seeing full files is a known exploitation channel. A per-month signed token with employer-set membership gives the bed-rate benefit with less exposure. Weakness: the operator often does hold a contract naming the employer, so it may genuinely already know, and employers may resist issuing credentials that make workers more mobile.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In attorney-client privilege, an outsider's presence destroys confidentiality unless essential like an interpreter; here, the broker's front-desk staff are the outsiders and the proof lets the operator's gate system, not the staff, be the only reader.",
+    "source_excerpt": "A party must consult an advisor about a sensitive matter without the advisor, or anyone else, learning or revealing more than the matter requires, but the protection breaks as soon as an outsider is in the room unless the outsider is essential to the relationship. | mechanism: Evidentiary privilege over communications, lost by third-party presence except essential agents such as interpreters; no technical mechanism."
+   },
+   {
+    "borrowed_aspect": "In HIPAA minimum necessary, the holder judges what subset serves the purpose with no proof it was minimal; here, the dormitory operator's self-judged file requests play that role, and a membership-and-freshness token makes minimality checkable.",
+    "source_excerpt": "A holder of sensitive records must release only the subset that serves a stated purpose, but the rule leaves it to the holder to judge what is minimal and gives no mechanism that proves the released subset was minimal. | mechanism: Purpose-based minimum-necessary rule with reasonable-efforts standard, role-based access and reasonable reliance on requester representations (45 CFR 164.514(d)); no cryptographic or proof-based check."
+   }
+  ]
+ },
+ {
+  "review_id": "p10-7",
+  "title": "Campus-area SIM shop for exchange students: study-permit validity as a rolling claim for monthly plans",
+  "moment": "An exchange student or short-term language-course student walks into a telecom shop near a university in Taipei to open a postpaid or monthly plan. The shop collects the ARC or entry documents plus the school enrollment letter to be sure the contract does not outlast the right to stay, and collects them again at each renewal.",
+  "verifier": "Telecom shop staff handling contract plans for non-citizens",
+  "predicate": "Holder's residence or study status is valid through a stated date, re-proven at each monthly renewal as a fresh short-lived claim rather than re-copying documents.",
+  "disclosed_today": "Alien Resident Certificate or passport copy, enrollment certificate, address, local contact; re-collected at renewals and kept by the shop.",
+  "issuer": "National Immigration Agency for residence status; the university's international office may co-sign the enrollment end date",
+  "why_zk": "A telecom operator is legally required to identify subscribers and does not want a contract that outlives the holder's status, so a rolling time-bounded proof maps well to the monthly renewal cycle and avoids stacking up copies. Weakness: the one-time identification obligation still exists at contract opening and the operator may be required to retain ID details then, so zero-knowledge only helps for the renewals and for cases where the regulator accepts an issuer-attested registration; the first signup may remain a full identification.",
+  "claimed_borrowings": [
+   {
+    "borrowed_aspect": "In an-a-nist-dp, a quantified privacy-loss bound is what makes repeated releases safe; here, a fresh unlinkable expiry proof at each renewal plays that role of limiting what repeated checks accumulate about the same student.",
+    "source_excerpt": "A releaser must answer queries about a dataset so that an observer learns almost nothing about whether any one individual contributed, and the leak must be expressed as a bound that can be checked. | mechanism: Differential privacy, a randomised release mechanism with a quantified privacy-loss parameter; NIST notes that the guarantee depends on how the framework is realised in practice and lists privacy hazards that can break it."
+   },
+   {
+    "borrowed_aspect": "In an-b-ala-library-records, a policy keeps circulation records confidential and resists legal demands; here, the shop's renewal log holding only dated proof receipts rather than documents plays that role of a record with little to subpoena.",
+    "source_excerpt": "A service provider must keep a record of who used what without that record becoming a readable log of a person's interests, but the duty is a recommended policy that depends on each institution adopting it and on courts or subpoenas being resisted. | mechanism: Institutional confidentiality policy plus procedures for handling subpoenas and law-enforcement requests; no technical minimization of records is specified."
+   }
+  ]
+ }
+]

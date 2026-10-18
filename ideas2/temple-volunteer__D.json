@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Temple children's summer camp volunteer check without photocopying records",
+    "moment": "A temple in Tainan runs a free summer reading camp for neighbourhood children. A retired teacher and several university students sign up as volunteers. Today the coordinator asks each one for an ID card copy and a printed 良民證 (police criminal record certificate) and keeps the pile in a cabinet in the temple office.",
+    "verifier": "The temple committee member who coordinates the children's programme",
+    "predicate": "The volunteer has no child-related or sexual-offence conviction on record (non-membership in the conviction list), checked fresh within the last 30 days",
+    "disclosed_today": "A full certificate with name, national ID number, date of birth, household address and the complete record status, plus a photocopy of the ID card front and back, kept on paper by a volunteer coordinator with no retention policy",
+    "issuer": "The Criminal Investigation Bureau / Ministry of Justice, via the existing criminal-record certificate service, issuing a signed wallet credential",
+    "why_zk": "A yes/no non-membership proof fits well, and the volunteer can show it from the phone without the temple ever holding the ID number or address. It is moderately strong: the proof is only as good as the issuer's willingness to issue a short-lived, machine-readable credential, and under current practice only some record types appear on a certificate, so the temple may still ask for more. Refresh time matters because a conviction after issuance would not show up.",
+    "inspired_by": [
+      {
+        "seed_id": "rd-google-wallet-zkp-age-no-linkage",
+        "borrowed_aspect": "In Google Wallet's ZKP age check, the gatekeeper learns one yes/no fact without the birth date or any trackable identifier; here, the temple coordinator learns only 'no child-related conviction' without the ID number or address, and the issuer cannot see which temple was shown."
+      },
+      {
+        "seed_id": "tw-platform-gym-id-card-copies-interp",
+        "borrowed_aspect": "In the gym case, the provider asks for front-and-back ID copies and the regulator leaves necessity to case-by-case review; here, the temple's habit of photocopying ID and certificates plays that role, and the proof replaces the copies."
+      }
+    ]
+  },
+  {
+    "title": "Donation-box and fundraising treasurer vetted without exposing a personal record",
+    "moment": "A community temple in Taichung is choosing a volunteer treasurer to count the incense-money donations and handle the annual 平安燈 (lantern blessing) fundraising. The committee wants assurance that the person has no fraud or embezzlement conviction, so the chair asks the candidate to bring a criminal-record certificate and ID copy and passes them around at the committee meeting.",
+    "verifier": "The temple management committee (管理委員會) chair choosing a treasurer",
+    "predicate": "The candidate has no fraud, breach-of-trust or embezzlement conviction (non-membership in the economic-crime conviction list)",
+    "disclosed_today": "A full criminal-record certificate listing every entry, plus ID card copy, circulated among all committee members and often left in meeting files",
+    "issuer": "Ministry of Justice or the Judicial Yuan, issuing a category-specific signed credential covering fraud and breach-of-trust offences only",
+    "why_zk": "The check is narrow (one offence family), so a non-membership proof avoids exposing unrelated, possibly old and irrelevant records, such as a traffic offence, to a whole committee of neighbours. This is a moderate fit: it depends on the issuer offering category-scoped credentials, which does not exist today, and committees in small communities may trust personal reputation and decline a formal check anyway.",
+    "inspired_by": [
+      {
+        "seed_id": "an-b-hipaa-safe-harbor",
+        "borrowed_aspect": "In HIPAA Safe Harbor, a fixed list of identifier fields is stripped before sharing so leftovers cannot re-identify anyone; here, the offence-category scope plays that role, so only the fraud-related yes/no is released and unrelated entries are removed by construction."
+      },
+      {
+        "seed_id": "tw-gov-household-register-proxy-copy-discretion",
+        "borrowed_aspect": "In the household-registry proxy ruling, the office may collect ID copies at its own discretion with no stated limit; here, the temple committee's open-ended request for a whole certificate plays that role, and a fixed predicate limits what it can ask."
+      }
+    ]
+  },
+  {
+    "title": "Peer-vouched volunteer for a one-day temple festival children's activity",
+    "moment": "Ahead of a temple festival in Kaohsiung, a church-linked youth group lends a dozen parents and teens to run a children's craft corner for a single day. There is no time to order official certificates for everyone. The temple volunteer lead asks for ID copies and a handwritten declaration and writes down names and phone numbers.",
+    "verifier": "The temple volunteer lead running the festival children's corner",
+    "predicate": "The helper has no child-related conviction, attested by a trusted community or school body that has itself checked the record (non-membership, peer or community issuer)",
+    "disclosed_today": "ID card copy, phone number and a handwritten self-declaration on paper, which the lead cannot verify, kept in a personal notebook",
+    "issuer": "A community body such as the youth group's parent organisation or a school that already holds a recent criminal-record check for its own volunteers and countersigns a short-lived credential",
+    "why_zk": "This is weak to moderate. A proof is only worth the trust placed in the signing body, and a youth group's attestation is not an official check, so the temple gains less assurance than with a state-issued credential. The benefit is that it replaces unverifiable paper declarations and ID copies with a signed yes/no that the helper presents unlinkably; if the group's own checking is sloppy, the zero-knowledge layer adds privacy but not truth.",
+    "inspired_by": [
+      {
+        "seed_id": "an-b-attorney-client",
+        "borrowed_aspect": "In attorney-client privilege, an essential third party such as an interpreter may be present without destroying confidentiality; here, the youth group as vouching issuer plays that essential-intermediary role, and the temple lead sees only the outcome, not the record behind it."
+      },
+      {
+        "seed_id": "tw-platform-google-id-upload-complaint",
+        "borrowed_aspect": "In the Google subscription complaint, a service demands an ID and address proof with no stated purpose or lighter alternative; here, the temple's blanket request for ID copies plays that role, and the signed predicate is the lighter alternative."
+      }
+    ]
+  }
+]

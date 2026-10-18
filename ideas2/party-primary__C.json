@@ -1,0 +1,59 @@
+[
+  {
+    "title": "One-member-one-vote at a district party primary without a membership roster dump",
+    "moment": "A county-level party chapter in Taichung runs a candidate nomination primary at a community hall. To get the member-only free voting-day meal box and shuttle ride, members now hand over their ID card and party membership card so staff can tick them off a roster and make sure nobody votes twice.",
+    "verifier": "Local party chapter election committee volunteers running the primary",
+    "predicate": "Holder is a registered member of this party in this district, and has not already cast a ballot in this primary (one-time uniqueness token per primary)",
+    "disclosed_today": "Full name, national ID number, address, party membership card and membership number, shown to volunteers who tick a paper roster; the roster itself reveals political affiliation for everyone listed",
+    "issuer": "The party's central membership office (or the district chapter), signing a district-membership credential",
+    "why_zk": "A district-scoped, primary-scoped nullifier proves membership and single use without name, ID number or address, and the roster no longer needs to exist as a political-opinion list. Honest limit: the party is itself the issuer and already knows its members, so the gain is against volunteers, leaks and later roster reuse, not against the party; the party may also not want to give up the roster for audit and dues reasons.",
+    "inspired_by": [
+      {
+        "seed_id": "gdpr-data-minimisation",
+        "borrowed_aspect": "In gdpr-data-minimisation, controllers collect a whole document when a narrower field would serve the purpose; here, the volunteer collecting an ID card and membership card when only 'member of this district, not yet voted' is needed plays that role."
+      },
+      {
+        "seed_id": "rd-swiss-eid-necessary-data-only",
+        "borrowed_aspect": "In rd-swiss-eid-necessary-data-only, the wallet releases only the one attribute a transaction needs through selective disclosure; here, the member's wallet releasing only a district-membership attestation to the volunteer plays that role."
+      }
+    ]
+  },
+  {
+    "title": "Civic forum participatory-budget vote that does not log who belongs to which party",
+    "moment": "A neighbourhood civic forum in Tainan lets residents who are party members in the district vote on a members-only discount package for a party-run community class and on a set of local proposals. The organiser's online form asks for a photo of ID plus a screenshot of the party app membership page, and threatens to drop the registration if they are not supplied.",
+    "verifier": "Volunteer organisers of a community civic forum using an online vote form",
+    "predicate": "Holder is a registered party member in this district, and each member can submit only one vote per proposal round (uniqueness)",
+    "disclosed_today": "ID photo, screenshot of the party membership page, phone number and home address; the stored uploads reveal each participant's political party",
+    "issuer": "The party's district chapter signing a membership credential; the forum only checks its signature and a per-round nullifier",
+    "why_zk": "The forum needs only 'member, one vote'; a presentation with a per-round nullifier gives that without the forum becoming a keeper of political-opinion records that a small volunteer group cannot secure. Honest limit: the party, as issuer, must agree to issue wallet credentials, and a small civic group may find the verification tooling heavier than a spreadsheet.",
+    "inspired_by": [
+      {
+        "seed_id": "tw-platform-google-id-upload-complaint",
+        "borrowed_aspect": "In tw-platform-google-id-upload-complaint, a service demands an ID document and address proof on threat of suspension without a stated purpose or lighter alternative; here, the forum organiser demanding an ID photo and membership screenshot to register a vote plays that role."
+      },
+      {
+        "seed_id": "an-b-hipaa-min-necessary",
+        "borrowed_aspect": "In an-b-hipaa-min-necessary, the holder of sensitive records is left to judge what is minimal with no proof the released subset was minimal; here, the volunteer organiser deciding for themselves how much membership evidence is enough plays that role, and a proof makes the minimum checkable."
+      }
+    ]
+  },
+  {
+    "title": "Member-only ticket for a party-hosted candidate Q&A that cannot be linked across events",
+    "moment": "A party district office hosts a series of members-only candidate meet-ups at a rented restaurant and offers members a discounted banquet ticket. The venue's booking agent asks for the member's name, ID number and membership card photo at each event, so the same person's attendance can be tied together across events and handed to the venue.",
+    "verifier": "Third-party venue or ticketing agent selling member-priced tickets for a party event",
+    "predicate": "Holder is a registered member of this district chapter, one ticket per member per event (uniqueness scoped to the event)",
+    "disclosed_today": "Name, national ID number, membership card photo, phone number, and the pattern of which party events the person attended",
+    "issuer": "The party's district chapter, signing a membership credential; the ticketing agent verifies it offline",
+    "why_zk": "An event-scoped nullifier stops double ticket claims while keeping attendance at event A unlinkable to attendance at event B, so the venue cannot assemble a profile of a person's political activity; the same-context-only property is what the cookie scoping idea aims at. Honest limit: if tickets are bought with a personal credit card or the person is physically recognised, ZK does not remove that linkage, and the party itself can see attendance if it issues the ticket.",
+    "inspired_by": [
+      {
+        "seed_id": "an-a-samesite-cookies",
+        "borrowed_aspect": "In an-a-samesite-cookies, the SameSite attribute stops a stored credential from letting third parties recognise the same browser across contexts; here, the event-scoped nullifier stops the venue from recognising the same member across party events and plays that role."
+      },
+      {
+        "seed_id": "tw-gov-household-register-proxy-copy-discretion",
+        "borrowed_aspect": "In tw-gov-household-register-proxy-copy-discretion, an office collects copies of an identity document at its own discretion with no fixed scope; here, the venue agent collecting ID and membership card photos at its own discretion plays that role."
+      }
+    ]
+  }
+]

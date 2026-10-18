@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Weekend children's calligraphy class volunteer teacher",
+    "moment": "A Taipei temple runs a free Saturday calligraphy and Chinese-chess class for neighbourhood primary-school children. A retired teacher offers to help. Today the temple secretary photocopies her ID card and asks for a 良民證 (police criminal record certificate), which lists any record in full and is then kept in a drawer.",
+    "verifier": "The temple's administrative committee (管理委員會) running the children's programme",
+    "predicate": "Holder is not on the register of persons with child-related offence or fraud convictions (non-membership), valid for this month.",
+    "disclosed_today": "Full name, ID number, address, photo and the whole criminal record certificate, including unrelated old minor entries, as a paper copy kept indefinitely.",
+    "issuer": "The Ministry of Justice or the National Police Agency, which already issues the 良民證 and could sign a narrow 'no listed conviction' claim.",
+    "why_zk": "Moderate. The need is a yes/no on a list, while a paper certificate leaks the whole record and the ID number, which is the permanent identifier that cannot be changed after a leak. A non-membership proof against a signed register lets the temple learn only that the volunteer is not listed. It is weak where the law already requires or allows the temple to see the full record, and where freshness depends on how often the register is updated. A leaked copy of a certificate can also be reused.",
+    "inspired_by": [
+      {
+        "seed_id": "tw-gov-id-number-reissue-misuse-2025",
+        "borrowed_aspect": "In the 2025 ID-number misuse case, the unchangeable ID number copied from a card keeps being presented by others; here, the photocopied ID and certificate in the temple drawer play that role, and a proof that never reveals the number removes the copy that could be misused."
+      },
+      {
+        "seed_id": "gdpr-data-minimisation",
+        "borrowed_aspect": "In GDPR data minimisation, a controller should take only what the purpose needs but has no way to ask for less than a whole document; here, the 'not on the list' proof plays the narrower field in place of the full certificate."
+      }
+    ]
+  },
+  {
+    "title": "Treasurer and incense-money counter for temple donations",
+    "moment": "Before the Lunar New Year rush, a temple in Tainan recruits volunteers to count 香油錢 (incense donations) and handle the donation account. The committee asks each volunteer to show an ID card and a criminal record extract in person, and an elder writes down the ID number in a notebook that others in the office can read.",
+    "verifier": "The temple's board treasurer (財務委員) assigning cash-handling shifts",
+    "predicate": "Holder has no fraud, embezzlement or breach-of-trust conviction on the register (non-membership), proved without naming the holder to any single volunteer organiser.",
+    "disclosed_today": "Name, ID number, home address and the full criminal record extract, read aloud or copied into a shared notebook seen by several office volunteers.",
+    "issuer": "The Ministry of Justice (or a prosecutors' office that holds the judgment records), signing a fraud-and-property-offence non-membership claim.",
+    "why_zk": "Moderate. The treasurer needs only 'no property-crime conviction' for a cash shift, yet the check shows the whole record to whoever sits at the desk. The proof could be presented to a scanner at the committee level so that the shift-assigning volunteer never sees the name behind it, in the way each hop in onion routing knows only its neighbours. Weak points: small temples know their volunteers personally and may trust reputation over any credential, and unreported fraud, or fraud under a different name, would not appear on the register at all.",
+    "inspired_by": [
+      {
+        "seed_id": "an-a-tor-onion",
+        "borrowed_aspect": "In onion routing, each relay peels one layer and learns only the previous and next hop; here, the shift-assigning volunteer learns only 'cleared for cash handling' and the committee verifier learns only the register check, so no single person holds the identity and the clearance together."
+      },
+      {
+        "seed_id": "an-b-hipaa-min-necessary",
+        "borrowed_aspect": "In the HIPAA minimum-necessary rule, the holder of records must release only the subset that serves a stated purpose but nothing proves it was minimal; here, a proof bound to the purpose 'cash handling' plays that role and makes the minimal release checkable."
+      }
+    ]
+  },
+  {
+    "title": "Summer camp helper recruited through a school-district WeChat-style group",
+    "moment": "A temple in Kaohsiung runs a week-long summer camp for 7- to 12-year-olds and takes students from a nearby university as helpers. Parents ask the camp organiser what checks were done. Today the organiser collects a scan of each student's ID and a signed consent form allowing the temple to query records, and keeps the files on a personal phone, then keeps them after camp ends.",
+    "verifier": "The camp organiser (a temple deacon) and, indirectly, the parents who ask what checks were done",
+    "predicate": "Helper is not on the child-protection and fraud conviction register (non-membership), valid for the camp dates, with no stored identity afterwards.",
+    "disclosed_today": "ID scan, student card, phone number and a signed consent form that opens the helper's records to the temple, all stored on a personal phone without a deletion date.",
+    "issuer": "The helper's university student affairs office, after querying the national register on the student's behalf, or the Ministry of Justice directly.",
+    "why_zk": "Moderate to weak. Parents get a real assurance and the organiser can publish a count of 'checked' helpers without a list of names. The deletion exception in the Personal Data Protection Act lets a temple keep data whenever it says it needs it for its activities, so a proof that leaves nothing to store removes the need for the exception. Weak points: the organiser and parents may not trust or understand a wallet proof, many camps rely on word of mouth, and a university acting as issuer takes on liability it may not want.",
+    "inspired_by": [
+      {
+        "seed_id": "tw-pdpa-art11-3-deletion-exception",
+        "borrowed_aspect": "In PDPA Article 11(3), a collector must delete data when its purpose ends but may keep it for its own duties; here, the one-shot proof plays the deletion duty by leaving nothing on the organiser's phone to keep."
+      },
+      {
+        "seed_id": "an-b-attorney-client",
+        "borrowed_aspect": "In attorney-client privilege, confidentiality holds only if no outsider is present beyond the essential agent; here, the university office plays the essential agent that sees the record, and the organiser and parents are the outsiders who receive only the yes/no."
+      }
+    ]
+  }
+]

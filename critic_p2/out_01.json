@@ -1,0 +1,98 @@
+[
+ {
+  "review_id": "p01-0",
+  "context_purpose": "Confirm a volunteer is a currently licensed nurse before handing over insulin and wound-care duties.",
+  "norm_violation_today": {"reason": "Copying licence and ID into a notebook stored with residents' medication sheets mixes volunteer identity data into the clinical record, beyond what a yes/no licence check needs.", "violated": "yes", "parameter": "retention"},
+  "purpose_sufficiency": {"rating": "partly", "lost": "Named accountability for who treated which resident, and any legal treatment log, cannot be reconstructed from an anonymous status proof."},
+  "transmission_check": {"reason": "The notebook is a shelter habit rather than a clear statutory demand, but whether treatment-record rules need the nurse's name is unclear.", "principle_today": "safety_security", "permits_minimal_flow": "unclear"},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 4,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p01-1",
+  "context_purpose": "Run a union strike vote that counts only eligible members, once each, without exposing supporters to the employer.",
+  "norm_violation_today": {"reason": "A named sign-in at the ward, visible to supervisors and cross-checked with HR lists, discloses union membership and voting participation to the employer, a recipient outside the context.", "violated": "yes", "parameter": "recipient"},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Auditability of the named roster by regulators or in disputes; the union may still need to keep its own member list."},
+  "transmission_check": {"reason": "Voting rules may require the union to hold a named member list, but that is the union's own record, and I cannot say if the observer must see names.", "principle_today": "required_by_law", "permits_minimal_flow": "unclear"},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "unknown"},
+  "rubric_score": 3,
+  "novelty": 5,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p01-2",
+  "context_purpose": "Let a public owner agency confirm that workers on high-risk tasks hold valid safety training before the job starts.",
+  "norm_violation_today": {"reason": "Sharing the full roster with IDs and certificates in a document readable by competing subcontractors sends personal data to recipients with no need for it.", "violated": "yes", "parameter": "recipient"},
+  "purpose_sufficiency": {"rating": "partly", "lost": "Named workers for site access, labour-insurance and audit cross-checks after the start date; the proof covers only pre-start screening."},
+  "transmission_check": {"reason": "Public tender and occupational safety rules plausibly require named workers and certificates, so the minimal flow may only replace the early circulation, not the agency's own record.", "principle_today": "required_by_law", "permits_minimal_flow": "unclear"},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 2,
+  "novelty": 4,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p01-3",
+  "context_purpose": "Keep impostors away from children by letting only verified nurses staff the child health corner of a shelter.",
+  "norm_violation_today": {"reason": "Filing months-long photocopies of ID cards (address, ID number) in a school office binder exceeds what a licence check at the door needs, though collection for child safety is itself a legitimate purpose.", "violated": "yes", "parameter": "retention"},
+  "purpose_sufficiency": {"rating": "partly", "lost": "Criminal-record or reference vetting and proof the person at the door is the licence holder, unless wallet binding is added."},
+  "transmission_check": {"reason": "Child-safety volunteer vetting is a safety practice with no statute I can cite requiring ID copies; a school's own rules might, so it is uncertain.", "principle_today": "safety_security", "permits_minimal_flow": "permits"},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 3,
+  "novelty": 3,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "p01-4",
+  "context_purpose": "Quickly decide whether a walk-in volunteer may be placed at the medical corner handling residents' medicines.",
+  "norm_violation_today": {"reason": "Checking the licence is appropriate, but ID photos and licence copies in a shared LINE group with no retention limit spread identity data far beyond the placement decision.", "violated": "yes", "parameter": "retention"},
+  "purpose_sufficiency": {"rating": "partly", "lost": "Named accountability for later incident handling and the link between the person present and the licence, unless holder binding or a pseudonym is used."},
+  "transmission_check": {"reason": "Disaster shelters run on ad hoc safety practice and I know of no rule demanding retained copies, though incident-reporting duties may want names.", "principle_today": "safety_security", "permits_minimal_flow": "permits"},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "no"},
+  "rubric_score": 3,
+  "novelty": 3,
+  "provenance_faithful": "yes"
+ },
+ {
+  "review_id": "p01-5",
+  "context_purpose": "Confirm that a stall-slot applicant holds a current hygiene registration and permit for this market before the draw.",
+  "norm_violation_today": {"reason": "Photocopying the permit plus ID card with home address and ID number into a binder takes more identity data than a valid-today-for-this-market check requires.", "violated": "yes", "parameter": "information_type"},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Evidence copy the committee may need for its city contract or insurer, and the vendor's name for later dispute handling."},
+  "transmission_check": {"reason": "The committee is a private association whose copy habit looks contractual or convenience-driven; whether the city contract requires copies is not something I can confirm.", "principle_today": "commercial_convenience", "permits_minimal_flow": "unclear"},
+  "aggregation": "low",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 4,
+  "novelty": 4,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p01-6",
+  "context_purpose": "Check that a signer is a registered director of the contracting company before opening a trade account.",
+  "norm_violation_today": {"reason": "Director status is a public registry fact, but joining it with property and address lookups to profile a private individual goes beyond the identity check the account needs.", "violated": "yes", "parameter": "information_type"},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Creditworthiness assessment from the person's assets, which the clerk wants but is not entitled to for an account of the company."},
+  "transmission_check": {"reason": "The registry is public so the minimal flow is allowed, but the extra lookups are curiosity, not duty, and nothing forces the clerk to accept the claim instead.", "principle_today": "public_record", "permits_minimal_flow": "permits"},
+  "aggregation": "medium",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "yes"},
+  "rubric_score": 2,
+  "novelty": 3,
+  "provenance_faithful": "no"
+ },
+ {
+  "review_id": "p01-7",
+  "context_purpose": "Let a host confirm a guest is a registered pilgrim entitled to the congregation rate or free meal.",
+  "norm_violation_today": {"reason": "Photographing the pilgrim card and keeping name, phone, temple and LINE contact for marketing turns a one-time rate check into a religion-linked customer list across years.", "violated": "yes", "parameter": "transmission_principle"},
+  "purpose_sufficiency": {"rating": "sufficient", "lost": "Phone number for deposits or no-show screening, and the host's marketing follow-up, which the proof deliberately removes."},
+  "transmission_check": {"reason": "Collection is voluntary and for the host's convenience, with no legal duty, so a minimal flow is not blocked, only unmotivated for the host.", "principle_today": "commercial_convenience", "permits_minimal_flow": "permits"},
+  "aggregation": "high",
+  "adoption": {"issuer_willing": "unknown", "verifier_can_check": "unknown"},
+  "rubric_score": 3,
+  "novelty": 5,
+  "provenance_faithful": "yes"
+ }
+]

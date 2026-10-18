@@ -1,0 +1,59 @@
+[
+  {
+    "title": "University scholarship desk checks status without keeping the household register",
+    "moment": "A freshman at a national university in Hualien applies for the 原住民學生獎助學金 at the student affairs office. Staff currently ask for a full 戶口名簿 or 戶籍謄本 photocopy, which shows parents' names, siblings, addresses and tribal names, and file it with the application.",
+    "verifier": "University student affairs / financial aid office",
+    "predicate": "Holds recognised indigenous status (原住民身分) under the Status Act for Indigenous Peoples, currently valid, and is enrolled at this school.",
+    "disclosed_today": "Full household register copy: national ID number, parents' and siblings' names, registered address, tribe name, birth dates, marital history. Kept in the application file for years.",
+    "issuer": "Household registration office (戶政事務所) under the Ministry of the Interior, with the Council of Indigenous Peoples as the authority for status rules.",
+    "why_zk": "The office only needs a yes/no on status and a check that it has not been presented twice for the same term. A signed membership credential with a per-term nullifier gives both without the register copy. The tribe name itself is special-category data the office does not need. Weakness: some scholarships are tribe-specific or quota-based by tribe, so a selective reveal of tribe would be needed there. Also, students without a smartphone wallet need a counter fallback.",
+    "inspired_by": [
+      {
+        "seed_id": "rd-cnpd-lu-tourist-inspect-not-copy",
+        "borrowed_aspect": "In rd-cnpd-lu-tourist-inspect-not-copy, the accommodation host verifies eligibility by inspecting the identity document and is barred from copying it; here, the scholarship desk's verification of a signed status proof plays that role, so nothing is retained."
+      },
+      {
+        "seed_id": "tw-pdpa-art11-3-deletion-exception",
+        "borrowed_aspect": "In tw-pdpa-art11-3-deletion-exception, a collector can keep data after its purpose lapses by citing its own duties; here, the university's habit of retaining household register copies for audit is replaced by retaining only a verified-yes receipt, so the open-ended exception has nothing sensitive to cover."
+      }
+    ]
+  },
+  {
+    "title": "Indigenous reserved-land lease applicant proves status without exposing family and tribal ties to the township office",
+    "moment": "A person in Taitung applies at the township office (鄉公所) for a lease or use right on indigenous reserved land (原住民保留地), and clerks, who are often from the same small community, read through the applicant's household register and tribe details in a shared counter file.",
+    "verifier": "Township office land section handling reserved-land applications",
+    "predicate": "Holds recognised indigenous status, issued within a recent window and not revoked, without revealing which tribe, household or relatives.",
+    "disclosed_today": "Household register transcript with tribe name, parents' names, address, household members, plus ID number, stored in a paper case file visible to local staff.",
+    "issuer": "Household registration office (戶政事務所) signing status; the Council of Indigenous Peoples as trust anchor for the public key.",
+    "why_zk": "In a small community, a local clerk learning an applicant's family and tribal detail is a real social-exposure harm, not just a data-minimisation nicety. A blind-issued status credential lets the office confirm status while the registry cannot see which office or programme the applicant used it at, and the clerk cannot browse the family. Weakness: land law also requires proof of residence and prior holdings, which are separate claims; this idea only removes the status part of the file.",
+    "inspired_by": [
+      {
+        "seed_id": "an-a-chaum-blind",
+        "borrowed_aspect": "In an-a-chaum-blind, the ballot authority signs a ballot without seeing it and cannot later link it to the signing; here, the household registration office signs a status token that the applicant unblinds, so the registry cannot link a presentation at the township office to the issuance."
+      },
+      {
+        "seed_id": "an-b-attorney-client",
+        "borrowed_aspect": "In an-b-attorney-client, confidentiality is lost once an unnecessary third party is in the room; here, the extra local clerks and staff who can read the shared case file play the third party, and a presentation that reveals only status keeps them out of the family detail."
+      }
+    ]
+  },
+  {
+    "title": "Online scholarship portal replaces ID-number-and-date checks for indigenous student aid",
+    "moment": "A foundation or corporate CSR programme in Taipei runs an online application for indigenous high school students' study grants. Today the form asks for ID number, ID issue date and an uploaded household register scan, and the foundation staff open every scan to decide who qualifies. Fraudsters with stolen ID data can claim grants, as in other ID-number-only online checks.",
+    "verifier": "Private foundation or company-run education grant programme",
+    "predicate": "Holds recognised indigenous status, and the presenter is the credential holder (bound to a wallet key), once per grant round.",
+    "disclosed_today": "ID number, issue date, scanned household register or ID card, tribe name, home address, and often parents' details, kept in the foundation's email and drive.",
+    "issuer": "Household registration office (戶政事務所) or the Council of Indigenous Peoples through the national digital wallet.",
+    "why_zk": "The foundation needs to be sure the applicant is genuinely indigenous and is the person applying, not who their relatives are. An ID number plus issue date is easy to copy, while a wallet-bound credential is not. A per-round nullifier prevents double-claiming without a national-ID database at the foundation. Weakness: many small foundations lack the verifier tooling, and if the programme is also open to non-indigenous applicants on other grounds, the benefit of the claim is smaller.",
+    "inspired_by": [
+      {
+        "seed_id": "tw-telco-online-id-check-fraud-2021",
+        "borrowed_aspect": "In tw-telco-online-id-check-fraud-2021, the telco accepts an ID number and issue date as proof and so passes stolen identities; here, the foundation's portal accepts a holder-bound status credential in place of those copyable identifiers."
+      },
+      {
+        "seed_id": "an-b-jury-selection",
+        "borrowed_aspect": "In an-b-jury-selection, selected people's identities risk default publication unless a discretionary exception applies; here, the list of grant recipients that the foundation might publish in reports plays that role, and a verified-status-only record means recipients' tribal identities are not in the file to publish."
+      }
+    ]
+  }
+]

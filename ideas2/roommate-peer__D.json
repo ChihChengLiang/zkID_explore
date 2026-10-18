@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Roommate-sharing app: 'not on violent-offender list' badge instead of a criminal record certificate",
+    "moment": "A graduate student in Taipei wants to move into a shared 3-bedroom flat found through a roommate-matching group. The existing tenants ask every applicant to send a photo of their national ID plus a 良民證 (police criminal record certificate) over LINE, and the files stay in the group chat forever.",
+    "verifier": "Existing tenants of the flat (private individuals, strangers to the applicant), via the matching platform",
+    "predicate": "Applicant's identity (bound to a holder key) does not appear on the violent-offender register as of a stated date, and the proof is fresh (issued within 30 days)",
+    "disclosed_today": "Full ID card photo (name, ID number, address, birthdate, photo) and a full 良民證 listing all record fields, kept indefinitely in chat history",
+    "issuer": "National Police Agency criminal records unit, or Ministry of Justice, issuing a signed non-membership attestation through the TW DIW wallet",
+    "why_zk": "The tenants need only a yes/no on one list; a non-membership proof stops strangers from holding a copy of the applicant's ID number and address, which is exactly what is later used for identity fraud. Weakness: the issuer must have a legal basis to expose a list-check service for private use, and a 'clean' result can be stale within days; the register itself may not be designed for citizen-initiated checks.",
+    "inspired_by": [
+      {
+        "seed_id": "tw-telco-online-id-check-fraud-2021",
+        "borrowed_aspect": "In tw-telco-online-id-check-fraud-2021, the provider accepts easily copied identifiers (ID number and issue date) as proof of who the applicant is; here, the holder-key binding of the signed attestation plays the role that replaces copyable ID details, so a stolen ID photo cannot pass the check."
+      },
+      {
+        "seed_id": "rd-twdiw-field-selection-consent",
+        "borrowed_aspect": "In rd-twdiw-field-selection-consent, the wallet lets users pick fields to disclose per scenario with no field-level guarantee; here, a fixed single-predicate presentation request from the tenants plays the role that guarantees only the non-membership bit is released."
+      }
+    ]
+  },
+  {
+    "title": "Carpool app driver check for a weekly Hsinchu science-park commute",
+    "moment": "A software engineer joins a new weekday carpool from Taichung to Hsinchu Science Park. The group organiser asks each rider to post a selfie with ID and a screenshot of a police record, so the driver and three riders can feel safe sharing a car at 7am. The organiser keeps all of it in a shared Google Drive folder.",
+    "verifier": "The carpool organiser (a peer) and the fellow riders, via the carpool app",
+    "predicate": "Rider is not on the violent-offender list, shown once per group join, with a per-group pseudonym so the same person cannot be linked across different carpool groups",
+    "disclosed_today": "Selfie with ID, full name, ID number, and a record screenshot, uploaded to a shared drive visible to all members",
+    "issuer": "The carpool platform (e.g., a ride-sharing company) acting as a relying issuer after it checks the person once against the police service, then signing a reusable non-membership credential",
+    "why_zk": "The riders need to trust a stranger for a short drive, not hold a dossier on them; a per-context proof avoids a shared folder that links a rider's real identity across groups. Weakness: if the platform is the issuer, riders rely on the platform's one-time check, and the credential does not prove anything about behaviour after issuance; unlinkability across groups also hides repeat complaints.",
+    "inspired_by": [
+      {
+        "seed_id": "an-a-samesite-cookies",
+        "borrowed_aspect": "In an-a-samesite-cookies, a SameSite attribute stops a cookie being sent in cross-site requests so third parties cannot recognise the holder across sites; here, a per-group presentation pseudonym plays that role so one carpool group cannot match the rider to other groups."
+      },
+      {
+        "seed_id": "an-b-attorney-client",
+        "borrowed_aspect": "In an-b-attorney-client, confidentiality breaks when an outsider is present unless essential to the relationship; here, the organiser's shared drive plays the outsider whose presence leaks the record, and the zero-knowledge presentation removes the need for any third party to see the underlying record."
+      }
+    ]
+  },
+  {
+    "title": "Landlord-assisted room-share: sealed check done by the community, shown to a new flatmate",
+    "moment": "A tenant in a Kaohsiung student apartment block wants to sublet one room to a stranger from a Facebook housing group. The previous flatmates insist that whoever moves in has been checked, but nobody wants to read another person's whole record or learn why a past record exists. A neighbourhood community management committee can do a one-off check.",
+    "verifier": "The sitting tenants of the flat deciding on a sublet applicant, relying on the committee's signature",
+    "predicate": "Applicant is not on the violent-offender list at the committee's check time, with the result kept hidden from everyone but the holder until the holder chooses to present it on move-in day",
+    "disclosed_today": "Photocopy of the applicant's ID and 良民證, handed to the tenants and the community committee, with the committee office keeping a copy in its files",
+    "issuer": "The community management committee (社區管理委員會) or a licensed housing agency, who obtains the applicant's own consented record query and signs a short-lived non-membership attestation",
+    "why_zk": "Today the committee office holds copies of strangers' records that it has no reason to keep; a sealed attestation that the holder reveals only at move-in cuts that retention and stops the flatmates seeing record details. Weakness: a community committee is not an obviously trusted authority for criminal checks, and the legal permission to run such a check on behalf of private persons is unclear in Taiwan, so this idea is the weakest of the three.",
+    "inspired_by": [
+      {
+        "seed_id": "an-b-sealed-bid-far",
+        "borrowed_aspect": "In an-b-sealed-bid-far, the holder of sealed bids keeps them unopened until the scheduled moment and may handle the envelope only to identify it; here, the committee plays the holder who may confirm the attestation's identity and validity without opening the underlying record."
+      },
+      {
+        "seed_id": "an-b-jury-selection",
+        "borrowed_aspect": "In an-b-jury-selection, a court keeps selected people's names confidential only as a judge-level exception to a default of publication; here, the committee's rule that the check result stays with the holder by default plays that protection, rather than relying on the committee's discretion to withhold."
+      }
+    ]
+  }
+]

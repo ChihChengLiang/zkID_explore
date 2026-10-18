@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Witness enters the district court with a blind-signed hearing token instead of showing the summons and ID",
+    "moment": "A woman summoned as a witness in a civil case at the Taipei District Court arrives at the security desk at 8:50. Today the guard asks to see the paper summons (which lists case number, parties, cause of action) and her national ID card, and sometimes logs name and ID number in a visitor register, to decide if she may pass the metal detector.",
+    "verifier": "Judicial Police (法警) / contracted security guard at the courthouse entrance",
+    "predicate": "Holder possesses a valid, unexpired token for a hearing session at this courthouse today (membership in the set of today's summoned persons), without revealing the case number, party role or identity.",
+    "disclosed_today": "Full summons document (case number, parties, cause of action, role as witness/party), national ID card with photo, ID number, name, often written into a paper or digital visitor log.",
+    "issuer": "The court clerk's office (書記官處) of the Judicial Yuan, issuing a one-time per-session token when the summons is generated or when the person checks in online",
+    "why_zk": "The guard only needs 'is expected here today'. A blind-signed per-session token lets the court sign without being able to link the presented token back to a specific case file, and the desk learns nothing else. Weakness: the court itself knows who it summoned, so the privacy gain is against the guard, the visitor log and leaks, not against the court; guards also still do physical screening and may legitimately want ID for high-risk hearings, and elderly summoned persons may lack a smartphone so paper fallback is required.",
+    "inspired_by": [
+      {
+        "seed_id": "an-a-chaum-blind",
+        "borrowed_aspect": "In the Chaum ballot scheme, the ballot authority signs a blinded ballot so it cannot later link the counted ballot to the voter; here, the court clerk's office signs a blinded hearing token so the entrance desk cannot link the presented token to a case file or a person."
+      },
+      {
+        "seed_id": "privacy-pass-unlinkable-proof",
+        "borrowed_aspect": "In Privacy Pass, a gatekeeper accepts an unlinkable token showing prior authorisation instead of a cookie that tracks the client; here, the courthouse security desk accepts an unlinkable 'summoned today' token instead of a summons paper and ID that act as a persistent identifier."
+      }
+    ]
+  },
+  {
+    "title": "Domestic-violence victim attends a protection-order hearing without the guard reading her case details",
+    "moment": "A person attending a hearing on a protective order (保護令) at the Shilin District Court family division queues at the entrance in public view. Today the guard reads the hearing notice aloud or inspects it for division, case type and names, which exposes within earshot of others that she is a domestic-violence applicant, and notes her ID.",
+    "verifier": "Court security guard at the family-division entrance, within earshot of the waiting public",
+    "predicate": "Holder is in the set of persons notified for a session of this courthouse today; nothing about the case type, division or role is shown.",
+    "disclosed_today": "Hearing notice showing case type (protection order), division, parties' names, case number, plus ID card shown in public at the queue.",
+    "issuer": "The court (clerk's office of the family division), signing a minimal 'attendee for today' credential that omits case type",
+    "why_zk": "Safety screening is the purpose, and the guard needs only attendance membership; sensitive case type is currently exposed in a public queue to gain access. A selective-disclosure credential from the court that carries only a date-and-courthouse attribute removes that exposure. Weakness: this is largely achieved by simply redesigning the notice or giving a separate neutral pass, so ZK adds little beyond a better-designed barcode; also the verifier's QR scan could be done with a plain signed token, since no zero-knowledge relation is really needed beyond selective disclosure.",
+    "inspired_by": [
+      {
+        "seed_id": "an-b-hipaa-min-necessary",
+        "borrowed_aspect": "In HIPAA's minimum-necessary rule, the holder of sensitive records is told to release only what the purpose requires but has no mechanism proving it; here, the hearing-notice holder is the one who should reveal only 'attending today' and the credential format is the mechanism that enforces minimality instead of the guard's discretion."
+      },
+      {
+        "seed_id": "rd-korea-mdl-age-check-barcode",
+        "borrowed_aspect": "In Korea's digital licence age check, a barcode scan is meant to output only the age result but the screen also shows the photo; here, the entrance scan is meant to output only 'attending today' but the paper notice also shows case type and parties."
+      }
+    ]
+  },
+  {
+    "title": "Juror or lay-judge candidate proves summons for today's session at the Taiwan High Court's new lay-participation trial desk",
+    "moment": "A citizen called as a prospective lay judge (國民法官) for a trial at a district court arrives for the selection day. The security desk today photocopies or records the summons and national ID to ensure only the called pool enters the secured area, while the candidate's identity is supposed to be shielded from the public and parties.",
+    "verifier": "Court security desk handling the lay-judge candidate pool entrance, plus the clerk seating them",
+    "predicate": "Holder is one of the candidates called for this specific selection session (membership in the called pool), without revealing name or ID number to the entrance desk.",
+    "disclosed_today": "Name, national ID number, address on the summons, and sometimes a scanned copy of the summons and ID kept in the desk's attendance record.",
+    "issuer": "The district court administering the lay-judge candidate list (the court's lay-judge office), signing pool membership",
+    "why_zk": "Identities of lay-judge candidates are legally sensitive and the entrance desk only needs pool membership. A membership proof lets the desk admit people without keeping a list of names and ID numbers, reducing risk of leaks or pressure on candidates. Weakness: the courtroom clerk later must know who each person is to run selection and record attendance, so identity is revealed eventually; the benefit is limited to the first perimeter checkpoint and retention of copies, and the law on required ID checks for attendance may still demand a visual check.",
+    "inspired_by": [
+      {
+        "seed_id": "tw-bank-deposit-dual-id-check",
+        "borrowed_aspect": "In the Taiwan bank dual-ID rule, the institution examines identity documents and the text is silent on copies and retention; here, the court security desk examines the summons and ID and is equally silent on whether copies are kept, which a membership proof would make moot."
+      },
+      {
+        "seed_id": "an-a-chaum-blind",
+        "borrowed_aspect": "In the Chaum ballot scheme, the authority certifies without seeing content and cannot link later; here, the lay-judge office certifies pool membership with a blinded credential so the entrance desk's record cannot be tied back to the candidate list."
+      }
+    ]
+  }
+]

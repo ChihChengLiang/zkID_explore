@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Grandparent pickup at a public elementary school gate",
+    "moment": "At 4pm on a Thursday, a grandmother who does not appear on the school's pickup list arrives at a Taipei public elementary school gate because the parents are stuck at work. The guard currently photographs her ID card and phones the homeroom teacher, who calls the parent to confirm.",
+    "verifier": "School gate guard / 校門警衛 (with homeroom teacher as fallback)",
+    "predicate": "A guardian-signed credential, valid only for today's date and for this one child, shows the holder is the delegate. The holder proves it with no name, ID number or photo shown to the guard.",
+    "disclosed_today": "Full ID card photographed or copied (name, national ID number, address, photo), plus the guardian's phone number and a handwritten gate log kept in a paper binder.",
+    "issuer": "The child's guardian, with the school's family-app (e.g. parent communication app) co-signing so the guard can check that the guardian really is the registered one",
+    "why_zk": "The guard needs only 'authorised today for this child', yet the ID-card photo is a lasting copy of a national ID number that sits in a binder or phone gallery with no deletion date. A one-day, one-child proof removes the copy. Weakness: the guard still has to match the face to the person physically present, because bearer proof alone does not stop a stolen phone, and a school staff member will still want a human look at the person.",
+    "inspired_by": [
+      {
+        "seed_id": "tw-pdpa-art11-3-deletion-exception",
+        "borrowed_aspect": "In tw-pdpa-art11-3-deletion-exception, the collected data must be deleted when its purpose lapses but an open exception lets the holder keep it; here, a credential that expires at day's end plays the role of a built-in lapse, so no copy exists to be kept under the exception."
+      },
+      {
+        "seed_id": "gdpr-data-minimisation",
+        "borrowed_aspect": "In gdpr-data-minimisation, a controller collects a whole document when a narrower field would serve; here, the guard's whole ID-card photo plays the over-collected document and the one-day 'authorised for this child' flag plays the narrower field."
+      }
+    ]
+  },
+  {
+    "title": "After-school cram school (補習班) sign-out for a shared-custody child",
+    "moment": "A 9-year-old in a split-custody family attends a buxiban near the elementary school. On days when the other parent or an uncle collects her, the buxiban front desk asks for the person's ID, writes it into a sign-out sheet and sometimes keeps a phone photo, to prevent a non-custodial abduction.",
+    "verifier": "Buxiban front-desk staff",
+    "predicate": "The person presenting is authorised by the custodial guardian for this child on today's date only, and the proof reveals nothing about the custody arrangement or the delegate's identity.",
+    "disclosed_today": "Delegate's name, ID number, relationship, phone number and often a photo, plus implicitly the family's custody situation, all on a sheet read by other parents and other staff.",
+    "issuer": "The custodial guardian's own wallet app (peer-issued), anchored to the guardian's government-issued digital ID so the buxiban can tell the guardian is a registered guardian",
+    "why_zk": "The sign-out sheet exposes custody details and a delegate's identity to many people. A peer-issued, date-bounded token lets the desk learn only that the guardian said yes today. Honesty note: the buxiban is a private business with no duty to adopt it, parents may find a phone call simpler, and a court-ordered custody restriction cannot be proven by this token because the guardian could be lying or be the non-custodial one.",
+    "inspired_by": [
+      {
+        "seed_id": "privacy-pass-unlinkable-proof",
+        "borrowed_aspect": "In privacy-pass-unlinkable-proof, a blind-signed token attests prior authorisation without being linkable to the issuance interaction; here, the guardian's day-pass plays that token so the front desk cannot link today's pickup to earlier pickups or to the delegate's identity."
+      },
+      {
+        "seed_id": "an-b-census-title13",
+        "borrowed_aspect": "In an-b-census-title13, results may not allow a particular respondent to be identified even though staff can see raw records; here, the sign-out record plays the published output and must not let a reader single out one family's custody arrangement."
+      }
+    ]
+  },
+  {
+    "title": "Neighbourhood parent-run pickup carpool at a kindergarten",
+    "moment": "Four families at a private kindergarten in Taichung take turns driving each other's children home. Each driving parent shows up at the gate and the kindergarten receptionist asks to see ID and checks the name against a LINE message the parent forwards, which reveals the parents' group chat and contact details.",
+    "verifier": "Kindergarten receptionist / 幼兒園櫃台人員",
+    "predicate": "The holder is authorised by this child's guardian to collect the child today as part of a carpool rota, shown as a time-limited delegation that expires after the stated pickup window.",
+    "disclosed_today": "The driver's ID card, the guardian's forwarded LINE message with the chat screenshot (other parents' names and phone numbers), and the vehicle plate.",
+    "issuer": "Each child's guardian, signing a per-day delegation; the kindergarten registers the guardian's key at enrolment so the receptionist can verify the signature",
+    "why_zk": "Forwarded chat screenshots leak other families' details, and the receptionist only needs 'authorised today'. A per-child, per-day delegation avoids sending the group chat. It is weak in that the proof says nothing about whether the driver is trustworthy or insured, and the kindergarten may continue to ask for ID anyway because a childcare-law duty of care makes staff reluctant to rely only on a digital token.",
+    "inspired_by": [
+      {
+        "seed_id": "rd-apple-wallet-age-request-categories",
+        "borrowed_aspect": "In rd-apple-wallet-age-request-categories, a single over-threshold flag is requestable but its category also bundles issuer and photo; here, the 'authorised today' delegation plays the single flag and the driver's ID photo plays the bundled extras that the request must be able to leave out."
+      },
+      {
+        "seed_id": "tw-bank-deposit-dual-id-check",
+        "borrowed_aspect": "In tw-bank-deposit-dual-id-check, a bank must check two identity documents but the rule leaves copy retention unspecified; here, the receptionist's ID check plays that duty and a proof that is checked but never copied plays the missing retention rule."
+      }
+    ]
+  }
+]

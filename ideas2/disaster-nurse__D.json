@@ -1,0 +1,59 @@
+[
+  {
+    "title": "Typhoon-night shelter triage desk: nurse volunteer walks in with a licence that is current today",
+    "moment": "After a typhoon floods a district in Kaohsiung, a township office opens a school gym as a shelter. A retired nurse arrives at 11 pm to help with elderly evacuees' medication and wound care. The volunteer coordinator at the sign-in desk must decide within minutes whether she may be placed at the medical corner, where she will handle residents' medicines and dressings.",
+    "verifier": "Shelter volunteer coordinator at the township disaster-response centre (civil-defence / district office staff or an NGO lead running the shelter)",
+    "predicate": "Licence status was checked against the issuer's register within the last 24 hours and shows a nursing licence that is valid and in good standing (no suspension or revocation); no name, ID number or licence number revealed.",
+    "disclosed_today": "Volunteers fill a paper sign-in sheet and hand over a photo of the national ID card and a photocopy or phone photo of the nursing licence (name, ID number, birth date, licence number, registration place), which the coordinator keeps in a shared LINE group or on a clipboard with no stated retention or deletion.",
+    "issuer": "Ministry of Health and Welfare (MOHW) via the nurse-registration database, with the licence status attested by the wallet-issued credential and refreshed per presentation",
+    "why_zk": "Strong fit on the freshness side: a photocopied licence proves nothing about suspension since it was printed, while a short-lived signed status proof proves 'valid today' and nothing else. The coordinator needs a yes/no for safety (medicine access, vulnerable evacuees), so hiding name and ID number loses little, though shelters later need some named accountability for incident handling, which can be handled by an opaque per-shelter pseudonym. Weakness: night-time, power and network outages may block the online status refresh, and the nurse registry must expose a machine-readable status first.",
+    "inspired_by": [
+      {
+        "seed_id": "tw-bank-deposit-dual-id-check",
+        "borrowed_aspect": "In tw-bank-deposit-dual-id-check, the bank's rule demands document inspection to fight fraud without saying whether copies are kept; here, the shelter's sign-in sheet plays that role, where checking the licence is justified for safety but retention of the copy is left unspecified, and a freshness proof replaces the copy."
+      },
+      {
+        "seed_id": "rd-twdiw-field-selection-consent",
+        "borrowed_aspect": "In rd-twdiw-field-selection-consent, the user picks fields to release per scenario after scanning a QR code; here, the nurse scans the shelter's QR at the desk and releases only the 'licence valid today' attribute instead of the whole licence record."
+      }
+    ]
+  },
+  {
+    "title": "Temple-run relief kitchen and clinic corner: same nurse, many one-off deployments, no cross-event trail",
+    "moment": "A community development association in Hualien organises a weekend relief point after an earthquake, with a blood-pressure and wound-care corner staffed by volunteer nurses recruited via Facebook and LINE. Several of the same nurses also volunteer at the Tzu Chi, Red Cross and township stations the same week. Each organiser wants to confirm the licence is in good standing before letting someone touch residents' medical items.",
+    "verifier": "Community association (社區發展協會) volunteer team lead running the relief point",
+    "predicate": "Presenter holds a nursing licence in good standing, status refreshed within the past 7 days, shown through an unlinkable presentation so that the same nurse showing it at two relief points cannot be matched by the organisers.",
+    "disclosed_today": "Each organiser asks for a licence photo and ID card photo in a group chat, so the same nurse's full identity and licence number are scattered across several unrelated groups run by different civic bodies, each with its own unknown retention.",
+    "issuer": "Taiwan Nurses Association together with the MOHW registry, issuing a licence-status credential into the holder's wallet, refreshed by the registry on each renewal cycle",
+    "why_zk": "The benefit is unlinkability across events: if each presentation is the same signed licence number, organisers can still collude or leak and track one nurse across sites, like a third-party cookie. Unlinkable proofs give each organiser only 'in good standing'. Weakness: a small relief team often knows the nurse personally and informal trust is fast, so the wallet flow is extra friction for volunteers who just show up; and the 7-day window depends on registry freshness that may not exist yet.",
+    "inspired_by": [
+      {
+        "seed_id": "an-a-samesite-cookies",
+        "borrowed_aspect": "In an-a-samesite-cookies, a stored credential sent in every context lets third parties recognise the same browser across sites, and SameSite limits it to the issuing context; here, the licence number attached to every relief-point request plays that role, and a per-verifier unlinkable presentation limits it to one event."
+      },
+      {
+        "seed_id": "tw-platform-gym-id-card-copies-interp",
+        "borrowed_aspect": "In tw-platform-gym-id-card-copies-interp, a gym asks for full front-and-back ID and card copies when a narrower check might do and the regulator leaves necessity to case-by-case review; here, the relief-point lead asking for ID and licence photos plays that role, with the 'in good standing' proof as the unnamed less-intrusive alternative."
+      }
+    ]
+  },
+  {
+    "title": "Elder-care shelter handover: pharmacist and charge nurse need to know the helper is a nurse, not who she is",
+    "moment": "In a long-running evacuation shelter in Taitung, a hospital-affiliated charge nurse on a rotating roster must hand over insulin storage and wound-dressing duties to walk-in volunteers during a night shift. She needs to be sure each claimed nurse really holds a licence that has not lapsed, but would rather not collect and store everyone's identity papers in the shelter's clinical corner, where residents' records also sit.",
+    "verifier": "Charge nurse on duty at the shelter's medical corner (staff of the partner hospital or public health centre, 衛生所)",
+    "predicate": "Holder has a nursing licence valid and in good standing as of a signed status timestamp no older than 48 hours, presented in person by NFC or QR with the presenter's local confirmation; shelter learns nothing else.",
+    "disclosed_today": "The nurse shows her licence and national ID card; the charge nurse copies the name and licence number into a handover notebook kept in the same box as the residents' medication sheets, and sometimes takes a phone photo of the licence for the roster.",
+    "issuer": "Local public health centre (衛生所) of the county health bureau, re-signing licence status from the MOHW registry for each deployment window",
+    "why_zk": "The data minimisation benefit is real because the notebook sits next to sensitive resident health records, so a leak would link volunteers' identities with patients' data, and a professional-to-professional confidentiality boundary is better protected if no extra outsider identity data enters the room. Weakness: a charge nurse working beside a volunteer can often judge competence by conversation, the legal duty to log who treated whom may still require the name, and a health centre issuer adds a local process that may not be staffed in a disaster.",
+    "inspired_by": [
+      {
+        "seed_id": "an-b-attorney-client",
+        "borrowed_aspect": "In an-b-attorney-client, confidentiality collapses when a non-essential outsider is in the room; here, the volunteer's identity papers and licence copies filed beside residents' medication sheets play that outsider, and a bare status proof keeps them out of the clinical record."
+      },
+      {
+        "seed_id": "tw-gov-household-register-proxy-copy-discretion",
+        "borrowed_aspect": "In tw-gov-household-register-proxy-copy-discretion, the office may collect a principal's ID copy at its own discretion; here, the charge nurse's discretion over how much licence and ID paperwork to copy plays that role, and a fixed predicate removes that discretion."
+      }
+    ]
+  }
+]
