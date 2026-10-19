@@ -1,0 +1,1478 @@
+[
+ {
+  "id": "p1:bank-aggregate__A__0",
+  "source_type": "finance",
+  "consumer_type": "landlord_housing",
+  "other_note": ""
+ },
+ {
+  "id": "p1:bank-aggregate__A__1",
+  "source_type": "finance",
+  "consumer_type": "school",
+  "other_note": ""
+ },
+ {
+  "id": "p1:bank-aggregate__A__2",
+  "source_type": "finance",
+  "consumer_type": "justice_security",
+  "other_note": ""
+ },
+ {
+  "id": "p1:bank-aggregate__B__0",
+  "source_type": "finance",
+  "consumer_type": "landlord_housing",
+  "other_note": ""
+ },
+ {
+  "id": "p1:bank-aggregate__B__1",
+  "source_type": "finance",
+  "consumer_type": "government_office",
+  "other_note": ""
+ },
+ {
+  "id": "p1:bank-aggregate__B__2",
+  "source_type": "finance",
+  "consumer_type": "bank_insurer",
+  "other_note": ""
+ },
+ {
+  "id": "p1:bank-aggregate__C__0",
+  "source_type": "finance",
+  "consumer_type": "landlord_housing",
+  "other_note": ""
+ },
+ {
+  "id": "p1:bank-aggregate__C__1",
+  "source_type": "finance",
+  "consumer_type": "retail_commerce",
+  "other_note": ""
+ },
+ {
+  "id": "p1:bank-aggregate__C__2",
+  "source_type": "finance",
+  "consumer_type": "school",
+  "other_note": ""
+ },
+ {
+  "id": "p1:bank-aggregate__D__0",
+  "source_type": "finance",
+  "consumer_type": "landlord_housing",
+  "other_note": ""
+ },
+ {
+  "id": "p1:bank-aggregate__D__1",
+  "source_type": "finance",
+  "consumer_type": "bank_insurer",
+  "other_note": ""
+ },
+ {
+  "id": "p1:bank-aggregate__D__2",
+  "source_type": "finance",
+  "consumer_type": "government_office",
+  "other_note": ""
+ },
+ {
+  "id": "p1:employer-fresh__A__0",
+  "source_type": "employer",
+  "consumer_type": "landlord_housing",
+  "other_note": ""
+ },
+ {
+  "id": "p1:employer-fresh__A__1",
+  "source_type": "employer",
+  "consumer_type": "community_committee",
+  "other_note": ""
+ },
+ {
+  "id": "p1:employer-fresh__A__2",
+  "source_type": "employer",
+  "consumer_type": "justice_security",
+  "other_note": ""
+ },
+ {
+  "id": "p1:employer-fresh__B__0",
+  "source_type": "employer",
+  "consumer_type": "telecom_digital",
+  "other_note": ""
+ },
+ {
+  "id": "p1:employer-fresh__B__1",
+  "source_type": "employer",
+  "consumer_type": "retail_commerce",
+  "other_note": ""
+ },
+ {
+  "id": "p1:employer-fresh__B__2",
+  "source_type": "employer",
+  "consumer_type": "justice_security",
+  "other_note": ""
+ },
+ {
+  "id": "p1:employer-fresh__C__0",
+  "source_type": "employer",
+  "consumer_type": "landlord_housing",
+  "other_note": ""
+ },
+ {
+  "id": "p1:employer-fresh__C__1",
+  "source_type": "employer",
+  "consumer_type": "retail_commerce",
+  "other_note": ""
+ },
+ {
+  "id": "p1:employer-fresh__C__2",
+  "source_type": "employer",
+  "consumer_type": "employer_hr",
+  "other_note": ""
+ },
+ {
+  "id": "p1:employer-fresh__D__0",
+  "source_type": "employer",
+  "consumer_type": "landlord_housing",
+  "other_note": ""
+ },
+ {
+  "id": "p1:employer-fresh__D__1",
+  "source_type": "employer",
+  "consumer_type": "retail_commerce",
+  "other_note": ""
+ },
+ {
+  "id": "p1:employer-fresh__D__2",
+  "source_type": "employer",
+  "consumer_type": "government_office",
+  "other_note": ""
+ },
+ {
+  "id": "p1:gov-nonmember__A__0",
+  "source_type": "gov_licensing",
+  "consumer_type": "retail_commerce",
+  "other_note": ""
+ },
+ {
+  "id": "p1:gov-nonmember__A__1",
+  "source_type": "gov_justice",
+  "consumer_type": "landlord_housing",
+  "other_note": ""
+ },
+ {
+  "id": "p1:gov-nonmember__A__2",
+  "source_type": "gov_justice",
+  "consumer_type": "volunteer_ngo",
+  "other_note": ""
+ },
+ {
+  "id": "p1:gov-nonmember__B__0",
+  "source_type": "gov_civil",
+  "consumer_type": "hospitality_travel",
+  "other_note": ""
+ },
+ {
+  "id": "p1:gov-nonmember__B__1",
+  "source_type": "gov_civil",
+  "consumer_type": "retail_commerce",
+  "other_note": ""
+ },
+ {
+  "id": "p1:gov-nonmember__B__2",
+  "source_type": "gov_justice",
+  "consumer_type": "school",
+  "other_note": ""
+ },
+ {
+  "id": "p1:gov-nonmember__C__0",
+  "source_type": "gov_civil",
+  "consumer_type": "transport_rental",
+  "other_note": ""
+ },
+ {
+  "id": "p1:gov-nonmember__C__1",
+  "source_type": "gov_justice",
+  "consumer_type": "peer",
+  "other_note": ""
+ },
+ {
+  "id": "p1:gov-nonmember__C__2",
+  "source_type": "gov_licensing",
+  "consumer_type": "retail_commerce",
+  "other_note": ""
+ },
+ {
+  "id": "p1:gov-nonmember__D__0",
+  "source_type": "gov_licensing",
+  "consumer_type": "retail_commerce",
+  "other_note": ""
+ },
+ {
+  "id": "p1:gov-nonmember__D__1",
+  "source_type": "gov_civil",
+  "consumer_type": "landlord_housing",
+  "other_note": ""
+ },
+ {
+  "id": "p1:gov-nonmember__D__2",
+  "source_type": "gov_justice",
+  "consumer_type": "school",
+  "other_note": ""
+ },
+ {
+  "id": "p1:hospital-timed__A__0",
+  "source_type": "healthcare",
+  "consumer_type": "landlord_housing",
+  "other_note": ""
+ },
+ {
+  "id": "p1:hospital-timed__A__1",
+  "source_type": "healthcare",
+  "consumer_type": "employer_hr",
+  "other_note": ""
+ },
+ {
+  "id": "p1:hospital-timed__A__2",
+  "source_type": "healthcare",
+  "consumer_type": "school",
+  "other_note": ""
+ },
+ {
+  "id": "p1:hospital-timed__B__0",
+  "source_type": "healthcare",
+  "consumer_type": "school",
+  "other_note": ""
+ },
+ {
+  "id": "p1:hospital-timed__B__1",
+  "source_type": "healthcare",
+  "consumer_type": "healthcare",
+  "other_note": ""
+ },
+ {
+  "id": "p1:hospital-timed__B__2",
+  "source_type": "healthcare",
+  "consumer_type": "transport_rental",
+  "other_note": ""
+ },
+ {
+  "id": "p1:hospital-timed__C__0",
+  "source_type": "healthcare",
+  "consumer_type": "healthcare",
+  "other_note": ""
+ },
+ {
+  "id": "p1:hospital-timed__C__1",
+  "source_type": "healthcare",
+  "consumer_type": "employer_hr",
+  "other_note": ""
+ },
+ {
+  "id": "p1:hospital-timed__C__2",
+  "source_type": "healthcare",
+  "consumer_type": "school",
+  "other_note": ""
+ },
+ {
+  "id": "p1:hospital-timed__D__0",
+  "source_type": "healthcare",
+  "consumer_type": "transport_rental",
+  "other_note": ""
+ },
+ {
+  "id": "p1:hospital-timed__D__1",
+  "source_type": "healthcare",
+  "consumer_type": "transport_rental",
+  "other_note": ""
+ },
+ {
+  "id": "p1:hospital-timed__D__2",
+  "source_type": "healthcare",
+  "consumer_type": "school",
+  "other_note": ""
+ },
+ {
+  "id": "p1:platform-thresh__A__0",
+  "source_type": "platform",
+  "consumer_type": "community_committee",
+  "other_note": ""
+ },
+ {
+  "id": "p1:platform-thresh__A__1",
+  "source_type": "platform",
+  "consumer_type": "bank_insurer",
+  "other_note": ""
+ },
+ {
+  "id": "p1:platform-thresh__A__2",
+  "source_type": "platform",
+  "consumer_type": "retail_commerce",
+  "other_note": ""
+ },
+ {
+  "id": "p1:platform-thresh__B__0",
+  "source_type": "platform",
+  "consumer_type": "transport_rental",
+  "other_note": ""
+ },
+ {
+  "id": "p1:platform-thresh__B__1",
+  "source_type": "platform",
+  "consumer_type": "landlord_housing",
+  "other_note": ""
+ },
+ {
+  "id": "p1:platform-thresh__B__2",
+  "source_type": "platform",
+  "consumer_type": "retail_commerce",
+  "other_note": ""
+ },
+ {
+  "id": "p1:platform-thresh__C__0",
+  "source_type": "platform",
+  "consumer_type": "bank_insurer",
+  "other_note": ""
+ },
+ {
+  "id": "p1:platform-thresh__C__1",
+  "source_type": "platform",
+  "consumer_type": "landlord_housing",
+  "other_note": ""
+ },
+ {
+  "id": "p1:platform-thresh__C__2",
+  "source_type": "platform",
+  "consumer_type": "telecom_digital",
+  "other_note": ""
+ },
+ {
+  "id": "p1:platform-thresh__D__0",
+  "source_type": "platform",
+  "consumer_type": "community_committee",
+  "other_note": ""
+ },
+ {
+  "id": "p1:platform-thresh__D__1",
+  "source_type": "platform",
+  "consumer_type": "bank_insurer",
+  "other_note": ""
+ },
+ {
+  "id": "p1:platform-thresh__D__2",
+  "source_type": "platform",
+  "consumer_type": "retail_commerce",
+  "other_note": ""
+ },
+ {
+  "id": "p1:telco-unique__A__0",
+  "source_type": "telecom",
+  "consumer_type": "retail_commerce",
+  "other_note": ""
+ },
+ {
+  "id": "p1:telco-unique__A__1",
+  "source_type": "telecom",
+  "consumer_type": "community_committee",
+  "other_note": ""
+ },
+ {
+  "id": "p1:telco-unique__A__2",
+  "source_type": "telecom",
+  "consumer_type": "telecom_digital",
+  "other_note": ""
+ },
+ {
+  "id": "p1:telco-unique__B__0",
+  "source_type": "telecom",
+  "consumer_type": "retail_commerce",
+  "other_note": ""
+ },
+ {
+  "id": "p1:telco-unique__B__1",
+  "source_type": "telecom",
+  "consumer_type": "community_committee",
+  "other_note": ""
+ },
+ {
+  "id": "p1:telco-unique__B__2",
+  "source_type": "telecom",
+  "consumer_type": "telecom_digital",
+  "other_note": ""
+ },
+ {
+  "id": "p1:telco-unique__C__0",
+  "source_type": "telecom",
+  "consumer_type": "venue_events",
+  "other_note": ""
+ },
+ {
+  "id": "p1:telco-unique__C__1",
+  "source_type": "telecom",
+  "consumer_type": "retail_commerce",
+  "other_note": ""
+ },
+ {
+  "id": "p1:telco-unique__C__2",
+  "source_type": "telecom",
+  "consumer_type": "community_committee",
+  "other_note": ""
+ },
+ {
+  "id": "p1:telco-unique__D__0",
+  "source_type": "telecom",
+  "consumer_type": "retail_commerce",
+  "other_note": ""
+ },
+ {
+  "id": "p1:telco-unique__D__1",
+  "source_type": "telecom",
+  "consumer_type": "community_committee",
+  "other_note": ""
+ },
+ {
+  "id": "p1:telco-unique__D__2",
+  "source_type": "telecom",
+  "consumer_type": "telecom_digital",
+  "other_note": ""
+ },
+ {
+  "id": "p1:univ-crossmatch__A__0",
+  "source_type": "education",
+  "consumer_type": "community_committee",
+  "other_note": ""
+ },
+ {
+  "id": "p1:univ-crossmatch__A__1",
+  "source_type": "education",
+  "consumer_type": "government_office",
+  "other_note": ""
+ },
+ {
+  "id": "p1:univ-crossmatch__A__2",
+  "source_type": "education",
+  "consumer_type": "employer_hr",
+  "other_note": ""
+ },
+ {
+  "id": "p1:univ-crossmatch__B__0",
+  "source_type": "education",
+  "consumer_type": "transport_rental",
+  "other_note": ""
+ },
+ {
+  "id": "p1:univ-crossmatch__B__1",
+  "source_type": "education",
+  "consumer_type": "landlord_housing",
+  "other_note": ""
+ },
+ {
+  "id": "p1:univ-crossmatch__B__2",
+  "source_type": "education",
+  "consumer_type": "healthcare",
+  "other_note": ""
+ },
+ {
+  "id": "p1:univ-crossmatch__C__0",
+  "source_type": "education",
+  "consumer_type": "transport_rental",
+  "other_note": ""
+ },
+ {
+  "id": "p1:univ-crossmatch__C__1",
+  "source_type": "education",
+  "consumer_type": "landlord_housing",
+  "other_note": ""
+ },
+ {
+  "id": "p1:univ-crossmatch__C__2",
+  "source_type": "education",
+  "consumer_type": "library_culture",
+  "other_note": ""
+ },
+ {
+  "id": "p1:univ-crossmatch__D__0",
+  "source_type": "education",
+  "consumer_type": "transport_rental",
+  "other_note": ""
+ },
+ {
+  "id": "p1:univ-crossmatch__D__1",
+  "source_type": "education",
+  "consumer_type": "school",
+  "other_note": ""
+ },
+ {
+  "id": "p1:univ-crossmatch__D__2",
+  "source_type": "education",
+  "consumer_type": "telecom_digital",
+  "other_note": ""
+ },
+ {
+  "id": "p1:utility-member__A__0",
+  "source_type": "utility",
+  "consumer_type": "school",
+  "other_note": ""
+ },
+ {
+  "id": "p1:utility-member__A__1",
+  "source_type": "utility",
+  "consumer_type": "government_office",
+  "other_note": ""
+ },
+ {
+  "id": "p1:utility-member__A__2",
+  "source_type": "utility",
+  "consumer_type": "government_office",
+  "other_note": ""
+ },
+ {
+  "id": "p1:utility-member__B__0",
+  "source_type": "utility",
+  "consumer_type": "school",
+  "other_note": ""
+ },
+ {
+  "id": "p1:utility-member__B__1",
+  "source_type": "utility",
+  "consumer_type": "landlord_housing",
+  "other_note": ""
+ },
+ {
+  "id": "p1:utility-member__B__2",
+  "source_type": "utility",
+  "consumer_type": "government_office",
+  "other_note": ""
+ },
+ {
+  "id": "p1:utility-member__C__0",
+  "source_type": "utility",
+  "consumer_type": "volunteer_ngo",
+  "other_note": ""
+ },
+ {
+  "id": "p1:utility-member__C__1",
+  "source_type": "utility",
+  "consumer_type": "government_office",
+  "other_note": ""
+ },
+ {
+  "id": "p1:utility-member__C__2",
+  "source_type": "utility",
+  "consumer_type": "government_office",
+  "other_note": ""
+ },
+ {
+  "id": "p1:utility-member__D__0",
+  "source_type": "utility",
+  "consumer_type": "volunteer_ngo",
+  "other_note": ""
+ },
+ {
+  "id": "p1:utility-member__D__1",
+  "source_type": "utility",
+  "consumer_type": "government_office",
+  "other_note": ""
+ },
+ {
+  "id": "p1:utility-member__D__2",
+  "source_type": "utility",
+  "consumer_type": "school",
+  "other_note": ""
+ },
+ {
+  "id": "p2:building-vote__C__0",
+  "source_type": "gov_civil",
+  "consumer_type": "community_committee",
+  "other_note": ""
+ },
+ {
+  "id": "p2:building-vote__C__1",
+  "source_type": "peer",
+  "consumer_type": "community_committee",
+  "other_note": ""
+ },
+ {
+  "id": "p2:building-vote__C__2",
+  "source_type": "community_body",
+  "consumer_type": "community_committee",
+  "other_note": ""
+ },
+ {
+  "id": "p2:building-vote__D__0",
+  "source_type": "gov_civil",
+  "consumer_type": "community_committee",
+  "other_note": ""
+ },
+ {
+  "id": "p2:building-vote__D__1",
+  "source_type": "peer",
+  "consumer_type": "community_committee",
+  "other_note": ""
+ },
+ {
+  "id": "p2:building-vote__D__2",
+  "source_type": "community_body",
+  "consumer_type": "community_committee",
+  "other_note": ""
+ },
+ {
+  "id": "p2:court-witness__C__0",
+  "source_type": "gov_justice",
+  "consumer_type": "justice_security",
+  "other_note": ""
+ },
+ {
+  "id": "p2:court-witness__C__1",
+  "source_type": "gov_justice",
+  "consumer_type": "justice_security",
+  "other_note": ""
+ },
+ {
+  "id": "p2:court-witness__C__2",
+  "source_type": "gov_justice",
+  "consumer_type": "justice_security",
+  "other_note": ""
+ },
+ {
+  "id": "p2:court-witness__D__0",
+  "source_type": "gov_justice",
+  "consumer_type": "justice_security",
+  "other_note": ""
+ },
+ {
+  "id": "p2:court-witness__D__1",
+  "source_type": "gov_justice",
+  "consumer_type": "justice_security",
+  "other_note": ""
+ },
+ {
+  "id": "p2:court-witness__D__2",
+  "source_type": "gov_justice",
+  "consumer_type": "justice_security",
+  "other_note": ""
+ },
+ {
+  "id": "p2:day-labour-safety__C__0",
+  "source_type": "education",
+  "consumer_type": "employer_hr",
+  "other_note": ""
+ },
+ {
+  "id": "p2:day-labour-safety__C__1",
+  "source_type": "education",
+  "consumer_type": "employer_hr",
+  "other_note": ""
+ },
+ {
+  "id": "p2:day-labour-safety__C__2",
+  "source_type": "education",
+  "consumer_type": "government_office",
+  "other_note": ""
+ },
+ {
+  "id": "p2:day-labour-safety__D__0",
+  "source_type": "education",
+  "consumer_type": "employer_hr",
+  "other_note": ""
+ },
+ {
+  "id": "p2:day-labour-safety__D__1",
+  "source_type": "education",
+  "consumer_type": "employer_hr",
+  "other_note": ""
+ },
+ {
+  "id": "p2:day-labour-safety__D__2",
+  "source_type": "gov_licensing",
+  "consumer_type": "government_office",
+  "other_note": ""
+ },
+ {
+  "id": "p2:disaster-nurse__C__0",
+  "source_type": "gov_licensing",
+  "consumer_type": "volunteer_ngo",
+  "other_note": ""
+ },
+ {
+  "id": "p2:disaster-nurse__C__1",
+  "source_type": "gov_licensing",
+  "consumer_type": "volunteer_ngo",
+  "other_note": ""
+ },
+ {
+  "id": "p2:disaster-nurse__C__2",
+  "source_type": "gov_licensing",
+  "consumer_type": "volunteer_ngo",
+  "other_note": ""
+ },
+ {
+  "id": "p2:disaster-nurse__D__0",
+  "source_type": "gov_licensing",
+  "consumer_type": "volunteer_ngo",
+  "other_note": ""
+ },
+ {
+  "id": "p2:disaster-nurse__D__1",
+  "source_type": "gov_licensing",
+  "consumer_type": "volunteer_ngo",
+  "other_note": ""
+ },
+ {
+  "id": "p2:disaster-nurse__D__2",
+  "source_type": "gov_licensing",
+  "consumer_type": "healthcare",
+  "other_note": ""
+ },
+ {
+  "id": "p2:dv-lease-break__C__0",
+  "source_type": "gov_justice",
+  "consumer_type": "landlord_housing",
+  "other_note": ""
+ },
+ {
+  "id": "p2:dv-lease-break__C__1",
+  "source_type": "gov_justice",
+  "consumer_type": "employer_hr",
+  "other_note": ""
+ },
+ {
+  "id": "p2:dv-lease-break__C__2",
+  "source_type": "gov_justice",
+  "consumer_type": "government_office",
+  "other_note": ""
+ },
+ {
+  "id": "p2:dv-lease-break__D__0",
+  "source_type": "gov_justice",
+  "consumer_type": "landlord_housing",
+  "other_note": ""
+ },
+ {
+  "id": "p2:dv-lease-break__D__1",
+  "source_type": "gov_justice",
+  "consumer_type": "employer_hr",
+  "other_note": ""
+ },
+ {
+  "id": "p2:dv-lease-break__D__2",
+  "source_type": "gov_justice",
+  "consumer_type": "landlord_housing",
+  "other_note": ""
+ },
+ {
+  "id": "p2:funeral-nok__C__0",
+  "source_type": "gov_civil",
+  "consumer_type": "funeral_estate",
+  "other_note": ""
+ },
+ {
+  "id": "p2:funeral-nok__C__1",
+  "source_type": "gov_civil",
+  "consumer_type": "government_office",
+  "other_note": ""
+ },
+ {
+  "id": "p2:funeral-nok__C__2",
+  "source_type": "gov_civil",
+  "consumer_type": "funeral_estate",
+  "other_note": ""
+ },
+ {
+  "id": "p2:funeral-nok__D__0",
+  "source_type": "gov_civil",
+  "consumer_type": "funeral_estate",
+  "other_note": ""
+ },
+ {
+  "id": "p2:funeral-nok__D__1",
+  "source_type": "gov_civil",
+  "consumer_type": "government_office",
+  "other_note": ""
+ },
+ {
+  "id": "p2:funeral-nok__D__2",
+  "source_type": "gov_civil",
+  "consumer_type": "funeral_estate",
+  "other_note": ""
+ },
+ {
+  "id": "p2:hospital-partner__C__0",
+  "source_type": "healthcare",
+  "consumer_type": "healthcare",
+  "other_note": ""
+ },
+ {
+  "id": "p2:hospital-partner__C__1",
+  "source_type": "healthcare",
+  "consumer_type": "healthcare",
+  "other_note": ""
+ },
+ {
+  "id": "p2:hospital-partner__C__2",
+  "source_type": "healthcare",
+  "consumer_type": "healthcare",
+  "other_note": ""
+ },
+ {
+  "id": "p2:hospital-partner__D__0",
+  "source_type": "healthcare",
+  "consumer_type": "healthcare",
+  "other_note": ""
+ },
+ {
+  "id": "p2:hospital-partner__D__1",
+  "source_type": "peer",
+  "consumer_type": "healthcare",
+  "other_note": ""
+ },
+ {
+  "id": "p2:hospital-partner__D__2",
+  "source_type": "healthcare",
+  "consumer_type": "healthcare",
+  "other_note": ""
+ },
+ {
+  "id": "p2:indigenous-aid__C__0",
+  "source_type": "gov_civil",
+  "consumer_type": "school",
+  "other_note": ""
+ },
+ {
+  "id": "p2:indigenous-aid__C__1",
+  "source_type": "gov_civil",
+  "consumer_type": "government_office",
+  "other_note": ""
+ },
+ {
+  "id": "p2:indigenous-aid__C__2",
+  "source_type": "community_body",
+  "consumer_type": "school",
+  "other_note": ""
+ },
+ {
+  "id": "p2:indigenous-aid__D__0",
+  "source_type": "gov_civil",
+  "consumer_type": "school",
+  "other_note": ""
+ },
+ {
+  "id": "p2:indigenous-aid__D__1",
+  "source_type": "gov_civil",
+  "consumer_type": "government_office",
+  "other_note": ""
+ },
+ {
+  "id": "p2:indigenous-aid__D__2",
+  "source_type": "gov_civil",
+  "consumer_type": "school",
+  "other_note": ""
+ },
+ {
+  "id": "p2:inheritance-bank__C__0",
+  "source_type": "gov_civil",
+  "consumer_type": "bank_insurer",
+  "other_note": ""
+ },
+ {
+  "id": "p2:inheritance-bank__C__1",
+  "source_type": "gov_civil",
+  "consumer_type": "bank_insurer",
+  "other_note": ""
+ },
+ {
+  "id": "p2:inheritance-bank__C__2",
+  "source_type": "gov_civil",
+  "consumer_type": "bank_insurer",
+  "other_note": ""
+ },
+ {
+  "id": "p2:inheritance-bank__D__0",
+  "source_type": "gov_civil",
+  "consumer_type": "bank_insurer",
+  "other_note": ""
+ },
+ {
+  "id": "p2:inheritance-bank__D__1",
+  "source_type": "gov_civil",
+  "consumer_type": "bank_insurer",
+  "other_note": ""
+ },
+ {
+  "id": "p2:inheritance-bank__D__2",
+  "source_type": "gov_civil",
+  "consumer_type": "bank_insurer",
+  "other_note": ""
+ },
+ {
+  "id": "p2:library-guardian__C__0",
+  "source_type": "gov_civil",
+  "consumer_type": "library_culture",
+  "other_note": ""
+ },
+ {
+  "id": "p2:library-guardian__C__1",
+  "source_type": "education",
+  "consumer_type": "library_culture",
+  "other_note": ""
+ },
+ {
+  "id": "p2:library-guardian__C__2",
+  "source_type": "peer",
+  "consumer_type": "library_culture",
+  "other_note": ""
+ },
+ {
+  "id": "p2:library-guardian__D__0",
+  "source_type": "gov_civil",
+  "consumer_type": "library_culture",
+  "other_note": ""
+ },
+ {
+  "id": "p2:library-guardian__D__1",
+  "source_type": "gov_civil",
+  "consumer_type": "library_culture",
+  "other_note": ""
+ },
+ {
+  "id": "p2:library-guardian__D__2",
+  "source_type": "gov_justice",
+  "consumer_type": "library_culture",
+  "other_note": ""
+ },
+ {
+  "id": "p2:library-network__C__0",
+  "source_type": "community_body",
+  "consumer_type": "library_culture",
+  "other_note": ""
+ },
+ {
+  "id": "p2:library-network__C__1",
+  "source_type": "community_body",
+  "consumer_type": "library_culture",
+  "other_note": ""
+ },
+ {
+  "id": "p2:library-network__C__2",
+  "source_type": "community_body",
+  "consumer_type": "community_committee",
+  "other_note": ""
+ },
+ {
+  "id": "p2:library-network__D__0",
+  "source_type": "community_body",
+  "consumer_type": "library_culture",
+  "other_note": ""
+ },
+ {
+  "id": "p2:library-network__D__1",
+  "source_type": "community_body",
+  "consumer_type": "community_committee",
+  "other_note": ""
+ },
+ {
+  "id": "p2:library-network__D__2",
+  "source_type": "education",
+  "consumer_type": "library_culture",
+  "other_note": ""
+ },
+ {
+  "id": "p2:migrant-housing__C__0",
+  "source_type": "gov_licensing",
+  "consumer_type": "landlord_housing",
+  "other_note": ""
+ },
+ {
+  "id": "p2:migrant-housing__C__1",
+  "source_type": "employer",
+  "consumer_type": "landlord_housing",
+  "other_note": ""
+ },
+ {
+  "id": "p2:migrant-housing__C__2",
+  "source_type": "gov_licensing",
+  "consumer_type": "landlord_housing",
+  "other_note": ""
+ },
+ {
+  "id": "p2:migrant-housing__D__0",
+  "source_type": "gov_licensing",
+  "consumer_type": "landlord_housing",
+  "other_note": ""
+ },
+ {
+  "id": "p2:migrant-housing__D__1",
+  "source_type": "gov_licensing",
+  "consumer_type": "landlord_housing",
+  "other_note": ""
+ },
+ {
+  "id": "p2:migrant-housing__D__2",
+  "source_type": "gov_licensing",
+  "consumer_type": "volunteer_ngo",
+  "other_note": ""
+ },
+ {
+  "id": "p2:night-market-stall__C__0",
+  "source_type": "gov_licensing",
+  "consumer_type": "food_vendor",
+  "other_note": ""
+ },
+ {
+  "id": "p2:night-market-stall__C__1",
+  "source_type": "gov_licensing",
+  "consumer_type": "food_vendor",
+  "other_note": ""
+ },
+ {
+  "id": "p2:night-market-stall__C__2",
+  "source_type": "gov_licensing",
+  "consumer_type": "food_vendor",
+  "other_note": ""
+ },
+ {
+  "id": "p2:night-market-stall__D__0",
+  "source_type": "gov_licensing",
+  "consumer_type": "food_vendor",
+  "other_note": ""
+ },
+ {
+  "id": "p2:night-market-stall__D__1",
+  "source_type": "gov_licensing",
+  "consumer_type": "food_vendor",
+  "other_note": ""
+ },
+ {
+  "id": "p2:night-market-stall__D__2",
+  "source_type": "gov_licensing",
+  "consumer_type": "telecom_digital",
+  "other_note": ""
+ },
+ {
+  "id": "p2:onsen-entry__C__0",
+  "source_type": "gov_civil",
+  "consumer_type": "venue_events",
+  "other_note": ""
+ },
+ {
+  "id": "p2:onsen-entry__C__1",
+  "source_type": "gov_civil",
+  "consumer_type": "venue_events",
+  "other_note": ""
+ },
+ {
+  "id": "p2:onsen-entry__C__2",
+  "source_type": "gov_civil",
+  "consumer_type": "venue_events",
+  "other_note": ""
+ },
+ {
+  "id": "p2:onsen-entry__D__0",
+  "source_type": "gov_civil",
+  "consumer_type": "venue_events",
+  "other_note": ""
+ },
+ {
+  "id": "p2:onsen-entry__D__1",
+  "source_type": "venue_operator",
+  "consumer_type": "venue_events",
+  "other_note": ""
+ },
+ {
+  "id": "p2:onsen-entry__D__2",
+  "source_type": "gov_civil",
+  "consumer_type": "venue_events",
+  "other_note": ""
+ },
+ {
+  "id": "p2:party-primary__C__0",
+  "source_type": "community_body",
+  "consumer_type": "community_committee",
+  "other_note": ""
+ },
+ {
+  "id": "p2:party-primary__C__1",
+  "source_type": "community_body",
+  "consumer_type": "community_committee",
+  "other_note": ""
+ },
+ {
+  "id": "p2:party-primary__C__2",
+  "source_type": "community_body",
+  "consumer_type": "venue_events",
+  "other_note": ""
+ },
+ {
+  "id": "p2:party-primary__D__0",
+  "source_type": "community_body",
+  "consumer_type": "community_committee",
+  "other_note": ""
+ },
+ {
+  "id": "p2:party-primary__D__1",
+  "source_type": "community_body",
+  "consumer_type": "retail_commerce",
+  "other_note": ""
+ },
+ {
+  "id": "p2:party-primary__D__2",
+  "source_type": "community_body",
+  "consumer_type": "community_committee",
+  "other_note": ""
+ },
+ {
+  "id": "p2:pilgrimage-group__C__0",
+  "source_type": "community_body",
+  "consumer_type": "hospitality_travel",
+  "other_note": ""
+ },
+ {
+  "id": "p2:pilgrimage-group__C__1",
+  "source_type": "community_body",
+  "consumer_type": "religious_body",
+  "other_note": ""
+ },
+ {
+  "id": "p2:pilgrimage-group__C__2",
+  "source_type": "community_body",
+  "consumer_type": "hospitality_travel",
+  "other_note": ""
+ },
+ {
+  "id": "p2:pilgrimage-group__D__0",
+  "source_type": "community_body",
+  "consumer_type": "hospitality_travel",
+  "other_note": ""
+ },
+ {
+  "id": "p2:pilgrimage-group__D__1",
+  "source_type": "community_body",
+  "consumer_type": "bank_insurer",
+  "other_note": ""
+ },
+ {
+  "id": "p2:pilgrimage-group__D__2",
+  "source_type": "community_body",
+  "consumer_type": "hospitality_travel",
+  "other_note": ""
+ },
+ {
+  "id": "p2:public-register__C__0",
+  "source_type": "gov_licensing",
+  "consumer_type": "bank_insurer",
+  "other_note": ""
+ },
+ {
+  "id": "p2:public-register__C__1",
+  "source_type": "gov_civil",
+  "consumer_type": "landlord_housing",
+  "other_note": ""
+ },
+ {
+  "id": "p2:public-register__C__2",
+  "source_type": "gov_licensing",
+  "consumer_type": "other",
+  "other_note": "legal services: law firms and process servers"
+ },
+ {
+  "id": "p2:public-register__D__0",
+  "source_type": "gov_civil",
+  "consumer_type": "landlord_housing",
+  "other_note": ""
+ },
+ {
+  "id": "p2:public-register__D__1",
+  "source_type": "gov_licensing",
+  "consumer_type": "retail_commerce",
+  "other_note": ""
+ },
+ {
+  "id": "p2:public-register__D__2",
+  "source_type": "gov_civil",
+  "consumer_type": "community_committee",
+  "other_note": ""
+ },
+ {
+  "id": "p2:roommate-peer__C__0",
+  "source_type": "gov_justice",
+  "consumer_type": "telecom_digital",
+  "other_note": ""
+ },
+ {
+  "id": "p2:roommate-peer__C__1",
+  "source_type": "gov_justice",
+  "consumer_type": "peer",
+  "other_note": ""
+ },
+ {
+  "id": "p2:roommate-peer__C__2",
+  "source_type": "gov_justice",
+  "consumer_type": "peer",
+  "other_note": ""
+ },
+ {
+  "id": "p2:roommate-peer__D__0",
+  "source_type": "gov_justice",
+  "consumer_type": "peer",
+  "other_note": ""
+ },
+ {
+  "id": "p2:roommate-peer__D__1",
+  "source_type": "platform",
+  "consumer_type": "peer",
+  "other_note": ""
+ },
+ {
+  "id": "p2:roommate-peer__D__2",
+  "source_type": "community_body",
+  "consumer_type": "peer",
+  "other_note": ""
+ },
+ {
+  "id": "p2:school-pickup__C__0",
+  "source_type": "peer",
+  "consumer_type": "school",
+  "other_note": ""
+ },
+ {
+  "id": "p2:school-pickup__C__1",
+  "source_type": "peer",
+  "consumer_type": "school",
+  "other_note": ""
+ },
+ {
+  "id": "p2:school-pickup__C__2",
+  "source_type": "education",
+  "consumer_type": "school",
+  "other_note": ""
+ },
+ {
+  "id": "p2:school-pickup__D__0",
+  "source_type": "peer",
+  "consumer_type": "school",
+  "other_note": ""
+ },
+ {
+  "id": "p2:school-pickup__D__1",
+  "source_type": "peer",
+  "consumer_type": "school",
+  "other_note": ""
+ },
+ {
+  "id": "p2:school-pickup__D__2",
+  "source_type": "peer",
+  "consumer_type": "school",
+  "other_note": ""
+ },
+ {
+  "id": "p2:secondhand-seller__C__0",
+  "source_type": "platform",
+  "consumer_type": "peer",
+  "other_note": ""
+ },
+ {
+  "id": "p2:secondhand-seller__C__1",
+  "source_type": "platform",
+  "consumer_type": "peer",
+  "other_note": ""
+ },
+ {
+  "id": "p2:secondhand-seller__C__2",
+  "source_type": "platform",
+  "consumer_type": "community_committee",
+  "other_note": ""
+ },
+ {
+  "id": "p2:secondhand-seller__D__0",
+  "source_type": "platform",
+  "consumer_type": "peer",
+  "other_note": ""
+ },
+ {
+  "id": "p2:secondhand-seller__D__1",
+  "source_type": "platform",
+  "consumer_type": "telecom_digital",
+  "other_note": ""
+ },
+ {
+  "id": "p2:secondhand-seller__D__2",
+  "source_type": "community_body",
+  "consumer_type": "retail_commerce",
+  "other_note": ""
+ },
+ {
+  "id": "p2:stadium-face__C__0",
+  "source_type": "venue_operator",
+  "consumer_type": "venue_events",
+  "other_note": ""
+ },
+ {
+  "id": "p2:stadium-face__C__1",
+  "source_type": "community_body",
+  "consumer_type": "venue_events",
+  "other_note": ""
+ },
+ {
+  "id": "p2:stadium-face__C__2",
+  "source_type": "venue_operator",
+  "consumer_type": "venue_events",
+  "other_note": ""
+ },
+ {
+  "id": "p2:stadium-face__D__0",
+  "source_type": "venue_operator",
+  "consumer_type": "venue_events",
+  "other_note": ""
+ },
+ {
+  "id": "p2:stadium-face__D__1",
+  "source_type": "gov_civil",
+  "consumer_type": "venue_events",
+  "other_note": ""
+ },
+ {
+  "id": "p2:stadium-face__D__2",
+  "source_type": "education",
+  "consumer_type": "venue_events",
+  "other_note": ""
+ },
+ {
+  "id": "p2:temple-volunteer__C__0",
+  "source_type": "gov_justice",
+  "consumer_type": "religious_body",
+  "other_note": ""
+ },
+ {
+  "id": "p2:temple-volunteer__C__1",
+  "source_type": "gov_justice",
+  "consumer_type": "religious_body",
+  "other_note": ""
+ },
+ {
+  "id": "p2:temple-volunteer__C__2",
+  "source_type": "education",
+  "consumer_type": "religious_body",
+  "other_note": ""
+ },
+ {
+  "id": "p2:temple-volunteer__D__0",
+  "source_type": "gov_justice",
+  "consumer_type": "religious_body",
+  "other_note": ""
+ },
+ {
+  "id": "p2:temple-volunteer__D__1",
+  "source_type": "gov_justice",
+  "consumer_type": "religious_body",
+  "other_note": ""
+ },
+ {
+  "id": "p2:temple-volunteer__D__2",
+  "source_type": "community_body",
+  "consumer_type": "religious_body",
+  "other_note": ""
+ },
+ {
+  "id": "p2:tourist-scooter__C__0",
+  "source_type": "gov_civil",
+  "consumer_type": "telecom_digital",
+  "other_note": ""
+ },
+ {
+  "id": "p2:tourist-scooter__C__1",
+  "source_type": "gov_civil",
+  "consumer_type": "transport_rental",
+  "other_note": ""
+ },
+ {
+  "id": "p2:tourist-scooter__C__2",
+  "source_type": "gov_civil",
+  "consumer_type": "telecom_digital",
+  "other_note": ""
+ },
+ {
+  "id": "p2:tourist-scooter__D__0",
+  "source_type": "gov_civil",
+  "consumer_type": "transport_rental",
+  "other_note": ""
+ },
+ {
+  "id": "p2:tourist-scooter__D__1",
+  "source_type": "gov_civil",
+  "consumer_type": "telecom_digital",
+  "other_note": ""
+ },
+ {
+  "id": "p2:tourist-scooter__D__2",
+  "source_type": "gov_civil",
+  "consumer_type": "transport_rental",
+  "other_note": ""
+ },
+ {
+  "id": "p2:union-ballot__C__0",
+  "source_type": "community_body",
+  "consumer_type": "community_committee",
+  "other_note": ""
+ },
+ {
+  "id": "p2:union-ballot__C__1",
+  "source_type": "community_body",
+  "consumer_type": "community_committee",
+  "other_note": ""
+ },
+ {
+  "id": "p2:union-ballot__C__2",
+  "source_type": "community_body",
+  "consumer_type": "community_committee",
+  "other_note": ""
+ },
+ {
+  "id": "p2:union-ballot__D__0",
+  "source_type": "community_body",
+  "consumer_type": "community_committee",
+  "other_note": ""
+ },
+ {
+  "id": "p2:union-ballot__D__1",
+  "source_type": "community_body",
+  "consumer_type": "community_committee",
+  "other_note": ""
+ },
+ {
+  "id": "p2:union-ballot__D__2",
+  "source_type": "community_body",
+  "consumer_type": "community_committee",
+  "other_note": ""
+ },
+ {
+  "id": "p2:vending-age__C__0",
+  "source_type": "gov_civil",
+  "consumer_type": "machine_kiosk",
+  "other_note": ""
+ },
+ {
+  "id": "p2:vending-age__C__1",
+  "source_type": "gov_civil",
+  "consumer_type": "machine_kiosk",
+  "other_note": ""
+ },
+ {
+  "id": "p2:vending-age__C__2",
+  "source_type": "gov_civil",
+  "consumer_type": "machine_kiosk",
+  "other_note": ""
+ },
+ {
+  "id": "p2:vending-age__D__0",
+  "source_type": "gov_civil",
+  "consumer_type": "machine_kiosk",
+  "other_note": ""
+ },
+ {
+  "id": "p2:vending-age__D__1",
+  "source_type": "gov_civil",
+  "consumer_type": "machine_kiosk",
+  "other_note": ""
+ },
+ {
+  "id": "p2:vending-age__D__2",
+  "source_type": "gov_civil",
+  "consumer_type": "machine_kiosk",
+  "other_note": ""
+ }
+]

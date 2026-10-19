@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Source, attribute, consumer</title>
+<style>
+:root{--bg:#f5f5f4;--fg:#1c1917;--dim:#6b6560;--panel:#fff;--line:#d6d3d1;--acc:#2563eb;--ok:#15803d}
+@media(prefers-color-scheme:dark){:root{--bg:#161615;--fg:#e7e5e4;--dim:#a8a29e;--panel:#1f1e1d;--line:#3a3836;--acc:#60a5fa;--ok:#4ade80}}
+*{box-sizing:border-box}html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--fg);font:14px/1.45 system-ui,sans-serif;display:flex;flex-direction:column}
+#top{display:flex;gap:10px 16px;align-items:center;flex-wrap:wrap;padding:8px 12px;background:var(--panel);border-bottom:1px solid var(--line)}
+#top h1{font-size:15px;margin:0 6px 0 0}#top label{font-size:13px;color:var(--dim)}
+select,button,input{font:inherit}select,button{padding:3px 8px;border-radius:6px;border:1px solid var(--line);background:var(--panel);color:var(--fg)}
+#main{flex:1;display:flex;min-height:0}
+#chart{flex:1;overflow:auto;padding:6px}#side{width:min(400px,42vw);overflow:auto;border-left:1px solid var(--line);background:var(--panel);padding:12px 14px 40px}
+svg{display:block;margin:0 auto}
+.col text.h{font-size:12px;fill:var(--dim);text-transform:uppercase;letter-spacing:.05em}
+.node rect{rx:3}.node text{font-size:11.5px;fill:var(--fg);pointer-events:none}.node{cursor:pointer}
+.node.sel rect{stroke:var(--acc);stroke-width:2.5}
+.link{fill:none;transition:opacity .1s}.hl{fill:none;stroke:var(--acc);opacity:.9}
+#side h2{font-size:15px;margin:0 0 6px}#side h3{font-size:12px;text-transform:uppercase;letter-spacing:.04em;color:var(--dim);margin:14px 0 4px}
+#side ol,#side ul{margin:0;padding-left:18px}#side li{margin:3px 0;font-size:13px}
+.tag{display:inline-block;font-size:11px;border:1px solid var(--line);border-radius:10px;padding:0 7px;margin-right:4px;color:var(--dim)}.tag.r{color:var(--ok);border-color:var(--ok)}
+.u{color:var(--dim)}a.go{color:var(--acc);cursor:pointer}
+</style></head><body>
+<div id="top"><h1>Source &rarr; attribute &rarr; consumer</h1>
+<label>Pilot <select id="pilot"><option value="0">both</option><option value="1">1</option><option value="2">2</option></select></label>
+<label><input type="checkbox" id="real"> real opportunities only</label>
+<button id="clear">Clear selection</button><span class="u" id="stat"></span></div>
+<div id="main"><div id="chart"></div><div id="side"></div></div>
+<script>
+const D=__DATA__,META=__META__;
+const FAM=["who_you_are","where_you_belong","who_you_are_linked_to","what_you_hold","what_youve_done","what_you_can_do","what_state_youre_in"];
+const COL={s:"#93c5fd",f:"#fde68a",c:"#bbf7d0"};
+const $=q=>document.querySelector(q),esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+let sel=null; // {col:'s'|'f'|'c', key}
+const colOf={s:d=>d.source,f:d=>d.family,c:d=>d.consumer};
+const nice=k=>k.replace(/_/g," ");
+function filtered(){const p=+$("#pilot").value,r=$("#real").checked;return D.filter(d=>(!p||d.pilot===p)&&(!r||d.real))}
+function layout(rows){
+ const cols={s:{},f:{},c:{}};
+ rows.forEach(d=>{for(const c of "sfc"){const k=colOf[c](d);(cols[c][k]=cols[c][k]||{key:k,n:0,real:0,ideas:[]});cols[c][k].n++;cols[c][k].real+=d.real?1:0;cols[c][k].ideas.push(d)}});
+ const nodes={};for(const c of "sfc")nodes[c]=Object.values(cols[c]).sort((a,b)=>b.n-a.n);
+ // barycentre sweeps to reduce crossings (source and consumer orders by their family neighbours)
+ const famIdx=Object.fromEntries(nodes.f.map((n,i)=>[n.key,i]));
+ for(const c of "sc"){nodes[c].forEach(n=>{n.bc=n.ideas.reduce((s,d)=>s+famIdx[d.family],0)/n.n});nodes[c].sort((a,b)=>a.bc-b.bc||b.n-a.n)}
+ const H=Math.max(720,Math.max(nodes.s.length,nodes.c.length)*40),PAD=10,top=34;
+ const tot={s:rows.length,f:rows.length,c:rows.length};
+ const scale=Math.min(...["s","f","c"].map(c=>(H-top-PAD*(nodes[c].length-1))/tot[c]));
+ const X={s:170,f:560,c:950},NW=16;
+ for(const c of "sfc"){let y=top;nodes[c].forEach(n=>{n.h=Math.max(n.n*scale,3);n.y=y;n.x=X[c];y+=n.h+PAD;n.outOff=0;n.inOff=0})}
+ const idx={};for(const c of "sfc"){idx[c]={};nodes[c].forEach(n=>idx[c][n.key]=n)}
+ const mk=(a,b,fa,fb)=>{const m={};rows.forEach(d=>{const k=fa(d)+"|"+fb(d);(m[k]=m[k]||{a:fa(d),b:fb(d),w:0,ideas:[]});m[k].w++;m[k].ideas.push(d)});return Object.values(m)};
+ const L1=mk(rows,0,colOf.s,colOf.f),L2=mk(rows,0,colOf.f,colOf.c);
+ const place=(L,ca,cb)=>{[...L].sort((p,q)=>idx[cb][p.b].y-idx[cb][q.b].y||idx[ca][p.a].y-idx[ca][q.a].y).forEach(l=>{const A=idx[ca][l.a],B=idx[cb][l.b];l.y1=A.y+A.outOff;l.y2=B.y+B.inOff;A.outOff+=l.w*scale;B.inOff+=l.w*scale;l.A=A;l.B=B;l.ca=ca;l.cb=cb})};
+ place(L1,"s","f");place(L2,"f","c");
+ return{nodes,idx,L1,L2,scale,H,NW,X}}
+function inSel(d){return !sel||colOf[sel.col](d)===sel.key}
+function draw(){
+ const rows=filtered();if(!rows.length){$("#chart").innerHTML="<p>No ideas match.</p>";return}
+ const g=layout(rows),W=1240,svg=[`<svg width="100%" style="max-width:${W}px;min-width:760px" viewBox="0 0 ${W} ${g.H+10}">`];
+ const path=(l,w,off=0)=>{const x1=g.X[l.ca]+g.NW,x2=g.X[l.cb],xm=(x1+x2)/2,a=l.y1+off+w/2,b=l.y2+off+w/2;return`M${x1},${a} C${xm},${a} ${xm},${b} ${x2},${b}`};
+ const dimmed=!!sel;
+ [[g.L1,"s"],[g.L2,"f"]].forEach(([L,c])=>L.forEach(l=>{const w=Math.max(l.w*g.scale,1);svg.push(`<path class="link" d="${path(l,w)}" stroke="${COL[c]}" stroke-width="${w}" opacity="${dimmed?.18:.55}"/>`)}));
+ if(sel){[g.L1,g.L2].forEach(L=>L.forEach(l=>{const sub=l.ideas.filter(inSel);if(!sub.length)return;const w=Math.max(sub.length*g.scale,1);svg.push(`<path class="hl" d="${path(l,w)}" stroke-width="${w}"/>`)}))}
+ [["s","Source: who signs"],["f","Attribute family"],["c","Consumer: who asks"]].forEach(([c,t])=>{
+  svg.push(`<g class="col"><text class="h" x="${g.X[c]+(c==="s"?-0:0)}" y="18" text-anchor="${c==="s"?"end":"start"}" ${c==="s"?`transform="translate(${g.NW},0)"`:""}>${t}</text></g>`);
+  g.nodes[c].forEach(n=>{const lbl=`${nice(n.key)} (${n.n}${n.real?`, ${n.real} real`:""})`;const left=c==="s";
+   svg.push(`<g class="node${sel&&sel.col===c&&sel.key===n.key?" sel":""}" data-c="${c}" data-k="${n.key}" opacity="${sel&&!(c===sel.col&&n.key===sel.key)&&!n.ideas.some(inSel)?.3:1}"><rect x="${n.x}" y="${n.y}" width="${g.NW}" height="${n.h}" fill="${COL[c]}" stroke="#78716c"/><text x="${left?n.x-6:n.x+g.NW+6}" y="${n.y+n.h/2+4}" text-anchor="${left?"end":"start"}">${esc(lbl)}</text><title>${esc(META[c==="s"?"sources":"consumers"]?.[n.key]||n.key)}</title></g>`)})});
+ svg.push("</svg>");$("#chart").innerHTML=svg.join("");
+ document.querySelectorAll(".node").forEach(e=>e.onclick=()=>{const c=e.dataset.c,k=e.dataset.k;sel=sel&&sel.col===c&&sel.key===k?null:{col:c,key:k};draw();side(rows,g)});
+ $("#stat").textContent=`${rows.length} ideas, ${new Set(rows.map(d=>d.source+"|"+d.consumer)).size} distinct source-consumer pairs`;
+}
+function ideaList(ds){return"<ol>"+ds.sort((a,b)=>b.real-a.real||b.rubric-a.rubric).map(d=>`<li>${d.real?'<span class="tag r">real</span>':""}<span class="tag">p${d.pilot}</span>${esc(d.title)}<br><span class="u">${esc(d.issuer.slice(0,70))} &rarr; ${esc(d.verifier.slice(0,70))}</span></li>`).join("")+"</ol>"}
+function side(rows,g){
+ if(!sel){
+  const reach=c=>{const o=c==="s"?"c":"s";return g.nodes[c].map(n=>({k:n.key,reach:new Set(n.ideas.map(d=>colOf[o](d))).size,n:n.n,real:n.real})).sort((a,b)=>b.reach-a.reach||b.n-a.n).slice(0,6)};
+  const li=(L,w)=>"<ul>"+L.map(x=>`<li><a class="go" data-c="${w}" data-k="${x.k}">${esc(nice(x.k))}</a> <span class="u">reaches ${x.reach} ${w==="s"?"consumer":"source"} types, ${x.n} ideas${x.real?`, ${x.real} real`:""}</span></li>`).join("")+"</ul>";
+  $("#side").innerHTML=`<h2>Hubs</h2><p class="u">Click a node to see its flows (highlighted in blue) and ideas. Width = number of ideas; a green tag marks an idea judged a real opportunity. Reach counts how many different types sit on the other side, a rough measure of shared infrastructure.</p><h3>Sources that feed the most consumer types</h3>${li(reach("s"),"s")}<h3>Consumers that draw on the most source types</h3>${li(reach("c"),"c")}`;
+  document.querySelectorAll("#side .go").forEach(a=>a.onclick=()=>{sel={col:a.dataset.c,key:a.dataset.k};draw();side(rows,g)});return}
+ const ds=rows.filter(inSel),oth={s:["c","consumer"],f:["c","consumer"],c:["s","source"]}[sel.col],o2=oth[0];
+ const partners=Object.entries(ds.reduce((m,d)=>(m[colOf[o2](d)]=(m[colOf[o2](d)]||0)+1,m),{})).sort((a,b)=>b[1]-a[1]);
+ const fams=Object.entries(ds.reduce((m,d)=>(m[d.family]=(m[d.family]||0)+1,m),{})).sort((a,b)=>b[1]-a[1]);
+ $("#side").innerHTML=`<h2>${esc(nice(sel.key))}</h2><div class="u">${esc(META[sel.col==="s"?"sources":"consumers"]?.[sel.key]||"")}</div>
+ <p>${ds.length} ideas, ${ds.filter(d=>d.real).length} real. Connects to ${partners.length} ${oth[1]} types.</p>
+ <h3>${oth[1]} types reached</h3><ul>${partners.map(([k,n])=>`<li>${esc(nice(k))} <span class="u">(${n})</span></li>`).join("")}</ul>
+ ${sel.col!=="f"?`<h3>Attribute families</h3><ul>${fams.map(([k,n])=>`<li>${esc(nice(k))} <span class="u">(${n})</span></li>`).join("")}</ul>`:""}
+ <h3>Ideas</h3>${ideaList(ds)}`}
+$("#pilot").onchange=()=>{draw();side(filtered(),layout(filtered()))};$("#real").onchange=$("#pilot").onchange;
+$("#clear").onclick=()=>{sel=null;draw();side(filtered(),layout(filtered()))};
+draw();side(filtered(),layout(filtered()));
+</script></body></html>
