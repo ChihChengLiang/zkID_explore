@@ -6,82 +6,100 @@
 @media(prefers-color-scheme:dark){:root{--bg:#161615;--grid:#222221;--fg:#e7e5e4;--dim:#a8a29e;--panel:#1f1e1d;--line:#3a3836;--acc:#60a5fa}}
 *{box-sizing:border-box}html,body{height:100%;margin:0}
 body{background:var(--bg);color:var(--fg);font:14px/1.45 system-ui,sans-serif;overflow:hidden}
-#top{position:fixed;left:0;right:0;top:0;z-index:5;display:flex;gap:14px;align-items:center;flex-wrap:wrap;padding:8px 12px;background:var(--panel);border-bottom:1px solid var(--line)}
+#top{position:fixed;left:0;right:0;top:0;z-index:5;display:flex;gap:10px 14px;align-items:center;flex-wrap:wrap;padding:8px 12px;background:var(--panel);border-bottom:1px solid var(--line)}
 #top h1{font-size:15px;margin:0 6px 0 0}#top label{font-size:13px;color:var(--dim)}
 select,button{font:inherit;padding:3px 8px;border-radius:6px;border:1px solid var(--line);background:var(--panel);color:var(--fg)}
 #legend{display:flex;gap:4px 10px;flex-wrap:wrap}#legend span{display:inline-flex;align-items:center;gap:5px;font-size:12px;cursor:pointer;user-select:none}
 #legend i{width:12px;height:12px;border-radius:3px;display:inline-block;border:1px solid rgba(0,0,0,.25)}#legend .off{opacity:.3}
+#stat{font-size:12px;color:var(--dim)}
 #view{position:absolute;inset:0;top:var(--topH,48px);overflow:hidden;cursor:grab;background-image:radial-gradient(var(--grid) 1px,transparent 1px);background-size:28px 28px}
 #view.pan{cursor:grabbing}#world{position:absolute;left:0;top:0;transform-origin:0 0}
 .s{position:absolute;width:168px;min-height:84px;padding:8px 9px 7px;border-radius:3px;color:#1c1917;font-size:12px;line-height:1.3;
- box-shadow:0 1px 1px rgba(0,0,0,.18),0 4px 10px rgba(0,0,0,.12);cursor:pointer;user-select:none;transition:box-shadow .1s}
+ box-shadow:0 1px 1px rgba(0,0,0,.18),0 4px 10px rgba(0,0,0,.12);cursor:pointer;user-select:none}
 .s:hover{z-index:50;box-shadow:0 2px 3px rgba(0,0,0,.25),0 8px 18px rgba(0,0,0,.22)}
-.s.sel{outline:3px solid var(--acc);z-index:60}.s.nb{outline:2px dashed var(--acc);z-index:55}.s.dim{opacity:.18}
+.s.p2{border-top:4px solid #1c1917}
+.s.sel{outline:3px solid var(--acc);z-index:60}.s.nb{outline:2px dashed var(--acc);z-index:55}.s.dim{opacity:.16}
 .s b{display:block;font-weight:600;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
-.s small{display:block;margin-top:4px;opacity:.7;font-size:10.5px}.s .sc{position:absolute;right:-6px;top:-8px;background:#1c1917;color:#fff;border-radius:10px;min-width:20px;height:20px;text-align:center;font-size:11px;line-height:20px;padding:0 5px}
-#panel{position:fixed;right:0;top:var(--topH,48px);bottom:0;width:min(420px,92vw);background:var(--panel);border-left:1px solid var(--line);z-index:6;overflow:auto;padding:14px 16px 40px;transform:translateX(100%);transition:transform .15s}
+.s small{display:block;margin-top:4px;opacity:.7;font-size:10.5px}
+.s .sc{position:absolute;right:-6px;top:-8px;background:#1c1917;color:#fff;border-radius:10px;min-width:20px;height:20px;text-align:center;font-size:11px;line-height:20px;padding:0 5px}
+.s .re{position:absolute;left:-6px;top:-8px;background:#15803d;color:#fff;border-radius:10px;height:20px;font-size:11px;line-height:20px;padding:0 6px}
+#panel{position:fixed;right:0;top:var(--topH,48px);bottom:0;width:min(440px,92vw);background:var(--panel);border-left:1px solid var(--line);z-index:6;overflow:auto;padding:14px 16px 40px;transform:translateX(100%);transition:transform .15s}
 #panel.open{transform:none}#panel h2{font-size:16px;margin:0 28px 6px 0}#panel .x{position:absolute;right:10px;top:8px}
 #panel dt{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--dim);margin-top:10px}#panel dd{margin:2px 0 0}
 .chips{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0}.chip{border:1px solid var(--line);border-radius:12px;padding:1px 9px;font-size:12px}
 .f{color:#b91c1c}.h{color:#15803d}.u{color:var(--dim)}.nbl{display:block;margin:3px 0;color:var(--acc);cursor:pointer}
-#hint{position:fixed;left:12px;bottom:10px;font-size:12px;color:var(--dim);z-index:4;background:var(--panel);padding:3px 8px;border-radius:6px;border:1px solid var(--line)}
+#hint{position:fixed;left:12px;bottom:10px;font-size:12px;color:var(--dim);z-index:4;background:var(--panel);padding:3px 8px;border-radius:6px;border:1px solid var(--line);max-width:70vw}
 </style></head><body>
 <div id="top"><h1>Idea whiteboard</h1>
-<label>Color by <select id="by"><option value="cell">cell</option><option value="arm">arm</option><option value="rubric">critic rubric score</option></select></label>
-<div id="legend"></div><button id="fit">Fit view</button></div>
+<label>Color by <select id="by">
+<option value="pilot">pilot</option><option value="arm">arm</option><option value="real">real opportunity</option><option value="rubric">critic rubric score</option>
+<option value="family">attribute family</option><option value="tp">transmission principle</option><option value="dist">context distance</option></select></label>
+<div id="legend"></div><span id="stat"></span><button id="fit">Fit view</button></div>
 <div id="view"><div id="world"></div></div>
 <aside id="panel"><button class="x" id="close">&times;</button><div id="pbody"></div></aside>
-<div id="hint">Drag board to pan &middot; wheel to zoom &middot; drag a sticker to move it &middot; click for details &middot; closer = more similar (issuer, verifier, moment)</div>
+<div id="hint">Drag board to pan &middot; wheel to zoom &middot; drag a sticker to move it &middot; click for details &middot; closer = more similar (moment, verifier, issuer). Dark top edge = pilot 2. Green tag = real opportunity (norm violated today, minimal proof sufficient, not blocked).</div>
 <script>
 const D=__DATA__;
 const PAL=["#fde68a","#fbcfe8","#bfdbfe","#bbf7d0","#fed7aa","#ddd6fe","#a5f3fc","#fecaca"];
-const ARM={A:"#e7e5e4",B:"#bfdbfe",C:"#fde68a",D:"#fbcfe8"},ARMN={A:"A none",B:"B near seeds",C:"C banded seeds",D:"D random seeds"};
-const RUB={2:"#fecaca",3:"#fde68a",4:"#bbf7d0",5:"#6ee7b7"};
-const cells=[...new Set(D.map(d=>d.cell))].sort();
+const MODES={
+ pilot:{keys:["1","2"],names:{"1":"pilot 1","2":"pilot 2"},colors:{"1":"#bfdbfe","2":"#fde68a"},of:d=>String(d.pilot)},
+ arm:{keys:["A","B","C","D"],names:{A:"A none",B:"B near seeds",C:"C banded seeds",D:"D random seeds"},colors:{A:"#e7e5e4",B:"#bfdbfe",C:"#fde68a",D:"#fbcfe8"},of:d=>d.arm},
+ real:{keys:["yes","no"],names:{yes:"real opportunity",no:"not"},colors:{yes:"#bbf7d0",no:"#e7e5e4"},of:d=>d.real?"yes":"no"},
+ rubric:{keys:["2","3","4","5"],names:{2:"rubric 2",3:"rubric 3",4:"rubric 4",5:"rubric 5"},colors:{2:"#fecaca",3:"#fde68a",4:"#bbf7d0",5:"#6ee7b7"},of:d=>String(d.rv.rubric)},
+ family:{keys:["who_you_are","where_you_belong","who_you_are_linked_to","what_you_hold","what_youve_done","what_you_can_do","what_state_youre_in"],names:{},colors:{},of:d=>d.family},
+ tp:{keys:["required_by_law","consented_for_benefit","commercial_convenience","safety_security","public_record","other"],names:{},colors:{},of:d=>d.tp},
+ dist:{keys:["same","adjacent","different"],names:{},colors:{same:"#bbf7d0",adjacent:"#fde68a",different:"#fecaca"},of:d=>d.dist}
+};
+MODES.family.keys.forEach((k,i)=>{MODES.family.colors[k]=PAL[i];MODES.family.names[k]=k.replace(/_/g," ")});
+MODES.tp.keys.forEach((k,i)=>{MODES.tp.colors[k]=PAL[i];MODES.tp.names[k]=k.replace(/_/g," ")});
+MODES.dist.keys.forEach(k=>MODES.dist.names[k]=k);
 const $=s=>document.querySelector(s),world=$("#world"),view=$("#view");
 const topH=$("#top").offsetHeight;document.documentElement.style.setProperty("--topH",topH+"px");
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const W=2600,H=1700,SW=168,SH=96;
+const W=3800,H=2500,SW=168,SH=96;
 D.forEach(d=>{d.px=d.x*(W-SW);d.py=d.y*(H-SH)});
-// relax overlaps, keep neighbourhoods
-for(let it=0;it<400;it++){let moved=false;for(let i=0;i<D.length;i++)for(let j=i+1;j<D.length;j++){
+for(let it=0;it<600;it++){let moved=false;for(let i=0;i<D.length;i++)for(let j=i+1;j<D.length;j++){
  const a=D[i],b=D[j],dx=(b.px+SW/2)-(a.px+SW/2),dy=(b.py+SH/2)-(a.py+SH/2),ox=SW+10-Math.abs(dx),oy=SH+10-Math.abs(dy);
  if(ox>0&&oy>0){moved=true;if(ox<oy){const m=ox/2*Math.sign(dx||1);a.px-=m;b.px+=m}else{const m=oy/2*Math.sign(dy||1);a.py-=m;b.py+=m}}}
  if(!moved)break}
-const byId={};let hidden=new Set(),sel=null,mode="cell";
-D.forEach(d=>{byId[d.id]=d;const e=document.createElement("div");e.className="s";e.dataset.id=d.id;
- e.innerHTML=`<b>${esc(d.title)}</b><small>${esc(d.verifier).slice(0,60)}</small><span class="sc">${d.rev.rubric_score}</span>`;world.appendChild(e);d.el=e;});
-function colorOf(d){return mode==="cell"?PAL[cells.indexOf(d.cell)%8]:mode==="arm"?ARM[d.arm]:RUB[d.rev.rubric_score]||"#e7e5e4"}
-function keys(){return mode==="cell"?cells.map((c,i)=>[c,c,PAL[i%8]]):mode==="arm"?Object.keys(ARM).map(a=>[a,ARMN[a],ARM[a]]):[2,3,4,5].map(r=>[String(r),"rubric "+r,RUB[r]])}
-function keyOf(d){return mode==="cell"?d.cell:mode==="arm"?d.arm:String(d.rev.rubric_score)}
-function paint(){D.forEach(d=>{d.el.style.left=d.px+"px";d.el.style.top=d.py+"px";d.el.style.background=colorOf(d);
- d.el.classList.toggle("dim",hidden.has(keyOf(d)))});
- $("#legend").innerHTML=keys().map(([k,l,c])=>`<span data-k="${k}" class="${hidden.has(k)?"off":""}"><i style="background:${c}"></i>${l}</span>`).join("");
- document.querySelectorAll("#legend span").forEach(s=>s.onclick=()=>{hidden.has(s.dataset.k)?hidden.delete(s.dataset.k):hidden.add(s.dataset.k);paint()})}
+const byId={};let hidden=new Set(),mode="pilot";
+D.forEach(d=>{byId[d.id]=d;const e=document.createElement("div");e.className="s"+(d.pilot===2?" p2":"");e.dataset.id=d.id;
+ e.innerHTML=`<b>${esc(d.title)}</b><small>${esc(d.verifier).slice(0,60)}</small>${d.real?'<span class="re">real</span>':''}<span class="sc">${d.rv.rubric}</span>`;world.appendChild(e);d.el=e;});
+function paint(){const M=MODES[mode];D.forEach(d=>{d.el.style.left=d.px+"px";d.el.style.top=d.py+"px";d.el.style.background=M.colors[M.of(d)]||"#e7e5e4";d.el.classList.toggle("dim",hidden.has(M.of(d)))});
+ const counts={};D.forEach(d=>{const k=M.of(d);counts[k]=(counts[k]||0)+1});
+ $("#legend").innerHTML=M.keys.map(k=>`<span data-k="${k}" class="${hidden.has(k)?"off":""}"><i style="background:${M.colors[k]}"></i>${esc(M.names[k]||k)} (${counts[k]||0})</span>`).join("");
+ document.querySelectorAll("#legend span").forEach(s=>s.onclick=()=>{hidden.has(s.dataset.k)?hidden.delete(s.dataset.k):hidden.add(s.dataset.k);paint()});
+ $("#stat").textContent=D.length+" ideas";}
 $("#by").onchange=e=>{mode=e.target.value;hidden=new Set();paint()};
 let T={x:0,y:0,k:1};const apply=()=>world.style.transform=`translate(${T.x}px,${T.y}px) scale(${T.k})`;
 function fit(){const r=view.getBoundingClientRect(),k=Math.min(r.width/(W+60),r.height/(H+60));T={k,x:(r.width-W*k)/2,y:(r.height-H*k)/2};apply()}
 $("#fit").onclick=fit;
-view.addEventListener("wheel",e=>{e.preventDefault();const r=view.getBoundingClientRect(),mx=e.clientX-r.left,my=e.clientY-r.top,k=Math.min(2.5,Math.max(.15,T.k*(e.deltaY<0?1.12:.89)));
+view.addEventListener("wheel",e=>{e.preventDefault();const r=view.getBoundingClientRect(),mx=e.clientX-r.left,my=e.clientY-r.top,k=Math.min(2.5,Math.max(.12,T.k*(e.deltaY<0?1.12:.89)));
  T.x=mx-(mx-T.x)*k/T.k;T.y=my-(my-T.y)*k/T.k;T.k=k;apply()},{passive:false});
 let drag=null;
 view.addEventListener("pointerdown",e=>{const s=e.target.closest(".s");drag={s:s&&byId[s.dataset.id],x:e.clientX,y:e.clientY,moved:false};if(!s)view.classList.add("pan");view.setPointerCapture(e.pointerId)});
 view.addEventListener("pointermove",e=>{if(!drag)return;const dx=e.clientX-drag.x,dy=e.clientY-drag.y;if(Math.abs(dx)+Math.abs(dy)>3)drag.moved=true;if(!drag.moved)return;
  if(drag.s){drag.s.px+=dx/T.k;drag.s.py+=dy/T.k;drag.s.el.style.left=drag.s.px+"px";drag.s.el.style.top=drag.s.py+"px"}else{T.x+=dx;T.y+=dy;apply()}drag.x=e.clientX;drag.y=e.clientY});
 view.addEventListener("pointerup",()=>{if(drag&&!drag.moved&&drag.s)show(drag.s.id);if(drag&&!drag.moved&&!drag.s)hide();drag=null;view.classList.remove("pan")});
-function show(id){sel=id;const d=byId[id],r=d.rev;
+function show(id){const d=byId[id],r=d.rv;
  D.forEach(x=>{x.el.classList.toggle("sel",x.id===id);x.el.classList.toggle("nb",d.nb.some(n=>n.id===x.id))});
- const kt=Object.entries(r.kill_tests).map(([k,v])=>`<span class="chip ${v==="fails"?"f":v==="holds"?"h":"u"}">${k.replace("_"," ")}: ${v}</span>`).join("");
- const why=Object.entries(r.reasons).map(([k,v])=>`<dt>critic: ${k.replace("_"," ")}</dt><dd>${esc(v)}</dd>`).join("");
- $("#pbody").innerHTML=`<h2>${esc(d.title)}</h2><div class="chips"><span class="chip">${esc(d.cell)}</span><span class="chip">arm ${d.arm}</span>
- <span class="chip">rubric ${r.rubric_score}</span><span class="chip">validity ${r.validity}</span><span class="chip">coherence ${r.coherence}</span><span class="chip">novelty ${r.novelty}</span><span class="chip">provenance ${r.provenance_faithful}</span></div>
- <div class="chips">${kt}</div>
- <dl><dt>Moment</dt><dd>${esc(d.moment)}</dd><dt>Verifier</dt><dd>${esc(d.verifier)}</dd><dt>Issuer</dt><dd>${esc(d.issuer)}</dd>
+ const cls=v=>v==="blocks"||v==="no"||v==="insufficient"?"f":v==="permits"||v==="yes"||v==="sufficient"?"h":"u";
+ $("#pbody").innerHTML=`<h2>${esc(d.title)}</h2>
+ <div class="chips"><span class="chip">pilot ${d.pilot}</span><span class="chip">${esc(d.cell)}</span><span class="chip">arm ${d.arm}</span>${d.real?'<span class="chip h">real opportunity</span>':''}
+ <span class="chip">rubric ${r.rubric}</span><span class="chip">novelty ${r.novelty}</span><span class="chip">provenance ${r.prov}</span></div>
+ <div class="chips"><span class="chip">${esc(d.family.replace(/_/g," "))}</span><span class="chip">${esc(d.tp.replace(/_/g," "))}</span><span class="chip">${esc(d.origin)} &rarr; ${esc(d.use)} (${d.dist})</span></div>
+ <div class="chips"><span class="chip ${cls(r.viol.violated)}">norm violated: ${r.viol.violated}${r.viol.parameter!=="none"?" ("+r.viol.parameter.replace(/_/g," ")+")":""}</span>
+ <span class="chip ${cls(r.suff.rating)}">purpose: ${r.suff.rating}</span><span class="chip ${cls(r.tc.permits_minimal_flow)}">law: ${r.tc.permits_minimal_flow}</span>
+ <span class="chip">aggregation ${r.agg}</span><span class="chip">issuer willing: ${r.adopt.issuer_willing}</span><span class="chip">verifier can check: ${r.adopt.verifier_can_check}</span></div>
+ <dl>${d.setting?`<dt>Cell (pilot 2)</dt><dd>${esc(d.setting)}<br>Fact: ${esc(d.fact)}</dd>`:""}
+ <dt>Moment</dt><dd>${esc(d.moment)}</dd><dt>Verifier</dt><dd>${esc(d.verifier)}</dd><dt>Issuer</dt><dd>${esc(d.issuer)}</dd>
  <dt>Predicate needed</dt><dd>${esc(d.predicate)}</dd><dt>Disclosed today</dt><dd>${esc(d.disclosed)}</dd><dt>Why ZK</dt><dd>${esc(d.why)}</dd>
+ <dt>Critic: verifier's purpose</dt><dd>${esc(r.purpose)}</dd><dt>Critic: norm violation</dt><dd>${esc(r.viol.reason||"")}</dd>
+ <dt>Critic: what the minimal proof loses</dt><dd>${esc(r.suff.lost||"")}</dd><dt>Critic: transmission principle (${esc((r.tc.principle_today||"").replace(/_/g," "))})</dt><dd>${esc(r.tc.reason||"")}</dd>
  ${d.borrowed.length?`<dt>Borrowed from seeds</dt><dd>${d.borrowed.map(b=>`<code>${esc(b.seed_id)}</code>: ${esc(b.borrowed_aspect)}`).join("<br>")}</dd>`:""}
- <dt>Nearest stickers</dt><dd>${d.nb.map(n=>`<a class="nbl" data-id="${n.id}">${esc(byId[n.id].title)} <span class="u">(${n.sim})</span></a>`).join("")}</dd>${why}</dl>`;
+ <dt>Nearest stickers</dt><dd>${d.nb.map(n=>`<a class="nbl" data-id="${n.id}">${esc(byId[n.id].title)} <span class="u">(p${byId[n.id].pilot}, ${n.sim})</span></a>`).join("")}</dd></dl>`;
  document.querySelectorAll(".nbl").forEach(a=>a.onclick=()=>show(a.dataset.id));$("#panel").classList.add("open")}
-function hide(){sel=null;$("#panel").classList.remove("open");D.forEach(x=>x.el.classList.remove("sel","nb"))}
+function hide(){$("#panel").classList.remove("open");D.forEach(x=>x.el.classList.remove("sel","nb"))}
 $("#close").onclick=hide;addEventListener("keydown",e=>{if(e.key==="Escape")hide()});
 paint();fit();addEventListener("resize",fit);
 </script></body></html>
