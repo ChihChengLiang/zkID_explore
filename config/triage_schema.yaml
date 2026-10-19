@@ -1,0 +1,33 @@
+# Structured fields for one idea: predicate (what attributes, what operation), channel (how the interaction happens today),
+# and three ordinal signals replacing a dollar value. Draft; edit freely.
+predicate:
+  inputs:        "list of 'certificate_id.claim_id' from config/certificates.yaml, or 'MISSING:<attribute needed>' when no catalogued certificate carries it"
+  operator:
+    reveal:         "disclose the claim value as is"
+    threshold:      "claim compared with a constant (age >= N, income >= T)"
+    membership:     "claim value in a set, or the person is in a group"
+    non_membership: "person is NOT in a list or register"
+    uniqueness:     "one account, ticket or vote per person (needs a nullifier or similar)"
+    freshness:      "status holds as of now (not revoked, not expired)"
+    cross_match:    "claims from two different certificates refer to the same person"
+    time_bounded:   "claim holds within a date window"
+    aggregate:      "statistic over many records (sum, average, count)"
+  zk_need:          # the smallest mechanism that does the job
+    plain_disclosure:   "selective disclosure of an existing claim; no ZK"
+    issuer_precomputed: "the issuer signs the derived claim (e.g. age_over_NN, is_resident); no ZK, but needs issuer cooperation"
+    zk_derived:         "verifier needs a fact the issuer never signed, derived from signed claims (age from birth date, threshold on a number)"
+    zk_join:            "proof must combine claims from different credentials"
+    zk_nullifier:       "uniqueness across presentations"
+    zk_nonmembership:   "proof of absence from a list"
+    zk_aggregate:       "statistic over many signed records"
+  unlinkability_needed: "yes if repeated presentations to the same or different verifiers must not be linkable"
+  freshness_needed:     "none | days | realtime"
+channel:
+  current_evidence:     "paper_copy | id_shown_in_person | photo_of_id | digital_upload | app_login | machine_scan | none"
+  interaction_mode:     "in_person_no_device | in_person_with_device | remote_online | remote_assisted | machine_mediated"
+  verifier_reader:      "has_reader | would_need_tool | unknown  (can the verifier already scan or read a wallet presentation?)"
+signals:
+  reach_log10:          "order of magnitude of people in Taiwan hitting this moment per year: 3 (thousands) to 7 (millions)"
+  harm_per_incident:    "1 inconvenience | 2 privacy exposure (retained copy) | 3 targeted misuse risk (fraud, stalking, discrimination) | 4 severe (safety, persecution)"
+  verifier_incentive:   "0 none or negative | 1 weak (convenience) | 2 moderate (cost or compliance burden) | 3 strong (legal exposure, breach liability, fraud loss)"
+  split_incentive:      "true when the benefit goes to the person and the cost of change to the verifier"

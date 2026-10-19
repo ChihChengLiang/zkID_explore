@@ -1,0 +1,679 @@
+[
+  {
+    "id": "p1:bank-aggregate__D__0",
+    "inputs": [
+      "tw_bank_statement.transactions"
+    ],
+    "operator": "aggregate",
+    "zk_need": "issuer_precomputed",
+    "unlinkability_needed": "yes",
+    "freshness_needed": "none",
+    "current_evidence": "digital_upload",
+    "interaction_mode": "remote_online",
+    "verifier_reader": "would_need_tool",
+    "reach_log10": 5,
+    "harm_per_incident": 2,
+    "verifier_incentive": 1,
+    "split_incentive": true,
+    "rationale": "Landlords today get full passbook or app screenshots, while the bank could sign just the on-time payment count."
+  },
+  {
+    "id": "p1:bank-aggregate__B__1",
+    "inputs": [
+      "tw_bank_statement.monthly_inflow"
+    ],
+    "operator": "aggregate",
+    "zk_need": "issuer_precomputed",
+    "unlinkability_needed": "yes",
+    "freshness_needed": "none",
+    "current_evidence": "digital_upload",
+    "interaction_mode": "remote_assisted",
+    "verifier_reader": "would_need_tool",
+    "reach_log10": 4,
+    "harm_per_incident": 2,
+    "verifier_incentive": 1,
+    "split_incentive": true,
+    "rationale": "Stall and platform onboarding asks for full business statements where a bank-signed 3-month inflow and payer-count total would do."
+  },
+  {
+    "id": "p1:bank-aggregate__B__2",
+    "inputs": [
+      "MISSING:card_spending_by_merchant_category_band"
+    ],
+    "operator": "aggregate",
+    "zk_need": "issuer_precomputed",
+    "unlinkability_needed": "yes",
+    "freshness_needed": "none",
+    "current_evidence": "digital_upload",
+    "interaction_mode": "remote_online",
+    "verifier_reader": "would_need_tool",
+    "reach_log10": 5,
+    "harm_per_incident": 3,
+    "verifier_incentive": 1,
+    "split_incentive": true,
+    "rationale": "Itemized card statements reveal health and pharmacy patterns that a banded gym-spend total would hide."
+  },
+  {
+    "id": "p1:employer-fresh__D__2",
+    "inputs": [
+      "tw_employment_certificate.currently_employed_at_X"
+    ],
+    "operator": "freshness",
+    "zk_need": "issuer_precomputed",
+    "unlinkability_needed": "no",
+    "freshness_needed": "days",
+    "current_evidence": "paper_copy",
+    "interaction_mode": "in_person_no_device",
+    "verifier_reader": "unknown",
+    "reach_log10": 3,
+    "harm_per_incident": 2,
+    "verifier_incentive": 2,
+    "split_incentive": false,
+    "rationale": "Tender officers get a sealed company letter and ID copy where an employer-signed, revocable current-employee status would do."
+  },
+  {
+    "id": "p1:employer-fresh__D__1",
+    "inputs": [
+      "tw_employment_certificate.currently_employed_at_X"
+    ],
+    "operator": "freshness",
+    "zk_need": "issuer_precomputed",
+    "unlinkability_needed": "yes",
+    "freshness_needed": "days",
+    "current_evidence": "id_shown_in_person",
+    "interaction_mode": "in_person_with_device",
+    "verifier_reader": "would_need_tool",
+    "reach_log10": 4,
+    "harm_per_incident": 2,
+    "verifier_incentive": 1,
+    "split_incentive": true,
+    "rationale": "Gym and clinic staff rates currently rely on badges and sign-up sheets that outlive employment, and a 24-hour employer token would fix both."
+  },
+  {
+    "id": "p1:gov-nonmember__C__2",
+    "inputs": [
+      "tw_driver_licence.valid_for_class_X_now",
+      "MISSING:no_unpaid_traffic_fines"
+    ],
+    "operator": "non_membership",
+    "zk_need": "zk_nonmembership",
+    "unlinkability_needed": "no",
+    "freshness_needed": "days",
+    "current_evidence": "digital_upload",
+    "interaction_mode": "remote_assisted",
+    "verifier_reader": "unknown",
+    "reach_log10": 5,
+    "harm_per_incident": 2,
+    "verifier_incentive": 1,
+    "split_incentive": true,
+    "rationale": "Buyers get full fine-lookup screenshots where a proof of absence from the unpaid-fines list is enough."
+  },
+  {
+    "id": "p1:gov-nonmember__A__0",
+    "inputs": [
+      "MISSING:not_banned_from_keeping_animals"
+    ],
+    "operator": "non_membership",
+    "zk_need": "zk_nonmembership",
+    "unlinkability_needed": "yes",
+    "freshness_needed": "days",
+    "current_evidence": "photo_of_id",
+    "interaction_mode": "remote_online",
+    "verifier_reader": "unknown",
+    "reach_log10": 3,
+    "harm_per_incident": 2,
+    "verifier_incentive": 1,
+    "split_incentive": true,
+    "rationale": "Pet operators need only a not-on-the-prohibited-register check, not an ID photo and household details."
+  },
+  {
+    "id": "p1:hospital-timed__C__1",
+    "inputs": [
+      "tw_medical_certificate.unfit_for_work_between_dates"
+    ],
+    "operator": "time_bounded",
+    "zk_need": "issuer_precomputed",
+    "unlinkability_needed": "yes",
+    "freshness_needed": "none",
+    "current_evidence": "digital_upload",
+    "interaction_mode": "remote_online",
+    "verifier_reader": "would_need_tool",
+    "reach_log10": 5,
+    "harm_per_incident": 3,
+    "verifier_incentive": 1,
+    "split_incentive": true,
+    "rationale": "HR and insurers receive full diagnosis certificates where a hospital-signed unfit-for-work date window with no diagnosis would do."
+  },
+  {
+    "id": "p1:hospital-timed__B__0",
+    "inputs": [
+      "tw_medical_certificate.unfit_for_work_between_dates"
+    ],
+    "operator": "time_bounded",
+    "zk_need": "issuer_precomputed",
+    "unlinkability_needed": "yes",
+    "freshness_needed": "none",
+    "current_evidence": "digital_upload",
+    "interaction_mode": "remote_assisted",
+    "verifier_reader": "unknown",
+    "reach_log10": 6,
+    "harm_per_incident": 3,
+    "verifier_incentive": 1,
+    "split_incentive": true,
+    "rationale": "Schools collect full diagnosis photos over LINE where a date-window attestation from the physician would suffice."
+  },
+  {
+    "id": "p1:platform-thresh__D__1",
+    "inputs": [
+      "MISSING:completed_trip_count",
+      "MISSING:active_months_on_platform"
+    ],
+    "operator": "threshold",
+    "zk_need": "zk_derived",
+    "unlinkability_needed": "yes",
+    "freshness_needed": "none",
+    "current_evidence": "digital_upload",
+    "interaction_mode": "remote_online",
+    "verifier_reader": "unknown",
+    "reach_log10": 3,
+    "harm_per_incident": 2,
+    "verifier_incentive": 1,
+    "split_incentive": true,
+    "rationale": "Lessors receive full trip exports and bank and tax details where a proof of trip count and tenure over thresholds would do."
+  },
+  {
+    "id": "p1:platform-thresh__A__0",
+    "inputs": [
+      "MISSING:lifetime_completed_deliveries",
+      "MISSING:average_customer_rating"
+    ],
+    "operator": "threshold",
+    "zk_need": "zk_derived",
+    "unlinkability_needed": "yes",
+    "freshness_needed": "none",
+    "current_evidence": "digital_upload",
+    "interaction_mode": "remote_assisted",
+    "verifier_reader": "unknown",
+    "reach_log10": 4,
+    "harm_per_incident": 2,
+    "verifier_incentive": 1,
+    "split_incentive": true,
+    "rationale": "Committees get profile screenshots with name, phone and order history where two threshold checks on platform data would suffice."
+  },
+  {
+    "id": "p1:telco-unique__A__2",
+    "inputs": [
+      "tw_sim_registration.one_active_line_per_person"
+    ],
+    "operator": "uniqueness",
+    "zk_need": "zk_nullifier",
+    "unlinkability_needed": "yes",
+    "freshness_needed": "none",
+    "current_evidence": "app_login",
+    "interaction_mode": "remote_online",
+    "verifier_reader": "unknown",
+    "reach_log10": 5,
+    "harm_per_incident": 2,
+    "verifier_incentive": 2,
+    "split_incentive": true,
+    "rationale": "Trial abusers are blocked today with phone, email and card data that could instead be a one-per-person nullifier."
+  },
+  {
+    "id": "p1:telco-unique__A__1",
+    "inputs": [
+      "tw_sim_registration.one_active_line_per_person"
+    ],
+    "operator": "uniqueness",
+    "zk_need": "zk_nullifier",
+    "unlinkability_needed": "yes",
+    "freshness_needed": "none",
+    "current_evidence": "digital_upload",
+    "interaction_mode": "remote_online",
+    "verifier_reader": "would_need_tool",
+    "reach_log10": 4,
+    "harm_per_incident": 2,
+    "verifier_incentive": 1,
+    "split_incentive": true,
+    "rationale": "Community polls tie name, unit and phone to each ballot where a per-poll nullifier from one-line-per-person would keep votes unlinked."
+  },
+  {
+    "id": "p1:univ-crossmatch__B__2",
+    "inputs": [
+      "tw_enrolment_certificate.enrolled_this_term",
+      "tw_vaccination_record.vaccinated_against_X_since_date"
+    ],
+    "operator": "cross_match",
+    "zk_need": "zk_join",
+    "unlinkability_needed": "no",
+    "freshness_needed": "none",
+    "current_evidence": "paper_copy",
+    "interaction_mode": "in_person_no_device",
+    "verifier_reader": "unknown",
+    "reach_log10": 3,
+    "harm_per_incident": 3,
+    "verifier_incentive": 2,
+    "split_incentive": true,
+    "rationale": "Hospitals collect full vaccination cards and health reports where a joined student-enrolment and vaccination check on one holder would do."
+  },
+  {
+    "id": "p1:univ-crossmatch__C__1",
+    "inputs": [
+      "tw_enrolment_certificate.student_name",
+      "tw_household_transcript.member_names"
+    ],
+    "operator": "cross_match",
+    "zk_need": "zk_join",
+    "unlinkability_needed": "yes",
+    "freshness_needed": "none",
+    "current_evidence": "photo_of_id",
+    "interaction_mode": "remote_assisted",
+    "verifier_reader": "unknown",
+    "reach_log10": 4,
+    "harm_per_incident": 2,
+    "verifier_incentive": 1,
+    "split_incentive": true,
+    "rationale": "Landlords retain full ID copies where a proof that the enrolled student and the lease holder are the same person would suffice."
+  },
+  {
+    "id": "p1:utility-member__B__0",
+    "inputs": [
+      "MISSING:taipower_welfare_tariff_roll_membership"
+    ],
+    "operator": "membership",
+    "zk_need": "issuer_precomputed",
+    "unlinkability_needed": "yes",
+    "freshness_needed": "days",
+    "current_evidence": "digital_upload",
+    "interaction_mode": "remote_assisted",
+    "verifier_reader": "unknown",
+    "reach_log10": 4,
+    "harm_per_incident": 3,
+    "verifier_incentive": 1,
+    "split_incentive": true,
+    "rationale": "Schools need only proof of Taipower welfare-roll membership, not a full bill with address and usage history."
+  },
+  {
+    "id": "p1:utility-member__C__0",
+    "inputs": [
+      "MISSING:taipower_low_income_roll_membership"
+    ],
+    "operator": "membership",
+    "zk_need": "issuer_precomputed",
+    "unlinkability_needed": "yes",
+    "freshness_needed": "days",
+    "current_evidence": "digital_upload",
+    "interaction_mode": "remote_assisted",
+    "verifier_reader": "unknown",
+    "reach_log10": 3,
+    "harm_per_incident": 2,
+    "verifier_incentive": 1,
+    "split_incentive": true,
+    "rationale": "The energy programme needs only a current roll-membership claim rather than a bill copy with address and kWh usage."
+  },
+  {
+    "id": "p2:union-ballot__C__1",
+    "inputs": [
+      "MISSING:dues_paying_member_in_good_standing_of_affiliated_union"
+    ],
+    "operator": "uniqueness",
+    "zk_need": "zk_nullifier",
+    "unlinkability_needed": "yes",
+    "freshness_needed": "days",
+    "current_evidence": "digital_upload",
+    "interaction_mode": "remote_online",
+    "verifier_reader": "would_need_tool",
+    "reach_log10": 4,
+    "harm_per_incident": 3,
+    "verifier_incentive": 1,
+    "split_incentive": true,
+    "rationale": "Ballot organisers see union cards and payroll slips that reveal membership and employer, where a one-vote-per-member nullifier over affiliated-union membership would do."
+  },
+  {
+    "id": "p2:vending-age__C__2",
+    "inputs": [
+      "tw_national_id.is_adult",
+      "tw_arc.age_over_NN"
+    ],
+    "operator": "threshold",
+    "zk_need": "issuer_precomputed",
+    "unlinkability_needed": "yes",
+    "freshness_needed": "none",
+    "current_evidence": "photo_of_id",
+    "interaction_mode": "in_person_no_device",
+    "verifier_reader": "unknown",
+    "reach_log10": 4,
+    "harm_per_incident": 2,
+    "verifier_incentive": 1,
+    "split_incentive": true,
+    "rationale": "The hotel photocopies passports and ARCs to unlock a machine where an over-age claim from either credential would do."
+  },
+  {
+    "id": "p2:dv-lease-break__C__2",
+    "inputs": [
+      "tw_protection_order.is_protected_person_now"
+    ],
+    "operator": "freshness",
+    "zk_need": "issuer_precomputed",
+    "unlinkability_needed": "yes",
+    "freshness_needed": "days",
+    "current_evidence": "digital_upload",
+    "interaction_mode": "remote_online",
+    "verifier_reader": "would_need_tool",
+    "reach_log10": 3,
+    "harm_per_incident": 4,
+    "verifier_incentive": 1,
+    "split_incentive": true,
+    "rationale": "The survivor hands the same order to many parties who can match copies, where a per-verifier current-protection presentation would stop cross-matching."
+  },
+  {
+    "id": "p2:secondhand-seller__C__1",
+    "inputs": [
+      "MISSING:completed_sales_without_dispute_count"
+    ],
+    "operator": "threshold",
+    "zk_need": "zk_derived",
+    "unlinkability_needed": "yes",
+    "freshness_needed": "none",
+    "current_evidence": "id_shown_in_person",
+    "interaction_mode": "in_person_with_device",
+    "verifier_reader": "would_need_tool",
+    "reach_log10": 4,
+    "harm_per_incident": 2,
+    "verifier_incentive": 1,
+    "split_incentive": true,
+    "rationale": "The buyer asks for ID, LINE profile and transfer screenshots where a platform-signed sales-count threshold in a one-time QR would do."
+  },
+  {
+    "id": "p2:public-register__D__1",
+    "inputs": [
+      "tw_business_registration.is_representative_of_X"
+    ],
+    "operator": "membership",
+    "zk_need": "issuer_precomputed",
+    "unlinkability_needed": "yes",
+    "freshness_needed": "days",
+    "current_evidence": "paper_copy",
+    "interaction_mode": "remote_assisted",
+    "verifier_reader": "would_need_tool",
+    "reach_log10": 4,
+    "harm_per_incident": 2,
+    "verifier_incentive": 1,
+    "split_incentive": true,
+    "rationale": "The wholesaler collects a registry printout, ID copy and property lookups where a registry-signed director-status claim would do."
+  },
+  {
+    "id": "p2:stadium-face__D__2",
+    "inputs": [
+      "MISSING:guest_pass_for_student_X"
+    ],
+    "operator": "uniqueness",
+    "zk_need": "zk_nullifier",
+    "unlinkability_needed": "yes",
+    "freshness_needed": "none",
+    "current_evidence": "id_shown_in_person",
+    "interaction_mode": "in_person_with_device",
+    "verifier_reader": "would_need_tool",
+    "reach_log10": 3,
+    "harm_per_incident": 2,
+    "verifier_incentive": 1,
+    "split_incentive": true,
+    "rationale": "The gate uses face photos stored in a shared drive where a per-pass single-entry nullifier would meet the need."
+  },
+  {
+    "id": "p2:migrant-housing__D__2",
+    "inputs": [
+      "tw_arc.is_legally_resident_now",
+      "MISSING:employer_sponsorship_status"
+    ],
+    "operator": "freshness",
+    "zk_need": "issuer_precomputed",
+    "unlinkability_needed": "yes",
+    "freshness_needed": "realtime",
+    "current_evidence": "paper_copy",
+    "interaction_mode": "remote_assisted",
+    "verifier_reader": "unknown",
+    "reach_log10": 3,
+    "harm_per_incident": 4,
+    "verifier_incentive": 1,
+    "split_incentive": true,
+    "rationale": "The housing programme asks for a termination letter and complaint receipts that reveal the abuse, where a status-only attestation would do."
+  },
+  {
+    "id": "p2:library-network__C__1",
+    "inputs": [
+      "tw_library_card.no_overdue_anywhere_in_network"
+    ],
+    "operator": "non_membership",
+    "zk_need": "issuer_precomputed",
+    "unlinkability_needed": "yes",
+    "freshness_needed": "days",
+    "current_evidence": "id_shown_in_person",
+    "interaction_mode": "in_person_no_device",
+    "verifier_reader": "unknown",
+    "reach_log10": 4,
+    "harm_per_incident": 3,
+    "verifier_incentive": 1,
+    "split_incentive": true,
+    "rationale": "The clerk sees the full lending history, including sensitive titles, where a good-standing credential would reveal only standing."
+  },
+  {
+    "id": "p2:temple-volunteer__C__1",
+    "inputs": [
+      "tw_criminal_record.no_offence_of_type_X"
+    ],
+    "operator": "non_membership",
+    "zk_need": "issuer_precomputed",
+    "unlinkability_needed": "yes",
+    "freshness_needed": "none",
+    "current_evidence": "paper_copy",
+    "interaction_mode": "in_person_no_device",
+    "verifier_reader": "unknown",
+    "reach_log10": 3,
+    "harm_per_incident": 3,
+    "verifier_incentive": 1,
+    "split_incentive": true,
+    "rationale": "Volunteers read a full criminal extract aloud and copy ID numbers, where a no-fraud-conviction claim would suffice."
+  },
+  {
+    "id": "p2:library-guardian__D__2",
+    "inputs": [
+      "MISSING:legal_guardian_of_child_under_age_limit"
+    ],
+    "operator": "membership",
+    "zk_need": "issuer_precomputed",
+    "unlinkability_needed": "yes",
+    "freshness_needed": "none",
+    "current_evidence": "paper_copy",
+    "interaction_mode": "in_person_no_device",
+    "verifier_reader": "unknown",
+    "reach_log10": 3,
+    "harm_per_incident": 3,
+    "verifier_incentive": 1,
+    "split_incentive": true,
+    "rationale": "The counter sees court orders revealing parents and custody history, where a guardian-of-minor credential would do."
+  },
+  {
+    "id": "p2:party-primary__C__1",
+    "inputs": [
+      "tw_party_membership.is_member_in_district_Y"
+    ],
+    "operator": "uniqueness",
+    "zk_need": "zk_nullifier",
+    "unlinkability_needed": "yes",
+    "freshness_needed": "none",
+    "current_evidence": "photo_of_id",
+    "interaction_mode": "remote_online",
+    "verifier_reader": "would_need_tool",
+    "reach_log10": 3,
+    "harm_per_incident": 3,
+    "verifier_incentive": 1,
+    "split_incentive": true,
+    "rationale": "Organisers store ID photos and party-membership screenshots that expose each person's party, where a membership proof with a per-round nullifier would do."
+  },
+  {
+    "id": "p2:court-witness__D__0",
+    "inputs": [
+      "tw_court_summons.has_hearing_today_at_court_X"
+    ],
+    "operator": "membership",
+    "zk_need": "issuer_precomputed",
+    "unlinkability_needed": "yes",
+    "freshness_needed": "days",
+    "current_evidence": "id_shown_in_person",
+    "interaction_mode": "in_person_with_device",
+    "verifier_reader": "would_need_tool",
+    "reach_log10": 5,
+    "harm_per_incident": 2,
+    "verifier_incentive": 2,
+    "split_incentive": true,
+    "rationale": "Guards read the full summons and log ID numbers, where a blind-signed same-day hearing token would admit the witness without case details."
+  },
+  {
+    "id": "p2:tourist-scooter__C__2",
+    "inputs": [
+      "tw_arc.is_legally_resident_now",
+      "tw_entry_exit_record.permitted_stay_until"
+    ],
+    "operator": "time_bounded",
+    "zk_need": "issuer_precomputed",
+    "unlinkability_needed": "yes",
+    "freshness_needed": "days",
+    "current_evidence": "photo_of_id",
+    "interaction_mode": "in_person_no_device",
+    "verifier_reader": "would_need_tool",
+    "reach_log10": 4,
+    "harm_per_incident": 2,
+    "verifier_incentive": 1,
+    "split_incentive": true,
+    "rationale": "The shop re-copies ARC and passport at every renewal, where a short-lived residence-validity claim would do."
+  },
+  {
+    "id": "p2:pilgrimage-group__C__0",
+    "inputs": [
+      "MISSING:registered_member_of_temple_association_X"
+    ],
+    "operator": "membership",
+    "zk_need": "issuer_precomputed",
+    "unlinkability_needed": "yes",
+    "freshness_needed": "none",
+    "current_evidence": "photo_of_id",
+    "interaction_mode": "remote_assisted",
+    "verifier_reader": "unknown",
+    "reach_log10": 3,
+    "harm_per_incident": 3,
+    "verifier_incentive": 1,
+    "split_incentive": true,
+    "rationale": "Riders hand over ID and member cards that reveal religion, where a membership boolean from the association would meet the group-fare check."
+  },
+  {
+    "id": "p2:day-labour-safety__C__2",
+    "inputs": [
+      "tw_safety_training.valid_for_course_X_now"
+    ],
+    "operator": "time_bounded",
+    "zk_need": "zk_aggregate",
+    "unlinkability_needed": "no",
+    "freshness_needed": "days",
+    "current_evidence": "paper_copy",
+    "interaction_mode": "remote_assisted",
+    "verifier_reader": "would_need_tool",
+    "reach_log10": 3,
+    "harm_per_incident": 2,
+    "verifier_incentive": 2,
+    "split_incentive": false,
+    "rationale": "The contractor's roster exposes ID numbers and crew details to rival subcontractors, where a sealed all-workers-valid aggregate would do."
+  },
+  {
+    "id": "p2:night-market-stall__D__0",
+    "inputs": [
+      "tw_food_permit.holds_current_permit",
+      "tw_business_registration.is_registered_and_active"
+    ],
+    "operator": "freshness",
+    "zk_need": "issuer_precomputed",
+    "unlinkability_needed": "no",
+    "freshness_needed": "days",
+    "current_evidence": "paper_copy",
+    "interaction_mode": "in_person_no_device",
+    "verifier_reader": "would_need_tool",
+    "reach_log10": 3,
+    "harm_per_incident": 2,
+    "verifier_incentive": 1,
+    "split_incentive": true,
+    "rationale": "The clerk photocopies permits and ID cards into binders, where a validity-stamped credential would give the same lottery eligibility."
+  },
+  {
+    "id": "p2:funeral-nok__C__1",
+    "inputs": [
+      "tw_heir_chart.is_next_of_kin_priority_1"
+    ],
+    "operator": "membership",
+    "zk_need": "issuer_precomputed",
+    "unlinkability_needed": "no",
+    "freshness_needed": "none",
+    "current_evidence": "paper_copy",
+    "interaction_mode": "in_person_no_device",
+    "verifier_reader": "unknown",
+    "reach_log10": 5,
+    "harm_per_incident": 2,
+    "verifier_incentive": 1,
+    "split_incentive": true,
+    "rationale": "The crematorium collects a full household transcript listing siblings and addresses, where a next-of-kin tier credential would suffice."
+  },
+  {
+    "id": "p2:inheritance-bank__C__1",
+    "inputs": [
+      "tw_heir_chart.is_heir_with_share",
+      "tw_power_of_attorney.is_authorised_delegate_for_task_X_today"
+    ],
+    "operator": "cross_match",
+    "zk_need": "zk_join",
+    "unlinkability_needed": "no",
+    "freshness_needed": "none",
+    "current_evidence": "paper_copy",
+    "interaction_mode": "in_person_no_device",
+    "verifier_reader": "unknown",
+    "reach_log10": 3,
+    "harm_per_incident": 3,
+    "verifier_incentive": 2,
+    "split_incentive": true,
+    "rationale": "The agent holds the full family tree, where a joined entitlement-and-delegation proof would show only the heir's share and the agent's authority."
+  },
+  {
+    "id": "p2:onsen-entry__C__2",
+    "inputs": [
+      "tw_national_id.is_adult"
+    ],
+    "operator": "threshold",
+    "zk_need": "issuer_precomputed",
+    "unlinkability_needed": "yes",
+    "freshness_needed": "none",
+    "current_evidence": "photo_of_id",
+    "interaction_mode": "remote_online",
+    "verifier_reader": "would_need_tool",
+    "reach_log10": 4,
+    "harm_per_incident": 2,
+    "verifier_incentive": 1,
+    "split_incentive": true,
+    "rationale": "The platform keeps an uploaded ID photo with birth date and address, where a one-time over-age claim at booking would do."
+  },
+  {
+    "id": "p2:hospital-partner__C__0",
+    "inputs": [
+      "tw_household_transcript.spouse_name",
+      "MISSING:named_proxy_for_admission"
+    ],
+    "operator": "membership",
+    "zk_need": "issuer_precomputed",
+    "unlinkability_needed": "yes",
+    "freshness_needed": "days",
+    "current_evidence": "id_shown_in_person",
+    "interaction_mode": "in_person_no_device",
+    "verifier_reader": "would_need_tool",
+    "reach_log10": 4,
+    "harm_per_incident": 2,
+    "verifier_incentive": 1,
+    "split_incentive": true,
+    "rationale": "Visitors show full ID cards that are photocopied, where a per-admission authorised-visitor credential from the hospital would open the ward."
+  }
+]

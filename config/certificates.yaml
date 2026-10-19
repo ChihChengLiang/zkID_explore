@@ -1,0 +1,1570 @@
+_meta:
+  purpose: 'Hypothetical certificate catalogue: certificates as bundles of attributes, for mapping predicates onto claims.'
+  provenance_levels:
+    verified: checked against a fetched public source on the stated date
+    recalled: from my memory of the standard or document; plausible but unchecked
+    hypothetical: structure invented to complete the picture; no claim that such a credential exists
+  caveats:
+  - ISO 18013-5 is paywalled and was not available; the mDL element list is recalled, not verified.
+  - The Taiwan wallet (TWDIW) site returned 403 to automated fetches; no TWDIW schema was checked.
+  - Taiwan certificate field lists are recalled, so treat them as approximations.
+  - '''sens'' marks GDPR Art. 9/10 or Taiwan PDPA Art. 6 special categories (recalled list).'
+  added: '2026-10-19'
+certificates:
+- id: eu_pid
+  name_en: EU person identification data (reference model)
+  name_zh: ''
+  issuer_type: gov_civil
+  basis: verified (EU PID rulebook v1.7, fetched 2026-10-19)
+  format: mdoc or SD-JWT VC
+  claims:
+  - id: family_name
+    type: string
+    sens: ordinary
+    stab: immutable
+  - id: given_name
+    type: string
+    sens: ordinary
+    stab: immutable
+  - id: birth_date
+    type: date
+    sens: ordinary
+    stab: immutable
+  - id: birth_place
+    type: string
+    sens: ordinary
+    stab: immutable
+  - id: nationality
+    type: country list
+    sens: ordinary
+    stab: slow
+  - id: portrait
+    type: image
+    sens: ordinary
+    stab: slow
+  - id: resident_address
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: resident_city
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: resident_country
+    type: country
+    sens: ordinary
+    stab: slow
+  - id: personal_administrative_number
+    type: string
+    sens: ordinary
+    stab: immutable
+  - id: sex
+    type: code
+    sens: ordinary
+    stab: immutable
+  - id: issuing_authority
+    type: string
+    sens: ordinary
+    stab: immutable
+  - id: issuance_date
+    type: date
+    sens: ordinary
+    stab: immutable
+  - id: expiry_date
+    type: date
+    sens: ordinary
+    stab: immutable
+  - id: document_number
+    type: string
+    sens: ordinary
+    stab: immutable
+  precomputable:
+  - age_over_N (separate age attestation under CIR 2024/2977, not part of PID since v1.1)
+  note: The structural model for a national ID in a wallet; Taiwan's ID card is mapped on it below.
+- id: iso_mdl
+  name_en: Mobile driving licence (ISO 18013-5 data elements)
+  name_zh: 行動駕照
+  issuer_type: gov_licensing
+  basis: recalled from ISO 18013-5; NOT verified (standard is paywalled; EU mDL rulebook only references it)
+  format: mdoc (org.iso.18013.5.1)
+  claims:
+  - id: family_name
+    type: string
+    sens: ordinary
+    stab: immutable
+  - id: given_name
+    type: string
+    sens: ordinary
+    stab: immutable
+  - id: birth_date
+    type: date
+    sens: ordinary
+    stab: immutable
+  - id: issue_date
+    type: date
+    sens: ordinary
+    stab: immutable
+  - id: expiry_date
+    type: date
+    sens: ordinary
+    stab: slow
+  - id: issuing_country
+    type: country
+    sens: ordinary
+    stab: immutable
+  - id: issuing_authority
+    type: string
+    sens: ordinary
+    stab: immutable
+  - id: document_number
+    type: string
+    sens: ordinary
+    stab: immutable
+  - id: portrait
+    type: image
+    sens: ordinary
+    stab: slow
+  - id: driving_privileges
+    type: list of vehicle categories with validity and restrictions
+    sens: ordinary
+    stab: slow
+  - id: un_distinguishing_sign
+    type: string
+    sens: ordinary
+    stab: immutable
+  - id: sex
+    type: code
+    sens: ordinary
+    stab: immutable
+  - id: height
+    type: number
+    sens: ordinary
+    stab: slow
+  - id: birth_place
+    type: string
+    sens: ordinary
+    stab: immutable
+  - id: resident_address
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: nationality
+    type: country
+    sens: ordinary
+    stab: slow
+  - id: age_in_years
+    type: integer
+    sens: ordinary
+    stab: volatile
+  - id: age_birth_year
+    type: integer
+    sens: ordinary
+    stab: immutable
+  - id: age_over_NN
+    type: boolean, issuer precomputed, e.g. 18, 21, 65
+    sens: ordinary
+    stab: volatile
+  - id: administrative_number
+    type: string
+    sens: ordinary
+    stab: immutable
+  precomputable:
+  - age_over_NN
+  note: 'The one place the standard itself precomputes predicates: age_over_NN lets a verifier learn only a threshold.'
+- id: tw_national_id
+  name_en: Taiwan national ID card
+  name_zh: 國民身分證
+  issuer_type: gov_civil
+  basis: recalled; field list not verified
+  format: paper/plastic card; digital form (自然人憑證 on phone) exists in other contexts
+  claims:
+  - id: name
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: id_number
+    type: string, national ID number
+    sens: ordinary
+    stab: immutable
+    note: stable global identifier; linkability risk if disclosed
+  - id: birth_date
+    type: date
+    sens: ordinary
+    stab: immutable
+  - id: sex
+    type: code
+    sens: ordinary
+    stab: immutable
+  - id: issue_date
+    type: date
+    sens: ordinary
+    stab: immutable
+  - id: address
+    type: string, on the back
+    sens: ordinary
+    stab: slow
+  - id: portrait
+    type: image
+    sens: ordinary
+    stab: slow
+  precomputable:
+  - age_over_20
+  - is_adult (age >= 18, Civil Code adulthood changed 2023)
+  - sex
+  note: HYPOTHETICAL mapping onto a wallet credential; the age of majority and card fields should be checked against current rules.
+- id: tw_household_transcript
+  name_en: Household registration transcript
+  name_zh: 戶籍謄本
+  issuer_type: gov_civil
+  basis: recalled; field list not verified
+  format: paper transcript (printed from registry)
+  claims:
+  - id: household_head
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: member_names
+    type: list of strings
+    sens: ordinary
+    stab: slow
+  - id: member_relationships
+    type: list (spouse, child, parent, ...)
+    sens: ordinary
+    stab: slow
+  - id: member_birth_dates
+    type: list of dates
+    sens: ordinary
+    stab: immutable
+  - id: registered_domicile
+    type: string (本籍)
+    sens: ordinary
+    stab: slow
+  - id: household_address
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: marital_status
+    type: code
+    sens: ordinary
+    stab: slow
+  - id: spouse_name
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: parents_names
+    type: list of strings
+    sens: ordinary
+    stab: immutable
+  - id: ethnic_group
+    type: string (族別, e.g. indigenous status)
+    sens: special
+    stab: immutable
+  precomputable:
+  - is_resident_of_<city>
+  - is_member_of_household_with_id_X
+  - indigenous_status
+  note: 'The bundle that most over-discloses: one slice (address, or relationship) usually answers the question.'
+- id: tw_arc
+  name_en: Alien resident certificate (ARC)
+  name_zh: 外僑居留證
+  issuer_type: gov_civil
+  basis: recalled; not verified
+  format: plastic card
+  claims:
+  - id: name
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: nationality
+    type: country
+    sens: ordinary
+    stab: slow
+  - id: birth_date
+    type: date
+    sens: ordinary
+    stab: immutable
+  - id: sex
+    type: code
+    sens: ordinary
+    stab: immutable
+  - id: arc_number
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: residence_valid_until
+    type: date
+    sens: ordinary
+    stab: volatile
+  - id: residence_reason
+    type: code (work, family, study, ...)
+    sens: ordinary
+    stab: slow
+  - id: address
+    type: string
+    sens: ordinary
+    stab: slow
+  precomputable:
+  - is_legally_resident_now
+  - age_over_NN
+  note: For migrant workers and tourists-in-residence; validity is a freshness issue.
+- id: tw_passport
+  name_en: Passport (ICAO 9303-style data page)
+  name_zh: 護照
+  issuer_type: gov_civil
+  basis: recalled from ICAO 9303; Taiwan-specific fields not verified
+  format: booklet / chip
+  claims:
+  - id: surname
+    type: string
+    sens: ordinary
+    stab: immutable
+  - id: given_names
+    type: string
+    sens: ordinary
+    stab: immutable
+  - id: nationality
+    type: country
+    sens: ordinary
+    stab: slow
+  - id: birth_date
+    type: date
+    sens: ordinary
+    stab: immutable
+  - id: sex
+    type: code
+    sens: ordinary
+    stab: immutable
+  - id: birth_place
+    type: string
+    sens: ordinary
+    stab: immutable
+  - id: passport_number
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: issue_date
+    type: date
+    sens: ordinary
+    stab: immutable
+  - id: expiry_date
+    type: date
+    sens: ordinary
+    stab: slow
+  - id: portrait
+    type: image
+    sens: ordinary
+    stab: slow
+  precomputable:
+  - age_over_NN
+  - nationality_is_X
+  note: ''
+- id: tw_entry_exit_record
+  name_en: Entry and exit record
+  name_zh: 入出國日期證明
+  issuer_type: gov_civil
+  basis: recalled; not verified
+  format: paper or online extract
+  claims:
+  - id: entry_dates
+    type: list of dates
+    sens: ordinary
+    stab: event
+  - id: exit_dates
+    type: list of dates
+    sens: ordinary
+    stab: event
+  - id: permitted_stay_until
+    type: date
+    sens: ordinary
+    stab: volatile
+  - id: visa_type
+    type: code
+    sens: ordinary
+    stab: slow
+  precomputable:
+  - has_not_overstayed
+  - days_in_country_in_period
+  note: ''
+- id: tw_criminal_record
+  name_en: Police criminal record certificate
+  name_zh: 警察刑事紀錄證明 (無犯罪紀錄證明)
+  issuer_type: gov_justice
+  basis: recalled; not verified
+  format: paper certificate
+  claims:
+  - id: subject_name
+    type: string
+    sens: ordinary
+    stab: immutable
+  - id: id_number
+    type: string
+    sens: ordinary
+    stab: immutable
+  - id: record_status
+    type: 'code: none / has record'
+    sens: special
+    stab: volatile
+  - id: offence_details
+    type: list (offence, date, sentence)
+    sens: special
+    stab: event
+  - id: issue_date
+    type: date
+    sens: ordinary
+    stab: event
+  precomputable:
+  - no_record_as_of_date
+  - no_offence_of_type_X
+  note: 'Standard case of non-membership: the verifier wants ''no record'', receives the whole certificate.'
+- id: tw_protection_order
+  name_en: Protection order
+  name_zh: 保護令
+  issuer_type: gov_justice
+  basis: hypothetical structure (court order exists; claim list invented)
+  format: court document
+  claims:
+  - id: order_type
+    type: code
+    sens: special
+    stab: event
+  - id: applicant
+    type: string
+    sens: special
+    stab: event
+  - id: respondent
+    type: string
+    sens: special
+    stab: event
+  - id: valid_from
+    type: date
+    sens: special
+    stab: event
+  - id: valid_until
+    type: date
+    sens: special
+    stab: event
+  - id: restricted_acts
+    type: list
+    sens: special
+    stab: event
+  - id: case_number
+    type: string
+    sens: special
+    stab: event
+  precomputable:
+  - is_protected_person_now
+  - order_valid_between_dates
+  note: ''
+- id: tw_court_summons
+  name_en: Court summons or hearing notice
+  name_zh: 傳票 / 開庭通知
+  issuer_type: gov_justice
+  basis: hypothetical structure
+  format: paper or electronic notice
+  claims:
+  - id: case_number
+    type: string
+    sens: special
+    stab: event
+  - id: court
+    type: string
+    sens: ordinary
+    stab: event
+  - id: hearing_datetime
+    type: datetime
+    sens: ordinary
+    stab: event
+  - id: role
+    type: 'code: party, witness, juror'
+    sens: special
+    stab: event
+  - id: subject_name
+    type: string
+    sens: ordinary
+    stab: event
+  precomputable:
+  - has_hearing_today_at_court_X
+  note: ''
+- id: tw_driver_licence
+  name_en: Driver's licence
+  name_zh: 駕駛執照
+  issuer_type: gov_licensing
+  basis: recalled; not verified
+  format: plastic card; mDL form being considered
+  claims:
+  - id: name
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: id_number
+    type: string
+    sens: ordinary
+    stab: immutable
+  - id: birth_date
+    type: date
+    sens: ordinary
+    stab: immutable
+  - id: licence_classes
+    type: list
+    sens: ordinary
+    stab: slow
+  - id: issue_date
+    type: date
+    sens: ordinary
+    stab: immutable
+  - id: expiry_date
+    type: date
+    sens: ordinary
+    stab: slow
+  - id: restrictions
+    type: list
+    sens: ordinary
+    stab: slow
+  - id: address
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: licence_number
+    type: string
+    sens: ordinary
+    stab: immutable
+  - id: portrait
+    type: image
+    sens: ordinary
+    stab: slow
+  precomputable:
+  - valid_for_class_X_now
+  - age_over_NN
+  note: Car-rental counters photocopy the whole card; the claim needed is validity for a class.
+- id: tw_vehicle_licence
+  name_en: Vehicle licence
+  name_zh: 行車執照
+  issuer_type: gov_licensing
+  basis: recalled; not verified
+  format: paper card
+  claims:
+  - id: plate_number
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: owner_name
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: vehicle_type
+    type: code
+    sens: ordinary
+    stab: slow
+  - id: first_registration_date
+    type: date
+    sens: ordinary
+    stab: immutable
+  - id: inspection_due
+    type: date
+    sens: ordinary
+    stab: volatile
+  - id: owner_id_number
+    type: string
+    sens: ordinary
+    stab: slow
+  precomputable:
+  - owner_of_plate_X
+  - inspection_current
+  note: ''
+- id: tw_nhi_card
+  name_en: National Health Insurance card
+  name_zh: 全民健康保險卡
+  issuer_type: gov_welfare
+  basis: recalled; not verified
+  format: plastic card
+  claims:
+  - id: name
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: id_number
+    type: string
+    sens: ordinary
+    stab: immutable
+  - id: birth_date
+    type: date
+    sens: ordinary
+    stab: immutable
+  - id: sex
+    type: code
+    sens: ordinary
+    stab: immutable
+  - id: card_number
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: issue_date
+    type: date
+    sens: ordinary
+    stab: slow
+  - id: catastrophic_illness_flag
+    type: boolean (重大傷病 flag in the card system)
+    sens: special
+    stab: slow
+  - id: enrolment_status
+    type: code
+    sens: ordinary
+    stab: volatile
+  precomputable:
+  - is_insured_now
+  - age_over_NN
+  note: ''
+- id: tw_labour_insurance_record
+  name_en: Labour insurance enrolment record
+  name_zh: 勞保投保資料
+  issuer_type: gov_welfare
+  basis: recalled; not verified
+  format: paper or online extract
+  claims:
+  - id: insured_employer
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: enrolment_start
+    type: date
+    sens: ordinary
+    stab: event
+  - id: enrolment_end
+    type: date
+    sens: ordinary
+    stab: event
+  - id: insured_salary_tier
+    type: number
+    sens: ordinary
+    stab: slow
+  - id: total_coverage_years
+    type: number
+    sens: ordinary
+    stab: volatile
+  - id: claims_history
+    type: list
+    sens: special
+    stab: event
+  precomputable:
+  - currently_enrolled_with_employer_X
+  - salary_tier >= T
+  - coverage_years >= N
+  note: Often used as income or employment proof; shows every employer.
+- id: tw_income_statement
+  name_en: Individual income tax statement
+  name_zh: 綜合所得稅各類所得資料清單
+  issuer_type: gov_civil
+  basis: recalled; not verified
+  format: online extract / paper
+  claims:
+  - id: tax_year
+    type: integer
+    sens: ordinary
+    stab: event
+  - id: income_by_category
+    type: list (salary, interest, rent, ...)
+    sens: ordinary
+    stab: event
+  - id: total_income
+    type: number
+    sens: ordinary
+    stab: event
+  - id: dependents
+    type: list
+    sens: ordinary
+    stab: event
+  - id: withholding
+    type: number
+    sens: ordinary
+    stab: event
+  precomputable:
+  - total_income >= T for year Y
+  note: Loan and subsidy desks take the whole statement for one threshold.
+- id: tw_property_title
+  name_en: Land and building title
+  name_zh: 土地建物所有權狀 / 登記謄本
+  issuer_type: gov_civil
+  basis: recalled; not verified
+  format: paper or online extract
+  claims:
+  - id: owner_name
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: parcel_or_building_id
+    type: string
+    sens: ordinary
+    stab: immutable
+  - id: address
+    type: string
+    sens: ordinary
+    stab: immutable
+  - id: area
+    type: number
+    sens: ordinary
+    stab: slow
+  - id: acquisition_date
+    type: date
+    sens: ordinary
+    stab: event
+  - id: encumbrances
+    type: list (mortgage, lien)
+    sens: ordinary
+    stab: volatile
+  - id: assessed_value
+    type: number
+    sens: ordinary
+    stab: volatile
+  precomputable:
+  - is_owner_of_address_X
+  - no_encumbrance
+  note: ''
+- id: tw_diploma
+  name_en: Diploma
+  name_zh: 畢業證書
+  issuer_type: education
+  basis: recalled; not verified
+  format: paper certificate
+  claims:
+  - id: holder_name
+    type: string
+    sens: ordinary
+    stab: immutable
+  - id: institution
+    type: string
+    sens: ordinary
+    stab: immutable
+  - id: degree_level
+    type: code
+    sens: ordinary
+    stab: immutable
+  - id: major
+    type: string
+    sens: ordinary
+    stab: immutable
+  - id: graduation_date
+    type: date
+    sens: ordinary
+    stab: immutable
+  - id: honours
+    type: string
+    sens: ordinary
+    stab: immutable
+  precomputable:
+  - holds_degree_level >= X
+  - degree_from_accredited_institution
+  note: ''
+- id: tw_transcript
+  name_en: Academic transcript
+  name_zh: 成績單
+  issuer_type: education
+  basis: hypothetical structure
+  format: paper transcript
+  claims:
+  - id: courses
+    type: list
+    sens: ordinary
+    stab: immutable
+  - id: grades
+    type: list
+    sens: ordinary
+    stab: immutable
+  - id: gpa
+    type: number
+    sens: ordinary
+    stab: slow
+  - id: credits
+    type: number
+    sens: ordinary
+    stab: slow
+  - id: rank
+    type: number
+    sens: ordinary
+    stab: immutable
+  precomputable:
+  - gpa >= T
+  - credits >= N
+  note: ''
+- id: tw_enrolment_certificate
+  name_en: Enrolment certificate
+  name_zh: 在學證明
+  issuer_type: education
+  basis: recalled; not verified
+  format: paper certificate
+  claims:
+  - id: student_name
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: institution
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: student_number
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: enrolment_status
+    type: code
+    sens: ordinary
+    stab: volatile
+  - id: term
+    type: string
+    sens: ordinary
+    stab: volatile
+  - id: expected_graduation
+    type: date
+    sens: ordinary
+    stab: slow
+  precomputable:
+  - enrolled_this_term
+  - student_of_institution_X
+  note: ''
+- id: tw_student_id
+  name_en: Student ID card
+  name_zh: 學生證
+  issuer_type: education
+  basis: recalled; not verified
+  format: plastic card
+  claims:
+  - id: name
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: student_number
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: institution
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: valid_until
+    type: date
+    sens: ordinary
+    stab: volatile
+  - id: portrait
+    type: image
+    sens: ordinary
+    stab: slow
+  precomputable:
+  - valid_student_now
+  note: ''
+- id: tw_professional_licence
+  name_en: Professional licence (e.g. nurse, engineer)
+  name_zh: 專技人員執業執照
+  issuer_type: gov_licensing
+  basis: recalled; not verified
+  format: paper certificate / registry listing
+  claims:
+  - id: holder_name
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: licence_type
+    type: code
+    sens: ordinary
+    stab: slow
+  - id: licence_number
+    type: string
+    sens: ordinary
+    stab: immutable
+  - id: issue_date
+    type: date
+    sens: ordinary
+    stab: immutable
+  - id: valid_until
+    type: date
+    sens: ordinary
+    stab: volatile
+  - id: registration_status
+    type: code
+    sens: ordinary
+    stab: volatile
+  - id: practice_location
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: disciplinary_flag
+    type: boolean
+    sens: ordinary
+    stab: volatile
+  precomputable:
+  - holds_valid_licence_of_type_X_now
+  note: ''
+- id: tw_safety_training
+  name_en: Safety training certificate
+  name_zh: 教育訓練合格證 (e.g. high-place work)
+  issuer_type: gov_licensing
+  basis: hypothetical structure
+  format: paper card
+  claims:
+  - id: worker_name
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: course
+    type: string
+    sens: ordinary
+    stab: immutable
+  - id: issue_date
+    type: date
+    sens: ordinary
+    stab: immutable
+  - id: valid_until
+    type: date
+    sens: ordinary
+    stab: volatile
+  - id: provider
+    type: string
+    sens: ordinary
+    stab: immutable
+  precomputable:
+  - valid_for_course_X_now
+  note: ''
+- id: tw_employment_certificate
+  name_en: Employment certificate
+  name_zh: 在職證明
+  issuer_type: employer
+  basis: hypothetical structure
+  format: paper letter
+  claims:
+  - id: employee_name
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: employer
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: job_title
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: start_date
+    type: date
+    sens: ordinary
+    stab: slow
+  - id: salary
+    type: number
+    sens: ordinary
+    stab: volatile
+  - id: currently_employed
+    type: boolean
+    sens: ordinary
+    stab: volatile
+  precomputable:
+  - currently_employed_at_X
+  - tenure >= N months
+  - salary >= T
+  note: 'Never issued by a government CA: the employer is the issuer; no standard credential today (as far as I know).'
+- id: tw_payslip
+  name_en: Payslip
+  name_zh: 薪資單
+  issuer_type: employer
+  basis: hypothetical structure
+  format: paper or PDF
+  claims:
+  - id: employee_name
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: employer
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: period
+    type: string
+    sens: ordinary
+    stab: event
+  - id: gross
+    type: number
+    sens: ordinary
+    stab: event
+  - id: deductions
+    type: list
+    sens: ordinary
+    stab: event
+  - id: net
+    type: number
+    sens: ordinary
+    stab: event
+  precomputable:
+  - monthly_income >= T for last N months
+  note: ''
+- id: tw_bank_deposit_certificate
+  name_en: Bank deposit certificate
+  name_zh: 存款證明
+  issuer_type: finance
+  basis: hypothetical structure
+  format: paper certificate
+  claims:
+  - id: account_holder
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: bank
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: balance
+    type: number
+    sens: ordinary
+    stab: volatile
+  - id: as_of_date
+    type: date
+    sens: ordinary
+    stab: event
+  - id: currency
+    type: code
+    sens: ordinary
+    stab: slow
+  precomputable:
+  - balance >= T as of date
+  note: ''
+- id: tw_bank_statement
+  name_en: Bank statement
+  name_zh: 銀行對帳單
+  issuer_type: finance
+  basis: hypothetical structure
+  format: PDF
+  claims:
+  - id: account_holder
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: transactions
+    type: list (date, amount, counterparty)
+    sens: ordinary
+    stab: event
+  - id: monthly_inflow
+    type: number
+    sens: ordinary
+    stab: event
+  - id: closing_balance
+    type: number
+    sens: ordinary
+    stab: event
+  precomputable:
+  - average_monthly_inflow >= T
+  - no_transaction_with_X
+  note: The aggregate predicate case; the raw list is far more than anyone needs.
+- id: tw_disability_certificate
+  name_en: Disability certificate
+  name_zh: 身心障礙證明
+  issuer_type: gov_welfare
+  basis: recalled; not verified
+  format: plastic card
+  claims:
+  - id: holder_name
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: id_number
+    type: string
+    sens: ordinary
+    stab: immutable
+  - id: disability_category
+    type: code
+    sens: special
+    stab: slow
+  - id: disability_level
+    type: code
+    sens: special
+    stab: slow
+  - id: review_due_date
+    type: date
+    sens: ordinary
+    stab: volatile
+  - id: valid_until
+    type: date
+    sens: ordinary
+    stab: volatile
+  precomputable:
+  - holds_valid_disability_certificate
+  - needs_accessible_parking
+  note: ''
+- id: tw_low_income_certificate
+  name_en: Low-income household certificate
+  name_zh: 低收入戶證明
+  issuer_type: gov_welfare
+  basis: recalled; not verified
+  format: paper certificate
+  claims:
+  - id: household_head
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: household_size
+    type: integer
+    sens: ordinary
+    stab: slow
+  - id: income_tier
+    type: 'code: low or middle-low'
+    sens: ordinary
+    stab: volatile
+  - id: members
+    type: list
+    sens: ordinary
+    stab: slow
+  - id: valid_from
+    type: date
+    sens: ordinary
+    stab: volatile
+  - id: valid_until
+    type: date
+    sens: ordinary
+    stab: volatile
+  precomputable:
+  - eligible_for_subsidy_tier_X_now
+  note: ''
+- id: tw_vaccination_record
+  name_en: Vaccination record
+  name_zh: 預防接種紀錄
+  issuer_type: healthcare
+  basis: recalled; not verified
+  format: yellow card / online
+  claims:
+  - id: vaccine
+    type: code
+    sens: special
+    stab: event
+  - id: dose_dates
+    type: list of dates
+    sens: special
+    stab: event
+  - id: lot_number
+    type: string
+    sens: special
+    stab: event
+  - id: provider
+    type: string
+    sens: ordinary
+    stab: event
+  precomputable:
+  - vaccinated_against_X_since_date
+  note: ''
+- id: tw_medical_certificate
+  name_en: Medical certificate (diagnosis, rest advice)
+  name_zh: 診斷證明書
+  issuer_type: healthcare
+  basis: recalled; not verified
+  format: paper certificate
+  claims:
+  - id: patient_name
+    type: string
+    sens: ordinary
+    stab: event
+  - id: diagnosis
+    type: string
+    sens: special
+    stab: event
+  - id: treatment_dates
+    type: list
+    sens: special
+    stab: event
+  - id: physician_advice
+    type: string, e.g. rest days or fit-to-fly
+    sens: special
+    stab: event
+  - id: hospital
+    type: string
+    sens: ordinary
+    stab: event
+  precomputable:
+  - unfit_for_work_between_dates
+  - fit_to_fly_window
+  note: Diagnosis is the sensitive part; the employer or airline needs the dates or the fitness statement.
+- id: tw_death_certificate
+  name_en: Death certificate and deregistration
+  name_zh: 死亡證明書 / 除戶謄本
+  issuer_type: healthcare
+  basis: recalled; not verified
+  format: paper certificate
+  claims:
+  - id: deceased_name
+    type: string
+    sens: ordinary
+    stab: event
+  - id: date_of_death
+    type: date
+    sens: ordinary
+    stab: event
+  - id: cause_of_death
+    type: string
+    sens: special
+    stab: event
+  - id: place_of_death
+    type: string
+    sens: ordinary
+    stab: event
+  precomputable:
+  - person_X_is_deceased
+  note: ''
+- id: tw_heir_chart
+  name_en: Heir relationship chart
+  name_zh: 繼承系統表
+  issuer_type: gov_civil
+  basis: recalled that the document exists; claim list hypothetical
+  format: paper chart
+  claims:
+  - id: deceased_name
+    type: string
+    sens: ordinary
+    stab: event
+  - id: heirs
+    type: list (name, relationship, share)
+    sens: ordinary
+    stab: event
+  - id: order_of_inheritance
+    type: code
+    sens: ordinary
+    stab: event
+  precomputable:
+  - is_heir_with_share >= S
+  - is_next_of_kin_priority_1
+  note: ''
+- id: tw_power_of_attorney
+  name_en: Power of attorney / delegation
+  name_zh: 授權書
+  issuer_type: peer
+  basis: hypothetical structure
+  format: paper letter
+  claims:
+  - id: principal
+    type: string
+    sens: ordinary
+    stab: event
+  - id: delegate
+    type: string
+    sens: ordinary
+    stab: event
+  - id: scope
+    type: string
+    sens: ordinary
+    stab: event
+  - id: valid_from
+    type: date
+    sens: ordinary
+    stab: event
+  - id: valid_until
+    type: date
+    sens: ordinary
+    stab: event
+  precomputable:
+  - is_authorised_delegate_for_task_X_today
+  note: Delegated pickup and proxy cases; the issuer is an individual or a guardian.
+- id: tw_military_status
+  name_en: Military service status
+  name_zh: 兵役 (役別 / 退伍令)
+  issuer_type: gov_civil
+  basis: recalled; not verified
+  format: paper certificate
+  claims:
+  - id: service_type
+    type: code
+    sens: ordinary
+    stab: event
+  - id: completion_date
+    type: date
+    sens: ordinary
+    stab: event
+  - id: exemption_reason
+    type: string
+    sens: special
+    stab: event
+  precomputable:
+  - completed_service
+  - exempt_status
+  note: ''
+- id: tw_business_registration
+  name_en: Company or business registration
+  name_zh: 公司 / 商業登記
+  issuer_type: gov_licensing
+  basis: recalled; not verified
+  format: public registry extract
+  claims:
+  - id: business_name
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: unified_business_number
+    type: string
+    sens: ordinary
+    stab: immutable
+  - id: representative
+    type: string with personal ID
+    sens: ordinary
+    stab: slow
+  - id: directors
+    type: list
+    sens: ordinary
+    stab: slow
+  - id: capital
+    type: number
+    sens: ordinary
+    stab: slow
+  - id: address
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: status
+    type: code
+    sens: ordinary
+    stab: volatile
+  precomputable:
+  - is_registered_and_active
+  - is_representative_of_X
+  note: 'Public record: the harm is aggregation, not disclosure.'
+- id: tw_food_permit
+  name_en: Food hygiene and stall permit
+  name_zh: 食品業者登錄 / 攤販許可
+  issuer_type: gov_licensing
+  basis: hypothetical structure
+  format: paper permit
+  claims:
+  - id: holder_name
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: stall_type
+    type: code
+    sens: ordinary
+    stab: slow
+  - id: location
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: valid_until
+    type: date
+    sens: ordinary
+    stab: volatile
+  precomputable:
+  - holds_current_permit
+  note: ''
+- id: tw_utility_bill
+  name_en: Utility bill
+  name_zh: 電費單
+  issuer_type: utility
+  basis: recalled; not verified
+  format: paper / online
+  claims:
+  - id: account_holder
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: service_address
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: usage_kwh
+    type: number
+    sens: ordinary
+    stab: event
+  - id: amount_due
+    type: number
+    sens: ordinary
+    stab: event
+  - id: payment_status
+    type: code
+    sens: ordinary
+    stab: volatile
+  - id: subsidy_flag
+    type: boolean
+    sens: ordinary
+    stab: volatile
+  precomputable:
+  - resides_at_address_X
+  - on_subsidy_roll
+  note: Usage patterns reveal occupancy.
+- id: tw_sim_registration
+  name_en: SIM real-name registration
+  name_zh: 電信實名登記
+  issuer_type: telecom
+  basis: recalled; not verified
+  format: carrier record
+  claims:
+  - id: subscriber_name
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: id_number
+    type: string
+    sens: ordinary
+    stab: immutable
+  - id: msisdn
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: activation_date
+    type: date
+    sens: ordinary
+    stab: event
+  - id: plan_type
+    type: code
+    sens: ordinary
+    stab: slow
+  - id: line_status
+    type: code
+    sens: ordinary
+    stab: volatile
+  precomputable:
+  - one_active_line_per_person
+  - subscriber_tenure >= N months
+  note: ''
+- id: tw_event_ticket
+  name_en: Event ticket
+  name_zh: 演唱會 / 賽事票券
+  issuer_type: venue_operator
+  basis: hypothetical structure
+  format: app ticket / QR
+  claims:
+  - id: event
+    type: string
+    sens: ordinary
+    stab: event
+  - id: seat
+    type: string
+    sens: ordinary
+    stab: event
+  - id: ticket_id
+    type: string
+    sens: ordinary
+    stab: event
+  - id: purchase_time
+    type: datetime
+    sens: ordinary
+    stab: event
+  - id: holder_account
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: transferable
+    type: boolean
+    sens: ordinary
+    stab: event
+  precomputable:
+  - holds_valid_ticket_for_event_X
+  - one_ticket_per_person_per_event (nullifier)
+  note: ''
+- id: tw_union_card
+  name_en: Union membership card
+  name_zh: 工會會員證
+  issuer_type: community_body
+  basis: hypothetical structure
+  format: paper card
+  claims:
+  - id: member_name
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: union
+    type: string
+    sens: special
+    stab: slow
+  - id: member_id
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: dues_paid_until
+    type: date
+    sens: ordinary
+    stab: volatile
+  precomputable:
+  - is_member_in_good_standing_of_X
+  note: Membership itself is a special category.
+- id: tw_party_membership
+  name_en: Political party membership
+  name_zh: 黨員證
+  issuer_type: community_body
+  basis: hypothetical structure
+  format: paper card
+  claims:
+  - id: member_name
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: party
+    type: string
+    sens: special
+    stab: slow
+  - id: district
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: member_since
+    type: date
+    sens: ordinary
+    stab: slow
+  - id: dues_status
+    type: code
+    sens: ordinary
+    stab: volatile
+  precomputable:
+  - is_member_in_district_Y
+  note: ''
+- id: tw_library_card
+  name_en: Library card
+  name_zh: 借書證
+  issuer_type: community_body
+  basis: hypothetical structure
+  format: plastic card
+  claims:
+  - id: patron_name
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: card_number
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: borrowing_privilege
+    type: code
+    sens: ordinary
+    stab: slow
+  - id: outstanding_fines
+    type: number
+    sens: ordinary
+    stab: volatile
+  - id: home_library
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: borrowing_history
+    type: list
+    sens: special
+    stab: event
+  precomputable:
+  - no_overdue_anywhere_in_network
+  - is_registered_patron
+  note: Borrowing history is the part libraries protect by policy.
+- id: tw_unit_deed_vote
+  name_en: Condominium ownership and voting weight
+  name_zh: 區分所有權 / 住戶名冊
+  issuer_type: community_body
+  basis: hypothetical structure
+  format: committee list
+  claims:
+  - id: owner_name
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: unit
+    type: string
+    sens: ordinary
+    stab: slow
+  - id: ownership_share
+    type: number
+    sens: ordinary
+    stab: slow
+  - id: voting_weight
+    type: number
+    sens: ordinary
+    stab: slow
+  - id: resident_flag
+    type: boolean
+    sens: ordinary
+    stab: volatile
+  precomputable:
+  - owner_of_unit_with_weight_W_votes_once
+  note: ''

@@ -1,0 +1,692 @@
+[
+ {
+  "id": "p1:bank-aggregate__D__0",
+  "inputs": [
+   "tw_bank_statement.transactions"
+  ],
+  "operator": "aggregate",
+  "zk_need": "zk_aggregate",
+  "unlinkability_needed": "no",
+  "freshness_needed": "days",
+  "current_evidence": "digital_upload",
+  "interaction_mode": "remote_assisted",
+  "verifier_reader": "unknown",
+  "reach_log10": 5,
+  "harm_per_incident": 3,
+  "verifier_incentive": 1,
+  "split_incentive": true,
+  "rationale": "Count/ratio over 12 months of transfers needs a bank-signed statistic; tenants hand over screenshots today."
+ },
+ {
+  "id": "p1:bank-aggregate__B__1",
+  "inputs": [
+   "tw_bank_statement.monthly_inflow",
+   "tw_bank_statement.transactions"
+  ],
+  "operator": "aggregate",
+  "zk_need": "zk_aggregate",
+  "unlinkability_needed": "no",
+  "freshness_needed": "days",
+  "current_evidence": "digital_upload",
+  "interaction_mode": "remote_assisted",
+  "verifier_reader": "unknown",
+  "reach_log10": 5,
+  "harm_per_incident": 2,
+  "verifier_incentive": 1,
+  "split_incentive": true,
+  "rationale": "Sum and distinct-payer count over deposits is a statistic over many records."
+ },
+ {
+  "id": "p1:bank-aggregate__B__2",
+  "inputs": [
+   "MISSING:card_spend_by_merchant_category"
+  ],
+  "operator": "aggregate",
+  "zk_need": "zk_aggregate",
+  "unlinkability_needed": "no",
+  "freshness_needed": "days",
+  "current_evidence": "digital_upload",
+  "interaction_mode": "remote_online",
+  "verifier_reader": "unknown",
+  "reach_log10": 4,
+  "harm_per_incident": 3,
+  "verifier_incentive": 1,
+  "split_incentive": true,
+  "rationale": "Card statements are not catalogued; spend in a category band is an aggregate over transactions."
+ },
+ {
+  "id": "p1:employer-fresh__D__2",
+  "inputs": [
+   "tw_employment_certificate.employer",
+   "tw_employment_certificate.currently_employed",
+   "tw_employment_certificate.job_title"
+  ],
+  "operator": "freshness",
+  "zk_need": "issuer_precomputed",
+  "unlinkability_needed": "no",
+  "freshness_needed": "days",
+  "current_evidence": "paper_copy",
+  "interaction_mode": "remote_assisted",
+  "verifier_reader": "would_need_tool",
+  "reach_log10": 4,
+  "harm_per_incident": 2,
+  "verifier_incentive": 2,
+  "split_incentive": true,
+  "rationale": "Employer signs a current-employee status as of the cut-off; sealed paper bids carry company seals today."
+ },
+ {
+  "id": "p1:employer-fresh__D__1",
+  "inputs": [
+   "tw_employment_certificate.currently_employed"
+  ],
+  "operator": "freshness",
+  "zk_need": "issuer_precomputed",
+  "unlinkability_needed": "yes",
+  "freshness_needed": "days",
+  "current_evidence": "id_shown_in_person",
+  "interaction_mode": "in_person_no_device",
+  "verifier_reader": "would_need_tool",
+  "reach_log10": 5,
+  "harm_per_incident": 1,
+  "verifier_incentive": 1,
+  "split_incentive": true,
+  "rationale": "Counter only needs a fresh anonymous current-employee token; staff badge is shown at the desk."
+ },
+ {
+  "id": "p1:gov-nonmember__C__2",
+  "inputs": [
+   "MISSING:unpaid_traffic_fines_register"
+  ],
+  "operator": "non_membership",
+  "zk_need": "zk_nonmembership",
+  "unlinkability_needed": "no",
+  "freshness_needed": "realtime",
+  "current_evidence": "photo_of_id",
+  "interaction_mode": "in_person_with_device",
+  "verifier_reader": "unknown",
+  "reach_log10": 5,
+  "harm_per_incident": 2,
+  "verifier_incentive": 2,
+  "split_incentive": false,
+  "rationale": "No catalogued certificate carries traffic-fine status; buyer wants absence from the outstanding-fines list."
+ },
+ {
+  "id": "p1:gov-nonmember__A__0",
+  "inputs": [
+   "MISSING:animal_keeping_ban_register"
+  ],
+  "operator": "non_membership",
+  "zk_need": "zk_nonmembership",
+  "unlinkability_needed": "yes",
+  "freshness_needed": "days",
+  "current_evidence": "id_shown_in_person",
+  "interaction_mode": "in_person_no_device",
+  "verifier_reader": "would_need_tool",
+  "reach_log10": 3,
+  "harm_per_incident": 2,
+  "verifier_incentive": 1,
+  "split_incentive": true,
+  "rationale": "Absence from a sanction register that is not catalogued; shelters just look at the ID card."
+ },
+ {
+  "id": "p1:hospital-timed__C__1",
+  "inputs": [
+   "tw_medical_certificate.physician_advice",
+   "tw_medical_certificate.treatment_dates"
+  ],
+  "operator": "time_bounded",
+  "zk_need": "issuer_precomputed",
+  "unlinkability_needed": "no",
+  "freshness_needed": "none",
+  "current_evidence": "digital_upload",
+  "interaction_mode": "remote_online",
+  "verifier_reader": "unknown",
+  "reach_log10": 6,
+  "harm_per_incident": 3,
+  "verifier_incentive": 2,
+  "split_incentive": true,
+  "rationale": "Hospital can sign unfit_for_work_between_dates so HR and insurers never see the diagnosis."
+ },
+ {
+  "id": "p1:hospital-timed__B__0",
+  "inputs": [
+   "tw_medical_certificate.physician_advice",
+   "tw_medical_certificate.treatment_dates"
+  ],
+  "operator": "time_bounded",
+  "zk_need": "issuer_precomputed",
+  "unlinkability_needed": "no",
+  "freshness_needed": "none",
+  "current_evidence": "digital_upload",
+  "interaction_mode": "remote_assisted",
+  "verifier_reader": "unknown",
+  "reach_log10": 6,
+  "harm_per_incident": 3,
+  "verifier_incentive": 1,
+  "split_incentive": true,
+  "rationale": "Schools receive diagnosis photos over LINE; a signed unfit-between-dates claim would suffice."
+ },
+ {
+  "id": "p1:platform-thresh__D__1",
+  "inputs": [
+   "MISSING:ride_platform_trip_count_and_tenure"
+  ],
+  "operator": "threshold",
+  "zk_need": "zk_derived",
+  "unlinkability_needed": "no",
+  "freshness_needed": "days",
+  "current_evidence": "digital_upload",
+  "interaction_mode": "remote_assisted",
+  "verifier_reader": "unknown",
+  "reach_log10": 3,
+  "harm_per_incident": 3,
+  "verifier_incentive": 1,
+  "split_incentive": true,
+  "rationale": "Platform never issues credentials so a zkTLS-derived threshold on trip count is needed."
+ },
+ {
+  "id": "p1:platform-thresh__A__0",
+  "inputs": [
+   "MISSING:delivery_platform_count_and_rating"
+  ],
+  "operator": "threshold",
+  "zk_need": "zk_derived",
+  "unlinkability_needed": "no",
+  "freshness_needed": "days",
+  "current_evidence": "digital_upload",
+  "interaction_mode": "in_person_with_device",
+  "verifier_reader": "unknown",
+  "reach_log10": 3,
+  "harm_per_incident": 3,
+  "verifier_incentive": 1,
+  "split_incentive": true,
+  "rationale": "Two thresholds over unsigned platform data proven via zkTLS; screenshots are shown today."
+ },
+ {
+  "id": "p1:telco-unique__A__2",
+  "inputs": [
+   "tw_sim_registration.msisdn",
+   "tw_sim_registration.id_number"
+  ],
+  "operator": "uniqueness",
+  "zk_need": "zk_nullifier",
+  "unlinkability_needed": "yes",
+  "freshness_needed": "none",
+  "current_evidence": "app_login",
+  "interaction_mode": "remote_online",
+  "verifier_reader": "unknown",
+  "reach_log10": 5,
+  "harm_per_incident": 1,
+  "verifier_incentive": 2,
+  "split_incentive": false,
+  "rationale": "One trial per real subscriber needs a per-service nullifier; platform loses revenue to abusers."
+ },
+ {
+  "id": "p1:telco-unique__A__1",
+  "inputs": [
+   "tw_sim_registration.msisdn",
+   "tw_unit_deed_vote.resident_flag"
+  ],
+  "operator": "uniqueness",
+  "zk_need": "zk_nullifier",
+  "unlinkability_needed": "yes",
+  "freshness_needed": "none",
+  "current_evidence": "app_login",
+  "interaction_mode": "remote_online",
+  "verifier_reader": "unknown",
+  "reach_log10": 5,
+  "harm_per_incident": 2,
+  "verifier_incentive": 1,
+  "split_incentive": true,
+  "rationale": "One ballot per subscriber per poll with ballot secrecy needs a nullifier."
+ },
+ {
+  "id": "p1:univ-crossmatch__B__2",
+  "inputs": [
+   "tw_enrolment_certificate.enrolment_status",
+   "tw_vaccination_record.vaccine"
+  ],
+  "operator": "cross_match",
+  "zk_need": "zk_join",
+  "unlinkability_needed": "no",
+  "freshness_needed": "days",
+  "current_evidence": "paper_copy",
+  "interaction_mode": "in_person_no_device",
+  "verifier_reader": "would_need_tool",
+  "reach_log10": 4,
+  "harm_per_incident": 3,
+  "verifier_incentive": 2,
+  "split_incentive": true,
+  "rationale": "Two issuers' claims must bind to the same person; paper file of IDs and cards today."
+ },
+ {
+  "id": "p1:univ-crossmatch__C__1",
+  "inputs": [
+   "tw_enrolment_certificate.enrolment_status",
+   "tw_household_transcript.member_names"
+  ],
+  "operator": "cross_match",
+  "zk_need": "zk_join",
+  "unlinkability_needed": "no",
+  "freshness_needed": "days",
+  "current_evidence": "paper_copy",
+  "interaction_mode": "in_person_no_device",
+  "verifier_reader": "would_need_tool",
+  "reach_log10": 5,
+  "harm_per_incident": 3,
+  "verifier_incentive": 1,
+  "split_incentive": true,
+  "rationale": "Agents photocopy ID cards to link enrolment and household records; join proof avoids the ID number."
+ },
+ {
+  "id": "p1:utility-member__B__0",
+  "inputs": [
+   "tw_utility_bill.subsidy_flag"
+  ],
+  "operator": "membership",
+  "zk_need": "issuer_precomputed",
+  "unlinkability_needed": "no",
+  "freshness_needed": "days",
+  "current_evidence": "paper_copy",
+  "interaction_mode": "in_person_no_device",
+  "verifier_reader": "would_need_tool",
+  "reach_log10": 5,
+  "harm_per_incident": 3,
+  "verifier_incentive": 1,
+  "split_incentive": true,
+  "rationale": "Taipower can sign on_subsidy_roll; schools photocopy bills with address and usage."
+ },
+ {
+  "id": "p1:utility-member__C__0",
+  "inputs": [
+   "tw_utility_bill.subsidy_flag"
+  ],
+  "operator": "membership",
+  "zk_need": "issuer_precomputed",
+  "unlinkability_needed": "no",
+  "freshness_needed": "days",
+  "current_evidence": "paper_copy",
+  "interaction_mode": "in_person_no_device",
+  "verifier_reader": "would_need_tool",
+  "reach_log10": 3,
+  "harm_per_incident": 3,
+  "verifier_incentive": 1,
+  "split_incentive": true,
+  "rationale": "Same subsidy-roll membership claim; counter photocopies a bill today."
+ },
+ {
+  "id": "p2:union-ballot__C__1",
+  "inputs": [
+   "tw_union_card.union",
+   "tw_union_card.dues_paid_until"
+  ],
+  "operator": "uniqueness",
+  "zk_need": "zk_nullifier",
+  "unlinkability_needed": "yes",
+  "freshness_needed": "days",
+  "current_evidence": "digital_upload",
+  "interaction_mode": "remote_online",
+  "verifier_reader": "unknown",
+  "reach_log10": 4,
+  "harm_per_incident": 3,
+  "verifier_incentive": 1,
+  "split_incentive": true,
+  "rationale": "Set membership across several issuers plus one vote each; hides which union and employer."
+ },
+ {
+  "id": "p2:vending-age__C__2",
+  "inputs": [
+   "tw_arc.birth_date",
+   "tw_national_id.birth_date"
+  ],
+  "operator": "threshold",
+  "zk_need": "issuer_precomputed",
+  "unlinkability_needed": "yes",
+  "freshness_needed": "none",
+  "current_evidence": "paper_copy",
+  "interaction_mode": "in_person_no_device",
+  "verifier_reader": "would_need_tool",
+  "reach_log10": 5,
+  "harm_per_incident": 3,
+  "verifier_incentive": 2,
+  "split_incentive": true,
+  "rationale": "Both ARC and national ID can carry age_over_NN; hotel photocopies passports today."
+ },
+ {
+  "id": "p2:dv-lease-break__C__2",
+  "inputs": [
+   "tw_protection_order.valid_from",
+   "tw_protection_order.valid_until"
+  ],
+  "operator": "freshness",
+  "zk_need": "issuer_precomputed",
+  "unlinkability_needed": "yes",
+  "freshness_needed": "days",
+  "current_evidence": "paper_copy",
+  "interaction_mode": "remote_online",
+  "verifier_reader": "unknown",
+  "reach_log10": 3,
+  "harm_per_incident": 4,
+  "verifier_incentive": 1,
+  "split_incentive": true,
+  "rationale": "Active-order claim must be unlinkable across listings; copies today let verifiers correlate her."
+ },
+ {
+  "id": "p2:secondhand-seller__C__1",
+  "inputs": [
+   "MISSING:peer_trade_sales_and_dispute_record"
+  ],
+  "operator": "threshold",
+  "zk_need": "issuer_precomputed",
+  "unlinkability_needed": "yes",
+  "freshness_needed": "days",
+  "current_evidence": "photo_of_id",
+  "interaction_mode": "in_person_with_device",
+  "verifier_reader": "would_need_tool",
+  "reach_log10": 5,
+  "harm_per_incident": 2,
+  "verifier_incentive": 1,
+  "split_incentive": false,
+  "rationale": "Platform signs a clean-sales-record claim; buyer is verifier and benefits directly."
+ },
+ {
+  "id": "p2:public-register__D__1",
+  "inputs": [
+   "tw_business_registration.directors",
+   "tw_national_id.name"
+  ],
+  "operator": "cross_match",
+  "zk_need": "zk_join",
+  "unlinkability_needed": "no",
+  "freshness_needed": "days",
+  "current_evidence": "paper_copy",
+  "interaction_mode": "remote_assisted",
+  "verifier_reader": "unknown",
+  "reach_log10": 4,
+  "harm_per_incident": 2,
+  "verifier_incentive": 2,
+  "split_incentive": true,
+  "rationale": "Match presenter to registry director list without pulling property or address data."
+ },
+ {
+  "id": "p2:stadium-face__D__2",
+  "inputs": [
+   "MISSING:school_guest_pass"
+  ],
+  "operator": "uniqueness",
+  "zk_need": "zk_nullifier",
+  "unlinkability_needed": "yes",
+  "freshness_needed": "realtime",
+  "current_evidence": "machine_scan",
+  "interaction_mode": "machine_mediated",
+  "verifier_reader": "would_need_tool",
+  "reach_log10": 4,
+  "harm_per_incident": 3,
+  "verifier_incentive": 1,
+  "split_incentive": true,
+  "rationale": "One entry per pass requires a nullifier; face recognition app is the current gate."
+ },
+ {
+  "id": "p2:migrant-housing__D__2",
+  "inputs": [
+   "tw_arc.residence_valid_until",
+   "tw_arc.residence_reason"
+  ],
+  "operator": "freshness",
+  "zk_need": "issuer_precomputed",
+  "unlinkability_needed": "no",
+  "freshness_needed": "days",
+  "current_evidence": "paper_copy",
+  "interaction_mode": "in_person_no_device",
+  "verifier_reader": "would_need_tool",
+  "reach_log10": 3,
+  "harm_per_incident": 4,
+  "verifier_incentive": 1,
+  "split_incentive": true,
+  "rationale": "Status-only freshness claim hides the dispute behind a transfer; workers are highly vulnerable."
+ },
+ {
+  "id": "p2:library-network__C__1",
+  "inputs": [
+   "tw_library_card.outstanding_fines",
+   "tw_library_card.borrowing_history"
+  ],
+  "operator": "non_membership",
+  "zk_need": "issuer_precomputed",
+  "unlinkability_needed": "yes",
+  "freshness_needed": "days",
+  "current_evidence": "machine_scan",
+  "interaction_mode": "in_person_with_device",
+  "verifier_reader": "has_reader",
+  "reach_log10": 5,
+  "harm_per_incident": 2,
+  "verifier_incentive": 1,
+  "split_incentive": true,
+  "rationale": "Library issues no_overdue_anywhere; clerk already scans the card in the library system."
+ },
+ {
+  "id": "p2:temple-volunteer__C__1",
+  "inputs": [
+   "tw_criminal_record.record_status",
+   "tw_criminal_record.offence_details"
+  ],
+  "operator": "non_membership",
+  "zk_need": "issuer_precomputed",
+  "unlinkability_needed": "yes",
+  "freshness_needed": "days",
+  "current_evidence": "paper_copy",
+  "interaction_mode": "in_person_no_device",
+  "verifier_reader": "would_need_tool",
+  "reach_log10": 4,
+  "harm_per_incident": 3,
+  "verifier_incentive": 2,
+  "split_incentive": true,
+  "rationale": "Issuer signs no_offence_of_type_X so a clerk need not read the full extract aloud."
+ },
+ {
+  "id": "p2:library-guardian__D__2",
+  "inputs": [
+   "MISSING:court_guardianship_order"
+  ],
+  "operator": "membership",
+  "zk_need": "issuer_precomputed",
+  "unlinkability_needed": "yes",
+  "freshness_needed": "none",
+  "current_evidence": "paper_copy",
+  "interaction_mode": "in_person_no_device",
+  "verifier_reader": "would_need_tool",
+  "reach_log10": 3,
+  "harm_per_incident": 4,
+  "verifier_incentive": 1,
+  "split_incentive": true,
+  "rationale": "Guardianship order not catalogued; library only needs is-legal-guardian-of-child-under-N."
+ },
+ {
+  "id": "p2:party-primary__C__1",
+  "inputs": [
+   "tw_party_membership.party",
+   "tw_party_membership.district"
+  ],
+  "operator": "uniqueness",
+  "zk_need": "zk_nullifier",
+  "unlinkability_needed": "yes",
+  "freshness_needed": "none",
+  "current_evidence": "digital_upload",
+  "interaction_mode": "remote_online",
+  "verifier_reader": "unknown",
+  "reach_log10": 4,
+  "harm_per_incident": 3,
+  "verifier_incentive": 1,
+  "split_incentive": true,
+  "rationale": "District membership plus one vote per round; uploads expose political affiliation."
+ },
+ {
+  "id": "p2:court-witness__D__0",
+  "inputs": [
+   "tw_court_summons.hearing_datetime",
+   "tw_court_summons.court"
+  ],
+  "operator": "membership",
+  "zk_need": "issuer_precomputed",
+  "unlinkability_needed": "yes",
+  "freshness_needed": "days",
+  "current_evidence": "paper_copy",
+  "interaction_mode": "in_person_no_device",
+  "verifier_reader": "would_need_tool",
+  "reach_log10": 6,
+  "harm_per_incident": 3,
+  "verifier_incentive": 1,
+  "split_incentive": true,
+  "rationale": "Court issues has_hearing_today_at_court_X token so guards do not read the summons and ID."
+ },
+ {
+  "id": "p2:tourist-scooter__C__2",
+  "inputs": [
+   "tw_arc.residence_valid_until"
+  ],
+  "operator": "freshness",
+  "zk_need": "issuer_precomputed",
+  "unlinkability_needed": "no",
+  "freshness_needed": "days",
+  "current_evidence": "paper_copy",
+  "interaction_mode": "in_person_no_device",
+  "verifier_reader": "would_need_tool",
+  "reach_log10": 4,
+  "harm_per_incident": 2,
+  "verifier_incentive": 2,
+  "split_incentive": true,
+  "rationale": "Rolling is_legally_resident_now claim replaces copies of ARC at each renewal."
+ },
+ {
+  "id": "p2:pilgrimage-group__C__0",
+  "inputs": [
+   "MISSING:temple_association_membership"
+  ],
+  "operator": "membership",
+  "zk_need": "issuer_precomputed",
+  "unlinkability_needed": "yes",
+  "freshness_needed": "none",
+  "current_evidence": "paper_copy",
+  "interaction_mode": "remote_assisted",
+  "verifier_reader": "unknown",
+  "reach_log10": 4,
+  "harm_per_incident": 3,
+  "verifier_incentive": 1,
+  "split_incentive": true,
+  "rationale": "Temple membership is not catalogued and the card itself reveals religion; boolean membership suffices."
+ },
+ {
+  "id": "p2:day-labour-safety__C__2",
+  "inputs": [
+   "tw_safety_training.course",
+   "tw_safety_training.valid_until"
+  ],
+  "operator": "time_bounded",
+  "zk_need": "zk_derived",
+  "unlinkability_needed": "yes",
+  "freshness_needed": "days",
+  "current_evidence": "digital_upload",
+  "interaction_mode": "remote_assisted",
+  "verifier_reader": "unknown",
+  "reach_log10": 4,
+  "harm_per_incident": 2,
+  "verifier_incentive": 2,
+  "split_incentive": true,
+  "rationale": "Committed validity on a future start date across all workers, sealed from rival subcontractors."
+ },
+ {
+  "id": "p2:night-market-stall__D__0",
+  "inputs": [
+   "tw_food_permit.valid_until",
+   "tw_food_permit.holder_name"
+  ],
+  "operator": "freshness",
+  "zk_need": "issuer_precomputed",
+  "unlinkability_needed": "no",
+  "freshness_needed": "days",
+  "current_evidence": "paper_copy",
+  "interaction_mode": "in_person_no_device",
+  "verifier_reader": "would_need_tool",
+  "reach_log10": 4,
+  "harm_per_incident": 2,
+  "verifier_incentive": 1,
+  "split_incentive": true,
+  "rationale": "holds_current_permit precomputed by issuer; committee clerk photocopies the permit now."
+ },
+ {
+  "id": "p2:funeral-nok__C__1",
+  "inputs": [
+   "tw_heir_chart.order_of_inheritance",
+   "tw_heir_chart.heirs"
+  ],
+  "operator": "membership",
+  "zk_need": "issuer_precomputed",
+  "unlinkability_needed": "no",
+  "freshness_needed": "none",
+  "current_evidence": "paper_copy",
+  "interaction_mode": "in_person_no_device",
+  "verifier_reader": "would_need_tool",
+  "reach_log10": 5,
+  "harm_per_incident": 3,
+  "verifier_incentive": 1,
+  "split_incentive": true,
+  "rationale": "is_next_of_kin_priority_1 hides siblings and half-siblings; transcript copied today."
+ },
+ {
+  "id": "p2:inheritance-bank__C__1",
+  "inputs": [
+   "tw_heir_chart.heirs",
+   "tw_power_of_attorney.delegate",
+   "tw_national_id.id_number"
+  ],
+  "operator": "cross_match",
+  "zk_need": "zk_join",
+  "unlinkability_needed": "no",
+  "freshness_needed": "days",
+  "current_evidence": "paper_copy",
+  "interaction_mode": "in_person_no_device",
+  "verifier_reader": "would_need_tool",
+  "reach_log10": 4,
+  "harm_per_incident": 3,
+  "verifier_incentive": 2,
+  "split_incentive": true,
+  "rationale": "Heir share threshold and delegation are in two credentials and must bind to the presenter."
+ },
+ {
+  "id": "p2:onsen-entry__C__2",
+  "inputs": [
+   "tw_national_id.birth_date"
+  ],
+  "operator": "threshold",
+  "zk_need": "issuer_precomputed",
+  "unlinkability_needed": "yes",
+  "freshness_needed": "none",
+  "current_evidence": "digital_upload",
+  "interaction_mode": "remote_online",
+  "verifier_reader": "unknown",
+  "reach_log10": 4,
+  "harm_per_incident": 2,
+  "verifier_incentive": 1,
+  "split_incentive": true,
+  "rationale": "age_over_NN is precomputable by the issuer; platform retains ID photo after visit."
+ },
+ {
+  "id": "p2:hospital-partner__C__0",
+  "inputs": [
+   "tw_household_transcript.spouse_name",
+   "MISSING:hospital_visitor_authorisation"
+  ],
+  "operator": "membership",
+  "zk_need": "issuer_precomputed",
+  "unlinkability_needed": "no",
+  "freshness_needed": "days",
+  "current_evidence": "id_shown_in_person",
+  "interaction_mode": "in_person_no_device",
+  "verifier_reader": "would_need_tool",
+  "reach_log10": 5,
+  "harm_per_incident": 2,
+  "verifier_incentive": 1,
+  "split_incentive": true,
+  "rationale": "Per-admission visitor token from the hospital; ward desk checks and copies ID today."
+ }
+]
