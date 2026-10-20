@@ -1,0 +1,9 @@
+Attribute source,Threshold (age/income/score ≥ X),Membership (in group / county / list),Uniqueness (one real person),"Freshness (status as of today, e.g. not revoked)",Cross-source match (A and B refer to the same person)
+Government CA (MOICA / NPKI-equivalent),"Age gating, income proof","Residency, licensing","Voting, one-account KYC",License/insurance validity,Household + tax linkage for subsidies
+Bank / payment account,"Income, credit threshold",Account tier membership,Sybil-resistant onboarding,Account in good standing,Income matched to declared employer
+Employer / payroll system,Salary threshold for loans,Currently employed at company X,One active employment record,Employment still active,Employer matched to tax filing
+Telecom / SIM registration,Age via SIM KYC where no cert exists,Long-term Taiwan resident (phone tenure),Anti-bot / one-SIM-one-account,Number still active,Phone number linked to bank KYC
+University / school registrar,GPA or degree-level threshold,Enrolled / alumni of institution,One valid student ID per student,Enrollment still active this term,Degree matched to professional license
+"Platform account via zkTLS (e-commerce, ride-hailing, delivery)",Order volume / spend threshold,Verified merchant / driver status,One real seller behind a storefront,Account not suspended,Platform rating matched to business registration
+Hospital / clinic EMR,Care-level or diagnosis threshold for benefits,Patient of a specific clinic network,One patient record (dedup),Assessment still valid,Care record matched to guardian relationship
+Smart utility meter,Usage under a rebate threshold,Occupant of a subsidized address,One meter per household claim,Reading is current,Usage matched to registered household size

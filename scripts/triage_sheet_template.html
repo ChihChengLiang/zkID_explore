@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Check channel labels</title>
+<style>
+:root{--bg:#fafaf9;--fg:#1c1917;--dim:#78716c;--card:#fff;--line:#e7e5e4;--acc:#2563eb;--ok:#15803d;--warn:#b45309}
+@media(prefers-color-scheme:dark){:root{--bg:#121212;--fg:#e7e5e4;--dim:#a8a29e;--card:#1c1b1a;--line:#333;--acc:#60a5fa;--ok:#4ade80;--warn:#fbbf24}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.5 system-ui,sans-serif}
+main{max-width:900px;margin:0 auto;padding:18px 16px 60px}
+header{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}h1{font-size:18px;margin:0}.dim{color:var(--dim);font-size:14px}
+.bar{height:6px;background:var(--line);border-radius:3px;margin:10px 0 14px;overflow:hidden}.bar i{display:block;height:100%;background:var(--acc)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.card h2{font-size:16px;margin:0 0 8px}.f{margin:5px 0;font-size:14px}.f b{color:var(--dim);font-weight:500}
+.q{display:grid;grid-template-columns:170px 1fr;gap:6px 12px;align-items:center;margin-top:14px}
+.q label{font-size:14px;color:var(--dim)}select,textarea,button{font:inherit;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--fg);padding:6px 10px}
+select.changed{border-color:var(--warn);outline:2px solid var(--warn)}.flag{color:var(--warn);font-size:12px;margin-left:6px}
+textarea{width:100%;height:60px;margin-top:10px}.btns{display:flex;gap:10px;margin:14px 0;flex-wrap:wrap}
+button{cursor:pointer}button:hover{border-color:var(--acc)}button.p{background:var(--acc);color:#fff;border-color:var(--acc)}
+.help{font-size:13px;color:var(--dim);margin-top:4px}
+code{font-size:12px}
+</style></head><body><main>
+<header><h1>Check the channel labels (37 ideas)</h1><span class="dim" id="prog"></span></header>
+<div class="bar"><i id="fill" style="width:0"></i></div>
+<div class="card" id="card"></div>
+<div class="btns"><button class="p" id="ok">Looks right &rarr; next <kbd>Enter</kbd></button><button id="back">Back</button><button id="skip">Skip</button></div>
+<div class="dim">Your answers are saved in this browser. Change a dropdown only where you disagree (it turns orange). When done: <button id="dl">Download triage_checked.csv</button> <button id="cp">Copy CSV</button> <button id="reset">Reset</button></div>
+<script>
+const D=__DATA__,KEY="zkid-triage-check-v1";
+const OPT={
+ interaction_mode:[["in_person_no_device","in person, nobody uses a device"],["in_person_with_device","in person, a phone or device already involved"],["remote_online","online, already on a phone or web"],["remote_assisted","remote but by phone, mail, email or paper form"],["machine_mediated","a machine or kiosk does the check"]],
+ current_evidence:[["paper_copy","paper copy or photocopy kept"],["id_shown_in_person","ID shown and looked at"],["photo_of_id","photo or scan of the ID taken"],["digital_upload","file uploaded or emailed"],["app_login","identity via an app login"],["machine_scan","machine scans a card or code"],["none","nothing collected today"]],
+ verifier_reader:[["has_reader","verifier can already scan or read a wallet presentation"],["would_need_tool","verifier would need a new reader or app"],["unknown","you can't tell"]]};
+const LAB={interaction_mode:"How the interaction happens",current_evidence:"What evidence is collected today",verifier_reader:"Can the verifier read a wallet now?"};
+let st={};try{st=JSON.parse(localStorage.getItem(KEY)||"{}")}catch(e){}
+let i=Math.max(0,D.findIndex(d=>!st[d.id]));const $=q=>document.querySelector(q),esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(st))}catch(e){}};
+function cur(d){return Object.assign({},d.model,(st[d.id]||{}).v||{})}
+function render(){const d=D[i],c=cur(d),done=D.filter(x=>st[x.id]&&st[x.id].done).length;
+ $("#prog").textContent=`Idea ${i+1} of ${D.length} · checked ${done}/${D.length}`;$("#fill").style.width=(100*done/D.length)+"%";
+ $("#card").innerHTML=`<h2>${esc(d.title)}</h2>
+ <div class="f"><b>Moment</b> ${esc(d.moment)}</div><div class="f"><b>Verifier</b> ${esc(d.verifier)}</div><div class="f"><b>Issuer</b> ${esc(d.issuer)}</div>
+ <div class="f"><b>Collected today</b> ${esc(d.disclosed)}</div><div class="f"><b>Claim needed</b> ${esc(d.predicate)}</div>
+ <div class="f"><b>Model's reasoning</b> ${esc(d.rationale)}</div>
+ <div class="q">${Object.keys(OPT).map(f=>`<label>${LAB[f]}${d.disagree.includes(f)?'<span class="flag">models disagreed</span>':''}</label><select data-f="${f}" class="${c[f]!==d.model[f]?"changed":""}">${OPT[f].map(([v,t])=>`<option value="${v}" ${c[f]===v?"selected":""}>${esc(t)}${v===d.model[f]?" (model)":""}</option>`).join("")}</select>`).join("")}</div>
+ <div class="help">The model's choice is preselected. Pick another only if it is wrong for how this really happens in Taiwan.</div>
+ <textarea id="note" placeholder="Optional note (what really happens)">${esc((st[d.id]||{}).note||"")}</textarea>`;
+ document.querySelectorAll("select").forEach(s=>s.onchange=()=>{const e=st[d.id]||(st[d.id]={});e.v=Object.assign(e.v||{},{[s.dataset.f]:s.value});save();render()});
+ $("#note").oninput=e=>{const x=st[d.id]||(st[d.id]={});x.note=e.target.value;save()}}
+function mark(){const d=D[i],e=st[d.id]||(st[d.id]={});e.done=true;save()}
+const next=()=>{if(i<D.length-1)i++;render()};
+$("#ok").onclick=()=>{mark();next()};$("#skip").onclick=next;$("#back").onclick=()=>{i=Math.max(0,i-1);render()};
+function csv(){const q=s=>'"'+String(s||"").replace(/"/g,'""')+'"';
+ return["id,interaction_mode,current_evidence,verifier_reader,changed,checked,note"].concat(D.map(d=>{const c=cur(d),e=st[d.id]||{};const ch=Object.keys(OPT).filter(f=>c[f]!==d.model[f]).join("|");return[d.id,c.interaction_mode,c.current_evidence,c.verifier_reader,ch,e.done?"yes":"no",q(e.note)].join(",")})).join("\n")+"\n"}
+$("#dl").onclick=()=>{const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([csv()],{type:"text/csv"}));a.download="triage_checked.csv";a.click()};
+$("#cp").onclick=()=>navigator.clipboard.writeText(csv()).then(()=>{$("#cp").textContent="Copied";setTimeout(()=>$("#cp").textContent="Copy CSV",1200)});
+$("#reset").onclick=()=>{if(confirm("Clear all your answers?")){st={};save();i=0;render()}};
+addEventListener("keydown",e=>{if(e.target.tagName==="TEXTAREA"||e.target.tagName==="SELECT")return;if(e.key==="Enter"){mark();next()}else if(e.key==="ArrowRight")next();else if(e.key==="ArrowLeft"){i=Math.max(0,i-1);render()}});
+render();
+</script></main></body></html>

@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>zkID_explore: where could privacy-preserving ID help in Taiwan?</title>
+<meta name="description" content="A pipeline that generated and screened 246 candidate zero-knowledge ID use cases for Taiwan, with interactive views of the results.">
+<style>
+:root{--bg:#fbfbf8;--fg:#14213d;--dim:#4a5568;--panel:#f1f0ea;--line:#d9d6c8;--teal:#0f766e;--amber:#b45309;--card:#fff}
+@media(prefers-color-scheme:dark){:root{--bg:#14161c;--fg:#e8e6df;--dim:#a8adb8;--panel:#1d2029;--line:#343846;--teal:#5eead4;--amber:#fbbf24;--card:#191c24}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.6 system-ui,"Noto Sans TC","PingFang TC",sans-serif}
+main{max-width:960px;margin:0 auto;padding:40px 18px 90px}h1{font:600 38px/1.15 Georgia,"Times New Roman",serif;margin:0 0 10px}
+h2{font:600 24px/1.2 Georgia,serif;margin:44px 0 12px}p{max-width:72ch}.dim{color:var(--dim)}a{color:var(--teal)}
+.lead{font-size:20px;color:var(--dim)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px;margin:18px 0}
+.card{display:block;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px;text-decoration:none;color:var(--fg)}
+.card:hover{border-color:var(--teal)}.card b{display:block;font-size:19px;margin-bottom:4px;color:var(--teal)}.card span{color:var(--dim);font-size:15px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px;margin:18px 0}
+.stat{background:#14213d;color:#fbfbf8;border-radius:14px;padding:18px 20px}.stat i{display:block;font:600 40px/1.1 Georgia,serif;color:#f2b544;font-style:normal}.stat span{font-size:15px;color:#c9d3e6}
+ul{padding-left:20px;max-width:72ch}li{margin:6px 0}
+.note{border-left:4px solid var(--amber);background:var(--panel);padding:12px 16px;border-radius:0 10px 10px 0;max-width:72ch}
+code{background:var(--panel);padding:1px 6px;border-radius:5px;font-size:.9em}
+</style></head><body><main>
+<h1>Where could a privacy-preserving ID help in Taiwan?</h1>
+<p class="lead">A pipeline that looks for everyday situations where someone is asked for a whole document when the other side needed one fact, then screens the candidates for which are worth building.</p>
+<div class="cards">
+<a class="card" href="whiteboard.html"><b>Idea whiteboard</b><span>All 246 candidates as sticky notes; similar ideas sit close. Click one for the reviewer’s reasoning.</span></a>
+<a class="card" href="flow.html"><b>Source → attribute → asker</b><span>Who signs a claim, what kind of fact it is, and who asks for it. Highlights where the real opportunities cluster.</span></a>
+<a class="card" href="mydata.html"><b>MyData worksheet</b><span>The first, hand-built pass: Taiwan’s MyData catalogue, a scoring rubric and 15 scored moments.</span></a>
+</div>
+<h2>What came out</h2>
+<div class="stats">
+<div class="stat"><i>246</i><span>candidate use cases, from 33 scenarios</span></div>
+<div class="stat"><i>80</i><span>pass all three tests: over-collected today, a narrow proof is enough, no legal duty blocks it</span></div>
+<div class="stat"><i>39</i><span>sourced precedents used as prompts, quotes checked word for word</span></div>
+</div>
+<ul>
+<li><b>Strongest:</b> member-only votes and tickets (unions, parties, building committees), lending across partner libraries, night-market stall permits, age checks at lockers and kiosks, protection-order proof, hospital status without the diagnosis.</li>
+<li><b>Weakest:</b> checks by banks, government counters, courts and telecoms, where the checker is entitled or required to hold the whole record.</li>
+<li><b>Pattern:</b> opportunities cluster where the body that signs is the body that asks, and no law makes it keep a copy.</li>
+<li><b>Technology:</b> in a 37-idea sample, about half need only an issuer-signed derived claim (no zero-knowledge proof); about a quarter need a credential nobody issues yet.</li>
+</ul>
+<div class="note"><b>Treat as hypotheses.</b> The candidates were generated and screened by AI models. A person checked only 30 pairs for duplicates. Legal verdicts are unverified (118 of 246 are marked unclear), nothing has been tested with a real verifier, and the certificate catalogue is partly recalled from memory.</div>
+<h2>Read more</h2>
+<ul>
+<li><a href="https://github.com/ChihChengLiang/zkID_explore/blob/main/docs/pilot_results.md">Pilot 1 results</a> and <a href="https://github.com/ChihChengLiang/zkID_explore/blob/main/docs/pilot2_results.md">pilot 2 results</a></li>
+<li><a href="https://github.com/ChihChengLiang/zkID_explore/blob/main/docs/design.md">Design of the pipeline</a>, <a href="https://github.com/ChihChengLiang/zkID_explore/blob/main/docs/contextual_integrity.md">the contextual-integrity frame</a>, <a href="https://github.com/ChihChengLiang/zkID_explore/blob/main/docs/attribute_families.md">attribute families</a></li>
+<li><a href="https://github.com/ChihChengLiang/zkID_explore/blob/main/docs/triage_pilot.md">Structured triage test</a> (certificate catalogue, channel, signals)</li>
+<li><a href="https://github.com/ChihChengLiang/zkID_explore">Source code and data on GitHub</a></li>
+</ul>
+</main></body></html>

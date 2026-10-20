@@ -1,0 +1,18 @@
+zkID Use Case Discovery — Taiwan MyData Worksheet
+Purpose
+Turn MyData's catalog of government-held personal data into a scored list of candidate zkID / selective-disclosure applications. MyData already shows where whole documents move between citizens, agencies and banks — each of those moments is a candidate for replacing a document hand-off with a minimal-disclosure proof.
+How each row was built
+1. Category — one of MyData's 12 official document categories (找文件) or 9 service themes (找服務).
+2. Everyday moment — a concrete, recognizable situation a citizen or verifier faces.
+3. Predicate needed — the actual yes/no, threshold, membership, or match fact the verifier needs — this is what a ZK proof would output.
+4. Data disclosed today — what MyData / the paper document hand-off currently reveals to answer that predicate (usually far more than needed).
+5. Attribute source — the authoritative issuer who could sign the underlying claim.
+6. Frequency — how often an average citizen hits this moment (High / Medium / Low).
+7. Over-disclosure harm — what goes wrong today if the full document leaks or is retained (None / Low / Medium / High).
+8. zkID score (1-5) — see Scoring rubric tab.
+9. New attribute source unlock — attribute sources beyond classic government PKI that could open this use case to non-government issuers (banks, employers, telcos, platforms via zkTLS, etc.).
+How to reuse this method outside MyData
+- Swap 'MyData category' for any country's equivalent registry/portal (e.g. Korea NPKI service list, EU Single Digital Gateway life events).
+- Any moment where 'predicate needed' is much smaller than 'data disclosed today' is a candidate.
+- Kill test: if law requires the verifier to retain the full document (e.g. AML/KYC record-keeping), a ZK proof alone does not remove that duty — flag as Partial, not High.
+- Discovery test: list who could sign the underlying fact even if they are not a government CA today (bank, employer, telco, platform) — that is where new use cases hide.

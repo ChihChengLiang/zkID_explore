@@ -1,7 +1,7 @@
 """Re-run pilot distance/diversity metrics with Qwen3-Embedding-0.6B served by LM Studio (localhost:1234).
-Needs PYTHONPATH with openpyxl, numpy-free implementation (pure python)."""
+Pure python (no numpy); needs LM Studio serving the embedding model."""
 import json, glob, math, yaml, pathlib, urllib.request, statistics as st, collections, itertools, hashlib
-import openpyxl
+import csv
 
 root = pathlib.Path(__file__).resolve().parent.parent
 MODEL = "text-embedding-qwen3-embedding-0.6b"
@@ -42,8 +42,8 @@ cells = {c["id"]: c for c in yaml.safe_load((root / "config/pilot_cells.yaml").r
 seeds = {s["id"]: s for f in glob.glob(str(root / "seeds/*.yaml")) for s in yaml.safe_load(open(f))}
 man = json.loads((root / "prompts/manifest.json").read_text())
 hd = json.loads((root / "config/distance.json").read_text())
-wb = openpyxl.load_workbook(root / "zkID_Taiwan_MyData_Use_Cases.xlsx", data_only=True)
-known = [f"{r[1]}. Predicate: {r[3]}" for r in list(wb["Use Case Matrix"].iter_rows(values_only=True))[1:16]]
+with open(root / "data/mydata/use_case_matrix.csv", newline="", encoding="utf-8") as _f:
+    known = [f"{r['Everyday moment']}. Predicate: {r['Predicate actually needed']}" for r in csv.DictReader(_f)]
 
 itext = [f"{i['title']}. {i['moment']} Verifier: {i['verifier']}. Predicate: {i['predicate']}" for i in ideas]
 IE = embed(itext); KE = embed(known)

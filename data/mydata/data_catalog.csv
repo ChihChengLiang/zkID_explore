@@ -1,0 +1,13 @@
+MyData Category (中文),Category (EN),Example data items on MyData,Typical issuing agency,Typical use / who asks for it
+戶役政,Household & Civil Affairs,Household registration; national ID card image; entry/exit record; certificate of citizenship,Ministry of the Interior — Household Registration Affairs (內政部戶政司); National Immigration Agency,"Address proof, ID verification, travel document renewal"
+地政,Land Administration,Land registry (title); real-estate actual price registration; property holdings,Ministry of the Interior — Land Administration (地政司); local Land Offices,"Mortgage applications, property transactions, subsidy eligibility"
+財稅金融,Tax & Finance,Personal income tax record; property tax; bank account verification; financial certificates,Ministry of Finance (財政部); National Taxation Bureau; banks via TWCA/TWID,"Loan applications, income proof, financial aid, tax filing"
+勞保,Labor Insurance,Insured/enrollment record; contribution history; withdrawal record,Bureau of Labor Insurance (勞動部勞工保險局),"Employment verification, pension/benefit claims, loan underwriting"
+健保,National Health Insurance,NHI enrollment status; premium payment record; medical expense summary,National Health Insurance Administration (衛福部健保署),"Insurance claims, subsidy eligibility, cross-border healthcare"
+商工,Commerce & Industry,Business registration; company representative record; factory registration,Ministry of Economic Affairs — Department of Commerce (經濟部商業發展署),"B2B onboarding, business loan applications, tender eligibility"
+交通,Transportation,Driver's license; vehicle registration; ETC toll record; driving record,Motor Vehicles Office (公路局); Freeway Bureau (高速公路局),"Car rental, insurance underwriting, toll payment, licence renewal"
+教育,Education,Diploma/degree record; school enrollment status; academic transcript,Ministry of Education and affiliated schools,"Job applications, further-education admission, scholarship applications"
+社福,Social Welfare,Low/middle-income household certificate; disability certificate; welfare subsidy record,Ministry of Health and Welfare; county/city social affairs bureaus,"Subsidy applications, disabled parking permit, tuition waivers"
+法務,Legal Affairs,Criminal record certificate (良民證); civil enforcement record,Ministry of Justice; National Police Agency,"Employment background checks, visa applications, licensing"
+能源,Energy,Electricity usage/payment record; gas usage record,Taipower; local gas utilities,"Utility subsidy proof, address/residency proof, energy rebate claims"
+綜合,General / Cross-domain,Combined identity + income + property bundles used for a single application,Multiple agencies via one consented pull,"One-stop applications spanning several domains (e.g. loan underwriting, means-tested benefits)"

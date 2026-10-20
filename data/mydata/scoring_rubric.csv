@@ -1,0 +1,6 @@
+Score,Label,Criteria
+5,Strong fit,"Predicate is a simple yes/no or threshold; trusted issuer already exists (gov CA, bank, employer); high frequency; verifier currently over-collects sensitive data; no legal requirement to retain the full document."
+4,Good fit,"Same as 5, but either frequency is medium, or predicate needs one extra field (e.g. selective disclosure of a category, not pure boolean)."
+3,Possible / needs design,"Predicate is more complex (range, multi-source match) or the issuer ecosystem is fragmented (multiple CAs/counties); still worth prototyping."
+2,Weak fit,"Verifier has a legal duty to retain full data (KYC/AML) so ZK only reduces exposure in transit, not at rest; or frequency is low."
+1,Poor fit,The moment inherently requires full document content (e.g. a printed certificate to be physically inspected) or requires human judgment beyond a provable predicate.

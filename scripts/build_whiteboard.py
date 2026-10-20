@@ -1,4 +1,4 @@
-"""Build viz/whiteboard.html with both pilots' ideas (96 + 150), placed by t-SNE of Qwen3 embeddings
+"""Build docs/whiteboard.html with both pilots' ideas (96 + 150), placed by t-SNE of Qwen3 embeddings
 (title + moment + verifier + issuer + predicate). Reviews are critic v2 for both pilots.
 Needs numpy + scikit-learn on PYTHONPATH and LM Studio serving the embedding model."""
 import json, glob, pathlib, urllib.request, yaml
@@ -47,5 +47,5 @@ for n, i in enumerate(items):
                "viol": r["norm_violation_today"], "suff": r["purpose_sufficiency"], "tc": r["transmission_check"], "agg": r["aggregation"], "adopt": r["adoption"]},
     })
 tpl = (root / "scripts/whiteboard_template.html").read_text()
-(root / "viz/whiteboard.html").write_text(tpl.replace("__DATA__", json.dumps(data, ensure_ascii=False).replace("</", "<\\/")))
+(root / "docs/whiteboard.html").write_text(tpl.replace("__DATA__", json.dumps(data, ensure_ascii=False).replace("</", "<\\/")))
 print(len(data), "stickers;", sum(d["real"] for d in data), "real opportunities")

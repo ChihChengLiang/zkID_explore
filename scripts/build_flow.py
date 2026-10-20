@@ -1,4 +1,4 @@
-"""Build viz/flow.html: source -> attribute family -> consumer diagram for all 246 ideas.
+"""Build docs/flow.html: source -> attribute family -> consumer diagram for all 246 ideas.
 Labels come from classify_sc/out_sonnet.json (primary); Haiku labels are used for an agreement report."""
 import json, glob, pathlib, collections, yaml
 root = pathlib.Path(__file__).resolve().parent.parent
@@ -31,7 +31,7 @@ for k, i in ideas.items():
     data.append({"id": k, "pilot": int(k[1]), "title": i["title"], "issuer": i["issuer"], "verifier": i["verifier"], "family": fam[k], "source": lab[k]["source_type"], "consumer": lab[k]["consumer_type"], "real": bool(real), "rubric": r["rubric_score"], "novelty": r["novelty"]})
 tpl = (root / "scripts/flow_template.html").read_text()
 meta = {"sources": ft["source_types"], "consumers": ft["consumer_types"]}
-(root / "viz/flow.html").write_text(tpl.replace("__DATA__", json.dumps(data, ensure_ascii=False).replace("</", "<\\/")).replace("__META__", json.dumps(meta, ensure_ascii=False)))
+(root / "docs/flow.html").write_text(tpl.replace("__DATA__", json.dumps(data, ensure_ascii=False).replace("</", "<\\/")).replace("__META__", json.dumps(meta, ensure_ascii=False)))
 print(len(data), "ideas;", len({d["source"] for d in data}), "source types,", len({d["consumer"] for d in data}), "consumer types used")
 pairs = collections.Counter((d["source"], d["consumer"]) for d in data)
 print("distinct (source, consumer) pairs:", len(pairs), "; top:", pairs.most_common(5))
