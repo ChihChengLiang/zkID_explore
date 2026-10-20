@@ -16,6 +16,14 @@ Details: [pilot 1](docs/pilot_results.md), [pilot 2](docs/pilot2_results.md), [t
 
 > **Treat these as hypotheses.** Candidates were generated and screened by AI models (Claude Sonnet and Haiku). A person checked only 30 pairs for duplicates. Legal verdicts are unverified (118 of 246 are marked "unclear"), nothing was tested with a real verifier, issuer or lawyer, and the certificate catalogue is partly recalled from memory. Hand labels are in [`labeling/`](labeling/).
 
+## The idea behind the tests: contextual integrity
+
+The screening borrows from Helen Nissenbaum's theory of **contextual integrity** ("Privacy as Contextual Integrity", 2004; *Privacy in Context*, 2010). Its core claim: privacy is not secrecy or control, it is whether information *flows* in ways that fit the norms of the setting it came from. A diagnosis moving from patient to doctor is fine; the same diagnosis moving to an employer is not.
+
+A flow has five parts: who sends it, who receives it, who it is about, what kind of information it is, and the **transmission principle**, the condition under which it flows (consent, a legal requirement, a payment, confidentiality). A flow breaks the norms when any part departs from what the setting allows, and a norm can itself be judged by whether it serves the setting's purpose.
+
+That gives this project its tests: does today's request ask for more than the checker's purpose needs, would a narrower proof still serve that purpose, and does a legal duty (the transmission principle) stand in the way? It also supplies the axes used to define scenarios (see [docs/contextual_integrity.md](docs/contextual_integrity.md)). The theory says nothing about whether a better flow would actually be adopted; that part is treated separately here and is mostly unmeasured.
+
 ## How the pipeline works
 
 | Stage | What happens | Where |

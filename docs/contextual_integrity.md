@@ -1,6 +1,12 @@
 # Contextual integrity as the frame for the cell design (v2)
 
-Source idea: Nissenbaum, "Privacy as Contextual Integrity" (2004) and *Privacy in Context* (2010). A flow of information is appropriate if it matches the norms of its context. A flow has five parameters: sender, recipient, subject, information type, transmission principle.
+## The idea in brief
+
+Helen Nissenbaum's theory of contextual integrity ("Privacy as Contextual Integrity", 2004; *Privacy in Context*, 2010) holds that privacy is not secrecy or control but the *appropriateness of information flows*. Each social setting (healthcare, school, commerce, civic life, family) has norms about what may flow from whom to whom and under what conditions. A diagnosis passing from patient to doctor is appropriate; the same diagnosis passing to an employer is not, though the information is identical.
+
+A flow has five parameters: **sender, recipient, subject, information type, transmission principle** (the condition under which it flows: consent, legal requirement, payment, confidentiality, and so on). It violates contextual integrity when any parameter departs from the setting's norms. Norms are not beyond question: they can be judged by whether they serve the setting's purposes and the interests of those affected, which is how a narrower flow can be justified.
+
+What it adds here: a test for over-disclosure that is not just "too much data" (the flow breaks a norm), a way to say when a narrower proof is still fit for purpose (it serves the setting's purpose), and a place for legal duties (the transmission principle). What it does not do: say anything about adoption, or tell us the norms for Taiwan, which have to be learned from local sources.
 
 ## Mapping to this project
 

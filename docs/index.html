@@ -38,6 +38,9 @@ code{background:var(--panel);padding:1px 6px;border-radius:5px;font-size:.9em}
 <li><b>Technology:</b> in a 37-idea sample, about half need only an issuer-signed derived claim (no zero-knowledge proof); about a quarter need a credential nobody issues yet.</li>
 </ul>
 <div class="note"><b>Treat as hypotheses.</b> The candidates were generated and screened by AI models. A person checked only 30 pairs for duplicates. Legal verdicts are unverified (118 of 246 are marked unclear), nothing has been tested with a real verifier, and the certificate catalogue is partly recalled from memory.</div>
+<h2>The idea behind the tests</h2>
+<p>The screening borrows from Helen Nissenbaum’s theory of <b>contextual integrity</b> (<i>Privacy as Contextual Integrity</i>, 2004; <i>Privacy in Context</i>, 2010). Privacy, on this view, is not secrecy but whether information <i>flows</i> in ways that fit the norms of the setting it came from: a diagnosis passing from patient to doctor is fine, the same diagnosis passing to an employer is not.</p>
+<p>A flow has five parts: who sends it, who receives it, who it is about, what kind of information it is, and the <b>transmission principle</b>, the condition under which it flows (consent, a legal requirement, a payment). It breaks the norms when any part departs from what the setting allows. That gives the three tests used here: does today’s request ask for more than the checker’s purpose needs, would a narrower proof still serve that purpose, and does a legal duty stand in the way? The theory does not say whether a better flow would actually be adopted, so that question is handled separately and is mostly unmeasured.</p>
 <h2>Read more</h2>
 <ul>
 <li><a href="https://github.com/ChihChengLiang/zkID_explore/blob/main/docs/pilot_results.md">Pilot 1 results</a> and <a href="https://github.com/ChihChengLiang/zkID_explore/blob/main/docs/pilot2_results.md">pilot 2 results</a></li>
