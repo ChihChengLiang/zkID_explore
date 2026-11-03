@@ -9,4 +9,4 @@ Propose exactly 3 distinct use cases for this cell: concrete everyday moments in
 
 Set inspired_by to [] (no material was given).
 
-Write the three ideas as a YAML list to ideas/hospital-timed__A.yaml (relative to /Users/liangcc/projects/repos/zkID_explore) with exactly these keys per item: title, moment, verifier, predicate, disclosed_today, issuer, why_zk, inspired_by (list of {seed_id, borrowed_aspect}). Use only the Write tool for that one file. Reply with the single word DONE.
+Write the three ideas as a YAML list to ideas/hospital-timed__A.yaml with exactly these keys per item: title, moment, verifier, predicate, disclosed_today, issuer, why_zk, inspired_by (list of {seed_id, borrowed_aspect}). Use only the Write tool for that one file. Reply with the single word DONE.

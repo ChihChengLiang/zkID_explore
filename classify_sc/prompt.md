@@ -1,4 +1,4 @@
-Classify proposed selective-disclosure use cases by WHO SIGNS the claim (source) and WHO ASKS for it (consumer). Read /Users/liangcc/projects/repos/zkID_explore/classify_sc/in.json (246 ideas) and no other file.
+Classify proposed selective-disclosure use cases by WHO SIGNS the claim (source) and WHO ASKS for it (consumer). Read classify_sc/in.json (246 ideas) and no other file.
 
 For each idea choose exactly one source_type from the `issuer` field (plus the title and moment for context) and exactly one consumer_type from the `verifier` field. Use the labels below verbatim. Use "other" only when nothing fits, and then add other_note (a short phrase suggesting a new category).
 

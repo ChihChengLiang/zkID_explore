@@ -1,4 +1,4 @@
-You are labelling proposed selective-disclosure use cases with a structured schema. Read /Users/liangcc/projects/repos/zkID_explore/triage/in.json (37 ideas) and no other file.
+You are labelling proposed selective-disclosure use cases with a structured schema. Read triage/in.json (37 ideas) and no other file.
 
 CERTIFICATE CATALOGUE (certificate_id (name; issuer type): claim ids). Map each idea's needed attributes to `certificate_id.claim_id` from this list. If no catalogued certificate carries a needed attribute, write `MISSING:<short attribute name>`. Use only what the idea's `predicate` and `moment` need, not what `disclosed_today` hands over.
 - eu_pid (EU person identification data (reference model); issuer gov_civil): family_name, given_name, birth_date, birth_place, nationality, portrait, resident_address, resident_city, resident_country, personal_administrative_number, sex, issuing_authority, issuance_date, expiry_date, document_number | precomputable: age_over_N (separate age attestation under CIR 2024/2977, not part of PID since v1.1)

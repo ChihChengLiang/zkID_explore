@@ -1,4 +1,4 @@
-You are labeling proposed selective-disclosure use cases with a contextual-integrity frame. Read /Users/liangcc/projects/repos/zkID_explore/classify/in.json (96 ideas) and no other file.
+You are labeling proposed selective-disclosure use cases with a contextual-integrity frame. Read classify/in.json (96 ideas) and no other file.
 
 For each idea label, from its moment, verifier, issuer and disclosed_today:
 

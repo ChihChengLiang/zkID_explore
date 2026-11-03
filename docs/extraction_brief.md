@@ -1,6 +1,6 @@
 # Seed extraction brief (for extraction agents)
 
-Repo: /Users/liangcc/projects/repos/zkID_explore. Read schema/seed.schema.json, seeds/000-examples.yaml and config/domains.yaml first.
+Repo: the repo root. Read schema/seed.schema.json, seeds/000-examples.yaml and config/domains.yaml first.
 
 Goal: produce ~10 seeds. A seed = one over-disclosure problem (someone must prove a small fact but ends up revealing/retaining much more, or a design that avoids that) + the minimal-disclosure mechanism (or its absence/failure) + a verbatim evidence quote from a real page you fetched.
 

@@ -1,4 +1,4 @@
-You are classifying proposed selective-disclosure use cases by the KIND OF FACT the verifier needs established about the person. Read /Users/liangcc/projects/repos/zkID_explore/classify/in.json (96 ideas). Read no other file.
+You are classifying proposed selective-disclosure use cases by the KIND OF FACT the verifier needs established about the person. Read classify/in.json (96 ideas). Read no other file.
 
 For each idea decide, from the idea's `predicate` and `moment`:
 
